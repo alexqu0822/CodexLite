@@ -1,0 +1,50 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+    <!-- <script file = "dev.lua" /> -->
+
+    <!-- <script file = "pfQuest-master\items.lua" /> -->
+    <!-- <script file = "pfQuest-master\objects.lua" /> -->
+    <!-- <script file = "pfQuest-master\quests.lua" /> -->
+    <!-- <script file = "pfQuest-master\refloot.lua" /> -->
+    <!-- <script file = "pfQuest-master\units.lua" /> -->
+
+    <!-- <script file = "pfQuest-master\deDE\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\enUS\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\esES\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\frFR\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\koKR\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\ruRU\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\zhCN\zones.lua" /> -->
+    <!-- <script file = "pfQuest-master\zhTW\zones.lua" /> -->
+
+    <!-- <script file = "db-cc\init.lua" /> -->
+    <!-- <script file = "db-cc\items.lua" /> -->
+    <!-- <script file = "db-cc\meta.lua" /> -->
+    <!-- <script file = "db-cc\objects.lua" /> -->
+    <!-- <script file = "db-cc\quests.lua" /> -->
+    <!-- <script file = "db-cc\refloot.lua" /> -->
+    <!-- <script file = "db-cc\units.lua" /> -->
+
+    <!-- <script file = "QuestieDB\itemDB.lua" /> -->
+    <!-- <script file = "QuestieDB\objectDB.lua" /> -->
+    <!-- <script file = "QuestieDB\questDB.lua" /> -->
+    <!-- <script file = "QuestieDB\spawnDB.lua" /> -->
+
+    <!-- <script file = "QuestieDB\Locale\deDE\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\enUS\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\esES\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\esMX\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\frFR\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\koKR\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\ptBR\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\ruRU\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\zhCN\quests.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\zhTW\quests.lua" /> -->
+
+    <!-- <script file = "QuestieDB\Locale\esMX\items.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\esMX\objects.lua" /> -->
+    <!-- <script file = "QuestieDB\Locale\esMX\units.lua" /> -->
+
+</Ui>
+

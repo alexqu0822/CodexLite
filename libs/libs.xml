@@ -1,0 +1,10 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+    <include file = "alaShared\alaShared.xml" />
+    <!-- <include file = "HereBeDragons\LibStub\LibStub.lua" /> -->
+    <!-- <include file = "HereBeDragons\CallbackHandler-1.0\CallbackHandler-1.0.lua" /> -->
+    <!-- <include file = "HereBeDragons\HereBeDragons-2.0.lua" /> -->
+
+</Ui>
+
