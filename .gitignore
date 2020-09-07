@@ -1,0 +1,19 @@
+.git
+.vs
+# *
+# !*/
+# !*.lua
+# !*.xml
+# !*.toc
+# !*.tga
+# !*.blp
+# !*.ogg
+# !*.ttf
+*.zip
+*.7z
+*.rar
+
+ARCHIVED.lua
+dev/*
+!dev/dev.xml
+img/temp/*
