@@ -18,31 +18,10 @@ local _ = nil;
 	local tonumber = tonumber;
 	local GameTooltip = GameTooltip;
 
-	local __db = __ns.db;
-	local __db_quest = __db.quest;
-	local __db_unit = __db.unit;
-	local __db_item = __db.item;
-	local __db_object = __db.object;
-	local __db_refloot = __db.refloot;
-	local __db_event = __db.event;
-	local __db_level_quest_list = __db.level_quest_list;
-	local __db_blacklist_item = __db.blacklist_item;
-	local __db_large_pin = __db.large_pin;
-	local __loc = __ns.L;
-	local __loc_quest = __loc.quest;
-	local __loc_unit = __loc.unit;
-	local __loc_item = __loc.item;
-	local __loc_object = __loc.object;
-	local __loc_profession = __loc.profession;
 	local __UILOC = __ns.UILOC;
 
 	local __safeCall = __ns.core.__safeCall;
 	local __eventHandler = __ns.core.__eventHandler;
-	local IMG_INDEX = __ns.core.IMG_INDEX;
-	local IMG_LIST = __ns.core.IMG_LIST;
-	local TIP_IMG_LIST = __ns.core.TIP_IMG_LIST;
-	local __core_meta = __ns.__core_meta;
-	local __map_meta = __ns.__map_meta;
 	local _log_ = __ns._log_;
 
 	local SET = nil;
@@ -102,7 +81,7 @@ local _ = nil;
 			__ns.map_reset();
 			__ns.UpdateQuests();
 			__ns.UpdateQuestGivers();
-			__ns.HideNodes();
+			__ns.MapHideNodes();
 		end
 		function __ns.Setting(key, val)
 			if key == 'reset' then

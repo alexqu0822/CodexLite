@@ -13,6 +13,7 @@
     <script file = "locale.lua" />
     <script file = "core.lua" />
     <script file = "map.lua" />
+    <script file = "comm.lua" />
     <script file = "util.lua" />
     <script file = "setting.lua" />
 

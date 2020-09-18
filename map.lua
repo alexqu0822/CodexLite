@@ -46,6 +46,7 @@ end
 	local __db_object = __db.object;
 	local __db_refloot = __db.refloot;
 	local __db_event = __db.event;
+
 	local __loc = __ns.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
@@ -88,197 +89,19 @@ end
 		function __popt:echo(index)
 			return __popt[index];
 		end
-	-->		--	color
-		local COLOR3 = {  };
-		local PALLET = {
-			{ 192, 192, 0, },
-			{ 192, 0, 192, },
-			{ 0, 192, 192, },
-		};
-		do
-			for color = 128, 0, -64 do
-				for index2 = 1, 3 do
-					for index = 1, 3 do
-						local color3 = PALLET[index];
-						if color3[index2] > 0 then
-							tinsert(PALLET, {
-								index2 == 1 and color or color3[1],
-								index2 == 2 and color or color3[2],
-								index2 == 3 and color or color3[3],
-							});
-						end
-					end
-				end
-			end
-			tinsert(PALLET, { 255, 0, 0, });
-			tinsert(PALLET, { 0, 255, 0, });
-			tinsert(PALLET, { 0, 0, 255, });
-			tinsert(PALLET, { 255, 255, 0, });
-			tinsert(PALLET, { 255, 0, 255, });
-			tinsert(PALLET, { 0, 255, 255, });
-			tinsert(PALLET, { 64, 64, 64, });
-			tinsert(PALLET, { 192, 192, 192, });
-			for index = 1, #PALLET do
-				local color3 = PALLET[index];
-				color3[1] = color3[1] / 255;
-				color3[2] = color3[2] / 255;
-				color3[3] = color3[3] / 255;
-			end
-			for index = 1, #PALLET do
-				COLOR3[PALLET[index]] = 0;
-			end
-		end
-		local function GetColor3()
-			local a = 99999;
-			local c = nil;
-			for color3, i in next, COLOR3 do
-				if i < a then
-					a = i;
-					c = color3;
-				end
-			end
-			if c == nil then
-				c = next(COLOR3);
-			end
-			COLOR3[c] = COLOR3[c] + 1;
-			return c;
-		end
-		local function RelColor3(color3)
-			if COLOR3[color3] ~= nil then
-				COLOR3[color3] = COLOR3[color3] - 1;
-			end
-		end
-		local floor = floor;
-		local function GetColor3NextIndex(index)
-			local num = #PALLET;
-			if index == nil then
-				index = floor((random() * 10000 * num)) % (num - 1) + 1;
-			else
-				index = index + 1;
-				if index > num then
-					index = 1;
-				end
-			end
-			local color3 = PALLET[index];
-			COLOR3[color3] = COLOR3[color3] + 1;
-			return color3, index;
-		end
-		local function ResetColor3()
-			for color3, _ in next, COLOR3 do
-				COLOR3[color3] = 0;
-			end
-		end
-	-->
-	-->		--	uuid:{ 1type, 2id, 3color3(run-time), 4{ [quest] = { [line] = TEXTURE, }, }, 5TEXTURE, 6MANUAL_CHANGED_COLOR }
-	-->		--	TEXTURE = 0 for invalid value	--	TEXTURE = -9999 for large pin	--	TEXTURE = -9998 for normal pin
-	-->		--	line	>=1:line_quest_leader, 0:starter_unaccecpted, -1:starter_accepted_failed, -2:ender
-	-->		--	uuid 对应单位/对象类型，储存任务-行信息，对应META_COMMON表坐标设置一次即可
-		local UUID = { event = {  }, item = {  }, object = {  }, quest = {  }, unit = {  }, };		--	{ type, id, hash }
-		local function AddUUID(_T, _id, _quest, _line, _val)
-			local uuid = UUID[_T][_id];
-			if uuid == nil then
-				uuid = { _T, _id, GetColor3(), {  }, };
-				UUID[_T][_id] = uuid;
-			elseif uuid[3] == nil then
-				uuid[3] = GetColor3();
-			end
-			local ref = uuid[4][_quest];
-			if ref == nil then
-				ref = { [_line] = _val or 1, };
-				uuid[4][_quest] = ref;
-			else
-				ref[_line] = _val or 1;
-			end
-			return uuid;
-		end
-		local function SubUUID(_T, _id, _quest, _line, total_del)
-			local uuid = UUID[_T][_id];
-			if uuid ~= nil then
-				local ref = uuid[4][_quest];
-				if ref ~= nil then
-					local val = ref[_line];
-					if val ~= nil then
-						ref[_line] = nil;
-						if next(ref) == nil then
-							uuid[4][_quest] = nil;
-						end
-						if next(uuid[4]) == nil then
-							RelColor3(uuid[3]);
-							uuid[3] = nil;
-							if not total_del then
-								ref[_line] = val;
-								uuid[4][_quest] = ref;
-							end
-							return uuid, true;
-						else
-							if not total_del then
-								ref[_line] = 0;
-								uuid[4][_quest] = ref;
-							end
-							return uuid, false;
-						end
-					else
-						if next(ref) == nil then
-							uuid[4][_quest] = nil;
-						end
-						if next(uuid[4]) == nil then
-							RelColor3(uuid[3]);
-							uuid[3] = nil;
-							return uuid, true;
-						else
-							return uuid, false;
-						end
-					end
-				else
-					if next(uuid[4]) == nil then
-						RelColor3(uuid[3]);
-						uuid[3] = nil;
-						return uuid, true;
-					else
-						return uuid, false;
-					end
-				end
-			end
-			return uuid;
-		end
-		local function GetUUID(_T, _id)
-			return UUID[_T][_id];
-		end
-		local function ResetUUID()
-			wipe(UUID.event);
-			wipe(UUID.item);
-			wipe(UUID.object);
-			wipe(UUID.quest);
-			wipe(UUID.unit);
-		end
-		__ns.GetUUID = GetUUID;
 	-->
 	local wm_map = WorldMapFrame:GetMapID();
 	local mm_map = C_Map.GetBestMapForUnit('player');
 	local map_canvas_scale = mapCanvas:GetScale();
 	local pin_size, large_size, varied_size = nil, nil, nil;
 	local META_COMMON = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
-	local META_COMMON_UUID_HASH = {  };
 	local META_LARGE = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
-	local META_LARGE_UUID_HASH = {  };
 	local META_VARIED = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
-	local META_VARIED_UUID_HASH = {  };
 	local MM_COMMON_PINS = {  };			-->		[map] = { coord = pin, }
 	local MM_LARGE_PINS = {  };				-->		[map] = { coord = pin, }
 	local MM_VARIED_PINS = {  };			-->		[map] = { coord = pin, }
 	__ns.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
 	-->		--	Pre-Defined
-	local function GetVariedNodeTexture(texture_list)
-		local TEXTURE = 0;
-		for quest, list in next, texture_list do
-			for _, texture in next, list do
-				if texture > TEXTURE then
-					TEXTURE = texture;
-				end
-			end
-		end
-		return TEXTURE ~= 0 and TEXTURE or nil;
-	end
 	local Pin_OnEnter, Pin_OnClick;
 	local NewWorldMapPin, RelWorldMapCommonPin, AddWorldMapCommonPin, RelWorldMapLargePin, AddWorldMapLargePin, RelWorldMapVariedPin, AddWorldMapVariedPin;
 	local IterateWorldMapPinSetSize, ResetWMPin;
@@ -287,7 +110,8 @@ end
 	local NewMinimapPin, RelMinimapPin, AddMinimapPin, ResetMMPin;
 	local Minimap_HideCommonNodesMapUUID, Minimap_HideLargeNodesMapUUID, Minimap_HideVariedNodesMapUUID;
 	local Minimap_ChangeCommonLargeNodesMapUUID, Minimap_ChangeVariedNodesMapUUID, Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
-	local SetCommonPinSize, SetLargePinSize, SetVariedPinSize, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes, HideNodes, DrawNodes;
+	local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
+	local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes, MapHideNodes, MapDrawNodes;
 	-->		--	Pin Handler
 		local GameTooltip = GameTooltip;
 		local GetFactionInfoByID = GetFactionInfoByID;
@@ -328,7 +152,7 @@ end
 					end
 				end
 			end
-			local uuid = GetUUID(_type, _id);
+			local uuid = __ns.CoreGetUUID(_type, _id);
 			if uuid ~= nil then
 				__ns.GameTooltipSetQuestTip(GameTooltip, uuid);
 			end
@@ -337,8 +161,8 @@ end
 		function Pin_OnClick(self)
 			local uuid = self.uuid;
 			if uuid ~= nil then
-				RelColor3(uuid[3]);
-				uuid[3], uuid[6] = GetColor3NextIndex(uuid[6]);
+				__ns.RelColor3(uuid[3]);
+				uuid[3], uuid[6] = __ns.GetColor3NextIndex(uuid[6]);
 				WorldMap_ChangeCommonLargeNodesMapUUID(wm_map, uuid);
 				Minimap_ChangeCommonLargeNodesMapUUID(mm_map, uuid);
 			end
@@ -424,6 +248,11 @@ end
 			pin:SetPoint("CENTER", mapCanvas, "TOPLEFT", mapCanvas:GetWidth() * x * rscale, -mapCanvas:GetHeight() * y * rscale);
 			pin:SetNormalTexture(texture[1]);
 			pin.__NORMAL_TEXTURE:SetVertexColor(texture[2] or color3[1] or 1.0, texture[3] or color3[2] or 1.0, texture[4] or color3[3] or 1.0);
+			-- if color3 ~= nil then
+			-- 	pin.__NORMAL_TEXTURE:SetVertexColor(color3[1] or 1.0, color3[2] or 1.0, color3[3] or 1.0);
+			-- else
+			-- 	pin.__NORMAL_TEXTURE:SetVertexColor(texture[2] or 1.0, texture[3] or 1.0, texture[4] or 1.0);
+			-- end
 			pin:Show();
 			return pin;
 		end
@@ -536,11 +365,12 @@ end
 				end
 			end
 		end
-		function WorldMap_ChangeVariedNodesMapUUID(map, uuid, TEXTURE)
+		function WorldMap_ChangeVariedNodesMapUUID(map, uuid)
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				local data = varied[uuid];
 				if data ~= nil then
+					local TEXTURE = uuid[5];
 					local pins = data[2];
 					for index = 1, #pins do
 						local pin = pins[index];
@@ -565,7 +395,7 @@ end
 						for index = num_pins + 1, num_coords do
 							local val = coords[index];
 							local pin = AddWorldMapCommonPin(val[1], val[2], color3);
-							pins[#pins + 1] = pin;
+							pins[index] = pin;
 							pin.uuid = uuid;
 						end
 						__popt:count(1, num_coords - num_pins);
@@ -584,7 +414,7 @@ end
 						for index = num_pins + 1, num_coords do
 							local val = coords[index];
 							local pin = AddWorldMapLargePin(val[1], val[2], color3);
-							pins[#pins + 1] = pin;
+							pins[index] = pin;
 							pin.uuid = uuid;
 						end
 						__popt:count(2, num_coords - num_pins);
@@ -604,7 +434,7 @@ end
 						for index = num_pins + 1, num_coords do
 							local val = coords[index];
 							local pin = AddWorldMapVariedPin(val[1], val[2], color3, TEXTURE);
-							pins[#pins + 1] = pin;
+							pins[index] = pin;
 							pin.uuid = uuid;
 						end
 						__popt:count(3, num_coords - num_pins);
@@ -850,11 +680,12 @@ end
 				end
 			end
 		end
-		function Minimap_ChangeVariedNodesMapUUID(map, uuid, TEXTURE)
+		function Minimap_ChangeVariedNodesMapUUID(map, uuid)
 			local varied = META_VARIED[mm_map];
 			if varied ~= nil then
 				local data = varied[uuid];
 				if data ~= nil then
+					local TEXTURE = uuid[5];
 					local coords = data[1];
 					for index = 1, #coords do
 						local coord = coords[index];
@@ -1090,7 +921,7 @@ end
 			end
 		end
 		function __ns.MINIMAP_UPDATE_ZOOM()
-			__eventHandler:run_on_next_tick(Minimap_DrawNodes);
+			-- __eventHandler:run_on_next_tick(Minimap_DrawNodes);
 			-- _log_('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
 		end
 	-->
@@ -1142,72 +973,83 @@ end
 			end
 		end
 		--	common_objective pin
-		function AddCommonNodes(_T, _id, _quest, _line, coords_table)
-			local uuid = AddUUID(_T, _id, _quest, _line, -9998);
-			if META_COMMON_UUID_HASH[uuid] == nil then
-				if coords_table ~= nil then
-					for index = 1, #coords_table do
-						local coord = coords_table[index];
-						local map = coord[3];
-						local meta = META_COMMON[map];
-						if meta == nil then
-							meta = {  };
-							META_COMMON[map] = meta;
-						end
-						local data = meta[uuid];
-						if data == nil then
-							data = { {  }, {  }, };
-							meta[uuid] = data;
-						end
-						local coords = data[1];
-						coords[#coords + 1] = coord;
-						if map == mm_map then
-							mm_force_update = true;
-						end
+		function MapAddCommonNodes(uuid, coords_table)
+			if coords_table ~= nil then
+				for index = 1, #coords_table do
+					local coord = coords_table[index];
+					local map = coord[3];
+					local meta = META_COMMON[map];
+					if meta == nil then
+						meta = {  };
+						META_COMMON[map] = meta;
+					end
+					local data = meta[uuid];
+					if data == nil then
+						data = { {  }, {  }, };
+						meta[uuid] = data;
+					end
+					local coords = data[1];
+					coords[#coords + 1] = coord;
+					if map == mm_map then
+						mm_force_update = true;
 					end
 				end
-				META_COMMON_UUID_HASH[uuid] = true;
 			end
 		end
-		function DelCommonNodes(_T, _id, _quest, _line, total_del)
-			local uuid, del = SubUUID(_T, _id, _quest, _line, total_del);
-			if del == false then
-				del = true;
-				for _, ref in next, uuid[4] do
-					for line, val in next, ref do
-						if val == -9998 then
-							del = false;
-							break;
-						end
-					end
-				end
-			end
-			if del == true and META_COMMON_UUID_HASH[uuid] ~= nil then
-				WorldMap_HideCommonNodesMapUUID(wm_map, uuid);
-				Minimap_HideCommonNodesMapUUID(mm_map, uuid);
-				for map, meta in next, META_COMMON do
-					meta[uuid] = nil;
-				end
-				META_COMMON_UUID_HASH[uuid] = nil;
+		function MapDelCommonNodes(uuid)
+			WorldMap_HideCommonNodesMapUUID(wm_map, uuid);
+			Minimap_HideCommonNodesMapUUID(mm_map, uuid);
+			for map, meta in next, META_COMMON do
+				meta[uuid] = nil;
 			end
 		end
 		--	large_objective pin
-		function AddLargeNodes(_T, _id, _quest, _line, coords_table)
-			local uuid = AddUUID(_T, _id, _quest, _line, -9999);
-			if META_LARGE_UUID_HASH[uuid] == nil then
+		function MapAddLargeNodes(uuid, coords_table)
+			if coords_table ~= nil then
+				for index = 1, #coords_table do
+					local coord = coords_table[index];
+					local map = coord[3];
+					local meta = META_LARGE[map];
+					if meta == nil then
+						meta = {  };
+						META_LARGE[map] = meta;
+					end
+					local data = meta[uuid];
+					if data == nil then
+						data = { {  }, {  }, };
+						meta[uuid] = data;
+					end
+					local coords = data[1];
+					coords[#coords + 1] = coord;
+					if map == mm_map then
+						mm_force_update = true;
+					end
+				end
+			end
+		end
+		function MapDelLargeNodes(uuid)
+			WorldMap_HideLargeNodesMapUUID(wm_map, uuid);
+			Minimap_HideLargeNodesMapUUID(mm_map, uuid);
+			for map, meta in next, META_LARGE do
+				meta[uuid] = nil;
+			end
+		end
+		--	varied_objective pin
+		function MapAddVariedNodes(uuid, coords_table, flag)
+			if flag == nil then
 				if coords_table ~= nil then
 					for index = 1, #coords_table do
 						local coord = coords_table[index];
 						local map = coord[3];
-						local meta = META_LARGE[map];
-						if meta == nil then
-							meta = {  };
-							META_LARGE[map] = meta;
+						local varied = META_VARIED[map];
+						if varied == nil then
+							varied = {  };
+							META_VARIED[map] = varied;
 						end
-						local data = meta[uuid];
+						local data = varied[uuid];
 						if data == nil then
 							data = { {  }, {  }, };
-							meta[uuid] = data;
+							varied[uuid] = data;
 						end
 						local coords = data[1];
 						coords[#coords + 1] = coord;
@@ -1216,98 +1058,27 @@ end
 						end
 					end
 				end
-				META_LARGE_UUID_HASH[uuid] = true;
+			else
+				WorldMap_ChangeVariedNodesMapUUID(wm_map, uuid);
+				Minimap_ChangeVariedNodesMapUUID(mm_map, uuid);
 			end
 		end
-		function DelLargeNodes(_T, _id, _quest, _line, total_del)
-			local uuid, del = SubUUID(_T, _id, _quest, _line, total_del);
-			if del == false then
-				del = true;
-				for _, ref in next, uuid[4] do
-					for line, val in next, ref do
-						if val == -9999 then
-							del = false;
-							break;
-						end
-					end
-				end
-			end
-			if del == true and META_LARGE_UUID_HASH[uuid] ~= nil then
-				WorldMap_HideLargeNodesMapUUID(wm_map, uuid);
-				Minimap_HideLargeNodesMapUUID(mm_map, uuid);
-				for map, meta in next, META_LARGE do
-					meta[uuid] = nil;
-				end
-				META_LARGE_UUID_HASH[uuid] = nil;
-			end
-		end
-		--	varied_objective pin
-		function AddVariedNodes(_T, _id, _quest, _line, coords_table, varied_texture)
-			local uuid = AddUUID(_T, _id, _quest, _line, varied_texture);
-			local TEXTURE = GetVariedNodeTexture(uuid[4]);
-			if uuid[5] ~= TEXTURE then
-				uuid[5] = TEXTURE;
-				if META_VARIED_UUID_HASH[uuid] == nil then
-					if coords_table ~= nil then
-						for index = 1, #coords_table do
-							local coord = coords_table[index];
-							local map = coord[3];
-							local varied = META_VARIED[map];
-							if varied == nil then
-								varied = {  };
-								META_VARIED[map] = varied;
-							end
-							local data = varied[uuid];
-							if data == nil then
-								data = { {  }, {  }, };
-								varied[uuid] = data;
-							end
-							local coords = data[1];
-							coords[#coords + 1] = coord;
-							if map == mm_map then
-								mm_force_update = true;
-							end
-						end
-					end
-					META_VARIED_UUID_HASH[uuid] = true;
-				else
-					WorldMap_ChangeVariedNodesMapUUID(wm_map, uuid, TEXTURE);
-					Minimap_ChangeVariedNodesMapUUID(mm_map, uuid, TEXTURE);
-				end
-			end
-		end
-		function DelVariedNodes(_T, _id, _quest, _line)
-			local uuid, del = SubUUID(_T, _id, _quest, _line, true);
-			if del == true then
-				uuid[5] = nil;
-				if META_VARIED_UUID_HASH[uuid] ~= nil then
-					WorldMap_HideVariedNodesMapUUID(wm_map, uuid);
-					Minimap_HideVariedNodesMapUUID(mm_map, uuid);
-					for map, varied in next, META_VARIED do
-						local data = varied[uuid];
-						if data ~= nil then
-							varied[uuid] = nil;
-						end
-					end
-					META_VARIED_UUID_HASH[uuid] = nil;
-				end
-			elseif del == false then
-				local TEXTURE = GetVariedNodeTexture(uuid[4]);
-				if uuid[5] ~= TEXTURE then
-					uuid[5] = TEXTURE;
-					if META_VARIED_UUID_HASH[uuid] ~= nil then
-						WorldMap_ChangeVariedNodesMapUUID(wm_map, uuid, TEXTURE);
-						Minimap_ChangeVariedNodesMapUUID(mm_map, uuid, TEXTURE);
-					end
+		function MapDelVariedNodes(uuid, del, flag)
+			WorldMap_HideVariedNodesMapUUID(wm_map, uuid);
+			Minimap_HideVariedNodesMapUUID(mm_map, uuid);
+			for map, varied in next, META_VARIED do
+				local data = varied[uuid];
+				if data ~= nil then
+					varied[uuid] = nil;
 				end
 			end
 		end
 		--
-		function HideNodes()
+		function MapHideNodes()
 			WorldMap_HideNodesMap(wm_map);
 			Minimap_HideNodes();
 		end
-		function DrawNodes()
+		function MapDrawNodes()
 			WorldMap_DrawNodesMap(wm_map);
 			Minimap_DrawNodesMap(mm_map);
 		end
@@ -1319,25 +1090,20 @@ end
 		__ns.SetLargePinSize = SetLargePinSize;
 		__ns.SetVariedPinSize = SetVariedPinSize;
 		--
-		__ns.AddCommonNodes = AddCommonNodes;
-		__ns.DelCommonNodes = DelCommonNodes;
-		__ns.AddLargeNodes = AddLargeNodes;
-		__ns.DelLargeNodes = DelLargeNodes;
-		__ns.AddVariedNodes = AddVariedNodes;
-		__ns.DelVariedNodes = DelVariedNodes;
-		__ns.DrawNodes = DrawNodes;
-		__ns.HideNodes = HideNodes;
+		__ns.MapAddCommonNodes = MapAddCommonNodes;
+		__ns.MapDelCommonNodes = MapDelCommonNodes;
+		__ns.MapAddLargeNodes = MapAddLargeNodes;
+		__ns.MapDelLargeNodes = MapDelLargeNodes;
+		__ns.MapAddVariedNodes = MapAddVariedNodes;
+		__ns.MapDelVariedNodes = MapDelVariedNodes;
+		__ns.MapDrawNodes = MapDrawNodes;
+		__ns.MapHideNodes = MapHideNodes;
 		__ns.Pin_OnEnter = Pin_OnEnter;
 		--
 		function __ns.map_reset()
-			ResetColor3();
-			ResetUUID();
 			wipe(META_COMMON);
-			wipe(META_COMMON_UUID_HASH);
 			wipe(META_LARGE);
-			wipe(META_LARGE_UUID_HASH);
 			wipe(META_VARIED);
-			wipe(META_VARIED_UUID_HASH);
 			ResetWMPin();
 			wipe(MM_COMMON_PINS);
 			wipe(MM_LARGE_PINS);

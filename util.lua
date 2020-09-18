@@ -17,6 +17,10 @@ local _ = nil;
 	local type = type;
 	local next = next;
 	local tonumber = tonumber;
+	local strsplit = strsplit;
+	local GetItemInfoInstant = GetItemInfoInstant;
+	local UnitGUID = UnitGUID;
+	local UnitIsPlayer = UnitIsPlayer;
 	local IsAltKeyDown = IsAltKeyDown;
 	local IsControlKeyDown = IsControlKeyDown;
 	local IsShiftKeyDown = IsShiftKeyDown;
@@ -36,6 +40,7 @@ local _ = nil;
 	local __db_blacklist_item = __db.blacklist_item;
 	local __db_large_pin = __db.large_pin;
 	local __db_item_related_quest = __db.item_related_quest;
+
 	local __loc = __ns.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
@@ -56,6 +61,8 @@ local _ = nil;
 	local __obj_lookup = __ns.__obj_lookup;
 	local __core_quests_completed = __ns.__core_quests_completed;
 	local __map_meta = __ns.__map_meta;
+	local __comm_meta = __ns.__comm_meta;
+	local __comm_obj_lookup = __ns.__comm_obj_lookup;
 
 	local _log_ = __ns._log_;
 
@@ -308,7 +315,7 @@ local _ = nil;
 					if _type == "Creature" and _id ~= nil then
 						_id = tonumber(_id);
 						if _id ~= nil then
-							local uuid = __ns.GetUUID('unit', _id);
+							local uuid = __ns.CoreGetUUID('unit', _id);
 							if uuid ~= nil then
 								GameTooltipSetQuestTip(GameTooltip, uuid);
 							end
@@ -479,10 +486,13 @@ local _ = nil;
 						GameTooltipTextLeft1Text = text;
 						local oid = __obj_lookup[text];
 						if oid ~= nil then
-							local uuid = __ns.GetUUID('object', oid);
+							local uuid = __ns.CoreGetUUID('object', oid);
 							if uuid ~= nil then
 								GameTooltipSetQuestTip(GameTooltip, uuid);
 							end
+						end
+						local oid = __comm_obj_lookup[text];
+						if oid ~= nil then
 						end
 					end
 				end

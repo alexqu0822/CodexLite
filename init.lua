@@ -78,35 +78,44 @@ local SET = nil;
 	-->		run_on_next_tick	--	execute 0.2s ~ 0.3s later
 		local run_on_next_tick_func_1 = {  };
 		local run_on_next_tick_func_2 = {  };
+		local run_on_next_tick_hash_1 = {  };
+		local run_on_next_tick_hash_2 = {  };
 		local timer = 0.0;
+		--	run in sequence of 'insert'
 		local function run_on_next_tick_handler(self, elasped)
 			timer = timer + elasped;
 			if timer >= 0.1 then
 				timer = 0.0;
-				for index = #run_on_next_tick_func_2, 1, -1 do
-					local func = run_on_next_tick_func_2[index];
-					run_on_next_tick_func_2[index] = nil;
-					func();
+				local func = tremove(run_on_next_tick_func_2, 1);
+				while func ~= nil do
+					if run_on_next_tick_hash_2[func] ~= nil then
+						func();
+						-- run_on_next_tick_hash_2[func] = nil;
+					end
+					func = tremove(run_on_next_tick_func_2, 1);
 				end
 				if #run_on_next_tick_func_1 == 0 then
 					_EventHandler:SetScript("OnUpdate", nil);
+					run_on_next_tick_hash_1 = {  };
+					run_on_next_tick_hash_2 = {  };
 				else
 					run_on_next_tick_func_1, run_on_next_tick_func_2 = run_on_next_tick_func_2, run_on_next_tick_func_1;
+					-- run_on_next_tick_hash_1, run_on_next_tick_hash_2 = run_on_next_tick_hash_2, run_on_next_tick_hash_1;
+					run_on_next_tick_hash_2 = run_on_next_tick_hash_1;
+					run_on_next_tick_hash_1 = {  };
 				end
 			end
 		end
 		function _EventHandler:run_on_next_tick(func)
-			for index = 1, #run_on_next_tick_func_1 do
-				if func == run_on_next_tick_func_1[index] then
-					return;
-				end
+			if run_on_next_tick_hash_1[func] ~= nil then
+				return;
 			end
-			for index = 1, #run_on_next_tick_func_2 do
-				if func == run_on_next_tick_func_2[index] then
-					return;
-				end
+			if run_on_next_tick_hash_2[func] ~= nil then
+				return;
 			end
-			run_on_next_tick_func_1[#run_on_next_tick_func_1 + 1] = func;
+			local index = #run_on_next_tick_func_1 + 1;
+			run_on_next_tick_func_1[index] = func;
+			run_on_next_tick_hash_1[func] = index;
 			self:SetScript("OnUpdate", run_on_next_tick_handler);
 		end
 	-->
@@ -199,9 +208,7 @@ local SET = nil;
 				end
 			end
 			for j = 1, n do
-				if t[j] == nil then
-					t[j] = "nil";
-				end
+				t[j] = tostring(t[j]);
 			end
 			DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. table_concat(t, " "));
 		end
@@ -235,44 +242,49 @@ local SET = nil;
 		core.__L_QUEST_DEFAULT_PATTERN = "(.+):";
 	end 
 
-	--	credit to https://gist.github.com/Badgerati/3261142
-	local strbyte, min = strbyte, math.min;
-	local function LevenshteinDistance(str1, str2)
-		-- quick cut-offs to save time
-		if str1 == "" then
-			return #str2;
-		elseif str2 == "" then
-			return #str1;
-		elseif str1 == str2 then
-			return 0;
-		end
+	local LevenshteinDistance;
+	if CalculateStringEditDistance ~= nil then
+		LevenshteinDistance = CalculateStringEditDistance;
+	else
+		--	credit to https://gist.github.com/Badgerati/3261142
+		local strbyte, min = strbyte, math.min;
+		function LevenshteinDistance(str1, str2)
+			-- quick cut-offs to save time
+			if str1 == "" then
+				return #str2;
+			elseif str2 == "" then
+				return #str1;
+			elseif str1 == str2 then
+				return 0;
+			end
 
-		local len1 = #str1;
-		local len2 = #str2;
-		local matrix = {  };
+			local len1 = #str1;
+			local len2 = #str2;
+			local matrix = {  };
 
-		-- initialise the base matrix values
-		for i = 0, len1 do
-			matrix[i] = {  };
-			matrix[i][0] = i;
-		end
-		for j = 0, len2 do
-			matrix[0][j] = j;
-		end
+			-- initialise the base matrix values
+			for i = 0, len1 do
+				matrix[i] = {  };
+				matrix[i][0] = i;
+			end
+			for j = 0, len2 do
+				matrix[0][j] = j;
+			end
 
-		-- actual Levenshtein algorithm
-		for i = 1, len1 do
-			for j = 1, len2 do
-				if strbyte(str1, i) == strbyte(str2, j) then
-					matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1]);
-				else
-					matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + 1)
+			-- actual Levenshtein algorithm
+			for i = 1, len1 do
+				for j = 1, len2 do
+					if strbyte(str1, i) == strbyte(str2, j) then
+						matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1]);
+					else
+						matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + 1)
+					end
 				end
 			end
-		end
 
-		-- return the last value - this is the Levenshtein distance
-		return matrix[len1][len2];
+			-- return the last value - this is the Levenshtein distance
+			return matrix[len1][len2];
+		end
 	end
 
 	local BIG_NUMBER = 4294967295;
@@ -619,7 +631,7 @@ local SET = nil;
 			while index <= num_coords do
 				local coord = coords[index];
 				local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
-				-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	非常慢，90ms vs 1200ms
+				-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
 				-- coord[5] = x;
 				-- coord[6] = y;
 				-- coord[7] = instance;
@@ -633,6 +645,7 @@ local SET = nil;
 					num_coords = num_coords - 1;
 				end
 			end
+			local pos = num_coords + 1;
 			for index = 1, num_coords do
 				local coord = coords[index];
 				local wcoord = wcoords[index];
@@ -642,7 +655,8 @@ local SET = nil;
 					for amap, _ in next, amaps do
 						local amap, x, y = GetZonePositionFromWorldPosition(amap, wcoord[1], wcoord[2]);
 						if amap ~= nil then
-							coords[#coords + 1] = { x * 100.0, y * 100.0, amap, coord[4], wcoord, };
+							coords[pos] = { x * 100.0, y * 100.0, amap, coord[4], wcoord, };
+							pos = pos + 1;
 						end
 					end
 				end
@@ -651,7 +665,8 @@ local SET = nil;
 					for cmap, _ in next, cmaps do
 						local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
 						if cmap ~= nil then
-							coords[#coords + 1] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
+							coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
+							pos = pos + 1;
 						end
 					end
 				end
@@ -659,7 +674,8 @@ local SET = nil;
 				if pmap ~= nil then
 					local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
 					if pmap ~= nil then
-						coords[#coords + 1] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
+						coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
+						pos = pos + 1;
 					end
 				end
 			end
@@ -807,6 +823,7 @@ local SET = nil;
 		__ns.setting_setup();
 		__ns.core_setup();
 		__ns.map_setup();
+		__ns.comm_setup();
 		__ns.util_setup();
 		SET = __ns.__sv;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.init.init'); end
