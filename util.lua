@@ -328,7 +328,7 @@ local _ = nil;
 		end
 		local function OnTooltipSetUnit(self)
 			local _, unit = self:GetUnit();
-			if unit and not UnitIsPlayer(unit) and self:IsVisible() then
+			if unit and not UnitIsPlayer(unit) then
 				local GUID = UnitGUID(unit);
 				if GUID ~= nil then
 					-- local _, _, _id = strfind(GUID, "Creature%-0%-%d+%-%d+%-%d+%-(%d+)%-%x+");
