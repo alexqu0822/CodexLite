@@ -84,12 +84,74 @@ local _ = nil;
 			frame:SetPoint("CENTER");
 		end
 	-->		events and hooks
-		local function GameTooltipSetQuestTip(tip, uuid)
+		local function GetLevelTag(quest, info, modifier)
+			local lvl_str = "[";
+				local tag = __ns.GetQuestTagInfo(quest);
+				if tag ~= nil then
+					tag = __UILOC.QUEST_TAG[tag];
+				end
+				local lvl = info.lvl;
+				if lvl >= SET.quest_lvl_red then
+					lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+				elseif lvl >= SET.quest_lvl_orange then
+					lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+				elseif lvl >= SET.quest_lvl_yellow then
+					lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+				elseif lvl >= SET.quest_lvl_green then
+					lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+				else
+					lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+				end
+				if modifier then
+					local min = info.min;
+					lvl_str = lvl_str .. "/";
+					local diff = min - __ns.__player_level;
+					if diff > 0 then
+						if diff > 1 then
+							lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
+						else
+							lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
+						end
+					else
+						if min >= SET.quest_lvl_red then
+							lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
+						elseif min >= SET.quest_lvl_orange then
+							lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
+						elseif min >= SET.quest_lvl_yellow then
+							lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
+						elseif min >= SET.quest_lvl_green then
+							lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
+						else
+							lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
+						end
+					end
+				end
+				lvl_str = lvl_str .. "]";
+			return lvl_str;
+		end
+		local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
+		local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
+		local function GetPlayerTag(name, class)
+			if class == nil then
+				return " > " .. name;
+			else
+				local color = RAID_CLASS_COLORS[class];
+				local coord = CLASS_ICON_TCOORDS[class];
+				return format(" > \124TInterface\\TargetingFrame\\UI-Classes-Circles:0:0:0:0:256:256:%d:%d:%d:%d\124t \124cff%.2x%.2x%.2x%s\124r",
+							coord[1] * 256, coord[2] * 256, coord[3] * 256, coord[4] * 256,
+							color.r * 255, color.g * 255, color.b * 255, name
+						);
+			end
+		end
+		local function GameTooltipSetQuestTip(tip, uuid, META)
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
 			if next(refs) ~= nil then
 				for quest, ref in next, refs do
-					local meta = __core_meta[quest];
+					if META == nil then
+						META = __core_meta;
+					end
+					local meta = META[quest];
 					local info = __db_quest[quest];
 					local color = IMG_LIST[GetQuestStartTexture(info)];
 					--[[
@@ -196,48 +258,7 @@ local _ = nil;
 							tip:AddLine(lvl_str, 1.0, 1.0, 1.0);
 						end
 					--]]
-					local lvl_str = "[";
-						local tag = __ns.GetQuestTagInfo(quest);
-						if tag ~= nil then
-							tag = __UILOC.QUEST_TAG[tag];
-						end
-						local lvl = info.lvl;
-						if lvl >= SET.quest_lvl_red then
-							lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-						elseif lvl >= SET.quest_lvl_orange then
-							lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-						elseif lvl >= SET.quest_lvl_yellow then
-							lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-						elseif lvl >= SET.quest_lvl_green then
-							lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-						else
-							lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-						end
-						if modifier then
-							local min = info.min;
-							lvl_str = lvl_str .. "/";
-							local diff = min - __ns.__player_level;
-							if diff > 0 then
-								if diff > 1 then
-									lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
-								else
-									lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
-								end
-							else
-								if min >= SET.quest_lvl_red then
-									lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
-								elseif min >= SET.quest_lvl_orange then
-									lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
-								elseif min >= SET.quest_lvl_yellow then
-									lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
-								elseif min >= SET.quest_lvl_green then
-									lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
-								else
-									lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
-								end
-							end
-						end
-						lvl_str = lvl_str .. "]";
+					local lvl_str = GetLevelTag(quest, info, modifier);
 					if meta ~= nil then
 						if ref['end'] then
 							if meta.completed == 1 then
@@ -319,6 +340,17 @@ local _ = nil;
 							if uuid ~= nil then
 								GameTooltipSetQuestTip(GameTooltip, uuid);
 							end
+							for name, val in next, __ns.__group_members do
+								local meta_table = __comm_meta[name];
+								if meta_table ~= nil then
+									local uuid = __ns.CommGetUUID(name, 'unit', _id);
+									if uuid ~= nil then
+										local _name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
+										GameTooltip:AddLine(GetPlayerTag(name, fileName));
+										GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+									end
+								end
+							end
 						end
 					end
 				end
@@ -337,46 +369,7 @@ local _ = nil;
 							if meta ~= nil then
 								local qinfo = __db_quest[quest];
 								local color = IMG_LIST[GetQuestStartTexture(qinfo)];
-								local lvl_str = "[";
-									local tag = __ns.GetQuestTagInfo(quest);
-									if tag ~= nil then
-										tag = __UILOC.QUEST_TAG[tag];
-									end
-									local lvl = qinfo.lvl;
-									if lvl >= SET.quest_lvl_red then
-										lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-									elseif lvl >= SET.quest_lvl_orange then
-										lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-									elseif lvl >= SET.quest_lvl_yellow then
-										lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-									elseif lvl >= SET.quest_lvl_green then
-										lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-									else
-										lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-									end
-									local min = qinfo.min;
-									lvl_str = lvl_str .. "/";
-									local diff = min - __ns.__player_level;
-									if diff > 0 then
-										if diff > 1 then
-											lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
-										else
-											lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
-										end
-									else
-										if min >= SET.quest_lvl_red then
-											lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
-										elseif min >= SET.quest_lvl_orange then
-											lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
-										elseif min >= SET.quest_lvl_yellow then
-											lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
-										elseif min >= SET.quest_lvl_green then
-											lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
-										else
-											lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
-										end
-									end
-									lvl_str = lvl_str .. "]";
+								local lvl_str = GetLevelTag(quest, qinfo, modifier);
 								if modifier then
 									if meta.completed == 1 then
 										tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
@@ -409,46 +402,7 @@ local _ = nil;
 								if __core_meta[quest] == nil and __db_avl_quest_hash[quest] ~= nil then
 									local qinfo = __db_quest[quest];
 									local color = IMG_LIST[GetQuestStartTexture(qinfo)];
-									local lvl_str = "[";
-										local tag = __ns.GetQuestTagInfo(quest);
-										if tag ~= nil then
-											tag = __UILOC.QUEST_TAG[tag];
-										end
-										local lvl = qinfo.lvl;
-										if lvl >= SET.quest_lvl_red then
-											lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-										elseif lvl >= SET.quest_lvl_orange then
-											lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-										elseif lvl >= SET.quest_lvl_yellow then
-											lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-										elseif lvl >= SET.quest_lvl_green then
-											lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-										else
-											lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-										end
-										local min = qinfo.min;
-										lvl_str = lvl_str .. "/";
-										local diff = min - __ns.__player_level;
-										if diff > 0 then
-											if diff > 1 then
-												lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
-											else
-												lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
-											end
-										else
-											if min >= SET.quest_lvl_red then
-												lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
-											elseif min >= SET.quest_lvl_orange then
-												lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
-											elseif min >= SET.quest_lvl_yellow then
-												lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
-											elseif min >= SET.quest_lvl_green then
-												lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
-											else
-												lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
-											end
-										end
-										lvl_str = lvl_str .. "]";
+									local lvl_str = GetLevelTag(quest, qinfo, true);
 									local loc = __loc_quest[quest];
 									if loc ~= nil then
 										if __core_quests_completed[quest] ~= nil then
@@ -464,6 +418,42 @@ local _ = nil;
 										end
 									end
 									tip:Show();
+								end
+							end
+						end
+						for name, val in next, __ns.__group_members do
+							local meta_table = __comm_meta[name];
+							if meta_table ~= nil then
+								local first_line_of_partner = true;
+								for _, quest in next, QUESTS do
+									local meta = meta_table[quest];
+									if meta ~= nil then
+										if first_line_of_partner then
+											first_line_of_partner = false;
+											local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
+											GameTooltip:AddLine(GetPlayerTag(name, fileName));
+										end
+										local qinfo = __db_quest[quest];
+										local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+										local lvl_str = GetLevelTag(quest, qinfo, modifier);
+										if meta.completed == 1 then
+											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
+										elseif meta.completed == 0 then
+											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+										end
+										for index = 1, #meta do
+											local meta_line = meta[index];
+											if meta_line[2] == 'item' and meta_line[3] == id then
+												if meta_line[5] then
+													tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+												else
+													tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+												end
+												break;
+											end
+										end
+										tip:Show();
+									end
 								end
 							end
 						end
@@ -490,6 +480,17 @@ local _ = nil;
 							if uuid ~= nil then
 								GameTooltipSetQuestTip(GameTooltip, uuid);
 							end
+							for name, val in next, __ns.__group_members do
+								local meta_table = __comm_meta[name];
+								if meta_table ~= nil then
+									local uuid = __ns.CommGetUUID(name, 'object', oid);
+									if uuid ~= nil then
+										local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
+										GameTooltip:AddLine(GetPlayerTag(name, fileName));
+										GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+									end
+								end
+							end
 						end
 						local oid = __comm_obj_lookup[text];
 						if oid ~= nil then
@@ -504,6 +505,8 @@ local _ = nil;
 			local focus = GetMouseFocus();
 			if focus ~= nil and focus.__PIN_TAG ~= nil then
 				__ns.Pin_OnEnter(focus);
+			end
+			if GameTooltip:IsShown() then
 			end
 		end
 	-->

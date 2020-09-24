@@ -43,10 +43,13 @@ local _ = nil;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
 
+	local __core_meta = __ns.__core_meta;
+
 	local UnitHelpFac = __ns.core.UnitHelpFac;
 	local _log_ = __ns._log_;
 
 	local SET = nil;
+	local PLAYER_NAME = UnitName('player');
 
 -->		MAIN
 	local ADDON_PREFIX = "CDXLT_";
@@ -58,6 +61,7 @@ local _ = nil;
 	__ns.__comm_meta = META;
 	__ns.__comm_obj_lookup = OBJ_LOOKUP;
 	local GROUP_MEMBERS = {  };
+	__ns.__group_members = GROUP_MEMBERS;
 	-->		function predef
 		local CommAddUUID, CommSubUUID, CommGetUUID;
 		local AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
@@ -65,8 +69,6 @@ local _ = nil;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
 		local AddLine, DelLine;
 	-->
-		local function GetColor3()
-		end
 	-->		--	uuid:{ 1type, 2id, 3color3(run-time), 4{ [quest] = { [line] = TEXTURE, }, }, }
 	-->		--	line:	'start', 'end', >=1:line_quest_leader, 'event'
 	-->		--	uuid 对应单位/对象类型，储存任务-行信息，对应META_COMMON表坐标设置一次即可
@@ -79,10 +81,8 @@ local _ = nil;
 			end
 			local uuid = UUID[_T][_id];
 			if uuid == nil then
-				uuid = { _T, _id, GetColor3(), {  }, };
+				uuid = { _T, _id, nil, {  }, };
 				UUID[_T][_id] = uuid;
-			elseif uuid[3] == nil then
-				uuid[3] = GetColor3();
 			end
 			local ref = uuid[4][_quest];
 			if ref == nil then
@@ -107,8 +107,6 @@ local _ = nil;
 								uuid[4][_quest] = nil;
 							end
 							if next(uuid[4]) == nil then
-								RelColor3(uuid[3]);
-								uuid[3] = nil;
 								if not total_del then
 									ref[_line] = 0;
 									uuid[4][_quest] = ref;
@@ -126,8 +124,6 @@ local _ = nil;
 								uuid[4][_quest] = nil;
 							end
 							if next(uuid[4]) == nil then
-								RelColor3(uuid[3]);
-								uuid[3] = nil;
 								return uuid, true;
 							else
 								return uuid, false;
@@ -135,8 +131,6 @@ local _ = nil;
 						end
 					else
 						if next(uuid[4]) == nil then
-							RelColor3(uuid[3]);
-							uuid[3] = nil;
 							return uuid, true;
 						else
 							return uuid, false;
@@ -578,19 +572,19 @@ local _ = nil;
 			return true;
 		end
 	-->
-		local function PushInit(name)
-				SendAddonMessage(ADDON_PREFIX,  ADDON_MSG_CTRLCODE_PUSH .. "^INIT", "WHISPER", name);
+		local function PushReset(name)
+				SendAddonMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PUSH .. "^RESET", "WHISPER", name);
 		end
-		local function PushAddQuest(_quest, _done)
+		local function PushAddQuest(_quest, _done, title)
 			if _done then
-				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^1^1";
+				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^1^1^" .. title;
 				for name, val in next, GROUP_MEMBERS do
 					if val > 0 then
 						SendAddonMessage(ADDON_PREFIX, msg, "WHISPER", name);
 					end
 				end
 			else
-				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^0^1";
+				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^0^1^" .. title;
 				for name, val in next, GROUP_MEMBERS do
 					if val > 0 then
 						SendAddonMessage(ADDON_PREFIX, msg, "WHISPER", name);
@@ -633,12 +627,12 @@ local _ = nil;
 			end
 		end
 		--
-		local function PushAddQuestSingle(_quest, _done, name)
+		local function PushAddQuestSingle(_quest, _done, title, name)
 			if _done then
-				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^1^1";
+				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^1^1^" .. title;
 				SendAddonMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			else
-				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^0^1";
+				local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^0^1^" .. title;
 				SendAddonMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			end
 		end
@@ -660,9 +654,26 @@ local _ = nil;
 				SendAddonMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			end
 		end
+		--
+		local function Push(name)
+			for quest, meta in next, __core_meta do
+				PushAddQuestSingle(quest, meta.completed, meta.title, name);
+				for line = 1, #meta do
+					local meta_line = meta[line];
+					PushAddLine(quest, line, meta_line[5], meta_line[2], meta_line[3], meta_line[4]);
+				end
+			end
+		end
+		local function PushAll()
+			for name, val in next, GROUP_MEMBERS do
+				if val > 0 then
+					Push(name);
+				end
+			end
+		end
 		local function Pull(name)
 			META[name] = {  };
-			PushInit(name);
+			SendAddonMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
 		end
 		local function PullAll(name)
 			for name, val in next, GROUP_MEMBERS do
@@ -676,18 +687,26 @@ local _ = nil;
 			local _GROUP_MEMBERS = {  };
 			for index = 1, GetNumGroupMembers(LE_PARTY_CATEGORY_HOME) do
 				local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(index);
-				if online then
-					if GROUP_MEMBERS[name] == nil or GROUP_MEMBERS[name] < 0 then
-						Pull(name);
+				if name == nil then
+					__eventHandler:run_on_next_tick(UpdateGroupMembers);
+					return;
+				end
+				name = Ambiguate(name, 'none');
+				if name ~= PLAYER_NAME then
+					if online then
+						if GROUP_MEMBERS[name] == nil or GROUP_MEMBERS[name] < 0 then
+							Pull(name);
+						end
+						_GROUP_MEMBERS[name] = index;
+						GROUP_MEMBERS[name] = nil;
+					else
+						_GROUP_MEMBERS[name] = -index;
+						GROUP_MEMBERS[name] = nil;
 					end
-					_GROUP_MEMBERS[name] = index;
-					GROUP_MEMBERS[name] = nil;
-				else
-					_GROUP_MEMBERS[name] = -index;
-					GROUP_MEMBERS[name] = nil;
 				end
 			end
 			GROUP_MEMBERS = _GROUP_MEMBERS;
+			__ns.__group_members = GROUP_MEMBERS;
 		end
 	-->		extern method
 		__ns.PushAddQuest = PushAddQuest;
@@ -696,17 +715,17 @@ local _ = nil;
 	-->		events and hooks
 		-->		QUEST^questId^completed^ act
 		-->		LINE ^questId^finished ^line^type^id^text
-		local PLAYER_NAME = UnitName('player');
 		function __ns.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			if prefix == ADDON_PREFIX then
 				local name = Ambiguate(sender, 'none');
 				if name ~= PLAYER_NAME then
 					local control_code = strsub(msg, 1, ADDON_MSG_CONTROL_CODE_LEN);
 					if control_code == ADDON_MSG_CTRLCODE_PULL then
+						Push(name);
 					elseif control_code == ADDON_MSG_CTRLCODE_PUSH then
 						local body = strsub(msg, ADDON_MSG_CONTROL_CODE_LEN + 2, - 1);
 						local _, _head, _quest, _done, _val, _type, _id, _text = strsplit("^", msg);
-						if _head == "INIT" then
+						if _head == "RESET" then
 							META[name] = {  };
 						elseif META[name] ~= nil then
 							local meta_table = META[name];
@@ -722,7 +741,7 @@ local _ = nil;
 											DelLine(name, _quest, index2, _type, _id);
 										end
 									elseif _val == 1 then
-										meta_table[_quest] = { completed = _done, };
+										meta_table[_quest] = { completed = _done, title = _type, };
 									end
 								elseif _head == "LINE" then
 									_quest = tonumber(_quest);
@@ -739,7 +758,7 @@ local _ = nil;
 										_id = tonumber(_id);
 										local meta_line = meta[_val];
 										if meta_line == nil then
-											meta_line = { nil, _type, _id, _text, _done, };
+											meta[_val] = { nil, _type, _id, _text, _done, };
 										else
 											meta_line[2] = _type;
 											meta_line[3] = _id;
@@ -782,6 +801,7 @@ local _ = nil;
 			__eventHandler:RegEvent("GROUP_FORMED");
 			__eventHandler:RegEvent("GROUP_JOINED");
 			__eventHandler:RegEvent("GROUP_LEFT");
+			UpdateGroupMembers();
 		end
 	end
 -->
