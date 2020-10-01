@@ -190,7 +190,7 @@ local _ = nil;
 		function __ns.CreateSettingUI()
 			local frame = CreateFrame("FRAME", "CODEX_LITE_SETTING_UI", UIParent);
 			tinsert(UISpecialFrames, "CODEX_LITE_SETTING_UI");
-			frame:SetSize(370, 512);
+			frame:SetSize(290, 512);
 			frame:SetFrameStrata("DIALOG");
 			frame:SetPoint("CENTER");
 			frame:SetBackdrop({
@@ -242,12 +242,12 @@ local _ = nil;
 					label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
 					label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 					local slider = CreateFrame("SLIDER", nil, frame, "OptionsSliderTemplate");
-					slider:SetWidth(320);
-					slider:SetHeight(20);
+					slider:SetWidth(240);
+					slider:SetHeight(15);
 					slider:SetMinMaxValues(bound[1], bound[2])
 					slider:SetValueStep(bound[3]);
 					slider:SetObeyStepOnDrag(true);
-					slider:SetPoint("TOPLEFT", label, "TOPLEFT", 10, -25);
+					slider:SetPoint("TOPLEFT", label, "TOPLEFT", 10, -20);
 					slider.Text:ClearAllPoints();
 					slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
 					slider.Low:ClearAllPoints();
@@ -270,9 +270,9 @@ local _ = nil;
 					function slider:SetStr(val)
 						self.Text:SetText(val);
 						if val > def[key] then
-							self.Text:SetVertexColor(1.0, 0.5, 0.5);
+							self.Text:SetVertexColor(1.0, 0.25, 0.25);
 						elseif val < def[key] then
-							self.Text:SetVertexColor(0.5, 1.0, 0.5);
+							self.Text:SetVertexColor(0.25, 1.0, 0.25);
 						else
 							self.Text:SetVertexColor(1.0, 1.0, 1.0);
 						end
@@ -282,7 +282,7 @@ local _ = nil;
 						self.label:SetPoint(...);
 					end
 					set_entries[key] = slider;
-					slider:SetPoint("TOPLEFT", 20, -pos * 25);
+					slider:SetPoint("TOPLEFT", 20, -pos * 20);
 					pos = pos + 3;
 				end
 			end
