@@ -815,16 +815,90 @@ local SET = nil;
 	__ns._log_ = _log_;
 -->
 
+-->		performance
+	local __PERFORMANCE_LOG_TAGS = {	--	[tag] = check_bigger_than_10.0
+		[''] = false,
+		['*'] = false,
+		['#'] = false,
+		['@'] = false,
+		['$'] = false,
+		['^'] = false,
+		[':'] = false,
+		['-'] = false,
+		['+'] = false,
+		--
+		['module.init'] = false,
+			['module.init.init'] = true,
+				['module.init.init.patch'] = true,
+				['module.init.init.extra_db'] = true,
+					['module.init.init.extra_db.faction'] = true,
+					['module.init.init.extra_db.item2quest'] = true,
+					['module.init.init.extra_db.del_unused'] = true,
+				['module.init.init.setting'] = true,
+				['module.init.init.core'] = true,
+				['module.init.init.map'] = true,
+				['module.init.init.comm'] = true,
+				['module.init.init.util'] = true,
+		['module.db-extra'] = false,
+		['module.patch'] = false,
+		['module.core'] = false,
+			['module.core.UpdateQuests'] = true,
+			['module.core.UpdateQuestGivers'] = true,
+		['module.map'] = false,
+			['module.map.Minimap_DrawNodesMap'] = true,
+			['module.map.OnMapChanged'] = true,
+			['module.map.OnCanvasScaleChanged'] = true,
+		['module.util'] = false,
+	};
+	local timer = 0.0;
+	function __ns.__performance_start()
+		debugprofilestart();
+		timer = 0.0;
+	end
+	function __ns.__performance_log(tag, ex1, ex2, ex3)
+		local val = __PERFORMANCE_LOG_TAGS[tag];
+		if val ~= nil then
+			local cost = debugprofilestop();
+			if val == false or cost >= 10.0 then
+				cost = cost - cost % 0.0001;
+				__print(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
+			end
+		end
+	end
+	function __ns.__performance_log_tick(tag, ex1, ex2, ex3)
+		local val = __PERFORMANCE_LOG_TAGS[tag];
+		if val ~= nil then
+			local cur = debugprofilestop();
+			local cost = cur - timer;
+			if val == false or cost >= 10.0 then
+				cost = cost - cost % 0.0001;
+				__print(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
+			end
+			timer = cur;
+		end
+	end
+	function __ns.__opt_log(tag, ...)
+		__print(date('\124cff00ff00%H:%M:%S\124r'), tag, ...);
+	end
+-->
+
 -->		INITIALIZE
 	local function init()
-		--[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start(); end
 		__ns.apply_patch();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.patch'); end
 		__ns.load_extra_db();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db'); end
 		__ns.setting_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.setting'); end
 		__ns.core_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.core'); end
 		__ns.map_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.map'); end
 		__ns.comm_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.comm'); end
 		__ns.util_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.util'); end
 		SET = __ns.__sv;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.init.init'); end
 		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
@@ -844,32 +918,5 @@ local SET = nil;
 	-- _EventHandler:RegEvent("LOADING_SCREEN_ENABLED");
 	_EventHandler:RegEvent("LOADING_SCREEN_DISABLED");
 -->
-
-local __PERFORMANCE_LOG_TAGS = {
-	['module.init'] = false,
-		['module.init.init'] = true,
-	['module.db-extra'] = false,
-	['module.patch'] = false,
-	['module.core'] = false,
-		['module.core.UpdateQuests'] = true,
-		['module.core.UpdateQuestGivers'] = true,
-	['module.map'] = false,
-		['module.map.Minimap_DrawNodesMap'] = true,
-		['module.map.OnMapChanged'] = true,
-		['module.map.OnCanvasScaleChanged'] = true,
-	['module.util'] = false,
-};
-function __ns.__performance_log(tag, ex1, ex2, ex3)
-	local val = __PERFORMANCE_LOG_TAGS[tag];
-	if val ~= nil then
-		local cost = debugprofilestop();
-		if val == false or cost >= 10.0 then
-			__print(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
-		end
-	end
-end
-function __ns.__opt_log(tag, ...)
-	__print(date('\124cff00ff00%H:%M:%S\124r'), tag, ...);
-end
 
 --[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.init'); end
