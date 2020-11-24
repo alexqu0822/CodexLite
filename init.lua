@@ -38,12 +38,7 @@ local SET = nil;
 		__errorHandler = handler;
 	end);
 	function core.__safeCall(func, ...)
-		local success, result = xpcall(func,
-			function(msg)
-				__errorHandler(msg);
-			end,
-			...
-		);
+		local success, result = xpcall(func, __errorHandler, ...);
 		if success then
 			return true, result;
 		else
@@ -412,16 +407,16 @@ local SET = nil;
 		mapHandler:RegisterEvent("NEW_WMO_CHUNK");
 		mapHandler:RegisterEvent("PLAYER_ENTERING_WORLD");
 		--	地图坐标系【右手系，右下为0】(x, y, z) >> 地图坐标系【左手系,左上为0】(-y, -x, z)
-		local vector00 = CreateVector2D(0, 0);
-		local vector05 = CreateVector2D(0.5, 0.5);
+		local vector0000 = CreateVector2D(0, 0);
+		local vector0505 = CreateVector2D(0.5, 0.5);
 		local function processMap(map)
 			local meta = mapMeta[map];
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
 				if data ~= nil then
 					-- get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
-					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector00);
-					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector05);
+					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
+					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
 					if x00y00 ~= nil and x05y05 ~= nil then
 						local top, left = x00y00:GetXY();
 						local bottom, right = x05y05:GetXY();
