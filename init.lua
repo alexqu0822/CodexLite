@@ -33,17 +33,12 @@ local SET = nil;
 
 -->		SafeCall
 	local xpcall = xpcall;
-	local __errorHandler = geterrorhandler();
+	local _F_ErrorHandler = geterrorhandler();
 	hooksecurefunc("seterrorhandler", function(handler)
-		__errorHandler = handler;
+		_F_ErrorHandler = handler;
 	end);
-	function core.__safeCall(func, ...)
-		local success, result = xpcall(func, __errorHandler, ...);
-		if success then
-			return true, result;
-		else
-			return false;
-		end
+	function core._F_SafeCall(func, ...)
+		return xpcall(func, _F_ErrorHandler, ...);
 	end
 -->
 
@@ -129,87 +124,72 @@ local SET = nil;
 -->
 
 -->		Restricted Implementation
-	local _b_print = print;
 	local select = select;
-	local table_concat = table.concat;
+	local loadstring = loadstring;
 	local tostring = tostring;
-	local function __print(...)
-		local n = select("#", ...);
-		if n == 0 then
-			DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r nil:~0");
-		elseif n == 1 then
-			DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(...));
-		elseif n == 2 then
-			local a, b = ...;
-			if b ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b));
-			else
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a));
-			end
-		elseif n == 3 then
-			local a, b, c = ...;
-			if c ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c));
-			elseif b ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b));
-			else
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a));
-			end
-		elseif n == 4 then
-			local a, b, c, d = ...;
-			if d ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d));
-			elseif c ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c));
-			elseif b ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b));
-			else
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a));
-			end
-		elseif n == 5 then
-			local a, b, c, d, e = ...;
-			if e ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d) .. " " .. tostring(e));
-			elseif d ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d));
-			elseif c ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c));
-			elseif b ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b));
-			else
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a));
-			end
-		elseif n == 6 then
-			local a, b, c, d, e, f = ...;
-			if f ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d) .. " " .. tostring(e) .. " " .. tostring(f));
-			elseif e ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d) .. " " .. tostring(e));
-			elseif d ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c) .. " " .. tostring(d));
-			elseif c ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b) .. " " .. tostring(c));
-			elseif b ~= nil then
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a) .. " " .. tostring(b));
-			else
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. tostring(a));
-			end
-		else
-			local t = { ... };
-			for j = n, 1, -1 do
-				if t[j] ~= nil then
-					n = j;
-					break;
+	local table_concat = table.concat;
+	local _F_SafeCall = core._F_SafeCall;
+	local _LT_CorePrint_Method = setmetatable(
+		{
+			[0] = function()
+				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r nil");
+			end,
+			['*'] = function(...)
+				local _nargs = select('#', ...);
+				local _argsv = { ... };
+				for _index = _nargs, 1, -1 do
+					if _argsv[_index] ~= nil then
+						_nargs = _index;
+						break;
+					end
 				end
-			end
-			for j = 1, n do
-				t[j] = tostring(t[j]);
-			end
-			DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. table_concat(t, " "));
-		end
-		-- local str = "\124cff00ff00>\124r "; for file in gmatch(debugstack(0), "\\([^\\^:]+\.lua:[0-9]+):") do str = str .. " #" .. file; end DEFAULT_CHAT_FRAME:AddMessage(str .. " ~" .. n);
+				for _index = 1, _nargs do
+					_argsv[_index] = tostring(_argsv[_index]);
+				end
+				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. table_concat(_argsv, " "));
+			end,	
+		},
+		{
+			__index = function(t, nargs)
+				if nargs > 0 and nargs < 8 then
+					local _head = "local tostring = tostring;\nreturn function(arg1";
+					local _body = ") DEFAULT_CHAT_FRAME:AddMessage(\"\124cff00ff00>\124r \" .. tostring(arg1)";
+					local _tail = "); end";
+					for _index = 2, nargs do
+						_head = _head .. ", arg" .. _index;
+						_body = _body .. " .. \" \" .. tostring(arg" .. _index .. ")";
+					end
+					local _func0, _err = loadstring(_head .. _body .. _tail);
+					if _func0 == nil then
+						local _func = t['*'];
+						t[nargs] = _func;
+						return _func;
+					else
+						local _, _func = _F_SafeCall(_func0);
+						if _func == nil then
+							_func = t['*'];
+						end
+						t[nargs] = _func;
+						return _func;
+					end
+				else
+					local _func = t['*'];
+					t[nargs] = _func;
+					return _func;
+				end
+			end,
+		}
+	);
+	for _index = 1, 8 do
+		local _func = _LT_CorePrint_Method[_index];
 	end
-	__ns.__print = __print;
+	local function _F_CorePrint(...)
+		local _func = _LT_CorePrint_Method[select('#', ...)];
+		if _func ~= nil then
+			_func(...);
+		end
+	end
+	__ns._F_CorePrint = _F_CorePrint;
 -->
 
 -->		string
@@ -805,7 +785,9 @@ local SET = nil;
 	__ns.core.UnitHelpFac = UnitHelpFac;
 	local date = date;
 	local function _log_(...)
-		__print(date('\124cff00ff00%H:%M:%S\124r'), ...);
+		if __ns.__dev then
+			_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), ...);
+		end
 	end
 	__ns._log_ = _log_;
 -->
@@ -856,7 +838,7 @@ local SET = nil;
 			local cost = debugprofilestop();
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
-				__print(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
+				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
 			end
 		end
 	end
@@ -867,13 +849,13 @@ local SET = nil;
 			local cost = cur - timer;
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
-				__print(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
+				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
 			end
 			timer = cur;
 		end
 	end
 	function __ns.__opt_log(tag, ...)
-		__print(date('\124cff00ff00%H:%M:%S\124r'), tag, ...);
+		_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, ...);
 	end
 -->
 

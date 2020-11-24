@@ -49,7 +49,7 @@ local _ = nil;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
 
-	local __safeCall = __ns.core.__safeCall;
+	local _F_SafeCall = __ns.core._F_SafeCall;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
 	local __L_QUEST_MONSTERS_KILLED = __ns.core.__L_QUEST_MONSTERS_KILLED;

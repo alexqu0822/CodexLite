@@ -55,7 +55,7 @@ end
 	local __loc_profession = __loc.profession;
 	local __UILOC = __ns.UILOC;
 
-	local __safeCall = __ns.core.__safeCall;
+	local _F_SafeCall = __ns.core._F_SafeCall;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
 	local __core_meta = __ns.__core_meta;

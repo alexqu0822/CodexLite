@@ -39,7 +39,7 @@ local _ = nil;
 
 	local __loc_object = __ns.L.object;
 
-	local __safeCall = __ns.core.__safeCall;
+	local _F_SafeCall = __ns.core._F_SafeCall;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
 
