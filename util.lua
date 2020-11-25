@@ -525,6 +525,8 @@ local _ = nil;
 		end);
 		GameTooltip:HookScript("OnUpdate", GameTooltipOnUpdate);
 		__eventHandler:RegEvent("MODIFIER_STATE_CHANGED");
+		--
+		_F_SafeCall(__ns._checkConflicts);
 	end
 -->
 
@@ -582,6 +584,45 @@ local _ = nil;
 		return false, msg, ...;
 	end
 	ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", __listen_position_filter);
+-->
+
+-->		CONFLICTS
+	function __ns._checkConflicts()
+		if SET ~= nil and SET._checkedConflicts then
+			return;
+		end
+		C_Timer.After(4.0, function()
+			local _conflicts = false;
+			if GetAddOnEnableState(UnitName('player'), "Questie") > 0 then
+				_conflicts = true;
+			end
+			if GetAddOnEnableState(UnitName('player'), "ClassicCodex") > 0 then
+				_conflicts = true;
+			end
+			if _conflicts then
+				StaticPopupDialogs['CODEX_LITE_CONFLICTS'] = {
+					preferredIndex = 3,
+					text = __UILOC["CODEX_LITE_CONFLICTS"],
+					button1 = YES,
+					button2 = NO,
+					OnAccept = function(self, data)
+						DisableAddOn("Questie");
+						DisableAddOn("ClassicCodex");
+						SaveAddOns();
+						ReloadUI();
+					end,
+					hideOnEscape = 1,
+					timeout = 0,
+					exclusive = 1,
+					whileDead = 1,
+				};
+					StaticPopup_Show("CODEX_LITE_CONFLICTS");
+			end
+			if SET ~= nil then
+				SET._checkedConflicts = true;
+			end
+		end);
+	end
 -->
 
 --[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.util'); end

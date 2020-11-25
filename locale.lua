@@ -98,6 +98,8 @@ if LOCALE == 'zhCN' then
 	UILOC.pin_scale_max = "地图缩放时标记点的最大缩放";
 	UILOC.quest_lvl_lowest_ofs = "最低任务等级偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任务等级偏差";
+	--
+	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 elseif LOCALE == 'zhTW' then
 	--	tip
 	UILOC.TIP_WAYPOINT = "偵察";
@@ -124,6 +126,8 @@ elseif LOCALE == 'zhTW' then
 	UILOC.pin_scale_max = "地圖縮放時標記點的最大縮放";
 	UILOC.quest_lvl_lowest_ofs = "最低任務等級偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任務等級偏差";
+	--
+	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 else
 	--	tip
 	UILOC.TIP_WAYPOINT = "Explore";
@@ -150,6 +154,8 @@ else
 	UILOC.pin_scale_max = "Maxium scale size";
 	UILOC.quest_lvl_lowest_ofs = "Offset of lowest quest level";
 	UILOC.quest_lvl_highest_ofs = "Offset of highest quest level";
+	--
+	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end
 
 --[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.util'); end
