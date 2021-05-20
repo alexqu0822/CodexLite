@@ -704,7 +704,7 @@ local _ = nil;
 						local oid = #O == 1 and O[1] or cache[name] or FindMinLevenshteinDistance(name, __loc_object, O);
 						if oid then
 							OBJ_LOOKUP[__loc_object[oid]] = oid;
-							local large_pin = __db_large_pin:Check(quest_id, 'obj', oid);
+							local large_pin = __db_large_pin:Check(quest_id, 'object', oid);
 							AddObject(quest_id, index, oid, not finished, large_pin);
 							return true, oid, large_pin;
 						else
@@ -733,7 +733,7 @@ local _ = nil;
 				AddItem(quest_id, index, _id, not finished, large_pin);
 				return true, _id, large_pin;
 			elseif objective_type == 'object' then
-				local large_pin = __db_large_pin:Check(quest_id, 'obj', _id);
+				local large_pin = __db_large_pin:Check(quest_id, 'object', _id);
 				AddObject(quest_id, index, _id, not finished, large_pin);
 				return true, _id, large_pin;
 			elseif objective_type == 'event' or objective_type == 'log' then
