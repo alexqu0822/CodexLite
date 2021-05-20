@@ -533,7 +533,7 @@ local _ = nil;
 				AddItem(name, _quest, _line, _id, not _done, large_pin);
 				return true, _id, large_pin;
 			elseif _type == 'object' then
-				local large_pin = __db_large_pin:Check(_quest, 'obj', _id);
+				local large_pin = __db_large_pin:Check(_quest, 'object', _id);
 				AddObject(name, _quest, _line, _id, not _done, large_pin);
 				return true, _id, large_pin;
 			elseif _type == 'event' or _type == 'log' then
@@ -560,7 +560,7 @@ local _ = nil;
 				DelItem(_quest, _line, _id, not _done, large_pin);
 				return true, _id, large_pin;
 			elseif _type == 'object' then
-				local large_pin = __db_large_pin:Check(_quest, 'obj', _id);
+				local large_pin = __db_large_pin:Check(_quest, 'object', _id);
 				DelObject(_quest, _line, _id, not _done, large_pin);
 				return true, _id, large_pin;
 			elseif _type == 'event' or _type == 'log' then

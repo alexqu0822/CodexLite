@@ -872,7 +872,7 @@ local SET = nil;
 	local date = date;
 	local function _log_(...)
 		if __ns.__dev then
-			_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), ...);
+			_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), ...);
 		end
 	end
 	__ns._log_ = _log_;
@@ -920,12 +920,12 @@ local SET = nil;
 			local cost = __ns._F_devDebugProfileTick(tag);
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
-				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
+				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), tag, cost, ex1, ex2, ex3);
 			end
 		end
 	end
 	function __ns.__opt_log(tag, ...)
-		_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, ...);
+		_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), tag, ...);
 	end
 -->
 

@@ -233,8 +233,8 @@ local _ = nil;
 		pin_scale_max = 1.25,
 		quest_lvl_lowest_ofs = -6,		--	>=
 		quest_lvl_highest_ofs = 1,		--	<=
-		auto_accept = true,
-		auto_complete = true,
+		auto_accept = false,
+		auto_complete = false,
 	};
 	local setting_keys = {
 		-- "min_rate",
