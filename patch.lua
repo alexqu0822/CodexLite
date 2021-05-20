@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.patch'); end
 
 local tremove = tremove;
 local __db = __ns.db;
@@ -23,8 +23,52 @@ local __db_refloot = __db.refloot;
 local __db_event = __db.event;
 
 -->		patch
-	local function patch()
 
+	--[=[
+	local PATCH = {
+		quest = {
+			--10050, preSingle = { 10143, },
+			--10160, preSingle = { 10254, },
+			--10141, preSingle = { 10254, },
+			--10450, preSingle = { 10291, },
+			--10269, E=4473
+			--10275, E=4475
+			--10750, E=4581
+			--10772, E=4588
+			--9160, E=4064
+			--9193, E=4071
+			--9400, E=4170
+			--9607, E=4200	--	instance
+			--9608, E=4201	--	instance
+			--9700, E=4280
+			--9701, E=4291
+			--9716, E=4293
+			--9731, E=4298
+			--9752, E=4300
+			--9786, E=4301
+		},
+	};
+	--]=]
+	local function patchDB()
+	--[=[
+		for key, patch in next, PATCH do
+			local db = __db[key];
+			if db ~= nil then
+				for id, val in next, patch do
+					local t = db[id];
+					if t ~= nil then
+						for k, v in next, val do
+							if v == "_NIL" then
+								t[k] = nil;
+							else
+								t[k] = v;
+							end
+						end
+					end
+				end
+			end
+		end
+	--]=]
 		if UnitFactionGroup('player') == "Alliance" then
 			--	alliance
 			__db_unit[13778].coords = {
@@ -74,6 +118,6 @@ local __db_event = __db.event;
 	__ns.core.PreloadAllCoords = PreloadAllCoords;
 -->
 
-__ns.apply_patch = patch;
+__ns.apply_patch = patchDB;
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.patch'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.patch'); end

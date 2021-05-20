@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.setting'); end
 
 -->		variables
 	local next = next;
@@ -40,7 +40,47 @@ local _ = nil;
 				end
 			end,
 		});
+		local boolean_func = function(val)
+			if val == false or val == "false" or val == 0 or val == "0" or val == nil or val == "off" or val == "disabled" then
+				return false;
+			else
+				return true;
+			end
+		end
 		local setting_metas = {
+			show_db_icon = {
+				'boolean',
+				function(val)
+					CodexLiteSV['show_db_icon'] = val;
+					if val then
+						LibStub("LibDBIcon-1.0", true):Show(__addon);
+					else
+						LibStub("LibDBIcon-1.0", true):Hide(__addon);
+					end
+				end,
+				nil,
+				boolean_func,
+			},
+			show_quest_starter = {
+				'boolean',
+				function(val)
+					CodexLiteSV['show_quest_starter'] = val;
+					__ns.SetQuestStarterShown();
+					return true;
+				end,
+				nil,
+				boolean_func,
+			},
+			show_quest_ender = {
+				'boolean',
+				function(val)
+					CodexLiteSV['show_quest_ender'] = val;
+					__ns.SetQuestEnderShown();
+					return true;
+				end,
+				nil,
+				boolean_func,
+			},
 			pin_size = {
 				'number',
 				function(val)
@@ -102,7 +142,7 @@ local _ = nil;
 						return true;
 					end
 				end,
-				{ -60, 0, 1, },
+				{ -__ns.__maxLevel, 0, 1, },
 				round_func_table[0],
 			},
 			quest_lvl_highest_ofs = {
@@ -115,8 +155,24 @@ local _ = nil;
 						return true;
 					end
 				end,
-				{ 0, 60, 1, },
+				{ 0, __ns.__maxLevel, 1, },
 				round_func_table[0],
+			},
+			auto_accept = {
+				'boolean',
+				function(val)
+					CodexLiteSV['auto_accept'] = val;
+				end,
+				nil,
+				boolean_func,
+			},
+			auto_complete = {
+				'boolean',
+				function(val)
+					CodexLiteSV['auto_complete'] = val;
+				end,
+				nil,
+				boolean_func,
 			},
 		};
 		local function ResetAll()
@@ -149,6 +205,13 @@ local _ = nil;
 								widget:SetVal(val);
 							end
 						end
+					elseif meta[1] == 'boolean' then
+						if meta[4] ~= nil then
+							val = meta[4](val);
+						end
+						if meta[2](val) then
+							print("SET", key, val);
+						end
 					end
 				end
 			end
@@ -160,6 +223,9 @@ local _ = nil;
 	-->		events and hooks
 	-->
 	local def = {
+		show_db_icon = true,
+		show_quest_starter = true,
+		show_quest_ender = true,
 		min_rate = 1.0,
 		pin_size = 15,
 		large_size = 24,
@@ -167,18 +233,25 @@ local _ = nil;
 		pin_scale_max = 1.25,
 		quest_lvl_lowest_ofs = -6,		--	>=
 		quest_lvl_highest_ofs = 1,		--	<=
+		auto_accept = true,
+		auto_complete = true,
 	};
 	local setting_keys = {
 		-- "min_rate",
+		"show_db_icon",
+		"show_quest_starter",
+		"show_quest_ender",
 		"pin_size",
 		"large_size",
 		"varied_size",
 		"pin_scale_max",
 		"quest_lvl_lowest_ofs",
 		"quest_lvl_highest_ofs",
+		"auto_accept",
+		"auto_complete",
 	};
 	-->
-		local function OnValueChanged(self, val, userInput)
+		local function Slider_OnValueChanged(self, val, userInput)
 			if userInput and self.func then
 				if self.mod ~= nil then
 					val = self.mod(val);
@@ -187,8 +260,15 @@ local _ = nil;
 				self:SetStr(val);
 			end
 		end
+		local function Check_OnClick(self, button)
+			local val = self:GetChecked();
+			if self.mod ~= nil then
+				val = self.mod(val);
+			end
+			self.func(val);
+		end
 		function __ns.CreateSettingUI()
-			local frame = CreateFrame("FRAME", "CODEX_LITE_SETTING_UI", UIParent);
+			local frame = CreateFrame("FRAME", "CODEX_LITE_SETTING_UI", UIParent, BackdropTemplateMixin ~= nil and "BackdropTemplate" or nil);
 			tinsert(UISpecialFrames, "CODEX_LITE_SETTING_UI");
 			frame:SetSize(290, 512);
 			frame:SetFrameStrata("DIALOG");
@@ -238,16 +318,19 @@ local _ = nil;
 				local meta = setting_metas[key];
 				if meta[1] == 'number' then
 					local bound = meta[3];
+					local head = frame:CreateTexture(nil, "ARTWORK");
+					head:SetSize(24, 24);
 					local label = frame:CreateFontString(nil, "ARTWORK");
 					label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
 					label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+					label:SetPoint("LEFT", head, "RIGHT", 2, 0);
 					local slider = CreateFrame("SLIDER", nil, frame, "OptionsSliderTemplate");
 					slider:SetWidth(240);
 					slider:SetHeight(15);
 					slider:SetMinMaxValues(bound[1], bound[2])
 					slider:SetValueStep(bound[3]);
 					slider:SetObeyStepOnDrag(true);
-					slider:SetPoint("TOPLEFT", label, "TOPLEFT", 10, -20);
+					slider:SetPoint("TOPLEFT", head, "TOPLEFT", 10, -30);
 					slider.Text:ClearAllPoints();
 					slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
 					slider.Low:ClearAllPoints();
@@ -259,10 +342,11 @@ local _ = nil;
 					slider.High:SetVertexColor(1.0, 0.5, 0.5);
 					slider.High:SetText(bound[2]);
 					slider.key = key;
+					slider.head = head;
 					slider.label = label;
 					slider.func = meta[2];
 					slider.mod = meta[4];
-					slider:HookScript("OnValueChanged", OnValueChanged);
+					slider:HookScript("OnValueChanged", Slider_OnValueChanged);
 					function slider:SetVal(val)
 						self:SetValue(val);
 						self:SetStr(val);
@@ -279,11 +363,29 @@ local _ = nil;
 					end
 					slider._SetPoint = slider.SetPoint;
 					function slider:SetPoint(...)
-						self.label:SetPoint(...);
+						self.head:SetPoint(...);
 					end
 					set_entries[key] = slider;
-					slider:SetPoint("TOPLEFT", 20, -pos * 20);
+					slider:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * 18);
 					pos = pos + 3;
+				elseif meta[1] == 'boolean' then
+					local check = CreateFrame('CHECKBUTTON', nil, frame, "OptionsBaseCheckButtonTemplate");
+					check:SetSize(24, 24);
+					check:SetHitRectInsets(0, 0, 0, 0);
+					check:Show();
+					check.func = meta[2];
+					check.mod = meta[4];
+					check:SetScript("OnClick", Check_OnClick);
+					function check:SetVal(val)
+						self:SetChecked(val);
+					end
+					local label = frame:CreateFontString(nil, "ARTWORK");
+					label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+					label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+					label:SetPoint("LEFT", check, "RIGHT", 2, 0);
+					set_entries[key] = check;
+					check:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * 18);
+					pos = pos + 1.5;
 				end
 			end
 			--
@@ -342,4 +444,4 @@ local _ = nil;
 -->
 
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.util'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.setting'); end

@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.locale'); end
 
 local UILOC = {  };
 __ns.UILOC = UILOC;
@@ -91,6 +91,10 @@ if LOCALE == 'zhCN' then
 	UILOC.COMPLETED = "已完成";
 	UILOC.IN_PROGRESS = "进行中";
 	--	setting
+	UILOC.TAG_SETTING = "";
+	UILOC.show_quest_starter = "显示任务给与者";
+	UILOC.show_quest_ender = "显示任务交还者";
+	UILOC.show_db_icon = "显示小地图按钮";
 	UILOC.min_rate = "最低物品掉率";
 	UILOC.pin_size = "普通标记点大小";
 	UILOC.large_size = "boss标记点大小";
@@ -98,6 +102,8 @@ if LOCALE == 'zhCN' then
 	UILOC.pin_scale_max = "地图缩放时标记点的最大缩放";
 	UILOC.quest_lvl_lowest_ofs = "最低任务等级偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任务等级偏差";
+	UILOC.auto_accept = "自动接任务";
+	UILOC.auto_complete = "自动交任务";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 elseif LOCALE == 'zhTW' then
@@ -119,6 +125,10 @@ elseif LOCALE == 'zhTW' then
 	UILOC.COMPLETED = "已完成";
 	UILOC.IN_PROGRESS = "進行中";
 	--	setting
+	UILOC.TAG_SETTING = "";
+	UILOC.show_quest_starter = "顯示任務給與者";
+	UILOC.show_quest_ender = "顯示任務交還者";
+	UILOC.show_db_icon = "顯示小地圖按鈕";
 	UILOC.min_rate = "最低物品掉率";
 	UILOC.pin_size = "普通標記點大小";
 	UILOC.large_size = "boss標記點大小";
@@ -126,6 +136,8 @@ elseif LOCALE == 'zhTW' then
 	UILOC.pin_scale_max = "地圖縮放時標記點的最大縮放";
 	UILOC.quest_lvl_lowest_ofs = "最低任務等級偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任務等級偏差";
+	UILOC.auto_accept = "自動接任務";
+	UILOC.auto_complete = "自動交任務";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 else
@@ -147,15 +159,21 @@ else
 	UILOC.COMPLETED = "COMPLETED";
 	UILOC.IN_PROGRESS = "Progress";
 	--	setting
-	UILOC.min_rate = "Minium drop rate";
-	UILOC.pin_size = "Size of most pins";
-	UILOC.large_size = "Size of BOSS pins";
-	UILOC.varied_size = "Size of quest npc pins";
-	UILOC.pin_scale_max = "Maxium scale size";
-	UILOC.quest_lvl_lowest_ofs = "Offset of lowest quest level";
-	UILOC.quest_lvl_highest_ofs = "Offset of highest quest level";
+	UILOC.TAG_SETTING = "";
+	UILOC.show_quest_starter = "Show Quest Giver";
+	UILOC.show_quest_ender = "Show Quest Turn In";
+	UILOC.show_db_icon = "Show Minimap DBIcon";
+	UILOC.min_rate = "Minium Drop Rate";
+	UILOC.pin_size = "Size of Most Pins";
+	UILOC.large_size = "Size of BOSS Pins";
+	UILOC.varied_size = "Size of Quest NPC Pins";
+	UILOC.pin_scale_max = "Maxium Scale Size";
+	UILOC.quest_lvl_lowest_ofs = "Offset of Lowest Quest Level";
+	UILOC.quest_lvl_highest_ofs = "Offset of Highest Quest Level";
+	UILOC.auto_accept = "Quest Auto Accept Quest";
+	UILOC.auto_complete = "Quest Auto Complete Quest";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.util'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.locale'); end

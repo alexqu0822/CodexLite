@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.core'); end
 
 -->		variables
 	local strfind = strfind;
@@ -68,7 +68,25 @@ local _ = nil;
 
 	__ns.__player_level = UnitLevel('player');
 -->		MAIN
-	local META = {  };	--	[quest_id] = { [flag:whether_nodes_added], [completed], [num_lines], [line(1, 2, 3, ...)] = { shown, objective_type, objective_id, description, finished, is_large_pin, progress, required, }, }
+	local show_starter, show_ender = false, false;
+	local META = {  };
+	--[[
+		[quest_id] = {
+			[title],
+			[flag]:whether_nodes_added,
+			[completed],
+			[num_lines],
+			[line(1, 2, 3, ...)] = {
+				[1] = shown,
+				[2] = objective_type,
+				[3] = objective_id,
+				[4] = description,
+				[5] = finished,
+				[6] = is_large_pin,
+				[7] = one_monster_add_all,
+			},
+		}
+	]]
 	local CACHE = {  };	--	如果META初始不为空（从保存变量中加载），需要根据META表初始化
 	local OBJ_LOOKUP = {  };
 	local QUESTS_COMPLETED = {  };
@@ -791,14 +809,14 @@ local _ = nil;
 			end
 		end
 		function UpdateQuests()
-			--[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart("module.core.UpdateQuests"); end
 			local _, num = GetNumQuestLogEntries();
 			local quest_changed = false;
 			local need_re_draw = false;
+			for quest_id, meta in next, META do
+				meta.flag = -1;
+			end
 			if num > 0 then
-				for quest_id, meta in next, META do
-					meta.flag = -1;
-				end
 				for index = 1, 40 do
 					local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(index);
 						-->	completed:	1 = completed, nil = not completed, -1 = failed		>>	0 = not completed
@@ -823,6 +841,11 @@ local _ = nil;
 							meta.flag = 1;
 							meta.num_lines = num_lines;
 							local has_unfinished_event = false;
+							-- local details = GetQuestObjectives(quest_id);
+							-- local detail = details[line];
+							-- local objective_type, finished, numRequired, numFulfilled, description = detail.type, detail.finished, detail.numRequired, detail.numFulfilled, detail.text;
+							local num_monster_lines = 0;
+							local monster_line = -1;
 							if completed == 1 or completed == -1 then			--	第一次检测到任务成功或失败时，隐藏已显示的任务目标
 								for line = 1, num_lines do
 									local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
@@ -855,6 +878,10 @@ local _ = nil;
 											meta_line[6] = large_pin;
 										end
 									end
+									if objective_type == 'monster' then
+										num_monster_lines = num_monster_lines + 1;
+										monster_line = line;
+									end
 									if push_line and meta_line[3] ~= nil then
 										__ns.PushAddLine(quest_id, line, finished, objective_type, meta_line[3], description);
 									end
@@ -863,11 +890,8 @@ local _ = nil;
 									DelEvent(quest_id);
 								end
 							else												--	检查任务进度
-								-- local details = GetQuestObjectives(quest_id);
 								for line = 1, num_lines do
 									local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
-									-- local detail = details[line];
-									-- local objective_type, finished, numRequired, numFulfilled, description = detail.type, detail.finished, detail.numRequired, detail.numFulfilled, detail.text;
 									local meta_line = meta[line];
 									local push_line = false;
 									if meta_line == nil then
@@ -906,7 +930,6 @@ local _ = nil;
 												if objective_id ~= nil then
 													meta_line[3] = objective_id;
 													meta_line[6] = large_pin;
-													meta_line[7] = true;
 													need_re_draw = true;
 												end
 											end
@@ -914,6 +937,10 @@ local _ = nil;
 										if objective_type == 'event' or objective_type == 'log' then
 											has_unfinished_event = true;
 										end
+									end
+									if objective_type == 'monster' then
+										num_monster_lines = num_monster_lines + 1;
+										monster_line = line;
 									end
 									if push_line and meta_line[3] ~= nil then
 										__ns.PushAddLine(quest_id, line, finished, objective_type, meta_line[3], description);
@@ -932,18 +959,68 @@ local _ = nil;
 									end
 								end
 							end
+							if num_monster_lines == 1 then
+								local obj = info.obj;
+								if obj ~= nil then
+									local U = obj.U;
+									if U ~= nil and #U > 1 then
+										local meta_line = meta[monster_line];
+										if meta_line[1] and meta_line[3] ~= nil and meta_line[7] == nil then
+											--	DelLine
+											DelLine(quest_id, monster_line, meta_line[2], meta_line[3], false, meta_line[6]);
+										end
+										if completed == 1 or completed == -1 or meta_line[5] then
+											if meta_line[7] == nil then
+												meta_line[7] = -1;
+												--	AddAllHidden
+												for index = 1, #U do
+													local uid = U[index];
+													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+													AddUnit(quest_id, monster_line, uid, false, large_pin);
+												end
+											elseif meta_line[7] == 1 then
+												meta_line[7] = -1;
+												--	HalfDel
+												--	= DelAllShown + AddAllHidden
+												for index = 1, #U do
+													local uid = U[index];
+													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+													DelUnit(quest_id, monster_line, uid, false, large_pin);
+													-- AddUnit(quest_id, monster_line, uid, false, large_pin);
+												end
+											end
+										else
+											if meta_line[7] ~= 1 then
+												meta_line[7] = 1;
+												--	AddAllShown
+												for index = 1, #U do
+													local uid = U[index];
+													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+													AddUnit(quest_id, monster_line, uid, true, large_pin);
+												end
+											end
+										end
+									end
+								end
+							end
 							if meta.completed ~= completed then
 								meta.completed = completed;
 								if completed == -1 then							--	失败时，添加起始点
-									AddQuestStart(quest_id, info);
+									if show_starter then
+										AddQuestStart(quest_id, info);
+									end
 									need_re_draw = true;
 								elseif completed == 1 then						--	成功时，添加结束点，删除起始点
 									DelQuestStart(quest_id, info);
-									AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_COMPLETED);
+									if show_ender then
+										AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_COMPLETED);
+									end
 									need_re_draw = true;
 								elseif completed == 0 then						--	未完成时，添加结束点，删除起始点
 									DelQuestStart(quest_id, info);
-									AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_UNCOMPLETED);
+									if show_ender then
+										AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_UNCOMPLETED);
+									end
 									need_re_draw = true;
 								end
 							end
@@ -960,19 +1037,33 @@ local _ = nil;
 			for quest_id, meta in next, META do
 				if meta.flag == -1 then
 					CACHE[quest_id] = nil;
+					local info = __db_quest[quest_id];
 					if meta.num_lines ~= nil then
 						for line = 1, meta.num_lines do
 							local meta_line = meta[line];
 							if meta_line ~= nil then
-								DelLine(quest_id, line, meta_line[2], meta_line[3], true, meta_line[6]);
-								_log_('DelLine-F__', valid, objective_type, objective_id);
+								if meta_line[7] ~= nil then
+									local obj = info.obj;
+									if obj ~= nil then
+										local U = obj.U;
+										if U ~= nil and #U > 1 then
+											for index = 1, #U do
+												local uid = U[index];
+												local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+												DelUnit(quest_id, line, uid, true, large_pin);
+											end
+										end
+									end
+								else
+									DelLine(quest_id, line, meta_line[2], meta_line[3], true, meta_line[6]);
+									_log_('DelLine-F__', nil, meta_line[2], meta_line[3]);
+								end
 							end
 						end
 					end
-					local info = __db_quest[quest_id];
 					if info ~= nil then
 						DelQuestEnd(quest_id, info);
-						if not QUESTS_COMPLETED[quest_id] then
+						if not QUESTS_COMPLETED[quest_id] and show_starter then
 							AddQuestStart(quest_id, info);
 						end
 					end
@@ -992,19 +1083,20 @@ local _ = nil;
 			if need_re_draw then
 				__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 			end
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.core.UpdateQuests'); end
+			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.UpdateQuests'); end
 		end
 	-->
 	-->		avl quest giver
 		local QUEST_WATCH_REP = {  };
 		local QUEST_WATCH_SKILL = {  };
 		function UpdateQuestGivers()
-			--[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart("module.core.UpdateQuestGivers"); end
 			local lowest = __ns.__player_level + SET.quest_lvl_lowest_ofs;
 			local highest = __ns.__player_level + SET.quest_lvl_highest_ofs;
 			for _, quest_id in next, __db_avl_quest_list do
 				local info = __db_quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil then
+					if info.lvl == nil or info.min == nil then print(quest_id, info.lvl, info.min); end
 					local acceptable = info.lvl >= lowest and info.min <= highest;
 					if acceptable then
 						local parent = info.parent;
@@ -1094,57 +1186,51 @@ local _ = nil;
 							end
 						end
 					end
-					if acceptable then
+					if acceptable and show_starter then
 						AddQuestStart(quest_id, info);
 					else
 						DelQuestStart(quest_id, info);
 					end
+				elseif not show_starter then
+					DelQuestStart(quest_id, info);
 				end
 			end
 			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.core.UpdateQuestGivers'); end
+			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.UpdateQuestGivers'); end
 		end
 	-->
 	-->		misc
 		local CalcQuestColorCount = 0;
 		function CalcQuestColor()
-			local changed = false;
-			local prev = GetQuestDifficultyColor(2).font;
-			for level = 2, 72 do
+			local changed = 0;
+			local prev = GetQuestDifficultyColor(1).font;
+			for level = 2, 999 do
 				local color1, color2 = GetQuestDifficultyColor(level);
 				local font = color1.font;
 				if prev ~= font then
 					if prev == "QuestDifficulty_Trivial" then
 						if font == "QuestDifficulty_Standard" then
-							if SET.quest_lvl_green ~= level then
-								SET.quest_lvl_green = level;
-								changed = true;
-							end
+							SET.quest_lvl_green = level;
+							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_Standard" then
 						if font == "QuestDifficulty_Difficult" then
-							if SET.quest_lvl_yellow ~= level then
-								SET.quest_lvl_yellow = level;
-								changed = true;
-							end
+							SET.quest_lvl_yellow = level;
+							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_Difficult" then
 						if font == "QuestDifficulty_VeryDifficult" then
-							if SET.quest_lvl_orange ~= level then
-								SET.quest_lvl_orange = level;
-								changed = true;
-							end
+							SET.quest_lvl_orange = level;
+							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_VeryDifficult" then
 						if font == "QuestDifficulty_Impossible" then
-							if SET.quest_lvl_red ~= level then
-								SET.quest_lvl_red = level;
-								changed = true;
-								break;
-							end
+							SET.quest_lvl_red = level;
+							changed = changed + 1;
+							break;
 						else
 						end
 					end
@@ -1152,7 +1238,7 @@ local _ = nil;
 				end
 			end
 			CalcQuestColorCount = CalcQuestColorCount + 1;
-			if changed or CalcQuestColorCount > 20 then
+			if changed >= 4 or CalcQuestColorCount > 20 then
 				_log_('color:1', SET.quest_lvl_green, SET.quest_lvl_yellow, SET.quest_lvl_orange, SET.quest_lvl_red, 'count', CalcQuestColorCount);
 				UpdateQuestGivers();
 			else
@@ -1160,7 +1246,45 @@ local _ = nil;
 			end
 		end
 	-->
+	-->		interface
+		local function SetQuestStarterShown(shown)
+			show_starter = SET.show_quest_starter;
+			UpdateQuestGivers();
+			if show_starter then
+				for quest_id, meta in next, META do
+					local info = __db_quest[quest_id];
+					if info ~= nil then
+						if meta.completed == -1 then
+							AddQuestStart(quest_id, info);
+						end
+					end
+				end
+			end
+			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
+		end
+		local function SetQuestEnderShown(shown)
+			show_ender = SET.show_quest_ender;
+			for quest_id, meta in next, META do
+				local info = __db_quest[quest_id];
+				if info ~= nil then
+					if show_ender then
+						if meta.completed == 1 then
+							AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_COMPLETED);
+						elseif meta.completed == 0 then
+							AddQuestEnd(quest_id, info, IMG_INDEX.IMG_E_UNCOMPLETED);
+						end
+					else
+						DelQuestEnd(quest_id, info);
+					end
+				end
+			end
+			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
+		end
+	-->
 	-->		extern method
+		__ns.SetQuestStarterShown = SetQuestStarterShown;
+		__ns.SetQuestEnderShown = SetQuestEnderShown;
+		--
 		__ns.UpdateQuests = UpdateQuests;
 		__ns.UpdateQuestGivers = UpdateQuestGivers;
 		__ns.AddObject = AddObject;
@@ -1244,6 +1368,86 @@ local _ = nil;
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
 		end
+		--	Auto Accept and Turnin
+		function __ns.GOSSIP_SHOW()
+			if SET.auto_complete then
+				for i = 1, GetNumGossipActiveQuests() do
+					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetGossipActiveQuests());
+					if title and isComplete then
+						return SelectGossipActiveQuest(i);
+					end
+				end
+			end
+			if SET.auto_accept then
+				for i = 1, GetNumGossipAvailableQuests() do
+					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetGossipAvailableQuests());
+					if title then
+						return SelectGossipAvailableQuest(i);
+					end
+				end
+			end
+			-- if SET.auto_accept then
+			-- 	for i = 1, GetNumAvailableQuests() do
+			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetGossipAvailableQuests(i);
+			-- 		if title then
+			-- 			return SelectAvailableQuest(i);
+			-- 		end
+			-- 	end
+			-- end
+		end
+		function __ns.QUEST_GREETING()
+			if SET.auto_complete then
+				for i = 1, GetNumActiveQuests() do
+					local title, isComplete = GetActiveTitle(i);
+					if title and isComplete then
+						return SelectActiveQuest(i);
+					end
+				end
+			end
+			if SET.auto_accept then
+				for i = 1, GetNumAvailableQuests() do
+					local title, isComplete = GetAvailableTitle(i);
+					if title then
+						return SelectAvailableQuest(i);
+					end
+				end
+			end
+		end
+		function __ns.QUEST_DETAIL()
+			if SET.auto_accept then
+				AcceptQuest();
+				QuestFrame:Hide();
+			end
+		end
+		function __ns.QUEST_PROGRESS()
+			if SET.auto_complete then
+				if IsQuestCompletable() then
+					CompleteQuest();
+				end
+			end
+		end
+		function __ns.QUEST_COMPLETE()
+			if SET.auto_complete then
+				local _NumChoices = GetNumQuestChoices();
+				if _NumChoices <= 1 then
+					GetQuestReward(_NumChoices);
+				end
+			end
+		end
+		function __ns.QUEST_ACCEPT_CONFIRM()
+			if SET.auto_accept then
+				ConfirmAcceptQuest() ;
+				StaticPopup_Hide("QUEST_ACCEPT");
+			end
+		end
+		function __ns.QUEST_AUTOCOMPLETE(id)
+			if SET.auto_complete then
+				local index = GetQuestLogIndexByID(id);
+				if GetQuestLogIsAutoComplete(index) then
+					ShowQuestComplete(index);
+				end
+			end
+		end
 	-->
 	function __ns.core_setup()
 		SET = __ns.__sv;
@@ -1268,11 +1472,13 @@ local _ = nil;
 		-- __eventHandler:RegEvent("PLAYER_ENTERING_WORLD");
 		--__eventHandler:RegEvent("SKILL_LINES_CHANGED");
 
-		-- __eventHandler:RegEvent("GOSSIP_SHOW");
-		-- __eventHandler:RegEvent("QUEST_GREETING");
-		-- __eventHandler:RegEvent("QUEST_DETAIL");
-		-- __eventHandler:RegEvent("QUEST_PROGRESS");
-		-- __eventHandler:RegEvent("QUEST_COMPLETE");
+		__eventHandler:RegEvent("GOSSIP_SHOW");
+		__eventHandler:RegEvent("QUEST_GREETING");
+		__eventHandler:RegEvent("QUEST_DETAIL");
+		__eventHandler:RegEvent("QUEST_PROGRESS");
+		__eventHandler:RegEvent("QUEST_COMPLETE");
+		__eventHandler:RegEvent("QUEST_ACCEPT_CONFIRM");
+		__eventHandler:RegEvent("QUEST_AUTOCOMPLETE");
 		-- __eventHandler:RegEvent("QUEST_FINISHED");
 		-- __eventHandler:RegEvent("QUEST_REMOVED");
 		--
@@ -1296,6 +1502,9 @@ local _ = nil;
 		__eventHandler:run_on_next_tick(UpdateQuests);
 		__eventHandler:run_on_next_tick(CalcQuestColor);
 		-- __eventHandler:run_on_next_tick(UpdateQuestGivers);
+		--
+		show_starter = SET.show_quest_starter;
+		show_ender = SET.show_quest_ender;
 	end
 -->
 
@@ -1322,4 +1531,4 @@ local _ = nil;
 		-->		NAME_PLATE_UNIT_REMOVED	
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.core'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core'); end

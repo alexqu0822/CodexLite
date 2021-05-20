@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.comm'); end
 
 -->		variables
 	local strfind = strfind;
@@ -573,7 +573,7 @@ local _ = nil;
 		end
 	-->
 		local function PushReset(name)
-				SendAddonMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PUSH .. "^RESET", "WHISPER", name);
+			SendAddonMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PUSH .. "^RESET", "WHISPER", name);
 		end
 		local function PushAddQuest(_quest, _done, title)
 			if _done then
@@ -806,4 +806,4 @@ local _ = nil;
 	end
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.comm'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.comm'); end

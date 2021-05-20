@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map'); end
 
 local GameTooltip = GameTooltip;
 local function button_info_OnEnter(self)
@@ -583,7 +583,6 @@ end
 			if mm_player_y == nil then mm_player_y = 0.0; end
 			if mm_player_x == nil then mm_player_x = 0.0; end
 			local mm_dynamic_update_interval = 0.05;
-			local mm_onupdate_interval = 0.016667;
 		--
 		function Minimap_HideCommonNodesMapUUID(map, uuid)
 			local num_changed = 0;
@@ -701,8 +700,7 @@ end
 			end
 		end
 		function Minimap_DrawNodesMap(map)
-			debugprofilestart();
-			-- --[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+			__ns._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
 			local num_changed = 0;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
@@ -850,9 +848,9 @@ end
 			if num_changed ~= 0 then
 				__popt:count(4, num_changed);
 			end
-			local cost = debugprofilestop();
+			local cost = __ns._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
 			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
 		end
 		function Minimap_HideNodes()
 			local num_pins = 0;
@@ -877,8 +875,6 @@ end
 		function Minimap_OnUpdate(self, elasped)
 			local now = GetTime();
 			if __mm_prev_update + mm_dynamic_update_interval <= now then
-				__mm_prev_update = now;
-				mm_onupdate_interval = elasped;
 				local map = mm_map;
 				if map ~= nil then
 					if GetMinimapShape ~= nil then
@@ -900,22 +896,25 @@ end
 					local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
 					Minimap:SetZoom(zoom);
 					local facing = GetPlayerFacing();
-					local is_rotate = GetCVar("rotateMinimap") == "1";
-					local y, x = UnitPosition('player');
-					if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or ((mm_is_rotate and facing ~= mm_rotate) or mm_is_rotate ~= is_rotate)) then
-						mm_player_x = x;
-						mm_player_y = y;
-						mm_indoor = indoor;
-						mm_zoom = zoom;
-						mm_is_rotate = is_rotate;
-						mm_rotate = facing;
-						mm_rotate_sin = _radius_sin(facing);
-						mm_rotate_cos = _radius_cos(facing);
-						mm_hsize = minimap_size[indoor][zoom] * 0.5;
-						mm_hheight = Minimap:GetHeight() * 0.5;
-						mm_hwidth = Minimap:GetWidth() * 0.5;
-						Minimap_DrawNodesMap(map);
-						mm_force_update = false;
+					if facing ~= nil then
+						local is_rotate = GetCVar("rotateMinimap") == "1";
+						local y, x = UnitPosition('player');
+						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or ((mm_is_rotate and facing ~= mm_rotate) or mm_is_rotate ~= is_rotate)) then
+							mm_player_x = x;
+							mm_player_y = y;
+							mm_indoor = indoor;
+							mm_zoom = zoom;
+							mm_is_rotate = is_rotate;
+							mm_rotate = facing;
+							mm_rotate_sin = _radius_sin(facing);
+							mm_rotate_cos = _radius_cos(facing);
+							mm_hsize = minimap_size[indoor][zoom] * 0.5;
+							mm_hheight = Minimap:GetHeight() * 0.5;
+							mm_hwidth = Minimap:GetWidth() * 0.5;
+							Minimap_DrawNodesMap(map);
+							mm_force_update = false;
+						end
+						__mm_prev_update = now;
 					end
 				end
 			end
@@ -1129,19 +1128,19 @@ end
 			function mapCallback:OnMapChanged()
 				--  Optionally override in your mixin, called when map ID changes
 				-- self:RefreshAllData();
-				--[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+				--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
 				local uiMapID = WorldMapFrame:GetMapID();
 				if uiMapID ~= wm_map then
 					WorldMap_HideNodesMap(wm_map);
 					wm_map = uiMapID;
 					WorldMap_DrawNodesMap(uiMapID);
 				end
-				--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.map.OnMapChanged'); end
+				--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
 			end
 			function mapCallback:OnCanvasScaleChanged()
 				local scale = mapCanvas:GetScale();
 				if map_canvas_scale ~= scale then
-					--[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+					--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
 					map_canvas_scale = scale;
 					local pin_scale_max = SET.pin_scale_max;
 					--
@@ -1160,7 +1159,7 @@ end
 						varied_size = varied_size * pin_scale_max / scale;
 					end
 					IterateWorldMapPinSetSize();
-					--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.map.OnCanvasScaleChanged'); end
+					--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
 				end
 			end
 			function mapCallback:OnCanvasSizeChanged()
@@ -1200,6 +1199,8 @@ end
 		-- 	end
 		-- end
 		WorldMapFrame:AddDataProvider(mapCallback);
+		wm_map = -1;
+		mapCallback:OnMapChanged();
 		__eventHandler:RegEvent("MINIMAP_UPDATE_ZOOM");
 		Minimap:HookScript("OnUpdate", Minimap_OnUpdate);
 		--
@@ -1222,4 +1223,4 @@ end
 -->		dev
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.map'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map'); end

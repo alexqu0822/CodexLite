@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.db-extra'); end
 
 local tremove = tremove;
 local __db = __ns.db;
@@ -38,12 +38,13 @@ local blacklist_quest = {
 		[614] = 1, -- Duplicate of 8551
 		[615] = 1, -- Duplicate of 8553. See #2215
 		[618] = 1, -- Duplicate of 8554
+		[934] = 1, -- Duplicate of 7383. See #2386
 		[9378] = 1, -- Naxxramas quest which doesn't seem to be in the game
 		[1318] = 1, -- Duplicate of 7703 and not in the game
 		[7704] = 1, -- Not in the game
-		[8258] = 1, -- Not in the game (yet) -- #1805
-		[6066] = 1, -- Not in the game - #1957
+		[7668] = 1, -- Not in the game (yet) Replaced with 8258 in Ph 4-- #1805 
 		[636] = 1, -- Not in the game - #1900
+		[6066] = 1, -- Not in the game - #1957
 		[4603] = 1, -- Duplicate of 2953
 		[4604] = 1, -- Duplicate of 2953
 		[8856] = 1, -- Duplicate of 8497
@@ -711,22 +712,597 @@ local blacklist_quest = {
 		[1288] = 1,
 		[908] = 1,
 	--	银色黎明
-		[9094] = 1,		--	银色黎明手套
-		[9318] = 1,
-		[9320] = 1,
-		[9341] = 1,
+		-- [9094] = 1,		--	银色黎明手套
+		-- [9318] = 1,
+		-- [9320] = 1,
+		-- [9341] = 1,
+		[9085] = 1,
+		[9153] = 1,
 		[9154] = 1,
 	--
-		-- [9085] = 1,
-		-- [9153] = 1,
 	--	NAXX调查入侵
-		-- [9260] = 1,
-		-- [9261] = 1,
-		-- [9262] = 1,
-		-- [9263] = 1,
-		-- [9264] = 1,
-		-- [9265] = 1,
+		[9260] = 1,
+		[9261] = 1,
+		[9262] = 1,
+		[9263] = 1,
+		[9264] = 1,
+		[9265] = 1,
 };
+local blacklist_quest_bcc = {
+	--	Questie
+		-- TBC event quests
+			-- [9249] = QuestieCorrections.TBC_ONLY,
+			[10938] = 1,
+			[10939] = 1,
+			[10940] = 1,
+			[10941] = 1,
+			[10942] = 1,
+			[10943] = 1,
+			[11117] = 1,
+			[11118] = 1,
+			[11120] = 1,
+			[11127] = 1,
+			[11131] = 1,
+			[11135] = 1,
+			[11219] = 1,
+			[11220] = 1,
+			[11318] = 1,
+			[11320] = 1,
+			[11356] = 1,
+			[11357] = 1,
+			[11360] = 1,
+			[11361] = 1,
+			[11392] = 1,
+			[11400] = 1,
+			[11401] = 1,
+			[11404] = 1,
+			[11405] = 1,
+			[11409] = 1,
+			[11437] = 1,
+			[11438] = 1,
+			[11439] = 1,
+			[11440] = 1,
+			[11441] = 1,
+			[11442] = 1,
+			[11446] = 1,
+			[11447] = 1,
+			[11449] = 1,
+			[11450] = 1,
+			[11454] = 1,
+			[11528] = 1,
+			[11580] = 1,
+			[11581] = 1,
+			[11583] = 1,
+			[11731] = 1,
+			[11732] = 1,
+			[11734] = 1,
+			[11735] = 1,
+			[11736] = 1,
+			[11737] = 1,
+			[11738] = 1,
+			[11739] = 1,
+			[11740] = 1,
+			[11741] = 1,
+			[11742] = 1,
+			[11743] = 1,
+			[11744] = 1,
+			[11745] = 1,
+			[11746] = 1,
+			[11747] = 1,
+			[11748] = 1,
+			[11749] = 1,
+			[11750] = 1,
+			[11751] = 1,
+			[11752] = 1,
+			[11753] = 1,
+			[11754] = 1,
+			[11755] = 1,
+			[11756] = 1,
+			[11757] = 1,
+			[11758] = 1,
+			[11759] = 1,
+			[11760] = 1,
+			[11761] = 1,
+			[11762] = 1,
+			[11763] = 1,
+			[11764] = 1,
+			[11765] = 1,
+			[11766] = 1,
+			[11767] = 1,
+			[11768] = 1,
+			[11769] = 1,
+			[11770] = 1,
+			[11771] = 1,
+			[11772] = 1,
+			[11773] = 1,
+			[11774] = 1,
+			[11775] = 1,
+			[11776] = 1,
+			[11777] = 1,
+			[11778] = 1,
+			[11779] = 1,
+			[11780] = 1,
+			[11781] = 1,
+			[11782] = 1,
+			[11783] = 1,
+			[11784] = 1,
+			[11785] = 1,
+			[11786] = 1,
+			[11787] = 1,
+			[11799] = 1,
+			[11800] = 1,
+			[11801] = 1,
+			[11802] = 1,
+			[11803] = 1,
+			[11804] = 1,
+			[11805] = 1,
+			[11806] = 1,
+			[11807] = 1,
+			[11808] = 1,
+			[11809] = 1,
+			[11810] = 1,
+			[11811] = 1,
+			[11812] = 1,
+			[11813] = 1,
+			[11814] = 1,
+			[11815] = 1,
+			[11816] = 1,
+			[11817] = 1,
+			[11818] = 1,
+			[11819] = 1,
+			[11820] = 1,
+			[11821] = 1,
+			[11822] = 1,
+			[11823] = 1,
+			[11824] = 1,
+			[11825] = 1,
+			[11826] = 1,
+			[11827] = 1,
+			[11828] = 1,
+			[11829] = 1,
+			[11830] = 1,
+			[11831] = 1,
+			[11832] = 1,
+			[11833] = 1,
+			[11834] = 1,
+			[11882] = 1,
+			[11886] = 1,
+			[11915] = 1,
+			[11933] = 1,
+			[11935] = 1,
+			[11964] = 1,
+			[11966] = 1,
+			[11970] = 1,
+			[11971] = 1,
+			[12020] = 1,
+			[12022] = 1,
+			[12133] = 1,
+			[12191] = 1,
+			[12194] = 1,
+			[12278] = 1,
+			[12286] = 1,
+			[12331] = 1,
+			[12332] = 1,
+			[12333] = 1,
+			[12334] = 1,
+			[12335] = 1,
+			[12336] = 1,
+			[12337] = 1,
+			[12338] = 1,
+			[12339] = 1,
+			[12340] = 1,
+			[12341] = 1,
+			[12342] = 1,
+			[12343] = 1,
+			[12344] = 1,
+			[12345] = 1,
+			[12346] = 1,
+			[12347] = 1,
+			[12348] = 1,
+			[12349] = 1,
+			[12350] = 1,
+			[12351] = 1,
+			[12352] = 1,
+			[12353] = 1,
+			[12354] = 1,
+			[12355] = 1,
+			[12356] = 1,
+			[12357] = 1,
+			[12358] = 1,
+			[12359] = 1,
+			[12360] = 1,
+			[12396] = 1,
+			[12397] = 1,
+			[12398] = 1,
+			[12399] = 1,
+			[12400] = 1,
+			[12401] = 1,
+			[12402] = 1,
+			[12403] = 1,
+			[12404] = 1,
+			[12405] = 1,
+			[12406] = 1,
+			[12407] = 1,
+			[12408] = 1,
+			[12409] = 1,
+			[12410] = 1,
+			[12420] = 1,
+	--	from Questie-TBC
+		----- TBC -------------- TBC quests --------------- TBC -----
+		----- TBC ------------- starting here -------------- TBC -----
+
+		-- [BETA] quests
+		[402] = 1, -- Sirra is Busy
+		[785] = 1, -- A Strategic Alliance
+		[999] = 1, -- When Dreams Turn to Nightmares
+		[1005] = 1, -- What Lurks Beyond
+		[1006] = 1, -- What Lies Beyond
+		[1099] = 1, -- Goblins Win!
+		[1263] = 1, -- The Burning Inn <CHANGE TO GOSSIP>
+		[1272] = 1, -- Finding Reethe <CHANGE INTO GOSSIP>
+		[1281] = 1, -- Jim's Song <CHANGE TO GOSSIP>
+		[1289] = 1, -- Vimes's Report
+		[1500] = 1, -- Waking Naralex
+		[8478] = 1, -- Choose Your Weapon
+		[8489] = 1, -- An Intact Converter
+		[8896] = 1, -- The Dwarven Spy
+		[9168] = 1, -- Heart of Deatholme
+		[9342] = 1, -- Marauding Crust Bursters
+		[9344] = 1, -- A Hasty Departure
+		[9346] = 1, -- When Helboars Fly
+		[9357] = 1, -- Report to Aeldon Sunbrand
+		[9382] = 1, -- The Fate of the Clefthoof
+		[9408] = 1, -- Forgotten Heroes
+		[9511] = 1, -- Kargath's Battle Plans
+		[9568] = 1, -- On the Offensive
+		[9749] = 1, -- They're Alive! Maybe...
+		[9929] = 1, -- The Missing Merchant
+		[9930] = 1, -- The Missing Merchant
+		[9941] = 1, -- Tracking Down the Culprits
+		[9942] = 1, -- Tracking Down the Culprits
+		[9943] = 1, -- Return to Thander
+		[9947] = 1, -- Return to Rokag
+		[9949] = 1, -- A Bird's-Eye View
+		[9950] = 1, -- A Bird's-Eye View
+		[9952] = 1, -- Prospector Balmoral
+		[9953] = 1, -- Lookout Nodak
+		[9958] = 1, -- Scouting the Defenses
+		[9959] = 1, -- Scouting the Defenses
+		[9963] = 1, -- Seeking Help from the Source
+		[9964] = 1, -- Seeking Help from the Source
+		[9965] = 1, -- A Show of Good Faith
+		[9966] = 1, -- A Show of Good Faith
+		[9969] = 1, -- The Final Reagents
+		[9974] = 1, -- The Final Reagents
+		[9975] = 1, -- Primal Magic
+		[9976] = 1, -- Primal Magic
+		[9980] = 1, -- Rescue Deirom!
+		[9981] = 1, -- Rescue Dugar!
+		[9984] = 1, -- Host of the Hidden City
+		[9985] = 1, -- Host of the Hidden City
+		[9988] = 1, -- A Dandy's Best Friend
+		[9989] = 1, -- Alien Spirits
+		[10014] = 1, -- The Firewing Point Project
+		[10015] = 1, -- The Firewing Point Project
+		[10029] = 1, -- The Spirits Are Calling
+		[10046] = 1, -- Through the Dark Portal
+		[10053] = 1, -- Dealing with Zeth'Gor
+		[10054] = 1, -- Impending Doom
+		[10056] = 1, -- Bleeding Hollow Supplies
+		[10059] = 1, -- Dealing With Zeth'Gor
+		[10060] = 1, -- Impending Doom
+		[10061] = 1, -- The Unyielding
+		[10062] = 1, -- Looking to the Leadership
+		[10084] = 1, -- Assault on Mageddon
+		[10088] = 1, -- When This Mine's a-Rockin'
+		[10089] = 1, -- Forge Camps of the Legion
+		[10092] = 1, -- Assault on Mageddon
+		[10100] = 1, -- The Mastermind
+		[10122] = 1, -- The Citadel's Reach
+		[10125] = 1, -- Mission: Disrupt Communications
+		[10126] = 1, -- Warboss Nekrogg's Orders
+		[10127] = 1, -- Mission: Sever the Tie
+		[10128] = 1, -- Saving Private Imarion
+		[10130] = 1, -- The Western Flank
+		[10131] = 1, -- Planning the Escape
+		[10133] = 1, -- Mission: Kill the Messenger
+		[10135] = 1, -- Mission: Be the Messenger
+		[10137] = 1, -- Provoking the Warboss
+		[10138] = 1, -- Under Whose Orders?
+		[10139] = 1, -- Dispatching the Commander
+		[10145] = 1, -- Mission: Sever the Tie UNUSED
+		[10147] = 1, -- Mission: Kill the Messenger
+		[10148] = 1, -- Mission: Be the Messenger
+		[10149] = 1, -- Mission: End All, Be All
+		[10150] = 1, -- The Citadel's Reach
+		[10151] = 1, -- Warboss Nekrogg's Orders
+		[10152] = 1, -- The Western Flank
+		[10153] = 1, -- Saving Scout Makha
+		[10154] = 1, -- Planning the Escape
+		[10155] = 1, -- Provoking the Warboss
+		[10156] = 1, -- Under Whose Orders?
+		[10157] = 1, -- Dispatching the Commander
+		[10158] = 1, -- Bleeding Hollow Supplies
+		[10179] = 1, -- The Custodian of Kirin'Var
+		[10187] = 1, -- A Message for the Archmage
+		[10195] = 1, -- Mercenary See, Mercenary Do
+		[10196] = 1, -- More Arakkoa Feathers
+		[10207] = 1, -- Forward Base: Reaver's Fall REUSE
+		[10214] = 1, -- When This Mine's a-Rockin'
+		[10244] = 1, -- R.T.F.R.C.M.
+		[10260] = 1, -- Netherologist Coppernickels
+		[10292] = 1, -- More Power!
+		[10370] = 1, -- Nazgrel's Command <TXT>
+		[10375] = 1, -- Obsidian Warbeads
+		[10386] = 1, -- The Fel Reaver Slayer
+		[10387] = 1, -- The Fel Reaver Slayer
+		[10398] = 1, -- Return to Honor Hold
+		[10401] = 1, -- Mission: End All, Be All
+		[10404] = 1, -- Against the Legion
+		[10441] = 1, -- Peddling the Goods
+		[10716] = 1, -- Test Flight: Raven's Wood <needs reward>
+		[10815] = 1, -- The Journal of Val'zareq: Portends of War
+		[10841] = 1, -- The Vengeful Harbringer
+		[10844] = 1, -- Forge Camp: Anger
+		[10871] = 1, -- Ally of the Netherwing
+		[10872] = 1, -- Zuluhed the Whacked
+		[10925] = 1, -- Evil Draws Near
+
+		-- [Not Used] quests
+		[1390] = 1, -- BETA Oops, We Killed Them Again.
+		[2019] = 1, -- Tools of the Trade
+		[5383] = 1, -- Krastinov's Bag of Horrors
+		[8530] = 1, -- The Alliance Needs Singed Corestones!
+		[8618] = 1, -- The Horde Needs More Singed Corestones!
+		[9380] = 1, -- BETA Hounded for More
+		[9510] = 1, -- BETA Bristlehide Clefthoof Hides
+		[9767] = 1, -- Know Your Enemy
+		[9955] = 1, -- A Show of Good Faith
+		[10090] = 1, -- BETA The Legion's Plans
+		[10970] = 1, -- A Mission of Mercy (Retail Only)
+
+		[9751] = 1, -- The Bloodcurse Legacy (duplicate of 9672 which is way easier to get)
+		[10169] = 1, -- Losing Gracefully (removed with 2.4.0)
+
+		-- [OLD] quests. Classic quests deprecated in TBC
+		[708] = 1,
+		[909] = 1,
+		[1288] = 1,
+		[1661] = 1,
+		[3366] = 1,
+		[3381] = 1,
+		[3631] = 1,
+		[4487] = 1,
+		[4488] = 1,
+		[4489] = 1,
+		[4490] = 1,
+		[5627] = 1,
+		[5641] = 1,
+		[5645] = 1,
+		[5647] = 1,
+		[6131] = 1,
+		[6221] = 1,
+		[6241] = 1,
+		[7364] = 1,
+		[7365] = 1,
+		[7421] = 1,
+		[7422] = 1,
+		[7423] = 1,
+		[7425] = 1,
+		[7426] = 1,
+		[7521] = 1,
+		[8368] = 1,
+		[8369] = 1,
+		[8370] = 1,
+		[8372] = 1,
+		[8374] = 1,
+		[8375] = 1,
+		[8383] = 1,
+		[8384] = 1,
+		[8386] = 1,
+		[8387] = 1,
+		[8389] = 1,
+		[8390] = 1,
+		[8391] = 1,
+		[8392] = 1,
+		[8393] = 1,
+		[8394] = 1,
+		[8395] = 1,
+		[8396] = 1,
+		[8397] = 1,
+		[8398] = 1,
+		[8399] = 1,
+		[8400] = 1,
+		[8401] = 1,
+		[8402] = 1,
+		[8403] = 1,
+		[8404] = 1,
+		[8405] = 1,
+		[8406] = 1,
+		[8407] = 1,
+		[8408] = 1,
+		[8411] = 1,
+		[8426] = 1,
+		[8427] = 1,
+		[8428] = 1,
+		[8429] = 1,
+		[8430] = 1,
+		[8431] = 1,
+		[8432] = 1,
+		[8433] = 1,
+		[8434] = 1,
+		[8435] = 1,
+		[8436] = 1,
+		[8437] = 1,
+		[8438] = 1,
+		[8439] = 1,
+		[8440] = 1,
+		[8441] = 1,
+		[8442] = 1,
+		[8443] = 1,
+		[9712] = 1,
+		[10377] = 1,
+		[11052] = 1,
+
+		-- Phase 2 - Serpentshrine Cavern, Tempest Keep
+		[11007] = 1,
+
+		-- Ogri'la & Sha'tari Skyguard
+		[11004] = 1, 
+		[11005] = 1, 
+		[11006] = 1, 
+		[11008] = 1, 
+		[11009] = 1, 
+		[11010] = 1, 
+		[11021] = 1, 
+		[11023] = 1, 
+		[11024] = 1, 
+		[11025] = 1, 
+		[11026] = 1, 
+		[11028] = 1, 
+		[11029] = 1, 
+		[11030] = 1, 
+		[11051] = 1, 
+		[11056] = 1, 
+		[11057] = 1, 
+		[11058] = 1, 
+		[11059] = 1, 
+		[11061] = 1, 
+		[11062] = 1, 
+		[11065] = 1, 
+		[11066] = 1, 
+		[11072] = 1, 
+		[11073] = 1, 
+		[11074] = 1, 
+		[11078] = 1, 
+		[11079] = 1, 
+		[11080] = 1, 
+		[11085] = 1, 
+		[11091] = 1, 
+		[11093] = 1, 
+		[11096] = 1, 
+		[11098] = 1, 
+		[11102] = 1, 
+		[11119] = 1, 
+		[11885] = 1, 
+
+		-- Netherwing
+		[10804] = 1,
+		[10870] = 1,
+		[11013] = 1,
+		[11015] = 1,
+		[11016] = 1,
+		[11017] = 1,
+		[11018] = 1,
+		[11020] = 1,
+		[11035] = 1,
+		[11041] = 1,
+		[11049] = 1,
+		[11050] = 1,
+		[11053] = 1,
+		[11054] = 1,
+		[11055] = 1,
+		[11064] = 1,
+		[11067] = 1,
+		[11068] = 1,
+		[11069] = 1,
+		[11070] = 1,
+		[11071] = 1,
+		[11075] = 1,
+		[11076] = 1,
+		[11077] = 1,
+		[11081] = 1,
+		[11082] = 1,
+		[11083] = 1,
+		[11084] = 1,
+		[11086] = 1,
+		[11089] = 1,
+		[11090] = 1,
+		[11092] = 1,
+		[11094] = 1,
+		[11097] = 1,
+		[11099] = 1,
+		[11101] = 1,
+		[11108] = 1,
+
+		-- Phase 3 - Hyjal, Black Temple
+		[10445] = 1,
+		[10460] = 1,
+		[10461] = 1,
+		[10462] = 1,
+		[10463] = 1,
+		[10464] = 1,
+		[10465] = 1,
+		[10466] = 1,
+		[10467] = 1,
+		[10468] = 1,
+		[10469] = 1,
+		[10470] = 1,
+		[10471] = 1,
+		[10472] = 1,
+		[10473] = 1,
+		[10474] = 1,
+		[10475] = 1,
+		[10560] = 1,
+		[10944] = 1,
+		[10946] = 1,
+		[10947] = 1,
+		[10948] = 1,
+		[10949] = 1,
+		[10957] = 1,
+		[10958] = 1,
+		[10959] = 1,
+		[10985] = 1,
+
+		-- Phase 4 Zul'Aman
+		[11130] = 1,
+		[11132] = 1,
+		[11164] = 1,
+		[11178] = 1,
+		[11196] = 1,
+
+		-- Phase 5 Sunwell and Isle of Quel'Danas
+		[9684] = 1, -- Remember to blacklist 63866 and change the item source of 24156 to NPC 17845
+		[11481] = 1,
+		[11482] = 1,
+		[11488] = 1,
+		[11496] = 1,
+		[11517] = 1,
+		[11520] = 1,
+		[11521] = 1,
+		[11523] = 1,
+		[11524] = 1,
+		[11525] = 1,
+		[11526] = 1,
+		[11532] = 1,
+		[11533] = 1,
+		[11534] = 1,
+		[11535] = 1,
+		[11536] = 1,
+		[11537] = 1,
+		[11538] = 1,
+		[11539] = 1,
+		[11540] = 1,
+		[11541] = 1,
+		[11542] = 1,
+		[11543] = 1,
+		[11544] = 1,
+		[11545] = 1,
+		[11546] = 1,
+		[11547] = 1,
+		[11548] = 1,
+		[11549] = 1,
+		[11550] = 1,
+		[11554] = 1,
+		[11555] = 1,
+		[11556] = 1,
+		[11557] = 1,	
+};
+if __ns.__toc >= 20000 and __ns.__toc < 30000 then
+	for id, val in next, blacklist_quest_bcc do
+		blacklist_quest[id] = val;
+	end
+end
 __db.blacklist_quest = blacklist_quest;
 local blacklist_item = {
 	[2589] = 1, -- linen cloth
@@ -4688,6 +5264,7 @@ local function load_extra_db()
 			chain_prev_quest[_next] = quest;
 		end
 	end
+	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.faction'); end
 	-->		faction quest list
 		local key = UnitFactionGroup('player') == "Alliance" and "facA" or "facH";
 		local str = UnitFactionGroup('player') == "Alliance" and "A" or "H";
@@ -4708,6 +5285,7 @@ local function load_extra_db()
 		end
 	-->
 	--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db.faction'); end
+	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.item2quest'); end
 	-->		item to quest
 		for quest, info in next, __db_quest do
 			if blacklist_quest[quest] == nil then
@@ -4741,6 +5319,7 @@ local function load_extra_db()
 		end
 	-->
 	--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db.item2quest'); end
+	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.del_unused'); end
 	-->		del unused
 		-->		cache
 		local temp_U = {  };
@@ -4877,4 +5456,4 @@ end
 
 __ns.load_extra_db = load_extra_db;
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.db-extra'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.db-extra'); end
