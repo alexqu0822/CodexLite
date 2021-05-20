@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.util'); end
 
 -->		variables
 	local type = type;
@@ -311,7 +311,7 @@ local _ = nil;
 						end
 					else
 						local loc = __loc_quest[quest];
-						if loc ~= nil then
+						if loc ~= nil and loc[1] ~= nil then
 							tip:AddLine(TIP_IMG_S_NORMAL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 							if modifier and loc[3] then
 								for _, text in next, loc[3] do
@@ -509,6 +509,38 @@ local _ = nil;
 			if GameTooltip:IsShown() then
 			end
 		end
+	-->		DBIcon
+		local function CreateDBIcon()
+			local LDI = LibStub("LibDBIcon-1.0", true);
+			if LDI then
+				__ns.__sv.minimapPos = __ns.__sv.minimapPos or 135;
+				LDI:Register(
+					"CodexLite",
+					{
+						icon = [[interface\icons\inv_misc_book_09]],
+						OnClick = function(self, button)
+							if __ns.__ui_setting:IsShown() then
+								__ns.__ui_setting:Hide();
+							else
+								__ns.__ui_setting:Show();
+							end
+						end,
+						text = "CodexLite",
+						OnTooltipShow = function(tt)
+							tt:AddLine("CodexLite");
+							tt:Show();
+						end,
+					},
+					__ns.__sv
+				);
+				LDI:Show(__addon);
+				if SET.show_db_icon then
+					LibStub("LibDBIcon-1.0", true):Show(__addon);
+				else
+					LibStub("LibDBIcon-1.0", true):Hide(__addon);
+				end
+			end
+		end
 	-->
 	function __ns.util_setup()
 		SET = __ns.__sv;
@@ -525,6 +557,10 @@ local _ = nil;
 		end);
 		GameTooltip:HookScript("OnUpdate", GameTooltipOnUpdate);
 		__eventHandler:RegEvent("MODIFIER_STATE_CHANGED");
+		--
+		if LibStub ~= nil then
+			CreateDBIcon();
+		end
 		--
 		_F_SafeCall(__ns._checkConflicts);
 	end
@@ -625,4 +661,4 @@ local _ = nil;
 	end
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.util'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.util'); end

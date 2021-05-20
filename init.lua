@@ -1,5 +1,5 @@
 --[[--
-	ALL RIGHTS RESERVCED by ALA @ 163UI/网易有爱
+	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
@@ -10,7 +10,10 @@ __ala_meta__.quest = __ns;
 local core = {  };
 __ns.core = core;
 __ns.____bn_tag = select(2, BNGetInfo());
-__ns.__dev = __ns.____bn_tag == 'alex#516722';
+__ns.__dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
+__ns.__toc = select(4, GetBuildInfo());
+__ns.__expansion = GetExpansionLevel();
+__ns.__maxLevel = GetMaxLevelForExpansionLevel(__ns.__expansion);
 
 __ns.__fenv = setmetatable({  }, {
 		__index = _G,
@@ -27,7 +30,53 @@ end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__dev then debugprofilestart(); end
+-->		Time
+	local _debugprofilestart, _debugprofilestop = debugprofilestart, debugprofilestop;
+	local TheFuckingAccurateTime = _G.AccurateTime;
+	--	Fuck the fucking idiot's code. I think his head is full of bullshit.
+	if TheFuckingAccurateTime ~= nil then
+		_debugprofilestart = TheFuckingAccurateTime._debugprofilestart or _debugprofilestart;
+		_debugprofilestop = TheFuckingAccurateTime._debugprofilestop or _debugprofilestop;
+	end
+	--
+	local _LT_devDebugProfilePoint = {
+		["*"] = 0,
+	};
+	local function _F_devDebugProfileStart(key)
+		_LT_devDebugProfilePoint[key] = _debugprofilestop();
+	end
+	local function _F_devDebugProfileTick(key)
+		local _val = _LT_devDebugProfilePoint[key];
+		if _val ~= nil then
+			_val = _debugprofilestop() - _val;
+			_val = _val - _val % 0.0001;
+			return _val;
+		end
+	end
+	__ns._F_devDebugProfileStart = _F_devDebugProfileStart;
+	__ns._F_devDebugProfileTick = _F_devDebugProfileTick;
+	local _LN_devTheLastDebugProfilePoint = _debugprofilestop();
+	function _G.debugprofilestart()
+		_LN_devTheLastDebugProfilePoint = _debugprofilestop();
+	end
+	function _G.debugprofilestop()
+		return _debugprofilestop() - _LN_devTheLastDebugProfilePoint;
+	end
+	-->		Time
+	if GetTimePreciseSec == nil then
+		_F_devDebugProfileStart("_sys._1core.time.alternative");
+		 GetTimePreciseSec = function()
+			return _F_devDebugProfileTick("_sys._1core.time.alternative");
+		 end
+	end
+	local _LN_devBaseTime = GetTimePreciseSec();
+	function __ns._F_devGetPreciseTime()
+		local _now = GetTimePreciseSec() - _LN_devBaseTime + 0.00005;
+		return _now - _now % 0.0001;
+	end
+-->
+
+--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.init'); end
 
 local SET = nil;
 
@@ -98,15 +147,16 @@ local SET = nil;
 		end
 		function _EventHandler:run_on_next_tick(func)
 			if run_on_next_tick_hash_1[func] ~= nil then
-				return;
+				return false;
 			end
-			if run_on_next_tick_hash_2[func] ~= nil then
-				return;
-			end
+			-- if run_on_next_tick_hash_2[func] ~= nil then
+			-- 	return false;
+			-- end
 			local index = #run_on_next_tick_func_1 + 1;
 			run_on_next_tick_func_1[index] = func;
 			run_on_next_tick_hash_1[func] = index;
 			self:SetScript("OnUpdate", run_on_next_tick_handler);
+			return true;
 		end
 	-->
 -->
@@ -389,7 +439,8 @@ local SET = nil;
 		--	地图坐标系【右手系，右下为0】(x, y, z) >> 地图坐标系【左手系,左上为0】(-y, -x, z)
 		local vector0000 = CreateVector2D(0, 0);
 		local vector0505 = CreateVector2D(0.5, 0.5);
-		local function processMap(map)
+		local processMap = nil;
+		processMap = function(map)
 			local meta = mapMeta[map];
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
@@ -459,15 +510,16 @@ local SET = nil;
 							local adata = C_Map_GetMapInfoAtPosition(map, x, y);
 							if adata ~= nil then
 								local amap = adata.mapID;
-								if amap ~= nil and  amap ~= map then
+								if amap ~= nil and amap ~= map then
 									local ameta = processMap(amap);
 									if ameta ~= nil and ameta.parent ~= map then
 										local amaps = meta.adjoined;
 										if amaps == nil then
-											amaps = {  };
+											amaps = { [amap] = 1, };
 											meta.adjoined = amaps;
+										else
+											amaps[amap] = 1;
 										end
-										amaps[amap] = 1;
 									end
 								end
 							end
@@ -483,6 +535,40 @@ local SET = nil;
 		for map = 1, 2000 do
 			processMap(map);
 		end
+		if __ns.__toc >= 20000 and __ns.__toc < 30000 then
+			local data = {
+				[1944] = { 1946, 1952, },
+				[1946] = { 1944, 1949, 1951, 1952, 1955, },
+				[1948] = { 1952, },
+				[1949] = { 1946, 1953, },
+				[1951] = { 1946, 1952, 1955, },
+				[1952] = { 1944, 1946, 1948, 1951, 1955, },
+				[1953] = { 1949, },
+				[1955] = { 1946, 1951, 1952, },
+				--
+				[1947] = { 1950, },
+				[1950] = { 1947, },
+				[1941] = { 1942, 1954, },
+				[1942] = { 1941, },
+				[1954] = { 1941, },
+			};
+			for map, list in next, data do
+				local meta = mapMeta[map];
+				if meta ~= nil then
+					local amaps = meta.adjoined;
+					for _, val in next, list do
+						if mapMeta[val] ~= nil then
+							if amaps == nil then
+								amaps = { [val] = 1, };
+								meta.adjoined = amaps;
+							else
+								amaps[val] = 1;
+							end
+						end
+					end
+				end
+			end
+		end
 	-->
 	--	return map, x, y
 	local function GetUnitPosition(unit)
@@ -492,7 +578,7 @@ local SET = nil;
 	--	return map, x, y	-->	bound to [0.0, 1.0]
 	local function GetZonePositionFromWorldPosition(map, x, y)
 		local data = mapMeta[map];
-		if data ~= nil then
+		if data ~= nil and data[2] ~= 0 then
 			x, y = (data[3] - x) / data[1], (data[4] - y) / data[2];
 			if x <= 1.0 and x >= 0.0 and y <= 1.0 and y >= 0.0 then
 				return map, x, y;
@@ -827,31 +913,15 @@ local SET = nil;
 			['module.map.OnCanvasScaleChanged'] = true,
 		['module.util'] = false,
 	};
-	local timer = 0.0;
-	function __ns.__performance_start()
-		debugprofilestart();
-		timer = 0.0;
-	end
-	function __ns.__performance_log(tag, ex1, ex2, ex3)
-		local val = __PERFORMANCE_LOG_TAGS[tag];
-		if val ~= nil then
-			local cost = debugprofilestop();
-			if val == false or cost >= 10.0 then
-				cost = cost - cost % 0.0001;
-				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
-			end
-		end
-	end
+	__ns.__performance_start = _F_devDebugProfileStart;
 	function __ns.__performance_log_tick(tag, ex1, ex2, ex3)
 		local val = __PERFORMANCE_LOG_TAGS[tag];
 		if val ~= nil then
-			local cur = debugprofilestop();
-			local cost = cur - timer;
+			local cost = __ns._F_devDebugProfileTick(tag);
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
 				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r'), tag, cost, ex1, ex2, ex3);
 			end
-			timer = cur;
 		end
 	end
 	function __ns.__opt_log(tag, ...)
@@ -861,23 +931,30 @@ local SET = nil;
 
 -->		INITIALIZE
 	local function init()
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start(); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.patch'); end
 		__ns.apply_patch();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.patch'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db'); end
 		__ns.load_extra_db();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.setting'); end
 		__ns.setting_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.setting'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.core'); end
 		__ns.core_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.core'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.map'); end
 		__ns.map_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.map'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.comm'); end
 		__ns.comm_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.comm'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.util'); end
 		__ns.util_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.util'); end
 		SET = __ns.__sv;
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.init.init'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init'); end
 		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
 	end
 	function __ns.PLAYER_ENTERING_WORLD()
@@ -896,4 +973,4 @@ local SET = nil;
 	_EventHandler:RegEvent("LOADING_SCREEN_DISABLED");
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log('module.init'); end
+--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init'); end
