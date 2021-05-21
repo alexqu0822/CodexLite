@@ -411,7 +411,7 @@ local _ = nil;
 				if info.I ~= nil then
 					local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						DelItem(name, quest, line, iid, total_del, large_pin);
+						DelItem(name, quest, line, iid2, total_del, large_pin);
 					end
 				end
 			end
