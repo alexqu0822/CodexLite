@@ -377,31 +377,32 @@ local _ = nil;
 		function AddUnit(quest, line, uid, show_coords, large_pin, showFriend)
 			local info = __db_unit[uid];
 			if info ~= nil then
-				local isFriend = nil;
-				if info.fac == nil then
-					if info.facId ~= nil then
-						local _, _, standing_rank, _, _, val = GetFactionInfoByID(info.facId);
-						if val > 0 then
-							isFriend = true;
-						else		--	if val <= -3000 then	--	冷淡不会招致主动攻击，敌对开始主动攻击
+				if showFriend ~= nil then
+					local isFriend = nil;
+					if info.fac == nil then
+						if info.facId ~= nil then
+							local _, _, standing_rank, _, _, val = GetFactionInfoByID(info.facId);
+							if val > 0 then
+								isFriend = true;
+							else		--	if val <= -3000 then	--	冷淡不会招致主动攻击，敌对开始主动攻击
+								isFriend = false;
+							end
+						else
 							isFriend = false;
 						end
 					else
-						isFriend = false;
+						isFriend = UnitHelpFac[info.fac];
 					end
-				else
-					isFriend = UnitHelpFac[info.fac];
+					if not showFriend == not isFriend then
+						return;
+					end
 				end
-				if not showFriend == not isFriend then
-					-- if show_coords then
-						PreloadCoords(info);
-						local coords = show_coords and info.coords or nil;
-						if large_pin then
-							AddLargeNodes('unit', uid, quest, line, coords);
-						else
-							AddCommonNodes('unit', uid, quest, line, coords);
-						end
-					-- end
+				PreloadCoords(info);
+				local coords = show_coords and info.coords or nil;
+				if large_pin then
+					AddLargeNodes('unit', uid, quest, line, coords);
+				else
+					AddCommonNodes('unit', uid, quest, line, coords);
 				end
 			end
 		end
@@ -442,7 +443,7 @@ local _ = nil;
 			if info ~= nil then
 				if info.U ~= nil then
 					for uid, _ in next, info.U do
-						AddUnit(quest, line, uid, show_coords, large_pin);
+						AddUnit(quest, line, uid, show_coords, large_pin, false);
 					end
 				end
 				if info.O ~= nil then
@@ -476,7 +477,7 @@ local _ = nil;
 				if info.U ~= nil then
 					for uid, rate in next, info.U do
 						if rate >= SET.min_rate then
-							AddUnit(quest, line, uid, show_coords, large_pin);
+							AddUnit(quest, line, uid, show_coords, large_pin, false);
 						end
 					end
 				end
@@ -664,7 +665,7 @@ local _ = nil;
 						local uid = #U == 1 and U[1] or cache[name] or FindMinLevenshteinDistance(name, __loc_unit, U);
 						if uid then
 							local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-							AddUnit(quest_id, index, uid, not finished, large_pin, true);
+							AddUnit(quest_id, index, uid, not finished, large_pin, nil);
 							return true, uid, large_pin;
 						else
 							_log_('Missing Obj', objective_type, name, text, quest_id);
@@ -726,7 +727,7 @@ local _ = nil;
 		function AddLineByID(quest_id, index, objective_type, _id, finished)
 			if objective_type == 'monster' then
 				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
-				AddUnit(quest_id, index, _id, not finished, large_pin, true);
+				AddUnit(quest_id, index, _id, not finished, large_pin, nil);
 				return true, _id, large_pin;
 			elseif objective_type == 'item' then
 				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
@@ -976,7 +977,7 @@ local _ = nil;
 												for index = 1, #U do
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, false, large_pin, true);
+													AddUnit(quest_id, monster_line, uid, false, large_pin, nil);
 												end
 											elseif meta_line[7] == 1 then
 												meta_line[7] = -1;
@@ -986,7 +987,7 @@ local _ = nil;
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
 													DelUnit(quest_id, monster_line, uid, false, large_pin);
-													-- AddUnit(quest_id, monster_line, uid, false, large_pin, true);
+													-- AddUnit(quest_id, monster_line, uid, false, large_pin, nil);
 												end
 											end
 										else
@@ -996,7 +997,7 @@ local _ = nil;
 												for index = 1, #U do
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, true, large_pin, true);
+													AddUnit(quest_id, monster_line, uid, true, large_pin, nil);
 												end
 											end
 										end
