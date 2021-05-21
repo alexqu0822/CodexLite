@@ -664,7 +664,7 @@ local _ = nil;
 						local uid = #U == 1 and U[1] or cache[name] or FindMinLevenshteinDistance(name, __loc_unit, U);
 						if uid then
 							local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-							AddUnit(quest_id, index, uid, not finished, large_pin);
+							AddUnit(quest_id, index, uid, not finished, large_pin, true);
 							return true, uid, large_pin;
 						else
 							_log_('Missing Obj', objective_type, name, text, quest_id);
@@ -726,7 +726,7 @@ local _ = nil;
 		function AddLineByID(quest_id, index, objective_type, _id, finished)
 			if objective_type == 'monster' then
 				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
-				AddUnit(quest_id, index, _id, not finished, large_pin);
+				AddUnit(quest_id, index, _id, not finished, large_pin, true);
 				return true, _id, large_pin;
 			elseif objective_type == 'item' then
 				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
@@ -976,7 +976,7 @@ local _ = nil;
 												for index = 1, #U do
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, false, large_pin);
+													AddUnit(quest_id, monster_line, uid, false, large_pin, true);
 												end
 											elseif meta_line[7] == 1 then
 												meta_line[7] = -1;
@@ -986,7 +986,7 @@ local _ = nil;
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
 													DelUnit(quest_id, monster_line, uid, false, large_pin);
-													-- AddUnit(quest_id, monster_line, uid, false, large_pin);
+													-- AddUnit(quest_id, monster_line, uid, false, large_pin, true);
 												end
 											end
 										else
@@ -996,7 +996,7 @@ local _ = nil;
 												for index = 1, #U do
 													local uid = U[index];
 													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, true, large_pin);
+													AddUnit(quest_id, monster_line, uid, true, large_pin, true);
 												end
 											end
 										end
