@@ -273,7 +273,7 @@ local _ = nil;
 					else
 						isFriend = UnitHelpFac[info.fac];
 					end
-					if not showFriend == not isFriend then
+					if not showFriend ~= not isFriend then
 						return;
 					end
 				end
