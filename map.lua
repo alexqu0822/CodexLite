@@ -713,7 +713,7 @@ end
 						local dx = val[1] - mm_player_x;
 						local dy = val[2] - mm_player_y;
 						if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize then		--	check_func.SQUARE donot check it
-							if mm_check_func(dx, dy, mm_hsize) then
+							if mm_check_func == nil or mm_check_func(dx, dy, mm_hsize) then
 								local pin = MM_COMMON_PINS[coord];
 								if pin == nil then
 									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
@@ -760,7 +760,7 @@ end
 						local dx = val[1] - mm_player_x;
 						local dy = val[2] - mm_player_y;
 						if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize then		--	check_func.SQUARE donot check it
-							if mm_check_func(dx, dy, mm_hsize) then
+							if mm_check_func == nil or mm_check_func(dx, dy, mm_hsize) then
 								local pin = MM_LARGE_PINS[coord];
 								if pin == nil then
 									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);

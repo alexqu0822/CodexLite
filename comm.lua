@@ -42,6 +42,8 @@ local _ = nil;
 	local _F_SafeCall = __ns.core._F_SafeCall;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
+	local PreloadCoords = __ns.core.PreloadCoords;
+	local GetQuestStartTexture = __ns.core.GetQuestStartTexture;
 
 	local __core_meta = __ns.__core_meta;
 
@@ -768,7 +770,7 @@ local _ = nil;
 											meta_line[4] = _text;
 											meta_line[5] = _done;
 										end
-										if _type == 'object' then
+										if _type == 'object' and __loc_object[id] ~= nil then
 											OBJ_LOOKUP[__loc_object[id]] = id;
 										end
 										AddLine(name, _quest, _val, _type, _id, _done);
