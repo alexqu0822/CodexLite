@@ -133,7 +133,7 @@ local SET = nil;
 					end
 					func = tremove(run_on_next_tick_func_2, 1);
 				end
-				if #run_on_next_tick_func_1 == 0 then
+				if run_on_next_tick_func_1[1] == nil then
 					_EventHandler:SetScript("OnUpdate", nil);
 					run_on_next_tick_hash_1 = {  };
 					run_on_next_tick_hash_2 = {  };
@@ -474,7 +474,7 @@ local SET = nil;
 						end
 					end
 					local children = C_Map_GetMapChildrenInfo(map);
-					if children ~= nil and #children > 0 then
+					if children ~= nil and children[1] ~= nil then
 						for index = 1, #children do
 							local cmap = children[index].mapID;
 							if cmap ~= nil then
@@ -496,7 +496,7 @@ local SET = nil;
 					local groupID = C_Map_GetMapGroupID(map);
 					if groupID then
 						local groupMembers = C_Map_GetMapGroupMembersInfo(groupID);
-						if groupMembers ~= nil and #groupMembers > 0 then
+						if groupMembers ~= nil and groupMembers[1] ~= nil then
 							for index = 1, #groupMembers do
 								local mmap = groupMembers[index].mapID;
 								if mmap ~= nil then
@@ -905,7 +905,8 @@ local SET = nil;
 		['module.db-extra'] = false,
 		['module.patch'] = false,
 		['module.core'] = false,
-			['module.core.UpdateQuests'] = true,
+			['module.core.UpdateQuests'] = false,
+			['module.core.|cffff0000UpdateQuests|r'] = false,
 			['module.core.UpdateQuestGivers'] = true,
 		['module.map'] = false,
 			['module.map.Minimap_DrawNodesMap'] = true,
@@ -941,15 +942,15 @@ local SET = nil;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.setting'); end
 		__ns.setting_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.setting'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.core'); end
-		__ns.core_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.core'); end
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.map'); end
 		__ns.map_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.map'); end
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.comm'); end
 		__ns.comm_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.comm'); end
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.core'); end
+		__ns.core_setup();
+		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.core'); end
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.util'); end
 		__ns.util_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.util'); end

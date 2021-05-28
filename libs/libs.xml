@@ -7,7 +7,7 @@
     <Include file="LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
     <Include file="LibDBIcon-1.0\LibDBIcon-1.0.lua"/>
 
-    <include file = "alaShared\alaShared.xml" />
+    <!-- <include file = "ala\main.xml" /> -->
     <!-- <include file = "HereBeDragons\LibStub\LibStub.lua" /> -->
     <!-- <include file = "HereBeDragons\CallbackHandler-1.0\CallbackHandler-1.0.lua" /> -->
     <!-- <include file = "HereBeDragons\HereBeDragons-2.0.lua" /> -->

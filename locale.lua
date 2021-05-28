@@ -104,6 +104,8 @@ if LOCALE == 'zhCN' then
 	UILOC.quest_lvl_highest_ofs = "最高任务等级偏差";
 	UILOC.auto_accept = "自动接任务";
 	UILOC.auto_complete = "自动交任务";
+	UILOC.quest_auto_inverse_modifier = "自动交接反向按键";
+	UILOC.tip_info = "显示鼠标提示";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 elseif LOCALE == 'zhTW' then
@@ -138,6 +140,8 @@ elseif LOCALE == 'zhTW' then
 	UILOC.quest_lvl_highest_ofs = "最高任務等級偏差";
 	UILOC.auto_accept = "自動接任務";
 	UILOC.auto_complete = "自動交任務";
+	UILOC.quest_auto_inverse_modifier = "自動交接反向按鍵";
+	UILOC.tip_info = "顯示鼠標提示";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 else
@@ -172,6 +176,8 @@ else
 	UILOC.quest_lvl_highest_ofs = "Offset of Highest Quest Level";
 	UILOC.auto_accept = "Quest Auto Accept Quest";
 	UILOC.auto_complete = "Quest Auto Complete Quest";
+	UILOC.quest_auto_inverse_modifier = "Auto-Turn-In inverse modifier";
+	UILOC.tip_info = "Info in tip";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end

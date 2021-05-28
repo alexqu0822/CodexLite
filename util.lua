@@ -327,27 +327,29 @@ local _ = nil;
 			end
 		end
 		local function OnTooltipSetUnit(self)
-			local _, unit = self:GetUnit();
-			if unit and not UnitIsPlayer(unit) then
-				local GUID = UnitGUID(unit);
-				if GUID ~= nil then
-					-- local _, _, _id = strfind(GUID, "Creature%-0%-%d+%-%d+%-%d+%-(%d+)%-%x+");
-					local _type, _, _, _, _, _id = strsplit("-", GUID);
-					if _type == "Creature" and _id ~= nil then
-						_id = tonumber(_id);
-						if _id ~= nil then
-							local uuid = __ns.CoreGetUUID('unit', _id);
-							if uuid ~= nil then
-								GameTooltipSetQuestTip(GameTooltip, uuid);
-							end
-							for name, val in next, __ns.__group_members do
-								local meta_table = __comm_meta[name];
-								if meta_table ~= nil then
-									local uuid = __ns.CommGetUUID(name, 'unit', _id);
-									if uuid ~= nil then
-										local _name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
-										GameTooltip:AddLine(GetPlayerTag(name, fileName));
-										GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+			if SET.tip_info then
+				local _, unit = self:GetUnit();
+				if unit and not UnitIsPlayer(unit) then
+					local GUID = UnitGUID(unit);
+					if GUID ~= nil then
+						-- local _, _, _id = strfind(GUID, "Creature%-0%-%d+%-%d+%-%d+%-(%d+)%-%x+");
+						local _type, _, _, _, _, _id = strsplit("-", GUID);
+						if _type == "Creature" and _id ~= nil then
+							_id = tonumber(_id);
+							if _id ~= nil then
+								local uuid = __ns.CoreGetUUID('unit', _id);
+								if uuid ~= nil then
+									GameTooltipSetQuestTip(GameTooltip, uuid);
+								end
+								for name, val in next, __ns.__comm_group_members do
+									local meta_table = __comm_meta[name];
+									if meta_table ~= nil then
+										local uuid = __ns.CommGetUUID(name, 'unit', _id);
+										if uuid ~= nil and next(uuid[4]) ~= nil then
+											local info = __ns.__comm_group_members_info[name];
+											GameTooltip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
+											GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+										end
 									end
 								end
 							end
@@ -357,102 +359,104 @@ local _ = nil;
 			end
 		end
 		local function OnTooltipSetItem(tip)
-			local name, link = tip:GetItem();
-			if link ~= nil then
-				local id = GetItemInfoInstant(link);
-				if id ~= nil then
-					local QUESTS = __db_item_related_quest[id];
-					if QUESTS ~= nil and #QUESTS > 0 then
-						local modifier = IsShiftKeyDown();
-						for _, quest in next, QUESTS do
-							local meta = __core_meta[quest];
-							if meta ~= nil then
-								local qinfo = __db_quest[quest];
-								local color = IMG_LIST[GetQuestStartTexture(qinfo)];
-								local lvl_str = GetLevelTag(quest, qinfo, modifier);
-								if modifier then
-									if meta.completed == 1 then
-										tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
-									elseif meta.completed == 0 then
-										tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
-									end
-								else
-									if meta.completed == 1 then
-										tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
-									elseif meta.completed == 0 then
-										tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
-									end
-								end
-								for index = 1, #meta do
-									local meta_line = meta[index];
-									if meta_line[2] == 'item' and meta_line[3] == id then
-										if meta_line[5] then
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
-										else
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
-										end
-										break;
-									end
-								end
-								tip:Show();
-							end
-						end
-						if modifier then
+			if SET.tip_info then
+				local name, link = tip:GetItem();
+				if link ~= nil then
+					local id = GetItemInfoInstant(link);
+					if id ~= nil then
+						local QUESTS = __db_item_related_quest[id];
+						if QUESTS ~= nil and QUESTS[1] ~= nil then
+							local modifier = IsShiftKeyDown();
 							for _, quest in next, QUESTS do
-								if __core_meta[quest] == nil and __db_avl_quest_hash[quest] ~= nil then
+								local meta = __core_meta[quest];
+								if meta ~= nil then
 									local qinfo = __db_quest[quest];
 									local color = IMG_LIST[GetQuestStartTexture(qinfo)];
-									local lvl_str = GetLevelTag(quest, qinfo, true);
-									local loc = __loc_quest[quest];
-									if loc ~= nil then
-										if __core_quests_completed[quest] ~= nil then
-											tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
-										else
-											tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
+									local lvl_str = GetLevelTag(quest, qinfo, modifier);
+									if modifier then
+										if meta.completed == 1 then
+											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+										elseif meta.completed == 0 then
+											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										end
 									else
-										if __core_quests_completed[quest] ~= nil then
-											tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
-										else
-											tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
-										end
-									end
-									tip:Show();
-								end
-							end
-						end
-						for name, val in next, __ns.__group_members do
-							local meta_table = __comm_meta[name];
-							if meta_table ~= nil then
-								local first_line_of_partner = true;
-								for _, quest in next, QUESTS do
-									local meta = meta_table[quest];
-									if meta ~= nil then
-										if first_line_of_partner then
-											first_line_of_partner = false;
-											local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
-											GameTooltip:AddLine(GetPlayerTag(name, fileName));
-										end
-										local qinfo = __db_quest[quest];
-										local color = IMG_LIST[GetQuestStartTexture(qinfo)];
-										local lvl_str = GetLevelTag(quest, qinfo, modifier);
 										if meta.completed == 1 then
 											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										elseif meta.completed == 0 then
 											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										end
-										for index = 1, #meta do
-											local meta_line = meta[index];
-											if meta_line[2] == 'item' and meta_line[3] == id then
-												if meta_line[5] then
-													tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
-												else
-													tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
-												end
-												break;
+									end
+									for index = 1, #meta do
+										local meta_line = meta[index];
+										if meta_line[2] == 'item' and meta_line[3] == id then
+											if meta_line[5] then
+												tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+											else
+												tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+											end
+											break;
+										end
+									end
+									tip:Show();
+								end
+							end
+							if modifier then
+								for _, quest in next, QUESTS do
+									if __core_meta[quest] == nil and __db_avl_quest_hash[quest] ~= nil then
+										local qinfo = __db_quest[quest];
+										local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+										local lvl_str = GetLevelTag(quest, qinfo, true);
+										local loc = __loc_quest[quest];
+										if loc ~= nil then
+											if __core_quests_completed[quest] ~= nil then
+												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
+											else
+												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
+											end
+										else
+											if __core_quests_completed[quest] ~= nil then
+												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
+											else
+												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
 											end
 										end
 										tip:Show();
+									end
+								end
+							end
+							for name, val in next, __ns.__comm_group_members do
+								local meta_table = __comm_meta[name];
+								if meta_table ~= nil then
+									local first_line_of_partner = true;
+									for _, quest in next, QUESTS do
+										local meta = meta_table[quest];
+										if meta ~= nil then
+											if first_line_of_partner then
+												first_line_of_partner = false;
+												local info = __ns.__comm_group_members_info[name];
+												GameTooltip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
+											end
+											local qinfo = __db_quest[quest];
+											local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+											local lvl_str = GetLevelTag(quest, qinfo, modifier);
+											if meta.completed == 1 then
+												tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											elseif meta.completed == 0 then
+												tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											end
+											for index = 1, #meta do
+												local meta_line = meta[index];
+												if meta_line[2] == 'item' and meta_line[3] == id then
+													if meta_line[5] then
+														tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+													else
+														tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+													end
+													break;
+												end
+											end
+											tip:Show();
+										end
 									end
 								end
 							end
@@ -466,39 +470,41 @@ local _ = nil;
 		local GameTooltipTextLeft1Text = nil;
 		local updateTimer = 0.0;
 		local function GameTooltipOnUpdate(self, elasped)
-			if updateTimer <= 0.0 then
-				updateTimer = 0.1;
-				local uname, unit = self:GetUnit();
-				local iname, link = self:GetItem();
-				if uname == nil and unit == nil and iname == nil and link == nil then
-					local text = GameTooltipTextLeft1:GetText();
-					if text ~= nil and text ~= GameTooltipTextLeft1Text then
-						GameTooltipTextLeft1Text = text;
-						local oid = __obj_lookup[text];
-						if oid ~= nil then
-							local uuid = __ns.CoreGetUUID('object', oid);
-							if uuid ~= nil then
-								GameTooltipSetQuestTip(GameTooltip, uuid);
-							end
-							for name, val in next, __ns.__group_members do
-								local meta_table = __comm_meta[name];
-								if meta_table ~= nil then
-									local uuid = __ns.CommGetUUID(name, 'object', oid);
-									if uuid ~= nil then
-										local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML, combatRole = GetRaidRosterInfo(val);
-										GameTooltip:AddLine(GetPlayerTag(name, fileName));
-										GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+			if SET.tip_info then
+				if updateTimer <= 0.0 then
+					updateTimer = 0.1;
+					local uname, unit = self:GetUnit();
+					local iname, link = self:GetItem();
+					if uname == nil and unit == nil and iname == nil and link == nil then
+						local text = GameTooltipTextLeft1:GetText();
+						if text ~= nil and text ~= GameTooltipTextLeft1Text then
+							GameTooltipTextLeft1Text = text;
+							local oid = __obj_lookup[text];
+							if oid ~= nil then
+								local uuid = __ns.CoreGetUUID('object', oid);
+								if uuid ~= nil then
+									GameTooltipSetQuestTip(GameTooltip, uuid);
+								end
+								for name, val in next, __ns.__comm_group_members do
+									local meta_table = __comm_meta[name];
+									if meta_table ~= nil then
+										local uuid = __ns.CommGetUUID(name, 'object', oid);
+										if uuid ~= nil then
+											local info = __ns.__comm_group_members_info[name];
+											GameTooltip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
+											GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+										end
 									end
 								end
 							end
-						end
-						local oid = __comm_obj_lookup[text];
-						if oid ~= nil then
+							local oid = __comm_obj_lookup[text];
+							if oid ~= nil then
+							end
 						end
 					end
+				else
+					updateTimer = updateTimer - elasped;
 				end
-			else
-				updateTimer = updateTimer - elasped;
 			end
 		end
 		function __ns.MODIFIER_STATE_CHANGED()
