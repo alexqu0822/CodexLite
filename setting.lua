@@ -174,6 +174,23 @@ local _ = nil;
 				nil,
 				boolean_func,
 			},
+			quest_auto_inverse_modifier = {
+				'list',
+				function(val)
+					CodexLiteSV['quest_auto_inverse_modifier'] = val;
+					__ns.SetQuestAutoInverseModifier(val);
+					__ns.__ui_setting.set_entries['quest_auto_inverse_modifier']:SetVal(val);
+				end,
+				{ "SHIFT", "CTRL", "ALT", },
+			},
+			tip_info = {
+				'boolean',
+				function(val)
+					CodexLiteSV['tip_info'] = val;
+				end,
+				nil,
+				boolean_func,
+			},
 		};
 		local function ResetAll()
 			__ns.core_reset();
@@ -235,6 +252,8 @@ local _ = nil;
 		quest_lvl_highest_ofs = 1,		--	<=
 		auto_accept = false,
 		auto_complete = false,
+		quest_auto_inverse_modifier = "SHIFT",
+		tip_info = true,
 	};
 	local setting_keys = {
 		-- "min_rate",
@@ -249,6 +268,8 @@ local _ = nil;
 		"quest_lvl_highest_ofs",
 		"auto_accept",
 		"auto_complete",
+		"quest_auto_inverse_modifier",
+		"tip_info",
 	};
 	-->
 		local function Slider_OnValueChanged(self, val, userInput)
@@ -267,10 +288,17 @@ local _ = nil;
 			end
 			self.func(val);
 		end
+		local function ListCheck_OnClick(self, button)
+			local val = self.val;
+			if self.mod ~= nil then
+				val = self.mod(val);
+			end
+			self.func(val);
+		end
 		function __ns.CreateSettingUI()
 			local frame = CreateFrame("FRAME", "CODEX_LITE_SETTING_UI", UIParent, BackdropTemplateMixin ~= nil and "BackdropTemplate" or nil);
 			tinsert(UISpecialFrames, "CODEX_LITE_SETTING_UI");
-			frame:SetSize(290, 512);
+			frame:SetSize(290, 544);
 			frame:SetFrameStrata("DIALOG");
 			frame:SetPoint("CENTER");
 			frame:SetBackdrop({
@@ -314,6 +342,7 @@ local _ = nil;
 			local set_entries = {  };
 			frame.set_entries = set_entries;
 			local pos = 1;
+			local linheight = 16;
 			for _, key in next, setting_keys do
 				local meta = setting_metas[key];
 				if meta[1] == 'number' then
@@ -330,7 +359,7 @@ local _ = nil;
 					slider:SetMinMaxValues(bound[1], bound[2])
 					slider:SetValueStep(bound[3]);
 					slider:SetObeyStepOnDrag(true);
-					slider:SetPoint("TOPLEFT", head, "TOPLEFT", 10, -30);
+					slider:SetPoint("TOPLEFT", head, "TOPLEFT", 10, -linheight - 2);
 					slider.Text:ClearAllPoints();
 					slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
 					slider.Low:ClearAllPoints();
@@ -366,7 +395,7 @@ local _ = nil;
 						self.head:SetPoint(...);
 					end
 					set_entries[key] = slider;
-					slider:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * 18);
+					head:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * linheight);
 					pos = pos + 3;
 				elseif meta[1] == 'boolean' then
 					local check = CreateFrame('CHECKBUTTON', nil, frame, "OptionsBaseCheckButtonTemplate");
@@ -384,8 +413,48 @@ local _ = nil;
 					label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 					label:SetPoint("LEFT", check, "RIGHT", 2, 0);
 					set_entries[key] = check;
-					check:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * 18);
+					check:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * linheight);
 					pos = pos + 1.5;
+				elseif meta[1] == 'list' then
+					local head = frame:CreateTexture(nil, "ARTWORK");
+					head:SetSize(24, 24);
+					local label = frame:CreateFontString(nil, "ARTWORK");
+					label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+					label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+					label:SetPoint("LEFT", head, "RIGHT", 2, 0);
+					local list = {  };
+					local vals = meta[3];
+					for index, val in next, vals do
+						local check = CreateFrame('CHECKBUTTON', nil, frame, "OptionsBaseCheckButtonTemplate");
+						check:SetSize(24, 24);
+						check:SetPoint("TOPLEFT", head, "TOPLEFT", 36 + (index - 1) * 80, -linheight * 1.5);
+						check:SetHitRectInsets(0, 0, 0, 0);
+						check:Show();
+						check.func = meta[2];
+						check.mod = meta[4];
+						check:SetScript("OnClick", ListCheck_OnClick);
+						check.list = list;
+						check.index = index;
+						check.val = val;
+						list[index] = check;
+						local text = frame:CreateFontString(nil, "ARTWORK");
+						text:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+						text:SetText(val);
+						text:SetPoint("LEFT", check, "RIGHT", 2, 0);
+						check.text = text;
+					end
+					function list:SetVal(val)
+						for index, v in next, vals do
+							list[index]:SetChecked(v == val);
+						end
+					end
+					list._SetPoint = list.SetPoint;
+					function list:SetPoint(...)
+						self.head:SetPoint(...);
+					end
+					set_entries[key] = list;
+					head:SetPoint("CENTER", frame, "TOPLEFT", 32, -10 - pos * linheight);
+					pos = pos + 3;
 				end
 			end
 			--

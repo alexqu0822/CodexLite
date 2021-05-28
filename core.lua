@@ -69,6 +69,7 @@ local _ = nil;
 	__ns.__player_level = UnitLevel('player');
 -->		MAIN
 	local show_starter, show_ender = false, false;
+	local quest_auto_inverse_modifier = IsShiftKeyDown;
 	local META = {  };
 	--[[
 		[quest_id] = {
@@ -129,8 +130,8 @@ local _ = nil;
 			PALLET[#PALLET + 1] = { 255, 255, 0, };
 			PALLET[#PALLET + 1] = { 255, 0, 255, };
 			PALLET[#PALLET + 1] = { 0, 255, 255, };
-			PALLET[#PALLET + 1] = { 64, 64, 64, };
-			PALLET[#PALLET + 1] = { 192, 192, 192, };
+			PALLET[#PALLET + 1] = { 63, 63, 63, };
+			PALLET[#PALLET + 1] = { 191, 191, 191, };
 			for index = 1, #PALLET do
 				local color3 = PALLET[index];
 				color3[1] = color3[1] / 255;
@@ -555,7 +556,7 @@ local _ = nil;
 							local event = __db_event[E[index]];
 							if event ~= nil then
 								local cs = event.coords;
-								if cs ~= nil and #cs > 0 then
+								if cs ~= nil and cs[1] ~= nil then
 									for j = 1, #cs do
 										coords[#coords + 1] = cs[j];
 									end
@@ -565,7 +566,7 @@ local _ = nil;
 						E.coords = coords;
 						PreloadCoords(E);
 					end
-					if coords ~= nil and #coords > 0 then
+					if coords ~= nil and coords[1] ~= nil then
 						AddLargeNodes('event', quest, quest, 'event', coords);
 					end
 				end
@@ -578,7 +579,7 @@ local _ = nil;
 				local E = obj.E;
 				if E ~= nil then
 					local coords = E.coords;
-					if coords ~= nil and #coords > 0 then
+					if coords ~= nil and coords[1] ~= nil then
 						DelLargeNodes('event', quest, quest, 'event');
 					end
 				end
@@ -741,7 +742,7 @@ local _ = nil;
 			elseif objective_type == 'reputation' then
 			elseif objective_type == 'player' or objective_type == 'progressbar' then
 			else
-				_log_('comm_objective_type', quest_id, _done, objective_type);
+				_log_('comm_objective_type', quest_id, finished, objective_type);
 			end
 			return true;
 		end
@@ -810,7 +811,7 @@ local _ = nil;
 			end
 		end
 		function UpdateQuests()
-			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart("module.core.UpdateQuests"); end
+			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
 			local _, num = GetNumQuestLogEntries();
 			local quest_changed = false;
 			local need_re_draw = false;
@@ -837,8 +838,8 @@ local _ = nil;
 								LoadQuestCache(quest_id, completed);
 								DelQuestStart(quest_id, info);
 								quest_changed = true;
-								__ns.PushAddQuest(quest_id, completed, title);
 							end
+							__ns.PushAddQuest(quest_id, completed, title, num_lines);
 							meta.flag = 1;
 							meta.num_lines = num_lines;
 							local has_unfinished_event = false;
@@ -1075,7 +1076,7 @@ local _ = nil;
 					META[quest_id] = nil;
 					quest_changed = true;
 					need_re_draw = true;
-					__ns.PushDelQuest(quest_id, meta.completed == 1);
+					__ns.PushDelQuest(quest_id, meta.completed);
 				end
 			end
 			if quest_changed then
@@ -1084,7 +1085,7 @@ local _ = nil;
 			if need_re_draw then
 				__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 			end
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.UpdateQuests'); end
+			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
 		end
 	-->
 	-->		avl quest giver
@@ -1154,7 +1155,7 @@ local _ = nil;
 										if acceptable then
 											local acceptable_rep = true;
 											local rep = info.rep;
-											if rep ~= nil and #rep > 0 then
+											if rep ~= nil and rep[1] ~= nil then
 												for index2 = 1, #rep do
 													local r = rep[index2];
 													local _, _, standing_rank, _, _, val = GetFactionInfoByID(r[1]);
@@ -1281,10 +1282,20 @@ local _ = nil;
 			end
 			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 		end
+		local function SetQuestAutoInverseModifier(modifier)
+			if modifier == "SHIFT" then
+				quest_auto_inverse_modifier = IsShiftKeyDown;
+			elseif modifier == "CTRL" then
+				quest_auto_inverse_modifier = IsControlKeyDown;
+			elseif modifier == "ALT" then
+				quest_auto_inverse_modifier = IsAltKeyDown;
+			end
+		end
 	-->
 	-->		extern method
 		__ns.SetQuestStarterShown = SetQuestStarterShown;
 		__ns.SetQuestEnderShown = SetQuestEnderShown;
+		__ns.SetQuestAutoInverseModifier = SetQuestAutoInverseModifier;
 		--
 		__ns.UpdateQuests = UpdateQuests;
 		__ns.UpdateQuestGivers = UpdateQuestGivers;
@@ -1310,6 +1321,29 @@ local _ = nil;
 		end
 	-->
 	-->		events and hooks
+		local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
+		local GetGossipActiveQuests = GetGossipActiveQuests;
+		local SelectGossipActiveQuest = SelectGossipActiveQuest;
+		local GetNumGossipAvailableQuests = GetNumGossipAvailableQuests;
+		local GetGossipAvailableQuests = GetGossipAvailableQuests;
+		local SelectGossipAvailableQuest = SelectGossipAvailableQuest;
+		local GetNumActiveQuests = GetNumActiveQuests;
+		local GetActiveTitle = GetActiveTitle;
+		local SelectActiveQuest = SelectActiveQuest;
+		local GetNumAvailableQuests = GetNumAvailableQuests;
+		local GetAvailableTitle = GetAvailableTitle;
+		local SelectAvailableQuest = SelectAvailableQuest;
+		local AcceptQuest = AcceptQuest;
+		local IsQuestCompletable = IsQuestCompletable;
+		local CompleteQuest = CompleteQuest;
+		local GetNumQuestChoices = GetNumQuestChoices;
+		local GetQuestReward = GetQuestReward;
+		local ConfirmAcceptQuest = ConfirmAcceptQuest;
+		local GetQuestLogIndexByID = GetQuestLogIndexByID;
+		local GetQuestLogIsAutoComplete = GetQuestLogIsAutoComplete;
+		local ShowQuestComplete = ShowQuestComplete;
+		local StaticPopup_Hide = StaticPopup_Hide;
+		--
 		function __ns.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
 		end
 		function __ns.PLAYER_LEVEL_UP(level)
@@ -1371,7 +1405,8 @@ local _ = nil;
 		end
 		--	Auto Accept and Turnin
 		function __ns.GOSSIP_SHOW()
-			if SET.auto_complete then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_complete ~= modstate then
 				for i = 1, GetNumGossipActiveQuests() do
 					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetGossipActiveQuests());
 					if title and isComplete then
@@ -1379,7 +1414,7 @@ local _ = nil;
 					end
 				end
 			end
-			if SET.auto_accept then
+			if not SET.auto_accept ~= modstate then
 				for i = 1, GetNumGossipAvailableQuests() do
 					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetGossipAvailableQuests());
 					if title then
@@ -1397,7 +1432,8 @@ local _ = nil;
 			-- end
 		end
 		function __ns.QUEST_GREETING()
-			if SET.auto_complete then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_complete ~= modstate then
 				for i = 1, GetNumActiveQuests() do
 					local title, isComplete = GetActiveTitle(i);
 					if title and isComplete then
@@ -1405,7 +1441,7 @@ local _ = nil;
 					end
 				end
 			end
-			if SET.auto_accept then
+			if not SET.auto_accept ~= modstate then
 				for i = 1, GetNumAvailableQuests() do
 					local title, isComplete = GetAvailableTitle(i);
 					if title then
@@ -1415,20 +1451,23 @@ local _ = nil;
 			end
 		end
 		function __ns.QUEST_DETAIL()
-			if SET.auto_accept then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_accept ~= modstate then
 				AcceptQuest();
 				QuestFrame:Hide();
 			end
 		end
 		function __ns.QUEST_PROGRESS()
-			if SET.auto_complete then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_complete ~= modstate then
 				if IsQuestCompletable() then
 					CompleteQuest();
 				end
 			end
 		end
 		function __ns.QUEST_COMPLETE()
-			if SET.auto_complete then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_complete ~= modstate then
 				local _NumChoices = GetNumQuestChoices();
 				if _NumChoices <= 1 then
 					GetQuestReward(_NumChoices);
@@ -1436,13 +1475,15 @@ local _ = nil;
 			end
 		end
 		function __ns.QUEST_ACCEPT_CONFIRM()
-			if SET.auto_accept then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_accept ~= modstate then
 				ConfirmAcceptQuest() ;
 				StaticPopup_Hide("QUEST_ACCEPT");
 			end
 		end
 		function __ns.QUEST_AUTOCOMPLETE(id)
-			if SET.auto_complete then
+			local modstate = not quest_auto_inverse_modifier();
+			if not SET.auto_complete ~= modstate then
 				local index = GetQuestLogIndexByID(id);
 				if GetQuestLogIsAutoComplete(index) then
 					ShowQuestComplete(index);
@@ -1492,7 +1533,7 @@ local _ = nil;
 		__eventHandler:RegEvent("PLAYER_LEVEL_UP");
 		--
 		__eventHandler:RegEvent("QUEST_LOG_UPDATE");
-		__eventHandler:RegEvent("UNIT_QUEST_LOG_CHANGED");
+		-- __eventHandler:RegEvent("UNIT_QUEST_LOG_CHANGED");
 		__eventHandler:RegEvent("QUEST_ACCEPTED");			--	questIndex, questId
 		__eventHandler:RegEvent("QUEST_TURNED_IN");			--	quest_id, xpReward, moneyReward
 		__eventHandler:RegEvent("QUEST_REMOVED");			--	quest_id, wasReplayQuest
@@ -1506,6 +1547,7 @@ local _ = nil;
 		--
 		show_starter = SET.show_quest_starter;
 		show_ender = SET.show_quest_ender;
+		SetQuestAutoInverseModifier(SET.quest_auto_inverse_modifier);
 	end
 -->
 
