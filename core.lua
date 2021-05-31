@@ -846,125 +846,128 @@ local _ = nil;
 							-- local details = GetQuestObjectives(quest_id);
 							-- local detail = details[line];
 							-- local objective_type, finished, numRequired, numFulfilled, description = detail.type, detail.finished, detail.numRequired, detail.numFulfilled, detail.text;
-							local num_monster_lines = 0;
-							local monster_line = -1;
-							if completed == 1 or completed == -1 then			--	第一次检测到任务成功或失败时，隐藏已显示的任务目标
-								for line = 1, num_lines do
-									local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
-									local meta_line = meta[line];
-									local push_line = false;
-									if meta_line == nil then
-										push_line = true;
-										meta_line = { false, objective_type, nil, description, finished, nil, };
-										meta[line] = meta_line;
-									else
-										if meta_line[4] ~= description then
+							local obj = info.obj;
+							if obj ~= nil then
+								local num_monster_lines = 0;
+								local monster_line = -1;
+								local U2 = obj.U2;
+								if completed == 1 or completed == -1 then			--	第一次检测到任务成功或失败时，隐藏已显示的任务目标
+									for line = 1, num_lines do
+										local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
+										local meta_line = meta[line];
+										local push_line = false;
+										if meta_line == nil then
 											push_line = true;
-										end
-										meta_line[2] = objective_type;
-										meta_line[4] = description;
-										meta_line[5] = finished;
-										if meta.completed == 0 then
-											if meta_line[1] then
-												DelLine(quest_id, line, meta_line[2], meta_line[3], false, meta_line[6]);
-												_log_('DelLine-TTT', nil, objective_type, objective_id);
+											meta_line = { false, objective_type, nil, description, finished, nil, };
+											meta[line] = meta_line;
+										else
+											if meta_line[4] ~= description then
+												push_line = true;
 											end
-											meta_line[1] = false;
+											meta_line[2] = objective_type;
+											meta_line[4] = description;
+											meta_line[5] = finished;
+											if meta.completed == 0 then
+												if meta_line[1] then
+													DelLine(quest_id, line, meta_line[2], meta_line[3], false, meta_line[6]);
+													_log_('DelLine-TTT', nil, objective_type, objective_id);
+												end
+												meta_line[1] = false;
+											end
 										end
-									end
-									if meta_line[3] == nil then
-										local valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, true);
-										_log_('AddLine-TTT', nil, objective_type, objective_id);
-										if objective_id ~= nil then
-											meta_line[3] = objective_id;
-											meta_line[6] = large_pin;
-										end
-									end
-									if objective_type == 'monster' then
-										num_monster_lines = num_monster_lines + 1;
-										monster_line = line;
-									end
-									if push_line and meta_line[3] ~= nil then
-										__ns.PushAddLine(quest_id, line, finished, objective_type, meta_line[3], description);
-									end
-								end
-								if meta.event_shown == true then
-									DelEvent(quest_id);
-								end
-							else												--	检查任务进度
-								for line = 1, num_lines do
-									local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
-									local meta_line = meta[line];
-									local push_line = false;
-									if meta_line == nil then
-										push_line = true;
-										meta_line = { false, objective_type, nil, description, finished, nil, };
-										meta[line] = meta_line;
-									else
-										if meta_line[4] ~= description then
-											push_line = true;
-										end
-										meta_line[2] = objective_type;
-										meta_line[4] = description;
-										meta_line[5] = finished;
-									end
-									--	objective_type:		'item', 'object', 'monster', 'reputation', 'log', 'event', 'player', 'progressbar'
-									if finished then
-										if meta_line[1] then
-											DelLine(quest_id, line, objective_type, meta_line[3], false, meta_line[6]);
-											_log_('DelLine-TFT', valid, objective_type, objective_id);
-										end
-										meta_line[1] = false;
-										if meta_line[3] == nil then
-											local valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, true);
-											_log_('AddLine-TFT', nil, objective_type, objective_id);
+										local valid, objective_id, large_pin = nil, meta_line[3], nil;
+										if objective_id == nil then
+											valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, true);
+											_log_('AddLine-TTT', nil, objective_type, objective_id);
 											if objective_id ~= nil then
 												meta_line[3] = objective_id;
 												meta_line[6] = large_pin;
 											end
 										end
-									else
-										if not meta_line[1] then
-											local valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, false);
-											_log_('AddLine-TFF', valid, objective_type, objective_id);
-											if valid then
-												meta_line[1] = true;
+										if objective_type == 'monster' and (objective_id == nil or U2 == nil or U2[objective_id] ~= true) then
+											num_monster_lines = num_monster_lines + 1;
+											monster_line = line;
+										end
+										if push_line and objective_id ~= nil then
+											__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
+										end
+									end
+									if meta.event_shown == true then
+										DelEvent(quest_id);
+									end
+								else												--	检查任务进度
+									for line = 1, num_lines do
+										local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
+										local meta_line = meta[line];
+										local push_line = false;
+										if meta_line == nil then
+											push_line = true;
+											meta_line = { false, objective_type, nil, description, finished, nil, };
+											meta[line] = meta_line;
+										else
+											if meta_line[4] ~= description then
+												push_line = true;
+											end
+											meta_line[2] = objective_type;
+											meta_line[4] = description;
+											meta_line[5] = finished;
+										end
+										--	objective_type:		'item', 'object', 'monster', 'reputation', 'log', 'event', 'player', 'progressbar'
+										local valid, objective_id, large_pin = nil, meta_line[3], nil;
+										if finished then
+											if meta_line[1] then
+												DelLine(quest_id, line, objective_type, objective_id, false, meta_line[6]);
+												_log_('DelLine-TFT', valid, objective_type, objective_id);
+											end
+											meta_line[1] = false;
+											if objective_id == nil then
+												valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, true);
+												_log_('AddLine-TFT', nil, objective_type, objective_id);
 												if objective_id ~= nil then
 													meta_line[3] = objective_id;
 													meta_line[6] = large_pin;
-													need_re_draw = true;
 												end
 											end
+										else
+											if not meta_line[1] then
+												valid, objective_id, large_pin = AddLine(quest_id, line, objective_type, description, false);
+												_log_('AddLine-TFF', valid, objective_type, objective_id);
+												if valid then
+													meta_line[1] = true;
+													if objective_id ~= nil then
+														meta_line[3] = objective_id;
+														meta_line[6] = large_pin;
+														need_re_draw = true;
+													end
+												end
+											end
+											if objective_type == 'event' or objective_type == 'log' then
+												has_unfinished_event = true;
+											end
 										end
-										if objective_type == 'event' or objective_type == 'log' then
-											has_unfinished_event = true;
+										if objective_type == 'monster' and (objective_id == nil or U2 == nil or U2[objective_id] ~= true) then
+											num_monster_lines = num_monster_lines + 1;
+											monster_line = line;
+										end
+										if push_line and objective_id ~= nil then
+											__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
 										end
 									end
-									if objective_type == 'monster' then
-										num_monster_lines = num_monster_lines + 1;
-										monster_line = line;
-									end
-									if push_line and meta_line[3] ~= nil then
-										__ns.PushAddLine(quest_id, line, finished, objective_type, meta_line[3], description);
+									if has_unfinished_event then
+										if meta.event_shown ~= true then
+											AddEvent(quest_id);
+											meta.event_shown = true;
+											__ns.PushAddLine(quest_id, 'event', finished, 'event', quest_id, 'event');
+										end
+									else
+										if meta.event_shown == true then
+											DelEvent(quest_id);
+											meta.event_shown = false;
+										end
 									end
 								end
-								if has_unfinished_event then
-									if meta.event_shown ~= true then
-										AddEvent(quest_id);
-										meta.event_shown = true;
-										__ns.PushAddLine(quest_id, 'event', finished, 'event', quest_id, 'event');
-									end
-								else
-									if meta.event_shown == true then
-										DelEvent(quest_id);
-										meta.event_shown = false;
-									end
-								end
-							end
-							if num_monster_lines == 1 then
-								local obj = info.obj;
-								if obj ~= nil then
-									local U = obj.U;
+								if num_monster_lines == 1 then
+									local U = obj.U2 or obj.U;
 									if U ~= nil and #U > 1 then
 										local meta_line = meta[monster_line];
 										if meta_line[1] and meta_line[3] ~= nil and meta_line[7] == nil then
@@ -1056,7 +1059,7 @@ local _ = nil;
 											end
 										end
 									end
-								else
+								elseif meta_line[3] ~= nil then
 									DelLine(quest_id, line, meta_line[2], meta_line[3], true, meta_line[6]);
 									_log_('DelLine-F__', nil, meta_line[2], meta_line[3]);
 								end
@@ -1492,7 +1495,7 @@ local _ = nil;
 		end
 	-->
 	function __ns.core_setup()
-		SET = __ns.__sv;
+		SET = __ns.__setting;
 		local temp = GetQuestsCompleted();
 		for quest, _ in next, temp do
 			QUESTS_COMPLETED[quest] = 1;

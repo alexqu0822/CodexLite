@@ -86,8 +86,6 @@ local __db_event = __db.event;
 				{ 44, 18.1, 1459, 0,},
 			};
 		end
-		__db_unit[5760].coords = { { 57.4, 79.6, 1443, 550, }, };
-		
 		__db_item[8932].U = nil;
 
 		__ns.correct_name_hash = {

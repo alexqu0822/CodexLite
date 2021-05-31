@@ -106,6 +106,10 @@ if LOCALE == 'zhCN' then
 	UILOC.auto_complete = "自动交任务";
 	UILOC.quest_auto_inverse_modifier = "自动交接反向按键";
 	UILOC.tip_info = "显示鼠标提示";
+	--	questlogframe
+	UILOC.show_quest = "显示";
+	UILOC.hide_quest = "隐藏";
+	UILOC.reset_filter = "重置";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 elseif LOCALE == 'zhTW' then
@@ -142,6 +146,10 @@ elseif LOCALE == 'zhTW' then
 	UILOC.auto_complete = "自動交任務";
 	UILOC.quest_auto_inverse_modifier = "自動交接反向按鍵";
 	UILOC.tip_info = "顯示鼠標提示";
+	--	questlogframe
+	UILOC.show_quest = "顯示";
+	UILOC.hide_quest = "隱藏";
+	UILOC.reset_filter = "重置";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 else
@@ -178,6 +186,10 @@ else
 	UILOC.auto_complete = "Quest Auto Complete Quest";
 	UILOC.quest_auto_inverse_modifier = "Auto-Turn-In inverse modifier";
 	UILOC.tip_info = "Info in tip";
+	--	questlogframe
+	UILOC.show_quest = "Show";
+	UILOC.hide_quest = "Hide";
+	UILOC.reset_filter = "Reset";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end

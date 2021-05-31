@@ -669,7 +669,9 @@ local _ = nil;
 				PushAddQuest(quest, meta.completed, meta.title, meta.num_lines);
 				for line = 1, #meta do
 					local meta_line = meta[line];
-					PushAddLine(quest, line, meta_line[5], meta_line[2], meta_line[3], meta_line[4]);
+					if meta_line[3] ~= nil then
+						PushAddLine(quest, line, meta_line[5], meta_line[2], meta_line[3], meta_line[4]);
+					end
 				end
 			end
 		end
@@ -686,7 +688,9 @@ local _ = nil;
 				PushAddQuestSingle(name, quest, meta.completed, meta.title, meta.num_lines);
 				for line = 1, #meta do
 					local meta_line = meta[line];
-					PushAddLineSingle(name, quest, line, meta_line[5], meta_line[2], meta_line[3], meta_line[4]);
+					if meta_line[3] ~= nil then
+						PushAddLineSingle(name, quest, line, meta_line[5], meta_line[2], meta_line[3], meta_line[4]);
+					end
 				end
 			end
 		end
@@ -723,10 +727,13 @@ local _ = nil;
 				for index = 1, 4 do
 					local unit = PartyUnitsList[index];
 					if UnitExists(unit) then
-						local name = UnitName(unit);
+						local name, realm = UnitName(unit);
 						if name == nil or name == "" then
 							__eventHandler:run_on_next_tick(UpdateGroupMembers);
 							return;
+						end
+						if realm ~= nil and realm ~= "" then
+							name = name .. "-" .. realm;
 						end
 						local isconnected = UnitIsConnected(unit);
 						if isconnected then
@@ -861,7 +868,7 @@ local _ = nil;
 			end
 		end
 		function __ns.GROUP_ROSTER_UPDATE()
-			if IsInRaid(LE_PARTY_CATEGORY_HOME) then
+			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
 				_log_('|cff00ff7fGROUP_ROSTER_UPDATE|r');
@@ -870,7 +877,7 @@ local _ = nil;
 			end
 		end
 		function __ns.GROUP_FORMED(category, partyGUID)
-			if IsInRaid(LE_PARTY_CATEGORY_HOME) then
+			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
 				_log_('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
@@ -878,7 +885,7 @@ local _ = nil;
 			end
 		end
 		function __ns.GROUP_JOINED(category, partyGUID)
-			if IsInRaid(LE_PARTY_CATEGORY_HOME) then
+			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
 				_log_('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
@@ -897,7 +904,7 @@ local _ = nil;
 		end
 	-->
 	function __ns.comm_setup()
-		SET = __ns.__sv;
+		SET = __ns.__setting;
 		DisableComm();
 		if RegisterAddonMessagePrefix(ADDON_PREFIX) then
 -- if __ns.__dev then

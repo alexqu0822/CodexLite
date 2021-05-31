@@ -519,7 +519,6 @@ local _ = nil;
 		local function CreateDBIcon()
 			local LDI = LibStub("LibDBIcon-1.0", true);
 			if LDI then
-				__ns.__sv.minimapPos = __ns.__sv.minimapPos or 135;
 				LDI:Register(
 					"CodexLite",
 					{
@@ -537,7 +536,7 @@ local _ = nil;
 							tt:Show();
 						end,
 					},
-					__ns.__sv
+					__ns.__svar.minimap
 				);
 				LDI:Show(__addon);
 				if SET.show_db_icon then
@@ -547,9 +546,39 @@ local _ = nil;
 				end
 			end
 		end
+	-->		QuestLogFrame
+		local function CreateQuestLogFrameButton()
+			local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
+			local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
+			QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle:GetHeight() + 30);
+			QuestLogDescriptionTitle:SetJustifyV("BOTTOM")
+			local _ShowQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
+			_ShowQuest:SetSize(85, 21);
+			_ShowQuest:SetPoint("TOPLEFT", QuestLogDescriptionTitle, "TOPLEFT", 0, 0);
+			_ShowQuest:SetScript("OnClick", function()
+				__ns.MapShowQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+			end);
+			_ShowQuest:SetText(__UILOC.show_quest);
+			local _HideQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
+			_HideQuest:SetSize(85, 21);
+			_HideQuest:SetPoint("LEFT", _ShowQuest, "RIGHT", 0, 0);
+			_HideQuest:SetScript("OnClick", function()
+				__ns.MapHideQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+			end);
+			_HideQuest:SetText(__UILOC.hide_quest);
+			local _ResetButton = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
+			_ResetButton:SetSize(85, 21);
+			_ResetButton:SetPoint("LEFT", _HideQuest, "RIGHT", 0, 0);
+			_ResetButton:SetScript("OnClick", function()
+				__ns.MapResetQuestNodesFilter();
+			end);
+			_ResetButton:SetText(__UILOC.reset_filter);
+			__ns._ShowQuest = _ShowQuest;
+			__ns._HideQuest = _HideQuest;
+		end
 	-->
 	function __ns.util_setup()
-		SET = __ns.__sv;
+		SET = __ns.__setting;
 		GameTooltip:HookScript("OnTooltipSetUnit", OnTooltipSetUnit);
 		GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
 		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
@@ -567,12 +596,13 @@ local _ = nil;
 		if LibStub ~= nil then
 			CreateDBIcon();
 		end
+		CreateQuestLogFrameButton();
 		--
 		_F_SafeCall(__ns._checkConflicts);
 	end
 -->
 
--->		Private
+-->		Position Share
 	function __ala_meta__.____OnMapPositionReceived(sender, map, x, y)
 		if map > 0 then
 			map, x, y = __ns.core.GetZonePositionFromWorldPosition(map, x, y);

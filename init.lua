@@ -123,7 +123,7 @@ local SET = nil;
 		--	run in sequence of 'insert'
 		local function run_on_next_tick_handler(self, elasped)
 			timer = timer + elasped;
-			if timer >= 0.1 then
+			if timer >= 0.15 then
 				timer = 0.0;
 				local func = tremove(run_on_next_tick_func_2, 1);
 				while func ~= nil do
@@ -942,6 +942,7 @@ local SET = nil;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.setting'); end
 		__ns.setting_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.setting'); end
+		SET = __ns.__setting;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.map'); end
 		__ns.map_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.map'); end
@@ -954,7 +955,6 @@ local SET = nil;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.util'); end
 		__ns.util_setup();
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.util'); end
-		SET = __ns.__sv;
 		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init'); end
 		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
 	end

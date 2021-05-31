@@ -51,7 +51,7 @@ local _ = nil;
 			show_db_icon = {
 				'boolean',
 				function(val)
-					CodexLiteSV['show_db_icon'] = val;
+					SET['show_db_icon'] = val;
 					if val then
 						LibStub("LibDBIcon-1.0", true):Show(__addon);
 					else
@@ -64,7 +64,7 @@ local _ = nil;
 			show_quest_starter = {
 				'boolean',
 				function(val)
-					CodexLiteSV['show_quest_starter'] = val;
+					SET['show_quest_starter'] = val;
 					__ns.SetQuestStarterShown();
 					return true;
 				end,
@@ -74,7 +74,7 @@ local _ = nil;
 			show_quest_ender = {
 				'boolean',
 				function(val)
-					CodexLiteSV['show_quest_ender'] = val;
+					SET['show_quest_ender'] = val;
 					__ns.SetQuestEnderShown();
 					return true;
 				end,
@@ -86,7 +86,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['pin_size'] = val;
+						SET['pin_size'] = val;
 						__ns.SetCommonPinSize();
 						return true;
 					end
@@ -99,7 +99,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['large_size'] = val;
+						SET['large_size'] = val;
 						__ns.SetLargePinSize();
 						return true;
 					end
@@ -112,7 +112,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['varied_size'] = val;
+						SET['varied_size'] = val;
 						__ns.SetVariedPinSize();
 						return true;
 					end
@@ -125,7 +125,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['pin_scale_max'] = val;
+						SET['pin_scale_max'] = val;
 						return true;
 					end
 				end,
@@ -137,7 +137,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['quest_lvl_lowest_ofs'] = val;
+						SET['quest_lvl_lowest_ofs'] = val;
 						__ns.UpdateQuestGivers();
 						return true;
 					end
@@ -150,7 +150,7 @@ local _ = nil;
 				function(val)
 					val = tonumber(val);
 					if val ~= nil then
-						CodexLiteSV['quest_lvl_highest_ofs'] = val;
+						SET['quest_lvl_highest_ofs'] = val;
 						__ns.UpdateQuestGivers();
 						return true;
 					end
@@ -161,7 +161,7 @@ local _ = nil;
 			auto_accept = {
 				'boolean',
 				function(val)
-					CodexLiteSV['auto_accept'] = val;
+					SET['auto_accept'] = val;
 				end,
 				nil,
 				boolean_func,
@@ -169,7 +169,7 @@ local _ = nil;
 			auto_complete = {
 				'boolean',
 				function(val)
-					CodexLiteSV['auto_complete'] = val;
+					SET['auto_complete'] = val;
 				end,
 				nil,
 				boolean_func,
@@ -177,7 +177,7 @@ local _ = nil;
 			quest_auto_inverse_modifier = {
 				'list',
 				function(val)
-					CodexLiteSV['quest_auto_inverse_modifier'] = val;
+					SET['quest_auto_inverse_modifier'] = val;
 					__ns.SetQuestAutoInverseModifier(val);
 					__ns.__ui_setting.set_entries['quest_auto_inverse_modifier']:SetVal(val);
 				end,
@@ -186,7 +186,7 @@ local _ = nil;
 			tip_info = {
 				'boolean',
 				function(val)
-					CodexLiteSV['tip_info'] = val;
+					SET['tip_info'] = val;
 				end,
 				nil,
 				boolean_func,
@@ -460,25 +460,57 @@ local _ = nil;
 			--
 			frame:SetScript("OnShow", function()
 				for key, widget in next, set_entries do
-					widget:SetVal(CodexLiteSV[key]);
+					widget:SetVal(SET[key]);
 				end
 			end);
 			return frame;
 		end
 	-->
 	function __ns.setting_setup()
-		_G.CodexLiteSV = _G.CodexLiteSV or {  };
+		local GUID = UnitGUID('player');
 		local SV = _G.CodexLiteSV;
-		for key, val in next, def do
-			if SV[key] == nil then
-				SV[key] = val;
+		if SV == nil then
+			SV = {
+				setting = def,
+				minimap = {
+					minimapPos = 0.0,
+				},
+				mapquestblocked = {
+					[GUID] = {  },
+				},
+			};
+			_G.CodexLiteSV = SV;
+			SET = SV.setting;
+		else
+			if SV.__version == nil or SV.__version < 20210529.0 then
+				SET = SV;
+				SV = {
+					setting = SET,
+					minimap = {
+						minimapPos = SET.minimapPos or 0;
+					},
+					mapquestblocked = {  },
+				};
+				SET.minimapPos = nil;
+				_G.CodexLiteSV = SV;
+			else
+				SET = SV.setting;
 			end
+			for key, val in next, def do
+				if SET[key] == nil then
+					SET[key] = val;
+				end
+			end
+			SV.mapquestblocked[GUID] = SV.mapquestblocked[GUID] or {  };
 		end
-		SV.quest_lvl_green = -1;
-		SV.quest_lvl_yellow = -1;
-		SV.quest_lvl_orange = -1;
-		SV.quest_lvl_red = -1;
-		__ns.__sv = SV;
+		SV.__version = 20210529.0;
+		SET.quest_lvl_green = -1;
+		SET.quest_lvl_yellow = -1;
+		SET.quest_lvl_orange = -1;
+		SET.quest_lvl_red = -1;
+		__ns.__svar = SV;
+		__ns.__setting = SET;
+		__ns.__mapquestblocked = SV.mapquestblocked[GUID];
 		__ns.__ui_setting = __ns.CreateSettingUI();
 	end
 -->
