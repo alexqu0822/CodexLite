@@ -94,6 +94,7 @@ end
 	local mm_map = C_Map.GetBestMapForUnit('player');
 	local map_canvas_scale = mapCanvas:GetScale();
 	local pin_size, large_size, varied_size = nil, nil, nil;
+	local hide_node_modifier = IsShiftKeyDown;
 	local META_COMMON = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local META_LARGE = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local META_VARIED = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
@@ -101,7 +102,8 @@ end
 	local MM_LARGE_PINS = {  };				-->		[map] = { coord = pin, }
 	local MM_VARIED_PINS = {  };			-->		[map] = { coord = pin, }
 	__ns.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
-	local MAP_QUEST_BLOCKED = {  };
+	local QUEST_TEMPORARILY_BLOCKED = {  };
+	local QUEST_PERMANENTLY_BLOCKED = {  };
 	-->		--	Pre-Defined
 	local Pin_OnEnter, Pin_OnClick;
 	local NewWorldMapPin, RelWorldMapCommonPin, AddWorldMapCommonPin, RelWorldMapLargePin, AddWorldMapLargePin, RelWorldMapVariedPin, AddWorldMapVariedPin;
@@ -169,6 +171,14 @@ end
 		function Pin_OnClick(self)
 			local uuid = self.uuid;
 			if uuid ~= nil then
+				if hide_node_modifier() then
+					local ptr = uuid[4];
+					for quest, val in next, ptr do
+						if val["start"] ~= nil then
+							return;
+						end
+					end
+				end
 				__ns.RelColor3(uuid[3]);
 				uuid[3], uuid[6] = __ns.GetColor3NextIndex(uuid[6]);
 				WorldMap_ChangeCommonLargeNodesMapUUID(wm_map, uuid);
@@ -462,7 +472,7 @@ end
 				for uuid, data in next, meta do
 					local blocked = true;
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							blocked = false;
 							break;
 						end
@@ -485,7 +495,7 @@ end
 				for uuid, data in next, large do
 					local blocked = true;
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							blocked = false;
 							break;
 						end
@@ -508,7 +518,7 @@ end
 				for uuid, data in next, varied do
 					local blocked = true;
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							blocked = false;
 							break;
 						end
@@ -532,7 +542,7 @@ end
 			if meta ~= nil then
 				for uuid, data in next, meta do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local coords = data[1];
 							local pins = data[2];
 							local color3 = uuid[3];
@@ -556,7 +566,7 @@ end
 			if large ~= nil then
 				for uuid, data in next, large do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local coords = data[1];
 							local pins = data[2];
 							local color3 = uuid[3];
@@ -580,7 +590,7 @@ end
 			if varied ~= nil then
 				for uuid, data in next, varied do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local coords = data[1];
 							local pins = data[2];
 							local color3 = uuid[3];
@@ -996,7 +1006,7 @@ end
 			for coord, pin in next, MM_COMMON_PINS do
 				local blocked = true;
 				for quest, refs in next, pin.uuid[4] do
-					if MAP_QUEST_BLOCKED[quest] ~= true then
+					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 						blocked = false;
 						break;
 					end
@@ -1009,7 +1019,7 @@ end
 			end
 			for coord, pin in next, MM_LARGE_PINS do
 				for quest, refs in next, pin.uuid[4] do
-					if MAP_QUEST_BLOCKED[quest] ~= true then
+					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 						blocked = false;
 						break;
 					end
@@ -1022,7 +1032,7 @@ end
 			end
 			for coord, pin in next, MM_VARIED_PINS do
 				for quest, refs in next, pin.uuid[4] do
-					if MAP_QUEST_BLOCKED[quest] ~= true then
+					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 						blocked = false;
 						break;
 					end
@@ -1042,7 +1052,7 @@ end
 			if meta ~= nil then
 				for uuid, data in next, meta do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local color3 = uuid[3];
 							local coords = data[1];
 							for index = 1, #coords do
@@ -1085,7 +1095,7 @@ end
 			if large ~= nil then
 				for uuid, data in next, large do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local color3 = uuid[3];
 							local coords = data[1];
 							for index = 1, #coords do
@@ -1128,7 +1138,7 @@ end
 			if varied ~= nil then
 				for uuid, data in next, varied do
 					for quest, refs in next, uuid[4] do
-						if MAP_QUEST_BLOCKED[quest] ~= true then
+						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 							local color3 = uuid[3];
 							local TEXTURE = uuid[5];
 							local coords = data[1];
@@ -1295,6 +1305,15 @@ end
 				pin:SetSize(varied_size, varied_size);
 			end
 		end
+		local function SetHideNodeModifier(modifier)
+			if modifier == "SHIFT" then
+				hide_node_modifier = IsShiftKeyDown;
+			elseif modifier == "CTRL" then
+				hide_node_modifier = IsControlKeyDown;
+			elseif modifier == "ALT" then
+				hide_node_modifier = IsAltKeyDown;
+			end
+		end
 		--	common_objective pin
 		function MapAddCommonNodes(uuid, coords_table)
 			if coords_table ~= nil then
@@ -1398,22 +1417,36 @@ end
 		end
 		--
 		function MapShowQuestNodes(quest)
-			if MAP_QUEST_BLOCKED[quest] == true then
-				MAP_QUEST_BLOCKED[quest] = nil;
+			if QUEST_TEMPORARILY_BLOCKED[quest] == true then
+				QUEST_TEMPORARILY_BLOCKED[quest] = nil;
 				WorldMap_ShowNodesQuest(wm_map, quest);
 				Minimap_ShowNodesMapQuest(mm_map, quest);
 			end
 		end
 		function MapHideQuestNodes(quest)
-			if MAP_QUEST_BLOCKED[quest] ~= true then
-				MAP_QUEST_BLOCKED[quest] = true;
+			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true then
+				QUEST_TEMPORARILY_BLOCKED[quest] = true;
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
 			end
 		end
 		function MapResetQuestNodesFilter()
-			wipe(MAP_QUEST_BLOCKED);
+			wipe(QUEST_TEMPORARILY_BLOCKED);
 			MapDrawNodes();
+		end
+		function MapPermanentShowQuestNodes(quest)
+			if QUEST_PERMANENTLY_BLOCKED[quest] == true then
+				QUEST_PERMANENTLY_BLOCKED[quest] = nil;
+				WorldMap_ShowNodesQuest(wm_map, quest);
+				Minimap_ShowNodesMapQuest(mm_map, quest);
+			end
+		end
+		function MapPermanentHideQuestNodes(quest)
+			if QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
+				QUEST_PERMANENTLY_BLOCKED[quest] = true;
+				WorldMap_HideNodesQuest(wm_map, quest);
+				Minimap_HideNodesQuest(quest);
+			end
 		end
 		--
 		function MapDrawNodes()
@@ -1431,6 +1464,7 @@ end
 		__ns.SetCommonPinSize = SetCommonPinSize;
 		__ns.SetLargePinSize = SetLargePinSize;
 		__ns.SetVariedPinSize = SetVariedPinSize;
+		__ns.SetHideNodeModifier = SetHideNodeModifier;
 		--
 		__ns.MapAddCommonNodes = MapAddCommonNodes;
 		__ns.MapDelCommonNodes = MapDelCommonNodes;
@@ -1520,7 +1554,8 @@ end
 	-->
 	function __ns.map_setup()
 		SET = __ns.__setting;
-		MAP_QUEST_BLOCKED = __ns.__mapquestblocked;
+		QUEST_TEMPORARILY_BLOCKED = __ns.__quest_temporarily_blocked;
+		QUEST_PERMANENTLY_BLOCKED = __ns.__quest_permanently_blocked;
 		-- local HBD = LibStub("HereBeDragons-2.0");
 		-- local mapData = HBD.mapData;
 		-- --	{ width, height, left, top, instance = instance, name = name, mapType = mapType, parent = parent }
@@ -1565,6 +1600,7 @@ end
 		if map_canvas_scale > pin_scale_max then
 			varied_size = varied_size * pin_scale_max / map_canvas_scale;
 		end
+		SetHideNodeModifier(SET.hide_node_modifier);
 	end
 -->
 

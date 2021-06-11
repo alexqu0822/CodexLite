@@ -191,6 +191,24 @@ local _ = nil;
 				nil,
 				boolean_func,
 			},
+			show_buttons_in_log = {
+				'boolean',
+				function(val)
+					SET['show_buttons_in_log'] = val;
+					__ns.SetQuestLogFrameButtonShown(val);
+				end,
+				nil,
+				boolean_func,
+			},
+			hide_node_modifier = {
+				'list',
+				function(val)
+					SET['hide_node_modifier'] = val;
+					__ns.SetHideNodeModifier(val);
+					__ns.__ui_setting.set_entries['hide_node_modifier']:SetVal(val);
+				end,
+				{ "SHIFT", "CTRL", "ALT", },
+			},
 		};
 		local function ResetAll()
 			__ns.core_reset();
@@ -254,6 +272,8 @@ local _ = nil;
 		auto_complete = false,
 		quest_auto_inverse_modifier = "SHIFT",
 		tip_info = true,
+		show_buttons_in_log = true,
+		-- hide_node_modifier = "",
 	};
 	local setting_keys = {
 		-- "min_rate",
@@ -270,6 +290,8 @@ local _ = nil;
 		"auto_complete",
 		"quest_auto_inverse_modifier",
 		"tip_info",
+		"show_buttons_in_log",
+		-- "hide_node_modifier",
 	};
 	-->
 		local function Slider_OnValueChanged(self, val, userInput)
@@ -469,48 +491,46 @@ local _ = nil;
 	function __ns.setting_setup()
 		local GUID = UnitGUID('player');
 		local SV = _G.CodexLiteSV;
-		if SV == nil then
+		if SV == nil or SV.__version == nil or SV.__version < 20210529.0 then
 			SV = {
 				setting = def,
 				minimap = {
 					minimapPos = 0.0,
 				},
-				mapquestblocked = {
+				quest_temporarily_blocked = {
 					[GUID] = {  },
 				},
+				quest_permanently_blocked = {
+					[GUID] = {  },
+				},
+				__version = 20210610.0,
 			};
 			_G.CodexLiteSV = SV;
 			SET = SV.setting;
 		else
-			if SV.__version == nil or SV.__version < 20210529.0 then
-				SET = SV;
-				SV = {
-					setting = SET,
-					minimap = {
-						minimapPos = SET.minimapPos or 0;
-					},
-					mapquestblocked = {  },
-				};
-				SET.minimapPos = nil;
-				_G.CodexLiteSV = SV;
-			else
-				SET = SV.setting;
+			if SV.__version < 20210610.0 then
+				SV.__version = 20210610.0;
+				SV.quest_temporarily_blocked = SV.mapquestblocked;
+				SV.mapquestblocked = nil;
+				SV.quest_permanently_blocked = {  };
 			end
+			SET = SV.setting;
 			for key, val in next, def do
 				if SET[key] == nil then
 					SET[key] = val;
 				end
 			end
-			SV.mapquestblocked[GUID] = SV.mapquestblocked[GUID] or {  };
+			SV.quest_temporarily_blocked[GUID] = SV.quest_temporarily_blocked[GUID] or {  };
+			SV.quest_permanently_blocked[GUID] = SV.quest_permanently_blocked[GUID] or {  };
 		end
-		SV.__version = 20210529.0;
 		SET.quest_lvl_green = -1;
 		SET.quest_lvl_yellow = -1;
 		SET.quest_lvl_orange = -1;
 		SET.quest_lvl_red = -1;
 		__ns.__svar = SV;
 		__ns.__setting = SET;
-		__ns.__mapquestblocked = SV.mapquestblocked[GUID];
+		__ns.__quest_temporarily_blocked = SV.quest_temporarily_blocked[GUID];		--	temporarily hidden
+		__ns.__quest_permanently_blocked = SV.quest_permanently_blocked[GUID];	--	permanently hidden
 		__ns.__ui_setting = __ns.CreateSettingUI();
 	end
 -->

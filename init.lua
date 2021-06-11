@@ -271,7 +271,7 @@ local SET = nil;
 	if CalculateStringEditDistance ~= nil then
 		LevenshteinDistance = CalculateStringEditDistance;
 	else
-		--	credit to https://gist.github.com/Badgerati/3261142
+		--	credit https://gist.github.com/Badgerati/3261142
 		local strbyte, min = strbyte, math.min;
 		function LevenshteinDistance(str1, str2)
 			-- quick cut-offs to save time

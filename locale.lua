@@ -106,6 +106,8 @@ if LOCALE == 'zhCN' then
 	UILOC.auto_complete = "自动交任务";
 	UILOC.quest_auto_inverse_modifier = "自动交接反向按键";
 	UILOC.tip_info = "显示鼠标提示";
+	UILOC.show_buttons_in_log = "显示任务日志按钮";
+	UILOC.hide_node_modifier = "隐藏任务NPC按键";
 	--	questlogframe
 	UILOC.show_quest = "显示";
 	UILOC.hide_quest = "隐藏";
@@ -146,6 +148,8 @@ elseif LOCALE == 'zhTW' then
 	UILOC.auto_complete = "自動交任務";
 	UILOC.quest_auto_inverse_modifier = "自動交接反向按鍵";
 	UILOC.tip_info = "顯示鼠標提示";
+	UILOC.show_buttons_in_log = "顯示任務日志按鈕";
+	UILOC.hide_node_modifier = "隱藏任務NPC按鍵";
 	--	questlogframe
 	UILOC.show_quest = "顯示";
 	UILOC.hide_quest = "隱藏";
@@ -174,18 +178,20 @@ else
 	UILOC.TAG_SETTING = "";
 	UILOC.show_quest_starter = "Show Quest Giver";
 	UILOC.show_quest_ender = "Show Quest Turn In";
-	UILOC.show_db_icon = "Show Minimap DBIcon";
+	UILOC.show_db_icon = "Show DBIcon around minimap";
 	UILOC.min_rate = "Minium Drop Rate";
-	UILOC.pin_size = "Size of Most Pins";
-	UILOC.large_size = "Size of BOSS Pins";
-	UILOC.varied_size = "Size of Quest NPC Pins";
-	UILOC.pin_scale_max = "Maxium Scale Size";
-	UILOC.quest_lvl_lowest_ofs = "Offset of Lowest Quest Level";
-	UILOC.quest_lvl_highest_ofs = "Offset of Highest Quest Level";
-	UILOC.auto_accept = "Quest Auto Accept Quest";
-	UILOC.auto_complete = "Quest Auto Complete Quest";
+	UILOC.pin_size = "Size of normal pins";
+	UILOC.large_size = "Size of BOSS pins";
+	UILOC.varied_size = "Size of NPC pins";
+	UILOC.pin_scale_max = "Maxium scale size";
+	UILOC.quest_lvl_lowest_ofs = "Lowest Level Offset";
+	UILOC.quest_lvl_highest_ofs = "Highest Level Offset";
+	UILOC.auto_accept = "Quest Auto Accept";
+	UILOC.auto_complete = "Quest Auto Complete";
 	UILOC.quest_auto_inverse_modifier = "Auto-Turn-In inverse modifier";
 	UILOC.tip_info = "Info in tip";
+	UILOC.show_buttons_in_log = "Show buttons in questlog";
+	UILOC.hide_node_modifier = "Modifier of hiding quest giver";
 	--	questlogframe
 	UILOC.show_quest = "Show";
 	UILOC.hide_quest = "Hide";

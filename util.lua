@@ -550,8 +550,6 @@ local _ = nil;
 		local function CreateQuestLogFrameButton()
 			local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
 			local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
-			QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle:GetHeight() + 30);
-			QuestLogDescriptionTitle:SetJustifyV("BOTTOM")
 			local _ShowQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_ShowQuest:SetSize(85, 21);
 			_ShowQuest:SetPoint("TOPLEFT", QuestLogDescriptionTitle, "TOPLEFT", 0, 0);
@@ -575,7 +573,37 @@ local _ = nil;
 			_ResetButton:SetText(__UILOC.reset_filter);
 			__ns._ShowQuest = _ShowQuest;
 			__ns._HideQuest = _HideQuest;
+			__ns._ResetQuest = _ResetButton;
+			QuestLogDescriptionTitle.__defHeight = QuestLogDescriptionTitle:GetHeight();
+			if SET.show_buttons_in_log then
+				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
+				QuestLogDescriptionTitle:SetJustifyV("BOTTOM");
+				_ShowQuest:Show();
+				_HideQuest:Show();
+				_ResetButton:Show();
+			else
+				_ShowQuest:Hide();
+				_HideQuest:Hide();
+				_ResetButton:Hide();
+			end
 		end
+		local function SetQuestLogFrameButtonShown(shown)
+			if shown then
+				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
+				QuestLogDescriptionTitle:SetJustifyV("BOTTOM");
+				__ns._ShowQuest:Show();
+				__ns._HideQuest:Show();
+				__ns._ResetQuest:Show();
+			else
+				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight);
+				__ns._ShowQuest:Hide();
+				__ns._HideQuest:Hide();
+				__ns._ResetQuest:Hide();
+			end
+		end
+	-->
+	-->		extern
+		__ns.SetQuestLogFrameButtonShown = SetQuestLogFrameButtonShown;
 	-->
 	function __ns.util_setup()
 		SET = __ns.__setting;
