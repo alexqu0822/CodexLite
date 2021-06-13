@@ -13,24 +13,6 @@ local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map'); end
 
-local GameTooltip = GameTooltip;
-local function button_info_OnEnter(self)
-	GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-	local info_lines = self.info_lines;
-	if info_lines then
-		for index = 1, #info_lines do
-			GameTooltip:AddLine(info_lines[index]);
-		end
-	end
-	GameTooltip:Show();
-end
-local function button_info_OnLeave(self)
-	if GameTooltip:IsOwned(self) then
-		GameTooltip:Hide();
-	end
-end
-
-
 -->		variables
 	local next = next;
 	local _radius_sin, _radius_cos = math.cos, math.sin;
@@ -58,14 +40,11 @@ end
 	local _F_SafeCall = __ns.core._F_SafeCall;
 	local __eventHandler = __ns.core.__eventHandler;
 	local __const = __ns.core.__const;
-	local __core_meta = __ns.__core_meta;
-
-	local UnitHelpFac = __ns.core.UnitHelpFac;
-	local _log_ = __ns._log_;
-
 	local IMG_INDEX = __ns.core.IMG_INDEX;
 	local IMG_PATH_PIN = __ns.core.IMG_PATH_PIN;
 	local IMG_LIST = __ns.core.IMG_LIST;
+
+	local _log_ = __ns._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
 	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas); wm_wrap:SetSize(1, 1); wm_wrap:SetFrameLevel(9999); wm_wrap:SetPoint("CENTER");
@@ -104,6 +83,7 @@ end
 	__ns.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
 	local QUEST_TEMPORARILY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BLOCKED = {  };
+	local QUEST_PERMANENTLY_BL_LIST = {  };
 	-->		--	Pre-Defined
 	local Pin_OnEnter, Pin_OnClick;
 	local NewWorldMapPin, RelWorldMapCommonPin, AddWorldMapCommonPin, RelWorldMapLargePin, AddWorldMapLargePin, RelWorldMapVariedPin, AddWorldMapVariedPin;
@@ -119,62 +99,28 @@ end
 	local Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
 	local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
 	local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes;
-	local MapShowQuestNodes, MapHideQuestNodes, MapResetQuestNodesFilter, MapHideNodes, MapDrawNodes;
+	local MapTemporarilyShowQuestNodes, MapTemporarilyHideQuestNodes, MapResetTemporarilyQuestNodesFilter;
+	local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
+	local MapHideNodes, MapDrawNodes;
 	-->		--	Pin Handler
 		local GameTooltip = GameTooltip;
 		local GetFactionInfoByID = GetFactionInfoByID;
 		function Pin_OnEnter(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local uuid = self.uuid;
-			local refs = uuid[4];
 			local _type = uuid[1];
 			local _id = uuid[2];
-			if _type == 'event' then
-				GameTooltip:AddLine(__UILOC.TIP_WAYPOINT, 0.0, 1.0, 0.0);
-			else
-				local _loc = __loc[_type];
-				if _loc ~= nil then
-					if _type == 'unit' then
-						local info = __db_unit[_id];
-						if info ~= nil then
-							if UnitHelpFac[info.fac] then
-								GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 0.0, 1.0, 0.0);
-							else
-								local facId = info.facId;
-								if facId ~= nil then
-									local _, _, standing_rank, _, _, val = GetFactionInfoByID(facId);
-									if standing_rank == nil then
-										GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 1.0, 0.0, 0.0);
-									elseif standing_rank == 4 then
-										GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 1.0, 1.0, 0.0);
-									elseif standing_rank < 4 then
-										GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 1.0, (standing_rank - 1) * 0.25, 0.0);
-									else
-										GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 0.5 - (standing_rank - 4) * 0.125, 1.0, 0.0);
-									end
-								else
-									GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 1.0, 0.0, 0.0);
-								end
-							end
-						end
-					else
-						GameTooltip:AddLine(_loc[_id] .. "(" .. _id .. ")", 1.0, 1.0, 1.0);
-					end
-				end
-			end
-			local uuid = __ns.CoreGetUUID(_type, _id);
-			if uuid ~= nil then
-				__ns.GameTooltipSetQuestTip(GameTooltip, uuid);
-			end
+			__ns.GameTooltipSetInfo(_type, _id);
 			GameTooltip:Show();
 		end
 		function Pin_OnClick(self)
 			local uuid = self.uuid;
 			if uuid ~= nil then
 				if hide_node_modifier() then
-					local ptr = uuid[4];
-					for quest, val in next, ptr do
+					local refs = uuid[4];
+					for quest, val in next, refs do
 						if val["start"] ~= nil then
+							__ns.NodeOnMenu(self, refs);
 							return;
 						end
 					end
@@ -193,7 +139,7 @@ end
 				pin = CreateFrame("BUTTON", nil, wm_wrap);
 				pin:SetNormalTexture(IMG_PATH_PIN);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", button_info_OnLeave);
+				pin:SetScript("OnLeave", __ns.OnLeave);
 				pin:SetScript("OnClick", Pin_OnClick);
 				pin:SetFrameLevel(frameLevel or 9999);
 				pin.Release = Release;
@@ -664,7 +610,7 @@ end
 				pin = CreateFrame("BUTTON", nil, mm_wrap);
 				pin:SetNormalTexture(IMG_PATH_PIN);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", button_info_OnLeave);
+				pin:SetScript("OnLeave", __ns.OnLeave);
 				pin:SetScript("OnClick", Pin_OnClick);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
@@ -1018,6 +964,7 @@ end
 				end
 			end
 			for coord, pin in next, MM_LARGE_PINS do
+				local blocked = true;
 				for quest, refs in next, pin.uuid[4] do
 					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 						blocked = false;
@@ -1031,6 +978,7 @@ end
 				end
 			end
 			for coord, pin in next, MM_VARIED_PINS do
+				local blocked = true;
 				for quest, refs in next, pin.uuid[4] do
 					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 						blocked = false;
@@ -1416,37 +1364,65 @@ end
 			end
 		end
 		--
-		function MapShowQuestNodes(quest)
+		function MapTemporarilyShowQuestNodes(quest)
 			if QUEST_TEMPORARILY_BLOCKED[quest] == true then
 				QUEST_TEMPORARILY_BLOCKED[quest] = nil;
 				WorldMap_ShowNodesQuest(wm_map, quest);
 				Minimap_ShowNodesMapQuest(mm_map, quest);
 			end
 		end
-		function MapHideQuestNodes(quest)
+		function MapTemporarilyHideQuestNodes(quest)
 			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true then
 				QUEST_TEMPORARILY_BLOCKED[quest] = true;
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
 			end
 		end
-		function MapResetQuestNodesFilter()
+		function MapResetTemporarilyQuestNodesFilter()
 			wipe(QUEST_TEMPORARILY_BLOCKED);
 			MapDrawNodes();
 		end
-		function MapPermanentShowQuestNodes(quest)
+		function MapPermanentlyShowQuestNodes(quest)
 			if QUEST_PERMANENTLY_BLOCKED[quest] == true then
 				QUEST_PERMANENTLY_BLOCKED[quest] = nil;
+				for index = #QUEST_PERMANENTLY_BL_LIST, 1, -1 do
+					if QUEST_PERMANENTLY_BL_LIST[index] == quest then
+						tremove(QUEST_PERMANENTLY_BL_LIST, index);
+						break;
+					end
+				end
 				WorldMap_ShowNodesQuest(wm_map, quest);
 				Minimap_ShowNodesMapQuest(mm_map, quest);
+				__ns.RefreshBlockedList();
 			end
 		end
-		function MapPermanentHideQuestNodes(quest)
+		function MapPermanentlyHideQuestNodes(quest)
 			if QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				QUEST_PERMANENTLY_BLOCKED[quest] = true;
+				QUEST_PERMANENTLY_BL_LIST[#QUEST_PERMANENTLY_BL_LIST + 1] = quest;
+				WorldMap_HideNodesQuest(wm_map, quest);
+				Minimap_HideNodesQuest(quest);
+				__ns.RefreshBlockedList();
+			end
+		end
+		function MapPermanentlyToggleQuestNodes(quest)
+			if QUEST_PERMANENTLY_BLOCKED[quest] == true then
+				QUEST_PERMANENTLY_BLOCKED[quest] = nil;
+				for index = #QUEST_PERMANENTLY_BL_LIST, 1, -1 do
+					if QUEST_PERMANENTLY_BL_LIST[index] == quest then
+						tremove(QUEST_PERMANENTLY_BL_LIST, index);
+						break;
+					end
+				end
+				WorldMap_ShowNodesQuest(wm_map, quest);
+				Minimap_ShowNodesMapQuest(mm_map, quest);
+			else
+				QUEST_PERMANENTLY_BLOCKED[quest] = true;
+				QUEST_PERMANENTLY_BL_LIST[#QUEST_PERMANENTLY_BL_LIST + 1] = quest;
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
 			end
+			__ns.RefreshBlockedList();
 		end
 		--
 		function MapDrawNodes()
@@ -1472,9 +1448,12 @@ end
 		__ns.MapDelLargeNodes = MapDelLargeNodes;
 		__ns.MapAddVariedNodes = MapAddVariedNodes;
 		__ns.MapDelVariedNodes = MapDelVariedNodes;
-		__ns.MapShowQuestNodes = MapShowQuestNodes;
-		__ns.MapHideQuestNodes = MapHideQuestNodes;
-		__ns.MapResetQuestNodesFilter = MapResetQuestNodesFilter;
+		__ns.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
+		__ns.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
+		__ns.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
+		__ns.MapPermanentlyShowQuestNodes = MapPermanentlyShowQuestNodes;
+		__ns.MapPermanentlyHideQuestNodes = MapPermanentlyHideQuestNodes;
+		__ns.MapPermanentlyToggleQuestNodes = MapPermanentlyToggleQuestNodes;
 		--
 		__ns.MapDrawNodes = MapDrawNodes;
 		__ns.MapHideNodes = MapHideNodes;
@@ -1556,6 +1535,7 @@ end
 		SET = __ns.__setting;
 		QUEST_TEMPORARILY_BLOCKED = __ns.__quest_temporarily_blocked;
 		QUEST_PERMANENTLY_BLOCKED = __ns.__quest_permanently_blocked;
+		QUEST_PERMANENTLY_BL_LIST = __ns.__quest_permanently_bl_list;
 		-- local HBD = LibStub("HereBeDragons-2.0");
 		-- local mapData = HBD.mapData;
 		-- --	{ width, height, left, top, instance = instance, name = name, mapType = mapType, parent = parent }
