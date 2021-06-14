@@ -97,9 +97,13 @@ if LOCALE == 'zhCN' then
 	UILOC['tab.interact'] = "交互";
 	UILOC['tab.misc'] = "杂项";
 	UILOC['tab.blocked'] = "已隐藏";
+	--	general
+	UILOC.show_db_icon = "显示小地图设置菜单按钮";
+	UILOC.show_buttons_in_log = "显示任务日志按钮";
+	UILOC.show_id_in_tooltip = "在鼠标提示中显示id";
+	--	map
 	UILOC.show_quest_starter = "显示任务给予者";
 	UILOC.show_quest_ender = "显示任务交还者";
-	UILOC.show_db_icon = "显示小地图设置菜单按钮";
 	UILOC.min_rate = "最低物品掉率";
 	UILOC.pin_size = "普通标记点大小";
 	UILOC.large_size = "boss标记点大小";
@@ -107,13 +111,13 @@ if LOCALE == 'zhCN' then
 	UILOC.pin_scale_max = "地图缩放时标记点的最大缩放";
 	UILOC.quest_lvl_lowest_ofs = "最低任务等级偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任务等级偏差";
-	UILOC.show_id_in_tooltip = "在鼠标提示中显示id";
+	UILOC.minimap_node_inset = "不显示小地图边缘上的任务图标";
+	UILOC.hide_node_modifier = "弹出隐藏任务按键";
+	--	interact
 	UILOC.auto_accept = "自动接任务";
 	UILOC.auto_complete = "自动交任务";
 	UILOC.quest_auto_inverse_modifier = "自动交接反向按键";
 	UILOC.objective_tooltip_info = "显示物件鼠标提示";
-	UILOC.show_buttons_in_log = "显示任务日志按钮";
-	UILOC.hide_node_modifier = "弹出隐藏任务按键";
 	--	questlogframe
 	UILOC.show_quest = "显示";
 	UILOC.hide_quest = "隐藏";
@@ -148,9 +152,13 @@ elseif LOCALE == 'zhTW' then
 	UILOC['tab.interact'] = "交互";
 	UILOC['tab.misc'] = "雜項";
 	UILOC['tab.blocked'] = "已隱藏";
+	--	general
+	UILOC.show_db_icon = "顯示小地圖設置菜單按鈕";
+	UILOC.show_buttons_in_log = "顯示任務日志按鈕";
+	UILOC.show_id_in_tooltip = "在鼠標提示中顯示id";
+	--	map
 	UILOC.show_quest_starter = "顯示任務給與者";
 	UILOC.show_quest_ender = "顯示任務交還者";
-	UILOC.show_db_icon = "顯示小地圖設置菜單按鈕";
 	UILOC.min_rate = "最低物品掉率";
 	UILOC.pin_size = "普通標記點大小";
 	UILOC.large_size = "boss標記點大小";
@@ -158,13 +166,13 @@ elseif LOCALE == 'zhTW' then
 	UILOC.pin_scale_max = "地圖縮放時標記點的最大縮放";
 	UILOC.quest_lvl_lowest_ofs = "最低任務等級偏差";
 	UILOC.quest_lvl_highest_ofs = "最高任務等級偏差";
-	UILOC.show_id_in_tooltip = "在鼠標提示中顯示id";
+	UILOC.minimap_node_inset = "不顯示小地圖邊緣上的任務圖標";
+	UILOC.hide_node_modifier = "彈出隱藏任務按鍵";
+	--	interact
 	UILOC.auto_accept = "自動接任務";
 	UILOC.auto_complete = "自動交任務";
 	UILOC.quest_auto_inverse_modifier = "自動交接反向按鍵";
 	UILOC.objective_tooltip_info = "顯示物件鼠標提示";
-	UILOC.show_buttons_in_log = "顯示任務日志按鈕";
-	UILOC.hide_node_modifier = "彈出隱藏任務按鍵";
 	--	questlogframe
 	UILOC.show_quest = "顯示";
 	UILOC.hide_quest = "隱藏";
@@ -199,9 +207,13 @@ else
 	UILOC['tab.interact'] = "Interact";
 	UILOC['tab.misc'] = "Misc";
 	UILOC['tab.blocked'] = "Blocked";
+	--	general
+	UILOC.show_db_icon = "Show DBIcon around minimap";
+	UILOC.show_buttons_in_log = "Show buttons in questlog";
+	UILOC.show_id_in_tooltip = "Show ID in tooltip";
+	--	map
 	UILOC.show_quest_starter = "Show Quest Giver";
 	UILOC.show_quest_ender = "Show Quest Turn In";
-	UILOC.show_db_icon = "Show DBIcon around minimap";
 	UILOC.min_rate = "Minium Drop Rate";
 	UILOC.pin_size = "Size of normal pins";
 	UILOC.large_size = "Size of BOSS pins";
@@ -209,13 +221,13 @@ else
 	UILOC.pin_scale_max = "Maxium scale size";
 	UILOC.quest_lvl_lowest_ofs = "Lowest Level Offset";
 	UILOC.quest_lvl_highest_ofs = "Highest Level Offset";
-	UILOC.show_id_in_tooltip = "Show ID in tooltip";
+	UILOC.minimap_node_inset = "Hide pin on the border of minimap";
+	UILOC.hide_node_modifier = "Modifier of hiding quest";
+	--	interact
 	UILOC.auto_accept = "Quest Auto Accept";
 	UILOC.auto_complete = "Quest Auto Complete";
 	UILOC.quest_auto_inverse_modifier = "Auto-Turn-In inverse modifier";
 	UILOC.objective_tooltip_info = "Info in objective's tooltip";
-	UILOC.show_buttons_in_log = "Show buttons in questlog";
-	UILOC.hide_node_modifier = "Modifier of hiding quest";
 	--	questlogframe
 	UILOC.show_quest = "Show";
 	UILOC.hide_quest = "Hide";

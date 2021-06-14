@@ -631,7 +631,7 @@ local _ = nil;
 			local color = IMG_LIST[GetQuestStartTexture(info)];
 			local lvl_str = GetLevelTag(quest, info, modifier);
 			local loc = __loc_quest[quest];
-			return format("|cff%.2x%.2x%.2x", color[2] * 255, color[3] * 255, color[4] * 255) .. lvl_str .. (loc and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
+			return lvl_str .. format("|cff%.2x%.2x%.2x", color[2] * 255, color[3] * 255, color[4] * 255) .. (loc and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
 		end
 		function __ns.NodeOnMenu(node, refs)
 			local ele = {  };

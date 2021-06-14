@@ -73,6 +73,7 @@ local _ = nil;
 	local mm_map = C_Map.GetBestMapForUnit('player');
 	local map_canvas_scale = mapCanvas:GetScale();
 	local pin_size, large_size, varied_size = nil, nil, nil;
+	local minimap_node_inset = false;
 	local hide_node_modifier = IsShiftKeyDown;
 	local META_COMMON = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local META_LARGE = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
@@ -84,24 +85,25 @@ local _ = nil;
 	local QUEST_TEMPORARILY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BL_LIST = {  };
-	-->		--	Pre-Defined
-	local Pin_OnEnter, Pin_OnClick;
-	local NewWorldMapPin, RelWorldMapCommonPin, AddWorldMapCommonPin, RelWorldMapLargePin, AddWorldMapLargePin, RelWorldMapVariedPin, AddWorldMapVariedPin;
-	local IterateWorldMapPinSetSize, ResetWMPin;
-	local WorldMap_HideCommonNodesMapUUID, WorldMap_HideLargeNodesMapUUID, WorldMap_HideVariedNodesMapUUID;
-	local WorldMap_ChangeCommonLargeNodesMapUUID, WorldMap_ChangeVariedNodesMapUUID;
-	local WorldMap_ShowNodesQuest, WorldMap_HideNodesQuest;
-	local WorldMap_DrawNodesMap, WorldMap_HideNodesMap;
-	local NewMinimapPin, RelMinimapPin, AddMinimapPin, ResetMMPin;
-	local Minimap_HideCommonNodesMapUUID, Minimap_HideLargeNodesMapUUID, Minimap_HideVariedNodesMapUUID;
-	local Minimap_ChangeCommonLargeNodesMapUUID, Minimap_ChangeVariedNodesMapUUID;
-	local Minimap_ShowNodesMapQuest, Minimap_HideNodesQuest;
-	local Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
-	local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
-	local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes;
-	local MapTemporarilyShowQuestNodes, MapTemporarilyHideQuestNodes, MapResetTemporarilyQuestNodesFilter;
-	local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
-	local MapHideNodes, MapDrawNodes;
+	-->		function predef
+		local Pin_OnEnter, Pin_OnClick;
+		local NewWorldMapPin, RelWorldMapCommonPin, AddWorldMapCommonPin, RelWorldMapLargePin, AddWorldMapLargePin, RelWorldMapVariedPin, AddWorldMapVariedPin;
+		local IterateWorldMapPinSetSize, ResetWMPin;
+		local WorldMap_HideCommonNodesMapUUID, WorldMap_HideLargeNodesMapUUID, WorldMap_HideVariedNodesMapUUID;
+		local WorldMap_ChangeCommonLargeNodesMapUUID, WorldMap_ChangeVariedNodesMapUUID;
+		local WorldMap_ShowNodesQuest, WorldMap_HideNodesQuest;
+		local WorldMap_DrawNodesMap, WorldMap_HideNodesMap;
+		local NewMinimapPin, RelMinimapPin, AddMinimapPin, ResetMMPin;
+		local Minimap_HideCommonNodesMapUUID, Minimap_HideLargeNodesMapUUID, Minimap_HideVariedNodesMapUUID;
+		local Minimap_ChangeCommonLargeNodesMapUUID, Minimap_ChangeVariedNodesMapUUID;
+		local Minimap_ShowNodesMapQuest, Minimap_HideNodesQuest;
+		local Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
+		local SetCommonPinSize, SetLargePinSize, SetVariedPinSize, SetMinimapNodeInset, SetHideNodeModifier;
+		local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes;
+		local MapTemporarilyShowQuestNodes, MapTemporarilyHideQuestNodes, MapResetTemporarilyQuestNodesFilter;
+		local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
+		local MapHideNodes, MapDrawNodes;
+	-->
 	-->		--	Pin Handler
 		local GameTooltip = GameTooltip;
 		local GetFactionInfoByID = GetFactionInfoByID;
@@ -995,6 +997,7 @@ local _ = nil;
 		end
 		function Minimap_DrawNodesMap(map)
 			__ns._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
+			local mm_check_range = minimap_node_inset and mm_hsize * 0.9 or mm_hsize;
 			local num_changed = 0;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
@@ -1008,7 +1011,7 @@ local _ = nil;
 								local val = coord[5];	--	world
 								local dx = val[1] - mm_player_x;
 								local dy = val[2] - mm_player_y;
-								if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
+								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_COMMON_PINS[coord];
 									if pin == nil then
 										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
@@ -1051,7 +1054,7 @@ local _ = nil;
 								local val = coord[5];	--	world
 								local dx = val[1] - mm_player_x;
 								local dy = val[2] - mm_player_y;
-								if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
+								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_LARGE_PINS[coord];
 									if pin == nil then
 										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);
@@ -1095,7 +1098,7 @@ local _ = nil;
 								local val = coord[5];	--	world
 								local dx = val[1] - mm_player_x;
 								local dy = val[2] - mm_player_y;
-								if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
+								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_VARIED_PINS[coord];
 									local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 									if pin == nil then
@@ -1253,7 +1256,12 @@ local _ = nil;
 				pin:SetSize(varied_size, varied_size);
 			end
 		end
-		local function SetHideNodeModifier(modifier)
+		function SetMinimapNodeInset()
+			minimap_node_inset = SET.minimap_node_inset;
+			Minimap_HideNodes();
+			Minimap_DrawNodesMap(mm_map);
+		end
+		function SetHideNodeModifier(modifier)
 			if modifier == "SHIFT" then
 				hide_node_modifier = IsShiftKeyDown;
 			elseif modifier == "CTRL" then
@@ -1440,6 +1448,7 @@ local _ = nil;
 		__ns.SetCommonPinSize = SetCommonPinSize;
 		__ns.SetLargePinSize = SetLargePinSize;
 		__ns.SetVariedPinSize = SetVariedPinSize;
+		__ns.SetMinimapNodeInset = SetMinimapNodeInset;
 		__ns.SetHideNodeModifier = SetHideNodeModifier;
 		--
 		__ns.MapAddCommonNodes = MapAddCommonNodes;
@@ -1580,6 +1589,7 @@ local _ = nil;
 		if map_canvas_scale > pin_scale_max then
 			varied_size = varied_size * pin_scale_max / map_canvas_scale;
 		end
+		minimap_node_inset = SET.minimap_node_inset;
 		SetHideNodeModifier(SET.hide_node_modifier);
 	end
 -->

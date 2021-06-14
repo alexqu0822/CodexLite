@@ -225,6 +225,17 @@ local _ = nil;
 					round_func_table[0],
 					'tab.map',
 				},
+				minimap_node_inset = {
+					'boolean',
+					function(val)
+						SET['minimap_node_inset'] = val;
+						__ns.SetMinimapNodeInset();
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.map',
+				},
 				hide_node_modifier = {
 					'list',
 					function(val)
@@ -330,6 +341,8 @@ local _ = nil;
 	local def = {
 		--	general
 			show_db_icon = true,
+			show_buttons_in_log = true,
+			show_id_in_tooltip = true,
 		--	map
 			show_quest_starter = true,
 			show_quest_ender = true,
@@ -340,19 +353,20 @@ local _ = nil;
 			pin_scale_max = 1.25,
 			quest_lvl_lowest_ofs = -6,		--	>=
 			quest_lvl_highest_ofs = 1,		--	<=
-			show_id_in_tooltip = true,
+			minimap_node_inset = true,
 			hide_node_modifier = "",
 		--	interact
 			auto_accept = false,
 			auto_complete = false,
 			quest_auto_inverse_modifier = "SHIFT",
-		--	misc
 			objective_tooltip_info = true,
-			show_buttons_in_log = true,
+		--	misc
 	};
 	local setting_keys = {
 		--	general
 			"show_db_icon",
+			"show_buttons_in_log",
+			"show_id_in_tooltip",
 		--	map
 			"show_quest_starter",
 			"show_quest_ender",
@@ -363,15 +377,14 @@ local _ = nil;
 			"pin_scale_max",
 			"quest_lvl_lowest_ofs",
 			"quest_lvl_highest_ofs",
-			"show_id_in_tooltip",
+			"minimap_node_inset",
 			"hide_node_modifier",
 		--	interact
 			"auto_accept",
 			"auto_complete",
 			"quest_auto_inverse_modifier",
-		--	misc
 			"objective_tooltip_info",
-			"show_buttons_in_log",
+		--	misc
 	};
 	-->
 		local function Slider_OnValueChanged(self, val, userInput)

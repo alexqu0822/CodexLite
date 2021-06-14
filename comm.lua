@@ -74,11 +74,15 @@ local _ = nil;
 	local GROUP_MEMBERS_INFO = {  };
 	__ns.__comm_group_members_info = GROUP_MEMBERS_INFO;
 	-->		function predef
-		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID;
-		local AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
+		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
+		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
 		local AddLine, DelLine;
+		local MessageTicker, ScheduleMessage;
+		local PushReset, PushAddQuest, PushDelQuest, PushAddLine, PushResetSingle, PushAddQuestSingle, PushDelQuestSingle, PushAddLineSingle, Push, Pull, PushSingle, PullSingle, BroadcastOnline;
+		local DisableComm, EnableComm;
+		local UpdateGroupMembers;
 	-->
 	local noop = function() end
 	local is_comm_enabled = false;
@@ -162,7 +166,7 @@ local _ = nil;
 				return UUID[_T][_id];
 			end
 		end
-		local function ResetUUID()
+		function ResetUUID()
 			wipe(_UUID);
 		end
 		__ns.CommAddUUID = CommAddUUID;
@@ -173,7 +177,7 @@ local _ = nil;
 		local COMMON_UUID_FLAG = {  };
 		local LARGE_UUID_FLAG = {  };
 		local VARIED_UUID_FLAG = {  };
-		local function GetVariedNodeTexture(texture_list)
+		function GetVariedNodeTexture(texture_list)
 			local TEXTURE = 0;
 			for quest, list in next, texture_list do
 				for _, texture in next, list do
@@ -587,7 +591,7 @@ local _ = nil;
 		local MessageBuffer = {  };
 		local MessageTop = 0;
 		local SchedulerRunning = false;
-		local function MessageTicker()
+		function MessageTicker()
 			local msg = tremove(MessageBuffer, 1);
 			MessageTop = MessageTop - 1;
 			if MessageBuffer[1] ~= nil then
@@ -598,7 +602,7 @@ local _ = nil;
 			end
 			SendAddonMessage(ADDON_PREFIX, msg[1], msg[2], msg[3]);
 		end
-		local function ScheduleMessage(msg, channel, target)
+		function ScheduleMessage(msg, channel, target)
 			MessageTop = MessageTop + 1;
 			MessageBuffer[MessageTop] = { msg, channel, target, };
 			if not SchedulerRunning then
@@ -608,14 +612,14 @@ local _ = nil;
 		end
 	-->
 	-->		comm
-		local function PushReset()
+		function PushReset()
 			for name, val in next, GROUP_MEMBERS do
 				if val then
 					ScheduleMessage(ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
 				end
 			end
 		end
-		local function PushAddQuest(_quest, _completed, title, num_lines)
+		function PushAddQuest(_quest, _completed, title, num_lines)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^1^" .. num_lines .. "^" .. title;
 			for name, val in next, GROUP_MEMBERS do
 				if val then
@@ -624,7 +628,7 @@ local _ = nil;
 			end
 			_log_('comm.PushAddQuest', msg);
 		end
-		local function PushDelQuest(_quest, _completed)
+		function PushDelQuest(_quest, _completed)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^-1";
 			for name, val in next, GROUP_MEMBERS do
 				if val then
@@ -633,7 +637,7 @@ local _ = nil;
 			end
 			_log_('comm.PushAddQuest', msg);
 		end
-		local function PushAddLine(_quest, _line, _finished, _type, _id, _text)
+		function PushAddLine(_quest, _line, _finished, _type, _id, _text)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^LINE^" .. _quest .. (_finished and "^1^" or "^0^") .. _line .. "^" .. _type .. "^" .. _id .. "^" .. _text;
 			for name, val in next, GROUP_MEMBERS do
 				if val then
@@ -643,26 +647,26 @@ local _ = nil;
 			_log_('comm.PushAddLine', msg);
 		end
 		--
-		local function PushResetSingle(name)
+		function PushResetSingle(name)
 			ScheduleMessage(ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
 		end
-		local function PushAddQuestSingle(name, _quest, _completed, title, num_lines)
+		function PushAddQuestSingle(name, _quest, _completed, title, num_lines)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^1^" .. num_lines .. "^" .. title;
 			ScheduleMessage(msg, "WHISPER", name);
 			_log_('comm.PushAddQuest', msg);
 		end
-		local function PushDelQuestSingle(name, _quest, _completed)
+		function PushDelQuestSingle(name, _quest, _completed)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^-1";
 			ScheduleMessage(msg, "WHISPER", name);
 			_log_('comm.PushAddQuest', msg);
 		end
-		local function PushAddLineSingle(name, _quest, _line, _finished, _type, _id, _text)
+		function PushAddLineSingle(name, _quest, _line, _finished, _type, _id, _text)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^LINE^" .. _quest .. (_finished and "^1^" or "^0^") .. _line .. "^" .. _type .. "^" .. _id .. "^" .. _text;
 			ScheduleMessage(msg, "WHISPER", name);
 			_log_('comm.PushAddLine', msg);
 		end
 		--
-		local function Push()
+		function Push()
 			_log_('comm.|cffff0000Push|r');
 			PushReset();
 			for quest, meta in next, __core_meta do
@@ -675,13 +679,13 @@ local _ = nil;
 				end
 			end
 		end
-		local function Pull()
+		function Pull()
 			_log_('comm.|cffff0000Pull|r');
 			for name, val in next, GROUP_MEMBERS do
 				ScheduleMessage(ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
 			end
 		end
-		local function PushSingle(name)
+		function PushSingle(name)
 			_log_('comm.|cffff0000PushSingle|r', name);
 			PushResetSingle(name);
 			for quest, meta in next, __core_meta do
@@ -694,18 +698,18 @@ local _ = nil;
 				end
 			end
 		end
-		local function PullSingle(name)
+		function PullSingle(name)
 			_log_('comm.|cffff0000PullSingle|r', name);
 			ScheduleMessage(ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
 		end
-		local function BroadcastOnline()
+		function BroadcastOnline()
 			_log_('comm.|cffff0000BroadcastOnline|r');
 			for name, val in next, GROUP_MEMBERS do
 				ScheduleMessage(ADDON_MSG_CTRLCODE_ONLINE, "WHISPER", name);
 			end
 		end
 	-->		control
-		local function DisableComm()
+		function DisableComm()
 			is_comm_enabled = false;
 			wipe(META);
 			ResetUUID();
@@ -713,7 +717,7 @@ local _ = nil;
 			__ns.PushDelQuest = noop;
 			__ns.PushAddLine = noop;
 		end
-		local function EnableComm()
+		function EnableComm()
 			is_comm_enabled = true;
 			__ns.PushAddQuest = PushAddQuest;
 			__ns.PushDelQuest = PushDelQuest;
@@ -721,7 +725,7 @@ local _ = nil;
 		end
 	-->		group cache
 		local PartyUnitsList = { 'party1', 'party2', 'party3', 'party4', };
-		local function UpdateGroupMembers()
+		function UpdateGroupMembers()
 			if is_comm_enabled then
 				local _GROUP_MEMBERS = {  };
 				for index = 1, 4 do
@@ -907,7 +911,6 @@ local _ = nil;
 		SET = __ns.__setting;
 		DisableComm();
 		if RegisterAddonMessagePrefix(ADDON_PREFIX) then
--- if __ns.__dev then
 			__eventHandler:RegEvent("CHAT_MSG_ADDON");
 			-- __eventHandler:RegEvent("CHAT_MSG_ADDON_LOGGED");
 			__eventHandler:RegEvent("GROUP_ROSTER_UPDATE");
@@ -920,7 +923,6 @@ local _ = nil;
 				__eventHandler:run_on_next_tick(UpdateGroupMembers);
 				_log_("comm.init.ingroup");
 			end
--- end
 		end
 	end
 -->
