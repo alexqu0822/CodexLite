@@ -10,6 +10,7 @@
     <script file = "refloot.lua" />
     <script file = "units.lua" />
     <script file = "event.lua" />
+    <script file = "_extra.lua" />
 
     <script file = "deDE\items.lua" />
     <script file = "deDE\maps.lua" />

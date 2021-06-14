@@ -95,14 +95,16 @@ local _ = nil;
 	__ns.__obj_lookup = OBJ_LOOKUP;
 	__ns.__core_quests_completed = QUESTS_COMPLETED;
 	-->		function predef
-		local GetColor3, RelColor3
-		local CoreAddUUID, CoreSubUUID, CoreGetUUID;
-		local AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
+		local GetColor3, RelColor3, GetColor3NextIndex, ResetColor3;
+		local CoreAddUUID, CoreSubUUID, CoreGetUUID, ResetUUID;
+		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
 		local AddLine, AddLineByID, DelLine, LoadQuestCache, UpdateQuests;
 		local UpdateQuestGivers;
 		local CalcQuestColor;
+		local SetQuestStarterShown, SetQuestEnderShown, SetQuestAutoInverseModifier;
+	-->
 	-->		--	color
 		local COLOR3 = {  };
 		local PALLET = {  };
@@ -163,7 +165,7 @@ local _ = nil;
 			end
 		end
 		local floor = floor;
-		local function GetColor3NextIndex(index)
+		function GetColor3NextIndex(index)
 			local num = #PALLET;
 			if index == nil then
 				index = (random() * 10000 * num) % (num - 1);
@@ -179,7 +181,7 @@ local _ = nil;
 			COLOR3[color3] = COLOR3[color3] + 1;
 			return color3, index;
 		end
-		local function ResetColor3()
+		function ResetColor3()
 			for color3, _ in next, COLOR3 do
 				COLOR3[color3] = 0;
 			end
@@ -263,7 +265,7 @@ local _ = nil;
 		function CoreGetUUID(_T, _id)
 			return UUID[_T][_id];
 		end
-		local function ResetUUID()
+		function ResetUUID()
 			wipe(UUID.event);
 			wipe(UUID.item);
 			wipe(UUID.object);
@@ -278,7 +280,7 @@ local _ = nil;
 		local COMMON_UUID_FLAG = {  };
 		local LARGE_UUID_FLAG = {  };
 		local VARIED_UUID_FLAG = {  };
-		local function GetVariedNodeTexture(texture_list)
+		function GetVariedNodeTexture(texture_list)
 			local TEXTURE = 0;
 			for quest, list in next, texture_list do
 				for _, texture in next, list do
@@ -1252,7 +1254,7 @@ local _ = nil;
 		end
 	-->
 	-->		interface
-		local function SetQuestStarterShown(shown)
+		function SetQuestStarterShown(shown)
 			show_starter = SET.show_quest_starter;
 			UpdateQuestGivers();
 			if show_starter then
@@ -1267,7 +1269,7 @@ local _ = nil;
 			end
 			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 		end
-		local function SetQuestEnderShown(shown)
+		function SetQuestEnderShown(shown)
 			show_ender = SET.show_quest_ender;
 			for quest_id, meta in next, META do
 				local info = __db_quest[quest_id];
@@ -1285,7 +1287,7 @@ local _ = nil;
 			end
 			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 		end
-		local function SetQuestAutoInverseModifier(modifier)
+		function SetQuestAutoInverseModifier(modifier)
 			if modifier == "SHIFT" then
 				quest_auto_inverse_modifier = IsShiftKeyDown;
 			elseif modifier == "CTRL" then
