@@ -47,8 +47,26 @@ local _ = nil;
 	local _log_ = __ns._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
-	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas); wm_wrap:SetSize(1, 1); wm_wrap:SetFrameLevel(9999); wm_wrap:SetPoint("CENTER");
-	local mm_wrap = CreateFrame("FRAME", nil, Minimap); mm_wrap:SetSize(1, 1); mm_wrap:SetFrameLevel(9999); mm_wrap:SetPoint("CENTER");
+	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas);
+		wm_wrap:SetSize(1, 1);
+		wm_wrap:SetPoint("CENTER");
+	local mm_wrap = CreateFrame("FRAME", nil, Minimap);
+		mm_wrap:SetSize(1, 1);
+		mm_wrap:SetPoint("CENTER");
+	local CommonPinFrameLevel, LargePinFrameLevel = 1, 1;
+	local function ReCalcFrameLevel(pinFrameLevelsManager)
+		local base = pinFrameLevelsManager:GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI", 9999);
+		wm_wrap:SetFrameLevel(base);
+		mm_wrap:SetFrameLevel(base);
+		CommonPinFrameLevel = base;
+		LargePinFrameLevel = base + 1;
+		for index, texture in next, IMG_LIST do
+			texture[5] = base + texture[6];
+		end
+	end
+	local pinFrameLevelsManager = WorldMapFrame:GetPinFrameLevelsManager();	--	WorldMapFrame.pinFrameLevelsManager;
+	hooksecurefunc(pinFrameLevelsManager, "AddFrameLevel", ReCalcFrameLevel);
+	ReCalcFrameLevel(pinFrameLevelsManager);
 
 	local SET = nil;
 -->		MAIN
@@ -143,7 +161,7 @@ local _ = nil;
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);
 				pin:SetScript("OnClick", Pin_OnClick);
-				pin:SetFrameLevel(frameLevel or 9999);
+				pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
 				pin.__NORMAL_TEXTURE = pin:GetNormalTexture();
@@ -163,7 +181,7 @@ local _ = nil;
 			pin:Hide();
 		end
 		function AddWorldMapCommonPin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, pin_size, RelWorldMapCommonPin, 9000);
+			local pin = NewWorldMapPin(__const.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, pin_size, RelWorldMapCommonPin, CommonPinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -183,7 +201,7 @@ local _ = nil;
 			pin:Hide();
 		end
 		function AddWorldMapLargePin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, large_size, RelWorldMapLargePin, 9001);
+			local pin = NewWorldMapPin(__const.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, large_size, RelWorldMapLargePin, LargePinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -621,7 +639,7 @@ local _ = nil;
 				pool_unused[pin] = nil;
 			end
 			pin:SetSize(size, size);
-			pin:SetFrameLevel(frameLevel or 9999);
+			pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 			pool_inuse[pin] = 1;
 			return pin;
 		end
@@ -834,7 +852,7 @@ local _ = nil;
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_COMMON_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
+									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -874,7 +892,7 @@ local _ = nil;
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_LARGE_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);
+									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -1014,7 +1032,7 @@ local _ = nil;
 								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_COMMON_PINS[coord];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
+										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
 										MM_COMMON_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else
@@ -1057,7 +1075,7 @@ local _ = nil;
 								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_LARGE_PINS[coord];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);
+										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
 										MM_LARGE_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else
