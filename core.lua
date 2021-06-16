@@ -103,6 +103,7 @@ local _ = nil;
 		local AddLine, AddLineByID, DelLine, LoadQuestCache, UpdateQuests;
 		local UpdateQuestGivers;
 		local CalcQuestColor;
+		--	setting
 		local SetQuestStarterShown, SetQuestEnderShown, SetQuestAutoInverseModifier;
 	-->
 	-->		--	color
@@ -1253,7 +1254,7 @@ local _ = nil;
 			end
 		end
 	-->
-	-->		interface
+	-->		setting
 		function SetQuestStarterShown(shown)
 			show_starter = SET.show_quest_starter;
 			UpdateQuestGivers();

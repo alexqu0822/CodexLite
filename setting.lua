@@ -136,6 +136,36 @@ local _ = nil;
 					boolean_func,
 					'tab.map',
 				},
+				worldmap_alpha = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							SET['worldmap_alpha'] = val;
+							__ns.SetWorldmapAlpha();
+							RefreshSettingWidget('worldmap_alpha');
+							return true;
+						end
+					end,
+					{ 0.0, 1.0, 0.05, },
+					round_func_table[2],
+					'tab.map',
+				},
+				minimap_alpha = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							SET['minimap_alpha'] = val;
+							__ns.SetMinimapAlpha();
+							RefreshSettingWidget('minimap_alpha');
+							return true;
+						end
+					end,
+					{ 0.0, 1.0, 0.05, },
+					round_func_table[2],
+					'tab.map',
+				},
 				pin_size = {
 					'number',
 					function(val)
@@ -225,6 +255,17 @@ local _ = nil;
 					round_func_table[0],
 					'tab.map',
 				},
+				hide_node_modifier = {
+					'list',
+					function(val)
+						SET['hide_node_modifier'] = val;
+						__ns.SetHideNodeModifier();
+						RefreshSettingWidget('hide_node_modifier');
+					end,
+					{ "SHIFT", "CTRL", "ALT", },
+					nil,
+					'tab.map',
+				},
 				minimap_node_inset = {
 					'boolean',
 					function(val)
@@ -236,15 +277,15 @@ local _ = nil;
 					boolean_func,
 					'tab.map',
 				},
-				hide_node_modifier = {
-					'list',
+				minimap_player_arrow_on_top = {
+					'boolean',
 					function(val)
-						SET['hide_node_modifier'] = val;
-						__ns.SetHideNodeModifier(val);
-						RefreshSettingWidget('hide_node_modifier');
+						SET['minimap_player_arrow_on_top'] = val;
+						__ns.SetMinimapPlayerArrowOnTop();
+						return true;
 					end,
-					{ "SHIFT", "CTRL", "ALT", },
 					nil,
+					boolean_func,
 					'tab.map',
 				},
 			--	tab.interact
@@ -347,14 +388,17 @@ local _ = nil;
 			show_quest_starter = true,
 			show_quest_ender = true,
 			min_rate = 1.0,
+			worldmap_alpha = 1.0,
+			minimap_alpha = 1.0,
 			pin_size = 15,
 			large_size = 24,
 			varied_size = 20,
 			pin_scale_max = 1.25,
 			quest_lvl_lowest_ofs = -6,		--	>=
 			quest_lvl_highest_ofs = 1,		--	<=
+			hide_node_modifier = "SHIFT",
 			minimap_node_inset = true,
-			hide_node_modifier = "",
+			minimap_player_arrow_on_top = true,
 		--	interact
 			auto_accept = false,
 			auto_complete = false,
@@ -371,14 +415,17 @@ local _ = nil;
 			"show_quest_starter",
 			"show_quest_ender",
 			-- "min_rate",
+			"worldmap_alpha",
+			"minimap_alpha",
 			"pin_size",
 			"large_size",
 			"varied_size",
 			"pin_scale_max",
 			"quest_lvl_lowest_ofs",
 			"quest_lvl_highest_ofs",
-			"minimap_node_inset",
 			"hide_node_modifier",
+			"minimap_node_inset",
+			"minimap_player_arrow_on_top",
 		--	interact
 			"auto_accept",
 			"auto_complete",
