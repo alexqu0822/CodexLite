@@ -17,16 +17,22 @@ local _ = nil;
 	local type = type;
 	local next = next;
 	local tonumber = tonumber;
-	local strsplit = strsplit;
+	local strsplit, strmatch, gsub = strsplit, strmatch, gsub;
 	local GetItemInfoInstant = GetItemInfoInstant;
 	local UnitGUID = UnitGUID;
 	local UnitIsPlayer = UnitIsPlayer;
 	local IsAltKeyDown = IsAltKeyDown;
 	local IsControlKeyDown = IsControlKeyDown;
 	local IsShiftKeyDown = IsShiftKeyDown;
+	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetItemCount = GetItemCount;
 	local GetMouseFocus = GetMouseFocus;
+	local IsModifiedClick = IsModifiedClick;
+	local ChatEdit_GetActiveWindow = ChatEdit_GetActiveWindow;
+	local ChatEdit_InsertLink = ChatEdit_InsertLink;
 	local GameTooltip = GameTooltip;
+	local ChatFrame2 = ChatFrame2;
+	local FauxScrollFrame_GetOffset = FauxScrollFrame_GetOffset;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -91,7 +97,11 @@ local _ = nil;
 				if tag ~= nil then
 					tag = __UILOC.QUEST_TAG[tag];
 				end
+				local min = info.min;
 				local lvl = info.lvl;
+				if lvl <= 0 then
+					lvl = min;
+				end
 				if lvl >= SET.quest_lvl_red then
 					lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
 				elseif lvl >= SET.quest_lvl_orange then
@@ -104,7 +114,6 @@ local _ = nil;
 					lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
 				end
 				if modifier then
-					local min = info.min;
 					lvl_str = lvl_str .. "/";
 					local diff = min - __ns.__player_level;
 					if diff > 0 then
@@ -623,7 +632,16 @@ local _ = nil;
 				GameTooltip:Hide();
 			end
 		end
-		local function drop_handler(_, quest)
+		local function drop_handler_send(_, quest)
+			local info = __db_quest[quest];
+			local loc = __loc_quest[quest];
+			local lvl = info.lvl;
+			if lvl <= 0 then
+				lvl = info.min;
+			end
+			ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
+		end
+		local function drop_handler_toggle(_, quest)
 			__ns.MapPermanentlyToggleQuestNodes(quest);
 		end
 		local function GetQuestTitle(quest, modifier)
@@ -631,27 +649,46 @@ local _ = nil;
 			local color = IMG_LIST[GetQuestStartTexture(info)];
 			local lvl_str = GetLevelTag(quest, info, modifier);
 			local loc = __loc_quest[quest];
-			return lvl_str .. format("|cff%.2x%.2x%.2x", color[2] * 255, color[3] * 255, color[4] * 255) .. (loc and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
+			return lvl_str .. "|c" .. color[5] .. (loc and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
 		end
-		function __ns.NodeOnMenu(node, refs)
-			local ele = {  };
-			local data = { handler = drop_handler, elements = ele, };
-			for quest, val in next, refs do
-				if val["start"] ~= nil then
-					if __ns.__quest_permanently_blocked[quest] then
-						ele[#ele + 1] = {
-							text = __UILOC.pin_menu_show_quest .. GetQuestTitle(quest, true);
-							para = { quest, },
-						};
-					else
-						ele[#ele + 1] = {
-							text = __UILOC.pin_menu_hide_quest .. GetQuestTitle(quest, true);
-							para = { quest, },
-						};
+		function __ns.NodeOnModifiedClick(node, uuid)
+			local refs = uuid[4];
+			if ChatEdit_GetActiveWindow() then
+				local ele = {  };
+				local data = { handler = drop_handler_send, elements = ele, };
+				for quest, val in next, refs do
+					ele[#ele + 1] = {
+						text = __UILOC.pin_menu_send_quest .. GetQuestTitle(quest, true);
+						para = { quest, },
+					};
+				end
+				ALADROP(node, "BOTTOMLEFT", data);
+				return true;
+			else
+				for quest, val in next, refs do
+					if val["start"] ~= nil then
+						local ele = {  };
+						local data = { handler = drop_handler_toggle, elements = ele, };
+						for quest, val in next, refs do
+							if val["start"] ~= nil then
+								if __ns.__quest_permanently_blocked[quest] then
+									ele[#ele + 1] = {
+										text = __UILOC.pin_menu_show_quest .. GetQuestTitle(quest, true);
+										para = { quest, },
+									};
+								else
+									ele[#ele + 1] = {
+										text = __UILOC.pin_menu_hide_quest .. GetQuestTitle(quest, true);
+										para = { quest, },
+									};
+								end
+							end
+						end
+						ALADROP(node, "BOTTOMLEFT", data);
+						return true;
 					end
 				end
 			end
-			ALADROP(node, "BOTTOMLEFT", data);
 		end
 	-->		DBIcon
 		local function CreateDBIcon()
@@ -683,6 +720,123 @@ local _ = nil;
 					LibStub("LibDBIcon-1.0", true):Hide(__addon);
 				end
 			end
+		end
+	-->
+	-->		Chat
+		local function ChatFilterReplacer(body, id)
+			local quest = tonumber(id);
+			local info = __db_quest[quest];
+			local loc = __loc_quest[quest];
+			if info ~= nil and loc ~= nil then
+				local color = IMG_LIST[GetQuestStartTexture(info)];
+				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false) .. (loc[1] or "Quest: " .. id) .. "]|r|h";
+			end
+			return body;
+		end
+		local function ChatFilter(ChatFrame, event, arg1, ...)
+			if ChatFrame ~= ChatFrame2 then
+				return false, gsub(arg1, "(%[%[[0-9]+%] .- %(([0-9]+)%)%])", ChatFilterReplacer), ...;
+			end
+		end
+		local ItemRefTooltip = ItemRefTooltip;
+		local _ItemRefTooltip_SetHyperlink = ItemRefTooltip.SetHyperlink;
+		function ItemRefTooltip:SetHyperlink(link, ...)
+			local id = strmatch(link, "cdxl:(%d+)");
+			if id ~= nil then
+				id = tonumber(id);
+				if id ~= nil then
+					local meta = __core_meta[id];
+					local info = __db_quest[id];
+					if meta ~= nil then
+						ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
+						local color = IMG_LIST[GetQuestStartTexture(info)];
+						ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. meta.title .. "|r");
+						if meta.completed == 1 then
+							ItemRefTooltip:AddLine(__UILOC.IN_PROGRESS .. " (" .. __UILOC.COMPLETED .. ")", 0.0, 1.0, 0.0);
+						else
+							ItemRefTooltip:AddLine(__UILOC.IN_PROGRESS, 0.75, 1.0, 0.0);
+						end
+						ItemRefTooltip:AddLine(" ");
+						ItemRefTooltip:AddLine(meta.sdesc, 1.0, 1.0, 1.0, true);
+						local num = #meta;
+						if num > 0 then
+							ItemRefTooltip:AddLine(" ");
+							for index = 1, num do
+								local line = meta[index];
+								if line[5] then
+									ItemRefTooltip:AddLine(" - " .. line[4], 0.0, 1.0, 0.0);
+								else
+									ItemRefTooltip:AddLine(" - " .. line[4], 1.0, 0.5, 0.5);
+								end
+							end
+						end
+						ItemRefTooltip:Show();
+						return;
+					else
+						local loc = __loc_quest[id];
+						if info ~= nil and loc ~= nil then
+							ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
+							local color = IMG_LIST[GetQuestStartTexture(info)];
+							ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. (loc[1] or "Quest: " .. id) .. "|r");
+							if __core_quests_completed[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
+								ItemRefTooltip:AddLine(__UILOC.COMPLETED, 0.0, 1.0, 0.0);
+							end
+							local lines = loc[3];
+							if lines ~= nil then
+								ItemRefTooltip:AddLine(" ");
+								for index = 1, #lines do
+									ItemRefTooltip:AddLine(lines[index], 1.0, 1.0, 1.0, true);
+								end
+							end
+							ItemRefTooltip:Show();
+							return;
+						end
+					end
+				end
+			end
+			return _ItemRefTooltip_SetHyperlink(self, link, ...);
+		end
+		local Num_Hooked_QuestLogTitle = 0;
+		local function HookQuestLogTitle()
+			if Num_Hooked_QuestLogTitle < QUESTS_DISPLAYED then
+				for index = Num_Hooked_QuestLogTitle + 1, QUESTS_DISPLAYED do
+					local button = _G["QuestLogTitle" .. index];
+					local script = button:GetScript("OnClick");
+					button:SetScript("OnClick", function(self, button)
+						if IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow() then
+							if self.isHeader then
+								return;
+							end
+							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID() + FauxScrollFrame_GetOffset(QuestLogListScrollFrame));
+							ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+							return;
+						end
+						return script(self, button);
+					end);
+					Num_Hooked_QuestLogTitle = index;
+				end
+			end
+		end
+		local function InitMessageFactory()
+			QuestLogFrame:HookScript("OnShow", HookQuestLogTitle);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_SAY", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_YELL", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_EMOTE", ChatFilter);		
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_GUILD", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_OFFICER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_WHISPER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_WHISPER_INFORM", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_BN", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_BN_WHISPER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_BN_WHISPER_INFORM", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY_LEADER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_LEADER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_RAID_WARNING", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_INSTANCE_CHAT", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_INSTANCE_CHAT_LEADER", ChatFilter);
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", ChatFilter);
 		end
 	-->		QuestLogFrame
 		local function CreateQuestLogFrameButton()
@@ -764,6 +918,7 @@ local _ = nil;
 			CreateDBIcon();
 		end
 		CreateQuestLogFrameButton();
+		InitMessageFactory();
 		--
 		_F_SafeCall(__ns._checkConflicts);
 	end

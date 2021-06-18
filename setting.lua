@@ -721,6 +721,7 @@ local _ = nil;
 			local Tab, Panel = AddTab('tab.blocked');
 			Panel.Scr = ALASCR(Panel, Panel:GetWidth(), Panel:GetHeight(), LineHeight, funcToCreateButton, functToSetButton);
 			Panel.Scr:SetPoint("CENTER");
+			Panel.Scr:SetMouseClickEnabled(false);
 			SettingUI.BlockedList = Panel.Scr;
 			--
 			SettingUI:SetScript("OnShow", function()

@@ -145,6 +145,7 @@ if LOCALE == 'zhCN' then
 	--	pin-onmenu
 	UILOC.pin_menu_hide_quest = "|cffff3f00隐藏|r ";
 	UILOC.pin_menu_show_quest = "|cff00ff00显示|r ";
+	UILOC.pin_menu_send_quest = "|cffff7f00发送|r";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 elseif LOCALE == 'zhTW' then
@@ -203,6 +204,7 @@ elseif LOCALE == 'zhTW' then
 	--	pin-onmenu
 	UILOC.pin_menu_hide_quest = "|cffff3f00隱藏|r ";
 	UILOC.pin_menu_show_quest = "|cff00ff00顯示|r ";
+	UILOC.pin_menu_send_quest = "|cffff7f00發送|r";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
 else
@@ -261,6 +263,7 @@ else
 	--	pin-onmenu
 	UILOC.pin_menu_hide_quest = "|cffff3f00Hide|r ";
 	UILOC.pin_menu_show_quest = "|cff00ff00Show|r ";
+	UILOC.pin_menu_send_quest = "|cffff7f00Send|r";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end

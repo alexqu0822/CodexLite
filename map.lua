@@ -61,7 +61,7 @@ local _ = nil;
 		CommonPinFrameLevel = base;
 		LargePinFrameLevel = base + 1;
 		for index, texture in next, IMG_LIST do
-			texture[5] = base + texture[6];
+			texture[7] = base + texture[6];
 		end
 	end
 	local pinFrameLevelsManager = WorldMapFrame:GetPinFrameLevelsManager();	--	WorldMapFrame.pinFrameLevelsManager;
@@ -140,12 +140,8 @@ local _ = nil;
 			local uuid = self.uuid;
 			if uuid ~= nil then
 				if hide_node_modifier() then
-					local refs = uuid[4];
-					for quest, val in next, refs do
-						if val["start"] ~= nil then
-							__ns.NodeOnMenu(self, refs);
-							return;
-						end
+					if __ns.NodeOnModifiedClick(self, uuid) then
+						return;
 					end
 				end
 				__ns.RelColor3(uuid[3]);
@@ -225,8 +221,8 @@ local _ = nil;
 		end
 		function AddWorldMapVariedPin(x, y, color3, TEXTURE)
 			local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
-			local pin = NewWorldMapPin(__const.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, varied_size, RelWorldMapVariedPin, texture[5]);
-			pin:SetFrameLevel(texture[5]);
+			local pin = NewWorldMapPin(__const.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, varied_size, RelWorldMapVariedPin, texture[7]);
+			pin:SetFrameLevel(texture[7]);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -364,7 +360,7 @@ local _ = nil;
 						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 						pin:SetNormalTexture(texture[1]);
 						pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
-						pin:SetFrameLevel(texture[5]);
+						pin:SetFrameLevel(texture[7]);
 					end
 				end
 			end
@@ -866,7 +862,7 @@ local _ = nil;
 						if pin ~= nil then
 							pin:SetNormalTexture(texture[1]);
 							pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
-							pin:SetFrameLevel(texture[5]);
+							pin:SetFrameLevel(texture[7]);
 						end
 					end
 				end
@@ -971,7 +967,7 @@ local _ = nil;
 								local pin = MM_VARIED_PINS[coord];
 								local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[5]);
+									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -1157,7 +1153,7 @@ local _ = nil;
 									local pin = MM_VARIED_PINS[coord];
 									local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[5]);
+										pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
 										MM_VARIED_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else

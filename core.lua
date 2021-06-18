@@ -20,6 +20,7 @@ local _ = nil;
 	local GetNumQuestLogEntries = GetNumQuestLogEntries;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetNumQuestLeaderBoards = GetNumQuestLeaderBoards;
+	local GetQuestLogQuestText = GetQuestLogQuestText;
 	local GetQuestLogLeaderBoard = GetQuestLogLeaderBoard;
 	local GetQuestObjectives = C_QuestLog.GetQuestObjectives;	--	(quest_id)	returns { [line(1, 2, 3, ...)] = { [type], [finished], [numRequired], [numFulfilled], [text] } }
 	local GetQuestsCompleted = GetQuestsCompleted;				--	({  } or nil)	return { [quest_id] = completed(true/nil), }
@@ -836,7 +837,7 @@ local _ = nil;
 							end
 							local meta = META[quest_id];
 							if meta == nil then									--	建表，读取缓存，删除任务起始点
-								meta = { title = title, };
+								meta = { title = title, sdesc = select(2, GetQuestLogQuestText(index)), };
 								META[quest_id] = meta;
 								LoadQuestCache(quest_id, completed);
 								DelQuestStart(quest_id, info);
