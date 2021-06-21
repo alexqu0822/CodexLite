@@ -47,8 +47,26 @@ local _ = nil;
 	local _log_ = __ns._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
-	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas); wm_wrap:SetSize(1, 1); wm_wrap:SetFrameLevel(9999); wm_wrap:SetPoint("CENTER");
-	local mm_wrap = CreateFrame("FRAME", nil, Minimap); mm_wrap:SetSize(1, 1); mm_wrap:SetFrameLevel(9999); mm_wrap:SetPoint("CENTER");
+	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas);
+		wm_wrap:SetSize(1, 1);
+		wm_wrap:SetPoint("CENTER");
+	local mm_wrap = CreateFrame("FRAME", nil, Minimap);
+		mm_wrap:SetSize(1, 1);
+		mm_wrap:SetPoint("CENTER");
+	local CommonPinFrameLevel, LargePinFrameLevel = 1, 1;
+	local function ReCalcFrameLevel(pinFrameLevelsManager)
+		local base = pinFrameLevelsManager:GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI", 9999);
+		wm_wrap:SetFrameLevel(base);
+		mm_wrap:SetFrameLevel(base);
+		CommonPinFrameLevel = base;
+		LargePinFrameLevel = base + 1;
+		for index, texture in next, IMG_LIST do
+			texture[7] = base + texture[6];
+		end
+	end
+	local pinFrameLevelsManager = WorldMapFrame:GetPinFrameLevelsManager();	--	WorldMapFrame.pinFrameLevelsManager;
+	hooksecurefunc(pinFrameLevelsManager, "AddFrameLevel", ReCalcFrameLevel);
+	ReCalcFrameLevel(pinFrameLevelsManager);
 
 	local SET = nil;
 -->		MAIN
@@ -98,11 +116,14 @@ local _ = nil;
 		local Minimap_ChangeCommonLargeNodesMapUUID, Minimap_ChangeVariedNodesMapUUID;
 		local Minimap_ShowNodesMapQuest, Minimap_HideNodesQuest;
 		local Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
-		local SetCommonPinSize, SetLargePinSize, SetVariedPinSize, SetMinimapNodeInset, SetHideNodeModifier;
 		local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes;
 		local MapTemporarilyShowQuestNodes, MapTemporarilyHideQuestNodes, MapResetTemporarilyQuestNodesFilter;
 		local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
 		local MapHideNodes, MapDrawNodes;
+		--	setting
+		local SetWorldmapAlpha, SetMinimapAlpha;
+		local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
+		local SetHideNodeModifier, SetMinimapNodeInset, SetMinimapPlayerArrowOnTop;
 	-->
 	-->		--	Pin Handler
 		local GameTooltip = GameTooltip;
@@ -119,12 +140,8 @@ local _ = nil;
 			local uuid = self.uuid;
 			if uuid ~= nil then
 				if hide_node_modifier() then
-					local refs = uuid[4];
-					for quest, val in next, refs do
-						if val["start"] ~= nil then
-							__ns.NodeOnMenu(self, refs);
-							return;
-						end
+					if __ns.NodeOnModifiedClick(self, uuid) then
+						return;
 					end
 				end
 				__ns.RelColor3(uuid[3]);
@@ -143,7 +160,7 @@ local _ = nil;
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);
 				pin:SetScript("OnClick", Pin_OnClick);
-				pin:SetFrameLevel(frameLevel or 9999);
+				pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
 				pin.__NORMAL_TEXTURE = pin:GetNormalTexture();
@@ -163,7 +180,7 @@ local _ = nil;
 			pin:Hide();
 		end
 		function AddWorldMapCommonPin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, pin_size, RelWorldMapCommonPin, 9000);
+			local pin = NewWorldMapPin(__const.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, pin_size, RelWorldMapCommonPin, CommonPinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -183,7 +200,7 @@ local _ = nil;
 			pin:Hide();
 		end
 		function AddWorldMapLargePin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, large_size, RelWorldMapLargePin, 9001);
+			local pin = NewWorldMapPin(__const.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, large_size, RelWorldMapLargePin, LargePinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -204,8 +221,8 @@ local _ = nil;
 		end
 		function AddWorldMapVariedPin(x, y, color3, TEXTURE)
 			local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
-			local pin = NewWorldMapPin(__const.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, varied_size, RelWorldMapVariedPin, texture[5]);
-			pin:SetFrameLevel(texture[5]);
+			local pin = NewWorldMapPin(__const.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, varied_size, RelWorldMapVariedPin, texture[7]);
+			pin:SetFrameLevel(texture[7]);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -343,7 +360,7 @@ local _ = nil;
 						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 						pin:SetNormalTexture(texture[1]);
 						pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
-						pin:SetFrameLevel(texture[5]);
+						pin:SetFrameLevel(texture[7]);
 					end
 				end
 			end
@@ -621,7 +638,7 @@ local _ = nil;
 				pool_unused[pin] = nil;
 			end
 			pin:SetSize(size, size);
-			pin:SetFrameLevel(frameLevel or 9999);
+			pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 			pool_inuse[pin] = 1;
 			return pin;
 		end
@@ -655,6 +672,7 @@ local _ = nil;
 	-->		--	draw on Minimap			--	只有少部分点显示在小地图，所以单独建表
 		--	variables
 			local GetCVar = GetCVar;
+			local GetTime = GetTime;
 			local UnitPosition = UnitPosition;
 			local GetPlayerFacing = GetPlayerFacing;
 			local minimap_size = {
@@ -702,6 +720,39 @@ local _ = nil;
 			if mm_player_x == nil then mm_player_x = 0.0; end
 			local mm_dynamic_update_interval = 0.05;
 		--
+		local mm_arrow_wrap = CreateFrame('FRAME', nil, Minimap);
+			mm_arrow_wrap:SetSize(1, 1);
+			mm_arrow_wrap:SetPoint("CENTER");
+			mm_arrow_wrap:EnableMouse(false);
+			mm_arrow_wrap:SetFrameLevel(9999);
+		local mm_arrow = mm_arrow_wrap:CreateTexture(nil, "OVERLAY", nil, 7);
+			mm_arrow:SetSize(24, 24);
+			mm_arrow:SetPoint("CENTER");
+			mm_arrow:SetTexture([[Interface\Minimap\MinimapArrow]]);
+			hooksecurefunc(Minimap, "SetPlayerTexture", function(_, Texture)
+				mm_arrow:SetTexture(Texture);
+			end);
+		mm_arrow_wrap:SetScript("OnUpdate", function()
+			if mm_is_rotate then
+				mm_arrow:SetTexCoord(0.0, 1.0, 0.0, 1.0);
+			else
+				local facing = GetPlayerFacing();
+				if facing ~= nil then
+					mm_arrow:Show();
+					local r = facing - 0.78539816339745;			--	rad(45)
+					local c = _radius_cos(r) * 0.70710678118655;	--	sqrt(0.5)
+					local s = _radius_sin(r) * 0.70710678118655;	--	sqrt(0.5)
+					mm_arrow:SetTexCoord(
+						0.5 + c, 0.5 - s,
+						0.5 - s, 0.5 - c,
+						0.5 + s, 0.5 + c,
+						0.5 - c, 0.5 + s
+					);
+				else
+					mm_arrow:Hide();
+				end
+			end
+		end);
 		function Minimap_HideCommonNodesMapUUID(map, uuid)
 			local num_changed = 0;
 			local meta = META_COMMON[map];
@@ -811,7 +862,7 @@ local _ = nil;
 						if pin ~= nil then
 							pin:SetNormalTexture(texture[1]);
 							pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
-							pin:SetFrameLevel(texture[5]);
+							pin:SetFrameLevel(texture[7]);
 						end
 					end
 				end
@@ -834,7 +885,7 @@ local _ = nil;
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_COMMON_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
+									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -874,7 +925,7 @@ local _ = nil;
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_LARGE_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);
+									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -916,7 +967,7 @@ local _ = nil;
 								local pin = MM_VARIED_PINS[coord];
 								local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[5]);
+									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -1014,7 +1065,7 @@ local _ = nil;
 								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_COMMON_PINS[coord];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, 9000);
+										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
 										MM_COMMON_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else
@@ -1057,7 +1108,7 @@ local _ = nil;
 								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 									local pin = MM_LARGE_PINS[coord];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, 9001);
+										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
 										MM_LARGE_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else
@@ -1102,7 +1153,7 @@ local _ = nil;
 									local pin = MM_VARIED_PINS[coord];
 									local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[5]);
+										pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
 										MM_VARIED_PINS[coord] = pin;
 										num_changed = num_changed + 1;
 									else
@@ -1158,118 +1209,64 @@ local _ = nil;
 		end
 		local __mm_prev_update = GetTime();
 		function Minimap_OnUpdate(self, elasped)
-			local now = GetTime();
-			if __mm_prev_update + mm_dynamic_update_interval <= now then
-				local map = mm_map;
-				if map ~= nil then
-					if GetMinimapShape ~= nil then
-						local shape = GetMinimapShape() or "CIRCLE";
-						if mm_shape ~= shape then
-							mm_shape = shape;
-							mm_force_update = true;
+			if mm_map ~= nil then
+				local facing = GetPlayerFacing();
+				if facing ~= nil then
+					local now = GetTime();
+					if __mm_prev_update + mm_dynamic_update_interval <= now then
+						if GetMinimapShape ~= nil then
+							local shape = GetMinimapShape() or "CIRCLE";
+							if mm_shape ~= shape then
+								mm_shape = shape;
+								mm_force_update = true;
+							end
+						else
+							if mm_shape ~= "CIRCLE" then
+								mm_shape = "CIRCLE";
+								mm_force_update = true;
+							end
 						end
-					else
-						if mm_shape ~= "CIRCLE" then
-							mm_shape = "CIRCLE";
-							mm_force_update = true;
+						local zoom = Minimap:GetZoom();
+						if GetCVar("minimapZoom") == GetCVar("minimapInsideZoom") then
+							Minimap:SetZoom(zoom < 2 and zoom + 1 or zoom - 1);
 						end
-					end
-					local zoom = Minimap:GetZoom();
-					if GetCVar("minimapZoom") == GetCVar("minimapInsideZoom") then
-						Minimap:SetZoom(zoom < 2 and zoom + 1 or zoom - 1);
-					end
-					local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
-					Minimap:SetZoom(zoom);
-					local facing = GetPlayerFacing();
-					if facing ~= nil then
-						local is_rotate = GetCVar("rotateMinimap") == "1";
+						local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
+						Minimap:SetZoom(zoom);
 						local y, x = UnitPosition('player');
-						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or ((mm_is_rotate and facing ~= mm_rotate) or mm_is_rotate ~= is_rotate)) then
+						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or (mm_is_rotate and facing ~= mm_rotate)) then
 							mm_player_x = x;
 							mm_player_y = y;
 							mm_indoor = indoor;
 							mm_zoom = zoom;
-							mm_is_rotate = is_rotate;
 							mm_rotate = facing;
 							mm_rotate_sin = _radius_sin(facing);
 							mm_rotate_cos = _radius_cos(facing);
 							mm_hsize = minimap_size[indoor][zoom] * 0.5;
 							mm_hheight = Minimap:GetHeight() * 0.5;
 							mm_hwidth = Minimap:GetWidth() * 0.5;
-							Minimap_DrawNodesMap(map);
+							Minimap_DrawNodesMap(mm_map);
 							mm_force_update = false;
 						end
 						__mm_prev_update = now;
 					end
+					return;
 				end
 			end
+			mm_arrow:Hide();
 		end
 		function __ns.MINIMAP_UPDATE_ZOOM()
 			-- __eventHandler:run_on_next_tick(Minimap_DrawNodes);
 			-- _log_('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
 		end
+		function __ns.CVAR_UPDATE()
+			local is_rotate = GetCVar("rotateMinimap") == "1";
+			if mm_is_rotate ~= is_rotate then
+				mm_is_rotate = is_rotate;
+				mm_force_update = true;
+			end
+		end
 	-->
 	-->		--	interface
-		--	set pin
-		function SetCommonPinSize()
-			--	pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, MM_COMMON_PINS
-			pin_size = SET.pin_size;
-			for _, pin in next, MM_COMMON_PINS do
-				pin:SetSize(pin_size, pin_size);
-			end
-			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				pin_size = pin_size * pin_scale_max / scale;
-			end
-			for pin, _ in next, pool_worldmap_common_pin_inuse do
-				pin:SetSize(pin_size, pin_size);
-			end
-		end
-		function SetLargePinSize()
-			--	pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, MM_LARGE_PINS
-			large_size = SET.large_size;
-			for _, pin in next, MM_LARGE_PINS do
-				pin:SetSize(large_size, large_size);
-			end
-			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				large_size = large_size * pin_scale_max / scale;
-			end
-			for pin, _ in next, pool_worldmap_large_pin_inuse do
-				pin:SetSize(large_size, large_size);
-			end
-		end
-		function SetVariedPinSize()
-			--	pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, MM_VARIED_PINS
-			varied_size = SET.varied_size;
-			for _, pin in next, MM_VARIED_PINS do
-				pin:SetSize(varied_size, varied_size);
-			end
-			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				varied_size = varied_size * pin_scale_max / scale;
-			end
-			for pin, _ in next, pool_worldmap_varied_pin_inuse do
-				pin:SetSize(varied_size, varied_size);
-			end
-		end
-		function SetMinimapNodeInset()
-			minimap_node_inset = SET.minimap_node_inset;
-			Minimap_HideNodes();
-			Minimap_DrawNodesMap(mm_map);
-		end
-		function SetHideNodeModifier(modifier)
-			if modifier == "SHIFT" then
-				hide_node_modifier = IsShiftKeyDown;
-			elseif modifier == "CTRL" then
-				hide_node_modifier = IsControlKeyDown;
-			elseif modifier == "ALT" then
-				hide_node_modifier = IsAltKeyDown;
-			end
-		end
 		--	common_objective pin
 		function MapAddCommonNodes(uuid, coords_table)
 			if coords_table ~= nil then
@@ -1443,13 +1440,88 @@ local _ = nil;
 		end
 		--
 	-->
+	-->		--	setting
+		--	set pin
+		function SetWorldmapAlpha()
+			wm_wrap:SetAlpha(SET.worldmap_alpha);
+		end
+		function SetMinimapAlpha()
+			mm_wrap:SetAlpha(SET.minimap_alpha);
+		end
+		function SetCommonPinSize()
+			--	pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, MM_COMMON_PINS
+			pin_size = SET.pin_size;
+			for _, pin in next, MM_COMMON_PINS do
+				pin:SetSize(pin_size, pin_size);
+			end
+			local scale = map_canvas_scale;
+			local pin_scale_max = SET.pin_scale_max;
+			if scale > pin_scale_max then
+				pin_size = pin_size * pin_scale_max / scale;
+			end
+			for pin, _ in next, pool_worldmap_common_pin_inuse do
+				pin:SetSize(pin_size, pin_size);
+			end
+		end
+		function SetLargePinSize()
+			--	pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, MM_LARGE_PINS
+			large_size = SET.large_size;
+			for _, pin in next, MM_LARGE_PINS do
+				pin:SetSize(large_size, large_size);
+			end
+			local scale = map_canvas_scale;
+			local pin_scale_max = SET.pin_scale_max;
+			if scale > pin_scale_max then
+				large_size = large_size * pin_scale_max / scale;
+			end
+			for pin, _ in next, pool_worldmap_large_pin_inuse do
+				pin:SetSize(large_size, large_size);
+			end
+		end
+		function SetVariedPinSize()
+			--	pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, MM_VARIED_PINS
+			varied_size = SET.varied_size;
+			for _, pin in next, MM_VARIED_PINS do
+				pin:SetSize(varied_size, varied_size);
+			end
+			local scale = map_canvas_scale;
+			local pin_scale_max = SET.pin_scale_max;
+			if scale > pin_scale_max then
+				varied_size = varied_size * pin_scale_max / scale;
+			end
+			for pin, _ in next, pool_worldmap_varied_pin_inuse do
+				pin:SetSize(varied_size, varied_size);
+			end
+		end
+		function SetHideNodeModifier()
+			local modifier = SET.hide_node_modifier;
+			if modifier == "SHIFT" then
+				hide_node_modifier = IsShiftKeyDown;
+			elseif modifier == "CTRL" then
+				hide_node_modifier = IsControlKeyDown;
+			elseif modifier == "ALT" then
+				hide_node_modifier = IsAltKeyDown;
+			end
+		end
+		function SetMinimapNodeInset()
+			minimap_node_inset = SET.minimap_node_inset;
+			Minimap_HideNodes();
+			Minimap_DrawNodesMap(mm_map);
+		end
+		function SetMinimapPlayerArrowOnTop()
+			mm_arrow_wrap:SetShown(SET.minimap_player_arrow_on_top);
+		end
+	-->
 	-->		--	extern method
 		--
+		__ns.SetWorldmapAlpha = SetWorldmapAlpha;
+		__ns.SetMinimapAlpha = SetMinimapAlpha;
 		__ns.SetCommonPinSize = SetCommonPinSize;
 		__ns.SetLargePinSize = SetLargePinSize;
 		__ns.SetVariedPinSize = SetVariedPinSize;
-		__ns.SetMinimapNodeInset = SetMinimapNodeInset;
 		__ns.SetHideNodeModifier = SetHideNodeModifier;
+		__ns.SetMinimapNodeInset = SetMinimapNodeInset;
+		__ns.SetMinimapPlayerArrowOnTop = SetMinimapPlayerArrowOnTop;
 		--
 		__ns.MapAddCommonNodes = MapAddCommonNodes;
 		__ns.MapDelCommonNodes = MapDelCommonNodes;
@@ -1574,8 +1646,12 @@ local _ = nil;
 		wm_map = -1;
 		mapCallback:OnMapChanged();
 		__eventHandler:RegEvent("MINIMAP_UPDATE_ZOOM");
+		__eventHandler:RegEvent("CVAR_UPDATE");
+		mm_is_rotate = GetCVar("rotateMinimap") == "1";
 		Minimap:HookScript("OnUpdate", Minimap_OnUpdate);
 		--
+		SetWorldmapAlpha();
+		SetMinimapAlpha();
 		local pin_scale_max = SET.pin_scale_max;
 		pin_size = SET.pin_size;
 		if map_canvas_scale > pin_scale_max then
@@ -1589,8 +1665,9 @@ local _ = nil;
 		if map_canvas_scale > pin_scale_max then
 			varied_size = varied_size * pin_scale_max / map_canvas_scale;
 		end
+		SetHideNodeModifier();
 		minimap_node_inset = SET.minimap_node_inset;
-		SetHideNodeModifier(SET.hide_node_modifier);
+		SetMinimapPlayerArrowOnTop();
 	end
 -->
 

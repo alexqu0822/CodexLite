@@ -765,18 +765,23 @@ local SET = nil;
 	local IMG_PATH_AVL = IMG_PATH .. "AVL";
 	local IMG_PATH_CPL = IMG_PATH .. "CPL";
 	local IMG_LIST = {
-		[IMG_INDEX.IMG_DEF] 			= { IMG_PATH_PIN,  nil,  nil,  nil, 0001, },
-		[IMG_INDEX.IMG_S_HIGH_LEVEL] 	= { IMG_PATH_AVL, 1.00, 0.10, 0.10, 9990, },
-		[IMG_INDEX.IMG_S_COMMING] 		= { IMG_PATH_AVL, 1.00, 0.25, 0.25, 9991, },
-		[IMG_INDEX.IMG_S_LOW_LEVEL] 	= { IMG_PATH_AVL, 0.65, 0.65, 0.65, 9992, },
-		[IMG_INDEX.IMG_S_REPEATABLE] 	= { IMG_PATH_AVL, 0.25, 0.50, 0.75, 9993, },
-		[IMG_INDEX.IMG_E_UNCOMPLETED] 	= { IMG_PATH_CPL, 0.65, 0.65, 0.65, 9994, },
-		[IMG_INDEX.IMG_S_VERY_HARD]		= { IMG_PATH_AVL, 1.00, 0.25, 0.00, 9995, },
-		[IMG_INDEX.IMG_S_EASY] 			= { IMG_PATH_AVL, 0.25, 0.75, 0.25, 9996, },
-		[IMG_INDEX.IMG_S_HARD] 			= { IMG_PATH_AVL, 1.00, 0.60, 0.00, 9997, },
-		[IMG_INDEX.IMG_S_NORMAL] 		= { IMG_PATH_AVL, 1.00, 1.00, 0.00, 9998, },
-		[IMG_INDEX.IMG_E_COMPLETED] 	= { IMG_PATH_CPL, 1.00, 0.90, 0.00, 9999, },
+		[IMG_INDEX.IMG_DEF] 			= { IMG_PATH_PIN,  nil,  nil,  nil, "ffffffff", 0, 0, },
+		[IMG_INDEX.IMG_S_HIGH_LEVEL] 	= { IMG_PATH_AVL, 1.00, 0.10, 0.10, "ffffffff", 1, 1, },
+		[IMG_INDEX.IMG_S_COMMING] 		= { IMG_PATH_AVL, 1.00, 0.25, 0.25, "ffffffff", 2, 2, },
+		[IMG_INDEX.IMG_S_LOW_LEVEL] 	= { IMG_PATH_AVL, 0.65, 0.65, 0.65, "ffffffff", 3, 3, },
+		[IMG_INDEX.IMG_S_REPEATABLE] 	= { IMG_PATH_AVL, 0.25, 0.50, 0.75, "ffffffff", 4, 4, },
+		[IMG_INDEX.IMG_E_UNCOMPLETED] 	= { IMG_PATH_CPL, 0.65, 0.65, 0.65, "ffffffff", 5, 5, },
+		[IMG_INDEX.IMG_S_VERY_HARD]		= { IMG_PATH_AVL, 1.00, 0.25, 0.00, "ffffffff", 6, 6, },
+		[IMG_INDEX.IMG_S_EASY] 			= { IMG_PATH_AVL, 0.25, 0.75, 0.25, "ffffffff", 7, 7, },
+		[IMG_INDEX.IMG_S_HARD] 			= { IMG_PATH_AVL, 1.00, 0.60, 0.00, "ffffffff", 8, 8, },
+		[IMG_INDEX.IMG_S_NORMAL] 		= { IMG_PATH_AVL, 1.00, 1.00, 0.00, "ffffffff", 9, 9, },
+		[IMG_INDEX.IMG_E_COMPLETED] 	= { IMG_PATH_CPL, 1.00, 0.90, 0.00, "ffffffff", 10, 10, },
 	};
+	for _, texture in next, IMG_LIST do
+		if texture[2] ~= nil and texture[3] ~= nil and texture[4] ~= nil then
+			texture[5] = format("ff%.2x%.2x%.2x", texture[2] * 255, texture[3] * 255, texture[4] * 255);
+		end
+	end
 	local TIP_IMG_LIST = {  };
 	for index, info in next, IMG_LIST do
 		if (info[2] ~= nil and info[3] ~= nil and info[4] ~= nil) and (info[2] ~= 1.0 or info[3] ~= 1.0 or info[4] ~= 1.0) then
