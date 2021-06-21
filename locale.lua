@@ -152,6 +152,46 @@ elseif LOCALE == 'zhTW' then
 	UILOC.reset_filter = "重置";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "是否关闭功能重复的插件ClassicCodex和Questie，并重载？";
+elseif LOCALE == 'ruRU' then
+	--	tip
+	UILOC.TIP_WAYPOINT = "Исследование";
+	UILOC.TIP_QUEST_LVL = "Ур: ";
+	UILOC.TIP_QUEST_MIN = "Мин: ";
+	UILOC.QUEST_TAG = {
+		[1] = "+",				--	Group
+		[41] = "Г",				--	PVP
+		[64] = "Р",				--	Raid
+		[81] = "С",				--	Dungeon
+		[83] = "Легендарный",
+		[85] = "Героический",
+		[98] = "Сценарий",
+		[102] = "Аккаунт",
+		[117] = "Локальное задание Кожевничество",
+	};
+	UILOC.COMPLETED = "ЗАВЕРШЕННО";
+	UILOC.IN_PROGRESS = "Прогресс";
+	--	setting
+	UILOC.TAG_SETTING = "";
+	UILOC.show_quest_starter = "Показать квестодателя";
+	UILOC.show_quest_ender = "Показать здачу задания";
+	UILOC.show_db_icon = "Показать иконку на мини-карте";
+	UILOC.min_rate = "Минимальный шанс выпадения";
+	UILOC.pin_size = "Размер большинства контактов";
+	UILOC.large_size = "Размер отображения босса";
+	UILOC.varied_size = "Размер отображения квестовых NPC";
+	UILOC.pin_scale_max = "Максимальный размер шкалы";
+	UILOC.quest_lvl_lowest_ofs = "Смещение к минимальному уровню задания";
+	UILOC.quest_lvl_highest_ofs = "Смещение к макимальному уровню задания";
+	UILOC.auto_accept = "Авто принятие задания";
+	UILOC.auto_complete = "Автозаполнение задания";
+	UILOC.quest_auto_inverse_modifier = "Отключить автоматическую сдачу";
+	UILOC.tip_info = "Информация в подсказке";
+	--	questlogframe
+	UILOC.show_quest = "Показать";
+	UILOC.hide_quest = "Скрыть";
+	UILOC.reset_filter = "Обновить";
+	--
+	UILOC.CODEX_LITE_CONFLICTS = "Отключить ClassicCodex и Questie, а затем перезагрузить интерфейс?";
 else
 	--	tip
 	UILOC.TIP_WAYPOINT = "Explore";
