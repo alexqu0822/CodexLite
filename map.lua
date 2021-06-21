@@ -1647,6 +1647,7 @@ local _ = nil;
 		mapCallback:OnMapChanged();
 		__eventHandler:RegEvent("MINIMAP_UPDATE_ZOOM");
 		__eventHandler:RegEvent("CVAR_UPDATE");
+		mm_is_rotate = GetCVar("rotateMinimap") == "1";
 		Minimap:HookScript("OnUpdate", Minimap_OnUpdate);
 		--
 		SetWorldmapAlpha();
