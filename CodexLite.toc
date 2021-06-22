@@ -12,7 +12,7 @@
 ## Author: |cff00ff00ALA|r @ |cffff0000163UI|r
 ## Author-zhCN: |cff00ff00ALA|r @ |cffff0000网易有爱|r
 ## Author-zhTW: |cff00ff00ALA|r @ |cffff0000网易有爱|r
-## Version: 205r.210620
+## Version: 205r.210621
 ## GitHub: https://github.com/alexqu0822/CodexLite
 
 main.xml

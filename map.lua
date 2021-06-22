@@ -44,6 +44,8 @@ local _ = nil;
 	local IMG_PATH_PIN = __ns.core.IMG_PATH_PIN;
 	local IMG_LIST = __ns.core.IMG_LIST;
 
+	local __core_meta = __ns.__core_meta;
+
 	local _log_ = __ns._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
@@ -267,6 +269,23 @@ local _ = nil;
 			__popt:reset(3);
 		end
 	-->
+	local function UUIDCheckState(uuid)
+		for quest, refs in next, uuid[4] do
+			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
+				local meta = __core_meta[quest];
+				if meta == nil then
+					return true;
+				end
+				for line, texture in next, refs do
+					local meta_line = meta[line];
+					if meta_line == nil or not meta_line[5] then
+						return true;
+					end
+				end
+			end
+		end
+		return false;
+	end
 	-->		--	draw on WorldMap		--	当前地图每个点都要显示，所以大地图标记表存储为为数据元表的子表与coord一一对应
 		function WorldMap_HideCommonNodesMapUUID(map, uuid)
 			local meta = META_COMMON[map];
@@ -435,14 +454,7 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					local blocked = true;
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							blocked = false;
-							break;
-						end
-					end
-					if blocked then
+					if not UUIDCheckState(uuid) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -458,14 +470,7 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					local blocked = true;
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							blocked = false;
-							break;
-						end
-					end
-					if blocked then
+					if not UUIDCheckState(uuid) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -481,14 +486,7 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					local blocked = true;
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							blocked = false;
-							break;
-						end
-					end
-					if blocked then
+					if not UUIDCheckState(uuid) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -506,23 +504,20 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local coords = data[1];
-							local pins = data[2];
-							local color3 = uuid[3];
-							local num_coords = #coords;
-							local num_pins = #pins;
-							if num_pins < num_coords then
-								for index = num_pins + 1, num_coords do
-									local val = coords[index];
-									local pin = AddWorldMapCommonPin(val[1], val[2], color3);
-									pins[index] = pin;
-									pin.uuid = uuid;
-								end
-								__popt:count(1, num_coords - num_pins);
+					if UUIDCheckState(uuid) then
+						local coords = data[1];
+						local pins = data[2];
+						local color3 = uuid[3];
+						local num_coords = #coords;
+						local num_pins = #pins;
+						if num_pins < num_coords then
+							for index = num_pins + 1, num_coords do
+								local val = coords[index];
+								local pin = AddWorldMapCommonPin(val[1], val[2], color3);
+								pins[index] = pin;
+								pin.uuid = uuid;
 							end
-							break;
+							__popt:count(1, num_coords - num_pins);
 						end
 					end
 				end
@@ -530,23 +525,20 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local coords = data[1];
-							local pins = data[2];
-							local color3 = uuid[3];
-							local num_coords = #coords;
-							local num_pins = #pins;
-							if num_pins < num_coords then
-								for index = num_pins + 1, num_coords do
-									local val = coords[index];
-									local pin = AddWorldMapLargePin(val[1], val[2], color3);
-									pins[index] = pin;
-									pin.uuid = uuid;
-								end
-								__popt:count(2, num_coords - num_pins);
+					if UUIDCheckState(uuid) then
+						local coords = data[1];
+						local pins = data[2];
+						local color3 = uuid[3];
+						local num_coords = #coords;
+						local num_pins = #pins;
+						if num_pins < num_coords then
+							for index = num_pins + 1, num_coords do
+								local val = coords[index];
+								local pin = AddWorldMapLargePin(val[1], val[2], color3);
+								pins[index] = pin;
+								pin.uuid = uuid;
 							end
-							break;
+							__popt:count(2, num_coords - num_pins);
 						end
 					end
 				end
@@ -554,24 +546,21 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local coords = data[1];
-							local pins = data[2];
-							local color3 = uuid[3];
-							local TEXTURE = uuid[5];
-							local num_coords = #coords;
-							local num_pins = #pins;
-							if num_pins < num_coords then
-								for index = num_pins + 1, num_coords do
-									local val = coords[index];
-									local pin = AddWorldMapVariedPin(val[1], val[2], color3, TEXTURE);
-									pins[index] = pin;
-									pin.uuid = uuid;
-								end
-								__popt:count(3, num_coords - num_pins);
+					if UUIDCheckState(uuid) then
+						local coords = data[1];
+						local pins = data[2];
+						local color3 = uuid[3];
+						local TEXTURE = uuid[5];
+						local num_coords = #coords;
+						local num_pins = #pins;
+						if num_pins < num_coords then
+							for index = num_pins + 1, num_coords do
+								local val = coords[index];
+								local pin = AddWorldMapVariedPin(val[1], val[2], color3, TEXTURE);
+								pins[index] = pin;
+								pin.uuid = uuid;
 							end
-							break;
+							__popt:count(3, num_coords - num_pins);
 						end
 					end
 				end
@@ -1003,42 +992,21 @@ local _ = nil;
 		function Minimap_HideNodesQuest(quest)
 			local num_pins = 0;
 			for coord, pin in next, MM_COMMON_PINS do
-				local blocked = true;
-				for quest, refs in next, pin.uuid[4] do
-					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-						blocked = false;
-						break;
-					end
-				end
-				if blocked then
+				if not UUIDCheckState(pin.uuid) then
 					pin:Release();
 					MM_COMMON_PINS[coord] = nil;
 					num_pins = num_pins - 1;
 				end
 			end
 			for coord, pin in next, MM_LARGE_PINS do
-				local blocked = true;
-				for quest, refs in next, pin.uuid[4] do
-					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-						blocked = false;
-						break;
-					end
-				end
-				if blocked then
+				if not UUIDCheckState(pin.uuid) then
 					pin:Release();
 					MM_LARGE_PINS[coord] = nil;
 					num_pins = num_pins - 1;
 				end
 			end
 			for coord, pin in next, MM_VARIED_PINS do
-				local blocked = true;
-				for quest, refs in next, pin.uuid[4] do
-					if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-						blocked = false;
-						break;
-					end
-				end
-				if blocked then
+				if not UUIDCheckState(pin.uuid) then
 					pin:Release();
 					MM_VARIED_PINS[coord] = nil;
 					num_pins = num_pins - 1;
@@ -1053,42 +1021,39 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local color3 = uuid[3];
-							local coords = data[1];
-							for index = 1, #coords do
-								local coord = coords[index];
-								local val = coord[5];	--	world
-								local dx = val[1] - mm_player_x;
-								local dy = val[2] - mm_player_y;
-								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
-									local pin = MM_COMMON_PINS[coord];
-									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
-										MM_COMMON_PINS[coord] = pin;
-										num_changed = num_changed + 1;
-									else
-										pin:SetNormalTexture(IMG_PATH_PIN);
-										pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
-									end
-									pin:ClearAllPoints();
-									if mm_is_rotate then
-										dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
-									end
-									pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
-									--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
-									pin.uuid = uuid;
+					if UUIDCheckState(uuid) then
+						local color3 = uuid[3];
+						local coords = data[1];
+						for index = 1, #coords do
+							local coord = coords[index];
+							local val = coord[5];	--	world
+							local dx = val[1] - mm_player_x;
+							local dy = val[2] - mm_player_y;
+							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
+								local pin = MM_COMMON_PINS[coord];
+								if pin == nil then
+									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
+									MM_COMMON_PINS[coord] = pin;
+									num_changed = num_changed + 1;
 								else
-									local pin = MM_COMMON_PINS[coord];
-									if pin ~= nil then
-										pin:Release();
-										MM_COMMON_PINS[coord] = nil;
-										num_changed = num_changed - 1;
-									end
+									pin:SetNormalTexture(IMG_PATH_PIN);
+									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+								end
+								pin:ClearAllPoints();
+								if mm_is_rotate then
+									dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
+								end
+								pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
+								--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
+								pin.uuid = uuid;
+							else
+								local pin = MM_COMMON_PINS[coord];
+								if pin ~= nil then
+									pin:Release();
+									MM_COMMON_PINS[coord] = nil;
+									num_changed = num_changed - 1;
 								end
 							end
-							break;
 						end
 					end
 				end
@@ -1096,42 +1061,39 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local color3 = uuid[3];
-							local coords = data[1];
-							for index = 1, #coords do
-								local coord = coords[index];
-								local val = coord[5];	--	world
-								local dx = val[1] - mm_player_x;
-								local dy = val[2] - mm_player_y;
-								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
-									local pin = MM_LARGE_PINS[coord];
-									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
-										MM_LARGE_PINS[coord] = pin;
-										num_changed = num_changed + 1;
-									else
-										pin:SetNormalTexture(IMG_PATH_PIN);
-										pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
-									end
-									pin:ClearAllPoints();
-									if mm_is_rotate then
-										dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
-									end
-									pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
-									--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
-									pin.uuid = uuid;
+					if UUIDCheckState(uuid) then
+						local color3 = uuid[3];
+						local coords = data[1];
+						for index = 1, #coords do
+							local coord = coords[index];
+							local val = coord[5];	--	world
+							local dx = val[1] - mm_player_x;
+							local dy = val[2] - mm_player_y;
+							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
+								local pin = MM_LARGE_PINS[coord];
+								if pin == nil then
+									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
+									MM_LARGE_PINS[coord] = pin;
+									num_changed = num_changed + 1;
 								else
-									local pin = MM_LARGE_PINS[coord];
-									if pin ~= nil then
-										pin:Release();
-										MM_LARGE_PINS[coord] = nil;
-										num_changed = num_changed - 1;
-									end
+									pin:SetNormalTexture(IMG_PATH_PIN);
+									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+								end
+								pin:ClearAllPoints();
+								if mm_is_rotate then
+									dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
+								end
+								pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
+								--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
+								pin.uuid = uuid;
+							else
+								local pin = MM_LARGE_PINS[coord];
+								if pin ~= nil then
+									pin:Release();
+									MM_LARGE_PINS[coord] = nil;
+									num_changed = num_changed - 1;
 								end
 							end
-							break;
 						end
 					end
 				end
@@ -1139,44 +1101,41 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					for quest, refs in next, uuid[4] do
-						if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-							local color3 = uuid[3];
-							local TEXTURE = uuid[5];
-							local coords = data[1];
-							for index = 1, #coords do
-								local coord = coords[index];
-								local val = coord[5];	--	world
-								local dx = val[1] - mm_player_x;
-								local dy = val[2] - mm_player_y;
-								if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
-									local pin = MM_VARIED_PINS[coord];
-									local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
-									if pin == nil then
-										pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
-										MM_VARIED_PINS[coord] = pin;
-										num_changed = num_changed + 1;
-									else
-										pin:SetNormalTexture(texture[1]);
-										pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
-									end
-									pin:ClearAllPoints();
-									if mm_is_rotate then
-										dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
-									end
-									pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
-									--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
-									pin.uuid = uuid;
+					if UUIDCheckState(uuid) then
+						local color3 = uuid[3];
+						local TEXTURE = uuid[5];
+						local coords = data[1];
+						for index = 1, #coords do
+							local coord = coords[index];
+							local val = coord[5];	--	world
+							local dx = val[1] - mm_player_x;
+							local dy = val[2] - mm_player_y;
+							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
+								local pin = MM_VARIED_PINS[coord];
+								local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
+								if pin == nil then
+									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
+									MM_VARIED_PINS[coord] = pin;
+									num_changed = num_changed + 1;
 								else
-									local pin = MM_VARIED_PINS[coord];
-									if pin ~= nil then
-										pin:Release();
-										MM_VARIED_PINS[coord] = nil;
-										num_changed = num_changed - 1;
-									end
+									pin:SetNormalTexture(texture[1]);
+									pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
+								end
+								pin:ClearAllPoints();
+								if mm_is_rotate then
+									dx, dy = dx * mm_rotate_sin - dy * mm_rotate_cos, dx * mm_rotate_cos + dy * mm_rotate_sin;
+								end
+								pin:SetPoint("CENTER", Minimap, "CENTER", - mm_hwidth * dx / mm_hsize, mm_hheight * dy / mm_hsize);
+								--	transform from world-coord[bottomleft->topright] to UI-coord[bottomleft->topright]
+								pin.uuid = uuid;
+							else
+								local pin = MM_VARIED_PINS[coord];
+								if pin ~= nil then
+									pin:Release();
+									MM_VARIED_PINS[coord] = nil;
+									num_changed = num_changed - 1;
 								end
 							end
-							break;
 						end
 					end
 				end

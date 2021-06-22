@@ -81,16 +81,6 @@ local _ = nil;
 	local SET = nil;
 -->		MAIN
 	-->		methods
-		-->
-		-->
-	-->		performance board
-		--	display
-		local function Create()
-			local frame = CreateFrame("FRAME", nil, UIParent);
-			frame:SetSize(256, 512);
-			frame:SetPoint("CENTER");
-		end
-	-->		events and hooks
 		local function GetLevelTag(quest, info, modifier)
 			local lvl_str = "[";
 				local tag = __ns.GetQuestTagInfo(quest);
@@ -153,6 +143,16 @@ local _ = nil;
 						);
 			end
 		end
+		-->
+		-->
+	-->		performance board
+		--	display
+		local function Create()
+			local frame = CreateFrame("FRAME", nil, UIParent);
+			frame:SetSize(256, 512);
+			frame:SetPoint("CENTER");
+		end
+	-->		events and hooks
 		local function GameTooltipSetQuestTip(tip, uuid, META)
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
