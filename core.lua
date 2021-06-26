@@ -319,6 +319,8 @@ local _ = nil;
 			if del == true then
 				__ns.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
+			else
+				__ns.MapUpdCommonNodes(uuid);
 			end
 		end
 		--	large_objective pin
@@ -347,6 +349,8 @@ local _ = nil;
 			if del == true then
 				__ns.MapDelLargeNodes(uuid);
 				LARGE_UUID_FLAG[uuid] = nil;
+			else
+				__ns.MapUpdLargeNodes(uuid);
 			end
 		end
 		--	varied_objective pin
@@ -653,6 +657,9 @@ local _ = nil;
 	-->
 	-->		process quest log
 		function AddLine(quest_id, index, objective_type, text, finished)
+			if text == "" or text == " " then
+				return false;
+			end
 			local info = __db_quest[quest_id];
 			local obj = info.obj;
 			if obj ~= nil then
@@ -771,6 +778,61 @@ local _ = nil;
 				_log_('obj', quest_id, index, objective_type, objective_id)
 			end
 		end
+		function AddLineAllObj(quest_id, index, obj, finished)
+			--	@obj = { @U = { id... }, @I = { id... }, @O = { id... }, @E = { id... }, @R = { id, min, }, },
+			local U = obj.U;
+			local I = obj.I;
+			local O = obj.O;
+			local E = obj.E;
+			if U ~= nil and U[1] ~= nil then
+				for index = 1, #U do
+					local uid = U[index];
+					AddUnit(quest_id, index, uid, not finished, __db_large_pin:Check(quest_id, 'unit', uid), nil);
+				end
+			end
+			if I ~= nil and I[1] ~= nil then
+				for index = 1, #I do
+					local iid = I[index];
+					AddItem(quest_id, index, iid, not finished, __db_large_pin:Check(quest_id, 'item', iid), nil);
+				end
+			end
+			if O ~= nil and O[1] ~= nil then
+				for index = 1, #O do
+					local oid = O[index];
+					AddObject(quest_id, index, oid, not finished, __db_large_pin:Check(quest_id, 'object', oid), nil);
+				end
+			end
+			if E ~= nil and E[1] ~= nil then
+				AddEvent(quest_id);
+			end
+		end
+		function DelLineAllObj(quest_id, index, obj, total_del)
+			local U = obj.U;
+			local I = obj.I;
+			local O = obj.O;
+			local E = obj.E;
+			if U ~= nil and U[1] ~= nil then
+				for index = 1, #U do
+					local uid = U[index];
+					DelUnit(quest_id, index, uid, total_del, __db_large_pin:Check(quest_id, 'unit', uid), nil);
+				end
+			end
+			if I ~= nil and I[1] ~= nil then
+				for index = 1, #I do
+					local iid = I[index];
+					DelItem(quest_id, index, iid, total_del, __db_large_pin:Check(quest_id, 'item', iid), nil);
+				end
+			end
+			if O ~= nil and O[1] ~= nil then
+				for index = 1, #O do
+					local oid = O[index];
+					DelObject(quest_id, index, oid, total_del, __db_large_pin:Check(quest_id, 'object', oid), nil);
+				end
+			end
+			if E ~= nil and E[1] ~= nil then
+				DelEvent(quest_id);
+			end
+		end
 		function LoadQuestCache(quest_id, completed)
 			local info = __db_quest[quest_id];
 			if completed == -1 then
@@ -832,7 +894,7 @@ local _ = nil;
 							local num_lines = GetNumQuestLeaderBoards(index);
 							if completed ~= -1 and num_lines == 0 then
 								completed = 1;
-							elseif completed == nil then
+							elseif completed ~= 1 and completed ~= -1 and completed ~= 0 then
 								completed = 0;
 							end
 							local meta = META[quest_id];
@@ -844,14 +906,31 @@ local _ = nil;
 								quest_changed = true;
 							end
 							__ns.PushAddQuest(quest_id, completed, title, num_lines);
-							meta.flag = 1;
-							meta.num_lines = num_lines;
-							local has_unfinished_event = false;
+							--
 							-- local details = GetQuestObjectives(quest_id);
 							-- local detail = details[line];
 							-- local objective_type, finished, numRequired, numFulfilled, description = detail.type, detail.finished, detail.numRequired, detail.numFulfilled, detail.text;
+							--
 							local obj = info.obj;
 							if obj ~= nil then
+								-- if num_lines == 1 then
+								-- 	local description, objective_type, finished = GetQuestLogLeaderBoard(1, index);
+								-- 	local meta_line = meta[1];
+								-- 	if meta_line == nil then
+								-- 		meta_line = { false, objective_type, nil, description, finished, nil, };
+								-- 		meta[1] = meta_line;
+								-- 		AddLineAllObj(quest_id, 1, obj, completed == 1 or completed == -1);
+								-- 		__ns.PushAddLine(quest_id, 1, finished, objective_type, -1, description);
+								-- 	else
+								-- 		meta_line[2] = objective_type;
+								-- 		meta_line[4] = description;
+								-- 		meta_line[5] = finished;
+								-- 	end
+								-- else
+								-- 	if meta.num_lines == 1 then
+								-- 		DelLineAllObj(quest_id, 1, obj, true);
+								-- 	end
+								-- end
 								local num_monster_lines = 0;
 								local monster_line = -1;
 								local U2 = obj.U2;
@@ -900,6 +979,7 @@ local _ = nil;
 										DelEvent(quest_id);
 									end
 								else												--	检查任务进度
+									local has_unfinished_event = false;
 									for line = 1, num_lines do
 										local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
 										local meta_line = meta[line];
@@ -972,7 +1052,7 @@ local _ = nil;
 								end
 								if num_monster_lines == 1 then
 									local U = obj.U2 or obj.U;
-									if U ~= nil and #U > 1 then
+									if U ~= nil and U[1] ~= nil then
 										local meta_line = meta[monster_line];
 										if meta_line[1] and meta_line[3] ~= nil and meta_line[7] == nil then
 											--	DelLine
@@ -1012,6 +1092,7 @@ local _ = nil;
 									end
 								end
 							end
+							--
 							if meta.completed ~= completed then
 								meta.completed = completed;
 								if completed == -1 then							--	失败时，添加起始点
@@ -1033,6 +1114,9 @@ local _ = nil;
 									need_re_draw = true;
 								end
 							end
+							--
+							meta.flag = 1;
+							meta.num_lines = num_lines;
 						else
 							_log_('Missing Quest', quest_id, title);
 						end
@@ -1051,11 +1135,11 @@ local _ = nil;
 						for line = 1, meta.num_lines do
 							local meta_line = meta[line];
 							if meta_line ~= nil then
-								if meta_line[7] ~= nil then
+								if meta_line[7] ~= nil then		--	num_monster_lines == 1
 									local obj = info.obj;
 									if obj ~= nil then
 										local U = obj.U;
-										if U ~= nil and #U > 1 then
+										if U ~= nil and U[1] ~= nil then
 											for index = 1, #U do
 												local uid = U[index];
 												local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);

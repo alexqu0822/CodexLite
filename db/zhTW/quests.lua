@@ -641,6 +641,11 @@ __ns.L.quest = {
     { [[如果你读到这封信的话，那就意味着我，杉德尔船长，已经长眠在深深的水底了。所以，只要你按我的提示去做，我的宝藏就是你的了。]], [[首先你要找到一只小提箱，它应该就在西部荒野西海岸的某处船只残骸旁，如今八成已经快被沙子埋起来了。海岸边有许多处船只的残骸，但只有一只沉船旁有个锈掉的锚。箱子就在锚的旁边！在箱子里面，你可以找到下一条线索。]], },
     { [[找到杉德尔船长的手提箱，在箱子中寻找下一条线索。]], },
   },
+  [137] = {
+    [[<NYI> <TXT> Stormwind Commendation]],
+    { [[如果你從我們的治安官手中得到了獎狀，就把它帶給我。你可以因此而得到獅徽手套。]], },
+    { [[將從艾爾文森林得到的獎狀交給暴風城的馬庫斯·喬納森將軍，就可以在他那裡挑選一件防具。]], },
+  },
   [138] = {
     [[杉德尔船长的宝藏]],
     { [[你开始读小条上的字：干得好，哥们！现在你可以开始向东走，到悬崖边的路旁好好找找，看有没有一处破烟囱，你可以在那旁边的木桶中找到下一条线索。]], },
@@ -1151,6 +1156,11 @@ __ns.L.quest = {
     { [[完成了——格鲁奥烹制的黑“蟹”蛋糕！]], },
     { [[把黑蟹蛋糕拿回去交给基特斯。]], },
   },
+  [242] = {
+    [[<UNUSED>]],
+    { [[你好，<class>。我們沒多少時間了。龍喉氏族的獸人們已經在靠近南方的大峽谷構築了自己的工事。]], [[他們拒絕執行酋長的命令，因此我們別無選擇，只能消滅他們，讓他們永遠不再玷污部落的名字。]], },
+    { [[殺掉8個龍喉劫掠者、3個龍喉白骨守衛和1個龍喉軍官。]], },
+  },
   [243] = {
     [[进入沙漠]],
     { [[你现在得去一趟塔纳利斯沙漠，在那里对当地的蜥蜴、蝎子和土狼进行一些组织测试，并搜集一些组织样品放进实验工具包里。当然，你有可能得花不少工夫才能找到合适的样品，这一点是可以预料的。每种生物的样本都要十份。]], [[另外，加基森的地精拥有这类工具包所需的能量源，去和那里的首席工程师沙克斯·比格维兹谈谈，或许能得到一些必要的帮助。]], [[此行只许成功不许失败，否则就不要回来见我。]], },
@@ -1226,6 +1236,10 @@ __ns.L.quest = {
     [[猎人的挑战]],
     { [[你叫<name>，对吧？看得出来，完成第一个考验之后，你已经被骄傲冲昏了头脑，不是吗？我跟你说过的，那没什么了不起。]], [[你应该再试试去捕杀野猪。相信我，这和捕杀寒脊山谷里那些野猪可不一样，所以你最好当心点。这次我只给你十二分钟。]], [[失败了也别难过。不过如果你成功了，我就把我的衬衣脱下来给你！]], [[我有没有跟你说过我这个著名的伤疤是怎么来的？没有？好吧，两年前的一天……]], },
     { [[杀掉5只老山猪，然后回到旅行者营地去见年轻的达瑞尔，时限为12分钟。]], },
+  },
+  [259] = {
+    [[<UNUSED>]],
+    { [[你好，<name>。我聽說過很多你的豐功偉績，也很榮幸能見到你。我想你還不知道老科爾特的故事吧?啊，老科爾特─科爾特·托馬森，曾經被視為世界上最好的獵手。他技藝精湛，無所不能，但是有一天，他受到了一個古老故事的困擾……嗯，故事大概是說一條巨大的魚龍深藏在水下怎麼怎麼的，要我說，那都是沒什麼意義的廢話。不過如果你有興趣，就去跟老科爾特談談吧。]], },
   },
   [261] = {
     [[血色之路]],
@@ -1659,6 +1673,10 @@ __ns.L.quest = {
     [[寻找OOX-17/TN！]],
     { [[你发现了一个奇怪的蛋形金属物体。随便拨弄了几下之后，它居然打开了，变成了一个看起来像是由侏儒创造的那种机器装置！一个噼里啪啦的声音从这个蛋形机器装置中传了出来。]], [[“我的名字叫奥格索普，我的母体机器人不见了！如果你能帮我找到它的话，我会奖励你的！请把这个定向器带到我的母体机器人那里。我现在已经为你勘探出了它的所在地！它现在就在塔纳利斯的大裂口那里！”]], },
     { [[把定位器带到奥格索普的母体机器人那里。]], },
+  },
+  [352] = {
+    [[<UNUSED>]],
+    { [[巨獸瑪莫達……她如此的龐大，有著利如劍刃般的爪牙。當時，我有些措手不及，不過我並不認為充足的準備會帶來什麼更好的效果。她以閃電般的速度向我襲來，一次猛烈的撞擊之後……我陷入了一片黑暗。他們說我現在還能活著簡直是個奇跡。]], [[嗯，那古老的故事無法讓人快樂起來，難道不是嗎?不管怎樣，<name>，你願意去挑戰洛克湖的女王嗎?]], },
   },
   [353] = {
     [[雷矛的包裹]],
@@ -2189,6 +2207,10 @@ __ns.L.quest = {
     { [[我知道在这城堡中有间密室，密室里藏着一件对图勒和他的同伙们来说很宝贵的东西，也许那里面也有些对你很有用的东西。把我带到那里去！]], [[这密室就在城堡西南的塔里，在一处满是灰尘的柜子后面。]], [[带上我的身子，但是不要靴子…这靴子就没合适过……]], },
     { [[将奥拉瑞克带到密室去。]], },
   },
+  [462] = {
+    [[<UNUSED>]],
+    { [[除了你之外，我還派了兩個斥候去奧加茲，但是只有一個斥候回來了。以下是他帶回來的情報:]], [[龍喉氏族的一個中尉馬魯克·龍鱗組織了一支獸人部隊集結在奧加茲，從而切斷了那裡和米奈希爾港之間的通道!]], [[我們必須阻止他們。幹掉馬魯克，然後向米奈希爾港的瓦斯塔格·鐵齶回報。]], [[馬魯克的老巢在一個小山洞裡，穿過奧加茲隘口第二和第三條通道之間的水塘就可以找到它。在你穿過奧加茲之後，沿著路一直往西走就能到達米奈希爾港了。]], },
+  },
   [463] = {
     [[绿色守卫者]],
     { [[你听说过绿色守卫者？你应该不是在找他吧，是不是？如果是的话，我真得说你是个疯子，不过我为什么要阻止一个疯子去找他送死呢？]], [[好吧，如果你真是在找那只凶兽的话，我听说它就在沼泽里，在通向丹莫罗的那个岔路口的东边。他就潜伏在那个危险的地方，在鳄鱼群之间……听说那里还有些更可怕的东西！]], [[把你的钱留在这里吧，要是你去找他，钱对你来说也就没用……你该不会想在那家伙咬你的时候用你的金币给他镶金牙吧？]], },
@@ -2323,6 +2345,11 @@ __ns.L.quest = {
     [[寻求救赎！]],
     { [[森林议会听说你帮助了赛恩·腐蹄，这个险恶的萨特是森林的敌人。作为一个<race>，你应该更清楚我们不能杀害自然的生物，玷污圣洁的森林。]], [[如果你希望继续做泰达希尔的朋友的话，你就必须在众人的关注下挽回这个过错。]], [[给赛恩·腐蹄一个教训，你就可以得到原谅。魔锥果是从树上掉落的腐坏的种子，一般都冒着绿色的烟气。]], [[给赛恩带去3个魔锥果，他会以为那些只是无害的点心。]], },
     { [[收集3个魔锥果，把它们给在多兰纳尔外面的赛恩·腐蹄。]], },
+  },
+  [490] = {
+    [[<UNUSED>]],
+    nil,
+    { [[達納蘇斯外的莎依拉·夜風想要你帶給她20個瘤背熊怪的牙齒。]], },
   },
   [491] = {
     [[给比索的魔杖]],
@@ -2598,6 +2625,10 @@ __ns.L.quest = {
     [[亨伯特的长剑]],
     { [[高级执行官达萨利亚派我从远处监视丹加洛克。我在一个隐蔽的角落里扎了营，但是那天早上我在烧水的时候离开了一会儿去找柴火……]], [[等我回来时，发现放在营地里的装备已经不见了。]], [[一定是那些丹加洛克的矮人侦察兵从这儿经过的时候把东西拿走了。我必须得拿回我的剑！如果你能帮我拿回来的话，我会很感激你的。但是那儿的矮人真是太多了……也许你很难在他们当中找出那个小偷。]], },
     { [[从丹加洛克拿回亡灵卫兵亨伯特的长剑，然后回到塔伦米尔把剑还给他。]], },
+  },
+  [548] = {
+    [[<NYI> <TXT> Bloodstone Pendant]],
+    { [[This will start the Bloodstone Pendant quest line...<NYI>]], },
   },
   [549] = {
     [[通缉：辛迪加成员]],
@@ -3758,8 +3789,8 @@ __ns.L.quest = {
   },
   [785] = {
     [[协助盟友]],
-    { [[Thrall is a most wise and noble leader. His tenacity on the battlefield is matched only by his diplomatic tact.]], [[The Darkspear Trolls have proven to be invaluable allies to orckind. Out of loyalty and honor we have sworn a pact of protection with them.]], [[The Warchief has sent orders to make sure our Darkspear friends in Sen'jin Village are not under any direct threat. One of their most trusted scouts, Lar Prowltusk is keeping a close watch on their western flank.]], [[Seek out Lar and assist as needed.]], },
-    { [[Seek out Lar Prowltusk on the western flank of Sen'jin Village.]], },
+    { [[索爾是一位十分睿智而高貴的首領。他在戰場上的勇猛善戰和他在外交上的高瞻遠矚一樣卓越不凡。]], [[暗矛部落的食人妖一直以來都是獸人的堅定盟友。為了表示忠誠和榮譽，我們之間簽訂了協同防衛的契約。]], [[酋長已經下達了命令，要保證我們在森金村的食人妖朋友們不會遭到任何直接的威脅。他們最值得信任的斥候之一拉爾·獵齒已經在密切注意他們村莊西側的狀況。]], [[去找拉爾，並根據情況協助他。]], },
+    { [[在森金村的西側找到拉爾·獵齒。]], },
   },
   [786] = {
     [[科卡尔半人马的进攻]],
@@ -3834,6 +3865,11 @@ __ns.L.quest = {
     { [[自从我们在上一次大战中击败燃烧军团之后，我一直在寻找潜藏在兽人中的恶魔势力的源头。你带来的项圈证实了我的担忧。]], [[这个项圈属于火刃氏族，这帮恶魔的信徒正在凭借着一件被称作恶魔之种的器物重整旗鼓。你可以在鬼雾峰山顶的贫瘠之地找到恶魔之种，一定要把它毁掉！]], [[到贫瘠之地边境西边的前沿哨所去找我的助手雅克塞罗斯吧，他会给你进一步的指示。]], },
     { [[到贫瘠之地去和雅克塞罗斯谈一谈。]], },
   },
+  [810] = {
+    [[<UNUSED>]],
+    { [[瞭解這片土地有多危險對你的將來大有好處，<class>。]], [[這裡的野生物可以教會我們這些……只要我們有足夠的智慧和觀察力。]], [[蠍子就是在杜洛塔求得生存的典範。想要生存下去的話，你不妨去向它們學習。它們堅硬的甲殼可以讓你免受烈日的折磨，甚至可以抵擋致命的攻擊。]], [[給我找6個巨鉗蠍身上的小型蠍殼回來，<name>，我會留意給你應得的獎賞。]], },
+    { [[找6個小型蠍殼帶給森金村的考格漢。]], },
+  },
   [812] = {
     [[救命如救火]],
     { [[<name>……你来得真是时候，快救救我……]], [[我在毒尾蝎战斗的时候一不小心被蛰伤了，毒液正在不断侵蚀我的血液。看样子…我最多再撑一个小时就得玩完了，我想请你帮个忙…]], [[奥格瑞玛的考格汉知道怎么做解毒剂，快去找他…<name>，我…我支持不了多久了……]], },
@@ -3843,6 +3879,10 @@ __ns.L.quest = {
     [[寻找解毒剂]],
     { [[林纳格不随身带着解毒剂就去抓毒尾蝎是很不明智的行为，不过现在说这些也于事无补。]], [[赶快到奥格瑞玛城的城门外，在那一带的毒尾蝎身上给我找4个毒囊回来，这样我才能给他做解毒剂。]], [[动作快点，<name>。我们自己的同胞命在旦夕！]], },
     { [[收集4个毒尾蝎的毒囊，把它们交给奥格瑞玛的考格汉。]], },
+  },
+  [814] = {
+    [[<UNUSED>]],
+    { [[燒飯和打掃─這些就是我的工作。]], [[如果你想吃東西，就先給我帶點肉來!我可沒工夫整天給你們這些寄生蟲打獵。你要想得到平等的待遇，就得學會盡你的本分。]], [[如果你想讓自己看起來不是個廢物，或者不想活活餓死的話，就去給我找點野豬肉回來。]], },
   },
   [815] = {
     [[恐龙蛋大餐]],
@@ -4288,7 +4328,7 @@ __ns.L.quest = {
     { [[把深渊之核交给灰谷佐拉姆加前哨站里的耶努萨克雷。]], },
   },
   [909] = {
-    [[OLD Baron Aquanis]],
+    [[阿奎尼斯男爵]],
     { [[被击败的水元素留下了一个奇怪的水球，你猜想这东西可能是为水元素提供能量的。一股看起来就很恶心的水流在球体内翻腾喷溅，而球体本身似乎不受任何自然力的影响。]], [[如果说有人能对这个东西有所了解，那就只能是大地之环的耶努萨克雷了。他就在灰谷的佐拉姆加前哨站里。]], },
     { [[把奇怪的水球交给灰谷佐拉姆加前哨站的耶努萨克雷。]], },
   },
@@ -4658,6 +4698,9 @@ __ns.L.quest = {
     [[失踪的主人]],
     { [[<name>，你帮了我很多忙，我能不能再请求你帮助一下锐爪和他的主人沃科尔？我可以帮你精心制作一件有魔力的斗篷，它能够让你在寻找沃科尔时畅通无阻，免受黑海岸上任何猛兽的阻挠。]], [[不过要制作这件斗篷，我需要从月夜雄虎或者月夜雌虎身上获取几张上等毛皮。你可以在急弯河以南找到那些月夜猛虎。]], },
     { [[收集5张优质月夜猛虎毛皮，把它们交给奥伯丁的特伦希斯。]], },
+  },
+  [987] = {
+    [[<UNUSED>]],
   },
   [990] = {
     [[灰谷之旅]],
@@ -5517,6 +5560,9 @@ __ns.L.quest = {
     { [[你竟敢挑战莫格穆洛克？]], [[啊啊啊啊啊啊啊！]], [[我来踩扁你这个小<race>！]], [[什么时候准备好挨揍就告诉我。]], },
     { [[打败莫格穆洛克，再把消息带给蕨墙村的德拉兹辛比。]], },
   },
+  [1174] = {
+    [[地精獲勝!]],
+  },
   [1175] = {
     [[安全隐患]],
     { [[自从地精的红雷赛车和一只大蜥蜴撞了个满怀之后，科鲁克莱德就雇了我去看守赛道。我不知道平原上的这些动物都是吃什么的，居然长得这么大，但我们必须多加小心，免得它们在比赛时突然跑进赛道里。]], [[我跟你说啊，如果你想打点零工的话，那就去把这些蜥蜴赶走吧。]], },
@@ -5672,7 +5718,7 @@ __ns.L.quest = {
   [1218] = {
     [[沼泽蛙的腿]],
     { [[我喜欢烧菜，喜欢沼泽地里特产的美食，比如油炸绿青蛙腿之类的。]], [[我的青蛙腿都用完了。不过庄园附近到处都是青蛙。大型沼泽蛙。你觉得你能帮我弄些青蛙腿吗？很简单，只需要殴打它们的脑袋，帮我带回蛙腿就可以了。]], [[然后我就可以做出好吃的东西来，好好地饱餐一顿，还能给你一些。]], [[你想尝尝吗？]], },
-    { [[Bring 10 Marsh Frog Legs to "Swamp Eye" Jarl in Dustwallow Marsh.]], },
+    { [[帶10條沼澤青蛙腿給塵泥沼澤的『沼澤之眼』加爾。]], },
   },
   [1219] = {
     [[兽人的报告]],
@@ -5820,6 +5866,7 @@ __ns.L.quest = {
   [1267] = {
     [[失踪的使节]],
     { [[与尘泥沼泽的吉安娜·普罗德摩尔谈一谈。]], },
+    { [[與塵泥沼澤的珍娜·普勞德摩爾談話。]], },
   },
   [1268] = {
     [[可疑的蹄印]],
@@ -5840,7 +5887,7 @@ __ns.L.quest = {
     [[盛筵]],
   },
   [1272] = {
-    [[BETA Finding Reethe <CHANGE INTO GOSSIP>]],
+    [[尋找雷瑟]],
   },
   [1273] = {
     [[盘问雷瑟]],
@@ -5870,6 +5917,9 @@ __ns.L.quest = {
     { [[我对吉姆的事很遗憾……他以前不是那样的。他曾在沼泽地开了个旅店，那是个很不错的地方。]], [[我真不想谈这个。你想谈的话就去找维米斯队长吧。]], },
     { [[与塞拉摩的盖兰·维米斯队长谈一谈。]], },
   },
+  [1283] = {
+    [[樹蔭旅店的大火]],
+  },
   [1284] = {
     [[可疑的蹄印]],
     { [[有几排蹄印从树荫旅店那仍然冒着烟的废墟中延伸出来。大部分蹄印都埋在沼泽地的松软泥土里没法辨认，不过至少还有一些是可以看清的。]], },
@@ -5891,9 +5941,9 @@ __ns.L.quest = {
     { [[和塞拉摩的盖兰·维米斯队长谈一谈关于雷瑟的事。]], },
   },
   [1288] = {
-    [[OLD Vimes's Report]],
-    { [[You've done some good work, <name>, best I've seen from an amateur.]], [[Lady Proudmoore asked that I keep her apprised of this delicate situation, and I haven't spoken to her for some time now.]], [[I was going to deliver my report to her later, but it seems more fitting that you should be the one to speak with her about it. You can probably answer her questions better than I could.]], },
-    { [[Bring Vimes's Report to Lady Jaina Proudmoore in Theramore.]], },
+    [[維米斯的報告]],
+    { [[你的表現不錯，<name>，算是我見過的非專業人士中最好的。]], [[普勞德摩爾女士讓我把這件事的新消息都報告給她，不過我已經有一段時間沒去見她了。]], [[我正準備把我的報告給她送去，不過你去和她談可能更合適一些，因為你應該能比我更好地回答她的問題。]], },
+    { [[把維米斯的報告送給塞拉摩的珍娜·普勞德摩爾女士。]], },
   },
   [1289] = {
     [[BETA Vimes's Report]],
@@ -6828,7 +6878,7 @@ __ns.L.quest = {
     { [[在提瑞斯法林地找到被遗忘者的稻草人节日举办地点。任务完成之后回到南海镇的哈特曼中士那里。]], },
   },
   [1661] = {
-    [[OLD The Tome of Nobility]],
+    [[高貴之書]],
     { [[很高兴再见到你，<name>。我很荣幸能够称呼你为<兄弟/姐妹>——你的奉献和无私对我们而言是一种恩赐。]], [[现在我要对你进行嘉奖了，但是你要知道，虽然这次我把它免费送给你，但是将来，如果时间允许的话，这将成为所有圣骑士都要接受的挑战。]], [[等一会再来与我交谈，我就将给你一份很棒的礼物。]], },
     { [[与暴风城的达索瑞恩·拉尔谈一谈。]], },
   },
@@ -7679,7 +7729,7 @@ __ns.L.quest = {
   [2281] = {
     [[赤脊山的联络员]],
     { [[现在就把你派出去等于让你去自杀，雷吉克可不想再让哪个初出茅庐的潜行者平白挂掉。不过你也别着急，<name>。雷吉克要先培养你的能力。]], [[现在你就动身去赤脊山，和一个名叫卢修斯的军情七处联络员谈一谈吧。他就在湖畔镇的码头附近，和其他一些游手好闲的家伙整天搅在一起。]], },
-    { [[Venture forth to Lakeshire in the Redridge Mountains and speak with Lucius.]], },
+    { [[到赤脊山的湖畔鎮去和盧修斯談話。]], },
   },
   [2282] = {
     [[奥瑟尔伐木场]],
@@ -7840,7 +7890,7 @@ __ns.L.quest = {
   [2479] = {
     [[希诺特的帮助]],
     { [[把这个混合物的样本交给塔伦米尔的瑟尔格·希诺特。]], [[只有瑟尔格能治得了你所中的毒。如果你能活得久一点的话，他还能教你制造并使用这种毒药的方法。]], },
-    { [[Travel to Tarren Mill in Hillsbrad Foothills and deliver the Sample of Zanzil's Mixture to Serge Hinott.]], [[To get to Tarren Mill, take the Zeppelin to the Undercity and follow the road south through Silverpine and towards Hillsbrad. Follow the signs!]], },
+    { [[到希爾斯布萊德丘陵的塔倫米爾去，把贊吉爾的藥劑樣品交給瑟爾格·希諾特。]], [[要去塔倫米爾，可以搭乘飛艇到幽暗城，然後沿著大路向南穿過銀松森林，直到希爾斯布萊德丘陵。跟著路標走!]], },
   },
   [2480] = {
     [[希诺特的帮助]],
@@ -8355,6 +8405,10 @@ __ns.L.quest = {
     { [[在索兰萨尔废墟的心脏地带发现了奇怪的瞭望台之后，你觉得应该马上回到羽月要塞去向珊蒂斯·羽月汇报这个发现。]], },
     { [[向羽月要塞的珊蒂斯·羽月汇报你的发现。]], },
   },
+  [2868] = {
+    [[<TXT> The Shriveled Heart]],
+    { [[把這個壞小子塞到沉默的神廟食人妖墓穴裡，讓他吃吃苦頭。]], },
+  },
   [2869] = {
     [[憎世纳迦之战]],
     { [[我们认为，无论纳迦想要干什么，他们最终的目的无非是完全占据这座岛屿，由此我们制定了相应的行动计划。我们要尽早采取攻击行动来消除这种威胁，否则就可能全盘皆输。]], [[给我带来十块完整的憎世纳迦的鳞片——你应该知道如何获得这东西。这样一来，纳迦在萨尔多岛上的力量就被大大削弱了，这对我们是非常有利的。]], },
@@ -8600,7 +8654,7 @@ __ns.L.quest = {
   [2962] = {
     [[更多的辐射尘！]],
     { [[你的样本不仅数量不够，而且纯度也不够。]], [[我们需要更多的辐射尘。很显然，穴居怪身上的辐射剂量根本无法满足我们的需要。你必须重返诺莫瑞根，直接从辐射源头取回一些辐射尘。我指的是那些受到辐射的泥浆怪、潜伏者和水元素。小心一点，收集这种辐射尘并不容易。也许你得试好几次才能找到一个合适的样本。]], },
-    { [[Travel to Gnomeregan and bring back High Potency Radioactive Fallout. Be warned, the fallout is unstable and will collapse rather quickly.]], [[Ozzie will also require your Heavy Leaden Collection Phial when the task is complete.]], },
+    { [[到諾姆瑞根去收集高強度輻射塵。要多加小心，這種輻射塵非常不穩定，很快就會分解。]], [[奧齊要求你在任務完成後把沉重的鉛之瓶也交給他。]], },
   },
   [2963] = {
     [[奥丹姆的线索]],
@@ -8641,6 +8695,11 @@ __ns.L.quest = {
     [[菲拉斯的正义]],
     { [[辛达尔已经跟你说过了，我们准备去和恐怖图腾部族作战。干掉几个牛头人对我们两个来说不是什么问题，但如果你愿意帮忙的话，我们还是很欢迎的。]], [[看到下面那个营地了吗？东边有更多这样的营地。运用你的战术，尽可能让那些牛头人多吃些苦头。当他们被你和辛达尔打得落花流水之后，我们再回到这里来碰头。]], },
     { [[杀掉12个恐怖图腾博学者、10个恐怖图腾袭击者和6个恐怖图腾萨满祭司，然后向菲拉斯的耶尔卡·月纹汇报。]], },
+  },
+  [2971] = {
+    [[<UNUSED>]],
+    { [[[PH] Description]], },
+    { [[[PH] Log Description]], },
   },
   [2972] = {
     [[菲拉斯的正义]],
@@ -8816,6 +8875,11 @@ __ns.L.quest = {
     [[对鹰身人的复仇]],
     { [[年轻时，我曾是个经验丰富的猎手，没有什么野兽会让我感到害怕，直到……]], [[有一次在树林里，我在一场恶战之后正在打磨自己的武器，这时我遭到了伏击。鹰身人包围了我，好不容易我才脱了身。]], [[直到现在，我还能听见它们的嚎叫在耳边回荡……]], [[现在我已经不再年轻了，不过仇恨还在我的心中燃烧——这么多年了，我一定要报仇。]], [[北泉鹰身人就在西边，<name>，去为我复仇。]], },
     { [[塔罗·刺蹄让你杀掉4个北泉鹰身人、4个北泉游荡者、4个北泉唤风者和4个北泉杀戮者。]], },
+  },
+  [3064] = {
+    [[<NYI> <TXT> Pirate Hats]],
+    { [[我的商店需要海賊帽。給我帶一些來!]], },
+    { [[帶20頂完整的海賊帽給尤爾巴·斯庫比格特。]], },
   },
   [3065] = {
     [[普通石板]],
@@ -9092,6 +9156,11 @@ __ns.L.quest = {
     { [[你在这里帮助我们的亡灵哨兵的时候，药剂师伦弗利尔派人来找过你。他没有告诉我详情，但他想和你谈谈你交给他的那些狼的心脏。]], },
     { [[与瑟伯切尔的药剂师伦弗利尔谈一谈。]], },
   },
+  [3241] = {
+    [[<NYI> <TXT><redux> Dreadmist Peak]],
+    { [[從鬼霧峰收集圖騰，因為那裡現在令人作嘔，沒有地方可以容納乾淨閃亮的圖騰。]], },
+    { [[把他們帶給圖加·符文圖騰。]], },
+  },
   [3261] = {
     [[乔恩·星眼]],
     { [[你将结束跟随我进行修炼的日子，<name>。为了进一步的深造，你必须到南边的陶拉祖营地去找乔恩·星眼，他会对你进行更深入的指导。]], },
@@ -9208,7 +9277,7 @@ __ns.L.quest = {
   [3379] = {
     [[暗影蛛丝]],
     { [[灼热峡谷的蜘蛛可以为我们提供暗影蛛丝，这使得它们的商业价值倍增。据我所知，暗影蛛丝在我们的交易中有着很大的需求量。]], [[最近有一批偷猎者来到了这里，他们随意地屠杀蜘蛛，根本不关心他们的行为可能造成的长期影响。我给你的第一个任务非常简单：找到他们……然后终结他们。]], [[到北边去开始你的搜索吧。]], [[如果你需要帮助的话，就去和拆毁者谈谈。]], },
-    { [[Kill the group of Shadow Silk Poachers that wander the Searing Gorge. Nilith has reason to believe that there are five of them that need to be exterminated. Return to Nilith in the Searing Gorge when this task is complete.]], },
+    { [[殺死在灼熱峽谷遊蕩的暗影蛛絲偷獵者小隊。尼莉絲認為他們共有5名成員，你的任務就是把他們全都幹掉。]], },
   },
   [3380] = {
     [[沉没的神庙]],
@@ -9217,8 +9286,8 @@ __ns.L.quest = {
   },
   [3381] = {
     [[会见主人]],
-    { [[Ah, a young <race> come to speak to Sanath. What a wonderful day! I am so honored to have you grace me with your presence. Thank you!]], [[Please... do not be so arrogant to assume my sarcasm was a compliment. Let us get one thing straight: I don't like you. But this little conversation doesn't have anything to do with us--it has to do with my master.]], [[Bring me a couple hippogryph feathers for my arrows and I'll give you leave to see him. He's asked that I send adventurers to him if they proved worthy enough.]], },
-    { [[Bring 2 Undamaged Hippogryph Feathers to Sanath Lim-yo in Azshara if you wish to speak to his master.]], },
+    { [[啊，一個年輕的<race>來到了薩納斯的面前。多麼美妙的一天啊!您的大駕光臨令我誠惶誠恐。謝謝您!]], [[啊……請不要傲慢地把這些讚美之詞真的當作一種恭維。讓我們有話直說了吧:我不喜歡你。但是我們之間的關係如何並不重要─重要的是我的主人怎麼看待你。]], [[給我帶來一些角鷹獸的羽毛，我就向他引薦你。他曾吩咐我帶那些有價值的旅行者去見他。]], },
+    { [[如果你想要見到薩納斯的主人，就把2根完好無損的角鷹獸羽毛交給他。]], },
   },
   [3382] = {
     [[危难中的船长]],
@@ -9330,8 +9399,8 @@ __ns.L.quest = {
   },
   [3482] = {
     [[暂无内容]],
-    { [[This is the horde version of the black box quest.]], },
-    { [[Take this box to Kravel.]], },
+    { [[這是部落版本的黑箱任務。]], },
+    { [[把這個箱子交給克拉維爾。]], },
   },
   [3483] = {
     [[信号发射器]],
@@ -9566,7 +9635,7 @@ __ns.L.quest = {
     { [[如果你想要对侏儒工程学有更多了解，就把工程学教材交给铁炉堡的工匠大师欧沃斯巴克。]], },
   },
   [3631] = {
-    [[OLD Summon Felsteed]],
+    [[召喚惡魔戰馬]],
     { [[嗯，我觉得你还没有准备好，但这件事情的决定权不在我手里。斯坦哈德和我持不同意见，这次是他作的决定。]], [[他要你去见他，越快越好。到贫瘠之地的棘齿城去，他就和他的那些侍僧一起待在塔里。]], [[不要再闲逛了，快点去。]], },
     { [[与贫瘠之地棘齿城的斯坦哈德·法尔杉谈一谈。]], },
   },
@@ -9638,6 +9707,7 @@ __ns.L.quest = {
   },
   [3646] = {
     [[会员卡续费]],
+    { [[]], [[]], },
   },
   [3647] = {
     [[会员卡续费]],
@@ -9872,7 +9942,7 @@ __ns.L.quest = {
   [3906] = {
     [[不和谐的烈焰]],
     { [[部落的长老感觉到元素中的一种扰动。黑铁矮人召唤出了一个肮脏的灵魂，这个灵魂将用冲天的大火完全毁灭这个世界。我们必须调查这种不和谐的火焰的来源。]], [[到黑石山脉去，穿过火焰裂口，进入采石场。你应该可以在那里找到火焰之王——征服者派隆。]], [[解决这个造成扰动的源泉，然后向我回报。]], },
-    { [[Travel to the quarry in Blackrock Mountain and slay Overmaster Pyron. Return to Thunderheart when you have completed this assignment.]], },
+    { [[到黑石山脈的採石場去幹掉征服者派隆，然後向桑德哈特回報。]], },
   },
   [3907] = {
     [[不和谐的火焰]],
@@ -9965,7 +10035,7 @@ __ns.L.quest = {
     { [[与卡兰·巨锤谈一谈，收集关于绑架公主铁炉堡公主茉艾拉·铜须这一事件的情报。将情报反馈给奥格瑞玛城里的萨尔。]], [[哥沙克提到过卡兰被关在附近的某个牢房中。]], },
   },
   [4002] = {
-    [[The Eastern Kingdoms]],
+    [[東部王國]],
     { [[你带来了非常有价值的情报，<name>。]], [[作为酋长，我的职责就是做一切对部落有益的事情，以确保我们的后代有一个光明的未来。]], [[一个结交新盟友的机会已经落在了我们的肩上。帮助矮人的举动可以极大地改善我们与东部王国的关系。这就是你绝对不能失败的原因！]], [[你准备好了吗？]], },
     { [[如果你准备好要接受萨尔所安排的任务，就去找他谈一谈。]], },
   },
@@ -10600,22 +10670,22 @@ __ns.L.quest = {
     { [[与暴风城的达索瑞恩·拉尔谈一谈。]], },
   },
   [4487] = {
-    [[OLD Summon Felsteed]],
+    [[召喚惡魔戰馬]],
     { [[啊，天哪，你就在这里。 我派出了一个魅魔; 在她找到你之前你就来了。你的力量在不断增长,这点众所周知。现在,你的努力终于可以为你带来回报了。在棘齿城你会找到一个叫做斯坦哈德的人。我想你以前也去过那里。]], },
     { [[与棘齿城的斯坦哈德·法尔杉谈一谈。]], },
   },
   [4488] = {
-    [[OLD Summon Felsteed]],
+    [[召喚惡魔戰馬]],
     { [[啊，<name>,你的出现使我们倍感荣幸！]], [[不过你也没指望我们会对你俯首贴耳吧？你的力量也许正在迅速增长，但说到真正的知识和理解力，你还是一个新手呢。如果你不当心的话，堕落的力量就会侵蚀你的意志。]], [[说正事吧，斯坦哈德想要跟你见一面。他仍然住在贫瘠之地，就在那座可以俯瞰棘齿城的塔中。我建议你不要耽搁太久。]], },
     { [[与棘齿城的斯坦哈德·法尔杉谈一谈。]], },
   },
   [4489] = {
-    [[OLD Summon Felsteed]],
+    [[召喚惡魔戰馬]],
     { [[你，说你哪！过来！]], [[你就是他们所说的那个叫做<name>，对吗？]], [[我也这么想。我长话短说：你的力量在不断增长，这点众所周知。现在，你的努力终于可以为你带来回报了。]], [[到贫瘠之地去，在那里的棘齿城中找到斯坦哈德·法尔杉——你还记得他吧？他会跟你详谈的，赶快去吧。]], },
     { [[与棘齿城的斯坦哈德·法尔杉谈一谈。]], },
   },
   [4490] = {
-    [[OLD Summon Felsteed]],
+    [[召喚惡魔戰馬]],
     { [[我会为你的忍耐和辛勤工作而奖励你的。但你要知道，召唤一匹地狱战马的能力在将来会变得困难许多。你必须努力争取它……而且这不很容易。]], [[现在，你可以在自己需要的时候召唤地狱战马了。]], },
     { [[与棘齿城的斯坦哈德·法尔杉谈一谈，学习召唤地狱战马的能力。]], },
   },
@@ -11069,7 +11139,7 @@ __ns.L.quest = {
   [4862] = {
     [[蜘蛛卵]],
     { [[信不信由你，有人愿意出钱购买最凶猛的野兽！我将派比修进入黑石塔去收集一些尖塔蜘蛛的卵，但是我已经好几周都没有得到她的消息了。也许你能帮帮我的忙？]], [[我跟你说啊，<name>，到黑石塔去为我收集一些尖塔蜘蛛卵，把它们带回来，我不仅会给你一笔现金，甚至还可以帮你驯服一只小蜘蛛！]], },
-    { [[Travel to Blackrock Spire and collect 15 Spire Spider Eggs for Kibler.]], [[By the sound of it, these eggs could be found near spiders.]], },
+    { [[到黑石塔去為基布雷爾收集15枚尖塔蜘蛛卵。]], [[聽說那些蜘蛛周圍有許多這樣的卵。]], },
   },
   [4863] = {
     [[被激怒的枭兽]],
@@ -11130,6 +11200,9 @@ __ns.L.quest = {
     [[终获自由]],
     { [[阿纳克要和我结婚……但是在我拒绝了他的提议之后，他当晚就回来绑架了我。我的兄弟试图阻止他，但是阿纳克太强大了，他……他杀了我的兄弟，然后把我带到了这里。我可怜的兄弟……]], [[<name>，你能护送我离开恐怖图腾营地吗？求你了……我要回到萨利亚身边去！她一定非常思念我。]], },
     { [[护送拉克塔·风歌离开恐怖图腾营地，然后与乱风岗的萨利亚谈一谈。]], },
+  },
+  [4905] = {
+    [[<UNUSED>]],
   },
   [4906] = {
     [[更深重的堕落]],
@@ -11341,6 +11414,11 @@ __ns.L.quest = {
     { [[和荆棘一样，鲜血也影响了<猪哼声>大地的其它特性：血红的石头与别的矿石掺杂在一起，刺背野猪人挖出这些碎片并把它们带走，在战斗中把它们当作增强<猪哼声>力量和魔法能量的图腾。<猪哼声>]], [[我知道那个魔法的秘密。]], [[把一块血石碎片交给碎牙来表示你明白了。给碎牙拿来许多血牙碎片，他就会用野猪人的魔法保护你——阿迦玛甘的魔法！<猪哼声>]], },
     { [[给陶拉祖营地的碎牙带去一块血岩碎片。]], [[如果你想要他赐予你阿迦玛甘的力量，就搜集更多的血岩碎片。]], },
   },
+  [5053] = {
+    [[<UNUSED>]],
+    nil,
+    { [[Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.]], [[Have a nice day.]], },
+  },
   [5054] = {
     [[碎齿熊尤西乌斯]],
     { [[在冬泉谷那白雪茫茫的山脉里，有一头狩猎技术纯熟精湛的碎齿熊，尤西乌斯。]], [[现在我让你去对付他，尤西乌斯就在永望镇西边的山坡上徘徊。在它发现你的意图之前找到他，击败他。]], [[所有前去猎杀尤西乌斯的猎人都很快发现自己变成了猎物，而尤西乌斯才是猎人。你要多加小心。]], },
@@ -11503,12 +11581,12 @@ __ns.L.quest = {
   [5101] = {
     [[暂无内容]],
     { [[Bah! What do think this is, some kind of Test Quest? I be there even be typos in it!]], [[If ya be thinkin' my quest is goin' ta be easy, then ya got another thing coming!]], [[Kill me ten sheep (1933) and don't come back until you do!]], },
-    { [[Kill 6 sheep for Benny and then run like hell!]], [[Just kidding... about the running part.]], },
+    { [[幫本尼殺死六隻羊然後趕快瘋狂地跑開!]], [[]], [[]], [[跑開的部分是開玩笑的。]], },
   },
   [5102] = {
     [[达基萨斯将军之死]],
     { [[我们和这些怪物正在进行双线作战：在暴风城，我们努力不让它们的魔爪深入城市；在燃烧平原，我们把战火烧到它们门前。我们必须时刻保持着警惕，<name>。当它们侵占我们的领地，残害我们家人的时候，我们要把怒火全部倾泻出来。]], [[找到达基萨斯将军，然后干掉它！]], [[这个任务显然不简单，但是完成它所能得到的奖励也是相当丰厚的。]], },
-    { [[Travel to Blackrock Spire and destroy General Drakkisath. Return to Marshal Maxwell when the job is done.]], },
+    { [[去黑石塔殺掉達基薩斯將軍。當任務完成之後回去找麥斯威爾指揮官。]], },
   },
   [5103] = {
     [[火热的死亡]],
@@ -11970,12 +12048,12 @@ __ns.L.quest = {
   [5302] = {
     [[武器铸造师之道]],
     { [[总有一天，我要制造出一把无以伦比的铁锤，配得上酋长的铁锤！]], [[这是我毕生的工作，<name>，也是我的激情所在。我认为你有潜力成为我们中的一份子，成为一名武器铸造师。我可以帮助你发挥自己的潜能。]], [[你只需完成一项简单的任务，让我来看看你够不够资格。]], },
-    { [[To become a Weaponsmith, you must make the following items and return them to Borgosh: 4 Moonsteel Broadswords, 4 Massive Iron Axes, 2 Heavy Mithril Axes, and 2 Big Black Maces.]], },
+    { [[要想成為一名武器鑄造師的話，你必須將下列物品交給伯古什:4把月鋼寬劍、4把巨型鐵斧、2把秘銀重斧和2把巨型黑錘。]], },
   },
   [5305] = {
     [[甜美的平静]],
     { [[平静之剑位于血色堡垒内，红衣铸锤师以生命守护着它。打败他，并将他的围裙交给我。作为报答，我将训练你成为锻造战锤的铁匠。]], },
-    { [[Travel to Stratholme and kill the Crimson Hammersmith. Recover the Crimson Hammersmith's Apron and return to Lilith.]], },
+    { [[到斯坦索姆去殺死紅衣鑄錘師。將紅衣鑄錘師的圍裙交給莉莉絲。]], },
   },
   [5306] = {
     [[沃什加斯的蛇石]],
@@ -12030,7 +12108,7 @@ __ns.L.quest = {
   [5383] = {
     [[卡斯迪诺夫的恐惧之袋]],
     { [[打开口袋之后，你发现了许多拷问罪犯所用的器械。在这些可随身携带的用具中，你的目光被一件古怪的物品吸引了——那是一瓶还带着余温的血液。]], [[你认为萨克霍夫也许会对你的发现感兴趣。]], },
-    { [[Take the Bag of Horrors to Eva Sarkhoff on Caer Darrow.]], },
+    { [[將恐懼之袋交給凱爾達隆的艾瓦·薩克霍夫。]], },
   },
   [5384] = {
     [[传令官基尔图诺斯]],
@@ -12332,35 +12410,35 @@ __ns.L.quest = {
     { [[与丹莫罗的马克萨恩·安沃尔谈一谈。]], },
   },
   [5627] = {
-    [[OLD Stars of Elune]],
+    [[伊露恩之星]],
   },
   [5628] = {
-    [[Returning Home]],
+    [[回家]],
     { [[你好，<name>。我知道你正忙着帮助我们的人民，但是你必须为自己花点时间了。女祭司阿兰希雅派人来这里找你，你已经得到了长者们的关注，她们觉得你必须为更重要的事情作准备了。到达纳苏斯的月神殿去找阿兰希雅，她会在那里等你。祝你好运，愿艾露恩与你同在。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
   [5629] = {
-    [[Returning Home]],
+    [[回家]],
     { [[你好，<name>。我知道你正忙着帮助我们的人民，但是你必须为自己花点时间了。女祭司阿兰希雅派人来这里找你，你已经得到了长者们的关注，她们觉得你必须为更重要的事情作准备了。到达纳苏斯的月神殿去找阿兰希雅，她会在那里等你。祝你好运，愿艾露恩与你同在。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
   [5630] = {
-    [[Returning Home]],
+    [[回家]],
     { [[欢迎来到这里, $小伙子:小姑娘; 很高兴见你旅行到这里. 但是许多你的同族人经常不适应这里寒冷的气候。 很高兴你胜任了的工作。不久前，月神殿的一位女祭司--说你应该去达纳苏斯与女祭司阿兰希雅谈一谈。说那很重要，你应该现在就回去。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
   [5631] = {
-    [[Returning Home]],
+    [[回家]],
     { [[你好，<name>。我知道你正忙着帮助我们的人民，但是你必须为自己花点时间了。女祭司阿兰希雅派人来这里找你，你已经得到了长者们的关注，她们觉得你必须为更重要的事情作准备了。到达纳苏斯的月神殿去找阿兰希雅，她会在那里等你。祝你好运，愿艾露恩与你同在。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
   [5632] = {
-    [[Returning Home]],
+    [[回家]],
     { [[哦，当然，你好，<name>。我们的一位信使说她正在找你。她说在达纳苏斯那里有一些重要的事情，你应该尽快回到月神殿去找女祭司阿兰希雅。我相信她会帮助你在我们的道路上更进一步。]], [[希望你尽快地回到达纳苏斯去。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
   [5633] = {
-    [[Returning Home]],
+    [[回家]],
     { [[欢迎, $小伙子:小姑娘;很高兴在这里见到你。祝愿你和你的族人。 当你在我们的领土上旅行时, 一位祭司正在寻找你. 她说让你尽快回到月神殿. 很抱歉我不能告诉你更多，但它听起来很重要。当你到达月神殿时,与女祭司阿兰希雅交谈。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
@@ -12370,7 +12448,7 @@ __ns.L.quest = {
     { [[Speak to High Priestess Laurena in Stormwind.]], },
   },
   [5635] = {
-    [[Desperate Prayer]],
+    [[絕望禱言]],
     { [[你已经引起了我们高层的注意，<name>。他们要你尽快到暴风城的光明大教堂去一趟。显然，他们认为你已经证明了自己的实力，也已经准备好接受下一步的训练了。当你到了那里之后，就去找高阶牧师劳瑞娜，她会进一步地指导你。祝你好运，愿圣光与你同在。]], },
     { [[与暴风城的高阶牧师劳瑞娜谈一谈。]], },
   },
@@ -12395,7 +12473,7 @@ __ns.L.quest = {
     { [[与暴风城的高阶牧师劳瑞娜谈一谈。]], },
   },
   [5641] = {
-    [[OLD A Lack of Fear]],
+    [[毫無畏懼]],
   },
   [5642] = {
     [[Shadowguard]],
@@ -12413,17 +12491,17 @@ __ns.L.quest = {
     { [[与幽暗城的艾萨莱斯特谈一谈。]], },
   },
   [5645] = {
-    [[OLD A Lack of Fear]],
+    [[毫無畏懼]],
     { [[<name>, 高阶牧师洛汉希望能在铁炉堡与你会面。快点去吧，我强大的朋友，你的下一次试炼即将到来。虽然我希望能亲眼看着你通过你们种族的特殊仪式，但是我的职责让我必须留在这里。愿圣光照耀你前行的道路。洛汉应该是在秘法区里等你。]], },
     { [[与铁炉堡的高阶牧师洛汉谈一谈。]], },
   },
   [5646] = {
-    [[Devouring Plague]],
+    [[噬靈瘟疫]],
     { [[啊，今天对你来说是个美妙的日子，<name>。通过你所接受的课程，我可以看出你该回去找艾萨莱斯特了。有些东西只有她能教给你，当然，那是在你证明了自己有足够的价值之后。]], [[我不想扫你的兴致，但是我记得当我还是个年轻的牧师的时候，那第一次掌握了真正的力量的感觉……强大的力量。啊，那些日子真是令人怀念啊。]], [[到幽暗城的军事区去找艾萨莱斯特吧，<name>。]], },
     { [[与幽暗城的艾萨莱斯特谈一谈。]], },
   },
   [5647] = {
-    [[OLD A Lack of Fear]],
+    [[毫無畏懼]],
     { [[你的种族非常强大，魔兽资料库网友。我们很高兴能称你们为盟友。你和你们的种族每一天都向发现自己起源的目标迈进一步，而且在正确的道路上更加坚定地前行。这种成功的感觉一定非常不错。]], [[最近从铁炉堡传来消息说，秘法区的高阶牧师洛汉要你回到那里去找他。如果我是你的话，我可是不会让他久等的。愿伊露恩指引你的旅程。]], },
     { [[与铁炉堡的高阶牧师洛汉谈一谈。]], },
   },
@@ -12448,7 +12526,7 @@ __ns.L.quest = {
     { [[与提瑞斯法林地的黑暗牧师贝里尔谈一谈。]], },
   },
   [5652] = {
-    [[Hex of Weakness]],
+    [[虛弱妖術]],
     { [[I sent here to make sure that you not wander too far from home, <name>. They send me to make sure you return home because Ur'kyo, greatest of our priests, wish to speak to you. You go there. You got to the Valley of Spirits in the orc city and you speak to Ur'kyo. He wait for you now.]], },
     { [[Speak to Ur'kyo in Orgrimmar.]], },
   },
@@ -12488,7 +12566,7 @@ __ns.L.quest = {
     { [[与幽暗城的艾萨莱斯特谈一谈。]], },
   },
   [5662] = {
-    [[Touch of Weakness]],
+    [[虛弱之觸]],
     { [[我对你和你的族人表示尊重，<name>。我一般只向我自己的同胞传授技艺，你的课程开始于那座曾经被称作洛丹伦的城市中。]], [[如果你要学习那些只有你们才能掌握的技能，就回到幽暗城的军事区里去找艾萨莱斯特吧。]], },
     { [[与幽暗城的艾萨莱斯特谈一谈。]], },
   },
@@ -12503,7 +12581,7 @@ __ns.L.quest = {
     { [[Speak to Priestess Alathea in Darnassus.]], },
   },
   [5673] = {
-    [[Elune's Grace]],
+    [[伊露恩的賜福]],
     { [[<name>，不要虚度光阴，你该回一趟达纳苏斯了。女祭司阿兰希雅派人捎信来通知你返回家园进行试炼。他们似乎认为你已准备好接受新的试炼了，就像那些信仰圣光的人也要接受试炼一样。阿兰希雅说她正在月神殿等你，祝你好运。]], },
     { [[与达纳苏斯的女祭司阿兰希雅谈一谈。]], },
   },
@@ -12533,7 +12611,7 @@ __ns.L.quest = {
     { [[Speak to Aelthalyste in the Undercity.]], },
   },
   [5680] = {
-    [[Shadowguard]],
+    [[暗影守衛]],
     { [[Like many of our own priests, your own tribe puts you through rites of passage. These rites often teach priests special abilities that are vital to their survival. I sense that time is upon you even as we speak. You must return to the Valley of Spirits in Orgrimmar and speak to Ur'kyo. What he teaches you might be very important for the future.]], },
     { [[Speak to Ur'kyo in Ogrimmar.]], },
   },
@@ -12609,8 +12687,8 @@ __ns.L.quest = {
   },
   [5762] = {
     [[赫米特·奈辛瓦里二世]],
-    { [[I have a package for a new customer of mine, a dwarf named Hemet Nesingwary Jr..  The package took weeks to arrive, and Hemet's long gone by now.  He said he was going to Stranglethorn to take his father's place and hunt the beasts there, but he left me some money to send his delivery when I could.]], [[Junior's a rich dwarf and it's a good idea to keep up relations with the rich ones, yeah?  So... you want to deliver the package for me?]], [[I heard he has a camp in Stranglethorn, north of Grom'gol.]], },
-    { [[Take Kravel's Crate to Hemet Nesingwary Jr. in Stranglethorn.]], },
+    { [[我有個包裹要給我的新顧客，一個名叫小赫米特·奈辛瓦里的矮人。這個包裹要花幾個星期才到的了，那時候赫米特早就走了。他說他要去荊棘谷代替他父親打獵，但是他給我留了一些錢，讓我在可以的時候把他的包裹寄去。]], [[赫米特是個富有的矮人，所以我們最好和這號人物保持良好的關係，是不是?那麼……你願意幫我遞送包裹嗎?]], [[我聽說他在荊棘谷裡紮了營，就在格羅姆高的北邊。]], },
+    { [[將克拉維爾的木箱送到荊棘谷給小赫米特·奈辛瓦里。]], },
   },
   [5763] = {
     [[荆棘谷狩猎]],
@@ -13245,7 +13323,7 @@ __ns.L.quest = {
   [6184] = {
     [[弗林特·沙多摩尔]],
     { [[到目前为止，我们掌握的唯一信息就是纳萨诺斯·玛瑞斯也许已经被这个凋零者给杀死了。而且我们认为凋零者就是杀死那些军情七处密探的恶魔。]], [[另一个军情七处的间谍弗林特·沙多摩尔正驻守在西瘟疫之地冰风岗的联盟营地中。去找到他，他会告诉你瘟疫之地的现状，并派给你下一步的任务。]], [[祝你好运，<name>。]], },
-    { [[Travel to Chillwind Camp in the Western Plaguelands and meet up with your contact, Flint Shadowmore.]], },
+    { [[到西瘟疫之地的冰風營地去跟弗林特·沙多摩爾會面。]], },
   },
   [6185] = {
     [[东部的瘟疫]],
@@ -13263,14 +13341,14 @@ __ns.L.quest = {
     { [[组织一支部队，然后到东瘟疫之地去。向纳萨诺斯·凋零者和任何敢于保护他的部落成员发起攻击。]], [[你要倾尽全力，<name>。部落会不惜一切代价保护他们的游侠领主。]], },
   },
   [6221] = {
-    [[OLD Deadwood of the North]],
-    { [[There is a camp of Deadwood furbolgs directly to our southwest.  Corruption permeates the camp, and I wish to put an end to it before they become a problem.]], [[The Deadwood tribe is evil, but it is the effects of the fel that pollutes their minds.  Their hostility is not truly an innate quality, yet they cannot be helped.  For this reason, I am deeply saddened by having to fight my own brethren.]], [[Please, <name>, do what must be done, and do not mention the details; they upset me far too much.]], },
-    { [[Nafien would like you to kill 5 Deadwood Den Watchers, 5 Deadwood Avengers, and 5 Deadwood Shamans.]], },
+    [[北方的死木熊怪]],
+    { [[此地西南方向有一處死木熊怪的營地。我不清楚他們想要幹什麼，但是我希望能在他們開始搗亂之前就結果他們。]], [[死木部族非常邪惡，是惡魔的力量侵蝕了他們的心智。他們的天性並不壞，但是現在一切都無法挽回了。因此，我對被迫與自己的同胞作戰感到非常悲哀。]], [[<name>，去結果他們吧，別對我說起戰鬥的具體過程，我不忍心聽到那些。]], },
+    { [[納菲恩要你去殺死5個死木守衛、5個死木復仇者和5個死木薩滿。]], },
   },
   [6241] = {
-    [[OLD Winterfall Activity]],
-    { [[The Timbermaw tend to stay to themselves, <name>. While we do allow safe passage to those that have proven they can be trusted, we try to avoid other furbolg tribes if at all possible.]], [[Lately I have noticed that the Winterfall tribe has become increasingly hostile towards us. They seem to be in a state of rage, completely engulfed by their own fear and hatred of anything they do not understand.]], [[If you could reduce their numbers this would help us greatly, <name>.]], },
-    { [[Salfa wants you to kill 6 Winterfall Totemics, 6 Winterfall Den Watchers, and 6 Winterfall Pathfinders.]], },
+    [[冬泉熊怪的活動]],
+    { [[木喉部族傾向於防守，<name>。雖然我們允許那些值得信賴的朋友安全地通過，但我們還是盡可能地避開其他熊怪部族。]], [[最近我注意到冬泉部族與我們的敵對情緒有所增長。他們似乎處於極度憤怒的狀態，完全陷入了對一切他們無法理解的事物的恐慌和仇視。]], [[如果你能削減他們的數量，那對我們來說將是莫大的幫助，<name>。]], },
+    { [[薩爾法要你去殺死6個冬泉圖騰師、6個冬泉巢穴守衛和6個冬泉探路者。]], },
   },
   [6261] = {
     [[杜加尔·朗德瑞克]],
@@ -13600,9 +13678,9 @@ __ns.L.quest = {
     { [[按照酋长的指示找到罗卡鲁。他在凄凉之地的葬影村。]], },
   },
   [6568] = {
-    [[Mistress of Deception]],
+    [[羅卡洛的證明]],
     { [[你对幻象有什么了解吗，<name>？你必须要制造一个幻象，这样你才能骗过那些黑龙的眼睛。]], [[我知道有一个人也许愿意帮你完成任务。她过去曾经帮助过我们，因此她值得信任。]], [[你可以在西瘟疫之地找到巫女麦兰达，她是被洛丹伦联盟放逐的幻术师。把这个交给她。]], },
-    { [[Deliver Rokaro's Letter to Myranda the Hag in the Western Plaguelands.]], },
+    { [[把羅卡洛的證明交給西瘟疫之地的巫女米蘭達。]], },
   },
   [6569] = {
     [[黑龙幻象]],
@@ -13715,7 +13793,7 @@ __ns.L.quest = {
   [6623] = {
     [[部落医疗队]],
     { [[<name>医生，我想我应该这么称呼你。很高兴再见到你。]], [[我有些好消息要告诉你！格里高利·维克托医生，也就是部落外科医疗队的首席医师，要求你到落锤镇去加入他的队伍。这可是毕生难求的机会啊！我真希望能付出一切来换取跟随格里高利·维克托医生学习的机会！你可不要浪费了这个机会！]], },
-    { [[Travel to Hammerfall in the Arathi Highlands and speak with Doctor Gregory Victor about joining the ranks of Horde Trauma.]], },
+    { [[到阿拉希高地的落錘鎮去，與格里高利·維克托醫生談一談關於加入部落外科醫療隊的事宜。]], },
   },
   [6624] = {
     [[救死扶伤]],
@@ -14007,7 +14085,7 @@ __ns.L.quest = {
   [7027] = {
     [[补充坐骑]],
     { [[看看这里的兽栏，<name>！空空如也！雷矛部族的骑兵部队没有坐骑——它已经名存实亡了。]], [[你必须帮助我们，士兵。拿着这根颈圈，到山谷中去寻找四处徘徊的奥特兰克山羊，并使用训练颈圈来抓住它们。当你抓住山羊之后，就把它给我带回来，然后我就可以将它配备给骑兵部队了。]], [[当我们有足够的山羊之后，山羊骑兵将再次准备就绪。有了你的帮助，骑兵部队将会获得重生！]], },
-    { [[Locate an Alterac Ram in Alterac Valley. Use the Stormpike Training Collar when you are near the Alterac Ram to 'tame' the beast. Once tamed, the Alterac Ram will follow you back to the Stable Master. Speak with the Stable Master to earn credit for the capture.]], },
+    { [[找到奧特蘭克山谷中的山羊。使用雷矛訓練項圈來馴服它們。被馴服的山羊會跟隨你回到獸欄管理員那裡，然後與獸欄管理員談話以獲得你的獎勵。]], },
   },
   [7028] = {
     [[扭曲的邪恶]],
@@ -14088,6 +14166,9 @@ __ns.L.quest = {
     [[暗影残片]],
     { [[在半人马的圣地玛拉顿中有着强大的魔法，凄凉之地的半人马用他们的生命来保卫那个地方，但他们无法阻止我们拿走我们想要的东西。]], [[你现在要去一趟玛拉顿，寻找那些由暗影残片组成的石头生物。如果你把那种紫色的水晶交给我，那么尤塞尔奈就会为你付出的时间而奖励你。]], [[那个地方很危险，也许你应该找一些朋友与你一同探险。]], },
     { [[从玛拉顿收集10块暗影残片，然后把它们交给奥格瑞玛的尤塞尔奈。]], },
+  },
+  [7069] = {
+    [[<UNUSED>]],
   },
   [7070] = {
     [[暗影残片]],
@@ -14202,7 +14283,7 @@ __ns.L.quest = {
   [7201] = {
     [[最后的元素]],
     { [[只有那些进入深渊的冒险者才能迎接这个挑战，<name>。]], [[黑铁矮人已经掌握了制造强大的作战傀儡的方法。]], [[来自间谍的报告显示，那些矮人使用某种独特的能量源为他们所创造的傀儡提供无与伦比的杀戮能力。]], [[如果我们能得到这种元素精华的话，我们的憎恶怪就可以得到极大的加强！把那座城市翻个底朝天也在所不惜，找不到精华你就别回来！我们给予的报酬值得你去冒这个险。]], },
-    { [[Travel to Blackrock Depths and recover 10 Essence of the Elements. Your first inclination is to search the golems and golem makers. You remember Vivian Lagrave also muttering something about elementals.]], },
+    { [[到黑石深淵去取得10份元素精華。你應該在那些作戰魔像和魔像製造者身上找找，另外，薇薇安·拉格雷也提到了一些有關元素生物的話題。]], },
   },
   [7202] = {
     [[血怒者科尔拉克]],
@@ -14242,12 +14323,12 @@ __ns.L.quest = {
   [7281] = {
     [[兄弟情深]],
     { [[真是一个悲剧……我的兄弟居然在战场上和我进行殊死搏杀：他是雷矛部族的指挥官。]], [[在雷矛部族的四个指挥官中，他无疑是最危险的。如果他被干掉的话，那女妖之王就可以把他变成我这个样子，让他纠正自己错误的道路……]], [[你可以在敌方领地的深处找到我的兄弟。杀了他，然后回到我这里来。我相信你有能力完成这个任务，士兵。]], [[还有，不要独自行动。]], },
-    { [[Travel into Stormpike territory and slay Commander Karl Philips. Return to Commander Louis Philips when the task is complete.]], },
+    { [[深入雷矛部族的領地，殺掉指揮官卡爾·菲力浦。任務完成之後向指揮官路易斯·菲力浦覆命。]], },
   },
   [7282] = {
     [[兄弟情深]],
     { [[他一定要摆脱他正在遭受的痛苦，士兵！他根本不知道自己在干什么，他已经成为了女妖之王的傀儡。]], [[现在就出发，穿过战火纷飞的战场，深入霜狼氏族的腹地。找到我的兄弟，杀掉他。这样他的痛苦才能结束。]], },
-    { [[Travel into Frostwolf territory and slay Commander Louis Philips. Return to Commander Karl Philips when the task is complete.]], },
+    { [[深入霜狼氏族的領地，殺掉指揮官路易斯·菲力浦。任務完成之後，回到指揮官卡爾·菲力浦處覆命。]], },
   },
   [7301] = {
     [[被捕的空军指挥官]],
@@ -14565,7 +14646,7 @@ __ns.L.quest = {
   [7581] = {
     [[监牢之链]],
     { [[你必须从低级恶魔身上找到特定的材料，才能开始制作关押末日守卫的监牢。]], [[厄运之槌中的荒野萨特身上的血液正合适，那些血液凝固之后就可以把赫达琳碎片连接起来，强化水晶监牢。]], },
-    { [[Travel to Dire Maul in Feralas and recover 15 Satyr Blood from the Wildspawn Satyr that inhabit the Warpwood Quarter. Return to Daio in the Tainted Scar when this is done.]], },
+    { [[到菲拉斯的厄運之槌去，從扭木廣場的荒野薩特身上找到15份薩特之血，然後把它們交給腐化之痕的戴奧。]], },
   },
   [7582] = {
     [[监牢之壁]],
@@ -14800,7 +14881,7 @@ __ns.L.quest = {
   },
   [7668] = {
     [[达克雷尔的威胁]],
-    { [[Death Knight Darkreaver lords over the Great Ossuary in the Scholomance.  He threatens to twist the spirit realm to do his own bidding, and he must be stopped!  This is where the scryer you helped make comes into play.]], [[Use the divination scryer in the heart of the Great Ossuary's basement to call forth Darkreaver's spirit minions.  Defeat the spirits and the death knight himself will appear.  <name>, bring me his head!  Only his demise will reverse the damage dome to the spirit realm!]], },
+    { [[死亡騎士達克雷爾掌管著通靈學院的屍骨儲藏所。他威脅要讓靈魂世界徹底扭曲，以達到自己的目的，我們必須阻止他!這就是你需要水晶球的原因。]], [[在屍骨儲藏所地下室的中心使用預言水晶球來召喚達克雷爾的靈魂爪牙。將那些靈魂擊敗，這時死亡騎士就會出現，<name>，把他的頭顱交給我!只有他的死亡才能讓靈魂世界免受傷害!]], },
     { [[在斯坦索姆地下室的尸骨储藏所的中心使用预言水晶球。然后你必须与被召唤出来的幽灵作战。击败这些幽灵之后，死亡骑士达克雷尔才会出现，你的任务就是击败他。]], [[把死亡骑士达克雷尔的头颅交给奥格瑞玛智慧谷的萨格尼。]], },
   },
   [7669] = {
@@ -14808,7 +14889,7 @@ __ns.L.quest = {
   },
   [7670] = {
     [[格雷森·沙东布瑞克公爵]],
-    { [[The time has come, <name>, for you to learn about what it will take for you to acquire something you have no doubt waited on for some time... your charger.]], [[Speak with Lord Grayson Shadowbreaker in Stormwind's Cathedral District.  It is he who will guide you not only though the legerdemain of a Paladin's most trusted mount, but the tasks before you to acquire one of your own.]], [[I wish you the best in this trial.  For the Light, noble <brother / sister>!]], },
+    { [[這個偉大的時刻終於到來了，<name>，接下來你就將獲得你渴望已久的東西─你的戰馬。]], [[去和暴風城教堂區的格雷森·破影者領主談談吧。他將指引你完成必需的任務，令你獲得一匹聖騎士最可信任的坐騎。]], [[我祝你在這次試煉中好運，為了聖光而戰，我的<兄弟/姐妹>!]], },
     { [[与暴风城教堂区的格雷森·沙东布瑞克公爵谈一谈。]], },
   },
   [7671] = {
@@ -14856,6 +14937,11 @@ __ns.L.quest = {
     [[戈多克食人魔的事务]],
     { [[现在你是大王，你可以从那个精灵王子手里拿回令戈多克骄傲的神器！你前一任的大王失败了，自从托塞德林那个可恶的精灵从我们古代戈多克大王手中偷走它之后，没有一个大王能想办法把它夺回来！]], [[这个神器叫做戈多克力量护手。传说说只有真正的戈多克大王才能把它拿回来。这个可恶的精灵还在附近──如果你找到它的话，那你就可以使用它！真的！]], },
     { [[找到戈多克力量护手，并将它交给厄运之槌的克罗卡斯。]], [[根据克罗卡斯所说的，“传说”自称是王子的精灵托塞德林从一名戈多克食人魔手中偷走了那件神器。]], },
+  },
+  [7704] = {
+    [[看看它的個頭!]],
+    { [[嘖嘖……這難道不是個驚喜嗎?這實在就是個驚喜啊。比拉凱琳的巨大而精美的枕頭現在是你的囊中之物啦。艾沃奈斯肯定很想將她那髒兮兮的小手放在枕頭上。把枕頭交給她，看看她是否會獎勵你點什麼。]], },
+    { [[將比拉凱琳的枕頭交給灼熱峽谷的艾沃奈斯。]], },
   },
   [7721] = {
     [[压缩器的动力]],
@@ -15351,6 +15437,9 @@ __ns.L.quest = {
   [7903] = {
     [[邪恶的蝙蝠眼]],
   },
+  [7904] = {
+    [[<UNUSED>]],
+  },
   [7905] = {
     [[暗月马戏团]],
     { [[暗月马戏团就要来啦！尽情享受这一激动人心的盛典吧！]], [[现在赶快行动，用这张优惠券换取免费的礼品券！带上你的赠券去狂欢节上找吉瓦斯·格里加特吧，别把它弄丢了！现在就出发吧！]], },
@@ -15476,7 +15565,12 @@ __ns.L.quest = {
   [7961] = {
     [[疯狂的兔子！]],
     { [[这些兔子疯狂地繁衍后代！去大量捕杀它们呀！]], [[帮帮我们，<name>，你是唯一的希望。]], },
-    { [[Kill 5 rabbits and return to Jon LeCraft by the forge on Designer Island.]], },
+    { [[殺死5隻兔子，然後向設計者之島的喬恩·勒克夫特覆命。]], },
+  },
+  [7962] = {
+    [[兔皮]],
+    { [[我要狡猾的兔子的皮。從狡猾的兔子身上取回來給我。]], [[這很重要!]], },
+    { [[帶3張狡猾的兔子的皮給喬恩·勒克夫特。]], },
   },
   [7981] = {
     [[1200张彩票 - 暗月护符]],
@@ -15492,8 +15586,17 @@ __ns.L.quest = {
   [8021] = {
     [[可口可乐宠物兑换券]],
   },
+  [8022] = {
+    [[兌換魚人寶寶兌獎券]],
+  },
   [8023] = {
     [[可口可乐宠物兑换券]],
+  },
+  [8024] = {
+    [[兌換魚人寶寶兌獎券]],
+  },
+  [8025] = {
+    [[兌換魚人寶寶兌獎券]],
   },
   [8026] = {
     [[可口可乐宠物兑换券]],
@@ -16114,7 +16217,7 @@ __ns.L.quest = {
     { [[在斯坦索姆地下室的尸骨储藏所的中心使用预言水晶球。然后你必须与被召唤出来的幽灵作战。击败这些幽灵之后，死亡骑士达克雷尔才会出现，你的任务就是击败他。]], [[把死亡骑士达克雷尔的头颅交给奥格瑞玛智慧谷的萨格尼。]], },
   },
   [8259] = {
-    [[A More Fitting Reward]],
+    [[更合適的獎勵]],
   },
   [8260] = {
     [[阿拉索基本医疗包]],
@@ -16406,7 +16509,7 @@ __ns.L.quest = {
   [8325] = {
     [[夺回逐日岛]],
     { [[你越快开始接受训练，<name>，就对我们大家越有好处。我们已经没有任何容忍犯错的余地了，所以你可要听仔细。]], [[那些太阳之塔西边的悬浮着的绿色物体，就是燃烧水晶，它们长期以来给岛内供应着能源，而法力浮龙则负责守护着这些水晶。天灾军团对奎尔萨拉斯的入侵大大干扰了我们对这些法力浮龙的魔法控制，导致它们变得不听调遣。]], [[除了削减它们的数量以外，已经没有其他的办法了。去吧，完成之后再回来向我复命。]], },
-    { [[Kill 8 Mana Wyrms; they are located close to the Burning Crystals that are adjacent to the tower and gazebo.  Return to Magistrix Erona at the tower on Sunstrider Isle when you are done.]], },
+    { [[殺死8隻法力龍鰻;他們就在哨塔與瞭望台旁的燃燒水晶那裡。完成後回到逐日者之島哨塔上的博學者伊羅娜那裡。]], },
   },
   [8326] = {
     [[令人遗憾的措施]],
@@ -16419,9 +16522,9 @@ __ns.L.quest = {
     { [[与逐日岛的兰萨恩·派雷隆谈一谈，他就站在向西去的小路旁。]], },
   },
   [8328] = {
-    [[Mage Training]],
-    { [[As you advance within your class, you will want to take advantage of the training that your class trainer can provide you.  For young mages here on Sunstrider Isle, your trainer is Julia Sunstriker.  Speak with Julia and see what training she has available for you.  The things she will teach do have a cost, so bring some coin with you.]], [[Julia - as with all the trainers on Sunstrider Isle - is inside the Sunspire on the lower level.]], },
-    { [[Speak with Julia Sunstriker - the Mage class trainer - inside the Sunspire on Sunstrider Isle.]], },
+    [[法師訓練]],
+    { [[隨著你的職業技能越來越精進，你就要從你的職業訓練師那裡多學一點東西。在逐日者之島，年輕法師的訓練師是茱莉亞·擊日者。和她談談，看看她能提供你什麼訓練。向她學東西是要花錢的，所以帶一點錢在身上。]], [[茱莉亞 - 和所有逐日者之島的訓練師一樣 - 都在日尖塔的較低層。]], },
+    { [[和茱莉亞·擊日者 - 法師訓練師談談，她就在逐日者之島的日尖塔裡面。]], },
   },
   [8329] = {
     [[战士训练]],
@@ -16469,7 +16572,7 @@ __ns.L.quest = {
   [8339] = {
     [[Royalty of the Council <NYI> <TXT> UNUSED]],
     { [[To make a Twilight Cultist Signet Ring, I need a bunch of items]], },
-    { [[Bring the items to Aurel Goldleaf in Cenarion Hold.]], },
+    { [[把物品帶給塞納里奧城堡的奧莉爾·金葉。]], },
   },
   [8340] = {
     [[Twilight Signet Ring <NYI> <TXT>]],
@@ -16488,9 +16591,9 @@ __ns.L.quest = {
     { [[与塞纳里奥城堡的奥莉尔·金叶谈话。]], },
   },
   [8344] = {
-    [[Windows to the Source]],
-    { [[Heed my words, young one - there is a taint about this island, and it is far more potent than the remnants of the Scourge.]], [[I believe there is a true demonic presence on the isle.]], [[West of here are the spires of Falthrien Academy.  The arcane wraiths that infest it are a window to the source of demonic power.  You are to bring me the essences of tainted and untainted wraiths.]], [[In exchange for your obedience, I'll teach you how to summon an imp companion - your first of many as a warlock.]], },
-    { [[Bring 4 Wraith Essences and 1 Tainted Wraith Essence to Summoner Teli'Larien at the Sunspire on Sunstrider Isle.]], },
+    [[源頭的窗口]],
+    { [[記住我的話，年輕人 – 這座島受到汙染，而且比天譴軍團的殘留力量更有影響力。]], [[我相信這島上有一種真正的惡魔存在。]], [[西方是法薩瑞安學院的尖塔。出沒那裡的秘法怨靈是惡魔力量來源的窗口。你要幫我把腐壞及未腐壞的怨靈精華都帶來。]], [[如果你照做，我會教你如何召喚一個小鬼 – 你身為術士的第一個小鬼。]], },
+    { [[將4份怨靈精華和1份腐壞的怨靈精華帶到逐日者之島給日尖塔的召喚者泰利拉。]], },
   },
   [8345] = {
     [[达斯雷玛的神龛]],
@@ -16498,9 +16601,9 @@ __ns.L.quest = {
     { [[阅读达斯雷玛的神龛上的铭文之后，向逐日岛太阳之塔上的护井者索兰尼亚复命。]], },
   },
   [8346] = {
-    [[Thirst Unending]],
-    { [[If there is only one lesson you deign to remember from your time on Sunstrider Isle, let it be this - control your thirst for magic.  It is a thirst unending, <name> - you must absorb energy to survive via Mana Tap, and you must control how you release it via Arcane Torrent.  Failure is to become one of the Wretched... hopelessly addicted and insane.]], [[Seek out creatures on the isle that have mana and Mana Tap them.  Learn to master your cravings of power.  When you have sufficiently fed, return to me.]], },
-    { [[Use your Mana Tap racial ability on creatures with mana six times, then return to Arcanist Helion.]], },
+    [[止不了的渴]],
+    { [[如果你在逐日者之島只能學會一件事，那就學會這件事吧 - 控制你對魔法的渴望。這是止不了的渴，<name> - 你一定要透過法力吸取吸收能量才能生存，而你務必要控制自己透過秘法洪流釋放魔法的情況。失敗就會成為失落者其中之一……無助地上癮發狂。]], [[尋找島上有魔法的生物並汲取他們的法力。試著控制你對能量的渴望。當你吸飽足夠的能量後再回來找我。]], },
+    { [[對有法力的生物使用你的法力吸取種族特長6次，再回到秘法師海利恩那裡。]], },
   },
   [8347] = {
     [[帮助信使]],
@@ -16602,7 +16705,7 @@ __ns.L.quest = {
     { [[把1枚奥特兰克山谷荣誉奖章，1枚阿拉希盆地荣誉奖章，1枚战歌峡谷荣誉奖章和1枚暴风之眼荣誉奖章交给任何一座部落主城或撒塔斯的部落战争使者。]], },
   },
   [8368] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
@@ -16612,7 +16715,7 @@ __ns.L.quest = {
     { [[把3枚奥特兰克山谷荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8370] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[我们和联盟的冲突已经上升为一场真正的战争，不久之后战争就将全面打响。]], [[对于阿拉希盆地的争夺就是一个很好的开战理由。要么就是联盟占据它，并用其对付我们;或者就是我们占据它，然后用来对付联盟。帮助污染者保持这场资源竞赛上的优势吧，魔兽资料库网友!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
@@ -16622,7 +16725,7 @@ __ns.L.quest = {
     { [[把1枚奥特兰克山谷荣誉奖章，1枚阿拉希盆地荣誉奖章，1枚战歌峡谷荣誉奖章和1枚暴风之眼荣誉奖章交给任何一座部落主城或撒塔斯的部落战争使者。]], },
   },
   [8372] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
@@ -16632,7 +16735,7 @@ __ns.L.quest = {
     { [[使用臭气弹清洁器来把散落在南海镇的亡灵臭气弹处理掉。当任务完成之后，回到南海镇的哈特曼中士那里。]], },
   },
   [8374] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[要取得战争的胜利，我们要做的并不仅仅是简单地打败敌人，胜利的关键往往取决于双方的战争资源。]], [[阿拉希盆地蕴藏着大量物资，部落和联盟都想抢先夺取这些资源。]], [[如果联盟获胜，我们的军队将获得大量的剑和矛。如果部落获胜，这些武器也一样会被造出来，只不过是由部落的士兵拿在手里，指着我们!去协助阿拉希盆地的联盟吧，魔兽资料库网友。]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
@@ -16678,7 +16781,7 @@ __ns.L.quest = {
     { [[把1枚奥特兰克山谷荣誉奖章，1枚阿拉希盆地荣誉奖章，1枚战歌峡谷荣誉奖章和1枚暴风之眼荣誉奖章交给任何一座部落主城或撒塔斯的部落战争使者。]], },
   },
   [8386] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[The Silverwing Sentinels are at war with the Warsong Outriders due to the destruction the Orcs are causing to the forest. There are, however, more reasons to defend this particular forest than plain love for nature.]], [[The forest forms a strategic barrier that makes Ashenvale defendable against a large-scale attack. Without it, Astranaar would last a day or two before being annexed to the Barrens.]], [[Do your part in fighting the Warsong Outriders, <name>! For the Alliance!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
@@ -16703,67 +16806,67 @@ __ns.L.quest = {
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8391] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[Winning a war is about more than just outsmarting and outfighting your opponent. Victory often comes down to simply producing more than your enemy.]], [[What we have in Arathi Basin is a sizeable supply of resources for whichever side manages to claim it first.]], [[If the Alliance comes out victorious, it'll mean more swords and pikes for our troops. If the Horde were to win, those swords and pikes would still get made, they'd just be pointed at us! Now is the time to help the Alliance in Arathi Basin, <name>.]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8392] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[Winning a war is about more than just outsmarting and outfighting your opponent. Victory often comes down to simply producing more than your enemy.]], [[What we have in Arathi Basin is a sizeable supply of resources for whichever side manages to claim it first.]], [[If the Alliance comes out victorious, it'll mean more swords and pikes for our troops. If the Horde were to win, those swords and pikes would still get made, they'd just be pointed at us! Now is the time to help the Alliance in Arathi Basin, <name>.]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8393] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[要取得战争的胜利，我们要做的并不仅仅是简单地打败敌人，胜利的关键往往取决于双方的战争资源。]], [[阿拉希盆地蕴藏着大量物资，部落和联盟都想抢先夺取这些资源。]], [[如果联盟获胜，我们的军队将获得大量的剑和矛。如果部落获胜，这些武器也一样会被造出来，只不过是由部落的士兵拿在手里，指着我们!去协助阿拉希盆地的联盟吧，魔兽资料库网友。]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8394] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[要取得战争的胜利，我们要做的并不仅仅是简单地打败敌人，胜利的关键往往取决于双方的战争资源。]], [[阿拉希盆地蕴藏着大量物资，部落和联盟都想抢先夺取这些资源。]], [[如果联盟获胜，我们的军队将获得大量的剑和矛。如果部落获胜，这些武器也一样会被造出来，只不过是由部落的士兵拿在手里，指着我们!去协助阿拉希盆地的联盟吧，魔兽资料库网友。]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8395] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[要取得战争的胜利，我们要做的并不仅仅是简单地打败敌人，胜利的关键往往取决于双方的战争资源。]], [[阿拉希盆地蕴藏着大量物资，部落和联盟都想抢先夺取这些资源。]], [[如果联盟获胜，我们的军队将获得大量的剑和矛。如果部落获胜，这些武器也一样会被造出来，只不过是由部落的士兵拿在手里，指着我们!去协助阿拉希盆地的联盟吧，魔兽资料库网友。]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8396] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[要取得战争的胜利，我们要做的并不仅仅是简单地打败敌人，胜利的关键往往取决于双方的战争资源。]], [[阿拉希盆地蕴藏着大量物资，部落和联盟都想抢先夺取这些资源。]], [[如果联盟获胜，我们的军队将获得大量的剑和矛。如果部落获胜，这些武器也一样会被造出来，只不过是由部落的士兵拿在手里，指着我们!去协助阿拉希盆地的联盟吧，魔兽资料库网友。]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8397] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[Winning a war is about more than just outsmarting and outfighting your opponent. Victory often comes down to simply producing more than your enemy.]], [[What we have in Arathi Basin is a sizeable supply of resources for whichever side manages to claim it first.]], [[If the Alliance comes out victorious, it'll mean more swords and pikes for our troops. If the Horde were to win, those swords and pikes would still get made, they'd just be pointed at us! Now is the time to help the Alliance in Arathi Basin, <name>.]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8398] = {
-    [[OLD Claiming Arathi Basin]],
+    [[戰爭的動力]],
     { [[Winning a war is about more than just outsmarting and outfighting your opponent. Victory often comes down to simply producing more than your enemy.]], [[What we have in Arathi Basin is a sizeable supply of resources for whichever side manages to claim it first.]], [[If the Alliance comes out victorious, it'll mean more swords and pikes for our troops. If the Horde were to win, those swords and pikes would still get made, they'd just be pointed at us! Now is the time to help the Alliance in Arathi Basin, <name>.]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的联盟准将。]], },
   },
   [8399] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8400] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8401] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8402] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8403] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[银翼哨兵正在和战歌侦察骑兵争夺这片森林。当然，银翼哨兵保护森林的原因并非只有热爱大自然这条理由。]], [[梣谷的森林对我们来说是一层天然的战略屏障，可以抵抗大规模的进攻。如果没有这片森林的话，阿斯特兰纳很快就会完全暴露在贫瘠之地的攻击部队面前。你愿意参加对抗战歌前锋的战斗吗?为了联盟!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
@@ -16773,22 +16876,22 @@ __ns.L.quest = {
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8405] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[The Silverwing Sentinels are at war with the Warsong Outriders due to the destruction the Orcs are causing to the forest. There are, however, more reasons to defend this particular forest than plain love for nature.]], [[The forest forms a strategic barrier that makes Ashenvale defendable against a large-scale attack. Without it, Astranaar would last a day or two before being annexed to the Barrens.]], [[Do your part in fighting the Warsong Outriders, <name>! For the Alliance!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8406] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[The Silverwing Sentinels are at war with the Warsong Outriders due to the destruction the Orcs are causing to the forest. There are, however, more reasons to defend this particular forest than plain love for nature.]], [[The forest forms a strategic barrier that makes Ashenvale defendable against a large-scale attack. Without it, Astranaar would last a day or two before being annexed to the Barrens.]], [[Do your part in fighting the Warsong Outriders, <name>! For the Alliance!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8407] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[The Silverwing Sentinels are at war with the Warsong Outriders due to the destruction the Orcs are causing to the forest. There are, however, more reasons to defend this particular forest than plain love for nature.]], [[The forest forms a strategic barrier that makes Ashenvale defendable against a large-scale attack. Without it, Astranaar would last a day or two before being annexed to the Barrens.]], [[Do your part in fighting the Warsong Outriders, <name>! For the Alliance!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
   [8408] = {
-    [[OLD Fight for Warsong Gulch]],
+    [[自然屏障]],
     { [[The Silverwing Sentinels are at war with the Warsong Outriders due to the destruction the Orcs are causing to the forest. There are, however, more reasons to defend this particular forest than plain love for nature.]], [[The forest forms a strategic barrier that makes Ashenvale defendable against a large-scale attack. Without it, Astranaar would last a day or two before being annexed to the Barrens.]], [[Do your part in fighting the Warsong Outriders, <name>! For the Alliance!]], },
     { [[将3枚战歌峡谷荣誉奖章交给战场外的联盟准将。]], },
   },
@@ -16803,7 +16906,7 @@ __ns.L.quest = {
     { [[为捕风者巴斯拉收集一份空气样本、一份火元素样本、一份土元素样本和一份水元素样本。]], },
   },
   [8411] = {
-    [[OLD Mastering the Elements]],
+    [[控制元素]],
     { [[欢迎。把元素交给我，然后我们谈谈。]], },
     { [[将土元素、空气元素、火元素和水元素交给捕风者巴斯拉。]], },
   },
@@ -16878,32 +16981,32 @@ __ns.L.quest = {
     { [[将你从沉没的神庙的巨魔身上得到的巫毒羽毛交给部落英雄的灵魂。]], },
   },
   [8426] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
-    { [[Bring 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.]], },
+    { [[將3枚戰歌峽谷榮譽獎章交給戰場外的部落戰爭使者。]], },
   },
   [8427] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
-    { [[Bring 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.]], },
+    { [[將3枚戰歌峽谷榮譽獎章交給戰場外的部落戰爭使者。]], },
   },
   [8428] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
-    { [[Bring 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.]], },
+    { [[將3枚戰歌峽谷榮譽獎章交給戰場外的部落戰爭使者。]], },
   },
   [8429] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
-    { [[Bring 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.]], },
+    { [[將3枚戰歌峽谷榮譽獎章交給戰場外的部落戰爭使者。]], },
   },
   [8430] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[我们在战歌峡谷对银翼哨兵的战役非常重要。联盟以保护这片不属于他们的森林为由，妄图从部落手中夺取我们最大的伐木场。]], [[别让他们的妄想成为事实，魔兽资料库网友!为了部落，证明你的价值!成功之后再回到我这儿来。]], },
-    { [[Bring 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.]], },
+    { [[將3枚戰歌峽谷榮譽獎章交給戰場外的部落戰爭使者。]], },
   },
   [8431] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[The battle in Warsong Gulch against the Silverwing Sentinels is of great importance. Under the guise of protecting a forest that doesn't belong to them, the Alliance seeks to deny the Horde one of our largest sources for lumber.]], [[Do not let this happen, <name>! Come back to me with proof of serving the Horde in a worthy manner!]], },
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
@@ -16913,37 +17016,37 @@ __ns.L.quest = {
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8433] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[The battle in Warsong Gulch against the Silverwing Sentinels is of great importance. Under the guise of protecting a forest that doesn't belong to them, the Alliance seeks to deny the Horde one of our largest sources for lumber.]], [[Do not let this happen, <name>! Come back to me with proof of serving the Horde in a worthy manner!]], },
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8434] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[The battle in Warsong Gulch against the Silverwing Sentinels is of great importance. Under the guise of protecting a forest that doesn't belong to them, the Alliance seeks to deny the Horde one of our largest sources for lumber.]], [[Do not let this happen, <name>! Come back to me with proof of serving the Horde in a worthy manner!]], },
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8435] = {
-    [[OLD Battle of Warsong Gulch]],
+    [[峽谷之戰]],
     { [[The battle in Warsong Gulch against the Silverwing Sentinels is of great importance. Under the guise of protecting a forest that doesn't belong to them, the Alliance seeks to deny the Horde one of our largest sources for lumber.]], [[Do not let this happen, <name>! Come back to me with proof of serving the Horde in a worthy manner!]], },
     { [[将3枚战歌荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8436] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[我们和联盟的冲突已经上升为一场真正的战争，不久之后战争就将全面打响。]], [[对于阿拉希盆地的争夺就是一个很好的开战理由。要么就是联盟占据它，并用其对付我们;或者就是我们占据它，然后用来对付联盟。帮助污染者保持这场资源竞赛上的优势吧，魔兽资料库网友!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8437] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[我们和联盟的冲突已经上升为一场真正的战争，不久之后战争就将全面打响。]], [[对于阿拉希盆地的争夺就是一个很好的开战理由。要么就是联盟占据它，并用其对付我们;或者就是我们占据它，然后用来对付联盟。帮助污染者保持这场资源竞赛上的优势吧，魔兽资料库网友!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8438] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[我们和联盟的冲突已经上升为一场真正的战争，不久之后战争就将全面打响。]], [[对于阿拉希盆地的争夺就是一个很好的开战理由。要么就是联盟占据它，并用其对付我们;或者就是我们占据它，然后用来对付联盟。帮助污染者保持这场资源竞赛上的优势吧，魔兽资料库网友!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8439] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[我们和联盟的冲突已经上升为一场真正的战争，不久之后战争就将全面打响。]], [[对于阿拉希盆地的争夺就是一个很好的开战理由。要么就是联盟占据它，并用其对付我们;或者就是我们占据它，然后用来对付联盟。帮助污染者保持这场资源竞赛上的优势吧，魔兽资料库网友!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
@@ -16963,7 +17066,7 @@ __ns.L.quest = {
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
   [8443] = {
-    [[OLD Conquering Arathi Basin]],
+    [[資源競賽]],
     { [[Our conflict with the Alliance has escalated to a true war. No longer are false pretenses to enter into battle used or expected by either side at this point.]], [[The battle for the Arathi Basin is one of resources, plain and simple. Either the Alliance gets the resources and uses them against us or we get them and use them to keep our war efforts going. Help the Defilers maintain the flow of resources we need, <name>!]], },
     { [[将3枚阿拉希盆地荣誉奖章交给战场外的部落战争使者。]], },
   },
@@ -17112,12 +17215,12 @@ __ns.L.quest = {
   [8488] = {
     [[出人意料的结果]],
     { [[情况有些不对，<name>。我感觉到了天灾军团的存在。做好战斗准备！]], },
-    { [[Protect Apprentice Mirveda from the Scourge ambush.]], },
+    { [[保護學徒莫維達免於天譴軍團的伏擊。]], },
   },
   [8489] = {
-    [[BETA An Intact Converter]],
-    { [[This object appears to be one of the arcane converters Ley-Keeper Velania mentioned.  It hasn't been damaged by the fire, perhaps she could find a use for it.]], },
-    { [[Bring the Intact Arcane Converter to Ley-Keeper Velania.]], },
+    [[完整奧金轉換器]],
+    { [[這物品似乎是牧地看守者維蘭妮雅提及的奧金轉換器之一。它還沒被火破壞過，也許她知道怎麼運用它。]], },
+    { [[把完整奧金轉換器帶給牧地看守者維蘭妮雅。]], },
   },
   [8490] = {
     [[增强防御]],
@@ -17265,7 +17368,7 @@ __ns.L.quest = {
   [8519] = {
     [[往日的回忆]],
     { [[当你恢复镇静并重新汇集目光的时候，你发现有些东西从水晶之内往外瞪着。通过进一步的观察，你所看到的是过去……一段记忆……很久之前就遗忘的记忆。]], },
-    { [[Learn all that you can of the past, then speak with Anachronos at the Caverns of Time in Tanaris.]], },
+    { [[了解一切你能知道的過去，再到塔納利斯和時光之穴與安納克羅斯交談。]], },
   },
   [8520] = {
     [[联盟需要丝质绷带！]],
@@ -17319,8 +17422,8 @@ __ns.L.quest = {
   },
   [8530] = {
     [[联盟需要熔火之石！]],
-    { [[<class>, I need your help. In the Molten Core there are these stones, singed Corestones to be precise, that we need to harvest for the Ahn'Qiraj war effort. I'm told that our blacksmiths and engineers can put them to good use, so that's where you come in. I need you to go into the Molten Core and gather up as many of these corestones as you can. Of course, you'll want to talk thirty-nine of your closest friends along with you.]], },
-    { [[Bring 50 singed corestones to Commander Stronghammer at the airfield in Dun Morogh.]], },
+    { [[<class>，我需要你的幫助。在熔火之心有著這些石頭，正確的名稱是燒焦的核心石，我們要為安其拉戰爭收集這樣東西。聽說我們的鐵匠和工程師可以將它們拿來做一些用途，所以那就是你要去的地方。我要你去熔火之心收集越多核心石越好。當然，你會需要帶一些朋友一起去。]], },
+    { [[帶50個燒焦的核心石給丹莫洛飛機場的戰錘指揮官。]], },
   },
   [8532] = {
     [[部落需要铜锭！]],
@@ -17399,8 +17502,8 @@ __ns.L.quest = {
   },
   [8547] = {
     [[欢迎!]],
-    { [[Welcome to the World of Warcraft!]], [[As special thanks for purchasing the World of Warcraft Collector's Edition, turn in this gift voucher to Marsilla Dawnstar at the Sunspire on Sunstrider Isle.  You'll then be given a gift: a little companion to join you on your quest for adventure and glory.]], [[Thanks again, and enjoy your stay in the World of Warcraft!]], },
-    { [[Bring the Sunstrider Isle Gift Voucher to Marsilla Dawnstar at the Sunspire on Sunstrider Isle.]], },
+    { [[歡迎來到魔獸世界!]], [[為了感謝您購買魔獸世界典藏版，請將這張禮券交給獵鷹之翼廣場的瑪希拉·晨星。您將得到一份特別的禮物:陪伴您踏上冒險旅途的小寵物!]], [[再次感謝您的支持，請盡情享受魔獸世界的樂趣吧!]], },
+    { [[將獵鷹之翼廣場禮品券帶到獵鷹之翼廣場的日尖塔給瑪希拉·晨星。]], },
   },
   [8548] = {
     [[志愿兵的装备]],
@@ -17481,9 +17584,9 @@ __ns.L.quest = {
     { [[与逐日岛太阳之塔内的术士训练师召唤者泰里拉伦谈一谈。]], },
   },
   [8564] = {
-    [[Priest Training]],
-    { [[As you advance within your class, you will want to take advantage of the training that your class trainer can provide you.  For young priests here on Sunstrider Isle, your trainer is Matron Arena.  Speak with the matron and see what training she has available for you.  The things she will teach do have a cost, so bring some coin with you.]], [[Matron Arena - as with all the trainers on Sunstrider Isle - is inside the Sunspire on the lower level.]], },
-    { [[Speak with Matron Arena - the Priest class trainer - inside the Sunspire on Sunstrider Isle.]], },
+    [[牧師訓練]],
+    { [[隨著你的職業技能越來越精進，你就要從你的職業訓練師那裡多學一點東西。在逐日者之島，年輕牧師的訓練師是梅特倫·艾瑞那。和她談談，看看她能提供你什麼訓練。向她學東西是要花錢的，所以帶一點錢在身上。]], [[梅特倫·艾瑞那 - 和所有逐日者之島的訓練師一樣 - 都在日尖塔的較低層。]], },
+    { [[和牧師訓練師 - 梅特倫·艾瑞那談談 - 她就在逐日者之島的日尖塔裡面。]], },
   },
   [8565] = {
     [[往日的胜利:阿拉希盆地]],
@@ -17721,6 +17824,11 @@ __ns.L.quest = {
     [[部落需要更多烤鲑鱼！]],
     { [[安其拉之战的准备工作是一项浩大的工程，战士。所有的物资都将在这里进行收集，无论是铸造武器所需的金属，还是士兵日常生活所需的食物都非常重要。比如说，如果你几天没有吃东西，那么你一定没有力气挥舞战斧。]], [[因此我们需要收集尽可能多的食物。我在这里负责收集烤鲑鱼，它的口味和营养都非常适合我们的士兵。你能帮帮我吗，战士？]], },
     { [[带20条烤鲑鱼给奥格玛精神谷的图拉·利爪。]], },
+  },
+  [8617] = {
+    [[部落需要燒焦的核心石!]],
+    { [[是你為安其拉之戰貢獻的時候了，<class>。你消磨時間的悠閒日子已經結束了。現在是為我和部落效勞的時候，我告訴你，我可不像戰爭首領那樣心胸寬大。]], [[你要聚集你的軍力，最好是一個公會，然後進軍熔火之心。你會發現裡面的居民都有燒焦的核心石。帶大量的石頭回來給我。]], },
+    { [[帶50個燒焦的核心石給杜洛塔的佐格將軍。]], },
   },
   [8618] = {
     [[[Not Used] The Horde Needs More Singed Corestones!]],
@@ -18198,7 +18306,7 @@ __ns.L.quest = {
   [8733] = {
     [[伊兰尼库斯，梦境之暴君]],
     { [[这将是一段救赎之旅，英雄。如果今天我要死去，那么我也要为了一个正义而伟大的事业而牺牲。你必须找到绿色节杖碎片，你必须净化被上古之神控制的伊兰尼库斯。]], [[到达纳苏斯去，在城墙外，你可以找到我的人。这个人将会为我们进行协调，并在不让鹿盔发现的情况下将我们的计划通知给泰兰德。]], [[<玛法里奥叹了口气。>]], [[一千年的守护终究堕落了……]], },
-    { [[Travel to the continent of Teldrassil and find Malfurion's agent somewhere outside the walls of Darnassus.]], },
+    { [[到泰達希爾去找瑪法里恩的代理人，大約在達納蘇斯牆外某處。]], },
   },
   [8734] = {
     [[泰兰德和雷姆洛斯]],
@@ -18208,7 +18316,7 @@ __ns.L.quest = {
   [8735] = {
     [[腐蚀梦魇]],
     { [[你必须到艾泽拉斯世界的四个翡翠梦境入口去。在每个入口处，你都可以收集到腐蚀梦魇的碎片。住在这些地区的龙类生物身上会携带着这样的碎片。当你收集到全部四块碎片后就回到我这里来。]], },
-    { [[Travel to the four Emerald Dream portals in Azeroth and collect a Fragment of the Nightmare's Corruption from each. Return to Keeper Remulos in the Moonglade when you have completed this task.]], },
+    { [[到艾澤拉斯的4個翡翠夢境入口。從各個門分別取得腐蝕夢魘的碎片，完成任務後交給月光林地的守護者雷姆洛斯。]], },
   },
   [8736] = {
     [[噩梦显现]],
@@ -18797,18 +18905,18 @@ __ns.L.quest = {
     { [[在月光中使用你的春节邀请函前往月光林地，抵达之后与永夜港的瓦拉达尔·星歌谈一谈。]], },
   },
   [8884] = {
-    [[Fish Heads, Fish Heads...]],
-    { [[Greetings, <class>.  Take a look toward the shore; what do you see?  That's right, our beach... our Tranquil Shore, has been infested with the malignancy known as the murloc.]], [[This blight will not stand!]], [[I have a task for you.  If you feel that you're up to it, I would have their heads!  Let us see if we can put a dent in their numbers so large that, if they have any sense at all, they will return to the murky depths from which they sprang!]], },
-    { [[Collect 8 Grimscale Murloc Heads.  Return them to Hathvelion Sungaze in the Eversong Woods on the bluff overlooking the Tranquil Shore.]], },
+    [[魚頭，魚頭……]],
+    { [[你好，<class>。看看海岸邊;你看到了什麼?沒錯，我們的海灘…….我們的寧靜海岸，充斥著可惡的魚人。]], [[我們不容許他們這樣的毀壞!]], [[我有個任務要給你。只要你覺得可以接受的話，我要他們的頭!看看我們能不能大量削減他們的數量，讓他們知難而退，回到原本黑暗的深淵!]], },
+    { [[收集8個厲鱗魚人頭顱。將它們帶到永歌森林裡俯瞰著寧靜海岸的懸崖給海斯維利·桑凱。]], },
   },
   [8885] = {
-    [[The Ring of Mmmrrrggglll]],
-    { [[The Grimscale murlocs have not been scared off by your efforts. But, I think I know what will send them packing, as well as get me some personal retribution.]], [[They have a murloc chieftain that calls itself Mmmrrrggglll. It wanders the Golden Strand south of the river inlet. The beast once slew a compatriot of mine, and now wears his ring in open defiance and mockery.]], [[Slay Mmmrrrggglll, and bring back my friend's ring. Then we shall see these monsters cowed!]], },
-    { [[Retrieve the Ring of Mmmrrrggglll from the Grimscale chieftain's dead clutches.  Return it to Hathvelion Sungaze in the Eversong Woods on the bluff overlooking the Tranquil Shore.]], },
+    [[魔鉤的戒指]],
+    { [[厲鱗魚人並沒有被你的努力給嚇跑。但是，我想我知道什麼才會讓他們知難而退，還會給我帶來一些個人的報酬。]], [[他們有一個自稱魔鉤的魚人首領。他會在金色湖岸南邊的海岸閒晃。這隻野獸曾經殺過我一個伙伴，現在竟公然戴著他的戒指，簡直就是一種藐視與嘲笑。]], [[殺了魔鉤，把我朋友的戒指帶回來給我。然後我們就會看到這些怪物受驚嚇的樣子!]], },
+    { [[從厲鱗首領麻木的爪子中取回魔鉤的戒指，交給在永歌森林裡俯瞰寧靜海岸的懸崖上的海斯維利·桑凱。]], },
   },
   [8886] = {
     [[暗鳞强盗！]],
-    { [[Thank goodness for you, <class>! Those slimy Grimscale murlocs have pirated away my cargo! It's bad enough that the Wretched have stolen what little magical goods I had, but the murlocs took the rest! What has this land come to?]], [[Could you retrieve my cargo? I can't expect that you'd be able to get all of it back, but I'll be grateful for any of it at this point. It was the Grimscale murlocs in the huts, just to the west and south of the anchorage on the Golden Strand, I'm sure of it!]], },
+    { [[喔，還好有你，<class>!那些黏乎乎的厲鱗魚人搶走了我的貨物!鄙惡者把我那一丁點的魔法物品偷走已經夠糟了，這些魚人竟然還偷走剩下的!這個地方怎麼搞的?]], [[你可以幫我奪回我的貨物嗎?我不奢望你把它們全追回來，但如果你能幫我，我會非常感激。那群厲鱗魚人的小茅屋就在金色湖岸的泊地西方和南方，我確定!]], },
     { [[夺回6箱凯莉森德拉船长的货物，把它们交给永歌森林阳帆港东侧营地中的凯莉森德拉船长。]], },
   },
   [8887] = {
@@ -18855,9 +18963,9 @@ __ns.L.quest = {
     { [[将无记号的信件送给永歌森林北部圣殿的魔网监护者凯丹尼斯。]], },
   },
   [8896] = {
-    [[BETA The Dwarven Spy]],
-    { [[Are you sure you found these notes on a Night Elf, then?  Most of them are written in the Dwarven...]], [[Prospector Anvilward!  He was sent here from Ironforge on a diplomatic mission.  I should've known his interest in our Arcane Sanctums was a bit excessive.  <name>, find the dwarf in the North Sanctum and take care of him.  Oh, and be discrete about it.]], },
-    { [[Find and kill Prospector Anvilward in the North Sanctum and report back to Aeldon Sunbrand in Eversong Woods.]], },
+    [[矮人間諜]],
+    { [[你確定這些便箋是在一個夜精靈身上找到的嗎?這大部分的文字都是矮人文字……]], [[勘察員安維瓦德!他因為外交事務從鐵爐堡被派遣到這裡。我早該察覺他對我們秘法聖所的事情過於關心。<name>，到北部聖所找到這個矮人並殺了他。喔，行事謹慎一點。]], },
+    { [[找到並殺死北部聖所的勘察員安維瓦德，再向永歌森林的艾爾頓·桑布蘭德回報。]], },
   },
   [8897] = {
     [[亲爱的科兰拉]],
@@ -19229,6 +19337,24 @@ __ns.L.quest = {
     { [[正如我说的那样，<class>，我很草率地做了决定，成为一名预言师。预言师并非想象中那样来钱……这份工作充满危险，施法材料价格昂贵而且很不好找。但是我知道最后一块饰品碎片在哪儿，那上面还附着我的老朋友的灵魂。]], [[<name>，恐怕你得去尘泥沼泽的奥卡兹岛一趟，从斯塔莎兹纳迦身上收集血藻。]], },
     { [[前往尘泥沼泽的奥卡兹岛，从斯塔莎兹纳迦身上收集20份血藻，然后返回黑石山的伯德雷那儿。]], },
   },
+  [8971] = {
+    [[REUSE]],
+  },
+  [8972] = {
+    [[REUSE]],
+  },
+  [8973] = {
+    [[REUSE]],
+  },
+  [8974] = {
+    [[REUSE]],
+  },
+  [8975] = {
+    [[REUSE]],
+  },
+  [8976] = {
+    [[REUSE]],
+  },
   [8977] = {
     [[向德莉亚娜回复]],
     { [[跟你合作真是愉快，<name>。这是你要的成品。]], [[希望它能助你一臂之力。呃，如果你不介意的话，请帮我宣传宣传。我希望有更多的顾客！]], },
@@ -19506,7 +19632,7 @@ __ns.L.quest = {
   [9034] = {
     [[无畏胸甲]],
     { [[在你与纳克萨玛斯宫殿中的天灾军团作战过程中，如果看到被玷污的护甲和板甲碎片，将它们带给我，我会为你打造一套适合英雄穿着的护甲。]], },
-    { [[Korfax at Light's Hope Chapel in the Eastern Plaguelands will make a Dreadnaught Breastplate if you bring him the following items: 1 Desecrated Breastplate, 25 Wartorn Plate Scraps, 4 Arcanite Bars and 2 Nexus Crystals.]], },
+    { [[東瘟疫之地聖光之願禮拜堂的柯菲斯將為你製作無畏胸甲，只要你將下列物品帶給他:1件被褻瀆的胸甲，25個受戰爭破壞的鎧甲碎塊，4個奧金錠和2個聯結水晶。]], },
   },
   [9035] = {
     [[打探匪情]],
@@ -19531,7 +19657,7 @@ __ns.L.quest = {
   [9039] = {
     [[无畏马靴]],
     { [[在你与纳克萨玛斯宫殿中的天灾军团作战过程中，如果看到被玷污的护甲和板甲碎片，将它们带给我，我会为你打造一套适合英雄穿着的护甲。]], },
-    { [[Korfax at Light's Hope Chapel in the Eastern Plaguelands will make Dreadnaught Sabatons if you bring him the following items: 1 Desecrated Sabatons, 12 Wartorn Plate Scraps, 2 Arcanite Bars and 3 Cured Rugged Hides.]], },
+    { [[東瘟疫之地聖光之願禮拜堂的柯菲斯將為你製作無畏馬靴，只要你將下列物品帶給他：1雙被褻瀆的馬靴，12個受戰爭破壞的鎧甲碎片，2個奧金錠和3塊熟化毛皮。]], },
   },
   [9040] = {
     [[无畏手套]],
@@ -19636,7 +19762,7 @@ __ns.L.quest = {
   [9060] = {
     [[地穴追猎者束带]],
     { [[我发现地穴恶魔的甲壳大有用处。我可以利用这种甲壳以及丢失在纳克萨玛斯宫殿中的被玷污的护甲，打造出一套轻便时尚的、具有毁灭性力量的套装。]], [[帮我寻找必需的材料，我就能制作出这套前所未有的装备！]], },
-    { [[Huntsman Leopold at Light's Hope Chapel in the Eastern Plaguelands will make a Cryptstalker Girdle if you bring him the following: 1 Desecrated Girdle, 8 Wartorn Chain Scraps, 1 Arcanite Bar and 3 Nexus Crystals.]], },
+    { [[東瘟疫之地聖光之願禮拜堂的獵人里歐波將為你製作地穴行者束腰，只要你將下列物品帶給他:1個被褻瀆的束腰，8個受戰爭破壞的鍊甲碎塊，1個奧金錠和3個聯結水晶。]], },
   },
   [9061] = {
     [[地穴追猎者护腕]],
@@ -19660,7 +19786,7 @@ __ns.L.quest = {
   },
   [9065] = {
     [[The "Chow" Quest (123)aa]],
-    { [[$Tpunk;!  Kill Kobold Vermin, 2 of em.]], },
+    { [[Tpunk;!  Kill Kobold Vermin, 2 of em.]], },
     { [[Kill Kobold Vermin, 2 of em.]], },
   },
   [9066] = {
@@ -19977,8 +20103,8 @@ __ns.L.quest = {
   },
   [9130] = {
     [[银月城的货物]],
-    { [[Welcome volunteer!  We're running low on supplies here, but the blood elves have promised us materiel assistance.  That's where you come in.]], [[Take this bill of lading over to Skymaster Sunwing. He'll have further instructions for you on how best to get up to Silvermoon City.]], },
-    { [[Deliver Quartermaster Lymel's Bill of Lading to Skymaster Sunwing in Tranquillien.]], },
+    { [[歡迎志願者!我們現在物資稍嫌短缺，但血精靈已允諾給我們物資上的援助。那是你剛剛走進來的地方。]], [[我要你帶著這個提貨單去找飛行師·日翼。他會給你進一步的指示，告訴你如何快速到達銀月城。]], },
+    { [[把軍需官里莫的提貨單送到安寧地的飛行師·日翼那裡。]], },
   },
   [9131] = {
     [[无畏护甲的材料]],
@@ -19991,17 +20117,17 @@ __ns.L.quest = {
   [9133] = {
     [[飞往银月城]],
     { [[<class>，只需花费几个小钱，我就可以让这些神奇的野兽把你送到你想去的地方，绝对快捷舒适。更重要的是，绝对比走路安全，这一点我可以向你保证！]], [[你到了银月城之后，就去花园街市找萨斯雷·蓝空吧。]], [[等你有足够的勇气上天飞行之后，再来和我谈谈。]], },
-    { [[Purchase a flight to Silvermoon City and deliver Quartermaster Lymel's Bill of Lading to Sathren Azuredawn in Silvermoon City.]], },
+    { [[飛回銀月城並將軍需官里莫的提貨單交給銀月城的賽詩倫·藍晨。]], },
   },
   [9134] = {
     [[葛拉米]],
-    { [[It doesn't look as if you have a cart or a beast of burden with you, so I'd better send you back only with what you can carry.  If you've spoken with Skymaster Sunwing at Tranquillien, then you should get this to Quartermaster Lymel as soon as possible by flying back.]], [[Take these goods for final inspection to Skymistress Gloaming just outside Silvermoon City's Shepherd's Gate.]], },
-    { [[Bring Quartermaster Lymel's Goods to Skymistress Gloaming just outside Silvermoon City's Shepherd's Gate.]], },
+    { [[嗯，你看起來不像有台運貨車或馱獸的樣子，所以我只讓你帶回能裝載的量好了。如果你已經和安寧地的飛行師·日翼談過了，那你就要盡快飛回去把這個送給軍需官里莫。]], [[把這些貨物送給銀月城牧羊人之門外的女飛行師·薄暮做最後的檢驗。]], },
+    { [[將軍需官里莫的物品帶給銀月城牧羊人之門外的女飛行師·薄暮。]], },
   },
   [9135] = {
     [[返回萨希尔身边]],
-    { [[It all checks out as far as I can tell.  Seems to me that the Forsaken have put their backs to the wall for us and we owe them, even if they are all ugly and rotting.]], [[So, the question is, have you already spoken to Skymaster Sunwing in Tranquillien?  If so, then this can be as simple as you paying the small fare and quickly flying back.]], [[Let me know when you're ready.]], },
-    { [[Purchase a flight back to Tranquillien in the Ghostlands and deliver Quartermaster Lymel's Goods to Quartermaster Lymel at Tranquillien in the Ghostlands.]], },
+    { [[我已經全部都檢查過了。在我看來被遺忘者已經為我們做好一切的準備了，即使他們全都又醜又腐敗，我們還是欠他們一份人情。]], [[所以問題是，你和安寧地的飛行師·日翼談過了嗎?如果是，那麼你就付了錢，快點飛回那裡。]], [[等你準備好再讓我知道。]], },
+    { [[飛回鬼魂之地的安寧地，將軍需官里莫的貨物帶回鬼魂之地交給安寧地的軍需官里莫。]], },
   },
   [9136] = {
     [[蛮荒之叶]],
@@ -20013,7 +20139,7 @@ __ns.L.quest = {
   },
   [9138] = {
     [[日冕村]],
-    { [[We're surrounded here, <class>.  The outlying villages have all been overrun by the Scourge!]], [[You must head northeast to Suncrown Village immediately and deal with the nerubian Scourge menace.  You can't miss them - they're spider-like creatures.]], [[There's no time to waste.... Quel'Thalas must be reclaimed!]], },
+    { [[我們全都圍繞在這裡，<class>。邊遠的村子都被天譴軍團侵犯了。]], [[你必需立刻朝東北方前往日冠村並對付奈幽蟲族的天譴勢力。你千萬不能放過它們 - 它們長得就像蜘蛛一樣的怪物。]], [[沒有時間可以浪費了……一定要收復奎爾薩拉斯!]], },
     { [[杀死10个蛛怪卫兵，然后向幽魂之地塔奎林的奥术师范迪瑞尔复命。]], },
   },
   [9139] = {
@@ -20036,9 +20162,9 @@ __ns.L.quest = {
     { [[You know the drill, kid. One valor token gets you a craftsman's writ.]], },
   },
   [9143] = {
-    [[Dealing with Zeb'Sora]],
-    { [[The lieutenant here rushed us into battle with the trolls across the lake instead of scouting the situation first. We were decimated by his stupidity! You hear me Tomathren? You're an idiot!]], [[Will you help us, <class>? Those trolls still need to be dealt with. I need to stay here and nursemaid him]], },
-    { [[Collect 6 Zeb'Sora Troll Ears and return them to Ranger Valanna in the Ghostlands.]], },
+    [[與札布索拉交涉]],
+    { [[中尉沒有先評估狀況就直接派我們上戰場與湖那邊的食人妖作戰，我們的部隊被他的愚蠢害慘了!你聽到我說什麼了嗎，湯瑪索?你這個白痴!]], [[你會幫我們吧，<class>? 這些食人妖仍然需要處理一下，而我必須留在這保護這傢伙 -- 我想他已經瘋了。]], [[只要往東走到湖的另一邊進入札布索拉。我要復仇……帶一些他們的耳朵回來給我，這樣我就可以做一條漂亮的項鍊了。]], },
+    { [[收集6個札布索拉食人妖耳朵再回到鬼魂之地找遊俠瓦拉娜。]], },
   },
   [9144] = {
     [[迷失在幽魂之地]],
@@ -20051,9 +20177,9 @@ __ns.L.quest = {
     { [[在幽魂之地日冕村附近的艾伦达尔湖畔寻找游侠瓦兰娜和托曼森中尉。]], },
   },
   [9146] = {
-    [[Report to Captain Helios]],
-    { [[I need one last favor of you, <class>.  Just in case Ranger Salissa didn't make it back to Farstrider Enclave on the south edge of the lake, I need you to go there and get help.]], [[Just check in with Captain Helios and let him know what's happened here.  I'm sure he'll send help back as soon as he can.]], },
-    { [[Speak with Captain Helios at the Farstrider Enclave on the southern shore of Lake Elrendar in the Ghostlands.]], },
+    [[向希里歐斯隊長回報]],
+    { [[<class>，我要請你幫最後一個忙。以防萬一遊俠沙里莎沒辦法回到湖南邊的遠行者營地，我要你去那裡幫忙。]], [[和希里歐斯隊長談談，讓他知道這裡發生了什麼事。我相信他會盡快派支援回來。]], },
+    { [[到鬼魂之地的艾蘭達之湖南邊，和遠行者營地的希里歐斯隊長談談。]], },
   },
   [9147] = {
     [[倒下的信使]],
@@ -20142,8 +20268,8 @@ __ns.L.quest = {
   },
   [9164] = {
     [[戴索姆的俘虏]],
-    { [[Ah, yes.  One of my finest creations.  This draught will break most forms of alchemically induced stupor.]], [[Side effects include confusion, nausea and - in rare cases - temporary blindness.  All much preferable to whatever the Scourge plans to do to those prisoners in Deatholme, if you ask me.]], [[Best of luck, brave <class>.  You are going to need it.]], },
-    { [[Take Renzithen's Restorative Draught to Deatholme and rescue Apprentice Varnis,  Apothecary Enith and Ranger Vedoran.  Return to Arcanist Janeda at the Sanctum of the Sun for a reward.]], },
+    { [[啊，是的。我最棒的創作之一。這個藥膏將化解大部分由鍊金引發的恍惚。]], [[副作用包括了混淆，噁心和 - 較罕見的情形 - 暫時的致盲。如果你問我，這全都比天譴軍團打算對那些死亡之域的囚犯做的事要好的多。]], [[祝你好運，<class>。你會需要它的。]], },
+    { [[帶著倫澤紳製作的恢復藥劑前往死亡之域解救學徒瓦尼司，藥劑師艾尼斯和遊俠維多蘭。然後再回到太陽聖所向秘法師珍妮達領取獎勵。]], },
   },
   [9165] = {
     [[通行文书]],
@@ -20162,8 +20288,8 @@ __ns.L.quest = {
   },
   [9168] = {
     [[戴索姆之心]],
-    { [[Deep inside Deatholme our enemies are striving to create stronger, deadlier spectral soldiers.  These abhorrent creatures are perfect killing machines, handcrafted by Dar'Khan himself and hardened by the dark magic of Deatholme.]], [[Travel to the Tower of the Damned inside Deatholme and destroy them, <name>.  We cannot let our enemy's army grow in power while we struggle to maintain our foothold in the Ghostlands.]], },
-    { [[Destroy 8 Eyes of Dar'Khan and report back to Magister Idonis at the Sanctum of the Sun in the Ghostlands.]], },
+    { [[在死亡之域深處我們的敵人正致力於研發更強大、更致命的鬼靈士兵。這些可惡的生物是完美的殺人機器，由達克汗自己手工製作，經死亡之域的黑暗魔法強化。]], [[進入死亡之域的詛咒神教之塔摧毀他們，<name>。當我們勉強能在鬼魂之地維持立足點的時候，不能讓敵人的軍隊增強軍力。]], },
+    { [[殺死8個達克汗之眼並回到鬼魂之地向太陽聖所的博學者艾度尼斯回報。]], },
   },
   [9169] = {
     [[关闭安欧维恩]],
@@ -20266,9 +20392,9 @@ __ns.L.quest = {
     { [[将6条亮布短裤和工匠文书 - 亮布短裤交给东瘟疫之地圣光之愿礼拜堂的马队管理者布鲁斯·石锤。]], },
   },
   [9189] = {
-    [[Delivery to the Sepulcher]],
-    { [[You have stirred the lady's heart, though it no longer beats.]], [[However, I have instructions that must be delivered to the Sepulcher in Silverpine Forest.  Advisor Sorrelon represents us to the Forsaken there.]], [[The shortest route, barring the use of their flying bats, is to leave Undercity and take the road south.  Follow the signposts.  Finding the place shouldn't be difficult.  Brace yourself, though; the Sepulcher itself is a dilapidated crypt.]], [[These Forsaken are certainly odd creatures.]], },
-    { [[Deliver the Sealed Sin'dorei Orders to Advisor Sorrelon at the Sepulcher in Silverpine Forest.]], },
+    [[送貨到瑟伯切爾]],
+    { [[你已經傷了這位小姐的心，雖然它早已不再跳動了。]], [[既然這樣，我有一封信要送到銀松森林的瑟伯切爾。諫言者索利安是我們在被遺忘者那邊的代表。]], [[最近的路線，除非你要坐他們的蝙蝠去，不然你就是從幽暗城的門口順著往南方的路走。跟著路標走。要到達目的地應該不困難。儘管放開你的心胸吧;瑟伯切爾可是一個殘破不堪的地窖呢。]], [[這些被遺忘者還真是奇怪的生物呢。]], },
+    { [[將密封的辛多雷命令送到銀松森林的瑟伯切爾給諫言者索利安。]], },
   },
   [9190] = {
     [[工匠文书 - 符文布靴]],
@@ -20287,8 +20413,8 @@ __ns.L.quest = {
   },
   [9193] = {
     [[调查阿曼尼墓穴]],
-    { [[<class>, our sources tell us that the trolls buried in the Amani Catacombs inside Sungraze Peak have been rising from the dead. Dame Auriferous would have you investigate these catacombs and put to the torch any of the unanimated remains you come across so as to prevent any more of these creatures from rising.]], [[The fastest way there is to head north out of town and then take the first fork to the right. This will put you on the north side of the peak, so look to the south for the entrance.]], },
-    { [[Investigate the Amani Catacombs and burn 10 Mummified Troll Remains, then return to Advisor Valwyn at Tranquillien in the Ghostlands.]], },
+    { [[<class>，我們的消息指出在日傷山峰阿曼尼地下墓穴裡的食人妖已起死回生。阿莉法娜奧絲夫人要你去調查這些地下墓穴並將所有未復活的遺體放火燒了，以免更多這些生物興起。]], [[到達那裡最快的方法就是往北走出城，在第一個岔路右轉。你就會到達山峰的北邊，再向南邊找尋入口。]], },
+    { [[調查阿曼尼地下墓穴並燒毀10個屍化食人妖遺體再回到鬼魂之地的安寧地找諫言者法溫。]], },
   },
   [9194] = {
     [[工匠文书 - 符文布袍]],
@@ -20318,7 +20444,7 @@ __ns.L.quest = {
   [9199] = {
     [[巨魔的邪符]],
     { [[<class>，埋葬在阿曼尼墓穴的巨魔死而复生了！我想让你去消灭他们。某些亡灵巨魔和活着的巨魔身上带着邪符，那是一种蕴含着未知能量的发光物体。我们还不确定它是否跟巨魔的复活有关……也许这就是问题的关键！]], [[阿曼尼墓穴就在此地以东的阳痕峰内。据说沿着山北面的道路可以快速到达那里。快一点，<class>！]], },
-    { [[Collect 8 Troll Juju and return them to Deathstalker Maltendis at Tranquillien in the Ghostlands.]], },
+    { [[收集8個食人妖護符交給亡靈守衛瑪塔堤斯，他在鬼魂之地的安寧地。]], },
   },
   [9200] = {
     [[工匠文书 - 特效法力药水]],
@@ -20469,7 +20595,7 @@ __ns.L.quest = {
   [9230] = {
     [[拉玛兰迪的寒冰之握]],
     { [[要修复这枚戒指可不是件容易的事儿，<name>。瞧，它的原材料是取自天灾建筑物中形成的冰冻符文，例如纳克萨玛斯的宫殿。当然我还需要其它材料，但是你的主要任务就是找到冰冻符文。把我所需的材料拿来，我会让这枚戒指重新恢复光泽的。]], },
-    { [[Korfax at Light's Hope Chapel in the Eastern Plaguelands wants you to bring him 1 Frozen Rune, 1 Blue Sapphire and 1 Arcanite Bar.]], },
+    { [[東瘟疫之地聖光之願禮拜堂的柯菲斯需要你帶給他1個冰凍符文，1顆藍寶石，還有1個奧金錠。]], },
   },
   [9232] = {
     [[我只会唱这一首歌……]],
@@ -20664,6 +20790,9 @@ __ns.L.quest = {
   [9272] = {
     [[适宜的服装]],
   },
+  [9273] = {
+    [[兌換魚人寶寶兌獎券]],
+  },
   [9274] = {
     [[水中鬼魂]],
     { [[<name>，从我记事起，北边的湖泊就一直有先祖的鬼魂出没。那是一场悲惨的灾难，很多人被活活溺死，他们的灵魂仍在世间飘荡。]], [[虽然族人们对那场灾变的记忆已经模糊，但是湖边凄凉的哭泣声似乎在述说着他们被诅咒的命运。]], [[<name>，如果你愿意接受这项任务，就去湖边结束他们的痛苦吧。我想……他们和我都会感激你的。]], },
@@ -20686,8 +20815,8 @@ __ns.L.quest = {
   },
   [9278] = {
     [[欢迎!]],
-    { [[Welcome to the World of Warcraft!]], [[As special thanks for purchasing the World of Warcraft Collector's Edition, turn in this gift voucher to Jaeleil at the Crash Site in Ammen Vale.  You'll then be given a gift: a little companion to join you on your quest for adventure and glory.]], [[Thanks again, and enjoy your stay in the World of Warcraft!]], },
-    { [[Bring the Ammen Vale Gift Voucher to Jaeleil inside the ship at the Crash Site in Ammen Vale.]], },
+    { [[歡迎來到魔獸世界!]], [[為了感謝您購買魔獸世界典藏版，請將這張禮券交給藍色守望的喬萊爾。您將得到一份特別的禮物:陪伴您踏上冒險旅途的小寵物!]], [[再次感謝您的支持，請盡情享受魔獸世界的樂趣吧!]], },
+    { [[將藍色守望禮物兌獎券交給藍色守望的喬萊爾。]], },
   },
   [9279] = {
     [[你活下来了！]],
@@ -20697,7 +20826,7 @@ __ns.L.quest = {
   [9280] = {
     [[补充治疗水晶]],
     { [[我们目前最紧迫的问题就是，治疗水晶的存量已经几乎为零了。我们必须立刻补充这种水晶。]], [[但糟糕的是，目前补充水晶的唯一可行办法就是从周围的蛾类生物血液中分解出有用的物质，因为它们的血液中含有某种非常合适的替代品。]], [[这些蛾类生物在谷中遍地都是，西北方更加集中一些。]], },
-    { [[Acquire 8 Vials of Moth Blood from the nearby Vale Moths and give them to Proenitus at the Crash Site in Ammen Vale.]], },
+    { [[從附近的安曼谷飛蛾身上取得8瓶飛蛾血清，再回到安曼谷失事地點的波尼特斯那裡。]], },
   },
   [9281] = {
     [[清理道路]],
@@ -20715,13 +20844,13 @@ __ns.L.quest = {
     { [[使用你的“纳鲁的赐福”这一能力拯救埃门谷中的任意一名德莱尼幸存者，然后向埃门谷坠毁点的扎尔杜复命。]], },
   },
   [9284] = {
-    [[Aldor Faction Test]],
+    [[奧多爾陣營測試]],
   },
   [9285] = {
-    [[Consortium Faction Test]],
+    [[聯合團聲望測試]],
   },
   [9286] = {
-    [[Scryers Faction Test]],
+    [[占卜者陣營]],
   },
   [9287] = {
     [[圣骑士训练]],
@@ -20733,10 +20862,10 @@ __ns.L.quest = {
     [[战士训练]],
   },
   [9290] = {
-    [[Mage Training]],
+    [[法師訓練]],
   },
   [9291] = {
-    [[Priest Training]],
+    [[牧師訓練]],
   },
   [9292] = {
     [[破碎的死灵水晶]],
@@ -20793,6 +20922,11 @@ __ns.L.quest = {
     { [[我们最近成功地从坠毁地区回收了一个已经损坏的全息图象发射器。如果我们能把它修好，就有机会找到其他在埃门谷之外的幸存者了。]], [[埃索达坠毁时，有些备用零件也散落出了船外。本来我们可以迅速回收的，可它们现在被这一地区的枭兽全部运走了。]], [[<name>，你必须立刻到南方的木巢林地和木巢山去，回收那些备用零件。]], },
     { [[收集4份发射器备用零件，然后向埃门谷坠毁点的技师沙娜安复命。]], },
   },
+  [9308] = {
+    [[<DEPRECATED>Blood Elf Remains?]],
+    { [[你認為躺在地上的殘骸是屬於一個辛多雷 -- 血精靈 -- 的屍體。看他的樣子是在灌木叢裡遭到幾個野蠻的突變梟獸攻擊了。]], [[搜索屍體，你發現他脖子上戴了一條護符。或許復仇者艾德會對這個有點興趣?]], },
+    { [[將血精靈護身符帶到安曼谷交給失事地點的復仇者艾德。]], },
+  },
   [9309] = {
     [[失踪的斥候]],
     { [[我们最近数次确认了暗影山附近有一些非正常活动的迹象。]], [[这很让人不安，我已经向那里派出了数名斥候，要求他们彻底侦察那边的信息。但其中有一名斥候现在仍然还未回来，也没有收到他的报告。]], [[<class>，我要求你立刻去西南方侦察，到湖的另一边找到图兰，然后看看是什么让他迟到了。]], },
@@ -20825,8 +20959,13 @@ __ns.L.quest = {
   },
   [9315] = {
     [[阿诺克苏塔]],
-    { [[Come closer, I am ... dying.]], [[I was sent here ... to slay these nerubians, but Vandril didn't ... know that they have a leader.]], [[<The dying blood elf coughs up a good amount of blood.>]], [[You must find and ... slay Anok'suten.  Get help.  She wanders around ... Suncrown Village.]], },
+    { [[靠近一點，我快……死了。]], [[我被派來這裡……殺這些奈幽蟲族，但是范德隆不……知道他們有個領導者。]], [[<垂死的血精靈咳出了大量的鮮血。>]], [[你一定要找到……並殺死安羅科舒頓。找人幫忙。她在日冠村……附近遊蕩。]], },
     { [[杀死阿诺克苏塔，然后向幽魂之地塔奎林的奥术师范迪瑞尔复命。]], },
+  },
+  [9316] = {
+    [[[TXT]哥布林掠奪者]],
+    { [[<布理安娜用搜索的目光看了你一眼。>]], [[那麼，你想殺一些哥布林，是嗎?嗯，如果你下定決心，可以從附近的掠奪者開始。幫我帶來他們的牙齒做為證據。]], },
+    { [[設計者之島的布理安娜·史奈德要10顆哥布林牙齒。]], },
   },
   [9317] = {
     [[神圣的磨刀石]],
@@ -20882,7 +21021,7 @@ __ns.L.quest = {
   },
   [9329] = {
     [[被遗忘者]],
-    { [[I know it seems strange, but the Forsaken are here to help. You should speak with their leader, High Executor Mavren.  He's in the tower on the west side of town.]], [[And, <class>, when you're done talking with him return to me; I have something dire that needs to be dealt with immediately!]], },
+    { [[我知道這聽起來很奇怪，但被遺忘者竟來這裡幫忙。你應該和他們的領導者高階執行官瑪弗倫談談。他就在城西邊的塔裡。]], [[還有，<class>，等你和他談完後再來找我;我有些緊急的事要立刻處理!]], },
     { [[与塔奎林的高级执行官玛尔伦谈一谈。]], },
   },
   [9330] = {
@@ -20969,6 +21108,14 @@ __ns.L.quest = {
     { [[我除了时刻警惕失心者滋扰生事之外，还要处理一堆声称看到暗夜精灵的虚假情报。]], [[虽然事实证明大多数情报都是子虚乌有，但是有件事倒是值得深入调查下。最近，我们的主要能源供给站西部圣殿遭到了严重破坏，传言都说是达纳苏斯的暗夜精灵干的。]], [[去那儿看看有没有可疑的家伙出没。然后向驻守在西部圣殿的魔网监护者薇兰妮亚汇报情况。]], },
     { [[前往鹰翼广场西南方的西部圣殿击败在那一带出现的入侵者，然后将你发现的情况汇报给魔网监护者薇兰妮亚。]], },
   },
+  [9353] = {
+    [[可口可樂禮物盒兌換券]],
+  },
+  [9354] = {
+    [[尋找新材料]],
+    { [[<矮人期望地從他的工作裡抬起頭來。>]], [[如果你也想要一件的話，排隊吧，<class>。我光是要維修Sons的裝備以及為將來的戰役做準備就已經忙翻了。]], [[自從地殼穿刺者入侵礦坑後我們的金屬存貨就越來越少。我一直在用天然材料做試驗，放牧於城堡東北邊牧的突變裂蹄，牠們所提供之天然材料，一直被我拿來做試驗，雖然他們不是鐵的替代品，我要試著讓他們變成是。]], },
+    { [[從突變的裂蹄身上收集8塊裂蹄皮和8個裂蹄腱。等你弄到了材料把它們帶給榮譽堡的休夫利。]], },
+  },
   [9355] = {
     [[聪明人的工作]],
     { [[你好，<class>。总算有援兵过来了，现在我们终于可以开始处理周边生物所造成的问题了！]], [[我们的首要目标是确保西南边的那条道路的交通安全，但现在那些该死的硬壳穿地虫在那里频繁出没，将路面也破坏得凌乱不堪。]], [[如果你愿意帮助我们解决那些可恶的家伙，洛萨之子将感激不尽。不过，你千万得小心，它们很敏感。]], },
@@ -20980,9 +21127,9 @@ __ns.L.quest = {
     { [[将12只强壮的秃鹫翅膀交给飞艇坠毁点的雷加希。]], },
   },
   [9357] = {
-    [[BETA Report to Aeldon Sunbrand]],
-    { [[If you're looking for work, you'll find Captain Sunbrand inside the Inner Elf Gate, through the doors behind me.]], [[Now leave me be, I must question this scoundrel.]], },
-    { [[Report to Aeldon Sunbrand at the Inner Elf Gate in Eversong Woods.]], },
+    [[向艾爾頓·桑布蘭德報告]],
+    { [[如果你是來找工作的你可以在內精靈之門裡面找到桑布蘭德隊長，通過我身後的這扇門就是了。]], [[現在快走吧，我要好好拷問這個惡棍。]], },
+    { [[向永歌森林內精靈之門的艾爾頓·桑布蘭德報告。]], },
   },
   [9358] = {
     [[游侠萨蕾恩]],
@@ -21042,7 +21189,7 @@ __ns.L.quest = {
   [9369] = {
     [[补充治疗水晶]],
     { [[我们是德莱尼人。许多族人在飞船坠毁时身负重伤，亟待医治，可是治疗水晶已经所剩不多了。我们必须迅速补充库存！]], [[眼下这种窘迫的局面，也只能用峡谷蛾的血液作为治疗水晶的替代品。]], [[峡谷蛾随处可见，不过它们大多分布在西北边。]], },
-    { [[Acquire 8 Vials of Moth Blood from the nearby Vale Moths and bring them to Proenitus at the Crash Site in Ammen Vale.]], },
+    { [[從附近的安曼谷飛蛾身上取得8瓶飛蛾血清，再回到安曼谷失事地點的波尼特斯那裡。]], },
   },
   [9370] = {
     [[阻止净化]],
@@ -21086,8 +21233,8 @@ __ns.L.quest = {
   },
   [9380] = {
     [[群居的猎犬]],
-    { [[I swear, if I get one more letter from Ironforge...]], [[Have you ever tried to explain something to someone who just wouldn't listen, <class>? I sent the boys in Ironforge the warp hound they asked for, and they had the gall to write back saying they wanted a "pack" of the things! A pack!]], [[So, I tried to tell 'em that warp hounds are solitary creatures, but they'd have none of it. I've given up on setting 'em straight. Grab 6 of the best ones from the area east of the hold, and brimg 'em back here?]], },
-    { [[Collect 6 Undamaged Warp Hound Corpses and bring them to Prospector Murantus in Honor Hold.]], },
+    { [[我發誓，如果我再收到一封從鐵爐堡來的信……]], [[你有沒有向某個不聽你說話的人解釋過某件事，<class>?我把鐵爐堡的人要的地獄獵犬送了去，而他們竟無恥的寫信說他們要一「群」!一群!]], [[所以，我試著告訴他們地獄獵犬不是群居的生物，但他們置之不理。我已經放棄說服他們了。從要塞東邊捕捉6隻最好的地獄獵犬然後帶回來這裡給我?]], },
+    { [[收集6個完整的地獄獵犬屍體並帶給榮譽堡的勘察員穆蘭特斯。]], },
   },
   [9381] = {
     [[箭矢之羽]],
@@ -21195,9 +21342,9 @@ __ns.L.quest = {
     { [[Dive to the bottom of Stillwhisper Pond and retrieve the Azure Phial for Instructor Antheol.]], },
   },
   [9403] = {
-    [[The Purest Water]],
-    { [[Now that you've learned a little lesson, I'll offer you something more substantial.  It concerns your ability to defend yourself in close combat.  Of course, you should only resort to melee in the most dire of circumstances, but that is no excuse to be unprepared.]], [[I can assist you in creating a staff befitting a mage of your learning.  Simply take the phial you retrieved for me and fill it at the base of Elrendar Falls.  Just follow the river southeast from here.]], },
-    { [[Instructor Antheol wants you to fill the Azure Phial at Elrendar Falls.]], },
+    [[純淨之水]],
+    { [[既然你已經學到一些東西了，那我就在教你更實際的東西吧。在近戰狀態下能夠保護自己，跟你的能力有關。當然，在大部分緊迫的情況下你該求助於近戰，但那不是你不做準備的藉口。]], [[我可以協助你製作一個適合你的法師訓練的法杖。把你為我取得的小玻璃瓶拿去裝滿艾蘭達瀑布底部的水。沿著東南方的河流走就可以了。]], },
+    { [[導師安西歐要你去艾蘭達瀑布裝滿碧藍之瓶。]], },
   },
   [9404] = {
     [[Recently Living]],
@@ -21211,18 +21358,18 @@ __ns.L.quest = {
   },
   [9406] = {
     [[玛格汉]],
-    { [[This news you bring from beyond the Dark Portal...  you want us to believe the son of Durotan now rules over the lands beyond it... free from any demonic taint?  And that now his people have returned to this world?]], [[I hope for your sake that this isn't some manner of joke, <class>.  What this means to my people... cannot be described.  I must send word to Nagrand at once!  Hellscream must hear about this.]], [[Take this letter back to your leader in Thrallmar.  Tell him the Mag'har welcome them!]], },
+    { [[你從黑暗之門那一邊帶來的這個消息……你要我們相信杜洛坦之子現在統治著它後方的土地……沒有任何惡魔的污點?還有現在他的人民已重回這個世界?]], [[為了你好，我希望這不是什麼玩笑話，<class>。這對我族人的意義……是無法言喻的。我一定要立刻捎個口信到納葛蘭!地獄吼一定要聽聽這個消息。]], [[帶著這封信回去索爾瑪給你的領導者。告訴他瑪格哈歡迎他們!]], },
     { [[将玛格汉的来信送给萨尔玛的纳兹格雷尔。]], },
   },
   [9407] = {
     [[穿越黑暗之门]],
-    { [[For years the Dark Portal loomed silent... forgotten.  But it is silent no longer.]], [[After stopping the demonic assault here, our forces breached the portal and met the demons on their own ground!]], [[Now, we are locked in a savage war, and there are some who think we might not win.  So it is our duty, our grim pleasure, to battle the fiends of Outland and ensure our victory, <name>.]], [[If you would help us, then report to Lieutenant General Orion at once. He awaits you in the Outland...]], },
-    { [[Travel through the Dark Portal and find Lieutenant General Orion. He awaits your arrival on the other side, in Outland.]], },
+    { [[多年來黑暗之門呈現靜默……被遺忘的狀態。但它不再沉默了。]], [[在停止這裡猛烈的攻擊後，我們的軍隊衝破這道大門與這些惡魔們在他們的地盤見面了!]], [[現在，我們被困在這場凶惡的戰爭中，而有一些人認為我們可能會輸。然而這是我們的責任，我們堅定的信念，擊倒這些外域的惡魔並確保我們的勝利，<name>。]], [[如果你能幫忙我們，就立刻去跟歐萊恩中將報告。他在外域等著你……]], },
+    { [[傳過黑暗之門找到歐萊恩中將。他在另外一邊等著你的到達，就在外域裡。]], },
   },
   [9408] = {
     [[被遗忘的英雄]],
-    { [[While it pains me to know that we have lost so many soldiers in our efforts to breach the portal, my heart swells with pride to know that the original expeditionary force is still alive.]], [[I can hardly believe it; but here they stand - a testament to the resolve of the Alliance.]], [[Inside that keep stands one of our greatest heroes: Danath Trollbane! Seek him out, <class>. He has already met and addressed all of our soldiers. He will surely want to meet you.]], },
-    { [[Speak with Force Commander Danath Trollbane at Honor Hold.]], },
+    { [[雖然我們努力突破黑暗之門時失去了那麼多的士兵讓我很心痛，但知道原始的遠征隊還活著也讓我的心因為充滿驕傲而澎湃。]], [[我真的很難相信;但他們就站在這裡 - 一個能證明聯盟之決議的證據。]], [[那座堡壘裡站著我們最偉大的英雄之一:達納斯·托爾貝恩!找到他，<class>。他已見過我們所有的士兵並和他們談話。他一定會想見見你的。]], },
+    { [[和榮譽堡的軍隊指揮者達納斯·托爾貝恩談談。]], },
   },
   [9409] = {
     [[紧急物资！]],
@@ -21246,7 +21393,7 @@ __ns.L.quest = {
   },
   [9417] = {
     [[鸦人的威胁]],
-    { [[The arakkoa are smart creatures... smart as any gnome you ever met.  They have this way with magic and a violent temper, however.]], [[Lately they've taken to attacking Honor Hold patrols, which is why we were sent here.  See, Mirren and I are world-famous marksmen, we are!  But fowl and game are what we specialize in... not these... lightning-invoking birdmen.]], [[So what do you say you give us a hand in this one assignment?  You'll find the Den of Haal'esh to the southwest.]], },
+    { [[阿拉卡是種很聰明的生物……就和你見過的所有地精一樣聰明。不過，他們就是有這樣的魔法和暴躁的脾氣。]], [[最近他們攻擊了榮譽堡的巡邏者，這就是我們被派來這裡的原因。你聽，麥倫和我都是舉世聞名的神射手，我們實至名歸!但是我們的專長是獵鳥和其他獵物……而不是……召喚閃電的鳥人。]], [[對於這次的任務你說能給予我們什麼樣的協助?你會在西南邊找到海艾斯洞穴。]], },
     { [[地狱火半岛的格雷尼·长须要你杀死4名哈尔什风行者和6名哈尔什利爪卫兵。]], },
   },
   [9418] = {
@@ -21283,9 +21430,9 @@ __ns.L.quest = {
     { [[地狱火半岛塔哈玛特神殿的玛库鲁要你带回10个玛格汉先祖念珠。]], },
   },
   [9425] = {
-    [[Report to Tarren Mill]],
-    { [[Ah, good to see you here, <class>!  I've a task that you are perfectly suited to.]], [[As new members of the Horde, we need to make sure that we support their efforts and help them with their problems.  That way they'll be more receptive to helping us with ours.]], [[Travel to the Forsaken town, Tarren Mill, in the Hillsbrad Foothills to the southeast.  Check in with Advisor Duskingdawn when you arrive.]], },
-    { [[Travel to Tarren Mill in the Hillsbrad Foothills and speak with Advisor Duskingdawn.]], },
+    [[向塔倫米爾報告]],
+    { [[啊，很高興再次見到你，<class>!我有一個相當適合你的任務。]], [[加入成為部落的一員，我們要確定支持他們的努力，並協助他們解決問題。這樣更有助於他們幫助我們。]], [[前往希爾斯布萊德丘陵東南方被遺忘者之城的塔倫米爾。當你到達時，請去找諫言者·幽明。]], },
+    { [[前往希爾斯布萊德丘陵的塔倫米爾和諫言者·幽明談談。]], },
   },
   [9426] = {
     [[阿苟纳之池]],
@@ -21298,14 +21445,14 @@ __ns.L.quest = {
     { [[前往阿苟纳之池，对阿苟纳的尸体使用净化水瓶。当阿苟纳的精华被净化之后，回去向智者阿曼恩复命。]], },
   },
   [9428] = {
-    [[Report to Splintertree Post]],
-    { [[<The ambassador keeps her voice low as she leans in close.>]], [[Your reputation precedes you, <name>.  I want you to travel to Splintertree Post in Ashenvale.  The easiest way to get there on foot is to travel west through Durotar and the Barrens, and then turn north at the fork in the road.]], [[When you arrive, speak with Advisor Sunsworn.  Travel carefully; Ashenvale can be a very dangerous place!]], },
-    { [[Travel to Splintertree Post in Ashenvale and speak with Advisor Sunsworn.]], },
+    [[向碎木崗哨回報]],
+    { [[<當她靠近的時候，大使要她降低音量。>]], [[你享譽盛名，<name>。我要你前往在梣谷的碎木崗哨。步行前往最方便的道路是往西走穿過杜洛塔和貧瘠之地，然後再分叉路往北轉。]], [[當你到達時，和諫言者·日誓談談。路上小心;梣谷是個很危險的地方!]], },
+    { [[前往梣谷的碎木崗哨，和諫言者·日誓談談。]], },
   },
   [9429] = {
-    [[Travel to Darkshire]],
-    { [[I am told that there is a thorn in the side of the kingdom of Stormwind.  It is known as Duskwood, and it is a place that is filled with evil and the vile stench of undeath.]], [[As we're trying to help as much as we can, I would like for you to travel southeast to the main human settlement there, named Darkshire.  Anchorite Delan will be awaiting your arrival.]], },
-    { [[Travel to Darkshire in Duskwood and speak with Anchorite Delan.]], },
+    [[前往夜色鎮]],
+    { [[我被告知暴風城有大麻煩了。著名的暮色森林，一個充滿不死生物邪惡及污穢臭味的地方。]], [[就在我們努力幫忙的同時，我要你前往東南方的夜色鎮，那是人類主要居住的城鎮。隱士·迪藍會等待你的到達。]], },
+    { [[到暮色森林的夜色鎮去找隱士·迪藍談談。]], },
   },
   [9430] = {
     [[沙纳尔圣物]],
@@ -21314,13 +21461,13 @@ __ns.L.quest = {
   },
   [9431] = {
     [[另有高招]],
-    { [[What's a sin'dorei doing standing on the top of a windswept butte in Thousand Needles instead of the halls of Silvermoon?]], [[It's simple. My brethren will no longer have me. Every copy of my treatise on natural cures for our magical addiction was burned.]], [[I can safely pursue my research here, but I am without my reagents. If you'd be willing to gather purifying earth from the thundering boulderkin near the western end of the Needles and deliver it to my associate at Whitereach Post, I'd appreciate it.]], },
-    { [[Gather 2 handfuls of Purifying Earth from Thundering Boulderkin and take them to Wizlo Bearingshiner at Whitereach Post.]], },
+    { [[辛多雷不在銀月城的大廳，反而建立在千針石林一座迎風的孤峰頂上幹嘛?]], [[很簡單。我的同胞將不再擁有我了。我之前寫過一本關於魔法癮之天然療法的論文，但是所有的書都被燒掉了。]], [[我可以在這裡安全地追求我的研究，但我的試劑用完了。如果你願意去石林西部盡頭附近的雷鳴岩石元素身上弄到淨化泥土，並送到白沙崗哨給我的同事，我會很感激。]], },
+    { [[從雷鳴岩石元素身上收集2把淨化泥土並將它們帶給白沙崗哨的維茲羅·擦軸人。]], },
   },
   [9432] = {
-    [[Travel to Astranaar]],
-    { [[I am glad that you are here to help.  In fact, there is something that you can do.]], [[As part of our inclusion within the Alliance, I would like for you to travel to the night elf town, Astranaar.  It is located in Ashenvale, a large forest that is south of Darkshore on the continent of Kalimdor.]], [[Please speak with Vindicator Palais when you arrive to see if there's anything that you can do to help the inhabitants.]], },
-    { [[Travel to Astranaar in Ashenvale and speak with Vindicator Palais.]], },
+    [[前往阿斯特蘭納]],
+    { [[我很高興你來這裡幫忙。事實上，有件事你可以做。]], [[身為聯盟的一份子，我希望你可以前往夜精靈之城，阿斯特蘭納。它就在梣谷裡，卡林多大陸上，黑海岸南方的一座大森林。]], [[到達後請和復仇者帕賴斯談談，看看你能做什麼來幫助居民。]], },
+    { [[前往梣谷的阿斯特蘭納並和復仇者帕賴斯談談。]], },
   },
   [9433] = {
     [[A Dip in the Moonwell]],
@@ -21334,8 +21481,8 @@ __ns.L.quest = {
   },
   [9435] = {
     [[[DEPRECATED] 遗失的水晶]],
-    { [[If there's one great truth about Hillsbrad, it's that this region is destined to live under the shadow of war. Even something as innocuous as a cartload of stone is a target.]], [[Normally the loss of building materials is no great setback, but the most recent shipment from the Azurelode mine contained a crate of rare crystals I was eager to study. Forsaken raiders intercepted the cart and drove it northeast to a tower they're attempting to rebuild. It's imperative that we retrieve those crystals, <class>!]], },
-    { [[Retrieve the Shipment of Rare Crystals from the Forsaken and return it to Huraan in Southshore.]], },
+    { [[如果希爾斯布萊德有什麼很棒的事實，那就是那裡註定要活在戰爭的陰影之下。就連像一車的石頭這樣無害的東西都是目標。]], [[通常損失建築材料不是什麼了不起的挫敗，但最近從碧玉礦坑運來的貨物裡包含了一箱我急著要研究的稀有水晶。被遺忘者劫掠者攔截了那輛貨車，並把它開到東北方他們想重建的哨塔那裡。我們一定要立刻奪回那些水晶，<class>!]], },
+    { [[從被遺忘者那裡取回一箱稀有水晶並交給南海鎮的胡嵐。]], },
   },
   [9436] = {
     [[血顶巨魔的魔法]],
@@ -21348,73 +21495,78 @@ __ns.L.quest = {
     { [[前往北点哨塔，从塞拉摩军队手中夺回黎明号的货物，搭救大副伊萨妮亚，然后返回蕨墙村向巴尔兰达·新星复命。]], },
   },
   [9438] = {
-    [[Messenger to Thrall]],
-    { [[The warchief has been waiting for word of this ever since we set foot on Outland.  Now you get the honor of giving him the news of the Mag'har yourself.]], [[Go quickly, <name>.  Take this letter with you; it bears my personal seal.  There is nothing that Thrall wants to hear more than the message you bear.]], },
-    { [[Travel to Orgrimmar and give Thrall the Letter from Nazgrel.]], },
+    [[給索爾的消息]],
+    { [[自從我們來到外域後大酋長就一直在等這個消息。現在你有這個殊榮能親自告訴他瑪格哈的消息。]], [[快去吧，<name>。帶著這封信;上面印有我個人的封印。沒有什麼消息比你帶去的更讓索爾想聽了。]], },
+    { [[前往奧格瑪將來自納茲格雷爾的信交給索爾。]], },
   },
   [9439] = {
-    [[Unclaimed Baggage]],
-    { [[This is Kargath? Oh, dear. I expected a, a... well, some kind of settlement, some sign of civilization here in the wilderness.]], [[There must be a mistake; surely this hovel full of uncouth, unwashed, sniggering savages can't be the headquarters of the Expeditionary Force. The loutish barbarians had the gall to laugh at me when I told them about how the Dark Iron dwarves robbed me and then disappeared into the Angor Fortress. I can count on you to help me recover my possessions and my dignity, can't I?]], },
-    { [[Retrieve the Advisor's Pack and Advisor's Rapier from their holding places in the Angor Fortress and return them to Advisor Sarophas at Kargath.]], },
+    [[無人的行李]],
+    { [[這裡是卡加斯?喔，天啊。我還以為是個，一個……呃，某種聚居地，在這個荒野裡某種文明的象徵。]], [[一定出了什麼錯;這個充滿粗野，骯髒，竊笑野蠻人的小屋不會是遠征軍的總部。當我告訴這些笨拙的野蠻人那些黑鐵矮人是如何搶劫我又消失在苦痛堡壘時，他們竟然厚顏無恥的笑我。我可以靠你幫我取回我的財產和尊嚴吧，可以嗎?]], },
+    { [[從黑鐵矮人在苦痛堡壘的地盤取回諫言者的包裹和諫言者的細劍再還給卡加斯的諫言者·薩羅法斯。]], },
   },
   [9440] = {
-    [[Little Morsels]],
-    { [[I'm perfecting a weapon to use against the draenei and you're going to help me!]], [[The Lost Ones are the backward cousins of the draenei, and I've been experimenting on them.  I just need you to feed some fel-tainted morsels to their captured livestock.  In turn, when they slaughter and eat the animals, they'll be cursed!  That'll show that stuffy Anchorite Avuun at the Harborage!]], [[Go now, hurry!  You'll find the Lost Ones and their caged animals to the northeast at the Fallow Sanctuary.]], },
-    { [[Feed the Fel-Tainted Morsels to the Lost Ones' captured animals.  Then return the leftovers to Cersei Dusksinger at Stonard in the Swamp of Sorrows.]], },
+    [[一點食物]],
+    { [[我在製作一個用來對付德萊尼的武器，我需要你的協助!]], [[失落者是德萊尼進化的前身，我一直在對他們做實驗。我要你去拿被邪惡汙染的食物去餵給他們所捕捉的家畜。然後當他們宰殺並吃了這些動物的同時，他們也會被詛咒!那會給避難營自負的隱士·艾弗恩一點顏色瞧瞧!]], [[現在就去吧，快!你可以在農田避難所東北方找到失落者和他們被關著的動物。]], },
+    { [[將邪惡污染的食物餵給被失落者捕捉的動物。再帶著殘羹剩菜回到悲傷沼澤的斯通納德找瑟賽·幽歌者。]], },
   },
   [9441] = {
-    [[Envoy to the Mag'har]],
-    { [[I'd leave for Outland this very minute after hearing the news you brought.  Important matters require my attention in Durotar, however.]], [[I will arrange for a fitting tribute to be sent to the Mag'har immediately.  I will send my most trusted diplomats as well.  This will all take time... I need someone to represent us there right now.]], [[I must place my trust on you, <name>.  Go to the Mag'har Post in Hellfire and render whatever services you can to my kin.  Do not fail me, <name>.  Too much depends on this.]], },
-    { [[Thrall wants you to return to Gorkan Bloodfist at Mag'har Post in Hellfire Peninsula and offer him your services.]], },
+    [[瑪格哈使者]],
+    { [[聽完你帶來的消息我這一刻真的很想起身前往外域。不過在杜洛塔這裡的重要事情仍需要我來處理。]], [[我會立刻安排一份適合的禮品送去給麥哈。我也會派我最信任的外交官前往。這全都需要時間……我需要某人到那裡代表我們。]], [[我一定要將我的信任託付給你，<name>。前往地獄火的瑪格哈崗哨對我的族人提供所有你能做的協助。別讓我失望，<name>。一切就靠這了。]], },
+    { [[索爾要你回到地獄火半島的瑪格哈崗哨找葛坎·血拳並協助他。]], },
   },
   [9442] = {
-    [[A Debilitating Sickness]],
-    { [[It is good that you've offered to aid us, <name>.  Our grunts have fallen sick from drinking contaminated water and I'm missing an ingredient to produce a healing salve.  I'm in need of a rare mushroom called drycap.]], [[Our foremost orders are to keep our location secret and not risk being spotted while looking for it, or I would go myself.  The only place in Hellfire Peninsula where drycap grows is a cave at the Great Fissure, south of here.]], [[Be extremely careful if you choose to seek it.]], },
-    { [[Earthcaller Ryga at Mag'har Post in Hellfire Peninsula wants you to bring her 1 Drycap Mushroom from a cave inside the Great Fissure.]], },
+    [[削弱力量的疾病]],
+    { [[你願意幫助我們實在是太好了，<name>。我們的蠻兵因為喝了污染的水而生病了，而我又找不著解毒劑的原料。我需要一種名叫乾頂的稀有磨菇。]], [[我們首先要做的是保持位置的隱密，且在尋找磨菇時別冒著被發現的危險，不然我寧可親自上陣。地獄火半島上唯一有乾頂磨菇的地方是在大裂縫的洞穴中，就在這邊的南方。]], [[如果你選擇去尋找，就得非常的小心。]], },
+    { [[地獄火半島上瑪格哈崗哨的大地呼喚者瑞卡要你從大裂縫裡的洞穴帶1個乾頂磨菇給她。]], },
   },
   [9443] = {
-    [[The So-Called Mark of the Lightbringer]],
-    { [[I was once a pupil of Uther Lightbringer, founder of the Knights of the Silver Hand. I saw how he mishandled Prince Arthas's training. It led to the destruction of my homeland, Quel'Thalas, and I blame Uther and his incompetence for all of it! And now he has a tomb in his honor - how lovely.]], [[My sources tell me that the scarlet fools are keeping one of his 'holy' relics atop their guard tower near the gates of Hearthglen.]], [[Go to the Western Plaguelands and retrieve it for me.]], },
-    { [[Obtain the Mark of the Lightbringer and return it to Mehlar Dawnblade at the Bulwark in the Western Plaguelands.]], },
+    [[所謂的光明使者的印記]],
+    { [[我曾是烏瑟·光明使者的一個學生，他是白銀之手騎士團的創立者。我看過他如何粗暴地對待阿薩斯王子的訓練。那導致了我的家園，奎爾薩拉斯的毀滅，我把一切都歸因於烏瑟和他的無能!而現在他竟然還有自己光榮的墓碑 - 真是美好。]], [[我的資訊告訴我那些血色笨蛋把他的一個'神聖'的聖物放在他們壁爐谷附近的守衛哨塔頂端。]], [[去西瘟疫之地把它拿回來給我。]], },
+    { [[取得光明使者記號再帶回西瘟疫之地的亡靈壁壘給瑪拉·曦刃。]], },
   },
   [9444] = {
-    [[Defiling Uther's Tomb]],
-    { [[There, that's better.  I've added a little fel magic to it.]], [[Now, you must take it to his resting place in the Western Plaguelands.  Use the corrupted holy symbol in the presence of Uther's statue to defile his tomb!  You'll have to get close for it to work.]], [[To find the tomb go southeast of the Ruins of Andorhal.  Return to me when the deed is done.]], [[Be quick about it, <class>!]], },
-    { [[Defile Uther's Tomb and return to Mehlar Dawnblade at the Bulwark in the Western Plaguelands.]], },
+    [[褻瀆烏瑟之墓]],
+    { [[這樣好多了。我加了一點邪惡魔法在裡面。]], [[現在，你一定要把它帶到他在西瘟疫之地的安息之處。在烏瑟的雕像前使用腐敗的神聖象徵來褻瀆他的墓碑!你要靠近一點才能讓它產生作用。]], [[要找到墓碑就到安多哈爾廢墟的東南方去。完成後再回來找我。]], [[動作快，<class>!]], },
+    { [[褻瀆烏瑟之墓再回到西瘟疫之地的亡靈壁壘找瑪拉·曦刃。]], },
+  },
+  [9445] = {
+    [[<NYI><TXT>Placeholder: A Worthy Offering]],
+    nil,
+    { [[從壁爐谷入口附近的守衛哨塔頂端取得烏瑟的祝福，再帶給冰風崗的<NPC>。]], },
   },
   [9446] = {
-    [[Tomb of the Lightbringer]],
-    { [[Now that you've recovered the Mark of the Lightbringer, all that is left is to return it to Uther's Tomb.]], [[Would you be willing to accompany me there to do this?  It's not far and I would enjoy your company.  Afterward you can come back here and relate the experience to High Priestess MacDonnell.]], [[What say you, <name>?]], },
-    { [[Escort Anchorite Truuen to Uther's Tomb in the Western Plaguelands.  Afterward, speak with High Priestess MacDonnell at Chillwind Camp in the Western Plaguelands.]], },
+    [[光明使者之墓]],
+    { [[既然你已取回光明使者的印記，剩下要做的就是把它帶回烏瑟之墓。]], [[你願意陪我一起去嗎?那裡不遠，我也喜歡你的陪伴。之後你可以回來這裡將經驗告訴高階牧師瑪多妮爾。]], [[你說怎麼樣，<name>?]], },
+    { [[護送隱士·楚恩到西瘟疫之地的烏瑟之墓。之後，再到西瘟疫之地的冰風營地和高階牧師瑪多妮爾談談。]], },
   },
   [9447] = {
-    [[Administering the Salve]],
-    { [[I've prepared a simple salve that should restore our grunts' strength with the herbs you brought me.  Take it and administer it to any debilitated grunts you see in the vicinity.  Return to me when you're done.]], },
-    { [[Earthcaller Ryga wants you to administer the Healing Salve to 10 Debilitated Mag'har Grunts nearby Mag'har Post in Hellfire Peninsula.]], },
+    [[使用藥膏]],
+    { [[我用你帶給我的草藥準備了一種簡單的藥膏可以恢復我們蠻兵的力量。帶著它並將它使用在你看見的疲憊不堪的蠻兵身上。完成後回來找我。]], },
+    { [[大地呼喚者瑞卡要你到地獄火半島的瑪格哈崗哨，對10個疲憊不堪的瑪格哈蠻兵使用治療藥膏。]], },
   },
   [9448] = {
     [[[DEPRECATED] 阿弗恩的怜悯]],
-    { [[That blood elf witch, Cersei Dusksinger, has been cursing the Lost Ones, I just know it!  I don't know why or how, but the results are tragic.  Several of the Lost Ones have now been further corrupted - cursed with even more fel energies!]], [[<class>, can you find it in you to take pity on these poor creatures?  They should not have to live out the rest of their lives in such a horrible condition.]], [[You'll find these cursed Lost Ones at the Fallow Sanctuary, east down the path.]], },
-    { [[Slay 3 Cursed Lost Ones and then return to Anchorite Avuun at the Harborage in the Swamp of Sorrows.]], },
+    { [[我就知道!那個血精靈女巫，瑟賽·幽歌者，一直在詛咒失落者。我不知道原因也不知道方法為何，但結果就是悲慘。幾個失落者因為被更邪惡的力量所詛咒，所以現在已經更加嚴重的腐敗了!]], [[<class>，你不覺得這些悲慘的生物很可憐嗎?他們不該在這樣可怕的狀態下過完一生。]], [[你可以在農田避難所找到這些被詛咒的失落者，在路的東邊。]], },
+    { [[殺死3個被詛咒的失落者再回到悲傷沼澤的避難營找隱士·艾弗恩。]], },
   },
   [9449] = {
     [[大地的召唤]],
-    { [[The time has come, <name>.  You have grown to the point where you are ready to commune directly with the elemental spirits of this world.]], [[But be warned.  I can sense that the manner of our entry into this world, and its unfortunate side effects, have angered the earth spirits and caused an imbalance of the elements.]], [[If you are to create your earth totem, you must first speak with the Spirit of the Vale.  You will find it in the Sacred Grove, nestled in the hills to the northwest.]], },
-    { [[Speak with the Spirit of the Vale at the Sacred Grove in Ammen Vale.]], },
+    { [[時候到了，<name>。你已經成長到準備直接與這世界的元素之靈交流的階段了。]], [[但是先警告你。我可以感應到，我們進入這世界的方法和它不幸的副作用已激怒了大地之靈並造成元素的不平衡。]], [[如果你要製造你的大地圖騰，就必須先和安曼谷之靈談談。你可以在神聖樹林裡找到它，就在山丘的西北邊。]], },
+    { [[到安曼谷的神聖樹林和安曼谷之靈談談。]], },
   },
   [9450] = {
     [[大地的召唤]],
-    { [[The balance of the elements has been disrupted by the violent intrusion of the draenei to the Vale.  Your crash has caused the spirits of earth to be enraged and turn upon the other elements who have come to quell them.  You will learn that an understanding of the elements can only come when all are in harmony.]], [[Thus, it falls to you to seek a balance.  Behind me in the grove you will find the restless spirits of earth warring upon the other three elements.  Help restore the balance.]], },
-    { [[Slay 4 Restless Elements of Earth and then return to the Spirit of the Vale at the Sacred Grove in Ammen Vale.]], },
+    { [[元素的平衡已被山谷裡德萊尼的狂暴入侵給瓦解了。你們的失事讓大地的靈魂被激怒，還轉向其他來壓制他們的元素。你知道，了解元素只可能發生在和諧的狀態下。]], [[因此，尋求平衡就是你的責任了。在我身後的樹林裡有著不安的大地靈魂和其他三種元素鬥爭著。幫忙恢復平衡。]], },
+    { [[殺死4個不安的大地元素再回到安曼谷的神聖樹林找安曼谷之靈。]], },
   },
   [9451] = {
     [[大地的召唤]],
-    { [[I will now give you a piece of my physical being that you may create your earth totem.  Return it to he who sent you here.]], [[You and I will be bound together for all time.  Throughout your life the forces of earth will be at your disposal.  The balance will come when your bones return to us at the end of your days.]], [[Use our power wisely.]], },
-    { [[Deliver the Earth Crystal to Firmanvaar at the Crash Site in Ammen Vale.]], },
+    { [[我現在要給你一塊我的實體讓你製造你的大地圖騰。把它交給送你來這裡的那個人。]], [[我和你就會永遠被綁在一起。你的一生都將可以支配大地的力量。等你的骨頭在生命結束後回到我們這裡它就會達到平衡。]], [[聰明地使用我們的力量。]], },
+    { [[將大地水晶送到安曼谷給失事地點的法曼瓦。]], },
   },
   [9452] = {
     [[美味的红钳鱼]],
-    { [[I've found that these waters are bustling with red snapper, a very tasty fish. With a fishing net, I can catch enough to feed dozens of draenei! Unfortunately, I was recently attacked by a creature known as a murloc while netting in the river and have suffered some injuries that prevent me from doing my job. I need help!]], [[Use this fishing net near schools of red snapper, found in the Crystalbrook river to the east to catch the fish.]], [[What do you say? Remember to return the net when you are finished.]], },
+    { [[我發現這些水裡充滿了活躍的紅鯛魚，一種非常美味的魚。只要有個捕魚網，我就能抓到足夠的魚來餵飽許多的德萊尼!不幸的是，我最近在河裡捕魚時被一種叫做魚人的生物攻擊，受了點傷無法進行我的工作。我需要幫忙!]], [[到東邊的水晶河川捕捉這種魚，記得在成群的紅鯛魚旁使用這個捕魚網。]], [[你說怎麼樣?完成後記得把魚網帶回來。]], },
     { [[使用德莱尼渔网抓住10只红钳鱼。任务完成后把鱼和渔网交给秘蓝岛的迪泰娜。]], },
   },
   [9453] = {
@@ -21449,13 +21601,13 @@ __ns.L.quest = {
   },
   [9461] = {
     [[火焰的召唤]],
-    { [[You should know that The Prophet has been asking for you, having heard of your success in your trial. The creation of your fire totem will have to wait until you have spoken with him.]], [[This is a rare honor; you must hurry to the Exodar to see him at once!]], },
-    { [[Seek out Prophet Velen at the Vault of Lights in the Exodar.]], },
+    { [[你應該知道預言者在聽說你成功的通過試鍊後曾提起過你吧。不過你得先和他談過才能得到火焰圖騰。]], [[這可是珍貴的殊榮喔;你得馬上到艾克索達去見他!]], },
+    { [[到艾克索達的聖光地窖尋找預言者費倫。]], },
   },
   [9462] = {
     [[火焰的召唤]],
-    { [[<name>! It is time for you to receive further training in the ways of the spirits. You should seek out Tuluun, the shaman at Azure Watch. He can begin your introduction to understanding and harnessing the power of flame.]], },
-    { [[Speak with Tuluun at Azure Watch on Azuremyst Isle.]], },
+    { [[<name>!是時候讓你接受靈魂更深入的訓練了。你要去找塔奴藍，一個藍色守望的薩滿。他可以引導你了解並駕馭火焰的力量。]], },
+    { [[到藍謎島和藍色守望的塔奴藍談談。]], },
   },
   [9463] = {
     [[医疗材料]],
@@ -21464,13 +21616,13 @@ __ns.L.quest = {
   },
   [9464] = {
     [[火焰的召唤]],
-    { [[Once again you are to be tested, and this time the chaotic element of fire must be understood if you're to create a totem to harness its energies.]], [[To the northeast on the coast is a sacred place of fire known as Emberglade. Amidst its burned trees stands Temper, a fire elemental of great power, and the one that you must speak with.]], [[Go to him now and may the elemental spirits of Azeroth go with you.]], },
-    { [[Speak with Temper at Emberglade on Azuremyst Isle.]], },
+    { [[你再一次地要被試煉，而你如果想創造一個圖騰來駕馭火焰元素的能量，就一定要理解這次的混亂。]], [[東北邊海岸有一個神聖的火焰之地叫餘燼林地。暴躁者就在它被燃燒的樹中，他是一個有著強大力量的火焰元素，你一定要和他談談。]], [[現在就去找他，願艾澤拉斯的元素之靈跟隨著你。]], },
+    { [[到藍謎島和餘燼林地的暴躁者談談。]], },
   },
   [9465] = {
     [[火焰的召唤]],
-    { [[One of my brethren, Hauteur, has gone insane, no doubt because of the crash of your ship.  He's begun demanding that the local owlbeasts worship him.]], [[This will not continue!  None of us would ever impersonate a god!  It falls to you to restore the balance.]], [[First, you must retrieve their ritual torch, which has been taken by the crazed wildkin inside Stillpine Hold to the west.]], [[Return the torch to me.]], },
-    { [[Retrieve the Ritual Torch and return it to Temper at Emberglade on Azuremyst Isle.]], },
+    { [[我有一個叫郝特的同胞發瘋了，無疑是因為你的船失事的緣故。他開始要求當地的梟獸崇拜他。]], [[這不能繼續下去!我們不能有人假扮成神祇!恢復平衡是你的責任。]], [[首先，你一定要取得他們的儀式火炬，它被瘋狂的梟獸帶到西邊的靜松要塞裡了。]], [[把火炬帶回來給我。]], },
+    { [[取回儀式火炬並帶回藍謎島給餘燼林地的暴躁者。]], },
   },
   [9466] = {
     [[通缉：黑色利爪]],
@@ -21479,13 +21631,13 @@ __ns.L.quest = {
   },
   [9467] = {
     [[火焰的召唤]],
-    { [[The owlbeasts of Moonwing Den on Silvermyst Isle, far to the southwest, have been deluded into thinking that Hauteur is a god to be worshipped.  What he truly is, is a fallen elemental who needs to be put out of his misery.  That torch is the key to his downfall.]], [[Hauteur regularly demands that these owlbeasts burn an effigy in his honor.  So, when you light it, he will come.  Slay him and bring me the ashes.  Then use the orb in the satchel that I will give you to return to me here.]], },
-    { [[Retrieve Hauteur's Ashes and then return them and the Ritual Torch to Temper at Emberglade on Azuremyst Isle.  Remember that you can use the Orb of Returning to teleport back to Temper once you have the ashes.]], },
+    { [[遠在西南邊的銀謎小島裡，月翼獸窟的梟獸受到迷惑，錯把郝特當成他們的神祇來崇拜。而事實上他是一個需要從自身的悲慘中解脫的墮落元素。那個火炬就是他覆滅的關鍵。]], [[郝特通常命令這些梟獸以燃燒肖像來榮耀他。因此，當你將它點燃，他就會出現了。殺了他並將他的骨骸帶來給我。然後使用我給你的背包中的寶珠回來我這。]], },
+    { [[取得郝特的骨骸並將它們和儀式火炬一起帶回藍謎島給餘燼林地的暴躁者。記得你拿到骨骸後就可以使用歸返寶珠傳送回暴躁者那裡。]], },
   },
   [9468] = {
     [[火焰的召唤]],
-    { [[You have done a great thing here today in your pursuit of understanding your relationship to the flame.  Remember to always treat it with the utmost respect lest you get burned.]], [[I saved a portion of Hauteur's ashes for you.  Use them in the creation of your fire totem and remember all that you have learned in their attainment.]], [[Now, return to Tuluun.]], },
-    { [[Deliver Hauteur's Ashes to Tuluun at Azure Watch on Azuremyst Isle.]], },
+    { [[在探究你自己與火焰的關係這件事上，你今天做得非常好。記得永遠要用最大的尊敬來對待它以免被燒傷。]], [[我幫你留了一些郝特的骨骸。在製造你的火焰圖騰時使用它們並記住所有你所學到的。]], [[現在回去找塔奴藍吧。]], },
+    { [[將郝特的骨骸送到藍謎島給藍色守望的塔奴藍。]], },
   },
   [9469] = {
     [[羽须的认可]],
@@ -21518,32 +21670,32 @@ __ns.L.quest = {
     { [[取得光明使者的印记，然后把它交给西瘟疫之地寒风营地的学者特卢恩。]], },
   },
   [9475] = {
-    [[Reclaiming the Eggs]],
-    { [[Looking over the remains, you surmise that this broken and battered skeleton must be all that is left of Featherbeard. Clutched in one skeletal hand is a torn and stained sheaf of paper. You gently remove and unroll it, revealing a hand-drawn map and a few hastily scrawled notes.]], [[The map appears to be a rendering of Shadra'Alor and its three temples with 'x' marks in several places, presumably the locations of the stolen eggs. You place the map in your pack for inspection at a safer location.]], },
-    { [[Gather 5 Gryphon Eggs and return them to Ambassador Rualeth at Aerie Peak.]], },
+    [[取回那些蛋]],
+    { [[仔細檢查遺體，你猜測這具破碎憔悴的骷髏一定是羽鬚僅剩的全部。其中一隻骷髏的手裡握著一捆撕裂，有髒污的紙。你小心地拿走並將它打開，看到了一個手繪的地圖和一些倉促寫下的筆記。]], [[地圖看來是在描繪沙德拉洛和它標示了「x」記號的三座神廟，可能是被偷走的蛋的位置。你將地圖放進你的背包到安全一點的地方檢視。]], },
+    { [[收集5顆獅鷲獸的蛋帶回去給鷹巢山的洛勒斯大使。]], },
   },
   [9476] = {
-    [[In Pursuit of Featherbeard]],
-    { [[The journal's most recent entries detail Featherbeard's concern about a growing number of Witherbark troll raids on the Wildhammer gryphon aeries and a rash of egg thefts. A search of the smaller Witherbark settlements in the area appears to have yielded no information.]], [[The last entry describes Featherbeard's suspicion that a Witherbark witch doctor named Mai'jin is behind the raids. The last, hastily written sentence states the dwarf's intention to travel to Shadra'Alor in search of the eggs.]], },
-    { [[Travel to Shadra'Alor and search for traces of Featherbeard.]], },
+    [[追蹤羽鬚]],
+    { [[最近幾篇日記都詳細寫著枯木食人妖對蠻錘獅鷲住所不斷遭到突襲和一連串的偷蛋事件讓羽鬚感到憂心。一次搜尋小型枯木聚集地的行動似乎也沒有成果。]], [[最後一篇描述了羽鬚懷疑一個叫梅金的枯木巫醫是策劃突襲的人。最後，倉促的寫下了一個句子表示這個矮人想前往沙德拉洛尋找蛋的意圖。]], },
+    { [[前往沙德拉洛尋找羽鬚的蹤跡。]], },
   },
   [9483] = {
     [[生命的乐趣]],
   },
   [9484] = {
     [[驯服野兽]],
-    { [[You have undoubtedly hunted and slain beasts for both your defense and sustenance, yet to befriend them and harness their strengths is only now within your grasp.  This I can teach you.]], [[Take this magical taming rod that allows a wild animal to temporarily bond and fight beside you.  Begin with the crazed dragonhawk, a nearly docile bird found just outside of Farstrider Retreat.  Return to me when this is done.]], },
-    { [[Use the Taming Rod to tame a Crazed Dragonhawk, and then return to Lieutenant Dawnrunner.]], },
+    { [[為了防禦和生計，你可以毫無疑問地獵捕並殺死野獸，但是要和他們做朋友並駕馭他們的力量就要看你怎麼掌握了。這是我能教你的。]], [[拿著這個魔法的馴獸棒讓一隻野生動物暫時和你結為朋友並一起作戰。從瘋狂的龍鷹開始，一隻容易駕馭的鳥類，就在遠行者居所外。完成後回到我這裡。]], },
+    { [[用馴獸棒來馴服瘋狂的龍鷹，然後再回到晨奔中尉那裡。]], },
   },
   [9485] = {
     [[驯服野兽]],
-    { [[You have done well, <name>.  Your understanding of the wild grows quickly.]], [[The mistbat is a clever hunter, combining the swiftness of the dragonhawk and the ferocity of the springpaw.  Mistbats are found just across the Elrendar River to the south, preying on hapless travelers who wander into the Ghostlands.]], [[Use this final taming rod to befriend a mistbat and return to me when you have finished.]], },
-    { [[Use the Taming Rod to tame a Mistbat, and then return to Lieutenant Dawnrunner.]], },
+    { [[你做的很好，<name>。你對野外的了解迅速增長。]], [[迷霧蝙蝠是聰明的獵人，結合了龍鷹的敏捷和泉爪山貓的兇殘。他們就在南方越過艾蘭達之河的地方，捕食從路上閒晃過去的不幸旅人。]], [[使用這個最後的馴獸棒來和迷霧蝙蝠做朋友，完成後再來找我。]], },
+    { [[用馴獸棒來馴服迷霧蝙蝠，然後再回到晨奔中尉那裡。]], },
   },
   [9486] = {
     [[驯服野兽]],
-    { [[The elder springpaw is an efficient and swift hunter.  In attempting to befriend one, it sees you as prey.  Do not be dissuaded.]], [[Use the taming rod to bring the great cat to your side and hunt beside it.  They are found throughout Eversong Woods, some very close to the lodge.  When you have learned enough, return to me.]], },
-    { [[Use the Taming Rod to tame an Elder Springpaw, then return to Lieutenant Dawnrunner.]], },
+    { [[年長的泉爪山貓是有效率又敏捷的獵人。若想和它做朋友，它會先將你視為獵物。別被逼退了。]], [[用馴獸棒讓那隻大獵豹和你站在同一陣線並和它一起打獵。他們就在永歌森林裡，有些會和小屋非常靠近。等你學了夠多再回來找我。]], },
+    { [[用馴獸棒來馴服年長的泉爪山貓，然後再回到晨奔中尉那裡。]], },
   },
   [9487] = {
     [[奥术掠夺者]],
@@ -21562,13 +21714,13 @@ __ns.L.quest = {
   },
   [9490] = {
     [[剥石者的女王]],
-    { [[Rock flayers are mean, nasty, violent creatures.  But the plain ones are like tame beasts when compared to their matriarch, Blacktalon the Savage.]], [[My cousin got eaten by her and it wasn't pretty.  I swore that one day Blacktalon would pay for that.  You bring back proof of that monster's death and I will give you my life's savings.  Deal?]], [[You're going to need some friends to kill Blacktalon.  Big tough friends with sharp swords.  You'll find her inside a cave in the Great Fissure.  Good luck!]], },
+    { [[岩石鐮奪怪是壞心，卑鄙，又暴力的生物。不過和他們的女王，『野蠻者』黑爪比起來，一般的鐮奪怪就是溫馴的野獸了。]], [[她吃掉了我的表弟，那場景很可怕。我發誓有一天黑爪會為此付出代價。你帶回那個怪物死亡的證據我就會把一生的積蓄都給你。就這麼說定了?]], [[你將需要一些朋友幫忙才能殺掉黑爪。有銳利長劍的朋友。你可以在大裂縫的洞穴裡找到她。祝好運!]], },
     { [[前往大裂隙杀死凶猛的黑色利爪，将黑色利爪的爪子交给地狱火半岛塔哈玛特神殿的伊坎。]], },
   },
   [9491] = {
     [[贪婪]],
-    { [[A rich, and I mean filthy rich, merchant came through here yesterday talking about some ring of "immense archeological importance" locked in one of the countless burial chests found in the Amani Catacombs.  When he wasn't talking about the ring, he was talking about how much he'd pay for it.]], [[Tell you what, I'll front the thieves' tools, and if you manage to bring the ring back, I'll pay you enough to buy ten rings of your own!]], },
-    { [[Eralan in Tranquillien wants you to retrieve the Pitted Gold Band from the Amani Catacombs.]], },
+    { [[一個富有的商人，我指的是骯髒的富有，昨天來這裡說一個有著「極大考古重要性」的戒指被鎖在阿曼尼地下墓穴無數的埋葬箱之一裡。當他不談戒指的事時，他就在說他會為那個戒指付多少錢。]], [[告訴你，我來幫你掩飾盜賊的工具，如果你能幫我帶回戒指，我會付你買十個戒指的錢!]], },
+    { [[安寧地的依蘭兒要你從阿曼尼地下墓穴取回缺口金指環。]], },
   },
   [9492] = {
     [[扭转战局]],
@@ -21587,13 +21739,13 @@ __ns.L.quest = {
   },
   [9495] = {
     [[酋长的意志]],
-    { [[The struggle to free the orcish people from our tainted blood has not been easy, <name>. Warchief Thrall has seen too many orcish heroes laid low by fate's hand. Now, it seems Kargath Bladefist numbers among them.]], [[In the Shattered Halls of Hellfire Citadel, Kargath has claimed the title of 'Warchief' of the Fel Horde. With an army of crazed, bloodthirsty fel orcs at his back, he won't rest until Thrallmar is destroyed. Warchief Thrall has commanded us to defeat Kargath and his forces at all costs.]], },
-    { [[Bring Warchief Kargath's Fist to Nazgrel in Thrallmar.]], },
+    { [[要釋放那些受汙染的獸人並不容易，<name>。大酋長索爾見過太多獸人英雄被命運的手給擺平。現在，看來卡加斯·刃拳也算是他們的一員。]], [[在地獄火堡壘的破碎大廳裡，卡加斯以魔獄部落的「大酋長」稱號自居。有一批瘋狂嗜血的魔獄獸人為他撐腰，除非索爾瑪被摧毀否則他不會善罷干休。大酋長索爾命令我們不惜一切代價擊敗卡加斯和他的軍隊。]], },
+    { [[把大酋長卡加斯之手帶給索爾瑪的納茲格雷爾。]], },
   },
   [9496] = {
     [[邪部落的荣耀]],
-    { [[Overlord Maimfist's insults aside, <name>, this Fel Horde is nothing to be trifled with.]], [[From what we know, Fel Horde troops under the command of Kargath Bladefist are a brutal, battle-hardened lot fortified by foul magics. The elite of this force, the Shattered Hand legionnaires, champions, and centurions are feared by the Fel Horde regulars and serve as an officer corps.]], [[Targeting and eliminating them is a necessary first step in any successful assault on the Fel Horde's leadership.]], },
-    { [[Shadow Hunter Ty'jin at Thrallmar wants you to kill 8 Shattered Hand Legionnaires, 4 Shattered Hand Centurions, and 4 Shattered Hand Champions.]], },
+    { [[把殘拳霸主的羞辱先放一旁，<name>，這個魔獄部落不是省油的燈。]], [[據我們所知，卡加斯·刃拳指揮的魔獄部落軍隊受邪惡魔法加持，野蠻又身經百戰。這支軍隊的精英---碎手軍團士兵、勇士和百夫長都以軍官身份效命，並且令魔獄部落的正規兵畏懼。]], [[找到並消滅他們是成功突襲魔獄部落領導者必要的第一步。]], },
+    { [[索爾瑪的影子獵人泰巾要你殺死8個破碎之手軍團士兵，4個破碎之手百夫長，和4個破碎之手勇士。]], },
   },
   [9498] = {
     [[猎鹰岗哨]],
@@ -21607,28 +21759,28 @@ __ns.L.quest = {
   },
   [9500] = {
     [[水之召唤]],
-    { [[It's been a while since last you were tested.  Farseer Nobundo has been asking for you.  You must have grown greatly in wisdom because you are being called to learn the mysteries of the element of water.]], [[You remember where to find him at the Crystal Hall inside of the Exodar, right?]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall inside the Exodar on Azuremyst Isle.]], },
+    { [[距離上次你接受測試已經有好一陣子的時間了。先知諾柏多一直問起你。你一定增長了很多智慧才會被徵召來學習水元素的秘密。]], [[你記得在艾克索達內水晶大廳的何處能找到他吧?]], },
+    { [[與藍謎島中艾克索達裡水晶大廳的先知諾柏多談談。]], },
   },
   [9501] = {
     [[水之召唤]],
-    { [[A powerful water elemental named Aqueous has requested your presence.  It would seem that there is a great imbalance occurring in the water element on Bloodmyst Isle.  Not surprising given the unnatural predilections of the blood elves.]], [[You will find Aqueous in a hidden reef under the waves off the northern shore of Bloodmyst Isle.]], [[Take this potion; it can help you to get to her once you get into the water near the reef.]], },
-    { [[Speak with Aqueous in the Hidden Reef at Bloodmyst Isle.]], },
+    { [[一個叫阿基歐斯的強大水元素要求見你一面。看來血謎島的水元素出現了極大的不平衡。因為有血精靈這樣不尋常的嗜好我並不驚訝。]], [[血謎島北方海岸的海浪下有一個隱秘的沙洲，你可以在那裡找到阿基歐斯。]], [[帶著這瓶藥水;等你進到水裡，靠近沙洲時，它可以幫你找到她。]], },
+    { [[到血謎島的隱秘沙洲和阿基歐斯談談。]], },
   },
   [9502] = {
     [[水之召唤]],
-    { [[It's been a while since last you were tested.  Farseer Nobundo has been asking for you.  You must have grown greatly in wisdom because you are being called to learn the mysteries of the element of water.]], [[You remember where to find him at the Crystal Hall inside of the Exodar, right?]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall inside the Exodar on Azuremyst Isle.]], },
+    { [[距離上次你接受測試已經有好一陣子的時間了。先知諾柏多一直問起你。你一定增長了很多智慧才會被徵召來學習水元素的秘密。]], [[你記得在艾克索達內水晶大廳的何處能找到他吧?]], },
+    { [[與藍謎島中艾克索達裡水晶大廳的先知諾柏多談談。]], },
   },
   [9503] = {
     [[水之召唤]],
-    { [[In balance with the other elements, water is the source and sustenance of all living things.  It gives and nurtures life, and all rely upon it for their existence.  Yet, when polluted, it also brings life to an end.]], [[We must determine the extent of the damage that has been done.  To the southwest is one such contaminated body of water that has come to be known as the Foul Pool.  Travel there and extract the foul essence from the water spirits that inhabit the pool.]], },
-    { [[Collect 6 Foul Essences and return them to Aqueous in the Hidden Reef at Bloodmyst Isle.]], },
+    { [[和其他的元素平衡，水是所有生物的根源和支柱。它賦予並滋養生命，所有的生命都仰賴它才能存在。但是，當它被汙染了，它同時也讓生命結束。]], [[我們一定要終止傷害繼續造成。西南邊就有這樣受汙染的水源叫做邪惡池塘。前往那裡，從住在池塘的水之靈身上抽取邪惡精華。]], },
+    { [[收集6份腐敗精華再帶回血謎島給隱秘沙洲的阿基歐斯。]], },
   },
   [9504] = {
     [[水之召唤]],
-    { [[It is worse than I feared. The corruption is very potent and if unchecked it could spread to the ocean currents and be carried throughout all of Azeroth!]], [[We are going to need a sample of the purest water to counter this malignancy. There is a forest on the nearby continent of Kalimdor named Ashenvale. Near its southwestern border is a place called the Ruins of Stardust.]], [[Take this bota bag and fill it with the water from the fountain on the small island at the center of the ruins. Hurry, <name>!]], },
-    { [[Fill the Empty Bota Bag and then return to Aqueous in the Hidden Reef at Bloodmyst Isle.]], },
+    { [[這比我擔心的還要糟。汙染非常嚴重，如果未經管束它就會散播到洋流裡然後帶到整個艾澤拉斯!]], [[我們需要一個最純淨的水樣本來對照惡性的。附近的卡林多大陸上有座森林叫做梣谷。靠近它的西南方邊界有一個叫星塵廢墟的地方。]], [[帶著這個皮製水袋到那個廢墟中心的小月臺上，裝滿噴水池的水。快，<name>!]], },
+    { [[裝滿空皮製水袋再回到血謎島的隱秘沙洲找阿基歐斯。]], },
   },
   [9505] = {
     [[维伦的预言]],
@@ -21642,13 +21794,13 @@ __ns.L.quest = {
   },
   [9508] = {
     [[水之召唤]],
-    { [[I have determined where the corruption is coming from.  It is the by-product of some demented research and you're going to put an end to it!]], [[Just to the southwest of the Foul Pool is a small camp.  There you will find the 'research' of Tel'athion the Impure.  This is where he produces the filth that has been seeping into the island's water.]], [[Use the pure water you obtained from Ashenvale to destroy his cache of barrels.  That will be sure to bring him out.]], [[We will have an end to this!]], },
-    { [[Bring the Head of Tel'athion to Aqueous in the Hidden Reef at Bloodmyst Isle.]], },
+    { [[我已經確定汙染的來源了。那是一些瘋狂研究的副產品，而你將要去結束它!]], [[西南方的邪惡池塘是一個小營地。你會在那裡找到『不淨者』泰拉希恩的「研究」。他在那裡製造污物並滲入了島上的水源。]], [[使用你從梣谷取得的純水來摧毀他好幾桶的儲藏物。那一定會把他引出來。]], [[我們會結束這一切!]], },
+    { [[把泰阿希恩的頭顱帶到血謎島給隱秘沙洲的阿基歐斯。]], },
   },
   [9509] = {
     [[水之召唤]],
-    { [[I held back a little of the water from Ashenvale, not because I doubted your ability to deal with the situation.  Rather, I knew that you would succeed, and I wanted to make sure that you had something special to take back to Nobundo.]], [[Here, <name>, take this flask of pure water.  It will ensure that you receive a very powerful water totem.]], [[Farseer Nobundo awaits your return at the Exodar.]], },
-    { [[Take the Flask of Purest Water to Farseer Nobundo inside the Exodar on Azuremyst Isle.]], },
+    { [[我保留了一點梣谷的水，不是因為我質疑你處理情況的能力。而是，我知道你會成功，所以我想確保你可以帶點特別的東西回去給諾柏多。]], [[來，<name>，拿著這瓶純水。它會確保你得到一個非常強大的水圖騰。]], [[先知諾柏多等著你回去艾克索達。]], },
+    { [[把純淨水瓶帶回藍謎島給艾克索達的先知諾柏多。]], },
   },
   [9510] = {
     [[[Not Used] BETA Bristlehide Clefthoof Hides]],
@@ -21656,13 +21808,13 @@ __ns.L.quest = {
     { [[Provisioner Braknar at Mag'har Post in Hellfire Peninsula wants you to bring him 5 Bristlehide Clefthoof Hides.]], },
   },
   [9511] = {
-    [[BETA Kargath's Battle Plans]],
-    { [[<TXT>The documents you found on Kargath's body detail plans on what appears to be a massive invasion on Honor Hold.]], },
+    [[卡加斯的戰鬥計畫書]],
+    { [[<TXT>你在卡加斯身上找到的文件看來是對榮譽堡大型入侵的細節計畫書。]], },
   },
   [9512] = {
     [[曲奇的大餐]],
     { [[上将是对的，你可真是足智多谋。或许你能帮我做饭？]], [[要是我今天晚上又给船员们做鸡当饭吃，他们非把我丢去划舢板不可。]], [[其实，我发现这海边上竟然有这么多又肥又大的螃蟹，多到数不清！要不你给我打些螃蟹肉来吧，我一辈子也忘不了你这份恩情的。]], [[你就帮帮我这个从良的老海贼吧。]], },
-    { [["Cookie" McWeaksauce at the Odesyus' Landing wants you to bring him 6 Skittering Crawler Meat.]], },
+    { [[奧迪席斯平臺的『小廚』麥克威醬要你幫他帶來6塊滑膩的爬行者肉。]], },
   },
   [9513] = {
     [[夺回废墟]],
@@ -21672,7 +21824,7 @@ __ns.L.quest = {
   [9514] = {
     [[写满符文的石板]],
     { [[你完全无法理解这块石板上所有符号所表达的内容。或许女祭司能够解读这些神秘的符文。]], },
-    { [[Take the Rune Covered Tablet to Priestess Kyleen Il'dinare at Odesyus' Landing on Azuremyst Isle.]], },
+    { [[把符文雕飾石板帶到藍謎島給奧迪席斯平臺的女牧師凱玲·伊丹奈爾。]], },
   },
   [9515] = {
     [[督军斯雷提兹]],
@@ -21681,38 +21833,38 @@ __ns.L.quest = {
   },
   [9516] = {
     [[毁灭燃烧军团]],
-    { [[I will not tolerate their existence on this world!  The Burning Legion all but destroyed our race and we fell back to settle a new home on a new world.  Then they came again.  And we retreated, over and over.]], [[No more!]], [[There is a remnant of the Legion to the south in the regions known as Felfire Hill, Demon Fall Canyon and Demon Fall Ridge.  They are what is leftover from a force that once long ago invaded this world.]], [[Go and destroy as many as you can before it is too late!]], },
-    { [[Slay 6 Mannoroc Lashers, 6 Felguards and 6 Searing Infernals, and then return to Vindicator Vedaar at Forest Song in Ashenvale.]], },
+    { [[我不能容忍他們活在這世界上!燃燒軍團摧毀了我們的種族，迫使我們到新世界建立新家園。然後他們又一次一次的出現，我們只能一再撤退。]], [[夠了!]], [[在冥火嶺，屠魔峽谷，和屠魔山南方的區域有一群燃燒軍團的餘孽。他們是過去燃燒軍團入侵這世界時所遺留下來的。]], [[趁還來的及的時候把他們盡量殺光!]], },
+    { [[殺死6個瑪諾洛克鞭笞者，6個惡魔守衛，和6個灼熱的地獄火，再回到梣谷的林歌神殿找復仇者維達。]], },
   },
   [9517] = {
     [[可耻的浪费]],
-    { [[Welcome to Forest Song, <class>. Where you see tents, there will one day be buildings, but such ambitions require a steady stream of building materials. I cannot bring myself to order our workers to fell any of the ancient trees of this grove, but our neighbors to the south and west have no such reverence for the forest.]], [[We shall relieve the Warsong loggers of their excess, and reclaim some of the tainted wood from the satyr stronghold to the west. Bring the wood to Gnarl, who will purify it for our use.]], },
-    { [[Bring 15 pieces of Warsong Lumber and 5 Satyrnaar Fel Wood to Gnarl at Forest Song.]], },
+    { [[歡迎來到林歌神殿，<class>。你現在看到的帳篷，就是將來會蓋建築物的地方，但這樣的目標需要穩定的建築材料來源。我不能讓我的工人砍伐樹林裡的任何老樹，但我們在南方和西方的鄰居對森林就沒有這樣的敬畏了。]], [[我們將盜取戰歌伐木工砍伐的木材，從西邊的薩特要塞取回一些受汙染的木材。把木頭帶給格納，他會淨化它們以做使用。]], },
+    { [[帶15塊戰歌林材和5塊薩提納爾地獄木頭給林歌神殿的格納。]], },
   },
   [9518] = {
     [[毁灭的使者]],
     { [[战歌伐木营地就是我们如锦缎般美丽的大地上的一处锈斑。每次我们暂时成功地阻止了他们，监工古尔萨克就会让他手下的伐木工加倍砍伐我们的树木！]], [[现在，兽人砍伐下的树木已经远远超过了他们所需要的，他们甚至就让那些砍下来的新鲜树木堆在一旁腐烂！这绝对不是我们所能容忍的，<name>，我们一定要让他们知道，我们是绝对不会容忍任何毁灭我们土地的行为！]], [[去吧，战斗吧，直到监工古尔萨克和他的手下全都死掉为止！]], },
-    { [[Sentinel Luciel Starwhisper at Forest Song wants you to kill Overseer Gorthak, 2 Warsong Shredders, 5 Horde Deforesters, and 10 Horde Scouts.]], },
+    { [[林歌神殿的哨兵露西歐·星語要你摧毀監督者高薩克，2個戰歌伐木機，5個部落伐木工，和10個部落斥候。]], },
   },
   [9519] = {
     [[失落的圣杯]],
     { [[我们西边有一处叫作萨提纳尔的地方，过去曾是由我的人民所建的重要神殿。里面藏有一件名叫艾露恩的圣杯的无价圣物，艾露恩的祭司们曾将它交给神殿的守卫保管。据说这圣杯具有治愈之力，所以曾有无数的朝圣者前去祭祀。]], [[或许这听起来像是老婆婆讲的故事，但假如确实如此，那么或许这件圣物将是治愈这片森林的关键所在。我必须了解清楚，<name>。]], },
-    { [[Bring the Chalice of Elune to Kayneth Stillwind at Forest Song.]], },
+    { [[把伊露恩酒杯帶給林歌神殿的凱尼斯·靜風。]], },
   },
   [9520] = {
     [[恶魔的计划]],
-    { [[The demon dropped this parchment, which is amazingly written in the Common tongue!  The ones mentioned in it, Diathorus and Gorgannon, are the two infamous dreadlords that control the demons hereabouts.]], [[The plans detail preparations for a demonic attack on Forest Song to the north; the location where a new draenei settlement is being established.]], [[Perhaps Vindicator Vedaar at Forest Song would be interested in these?]], },
-    { [[Deliver the Diabolical Plans to Vindicator Vedaar at Forest Song in Ashenvale.]], },
+    { [[惡魔掉了這張羊皮紙，驚人的是它竟然是用普通語寫的!裡面提到的人，迪亞索魯斯和戈甘諾恩，是兩個聲名狼籍的恐懼領主，控制著附近的惡魔。]], [[羊皮紙上詳細描述了惡魔要攻擊北方林歌神殿的準備細節;那裡正在建立新的德萊尼聚集地。]], [[或許林歌神殿的復仇者維達會對這些很有興趣?]], },
+    { [[將殘忍計畫送到梣谷給林歌神殿的復仇者維達。]], },
   },
   [9521] = {
     [[北方前线的报告]],
-    { [[The battle against the Warsong Lumber Camp isn't being waged from Forest Song alone, <name>. There's a more substantial Silverwing Sentinel presence at Silverwing Grove to the southwest, near the border with the Barrens. From the grove, Sentinel Farsong directs our efforts against those who would destroy our lands.]], [[I'm a bit late in sending my latest report to Sentinel Farsong, but also hesitant to leave Forest Song unattended. If your travels take you near Silverwing Grove, would you deliver my report?]], },
-    { [[Deliver Sentinel Luciel's report to Sentinel Farsong at Silverwing Grove.]], },
+    { [[對抗戰歌伐木營地的戰役不單是從林歌神殿展開，<name>。西南邊的銀翼樹林還有更多的銀翼哨兵，靠近貧瘠之地的邊界。在樹林那，哨兵輕歌指揮我們抵抗那些想摧毀我們土地的人。]], [[我現在把最新的報告送過去給哨兵輕歌已經有點太晚了，而且也猶豫是否要獨自離開林歌神殿。如果你的旅程會經過銀翼樹林附近，你願意幫我遞送報告嗎?]], },
+    { [[將哨兵露西歐·星語的報告送給銀翼樹林的哨兵輕歌。]], },
   },
   [9522] = {
     [[绝不再会了！]],
-    { [[<name>, it falls to you to see that this attack by the Burning Legion never comes to pass.  You must go and slay their leaders.  Without them the rest of the demons are essentially mindless.]], [[You will find Gorgannon in Demon Fall Canyon south beyond Felfire Hill, near Mannoroth's floating, broken spear.]], [[Diathorus the Seeker resides somewhere in the barrow den atop Demon Fall Ridge.  To find the ridge, look for a ramp up from Demon Fall Canyon near the Horde's monument to Grom Hellscream.]], },
-    { [[Kill Gorgannon and Diathorus the Seeker, and then return to Vindicator Vedaar at Forest Song in Ashenvale.]], },
+    { [[<name>，你要讓燃燒軍團的攻擊永遠都不會成真。你一定要去殺了他們的領導者。沒有他們，剩下的惡魔也只是無腦的蠢蛋而已。]], [[你要去冥火嶺更遠的南方，靠近曼諾洛斯的飄浮斷矛附近找到屠魔峽谷裡的戈甘諾恩。]], [[『追尋者』迪亞索魯斯就住在屠魔山上的獸穴裡。要找到那座山，就到部落的葛羅·地獄吼紀念碑旁，在屠魔峽谷上找一個斜坡。]], },
+    { [[殺了戈甘諾恩和『追尋者』迪亞索魯斯，再回到梣谷的林歌神殿找復仇者維達。]], },
   },
   [9523] = {
     [[贵重物品，小心轻放]],
@@ -21731,8 +21883,8 @@ __ns.L.quest = {
   },
   [9526] = {
     [[夺回冥火岭]],
-    { [[Little one, to the south is an area of Nightsong Woods that has in recent times come to be called Felfire Hill.  It is very sad to see the demons crawling over it, spreading their corruption.]], [[Would you do something to help take back the land?]], [[I have a number of seeds that I have been saving for such a purpose.  Take them to Felfire Hill and plant them in the fertile dirt mounds.]], },
-    { [[Plant 8 Tree Seedlings in the Fertile Dirt Mounds and then return to Gnarl at Forest Song in Ashenvale.]], },
+    { [[小傢伙，南方的夜歌森林有一個區域，最近被稱為冥火嶺。糟糕的是，那邊已經被惡魔佔據著，並腐蝕著那塊土地。]], [[你能做些什麼來幫忙奪回這片地嗎?]], [[我有一堆種子就是特別為這樣的目的保留下來的。帶著它們去冥火嶺，將它們種在肥沃的土堆中。]], },
+    { [[將8顆樹苗種在肥沃的土堆裡，再回到梣谷的林歌神殿找格納。]], },
   },
   [9527] = {
     [[遗体]],
@@ -21745,9 +21897,9 @@ __ns.L.quest = {
     { [[护送麦戈薇穿越小岛，回到家中。]], },
   },
   [9529] = {
-    [[The Stone]],
-    { [[While I'm certain your imp has proven a useful and sometimes entertaining servant, it is time you mastered a more powerful demon: the voidwalker.]], [[Travel down the Dead Scar until it is crossed by the Elrendar River.  Just south of the river, locate one of the blue glowing stones and take it.  Your path will be revealed there.]], },
-    { [[Obtain a Voidstone from the Dead Scar.]], },
+    [[虛無石]],
+    { [[雖然我知道你的小鬼是個有用，有時又有趣的僕人，但現在是時候讓你駕馭一個更強大的惡魔了:虛無行者。]], [[由死亡之痕往下走直到遇見艾蘭達之河。在河的南方找到閃著光的藍色石頭並取走它，你的道路就會顯現。]], },
+    { [[從死亡之痕取得虛無石。]], },
   },
   [9530] = {
     [[天才的方案！]],
@@ -21766,13 +21918,13 @@ __ns.L.quest = {
   },
   [9533] = {
     [[援助之手]],
-    { [[My people have undertaken an important endeavor in the eastern part of Ashenvale, with support and cooperation from the kaldorei.]], [[Under the supervision of Architect Nemos and Vindicator Vedaar, they are revitalizing an old night elf outpost. The task of building won't be easy, <name>, for the challenges and enemies they face are many. I know Architect Nemos and his compatriots at Forest Song would appreciate any help they can get, and he has asked me to send any interested <men/women> his way.]], },
-    { [[Make your way to Forest Song and speak with Architect Nemos.]], },
+    { [[有卡多雷的支持和合作，我的族人在梣谷東邊了付出了重要的努力。]], [[在建築師尼莫斯和復仇者維達的監督下，他們正在復興一個老舊的夜精靈前哨。建築的工作不簡單，<name>，因為他們面對的挑戰和敵人很多。 我知道建築師尼莫斯和他在林歌神殿的同伴會感激任何能獲得的幫忙，而他也請我派任何有興趣的<男人/女人>去他那裡。]], },
+    { [[前往林歌神殿和建築師尼莫斯談談。]], },
   },
   [9534] = {
     [[毁灭燃烧军团]],
-    { [[The remains of the demonic Burning Legion have been making raids against our Warsong Lumber Camp!]], [[No more!]], [[The demons are attacking from the areas known as Felfire Hill, Demon Fall Canyon and Demon Fall Ridge to the east.]], [[Go and destroy as many as you can to bring glory to both yourself and the Horde!]], },
-    { [[Slay 6 Mannoroc Lashers, 6 Felguards and 6 Searing Infernals, and then return to Valusha at Splintertree Post in Ashenvale.]], },
+    { [[惡魔般的燃燒軍團剩餘成員一直對我們的戰歌伐木營地發動突襲!]], [[不要再來了!]], [[惡魔正從東邊的冥火嶺，屠魔峽谷和屠魔山區域開始攻擊。]], [[盡量去殺死他們，為你自己和部落帶來榮耀!]], },
+    { [[殺死6個瑪諾洛克鞭笞者，6個惡魔守衛和6個灼熱的地獄火，再回到梣谷的碎木崗哨找瓦露薩。]], },
   },
   [9535] = {
     [[恶魔的计划]],
@@ -21781,12 +21933,12 @@ __ns.L.quest = {
   },
   [9536] = {
     [[绝不再会了！]],
-    { [[<name>, you will see to it that this attack by the Burning Legion never comes to pass!  Go and slay these dreadlords!  Without them the rest of the demons are essentially mindless.]], [[You will find Gorgannon in Demon Fall Canyon south beyond Felfire Hill, near Mannoroth's floating, broken spear.]], [[Diathorus the Seeker resides somewhere in the barrow den atop Demon Fall Ridge.  To find the ridge, look for a ramp up from Demon Fall Canyon near the monument to Grom Hellscream.]], },
-    { [[Kill Gorgannon and Diathorus the Seeker, and then return to Velusha at Splintertree Post in Ashenvale.]], },
+    { [[<name>，你要讓燃燒軍團的攻擊永遠都不會成真!去殺了這些恐懼領主!沒有他們，剩下的惡魔也只是無腦的蠢蛋而已。]], [[你要去冥火嶺更遠的南方，靠近曼諾洛斯的飄浮斷矛附近找到屠魔峽谷裡的戈甘諾恩。]], [[『追尋者』迪亞索魯斯就住在屠魔山上的獸穴裡。要找到那座山，就到葛羅·地獄吼的紀念碑旁，在屠魔峽谷上找一個斜坡。]], },
+    { [[殺了戈甘諾恩和『追尋者』迪亞索魯斯，再回到梣谷的碎木崗哨找瓦露薩。]], },
   },
   [9537] = {
     [[绳侏儒以法]],
-    { [[Spark must be brought to justice!]], [[I need you to go down to the beach and find that deceitful gnome. Once you find him, get whatever information you can out of him!]], [[If a high ranking official of the Alliance has committed treasonous acts, who knows how many others are corrupt?]], [[And <name>, use force if you have to...]], },
+    { [[一定要讓火花·歐爾滾知道什麼叫正義!]], [[我要你去海邊那找到這個騙人的地精。一旦你找到他，就要他抖出所有的事情!]], [[如果連一個聯盟的高階官員都有不忠的行為，誰知道還有多少其他人也墮落了?]], [[還有<name>，必要時你可以使用武力……]], },
     { [[奥德修斯营地的海军上将奥德修斯要求你从工程师欧格林德那里取得叛徒的证据。]], },
   },
   [9538] = {
@@ -21821,7 +21973,7 @@ __ns.L.quest = {
   },
   [9544] = {
     [[阿基达的预言]],
-    { [[The images on this totem depict a war between the Stillpine and the Bristlelimb furbolg tribes. The etchings show that the Bristlelimb have done unconscionable things to the furbolgs of Stillpine.]], [[Amidst the chaos, a prophecy has begun to unfold: A hero will rise - not of furbolg blood - and save the Stillpine tribe.]], [[Slay Bristlelimb furbolgs at Bristlelimb Village for their keys. Use the keys to free the Stillpine captives. Return to Arugoo of the Stillpine when you have freed them all!]], },
+    { [[圖騰上的圖像是描述靜松熊怪及鬚肢熊怪兩族的戰爭。上面的蝕刻顯示鬚肢熊怪對靜松熊怪做了不合理的事。]], [[在這場混亂中，一則預言開始實現:將會出現一位英雄 - 非熊怪族群 -拯救了靜松熊怪。]], [[殺了鬚肢村裡的鬚肢熊怪，取得鑰匙，用這把鑰匙釋放被俘虜的靜松熊怪。完成後回到靜松要塞找阿魯古!]], },
     { [[在刺臂村中释放8名止松俘虏。完成任务之后回到碧蓝岗哨，找止松部族的阿鲁古复命。]], },
   },
   [9545] = {
@@ -21851,28 +22003,28 @@ __ns.L.quest = {
   },
   [9551] = {
     [[空气的召唤]],
-    { [[<name>, Farseer Nobundo has been asking for you.  It must be time for you to learn the secrets of air, the last of the elements!]], [[I want you to know that I'm very proud of all that you have accomplished thus far.  I know that you have great things ahead of you.]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall inside the Exodar on Azuremyst Isle.]], },
+    { [[<name>，先知諾柏多一直在問你的事。一定是時候讓你學習風的秘密了，最後的元素!]], [[我要你知道我對你目前所達到的一切都很驕傲。我知道你的前方有很棒的事在等著你。]], },
+    { [[與藍謎島中艾克索達裡水晶大廳的先知諾柏多談談。]], },
   },
   [9552] = {
     [[空气的召唤]],
-    { [[The great spirit of air calls out to you, <name>, and it is time for you to take heed.]], [[I wish for you to travel up the Wildwind Path on the north facing of the mountain that the Exodar has crashed into.  At its peak you will find a cave and within will be one of my most accomplished pupils, Velaada.]], [[Please, listen to her wisdom and do as she bids.  When you return you will have a greater understanding of the element of air.]], },
-    { [[Speak with Velaada at Wildwind Peak on Azuremyst Isle.]], },
+    { [[風的偉大靈魂在呼喚著你，<name>，是時候讓你留心了。]], [[我要你前往北方的狂風山尖，它面對著艾克索達失事的山脈。在它的山頂你會找到一個洞穴，我最出色的學徒之一，維拉達就在裡面。]], [[請你聆聽她的智慧並照著她的吩咐做。當你回來時你會對風元素有更深的認識。]], },
+    { [[到藍謎島的狂風山尖和維拉達談談。]], },
   },
   [9553] = {
     [[空气的召唤]],
-    { [[While air may seem ethereal, it is an all pervasive force, covering and permeating everything around us.]], [[Though you cannot see it, the rocks of this cave are composed mostly of air, the waters of the oceans are saturated in it and without it, fire cannot be sustained.  Just don't let those elements hear you repeat that!]], [[Who you really wish to speak with for such wisdom is nearby.  At the northern edge of the precipice, Susurrus awaits you.  It is from him that you will gain understanding.]], },
-    { [[Speak with Susurrus at Wildwind Peak on Azuremyst Isle.]], },
+    { [[雖然風看起來虛無飄渺，它卻是一個普遍的力量，覆蓋並彌漫在我們身邊所有的事物。]], [[雖然你看不見它，但這個洞穴的岩石大部分都是由風組成的，海洋的水裡也充滿了它，沒有它，火就不能持續燃燒。別讓那些元素聽到你在重覆這些話!]], [[有這樣智慧的人就在附近，你會想和他談談。蘇瑟拉斯在斷崖的北方邊緣等著你。你會從他那裡獲得了解。]], },
+    { [[到藍謎島的狂風山尖和蘇瑟拉斯談談。]], },
   },
   [9554] = {
     [[空气的召唤]],
-    { [[While my brothers and sisters of the other elements have demanded that you perform various tasks, I will not ask anything further of you.  I think that you have done enough to 'atone' for the accident of your ship falling to this place from my skies.  I can see that you have all the wisdom within you already to use the element of air wisely.]], [[Take this portion of my being back to Farseer Nobundo so that he might help you fashion your totem.  And when you're ready, I will fly you back down to the Exodar.]], },
-    { [[Return to Farseer Nobundo at the Exodar on Azuremyst Isle with the Whorl of Air.]], },
+    { [[雖然我其他元素的兄弟姊妹要你進行不同的任務，但我不會對你有更多的要求。你的船從我的天空掉落在這個地方，我想你已對這個意外做了許多「彌補」。我可以看見你已擁有所有的智慧來聰明地利用風元素。]], [[帶著我本質的這個部分回到先知諾柏多那裡，這樣他就能幫你製作你的圖騰。等你準備好，我就會讓你飛回艾克索達。]], },
+    { [[帶著空氣漩渦回到藍謎島找艾克索達的先知諾柏多。]], },
   },
   [9555] = {
     [[火焰的召唤]],
-    { [[I am thankful that you have chosen the difficult path of the shaman. Few enough do, but I foresee it as critical to our future that we learn shamanism from the Broken.]], [[They are called that, but once they were draenei. Fel magics transformed them, and that is why they cannot call upon the power of the Light. Some disapprove of them and the shamanism they teach, but they are not evil.]], [[I wish you to speak with Farseer Nobundo. He is the wisest shaman I know and you will learn much with his guidance.]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall in the Exodar.]], },
+    { [[我很感謝你選擇了薩滿的艱難之路。很少人會這麼做，但我預見向破碎者學習薩滿之道對我們的未來是不可或缺的。]], [[他們雖然被這樣稱呼，但他們都曾是德萊尼。地獄魔法改變了他們，那就是為什麼他們不能召喚聖光的力量。有些人否決他們和他們教授的薩滿之道，但他們並不邪惡。]], [[我希望你去和先知諾柏多談談。他是我所知道最有智慧的薩滿，你會從他的指引中學到很多。]], },
+    { [[到艾克索達和水晶大廳的先知諾柏多談談。]], },
   },
   [9556] = {
     [[胜者为王]],
@@ -21926,7 +22078,7 @@ __ns.L.quest = {
   },
   [9566] = {
     [[血水晶]],
-    { [[On the surface, the crystal appears to be a piece of the Exodar. Something has gone terribly wrong with this crystal, however, as it is blood red and rapidly dissolving into the water supply of the cave.]], [[This may explain the unusually aggressive behavior of the creatures in Azuremyst. Return to High Chief Stillpine with this information.]], },
+    { [[表面上看來，水晶似乎只是艾克索達的一部分。但這水晶出了些可怕的錯誤，它是血紅色的而且迅速地溶解在洞穴的給水系統中。]], [[這或許解釋了藍謎島生物不尋常的侵略性行為。帶著這個消息去找大酋長靜松。]], },
     { [[与止松要塞的止松老酋长谈一谈。]], },
   },
   [9567] = {
@@ -21935,9 +22087,9 @@ __ns.L.quest = {
     { [[找到纳兹维安的碑石，将得到的纳兹维安碑石雕文交给秘血岗哨的守备官艾蕾希亚。]], },
   },
   [9568] = {
-    [[BETA On the Offensive]],
-    { [[It's worse than I had imagined, <name>. We draenei know well what comes of selling one's soul to the Burning Legion in return for promises of power and immortality.]], [[The satyr on this island, the Nazzivus, are descendents of that first, twisted creature who allied with the Legion. I fear that they will find a way to use the power of the Exodar's crystals against us.]], [[You've seen what they've done to the land. Imagine what the satyr could do with them. Go southwest to Nazzivian and begin our offensive!]], },
-    { [[Vindicator Aalesia at Blood Watch wants you to kill 10 Nazzivus Satyr, 5 Nazzivus Rogues, and 5 Nazzivus Felsworn.]], },
+    [[進攻勢態]],
+    { [[這比我想像的還糟，<name>。我們德萊尼很清楚知道將自己的靈魂出賣給燃燒軍團換取力量和不朽的承諾會有怎麼樣的下場。]], [[島上的薩特，納茲維斯，就是第一批這樣的後裔，與軍團結盟的瘋狂生物。我擔心他們會想辦法利用艾克索達的水晶力量來對付我們。]], [[你見過他們對大地做的事。想像薩特會對他們做什麼。去西南方的納茲維恩，開始我們的攻勢!]], },
+    { [[血色守望的復仇者艾樂希雅要你殺死10個納茲維斯薩特，5個納茲維斯盜賊，和5個納茲維斯魔語。]], },
   },
   [9569] = {
     [[化解危机]],
@@ -21946,28 +22098,28 @@ __ns.L.quest = {
   },
   [9570] = {
     [[可怕的库肯]],
-    { [[After the crystal storm had subsided, a beast of myth appeared in our village. Brought here by the invading wildkin, this beast, the Kurken, laid waste to our village. Many Stillpine were slain in defense of our lands by this fiend and many have since lost their lives attempting to subdue the beast.]], [[In my visions, I have seen one defeat the Kurken. The one must be you, <name>. You are our only hope. Enter Stillpine Hold and slay the Kurken. Bring me his hide as proof of deed.]], },
+    { [[在水晶風暴平息後，一隻神秘的野獸出現在我們村子裡。這隻野獸，克爾肯，是被入侵的梟獸帶來這裡的，他對我們的村子造成許多毀壞。許多靜松的人都為了防禦我們的土地而被殺，還有許多人嘗試制服這隻野獸，從此失去了他們的性命。]], [[在我的幻境中我看見一個人擊敗了克爾肯。那個人一定就是你，<name>。你是我們唯一的希望。進入靜松要塞殺死克爾肯。把他的皮革帶回來給我做為證據。]], },
     { [[秘蓝岛止松要塞的启示者库尔兹要求你杀死库肯，并带回库肯的毛皮。]], },
   },
   [9571] = {
     [[库肯的毛皮]],
-    { [[Take the Kurken's hide to Moordo, on the other side of the village. He will fashion the hide into an item of your choice.]], },
+    { [[把克爾肯的皮帶給墨爾多，在村子的另一邊。他會把皮革做成你要的物品。]], },
     { [[将库肯的毛皮交给止松要塞的莫多。]], },
   },
   [9572] = {
     [[攻陷城墙]],
-    { [[Quick, there isn't much time.  Thrallmar's existence balances on the razor's edge!]], [[We're caught between Hellfire Citadel in the west and the Burning Legion to the east.  With the Legion's attention turned toward the Dark Portal we must take this opportunity to strike at the fel orcs of Hellfire Citadel.  The key to this is to first break through their ramparts!]], [[Go there, slay their leaders, and then bring back proof to Caza'rez across the room from me!]], },
-    { [[Slay Watchkeeper Gargolmar, Omor the Unscarred and the drake, Nazan.  Return Gargolmar's Hand, Omor's Hoof and Nazan's Head to Caza'rez at Thrallmar in Hellfire Peninsula.]], },
+    { [[快，時間不多了。索爾瑪的存在與否就靠刀刃來決定了!]], [[我們被西邊的地獄火堡壘和東邊的燃燒軍團夾攻。現在燃燒軍團的注意力轉向黑暗之門，我們一定要利用這個機會突擊地獄火堡壘的魔化獸人。關鍵就是先突破他們的防禦!]], [[去那裡殺死他們的領導者，再將證據帶回交給房間那一頭的卡沙瑞斯!]], },
+    { [[殺死看護者卡爾古瑪、無疤者歐瑪爾和納桑。將卡爾古瑪之手、歐瑪爾的蹄子和納桑之顱帶到地獄火半島的索爾瑪交給卡沙瑞斯。]], },
   },
   [9573] = {
     [[欧莫鲁酋长]],
     { [[我是止松酋长，这个部族遗产的继承者。正如您所见，我的卫兵已经给那些想要从止松要塞中攻出来的疯狂枭兽们设了一个通向死亡的圈套。可是我们现在所有人都必须守在这里，没法攻入堡垒里面。如果您能进去并刺杀它们的领袖，或许我们就能有机会展开攻击。]], [[找到欧莫鲁酋长，消灭它。哦，顺便杀死您在路上遭遇到的所有疯狂枭兽吧。]], },
-    { [[Stillpine the Younger at Stillpine Hold on Azuremyst Isle wants you to slay Chieftain Oomooroo and 9 Crazed Wildkin.]], },
+    { [[藍謎島，靜松要塞的靜松年少者要你殺死歐沐魯酋長和9個瘋狂的梟獸。]], },
   },
   [9574] = {
     [[腐蚀的牺牲品]],
-    { [[Bloodmyst Isle was forever changed by our arrival. The Exodar's crash scattered debris all over the islands and I think it's beginning to have an adverse effect on the wildlife.]], [[Before I can be certain of my conclusion, I'll need to get a closer look. The crystals seem to have affected the trees the fastest, so it seems that the treants would be the most likely to show symptoms. If you bring me samples of bark from corrupted treants, I can begin my in-depth studies.]], },
-    { [[Bring 6 pieces of Crystallized Bark to Morae in Blood Watch.]], },
+    { [[血謎島在我們到達之後已經被徹底的改變了。艾克索達的失事讓殘骸散落在整座島上，我想它開始對野生生物產生了負面的影響。]], [[在我確定我的推論之前，我需要更仔細的檢視一番。水晶似乎對樹木的影響最快，所以樹人應該是最容易出現症狀的。如果你幫我從墮落的樹人身上帶回樹皮的樣本，我就能開始我的深入研究。]], },
+    { [[帶6塊晶化樹皮給血色守望的莫瑞伊。]], },
   },
   [9575] = {
     [[攻陷城墙]],
@@ -21978,6 +22130,11 @@ __ns.L.quest = {
     [[克鲁芬的项链]],
     { [[仔细地查看这个做工粗糙的坠饰之后，你发现水晶在轻轻地、有规律地脉动。尽管它没有发光，你却感受得到水晶散发出一股邪恶的能量。]], [[你不知道是什么力量驱使克鲁芬制造了这个坠饰，但这个发现非常重要，一定不能忽视。你最好把它拿回秘血岗哨去给那里的某个人看看。]], },
     { [[将红色水晶坠饰交给秘血岗哨的莫莱。]], },
+  },
+  [9577] = {
+    [[!REUSE ME!]],
+    { [[<NYI>Seek <QUESTGIVER> in <LOCATION>.  S/he wishes for you to aid them in a difficult task.]], },
+    { [[Speak with <QUESTGIVER> in the <AREA>.]], },
   },
   [9578] = {
     [[搜寻加莱恩]],
@@ -22004,6 +22161,11 @@ __ns.L.quest = {
     { [[我们的飞船坠毁时，船上兽栏所在的舱室分离了出去，坠落在岛上的东北角。前两天，有人将这把钥匙交给了我，这把钥匙所对应的笼子中关着的是死亡掠食者，世上最为危险的物种之一。这种生物的表皮可以反射大部分的魔法，但却并不坚硬，用一把利刃就可以轻松杀死它。]], [[拿着这把钥匙，去让这只生物从牢笼中获得自由，也让它的灵魂从痛苦中获得解脱。如果它从笼中逃脱出来，并对目前已经千疮百孔的生态环境造成更大的损害，我们绝对承受不起。]], },
     { [[打开掠食者的牢笼，干掉死亡掠食者，然后向碧蓝岗哨的鲁安达复命。]], },
   },
+  [9583] = {
+    [[Omar's Test Quest]],
+    { [[高尚的人給我衣服]], },
+    { [[幫歐瑪拿衣服]], },
+  },
   [9584] = {
     [[第二份样本]],
     { [[既然已经有了作为衡量标准的水晶，我们现在就需要从岛上更危险的区域寻找其它的样本。]], [[接下去需要的样本来自秘血岗哨西北边的刀林，那里的血精灵持有我们要的水晶。有报告说他们对水晶进行改造，把它加入某种魔法装置中。你去看看能否找到一块他们还未使用过的水晶，从上面采集一块样本给我。]], },
@@ -22015,9 +22177,9 @@ __ns.L.quest = {
     { [[使用水晶矿锄在阿克萨林水晶上采集一份阿克萨林水晶样本，把它交给秘血岗哨的先行官米库拉斯。]], },
   },
   [9586] = {
-    [[Help Tavara]],
-    { [[Tavara, one of our herbalists, has been gone far too long in her search for herbs.  I fear she is hurt and in need of help, yet I cannot look for her myself.]], [[Please find her and lend your healing if needed, fellow <class>.  She was heading east towards some hot springs when she left Azure Watch.]], },
-    { [[Guvan at Azure Watch wants you to find Tavara and heal her wounds.]], },
+    [[幫助塔瓦拉]],
+    { [[我們的一個草藥師，塔瓦拉去尋找草藥太久了。我擔心她受了傷需要忙，但我不能自己去找她。]], [[請找到她並提供你的治療，<class>同伴。她離開藍色守望的時候是往東邊的溫泉走去。]], },
+    { [[藍色守望的古樊要你找到塔瓦拉並治療她的傷口。]], },
   },
   [9587] = {
     [[黑暗之潮]],
@@ -22026,8 +22188,8 @@ __ns.L.quest = {
   },
   [9588] = {
     [[黑暗之潮]],
-    { [[Giving the lifeless form of Vazruden the Herald the once-over, you discover a rolled letter, its seal yet unbroken.  An elaborate "I" is pressed within the blood-red ink.  Cracking the note open, the message that you read is most disturbing.]], [[Nazgrel back in Thrallmar will definitely want to take a look at this!]], },
-    { [[Take the Ominous Letter to Nazgrel at Thrallmar in Hellfire Peninsula.]], },
+    { [[大概查看了一下已沒有氣息的『信使』維斯路登，你發現了一封捲起來的信件，上面的封膠尚未拆開。一個精緻的「伊」字以血紅色的墨水壓印在上面。打開這張便條，你看到的內容令你不安。]], [[納茲格雷爾回到索爾瑪後一定會想要看看這封信!]], },
+    { [[將不祥的信件帶到地獄火半島交給索爾瑪的納茲格雷爾。]], },
   },
   [9589] = {
     [[鲜血就是生命]],
@@ -22036,23 +22198,23 @@ __ns.L.quest = {
   },
   [9590] = {
     [[鲜血就是生命]],
-    { [[That letter is disturbing, and not just because it comes from the Betrayer.  We must know how they are creating these new fel orcs if we're to defeat them!  It's bad enough that we must fight the Burning Legion on our eastern flank, but now a new army of fel orcs to the west!]], [[You must infiltrate this Blood Furnace inside Hellfire Citadel.  Bring back samples of blood from the fel orcs that you find in there.]], },
-    { [[Collect 10 Fel Orc Blood Vials and return them to Centurion Caza'rez at Thrallmar in Hellfire Peninsula.]], },
+    { [[那封信讓人心煩，不只是因為它是從背叛者那來的。如果我們要打敗他們，就得知道他們是如何創造出這些新的魔獄獸人!要對抗東邊的燃燒軍團就已經夠慘了，現在連西邊也出現了一批新的魔獄獸人軍隊!]], [[你得滲透進地獄火堡壘的血熔爐裡，將你在那發現的魔獄獸人血液樣本帶回來。]], },
+    { [[收集10個魔獄獸人血瓶帶回地獄火半島的索爾瑪給百夫長卡沙瑞斯。]], },
   },
   [9591] = {
     [[驯服野兽]],
-    { [[When the <class> first begins <his/her> path, <he/she> learns only to kill.  Now it seems you are ready for more.]], [[The Stillpine furbolgs have provided a means to master the skill of taming without months of study.  They are able to carve a totem into the likeness of an animal, which you can use to temporarily bond with a creature of that type.]], [[For your first lesson, take this totem and use it on the barbed crawlers found along the western coast of the isle.]], },
-    { [[Use the Taming Totem to befriend a Barbed Crawler and return to Huntress Kella Nightbow when you have succeeded.]], },
+    { [[當<class>初次踏上<他的/她的>路，。<他/她>只學會殺戮。現在看來你已準備好學習更多。]], [[靜松熊怪提供了一個方法來精通馴服的技巧而不需要數個月的學習。他們可以將圖騰刻成某種動物的樣子，你就能暫時用來和那種生物做朋友。]], [[你的第一堂課就是帶著這個圖騰，到島的西海岸找到尖刺的爬行者來使用它。]], },
+    { [[使用馴服圖騰和尖刺的爬行者做朋友再回到女獵人凱拉·夜弓那裡。]], },
   },
   [9592] = {
     [[驯服野兽]],
-    { [[The crawler was undoubtedly mean, but the timberstrider will test your resolve.  More powerful allies require more tenacity from the hunter.]], [[Take this taming totem and befriend a greater timberstrider.  They are found in the northern reaches of Azuremyst Isle.]], },
-    { [[Use the Taming Totem to befriend a Greater Timberstrider and return to Huntress Kella Nightbow.]], },
+    { [[爬行動物是無疑地脾氣暴躁，但林地陸行鳥會考驗你的決心。更多強大的盟友需要獵人更不屈不撓。]], [[帶著這個馴服圖騰去和林地陸行鳥做朋友。他們就在藍謎島的北方區域。]], },
+    { [[使用馴服圖騰和大林地陸行鳥做朋友再回到女獵人凱拉·夜弓那裡。]], },
   },
   [9593] = {
     [[驯服野兽]],
-    { [[You probably noticed the big cats known as nightstalkers when you tamed the timberstrider.  They are efficient and deadly hunters... and allies.]], [[Use this taming totem to befriend a nightstalker.  Hunt with the vicious cat and keep it from harm.  When you are finished, return to me.]], },
-    { [[Use the Taming Totem to befriend a Nightstalker and return to Huntress Kella Nightbow.]], },
+    { [[你在馴服林地陸行鳥的時候或許有注意到那種叫夜間潛伏者的大型貓科動物。他們是有效率又致命的獵人……也是盟友。]], [[使用這個馴服圖騰和夜間潛伏者做朋友。和這個兇惡的獵豹一起打獵並保護他不受傷害。完成後再來找我。]], },
+    { [[使用馴服圖騰和夜間潛伏者做朋友再回到女獵人凱拉·夜弓那裡。]], },
   },
   [9594] = {
     [[军团的徽记]],
@@ -22066,8 +22228,8 @@ __ns.L.quest = {
   },
   [9598] = {
     [[救赎]],
-    { [[I am responsible for putting paladins on the path to greater virtue as they devote themselves to the Light and defend our people from threats.]], [[The time has come for you to take your first step towards being truly virtuous. If you accept it, I will give you a tome of divinity. In studying it, you shall learn some about the Light, and what is expected of you. If you understand it, and are capable, then you will succeed in attaining greater abilities.]], },
-    { [[Study the Tome of Divinity and speak with Jol.]], },
+    { [[我負責指引獻身於聖光的聖騎士走向聖潔之路，使其保護我們的人民免於敵人的威脅。]], [[朝聖潔之路踏出第一步的時刻已經來臨了。只要你下定決心，我會給你一本聖潔之書。書中的內容將有助於你對聖光的了解，以及身為一名聖騎士必須負擔的職責。假如你的能力足夠並且可以貫徹書中的精神，那麼我將賦予你更強大的力量。]], },
+    { [[研讀聖潔之書並且跟喬歐談話。]], },
   },
   [9599] = {
     [[<UNUSED>]],
@@ -22080,9 +22242,9 @@ __ns.L.quest = {
     { [[Jol wants you to resurrect a Young Furbolg Shaman with the Symbol of Life and return to her.]], },
   },
   [9601] = {
-    [[To The Bulwark]],
-    { [[The blood knight Mehlar Dawnblade has requested an audience with you, <name>.  Mehlar can be found at the Bulwark, guarding the passage between Tirisfal Glades and the Western Plaguelands.]], [[He is not known for his patience.  It would not be wise to keep him waiting.]], },
-    { [[Speak with Mehlar Dawnblade at the Bulwark.]], },
+    [[前進亡靈壁壘]],
+    { [[血騎士瑪拉·曦刃要求你當他的聽眾，<name>。你可以在亡靈壁壘找到瑪拉，保衛提里斯法林地和西瘟疫之地之間的通道。]], [[他不是以他的耐心聞名。聰明的話就不要讓他等。]], },
+    { [[和在亡靈壁壘的瑪拉·曦刃談談。]], },
   },
   [9602] = {
     [[邪恶的书信]],
@@ -22091,23 +22253,23 @@ __ns.L.quest = {
   },
   [9603] = {
     [[床铺，绷带，以及更多]],
-    { [[Welcome to Blood Watch, <class>. Please excuse the disorder you see around you. It's easy to take simple things for granted, like a fully furnished and stocked inn, until you're forced to build one from nothing.]], [[We've managed to salvage this pod for a building, but without the proper furnishings and first aid supplies, the inn is little more than a glorified tent. Nurguni at the Exodar has offered to put together a package to help with our most immediate needs, but I need someone to deliver this list to him.]], },
-    { [[Take Topher's List to Laando, the Hippogryph Master at Blood Watch.]], },
+    { [[歡迎來到血色守望，<class>。請不要介意四周的凌亂。把簡單的事情視為理所當然是很容易的，就像建造一間有著完整裝潢和存貨的旅店，直到你被迫無中生有才知道它的困難。]], [[我們已利用這個分離艙做為建築物，但沒有適當的家具和急救補給品，這旅店也不過是個美麗的帳篷而已。艾克索達的魯古尼已表示會給我們一個包裹來解決我們最迫切的需要，但我還需要某人幫我把這個單子送給他。]], },
+    { [[把塔伏爾的單子交給血色守望的角鷹獸管理員勒藍度。]], },
   },
   [9604] = {
     [[乘坐角鹰兽]],
     { [[只需要花一点点钱，你就可以乘坐角鹰兽飞去埃索达。]], [[乘坐角鹰兽既快又安全，那些携带着重要消息的人都会选择这种途径。如果你愿意的话，我可以帮你安排。]], },
-    { [[Purchase a hippogryph ride to the Exodar from Laando. When you land, take Topher's List to Nurguni in the Seat of the Naaru at the Exodar.]], },
+    { [[向勒藍度那租借一隻角鷹獸飛往艾克索達，抵達後，將塔伏爾的單子交給那魯之座的魯古尼。]], },
   },
   [9605] = {
     [[斯泰法努斯]],
-    { [[Here's the box, <name>. That should be enough for Topher to get the inn up and running. Let him know that he can keep sending in orders as the need arises. Blood Watch urgently needs a place to care for the wounded and put up any travelers they receive.]], [[When you're ready to return to Blood Watch, seek out Stephanos near the gates of the Exodar.]], },
-    { [[Find Stephanos outside the Exodar and purchase a hippogryph ride back to Blood Watch.]], },
+    { [[箱子在這，<name>。這應該夠塔伏爾經營旅店了。讓他知道有需要的話他可以繼續訂貨。血色守望急切地需要一個地方來照料傷者及供給旅人住宿。]], [[等你準備好前往血色守望，就去找艾克索達入口旁的史丹樊那斯。]], },
+    { [[到艾克索達外去找史丹樊那斯，並乘坐角鷹獸回到血色守望。]], },
   },
   [9606] = {
     [[返回看护员谢尔兰身边]],
-    { [[If I remember correctly, Blood Watch's hippogryph master is Laando.  If you've spoken to him before, then you can take one of my hippogryphs to him.]], [[That's a good lesson to know: hippogryphs are always trained to fly to their capital city, but they'll only take you to a remote hippogryph master after you've already been there.]], [[Since you arrived on one of Laando's hippogryphs, you can also use that route to return to Blood Watch with the caregiver's supplies.]], },
-    { [[Speak with Stephanos to purchase a hippogryph ride back to Blood Watch. Once you have arrived, deliver Nurguni's Supplies to Caregiver Topher Loaal.]], },
+    { [[如果我沒記錯，血色守望的角鷹獸管理員是勒藍度。要是你之前已經跟他說過話了，就能從我這租一隻角鷹獸到他那去。]], [[這是個很好的學習:角鷹獸一直接受訓練飛往他們的主要城市，但它們只能送你前往所在地之外的角鷹獸管理員那。]], [[因為你已經去過勒藍度的其中一處鳥點，就能使用這條路線帶著補充品回到血色守望去。]], },
+    { [[與史丹樊那斯租借一隻角鷹獸回到血色守望。一旦抵達後，運送魯古尼的補給品給照顧者塔伏爾·羅歐]], },
   },
   [9607] = {
     [[狂怒之心]],
@@ -22116,18 +22278,18 @@ __ns.L.quest = {
   },
   [9608] = {
     [[狂怒之心]],
-    { [[<class>, you must gather a group to investigate the Blood Furnace inside Hellfire Citadel at once!]], [[The magical scrying that we have at our disposal indicates that something unnatural is occurring in there.  But a powerful force inside is blocking any detailed arcane investigations, so it must be very important.]], [[You should expect heavy resistance - no other mission that we've sent in there has ever returned!]], [[Scout it entirely and then report back to Nazgrel, advisor to Thrall, with what you witness.]], },
-    { [[Fully investigate the Blood Furnace and then report to Nazgrel at Thrallmar in Hellfire Peninsula.]], },
+    { [[<class>，你一定要立刻聚集一群人去調查地獄火堡壘的血熔爐!]], [[我們的魔法占卜指出那裡出現了某個不尋常的東西。但裡面有一個強大的力量阻擋了任何精細的秘法調查，所以它一定是非常重要的。]], [[你要帶著眾多人手 - 我們派去那裡的人沒有一個回來過!]], [[徹底的偵察那裡再向索爾的顧問，納茲格雷爾報告你所見到的一切。]], },
+    { [[徹底調查血熔爐再到地獄火半島的索爾瑪向納茲格雷爾回報。]], },
   },
   [9609] = {
     [[[DEPRECATED] 帮助卫兵比格斯]],
-    { [[Magtoor has informed me that there's a stranded watcher nearby.  Apparently the caravan he was escorting from Darkshire was attacked by Lost Ones.  It sounds as if he's the sole survivor.]], [[He's somewhere to the south.  Please, <class>, lend him your aid.]], },
-    { [[Find Watcher Biggs in the Swamp of Sorrows.]], },
+    { [[瑪格圖爾告訴我附近有個無依無靠的看守者。很明顯的他從黑海岸護送來的商隊遭到了失落者的攻擊。聽起來他似乎是唯一的生還者。]], [[他就在南邊的某個地方。拜託，<class>，給予他你的協助。]], },
+    { [[在悲傷沼澤裡找到看守者比格斯。]], },
   },
   [9610] = {
     [[泪水之池]],
-    { [[I am interested in studying Azeroth's past and I'm wondering if you'd be willing to help?]], [[There is a nearby place of historical significance within the swamp that I would like for you to venture to.  The Pool of Tears lies to the southeast.  It is said that upon its shores and within its depths are buried artifacts of the Atal'ai troll civilization.]], [[But beware, it is guarded by Somnus, an ancient green dragon, and his dragonkin, as well as carnivorous fish in the pool itself!]], },
-    { [[Obtain 10 Atal'ai Artifacts and return them to Holaaru at the Harborage in the Swamp of Sorrows.]], },
+    { [[我很有興趣研究艾澤拉斯的過去，不知道你是否願意幫忙?]], [[我想請你去附近沼澤裡一個具有重要歷史意義的地方。淚水之池就在東南方。據說在它的岸邊和池子深處都埋藏著阿塔萊食人妖文化的手工藝品。]], [[但是要小心，一隻古老的綠色之龍，索姆努斯，和他的龍族守護著池子，池裡還有食人魚!]], },
+    { [[取得10個阿塔萊神器再回到悲傷沼澤的避難營找何拉魯。]], },
   },
   [9612] = {
     [[非常感谢！]],
@@ -22140,9 +22302,9 @@ __ns.L.quest = {
     { [[将血精灵布告交给碧蓝岗哨的大主教梅内莱厄斯。]], },
   },
   [9617] = {
-    [[Seek the Farstriders]],
-    { [[Lieutenant Dawnrunner at Farstrider Retreat has requested an audience with all able hunters.  It would greatly benefit you to seek her out, <name>.  She is a beacon of wisdom for those of our calling.]], [[Farstrider Retreat lies south of Silvermoon City.]], },
-    { [[Speak with Lieutenant Dawnrunner at Farstrider Retreat.]], },
+    [[尋找遠行者]],
+    { [[遠行者居所的晨奔中尉要覲見所有能幹的獵人。去找她對你有很大的助益，<name>。她是我們天職的智慧燈塔。]], [[遠行者居所就在銀月城的南方。]], },
+    { [[和遠行者居所的晨奔中尉談談。]], },
   },
   [9618] = {
     [[Return the Reports]],
@@ -22150,9 +22312,9 @@ __ns.L.quest = {
     { [[Bring Keltus Darkleaf's Reports to Zelanis in Silvermoon City.]], },
   },
   [9619] = {
-    [[The Rune of Summoning]],
-    { [[The voidstone reveals a vision of a multi-story building haunted by ghostly figures.  As the scene sharpens and blurs, other buildings come into view, leading you to believe it is Goldenmist Village.]], [[Rooftops and tree canopies suddenly flash by, revealing the way to Goldenmist by following the Elrendar River to the west.]], [[Once there, use the voidstone near the rune of summoning atop the center building and defeat the summoned voidwalker.  Only then can you return to your teacher.]], },
-    { [[Use the Voidstone to summon a Voidwalker in Goldenmist Village, defeat it, and return to Talionia in Silvermoon City.]], },
+    [[召喚符文]],
+    { [[虛無石顯現出一個多層建築物被鬼影纏繞的幻象。畫面時而清晰時而模糊，隨著其他的建築物也出現在畫面裡，你相信那是金霧村。]], [[屋頂和樹頂突然間閃現，顯露出沿著西邊的艾蘭達之河去金霧村的路。]], [[到了那裡，在中央建築物的頂端，靠近召喚符文處使用虛無石並擊敗召喚出來的虛無行者。只有這樣你才能回到老師身邊。]], },
+    { [[在金霧村使用虛無石召喚出一個虛無行者，擊敗它，再回到銀月城的塔萊妮亞那裡。]], },
   },
   [9620] = {
     [[失踪的测量小组]],
@@ -22186,12 +22348,12 @@ __ns.L.quest = {
   },
   [9626] = {
     [[觐见酋长]],
-    { [[I haven't lost any love for my homeland or its people, as you know.  I've fought tooth and nail for Silvermoon to be allowed a place beside Undercity and Orgrimmar at the negotiating table.]], [[This should silence any opposition. Take this letter to Thrall in Orgrimmar.  As leader of the Horde he will have the final say on accepting your race's pledge.]], [[I've added my own seal to the letter as a personal endorsement.  Go northwest of the city and board the zeppelin bound for Durotar at the tower.]], },
-    { [[Lady Sylvanas Windrunner wants you to take the Letter Sealed by Sylvanas to Thrall in Orgrimmar, capital of Durotar.]], },
+    { [[你知道，我對我的家園或人民的愛從未變過。我為銀月城拼了命的打鬥才有機會和幽暗城及奧格瑪坐上同一張談判桌。]], [[這應該讓任何的對立平息下來。帶著這封信去找奧格瑪的索爾。身為部落首領的他會對接受你們種族的保證做最後的決定。]], [[我已在信上加上我自己的封印做為個人的背書。去西北方哨塔上搭乘往杜洛塔去的飛艇。]], },
+    { [[希瓦娜斯·風行者要你將希瓦娜斯蓋章的信帶給杜洛塔首都，奧格瑪的索爾。]], },
   },
   [9627] = {
     [[部落的盟约]],
-    { [[Your people suffered a great betrayal by the Alliance.  You've succeeded in fending off Darnassian attacks as well as spies from Ironforge.  Now you've defeated a powerful Scourge leader at the footsteps of your home.  Your worthiness is no longer in question.]], [[It is now apparent that you need us and we need you.  Return to Lor'themar.  Tell him I received his message loud and clear.]], [[<The warchief crushes the letter inside his palm.>]], [[Welcome to the Horde, elf.]], },
+    { [[你的人民被聯盟狠狠的背叛。你已成功抵擋達納蘇斯和鐵爐堡間諜的攻擊。現在你又在家門前擊敗了一個強大的天譴軍團領導者。你的實力已不再值得懷疑。]], [[現在很明顯的你需要我們而我們也需要你。回到洛索瑪那裡。告訴他我清楚的收到了他的訊息。]], [[<大酋長將信在手中揉爛。>]], [[歡迎來到部落，精靈。]], },
     { [[回到银月城，向洛瑟玛·塞隆复命。]], },
   },
   [9628] = {
@@ -22217,12 +22379,12 @@ __ns.L.quest = {
   [9632] = {
     [[新的盟友]],
     { [[先行官米库拉斯保卫秘血岗哨的表现值得称赞，<class>。但是我们的敌人太多，而我们的资源太少。]], [[我们的敌人非常清楚我们的弱势，可是他们还不知道你与联盟的部队有联络。我准备了一封介绍信，向离这最近的联盟居住地奥伯丁的人民示好，并提议共同对抗我们的敌人。把信带上，在埃索达西边码头附近找到女猎手凯拉·夜弓。]], },
-    { [[Take the Letter of Introduction to Huntress Kella Nightbow.]], },
+    { [[將介紹信交給女獵人凱拉·夜弓。]], },
   },
   [9633] = {
-    [[The Way to Auberdine]],
+    [[去奧伯丁的路]],
     { [[如果你在码头等候，你会看到从黑堡港的奥伯丁港出发的船。一旦它卸下了乘客，你就可以登船了。]], [[短途旅行后，船会放在Auberdine，你就可以传达你的信息。]], [[It 's或许最好把这件事交给我的一位老朋友和一位备受尊敬的市民Thunris Windweaver。]], },
-    { [[Take the boat from the dock near Huntress Kella Nightbow to Auberdine. Once you have arrived in Auberdine, take the Letter of Introduction to Thundris Windweaver.]], },
+    { [[從靠近女獵人凱拉·夜弓的碼頭上搭船前往奧伯丁。等你到了奧伯丁，將介紹信拿給桑迪斯·織風。]], },
   },
   [9634] = {
     [[大战异型掠夺者]],
@@ -22230,13 +22392,13 @@ __ns.L.quest = {
     { [[杀掉10个秘血幼崽，然后向秘血岛凯希尔路口的雷象管理者沃克汉复命。]], },
   },
   [9635] = {
-    [[The Zapthrottle Mote Extractor!]],
-    { [[The swamp gas is truly amazing, and can be very useful, mon!  But first, you gotta be able to suck it up, and that, my friend, requires a Zapthrottle Mote Extractor.]], [[Now, I could just give you the schematics, but I'll need something in return first.  How about some spare parts?  Last time I checked, there were plenty laying around near the broken steam pump at the Dead Mire, far to the northeast.]], [[I heard that the withered giants spread the pieces all over that dried-out lake bed.]], },
-    { [[Bring 15 Steam Pump Parts to Mack Diver at Zabra'jin in Zangarmarsh.]], },
+    [[快速節流微粒吸取器!]],
+    { [[沼氣真是驚人，也非常有用，老兄!但首先，你得能夠將它吸收，這樣的話，朋友，你就需要一台快速節流微粒吸取器。]], [[我現在就能給你設計圖，不過我得先要點回報。一些備用零件如何?上次我檢查的時候，發現死亡污泥損壞的蒸汽幫浦附近有很多零件，就在東北方。]], [[我聽說枯萎的巨人在那邊的乾枯河床上四處散佈著零件。]], },
+    { [[帶15個蒸汽幫浦零件到贊格沼澤給薩布拉金的馬克·戴沃。]], },
   },
   [9636] = {
-    [[The Zapthrottle Mote Extractor!]],
-    { [[Have you seen the swamp gas?  Isn't it just shiny?]], [[It takes a Zapthrottle Mote Extractor to suck 'em dry though.  I could give you the plans to make one, but I really need some spare parts to fix stuff 'round here.]], [[Last time I checked, there were plenty of parts laying around near the steam pump at the Dead Mire to the northeast.  I think the withered giants broke the pump out there.]], [[Shall we help each other out?]], },
+    [[快速節流微粒吸取器!]],
+    { [[你看過沼氣嗎?是不是很閃亮?]], [[雖然這得用快速節流微粒吸取器來吸乾。我可以給你設計圖去製作，但我確切需要一些備用零件來修理這邊的器材。]], [[上次我檢查時，發現死亡污泥的蒸汽幫浦附近有許多零件散落，就在東北邊。我想是枯萎的巨人破壞幫浦所致。]], [[我們是不是該互惠一下呢?]], },
     { [[将15个蒸汽泵零件交给赞加沼泽泰雷多尔的凯莉·弗莱。]], },
   },
   [9637] = {
@@ -22299,7 +22461,7 @@ __ns.L.quest = {
   },
   [9649] = {
     [[伊瑟拉之泪]],
-    { [[Good to see you again, <name>! You were exceptionally efficient in completing the last task that I offered you. Perhaps you would be interested in another?]], [[To the northeast lies Wyrmscar Island, home to a rare species of mushroom known as Ysera's tear - named after the green dragonlings that inhabit the island. I only require a small sampling of the mushroom, but I must warn you that the denizens of the island do not welcome visitors. Tread carefully.]], },
+    { [[再見到你真好，<name>!你在完成我給你的最後一個任務時真是異常地有效率。或許你對另一個任務有興趣?]], [[東北方有個龍痕島，一種名罕見蘑菇生長在那邊，伊瑟拉之淚 - 以住在那座島上的綠龍軍團為名。我只需要一個蘑菇小樣本，但我一定要警告你島上的居民不歡迎訪客。步步為營。]], },
     { [[玛凯雷的耶塞拉希望你找到2个伊瑟拉之泪。]], },
   },
   [9663] = {
@@ -22339,7 +22501,7 @@ __ns.L.quest = {
   },
   [9670] = {
     [[他们还活着！也许……]],
-    { [[It was a bloody mess, <name>. We were ambushed by a large pack of these spiders. Their progenitor descended upon us with incredible speed and wrapped us up in cocoons.]], [[After we were webbed, she began to lay eggs near us. We were to be food for her young! FOOD!]], [[I managed to cut my way out and escape but I will not leave the others behind. So far I've been unsuccessful in nearing the pass. Would you lend a hand?]], [[Destroy those cocoons! Hopefully some of our team is still alive!]], },
+    { [[那真是一場血戰啊，<name>。我們被一大群蜘蛛給突襲。他們的祖先用不可思議的速度向我們蜂擁而上並把我們包在繭裡。]], [[在我們被纏住後，她開始在我們附近產卵。我們就要成為她幼蟲的食物了!是食物!]], [[我設法逃了出來，但我沒辦法丟下其他人不管。目前為止我都無法成功接近那裡。你可以伸出援手嗎?]], [[摧毀那些繭!希望我們的隊員還有人活著!]], },
     { [[研究员考内留斯要你救出5个远征队研究员。]], },
   },
   [9671] = {
@@ -22347,23 +22509,23 @@ __ns.L.quest = {
   },
   [9672] = {
     [[血咒的遗产]],
-    { [[Dear friend,]], [[My hand trembles as I ink this letter. I pray that it reaches you in time.]], [[Last night, Edward Hanes, captain of the ship 'Lost Hope', appeared before me in my tent. The same Edward Hanes that died of scurvy 20 years ago.]], [[This apparition told me a tale that made my heart tremble. A tale that I need you to hear and a mission that I need you to accomplish. Will you do it? Will you seek out Edward on Wyrmscar Island, northeast of your base?]], [[Regards,]], [[Admiral Odesyus]], },
+    { [[親愛的朋友，]], [[我顫抖著手寫下這封信。我希望它能及時送到你手中。]], [[昨天夜裡，「失望」號的船長，艾德華·漢尼斯出現在我帳篷前面。和20年前因壞血病而死的艾德華·漢尼斯一模一樣。]], [[這個亡魂告訴我一個讓我的心不停顫抖的故事。一個我要你聽的故事和一個我要你完成的任務。你願意接受嗎?你願意去基地東北方的龍痕島找艾德華嗎?]], [[艦隊司令·奧迪席斯，]], [[敬上]], },
     { [[海军上将奥德修斯要你找到艾德华·汉斯船长，然后与他谈一谈。]], },
   },
   [9673] = {
-    [[Beast Training]],
-    { [[Beyond bonding with your chosen pet, there remains the intricacies of caring and training it.  For this, Halthenis the beast trainer of Silvermoon City can show you the way.]], [[He always shows the utmost respect for my students, if they do the same for him.  Do not disappoint me.]], },
-    { [[Speak with Halthenis in Silvermoon City.]], },
+    [[野獸訓練]],
+    { [[除了和你選擇的寵物合作之外，你還必須學會一套照顧和訓練它的學問。為此，銀月城的野獸訓練師海德尼斯可以指引你的道路。]], [[只要我的學生對他展現最大的敬意，他也會尊敬他們。別讓我失望。]], },
+    { [[和銀月城的海德尼斯談談。]], },
   },
   [9674] = {
     [[血咒纳迦]],
     { [[他们说当世界分崩离析的时候，这片土地放声痛哭。无数的暗夜精灵坠入湮灭的深渊，被扭曲成一种令人憎恶的怪物——纳迦。]], [[他们听命于扭曲的女王艾萨拉，所有从他们的海域中经过的人都会被杀死。从几千年前到现在一直都是这样——直到今天。]], [[你要做的第一件事就是消灭掉暗礁中的血咒纳迦。]], },
-    { [[Captain Edward Hanes on Wyrmscar Island wants you to kill 10 Bloodcursed Naga.]], },
+    { [[龍痕島的隊長艾德華·漢尼斯要你殺死10個血咒納迦。]], },
   },
   [9675] = {
-    [[Beast Training]],
-    { [[Oh, one more thing!  You'll want to speak with Ganaar at the Exodar.  He'll be able to teach you the last bits of knowledge necessary to care for your pet and train it.]], [[You can find him in the southwest corner of the Traders Tier.]], },
-    { [[Speak with Ganaar at the Traders Tier of the Exodar.]], },
+    [[野獸訓練]],
+    { [[喔，還有一件事!你要和艾克索達的加納談談。他能教你最後一點必要的知識來照料和訓練你的寵物。]], [[你可以在貿易區西南方的角落找到他。]], },
+    { [[到艾克索達的貿易區和加納談談。]], },
   },
   [9676] = {
     [[圣骑士训练]],
@@ -22371,14 +22533,14 @@ __ns.L.quest = {
     { [[与逐日岛太阳之塔内的圣骑士训练师耶泰尼斯·射日者谈一谈。]], },
   },
   [9677] = {
-    [[Summons from Knight-Lord Bloodvalor]],
-    { [[<name>, you have excelled in your early training and distinguished yourself among those who would become Blood Knights. You are ready to undertake the next phase of your training and, to that end, Knight-Lord Bloodvalor himself has asked to speak with you.]], [[I have no doubt that Knight-Lord Bloodvalor wishes to set a trial for you to test your abilities and training. You will find him in the Blood Knight headquarters in Silvermoon City's Farstriders' Square. I wish you well, <name>.]], },
-    { [[Speak with Knight-Lord Bloodvalor in Farstriders' Square in Silvermoon City.]], },
+    [[騎士領主伯洛德瓦勒的召喚]],
+    { [[<name>，你在先前訓練中的表現相當出色並在那些可能成為血騎士的人中脫穎而出。你已經準備好接受下一個階段的訓練了，為達此目的，騎士領主伯洛德瓦勒本人已表示要和你談談。]], [[我相信騎士領主伯洛德瓦勒要給你一個試煉來考驗你的能力和訓練。你可以到銀月城的遠行者廣場，在血騎士總部找到他。祝你好運，<name>。]], },
+    { [[到銀月城的遠行者廣場和騎士領主伯洛德瓦勒談談。]], },
   },
   [9678] = {
-    [[The First Trial]],
-    { [[You have learned much of combat and bloodshed, initiate, but there is much more to our order.]], [[Mastery of the Light requires a focused mind and tremendous willpower. Without these, you are little better than a street thug.]], [[There is an island in the northeastern reaches of the Ghostlands, called the Isle of Tribulations, that we use to hone these skills. You will find a brazier within a shallow cave there. Kneel before the brazier, light it, and focus on what you see before your eyes.]], },
-    { [[Travel to the island Knight-Lord Bloodvalor described, find the cave, and light the brazier. When the First Trial is over, return to Knight-Lord Bloodvalor in Silvermoon City.]], },
+    [[第一個試煉]],
+    { [[你已經學到很多關於戰鬥和殺人的事了，初學者，但我們的軍隊中還有很多事要學。]], [[聖光的專精需要專注的心志和極大的意志力。沒有這些，你不過只是個街頭暴徒。]], [[鬼魂之地東北方區域有一座島，叫做磨難之島，那是我們用來磨練這些技能的地方。你會在那裡一個淺淺的洞穴裡找到一個火盆。在火盆前跪下，點燃它，並專注於你眼前看到的東西。]], },
+    { [[前往騎士領主伯洛德瓦勒所描述的島，找到洞穴，並點燃火盆。當第一個試煉結束，回到銀月城的騎士領主·伯洛德瓦勒那裡。]], },
   },
   [9680] = {
     [[挖掘历史]],
@@ -22386,9 +22548,9 @@ __ns.L.quest = {
     { [[大法师奥图鲁斯要求你前往逆风小径，从卡拉赞以南的山脉中取回一块焦骨碎块。]], },
   },
   [9681] = {
-    [[A Study in Power]],
-    { [[Do not think me unduly harsh, <name>. Stillblade knew well what he was being sent to do. He understood and accepted his duty and is an example for all aspiring Blood Knights.]], [[My words are no eulogy, <name>. Stillblade's service to us is far from over and you will be the instrument of his resurrection.]], [[Your education in the order's ways has just begun. With the betrayal of Kael'thas and the loss of our power source, you must learn new methods of wielding the Light. Seek out Magister Astalor Bloodsworn.]], },
-    { [[Speak with Magister Astalor Bloodsworn in the hidden chamber beneath Blood Knight headquarters.]], },
+    [[學習力量]],
+    { [[別認為我過於嚴厲，<name>。靜刃清楚的知道他的任務目的。他了解並接受他的職責，他是所有胸懷抱負的血騎士的表率。]], [[我不是在致哀悼詞，<name>。靜刃效命我們的時間還沒那麼快結束，而你就是要讓他復活的那個人。]], [[你在騎士團中的訓練才剛開始。凱爾薩斯的背叛還有失去我們力量的來源，你得學習新的方法來使用聖光。去找博學者阿斯塔樂·血誓吧。]], },
+    { [[到血騎士總部底下隱藏的房間裡和博學者阿斯塔樂·血誓談談。]], },
   },
   [9682] = {
     [[绝望者……]],
@@ -22411,9 +22573,9 @@ __ns.L.quest = {
     { [[Take the Filled Shimmering Vessel to Silvermoon City's inn and use its magic to resurrect Sangrias Stillblade.]], },
   },
   [9686] = {
-    [[The Second Trial]],
-    { [[You stand on the verge of adept status in the order, <name>. First, you must prove your worthiness by undertaking another trial.]], [[The Second Trial differs from the first in that there will be no surprises this time. The challenge before you is simple; you must face and best four Blood Knight champions in combat.]], [[When you accept the challenge, a crystal will appear in the middle of the pavilion. Touch it to begin your trial and do not stray far from the building.]], [[Are you prepared?]], },
-    { [[Complete the Second Trial by defeating Champion Bloodwrath, Champion Lightrend, Champion Swiftblade, and Champion Sunstriker in the pavilion near Master Kelerun Bloodmourn.]], },
+    [[第二個試煉]],
+    { [[你站在騎士團中高手的邊緣，<name>。首先，你必須接受另一個試煉來證明自己的價值。]], [[第二個試煉和第一個不同，因為這次將不會有驚喜。你眼前的挑戰是簡單的;你一定要在戰鬥中挑戰並打敗四個血騎士勇士。]], [[等你接受挑戰，亭子中央就會出現一個水晶。觸摸它來開始你的試煉，並且不要離這棟建築物太遠。]], [[你準備好了嗎?]], },
+    { [[完成第二次的試煉，在大師克萊倫‧布勞德摩爾附近的亭子裡擊敗血怒勇士，勇士萊特蘭德，迅刃勇士，及勇士桑司瑞克。]], },
   },
   [9687] = {
     [[找回尊严]],
@@ -22423,7 +22585,7 @@ __ns.L.quest = {
   [9688] = {
     [[进入梦境]],
     { [[你在岛上看到的幼龙是躁动不安的绿龙之魂。他们跟我一样被困在了这里，灵魂无法得到安息。]], [[找回他们的尸骨让他们暂时安定了一些，不过你还必须采取进一步的行动才能永久解决这个问题。]], [[毁掉他们的怨魂，在那之前我都不能离开这里。一定要彻底解救他们！]], },
-    { [[Prince Toreth at Wyrmscar Island has asked that you slay 5 Viridian Whelps and 5 Viridian Broodlings.]], },
+    { [[龍痕島的托瑞斯王子要你殺死5隻翠綠色幼龍和5隻翠綠色小龍。]], },
   },
   [9689] = {
     [[刺喉]],
@@ -22431,19 +22593,19 @@ __ns.L.quest = {
     { [[龙痕岛的托雷斯王子要你杀掉刺喉。]], },
   },
   [9690] = {
-    [[The Second Trial]],
-    { [[Initiate <name>, you have worked hard to master the powers of the Light won by our magisters. You have learned the source of our abilities and of the duties of a Blood Knight.]], [[The time has come for you to undergo the Second Trial, and contest for status as an adept among the Blood Knights. The trial will be administered by Master Kelerun Bloodmourn at a location north of the city. Travel north through the Ruins of Silvermoon and take the east path immediately before the bridge to Sunstrider Isle.]], },
-    { [[Report to Master Kelerun Bloodmourn.]], },
+    [[第二個試煉]],
+    { [[新加入的<name>，你很努力的精進我們博學者傳授給你的聖光力量。你學到了我們能力的來源和身為血騎士的職責。]], [[是時候讓你接受第二個試煉和獲得血騎士高手身份的競賽了。這個試煉會由大師克萊倫·布勞德摩爾在城的北方所主持。穿過銀月廢墟前往北方，在快要到達通往逐日者之島的橋之前往東邊的路走。]], },
+    { [[向大師克萊倫·布勞德摩爾回報。]], },
   },
   [9691] = {
     [[回到银月城]],
-    { [[Return to Silvermoon City and report to Knight-Lord Bloodvalor promptly. Your arrival will tell him all he needs to know about the outcome of the trial.]], [[He will tell you of your remaining tasks on the road to becoming an adept. Hold your head high, <name>. Many undertake this trial, but very few return to tell of their success.]], },
-    { [[Return to Knight-Lord Bloodvalor in Silvermoon City.]], },
+    { [[立刻回到銀月城向騎士領主伯洛德瓦勒報告。你的出現會讓他知道你已經通過試煉了。]], [[他會告訴你成為一個高手之路上還剩下什麼考驗。抬起你的頭，<name>。許多人接受過這個試煉，但很少人能凱旋歸來。]], },
+    { [[回到銀月城的騎士領主伯洛德瓦勒那裡。]], },
   },
   [9692] = {
-    [[The Path of the Adept]],
-    { [[Before a newly-minted adept can be accepted into the ranks of the Blood Knights, <he/she> must procure the resources  to create our order's distinctive weapon, the blood-tempered ranseur.]], [[You must also earn the right to wear our order's insignia. When the order was founded, a set number were forged and distributed, so each new adept inherits <his/hers> from a veteran. Your insignia will come from a fallen knight who bravely led an assault on Deatholme.]], [[I have prepared a set of notes to guide you.]], },
-    { [[Bring a Corrupted Kor Gem, a Crate of Bloodforged Ingots, a quantity of Blood of the Wrathful, and a Blood Knight Insignia to Knight-Lord Bloodvalor in Silvermoon City.]], },
+    [[高手之路]],
+    { [[在一個新的高手正式成為血騎士軍官前，<他/她>一定要取得製作我們騎士團特有武器，血淬三叉矛的材料才行。]], [[你也一定要贏得穿戴上我們騎士團徽記的權利。當騎士團成立時，固定的編號就已分配給每一個人了，所以每個新的高手就會從一個老手接過<他的/她的>號碼。你的徽記來自一個在死亡之域勇敢率領突襲部隊的陣亡騎士。]], [[我準備好了一份筆記要指引你。]], },
+    { [[將一顆被污染的科爾寶石，血鑄錠木箱，大量憤怒之血，和一個血騎士徽記帶給銀月城的騎士領主伯洛德瓦勒。]], },
   },
   [9693] = {
     [[阿古斯的意义]],
@@ -22454,6 +22616,11 @@ __ns.L.quest = {
     [[秘血岗哨]],
     { [[秘血岗哨是阿古斯之手驻守的两座前哨站之一。另一处便是碧蓝岗哨，你已经去过了。秘血岛上的情形却截然不同。我们初次到来时，秘血岛跟秘蓝岛一样美丽。我们甚至把这里命名为银风岛，但是如今，疾病侵蚀着整座岛屿，更糟糕的是，部分血精灵侥幸在埃索达的清剿中逃生。我有一项任务要交给你：前往西北方的刀林，消灭躲藏在那儿的血精灵。]], },
     { [[杀死10个炎鹰间谍，然后向秘血岗哨的守备官波鲁斯复命。]], },
+  },
+  [9695] = {
+    [[太陽之王的命令]],
+    { [[這份文件看起來很重要。不幸地，這是用薩拉斯語寫的，一種你不懂的語言。]], [[或許復仇者波羅斯會知道該怎麼處理這封信。]], },
+    { [[將太陽之王的命令帶給血色守望的復仇者波羅斯。]], },
   },
   [9696] = {
     [[翻译……]],
@@ -22467,7 +22634,7 @@ __ns.L.quest = {
   },
   [9698] = {
     [[会见先知]],
-    { [[I need you to deliver the translated documents to Velen personally, <name>. I don't trust that deranged messenger.]], [[Explain to the Prophet that the blood elves are receiving reinforcements from the Outland and that they have a spy amongst the draenei at the Exodar. Velen resides in the Vault of Lights inside the Exodar.]], [[Make haste!]], },
+    { [[我要你把翻譯的文件親自交給費倫，<name>。我不信任那個笨手笨腳的信差。]], [[向預言者解釋血精靈正在從外域接收援軍，他們在艾克索達的德萊尼之中有個間諜。費倫住在艾克索達的聖光地窖。]], [[動作快!]], },
     { [[将炎鹰信函的译文交给埃索达的先知维伦。]], },
   },
   [9699] = {
@@ -22477,7 +22644,7 @@ __ns.L.quest = {
   },
   [9700] = {
     [[黑暗中的魔法]],
-    { [[Velen states that if the blood elves have been opening rifts between this island and the Outland, there will be residue or anomalies left in the areas where the portals have been opened. You must search the island for locations that exhibit or display these anomalies.]], [[Be warned, <name> some of these anomalies will be creatures from the void itself. Should you find void anomalies, slay them! Report back to me with any new information that you may find. Begin your search to the north, near the Warp Piston.]], },
+    { [[費倫表示如果血精靈已在這座島和外域間開啟了裂縫，傳送門開啟的地方就會有召喚儀式的殘餘物或異常者出現。你一定要搜索島上有顯現出這些異象的地方。]], [[小心，<name>;有些異象是從虛無本身來的生物。如果你發現虛無反常者，就殺了他們!帶著你找到的新資訊回來向我報告。從北邊開始你的搜索，靠近星移活塞的地方。]], },
     { [[前往太阳传送站杀死5个虚空畸能，然后向秘血岗哨的守备官波鲁斯复命。]], },
   },
   [9701] = {
@@ -22492,7 +22659,7 @@ __ns.L.quest = {
   },
   [9703] = {
     [[冷却核心]],
-    { [[We have others pursuing leads on the sun portals, <name>. I need you to focus on the task at hand.]], [[Boros has received new reports of another crash site. What we've since discovered is that the crash site is actually the Exodar's cryo-core. This is a pod holding area that houses pods exactly like the ones we draenei crawled out of in Ammen Vale.]], [[This area also holds medical supplies. Head to the Cryo-Core, directly west of Blood Watch. Search for supplies and search for survivors.]], },
+    { [[我們還有其他人在尋找太陽之門的線索，<name>。我要你先專注於手上的工作。]], [[波羅斯收到一則新報告指出有另一個失事地點。我們發現那個失事地點就是艾克索達的冬眠核心。這是覆蓋船艙的支撐區域，就和我們德萊尼從安曼谷爬出來的那個船艙一樣。]], [[這個區域也有醫療補給。前往冬眠核心，就在血色守望正西邊。尋找物資及生還者。]], },
     { [[取回12箱医疗补给品，然后向秘血岗哨的守备官库卢斯复命。]], },
   },
   [9704] = {
@@ -22508,7 +22675,7 @@ __ns.L.quest = {
   [9706] = {
     [[加莱恩的日记 - 守备官撒鲁安的命运]],
     { [[你颤抖着捡起日记。一定要把这场悲剧告知库卢斯。将这本日记交给他。]], },
-    { [[Take Galaen's Journal to Vindicator Kuros at Blood Watch.]], },
+    { [[將高拉恩的日誌帶給血色守望的復仇者庫羅斯。]], },
   },
   [9707] = {
     [[Forging the Weapon]],
@@ -22532,13 +22699,13 @@ __ns.L.quest = {
   },
   [9711] = {
     [[残忍的玛提斯]],
-    { [[Matis will be brought to justice, <name> and I want you to be the one to find him and bring him back to the Triumvirate.]], [[Scour the island for this bastard. Should you find him, use this flare gun. When my trackers see the flare, they'll come and assist in capturing Matis. Return to me after he's been captured.]], },
+    { [[馬帝斯會得到正義的，<name>;我要你找到他並把他帶回三頭政治。]], [[搜索島嶼找到這個混蛋。如果你找到他，就使用這把信號槍。我的追蹤者看到閃光就會前去協助逮捕馬帝斯。抓到他後再來找我。]], },
     { [[秘血岗哨的守备官库卢斯要你俘获残忍的玛提斯。]], },
   },
   [9712] = {
-    [[OLD The Thalassian Warhorse]],
-    { [[You have distinguished yourself in the service of the order, <name>. Your skill in wielding the Light energies granted by Magister Astalor and his fellows has proven you worthy to receive a new kind of knowledge.]], [[With the Light at your command, it is possible to summon a fearsome warhorse that will serve as your faithful mount.]], [[Continue to serve with dedication and honor, <name>, and even greater boons await you.]], },
-    { [[Talk to Knight-Lord Bloodvalor to learn how to summon your Thalassian Warhorse.]], },
+    [[薩拉斯戰馬]],
+    { [[你在騎士團中的表現非常出色，<name>。博學者阿斯塔樂·血誓和他的同袍認同你使用聖光能量的技巧並證明你夠資格學習一項新知識。]], [[運用聖光的力量，你就能召喚一匹可怕的戰馬做為你忠誠的坐騎。]], [[持續以奉獻和榮耀來服務眾人，<name>，還有更棒的好處在等著你。]], },
+    { [[和騎士領主伯洛德瓦勒談談，學習如何召喚你的薩拉斯戰馬。]], },
   },
   [9713] = {
     [[Glowcap Harvesting Enabling Flag]],
@@ -22577,9 +22744,9 @@ __ns.L.quest = {
     { [[伊谢尔·风歌要你利用铁藤种子，破坏毒蛇湖、暗泽湖、沼光湖和环礁湖的蒸汽泵控制台，然后返回赞加沼泽的塞纳里奥庇护所，将剩余的铁藤种子还给她。]], },
   },
   [9721] = {
-    [[A Summons from Lord Solanar]],
-    { [[Your dedication to our order and advancement through the ranks has not gone unnoticed. In fact, Lord Solanar Bloodwrath, Lady Liadrin's right hand and a hero in his own right, has asked to speak with you.]], [[This is a rare honor, <name>. Normally, Lord Solanar leaves the management of the order's rank-and-file to me, but he has taken a personal interest in you. Do not tarry, <name>.]], },
-    { [[Speak with Lord Solanar Bloodwrath in Silvermoon City.]], },
+    [[索拉納爾領主的召喚]],
+    { [[你對我們騎士團的奉獻和在階級的晉升都獲得了注意。事實上，索拉納爾·血怒領主，莉雅德倫女士的左右手，一位真正的英雄，已要求要和你談談。]], [[這是份殊榮，<name>。通常索拉納爾領主將一般成員的管理都交給我，但他現在有興趣和你親自見見。別耽擱了，<name>。]], },
+    { [[和銀月城的索拉納爾·血怒領主談談。]], },
   },
   [9722] = {
     [[The Master's Path]],
@@ -22624,12 +22791,12 @@ __ns.L.quest = {
   [9730] = {
     [[暗潮纳迦的首领]],
     { [[塞纳里奥远征队重金悬赏击杀暗潮纳迦首领——哈格哈兹王子的勇士。塞纳里奥斥候最后一次发现哈格哈兹是在赞加沼泽中南部的环礁湖。]], [[暗潮纳迦曾多次袭击塞纳里奥远征队，他们的首领被视为极度危险的人物。]], [[诛杀哈格哈兹王子的勇士可在监护者哈穆特处领取奖赏。]], },
-    { [[Slay Rajah Haghazed at the Lagoon and return to Warden Hamoot at the Cenarion Expedition in Zangarmarsh for a reward.]], },
+    { [[殺了瀉湖的洛迦海卡斯特並回到贊格沼澤的塞納里奧遠征隊向守望者漢姆特回報。]], },
   },
   [9731] = {
     [[抽水泵结构图]],
     { [[这张结构图上绘制着连接毒蛇湖和邻近湖泊的地下排水系统。]], [[如果图表属实的话，那么毒蛇湖的中心必定有一台巨大的抽水泵。核实这个消息是否属实，然后返回塞纳里奥庇护所复命。]], },
-    { [[Search Serpent Lake for signs of a drain.  Return to Ysiel Windsinger at Cenarion Refuge with news of your discovery.]], },
+    { [[搜尋毒蛇之湖尋找排水管的徵兆。帶著你的發現回到塞納里奧避難所找伊斯歐·風歌。]], },
   },
   [9732] = {
     [[返回沼泽]],
@@ -22679,7 +22846,7 @@ __ns.L.quest = {
   [9741] = {
     [[虚空幼体]],
     { [[数日前，伊索姆派我的人外出搜寻太阳之门。当然，我们找到了……]], [[<洛伊指着约莉。>]], [[愚蠢的血精灵在打开传送门的同时，释放了虚空的力量。现在这儿出现了成群的虚空幼体。]], [[我们必须在它们成长为虚空畸能之前杀掉它们。西南方的太阳之门附近聚集了大量这种生物。杀死它们，然后向伊索姆复命。]], },
-    { [[Kill 12 Void Critters and report to Vindicator Aesom at Blood Watch.]], },
+    { [[殺死12個虛無異常者再向血色守望的復仇者艾伊森回報。]], },
   },
   [9742] = {
     [[更多孢子囊]],
@@ -22695,7 +22862,7 @@ __ns.L.quest = {
   [9746] = {
     [[精疲力尽]],
     { [[<name>，胜利在望。我们已经发现了太阳之门，很快就能彻底切断血精灵的补给线。首先，我们要削减他们的数量。]], [[此地以西有许多炎鹰部队营地。炎鹰火法师和炎鹰防御者是那里的主要防备力量。去杀死他们，然后向我复命。]], },
-    { [[Vindicator Aesom at Blood Watch wants you to slay 10 Sunhawk Pyromancers and 10 Sunhawk Defenders.]], },
+    { [[血色守望的復仇者艾伊森要你殺死10個太陽之鷹控火者和10個太陽之鷹防衛者。]], },
   },
   [9747] = {
     [[暗泽部族]],
@@ -22717,7 +22884,7 @@ __ns.L.quest = {
   },
   [9751] = {
     [[血咒的遗产]],
-    { [[Last night, Edward Hanes, captain of the ship 'Lost Hope', appeared before me in my tent. The same Edward Hanes that died of scurvy 20 years ago.]], [[This apparition told me a tale that made my heart tremble. A tale that I need you to hear and a mission that I need you to accomplish. Will you do it? Will you seek out Edward on Wyrmscar Island, northeast of Blood Watch?]], },
+    { [[昨天夜裡，「失望」號的船長，艾德華·漢尼斯出現在我帳篷前面。和20年前因壞血病而死的艾德華·漢尼斯一模一樣。]], [[這個亡魂告訴我了一個讓我的心顫抖的故事。一個我要你聽的故事和一個我要你完成的任務。你會去做嗎?你會去找血色守望東北方的龍痕島找艾德華嗎?]], },
     { [[海军上将奥德修斯要你找到艾德华·汉斯船长，然后与他谈一谈。]], },
   },
   [9752] = {
@@ -22732,13 +22899,13 @@ __ns.L.quest = {
   },
   [9756] = {
     [[我们不知道的……]],
-    { [[Our attempts at interrogation have failed miserably, <name>. Torture is - of course - out of the question. What we need is a draenei on the inside.]], [[I can cast a spell upon you that would make you appear blood elf and adjust your language. Through subterfuge, we may be able to get the information we need out of the captured agent.]], [[Under this guise, I want you to get whatever information you can out of the prisoner.]], [[And <name>, do not leave Blood Watch while disguised as the spell will fail.]], },
+    { [[我們嘗試審問的企圖已悲慘地失敗了，<name>。折磨 - 當然 - 是絕對會有的。我們需要的是一個在裡面的德萊尼。]], [[我可以對你施放一個法術讓你變成血精靈並調整你的語言。透過一些藉口，我們或許可以獲得被俘虜的密探的消息。]], [[在這樣的偽裝下，我要你盡可能的從囚犯那裡取得資訊。]], [[還有<name>，偽裝的時候不可以離開血色守望否則法術就會失效。]], },
     { [[与秘血岗哨的被抓住的炎鹰间谍交谈，了解炎鹰的相关信息。完成任务后向主教埃德门图斯复命。]], },
   },
   [9757] = {
-    [[Seek Huntress Kella Nightbow]],
-    { [[Huntress Kella Nightbow seeks the audience of all eligible hunters.  She is the one to teach you the skill of taming wild beasts, a lesson you should learn above all else at this point in your training.]], [[Kella can be found near Valaar's Berth, the docks west of the Exodar.]], },
-    { [[Speak with Huntress Kella Nightbow near Valaar's Berth.]], },
+    [[尋找女獵人凱拉·夜弓]],
+    { [[女獵人凱拉·夜弓謁見所有合格的獵人。她可以教你馴服野生野獸的技巧，這是你現在的訓練中應該先學的課題。]], [[凱拉就在瓦拉船台附近，艾克索達的西邊碼頭。]], },
+    { [[和瓦拉船台附近的女獵人凱拉·夜弓談談。]], },
   },
   [9758] = {
     [[返回奥术师范迪瑞尔身边]],
@@ -22753,12 +22920,12 @@ __ns.L.quest = {
   [9760] = {
     [[守备官营地]],
     { [[<name>，我不会让你独自承担起破坏矢量感应器和杀死希隆娜丝的重任的；但是，你可以帮那些愿意接受这项危险任务的勇者清理沿途的障碍。]], [[沿着北边的道路离开秘血岗哨，在分岔路口往左转，守备官营地就在这条岔路的西边。考尔琳在那儿等你。]], },
-    { [[Speak with Vindicator Corin at Vindicator's Rest on Bloodmyst Isle.]], },
+    { [[到血謎島和復仇者之陵的復仇者科林談談。]], },
   },
   [9761] = {
     [[清理道路]],
-    { [[Only the most battle hardened, noble and positively fearless of draenei will submit to Legoso's mission. The exarch will not order any agent of the Hand to take on the task of destroying the Vector Coil and dispatching Sironas. He refuses to send any draenei to their death - which is what the mission is: suicide...]], [[<Corin sighs.>]], [[My job is to soften up the Sunhawk defenses. You are to slay Sunhawks near the Vector Coil and keep the path clear for our champion - whoever that may be.]], },
-    { [[Vindicator Corin at Vindicator's Rest wants you to slay 8 Sunhawk Saboteurs and 8 Sunhawk Agents.]], },
+    { [[只有最身經百戰，高尚，又毫無畏懼的德萊尼才會接下於勒茍索的任務。主教不會命令任何一個阿格斯之手的密探接下摧毀旋繞導航器和殺死賽羅娜斯的任務。他拒絕讓任何一個德萊尼去送死 - 像是那些自殺般的任務……]], [[<科林嘆氣。>]], [[我的工作是削弱太陽之鷹的防禦。你要殺死旋繞導航器附近的太陽之鷹並為我們的勇士將道路清空 - 不論我們的勇士是誰。]], },
+    { [[復仇者之陵的復仇者科林要你殺死8個太陽之鷹破壞者和8個太陽之鷹密探。]], },
   },
   [9762] = {
     [[未知的命运]],
@@ -22782,9 +22949,9 @@ __ns.L.quest = {
     [[盘牙武器]],
   },
   [9767] = {
-    [[[Not Used] Know Your Enemy]],
-    { [[Defeating an enemy requires more than superior power or numbers.  Victory often hinges on knowledge of an opponent's weaknesses, the anticipation of their plans or the recognition of a behavior pattern.]], [[We know much about the naga, yet much of their magical practices remain foreign to us.]], [[I seek to learn of the Hydromancy used by the naga of Coilfang Reservoir.  Bring me one of their spellbooks so I may learn more about it.]], },
-    { [[Obtain a Coilfang Spellbook from the naga inside of Coilfang Reservoir and bring it to Ashyen at the Cenarion Refuge in Zangarmarsh.]], },
+    [[了解你的敵人]],
+    { [[擊敗敵人需要比高超力量或大批人馬更多的東西。勝利通常決定於對敵手弱點的了解，預料他們的計畫或認識其行為模式。]], [[我們知道納迦的很多事，但他們還有很多魔法實行對我們而言都是陌生的。]], [[我想學習盤牙蓄湖的納迦使用的水卜術。幫我把他們的法術書帶來給我，這樣我才能更了解它。]], },
+    { [[從盤牙蓄湖的納迦身上取得盤牙法術書並將它帶到贊格沼澤給塞納里奧避難所的艾斯炎。]], },
   },
   [9769] = {
     [[时尚无罪]],
@@ -22799,7 +22966,7 @@ __ns.L.quest = {
   [9771] = {
     [[寻找斥候尤尔巴]],
     { [[既然你已经熟悉了地形，我还有件事要请你帮忙。此地西北方有一处神秘的区域，我们称它为死亡泥潭。去过的人都说泥潭中没有任何生命的迹象，当然他们在那里停留的时间并不长。]], [[斥候尤尔巴自愿去调查死亡泥潭。三天前他就离开了哨所，到现在也没有回来。通常他不会离开那么长的时间而不送回任何报告的。<name>，你愿意去找他吗？]], },
-    { [[Search for Scout Jyoba.]], },
+    { [[尋找斥候傑巴。]], },
   },
   [9772] = {
     [[尤尔巴的报告]],
@@ -22819,12 +22986,12 @@ __ns.L.quest = {
   [9775] = {
     [[向暗影猎手德恩加报到]],
     { [[暗影猎手德恩加一定盼望着能收到沼泽鼠岗哨建设进度的报告。我已经准备好了一份简明报告，可惜斥候尤尔巴不幸丧命，我们根本抽不出多余的人手去送报告。]], [[如果你正要前往西边的话，能不能把这份报告捎给萨布拉金的德恩加？]], [[暗影猎手德恩加乍看起来很有威慑力，不过跟他相处久了，你就会发现他其实是个挺不错的家伙。]], },
-    { [[Bring Zurai's Report to Shadow Hunter Denjai in Zabra'jin]], },
+    { [[將祖瑞伊的報告帶給薩布拉金的暗影獵人丹傑。]], },
   },
   [9776] = {
     [[奥雷柏尔营地]],
     { [[泰雷多尔的居民大多是从燃烧军团对德莱尼人的大屠杀中侥幸逃生的流亡者。我希望永远守护泰雷多尔，让它成为战乱中所有盟友的安全港。有一些人迫切地希望与我们结盟，但是又觉得自己还没有准备好。]], [[<name>，我们应该竭尽所能地帮助他们。伊库提率领一群破碎者隐居在毒蛇湖西北方的古代神殿废墟中。去那里找到他们，伸出你的友谊之手。]], },
-    { [[Speak to Ikuti at the Orebor Harborage.]], },
+    { [[和奧雷伯爾港的伊庫堤談談。]], },
   },
   [9777] = {
     [[灿烂的孢子]],
@@ -22887,7 +23054,7 @@ __ns.L.quest = {
   [9789] = {
     [[狩猎裂蹄牛]],
     { [[想在狩猎队中赢得一席之地？那你就得证明自己的实力。]], [[我可不管你以前杀过什么猛兽；如果你没捕获过纳格兰的野兽，就不算合格的猎手。如果你认为自己够强壮，就从猎杀裂蹄牛开始吧。]], [[它们分布在狩猎队营地四周以及偏南的地带。]], },
-    { [[Hunt down 30 Clefthoof and return to Hemet Nesingwary at Nesingwary's Safari in Nagrand to prove yourself.]], },
+    { [[獵殺30隻裂蹄後回到奈辛瓦里旅隊找赫米特·奈辛瓦里證明自己]], },
   },
   [9790] = {
     [[透明的虫翼]],
@@ -22901,8 +23068,8 @@ __ns.L.quest = {
   },
   [9792] = {
     [[前往塔拉]],
-    { [[You've been honorable in our dealings, <name>, at a time when trust is hard to win among my people.]], [[A large group of my brethren have made their home in the old draenei city of Telaar in Nagrand, to the south. To reach Telaar, take the road south into Nagrand, then continue southeast until you find yourself in the cliffs east of Oshu'gun.]], [[Anyone who has aided us, as you have, would be welcome among the people of Telaar.]], [[Seek out Nahuud and tell him you have earned my trust.]], },
-    { [[Speak with Nahuud at Telaar in Nagrand.]], },
+    { [[你已在我們的交易中證明你是值得信任的，<name>，在這個難取得我們人民信任的時候。]], [[我有一大群同胞已在南邊的納葛蘭，一個老德萊尼城市，泰拉建立了他們的家園。要前往泰拉，往南進入納葛蘭，再持續往東南方走直到你到達歐夏剛東邊的峭壁。]], [[任何像你一樣協助我們的人都會受到泰拉的人民歡迎。]], [[找到納霍德並告訴他你已贏得了我的信任。]], },
+    { [[到納葛蘭和泰拉的納霍德談談。]], },
   },
   [9793] = {
     [[图雷姆的命运]],
@@ -22942,12 +23109,12 @@ __ns.L.quest = {
   [9800] = {
     [[稀有的豆子]],
     { [[凭你这身差劲的装备，怎么能与纳格兰躁动不安的元素抗衡呢？还是先提升下自己的装备再想想如何帮助大地之环吧，比如……潜水用品。]], [[在元素王座西边的草原上，随处可见纳格兰的野生动物留下的粪堆。你拔开粪堆之后就可以找到一些卡拉果。这种果实制成的小药片能帮助你潜水，对抗那些元素生物。]], [[收集两只拳头那么大的一堆卡拉果……我是说按食人魔的拳头大小来算。]], },
-    { [[Elementalist Lo'ap at the Throne of the Elements in Nagrand wants you to bring him 15 Digested Caracoli.]], },
+    { [[納葛蘭，元素王座的元素師羅艾柏要你幫他帶來15個消化過的豆子。]], },
   },
   [9801] = {
     [[收集材料]],
     { [[我觉得失落者也许不会友善地对待德莱尼人，但是他们肯定会对鸦人示好。我可以配制一种特殊的药水，让你在短时间内伪装成鸦人。这种药水需要两种材料，但是它们无法长期储藏，必须在采集后的数小时内使用，否则就会失效。]], [[替我收集一些孢子蝠的眼睛和沼泽阔步者的触须。孢子蝠和沼泽阔步者分布在泰雷多尔四周。]], },
-    { [[Anchorite Ahuurn at Telredor wants you to bring him 4 Spore Bat Eyes and 4 Fen Strider Tentacles.]], },
+    { [[泰倫多爾的隱士阿浩恩要你幫他帶來4個孢子蝙蝠眼睛和4個沼地行者觸鬚。]], },
   },
   [9802] = {
     [[赞加沼泽的植物]],
@@ -22962,7 +23129,7 @@ __ns.L.quest = {
   [9804] = {
     [[天歌湖的元素]],
     { [[纳格兰水域中那异常的潮汐涨落令天歌湖的湖水之魂躁动不安。它们沿着水道，企图将骚乱的种子传播到其它地方。]], [[流水之贤者瓦图苏以幻像的形式出现在我们面前，请求大地之环伸出援手，找出这场骚乱的根源，令躁动的元素恢复平静。]], [[我们一定要揪出破坏自然平衡的幕后真凶，不过首先你必须解决元素王座眼前的难题。杀死湖水之魂，然后向我复命。]], },
-    { [[Elementalist Lo'ap at the Throne of the Elements in Nagrand wants you to destroy 12 Lake Spirits.]], },
+    { [[納葛蘭，元素王座的元素師羅艾柏要你摧毀12個湖中水之靈。]], },
   },
   [9805] = {
     [[伊森拉图斯的祝福]],
@@ -22972,7 +23139,7 @@ __ns.L.quest = {
   [9806] = {
     [[成熟的孢子]],
     { [[孢子蝠和泥沼游荡者通常聚集在沼泽地的长杆蘑菇附近，它们的附肢上堆积着许多成熟的孢子。]], [[瞧，我们身材矮小，能够采集到的孢子非常有限。你能帮我们从孢子蝠和泥沼游荡者身上收集成熟的孢子吗？所有的孢子人都会感谢你的。]], },
-    { [[Gshaff wants you to gather 6 Fertile Spores from the various Zangarmarsh Spore Bats and Marsh Walkers.  Return to Ghsaff at Sporeggar when you've completed this task.]], },
+    { [[吉薩夫要你從贊格沼澤不同的孢子蝙蝠和沼澤行者身上收集6份豐饒孢子。完成任務後回到斯博格爾找吉薩夫。]], },
   },
   [9807] = {
     [[更多成熟的孢子]],
@@ -22983,12 +23150,12 @@ __ns.L.quest = {
     { [[将10枚亮顶蘑菇交给赞加沼泽孢子村中的姆希菲。]], },
   },
   [9809] = {
-    [[More Glowcaps]],
+    [[更多白閃菇]],
   },
   [9810] = {
     [[污染的灵魂]],
     { [[瓦图苏设法抵御了这场灾难的侵袭，可惜这位贤者却不慎在净化过程中制造出了一块扭曲的灵魂精华。这块灵魂精华汇集了最可怕的元素污染质！]], [[前往西南方的沼泽地，瓦图苏的污染精华就藏匿在日泉湖的深处。]], [[杀死瓦图苏的污染精华以及日泉湖中被污染的水元素生物。]], },
-    { [[Elementalist Lo'ap at the Throne of the Elements in Nagrand wants you to destroy Watoosun's Polluted Essence and 10 Lake Surgers.]], },
+    { [[納葛蘭，元素王座的元素師羅艾柏要你摧毀瓦吐森的污染精華和10個湖水元素。]], },
   },
   [9811] = {
     [[Friend of the Sin'dorei]],
@@ -23032,8 +23199,8 @@ __ns.L.quest = {
   },
   [9819] = {
     [[被折磨的地灵]],
-    { [[Bring up the usurper. You will find him. Follow earthen path. First you put to rest tortured earth spirits. Must sleep once more.]], [[<Gordawg smashes his fist into the ground and brings up very foul smelling soil.>]], [[Must sleep!]], [[<Gordawg points southeast.>]], [[Find spirits near mountains. Near hills. Near rocks. Near earth.]], [[Put to sleep.]], [[Telaari Basin... Southeast.]], },
-    { [[Gordawg at the Throne of the Elements in Nagrand has asked that you destroy 15 Tortured Earth Spirits.]], },
+    { [[把篡位者帶來。你會找到他。跟著大地之路走。你先讓痛苦的大地之靈安息。一定要再次沉睡。]], [[<葛爾道格猛力將拳頭打入地面，傳出臭氣薰天的泥土味。>]], [[一定要沉睡!]], [[<葛爾道格指向東南邊。>]], [[找到山脈附近的靈魂。靠近山丘。靠近岩石。靠近大地。]], [[讓他們安息。]], [[泰拉蕊盆地……東南方。]], },
+    { [[納葛蘭，元素王座的葛爾道格要你去摧毀15個痛苦的大地之靈。]], },
   },
   [9820] = {
     [[通缉：格罗阿克]],
@@ -23043,7 +23210,7 @@ __ns.L.quest = {
   [9821] = {
     [[吞食诅咒]],
     { [[<戈达乌捡起一块岩石咀嚼起来。>]], [[戈达乌要辨别味道。戈达乌知道这块岩石来自何处。]], [[<戈达乌抬起脚，重重地踏向大地。>]], [[瞧。纳格兰。]], [[<戈达乌让你观察他的脚印。地面竟然凹显出一幅完美的纳格兰地形图，戈达乌要你前往地图上被标记的地方消灭被激怒的碾压者。>]], [[杀掉它们！把岩石碎片带给戈达乌！]], [[带上地图。]], },
-    { [[Gordawg at the Throne of the Elements in Nagrand has asked that you bring him 15 Enraged Crusher Cores.]], },
+    { [[納葛蘭，元素王座的葛爾道格要你幫他帶回15個暴怒的粉碎者精髓。]], },
   },
   [9822] = {
     [[战斗迫近]],
@@ -23067,18 +23234,18 @@ __ns.L.quest = {
   },
   [9826] = {
     [[联络达拉然]],
-    { [[These signs do not bode well for us, <name>.  I've never been one for secrecy so I will tell you a bit about my organization, the Violet Eye.]], [[We are agents of the Kirin Tor, the Magus Senate of Dalaran.  We were assigned to keep an eye on Karazhan and Medivh, in case things got out of hand.]], [[Which they did... very quickly, after Medivh disappeared.]], [[This report details my findings.  Take it to Archmage Cedric, also from the Violet Eye; you will find him in the outskirts of Dalaran.]], },
-    { [[Bring Alturus's Report to Archmage Cedric in the outskirts of Dalaran.]], },
+    { [[這些跡象是對我們不好的預兆，<name>。我一直都不太會保守秘密，所以我要告訴你一點關於我的組織的事，紫羅蘭之眼。]], [[我們是肯瑞托的密探，達拉然的參議元老。我們被指派看守卡拉贊和麥迪文，以確保事情不會失控。]], [[而他們做的……非常快速，就在麥迪文消失後。]], [[這份報告詳細列出我的發現。把它交給給大法師賽卓克，另外也是紫羅蘭的消息;你會在達拉然的郊區找到他。]], },
+    { [[將艾特羅斯的報告帶給達拉然郊區的大法師賽卓克。]], },
   },
   [9827] = {
     [[枯萎的孢芽]],
     { [[仔细地检查孢芽之后，你发现许多可能曾被用来容纳某种东西的凹痕。这枚怪异的蘑菇是一个谜团，它完全不健康，但是你找不到任何线索来了解它可能曾经派作什么用场。]], [[也许熟悉赞加沼泽生态的人应该可以告诉你更多有关这种孢芽的情况。]], },
-    { [[Take the Withered Basidium to Ruam in Telredor.]], },
+    { [[將枯萎的孢子臺帶到泰倫多爾給洛安瑪。]], },
   },
   [9828] = {
     [[枯萎的孢芽]],
     { [[仔细地检查孢芽之后，你发现许多可能曾被用来容纳某种东西的凹痕。这枚怪异的蘑菇是一个谜团，它完全不健康，但是你找不到任何线索来了解它可能曾经派作什么用场。]], [[也许熟悉赞加沼泽生态的人应该可以告诉你更多有关这种孢芽的情况。]], },
-    { [[Bring the Withered Basidium to Reavij at Swamprat Post.]], },
+    { [[將枯萎的孢子臺帶到斯溫派特崗哨給瑞伏基。]], },
   },
   [9829] = {
     [[卡德加]],
@@ -23146,9 +23313,9 @@ __ns.L.quest = {
     { [[杀死8个沼光抽血者，然后向萨布拉金的加巴林卡复命。]], },
   },
   [9842] = {
-    [[The Sharpest Blades]],
-    { [[The damp atmosphere of the marsh has taken a toll on my metal tools. It's made woodworking a lot more difficult than it ought to be, so I've given up on metal blades.]], [[It turns out that the marshfang slicers living to the south and west of town grow blades that are sharper than any steel I've ever owned. They're also resistant to rust and wear. It's just a little tricky to attach them to a handle, but I think I've got it figured out. I'd appreciate any blades you could bring me.]], },
-    { [[Bring 10 Marshfang Slicer Blades to Gambarinka at Zabra'jin.]], },
+    [[最鋒利的劍]],
+    { [[沼澤潮濕的空氣讓我的金屬工具都生鏽了。它讓木工很難進行，所以我放棄了金屬劍刃。]], [[後來我發現住在鎮南邊和西邊的沼牙分割者長著我從未擁有過的銳利鋒刃。它們能夠抵抗鏽蝕和磨損。只是把它們接在柄上有點不易處理，不過我已找出解決之道了。我會很感激你為我帶來的尖刃。]], },
+    { [[帶10把沼牙分割者之刃給薩布拉金的坎巴利卡。]], },
   },
   [9843] = {
     [[金娜的日记]],
@@ -23171,9 +23338,9 @@ __ns.L.quest = {
     { [[将10根蛮沼保护图腾交给萨布拉金的先知亚尼迪。]], },
   },
   [9847] = {
-    [[A Spirit Ally?]],
-    { [[We must find out how much power this Feralfen snake spirit possesses and whether it can be bent to our will. Imagine what I could do with the powers of an Outland spirit at my command!]], [[Take this totem with you and make your way to the foot of the stairs leading to the Boha'mu Ruins. Plant the totem in the ground and it should do the rest. The spirit should not be able to tell who has used the totem until it has manifested.]], },
-    { [[Take the Feralfen Totem to the foot of the stairs at the Boha'mu Ruins and plant it in the ground. Report your findings to Seer Janidi at Zabra'jin.]], },
+    [[靈魂助手?]],
+    { [[我們一定要了解這個蛇靈魂究竟擁有多大的力量，還有它是否可以屈服於我們的意志。想像我掌控一個外域靈魂的力量時可以做些什麼事!]], [[帶著這個圖騰走向通往波哈姆廢墟的樓梯底部吧。將圖騰放在地上它就會自己進行剩下的運作。除非靈魂表明否則它無法顯現誰使用了那個圖騰。]], },
+    { [[帶著菲拉芬圖騰到波哈姆廢墟的樓梯底部並將它插在地上。將你的發現回報給薩布拉金的先知賈尼迪。]], },
   },
   [9848] = {
     [[匕潭的秘密]],
@@ -23187,12 +23354,12 @@ __ns.L.quest = {
   },
   [9850] = {
     [[狩猎裂蹄牛]],
-    { [[You've proved to me that you can find and take down a regular clefthoof, but far more dangerous are the clefthoof bulls.]], [[Bag yourself thirty of those.  Then you can talk to me of your hunting prowess.]], [[Look for them all along the middle region of Nagrand to the west and south.]], },
-    { [[Kill 30 Clefthoof Bulls and then speak to Hemet Nesingwary at Nesingwary's Safari in Nagrand about your prowess.]], },
+    { [[你已向我證明你可以找到並擊敗一個普通的裂蹄，但更危險的是公裂蹄。]], [[獵殺三十隻。然後你就可以來和我談談你的打獵技能。]], [[到納葛蘭中央區域的西邊的南邊找他們。]], },
+    { [[殺死30隻公裂蹄再到納葛蘭和奈辛瓦里狩獵的赫米特·奈辛瓦里談談你的本領。]], },
   },
   [9851] = {
     [[狩猎裂蹄牛]],
-    { [[Banthar is the fiercest and most elusive of all the clefthoof in Outland.  She's also the hairiest.]], [[It is said that she roams with her clefthoof herd in the Field of Spirits near Oshu'gun.]], [[You want to truly prove your hunting mastery?  Bring me her horn!]], },
+    { [[班薩爾是外域所有裂蹄中最兇猛、最難對付的一個。她也是最粗野的一個。]], [[據說她都在歐夏剛附近的靈魂牧場和她的裂蹄群閒晃。]], [[你想真正證明你的打獵專精嗎?幫我把她的角帶來!]], },
     { [[将班塔尔的犄角交给纳格兰奈辛瓦里狩猎队营地的赫米特·奈辛瓦里。]], },
   },
   [9852] = {
@@ -23208,12 +23375,12 @@ __ns.L.quest = {
   [9854] = {
     [[狩猎风鹏]],
     { [[<class>，你是否跟我一样向往猎手的生活？你知道追捕猎物时如何保持沉着冷静吗？知道怎样才算是对倒下的猎物的尊敬吗？我会教你领悟其中的秘诀。]], [[纳格兰葱翠的大草原上生活着无数野生动物。去猎杀一些风鹏，然后再来跟我谈话。]], [[营地四周都能找到它们的踪迹。]], },
-    { [[Kill 30 Windrocs and then return to Fitz at the Nesingwary Safari in Nagrand.]], },
+    { [[殺死30隻風翼貓頭鷹再回到納葛蘭找奈辛瓦里狩獵隊的費茲。]], },
   },
   [9855] = {
     [[狩猎风鹏]],
     { [[想要猎杀最强大的野兽，就必须保持进取心！在你茫然不知所措的时候，我会为你指明方向。]], [[纳格兰生活着另一种更可怕的风鹏。下一步就是猎杀那些饥饿的风鹏。你可以在营地以西和西南方向的纳格兰中心地带找到它们的踪迹。]], },
-    { [[Hunt down 30 Ravenous Windrocs and then return to Fitz at the Nesingwary Safari in Nagrand.]], },
+    { [[獵殺30隻飢餓的風翼貓頭鷹再回到納葛蘭找奈辛瓦里狩獵隊的費茲。]], },
   },
   [9856] = {
     [[狩猎风鹏]],
@@ -23223,16 +23390,16 @@ __ns.L.quest = {
   [9857] = {
     [[狩猎塔布羊]],
     { [[我今天不想外出狩猎。你愿意替我跑一趟吗？]], [[我跟赫米特提过，今天会去猎杀一些塔布羊。塔布羊在纳格兰广为分布，雄性塔布羊更是上等的猎物。你可以在附近的树林中找到它们。]], [[你能胜任这件差事吗？]], },
-    { [[Kill 30 Talbuk Stags and then return to Harold Lane at the Nesingwary Safari in Nagrand.]], },
+    { [[殺死30隻塔巴克雄鹿再回到納葛蘭找奈辛瓦里狩獵隊的哈爾歐德·蘭恩。]], },
   },
   [9858] = {
     [[狩猎塔布羊]],
     { [[这该死的伤简直是要了我的命。你愿意再……<咳嗽声>……替我跑一趟吗？]], [[这次你要猎杀一些食棘者。跟雄性塔布羊比起来，它们更难对付，你千万不能大意。你可以在……<咳嗽声>……营地以西和以南方向的纳格兰中心地带找到塔布羊食棘者的踪迹。]], [[去吧……<咳嗽声>……让赫米特瞧瞧你的能力。我会没事的。]], },
-    { [[Hunt down 30 Talbuk Thorngrazers and then return to Harold Lane at the Nesingwary Safari in Nagrand.]], },
+    { [[獵捕30隻塔巴克食棘者再回到納葛蘭找奈辛瓦里狩獵隊的哈爾歐德·蘭恩。]], },
   },
   [9859] = {
     [[狩猎塔布羊]],
-    { [[<Wracking cough.>]], [[Don't worry about...<cough>... me.  I'll be fine.  It's just a...<cough>... scratch.]], [[Just the same, I think you'll... <cough>... have to fill in for me one more... <cough>... time.]], [[You must seek out the great Bach'lor, king of...<cough>... the stags.  It's ok if you... <cough>... take friends along.]], [[Bring me one of his hooves...<cough>, <cough>... as confirmation.]], [[Look for him...<cough>... leading his herd in the far west of Nagrand.]], },
+    { [[<痛苦的咳嗽。>]], [[別擔心……<咳嗽>……我。我沒事的。只是……<咳嗽>……擦傷。]], [[還是一樣，我想你要……<咳嗽>……再代替我……<咳嗽>……一次。]], [[你一定要找到偉大的巴奇洛爾，雄鹿的……<咳嗽>……王。如果你要……<咳嗽>……帶朋友一起去也可以。]], [[把他的一個蹄帶給我……<咳嗽>，<咳嗽>……做為確證。]], [[去找他……<咳嗽>……就在納葛蘭很遠的西邊領導著他的牧群。]], },
     { [[将巴克洛尔的蹄子交给纳格兰奈辛瓦里狩猎队营地的哈罗德·兰恩。]], },
   },
   [9860] = {
@@ -23248,31 +23415,31 @@ __ns.L.quest = {
   [9862] = {
     [[暗血腐蚀者]],
     { [[是暗血破碎者！他们抓走了空气之灵并肆意地折磨它们！说起来，暗血氏族跟我同属破碎者一族，不过他们却听命于盘牙水库的沼地领主穆塞雷克。]], [[那些暗血净化者抓走了好些空气之灵，利用它们在元素界制造骚乱。而且，暗血破碎者似乎还刚刚洗劫了西南方一座名叫日泉岗哨的兽人村落，企图利用元素强大的魔法力量扰乱湖中的水之灵。去杀掉那些暗血净化者，<name>！]], },
-    { [[Elementalist Morgh at the Throne of the Elements in Nagrand wants you to slay 8 Murkblood Putrifiers.]], },
+    { [[納葛蘭，元素王座的元素師莫夫要你去殺死8個黑暗之血腐化者。]], },
   },
   [9863] = {
-    [[Vile Idolatry]],
-    { [[With our leadership in ruin, we are left open to attacks from all sides. The foul Murkblood tribe could not have picked a better time to attack us!]], [[In recent days, we have been subject to no less than 5 assaults from the Broken. They have even taken over our only other territorial holding in the area: Sunspring Post.]], [[We must strike and show them that we are not powerless! Strike down the vile idolaters and bring me their twisted idols of worship so that they may ride the lightning.]], },
-    { [[Farseer Kurkush at Garadar in Nagrand wants you to bring him 20 Murkblood Idols.]], },
+    [[邪惡的塑像]],
+    { [[我們的領導者已死，我們只剩下四面八方襲來的攻擊了。邪惡的黑暗之血部族現在攻擊我們是大好時機!]], [[最近幾天，我們遭到破碎者不下5次的襲擊。他們甚至奪去了我們唯一的領土:日春崗哨。]], [[我們一定要還擊讓他們見識我們的力量!擊敗邪惡的崇拜者，把他們扭曲的崇拜塑像帶來，這樣他們才能改邪歸正。]], },
+    { [[納葛蘭，卡拉達爾的先知可庫許要你幫他帶來20個黑暗之血塑像。]], },
   },
   [9864] = {
-    [[The Missing War Party]],
-    { [[After the last Murkblood raid, a group of younglings decided to act. We tried to stop them but the rage had taken hold. It has now been one week since we last saw our beloved younglings.]], [[Please, <race>, you must find them! They have just barely reached adolescence. How can they expect to defeat such savages?]], [[They took the road leading west out of town. Follow that road around and look for signs of our younglings.]], [[And <name>, avoid Halaa if you value your life. It is a war-zone.]], },
-    { [[Try and find the missing Garadar war party.]], },
+    [[失蹤的戰友]],
+    { [[在最後一次黑暗之血襲擊後，一群年輕人決定採取行動。我們試著阻止他們但憤怒已經讓他們失去控制。距離上次看見我們親愛的年輕人已經有一個星期了。]], [[拜託，<race>，你一定要找到他們!他們才剛進入青春期。他們怎麼可能打的過這樣的野蠻人呢?]], [[他們往鎮外西邊的路上走。沿著那條路尋找我們年輕人的蛛絲馬跡。]], [[還有<name>，如果你還愛惜你的生命，避開哈剌。那是戰區。]], },
+    { [[試著找到失蹤的卡拉達爾戰友。]], },
   },
   [9865] = {
-    [[Once Were Warriors]],
-    { [[I do not know you, stranger, but I ask for your help. I feel shame for this, but I am only one orc.]], [[Emotions have surfaced that I have never felt. I... I seek vengeance. Blood for blood. Do your people ever feel this? I wish to pick up my axe and split my enemies in two. To swing the weapon until my arms fall lifelessly at my sides, exhausted.]], [[Sunspring Post is directly south of this procession. It is there that you will find our enemies... Kill them... Kill them all...]], },
-    { [[Kill 40 Murkblood Scavengers and 20 Murkblood Raiders.]], },
+    [[一朝為戰士]],
+    { [[我並不認識你，陌生人，但是我請求你的幫助。我羞於要求你的幫忙，但我只是一個小小的獸人而已。]], [[我的心中湧起了一股前所未有的感受。我……我要報仇。我要他們以牙還牙。你的同胞們曾經也有這種感受嗎?我希望撿起我的戰斧然後把敵人劈成兩半。不停的揮舞武器直到我的兩隻手臂無力的垂在我的兩旁，精力用盡為止。你在那邊可以找到我們的敵人……殺死他們……殺光他們……]], },
+    { [[殺死40個黑暗之血拾荒者以及20個黑暗之血劫掠者。]], },
   },
   [9866] = {
-    [[He Will Walk The Earth...]],
-    { [[Will you do me one last honor, <name>? I do not wish to return to Garadar. I believe that my destiny lies elsewhere - that I will serve a greater purpose someday.]], [[Please, return to Farseer Corhuk and tell him that I will not be returning. That I cannot return. I must walk the earth... He will understand.]], },
-    { [[Deliver the news to Farseer Corhuk at Garadar.]], },
+    [[他將走遍大地……]],
+    { [[你可以幫我最後一個忙嗎，<name>?我不想回到卡拉達爾。我相信我的命運在別的地方 - 我會在那裡有一個更大的使命。]], [[拜託你，去找先知科霍克，告訴他我不會回去了。我不能回去。我一定要走遍大地……他會懂的。]], },
+    { [[將消息送給卡拉達爾的先知科霍克。]], },
   },
   [9867] = {
-    [[Murkblood Leaders...]],
-    { [[We have lost many friends in recent weeks.]], [[For decades we have dealt with the ogres of Nagrand but now a new threat has arisen. The Broken tribe of Murkblood attacked our fishing village to the southwest, Sunspring Post, and managed to kill or evict all of the orcs that inhabited the town.]], [[While the others feel that the best course of action is to kill indiscriminately, I know that we must destroy their leadership. I do not know who their leader is but I suspect that you will know when you find him.]], },
+    [[黑暗之血領導者……]],
+    { [[我們最近幾週失去了很多朋友。]], [[我們幾十年來對抗納葛蘭的巨魔，但現在一個新的威脅又興起了。黑暗之血的破碎者部族攻擊我們在西南方的日春崗哨漁村，還將所有住在那個鎮上的居民都殺了或驅逐。]], [[雖然其他人都認為最好的做法就是趕盡殺絕，但我知道我們一定要摧毀他們的領導者。我不知道他們的領導者是誰，但我想當你找到他的時候你就知道了。]], },
     { [[纳格兰的Garadar的马加达什牧师想要你把他带到暗流汹汹的头上。]], },
   },
   [9868] = {
@@ -23292,8 +23459,8 @@ __ns.L.quest = {
   },
   [9871] = {
     [[暗血入侵者]],
-    { [[The parchment holds a crudely painted map of Nagrand. There is a big red 'X' where Telaar would be on the map. It would seem that these savages are planning an attack on the city. Take the Murkblood invasion plans to Arechron in Telaar.]], },
-    { [[Take the Murkblood Invasion Plans to Arechron.]], },
+    { [[羊皮紙上畫著一個粗糙的納葛蘭地圖。在泰拉的位置上有一個大大的紅色「X」。看來這些野蠻人正計畫攻擊這個城市。把黑暗之血入侵計畫帶到泰拉給阿爾克隆。]], },
+    { [[將黑暗之血攻擊計畫帶給阿爾克隆。]], },
   },
   [9872] = {
     [[暗血入侵者]],
@@ -23308,7 +23475,7 @@ __ns.L.quest = {
   [9874] = {
     [[阻止污染]],
     { [[<name>，我刚刚得知日泉岗哨那场惨绝人寰的悲剧。邪恶的暗血氏族侵占了西北方的日泉岗哨，大肆杀戮居住在那儿的兽人。更糟糕的是，他们开始将尸体抛入日泉湖。一旦尸体腐烂，我们的主要水源就会遭到严重污染。]], [[我要交给你的这项任务相当恶心，但是势在必行。带上这把魔油火炬，返回日泉岗哨，烧掉那些腐烂的兽人遗体……]], },
-    { [[Otonbu the Sage at Telaar in Nagrand wants you to use the Torch of Liquid Fire to destroy 10 Sunspring Villager corpses. Return the Torch of Liquid Fire when the task is complete.]], },
+    { [[納葛蘭，泰拉的『賢者』歐塔布要你使用液態火炬摧毀10個日春崗哨居民屍體。完成任務後將液態火炬交回。]], },
   },
   [9875] = {
     [[未归类的植物]],
@@ -23318,7 +23485,7 @@ __ns.L.quest = {
   [9876] = {
     [[失踪的先遣队]],
     { [[我派了一小队德鲁伊前往毒蛇湖调查你发现的水泵。我原本以为他们很快就会回来，但是到现在都没有任何消息。]], [[你是我们最能干的盟友之一，我想麻烦你去寻找他们的下落，看看到底出了什么事。]], },
-    { [[Ysiel Windsinger wants you to look for signs of Cenarion Expedition Druids near the entrance to Coilfang Reservoir.]], },
+    { [[伊斯歐·風歌要你去盤牙蓄湖入口附近尋找塞納里奧遠征隊德魯伊。]], },
   },
   [9877] = {
     [[疗伤药膏]],
@@ -23328,12 +23495,18 @@ __ns.L.quest = {
   [9878] = {
     [[解决问题]],
     { [[暗血氏族在纳格兰滋扰生事，严重影响了我们周围的环境。元素们躁动难安，由此波及到此地所有生物。更糟糕的是，日泉岗哨的大屠杀事件重新点燃了兽人们对破碎者的新仇与旧恨。]], [[虽然库雷尼跟暗血是截然不同的两个氏族，可在兽人看来，我们都是十恶不赦的破碎者。]], [[我们必须解决眼下这进退维谷的窘境。前往西北方的日泉岗哨，消灭盘踞在那儿的暗血破碎者。]], },
-    { [[Poli'lukluk the Wiser at Telaar in Nagrand wants you to kill 20 Murkblood Scavengers and 10 Murkblood Raiders.]], },
+    { [[納葛蘭，泰拉的『智者』寶利露克露克要你殺死20個黑暗之血食腐者和10個黑暗之血劫掠者。]], },
   },
   [9879] = {
     [[卡达什图腾]],
     { [[陌生人，要不是你恰好路经此地，我早就没命了。为了寻找一件失踪的圣物，他们已经杀掉了不少库雷尼。]], [[那件圣物据说名叫卡达什图腾。真想不通暗血破碎者为什么会认定我们知道这东西的下落，图腾难道不是兽人才会有的东西吗？]], [[请你务必将此事告诉阿雷克隆大人。或许他知道暗血破碎者为什么会为了这些兽人的玩意儿绑架并拷问我们库雷尼。]], [[我们快走吧，不然麻烦就大了。]], },
     { [[护送库雷尼俘虏逃离日泉岗哨，完成任务后返回塔拉，向阿雷克隆复命。]], },
+  },
+  [9880] = {
+    [[Hellfire Penninsula: -pn - A - ToWoW - Hellfire Turnin Cap]],
+  },
+  [9881] = {
+    [[Hellfire Penninsula: -pn - H - ToWoW - Hellfire Turnin Cap]],
   },
   [9882] = {
     [[偷盗贼的东西……能算偷么？]],
@@ -23341,7 +23514,7 @@ __ns.L.quest = {
     { [[将10块沃舒古水晶碎片交给纳格兰埃瑞斯码头的杰赫。]], },
   },
   [9883] = {
-    [[More Crystal Fragments]],
+    [[更多水晶碎片]],
   },
   [9884] = {
     [[会员的奖励]],
@@ -23367,13 +23540,13 @@ __ns.L.quest = {
   },
   [9890] = {
     [[成功啦！]],
-    { [[For many years, Boulderfist ruled all ogres in the Outland. The ogres were united under Krol and content with the lands that they were given. In the past few months, we have lost many ogres to a new clan known as Warmaul. Warmaul has taken most of our land in Nagrand and killed many of our people.]], [[We had no choice but to take this town. We are being exterminated...]], [[Krol has gone missing and Boulderfist is in turmoil. Lantresor of the Blade rules in his absence.]], },
-    { [[Take the information that you beat out of Unkor back to Kilrath in Terokkar Forest.]], },
+    { [[多年來，石拳統治著外域所有的巨魔。巨魔在克羅的領導下非常團結，對他們所給予的土地也很滿意。過去幾個月來，我們因為一支叫戰槌的新氏族失去了許多巨魔。戰槌奪去了我們在納葛蘭大部分的土地還殺了許多我們的人。]], [[我們別無選擇只能佔領這個城鎮。我們被滅絕了……]], [[克羅失蹤，石拳陷入混亂。『劍刃』蘭崔索在他不在時代理統治。]], },
+    { [[帶著你從昂庫爾那裡得知的消息去找泰洛卡森林的科伊瑞斯。]], },
   },
   [9891] = {
-    [[Because Kilrath is a Coward]],
-    { [[Take what you have learned and tell Jorin at Garadar. I can assure you that he won't be happy to know that our village was destroyed and many of our people killed because the ogres needed more space.]], [[May the ancestors watch over you... I will be hiding in the bushes if you need me for anything else.]], },
-    { [[Take the information that you beat out of Unkor to Jorin Deadeye at Garadar in Nagrand.]], },
+    [[科伊瑞斯是懦夫]],
+    { [[帶著你所知道的事去找卡拉達爾的喬林。他如果聽到巨魔因為需要更多空間，就把我們的村子毀了還殺了許多人民，我保證他會很不高興。]], [[願先祖守護你……如果你需要我，我會躲在樹叢裡。]], },
+    { [[帶著你從昂庫爾那裡得知的消息去納葛蘭找卡拉達爾的喬林·亡眼。]], },
   },
   [9892] = {
     [[更多黑曜石作战念珠]],
@@ -23444,24 +23617,24 @@ __ns.L.quest = {
     { [[找到穆拉格什并杀死他，然后返回奥雷柏尔营地向玛克图复命。]], },
   },
   [9906] = {
-    [[Message in a Battle]],
-    { [[Ogres are moved by one thing: Might. If we expose ourselves to them as being weak, they will take advantage of that weakness and wipe us out.]], [[Garrosh might be ready to lie down and let the ogre dogs take our lands but I am not! I need you to deliver a message to the Boulderfist, <name>. The only type of message that they are capable of understanding: Brutality.]], [[Travel to the Burning Blade Ruins, southeast of here and show them the might of the Mag'har.]], [[And <name>, check in with the others before leaving.]], },
-    { [[Jorin Deadeye at Garadar in Nagrand has asked that you slay 15 Boulderfist Crushers and 15 Boulderfist Mystics.]], },
+    [[戰鬥的訊息]],
+    { [[只有一種東西能推動巨魔:力量。如果讓他們覺得我們很脆弱，他們會利用這個弱點來消滅我們。]], [[卡爾洛斯或許準備放手讓巨魔雜種奪取我們的土地，但我可不同意!我要你送個訊息給石拳，<name>。他們唯一能理解的訊息:野蠻。]], [[前往東南方的燃燒之劍廢墟，讓他們見識瑪格哈的力量。]], [[還有<name>，在離開前先和其他人談談。]], },
+    { [[納葛蘭，卡拉達爾的喬林·亡眼要你殺死15個石拳粉碎者和15個石拳秘法師。]], },
   },
   [9907] = {
-    [[An Audacious Advance]],
-    { [[Directly west of here you will find the Halaani Basin. Within the basin are the twin clefts of Nagrand: Northwind and Southwind. Boulderfist shock troops use the clefts to hide their ogre mounds.]], [[I need you to track down those troops and kill all that you encounter in the name of Mag'har.]], },
-    { [[Jorin Deadeye at Garadar in Nagrand has asked that you slay 25 Boulderfist Warriors and 25 Boulderfist Mages.]], },
+    [[大膽前進]],
+    { [[往正西邊去你就會發現哈剌尼盆地。盆地裡可以看見納葛蘭的雙子斷崖:北風和南風。石拳的突擊隊利用斷崖隱藏他們的巨魔土丘。]], [[我要你去找到這些突擊隊並以瑪格哈之名殺光他們。]], },
+    { [[納葛蘭，卡拉達爾的喬林·亡眼要你殺死25個石拳戰士和25個石拳法師。]], },
   },
   [9910] = {
-    [[Standards and Practices]],
-    { [[If you're venturing into the Burning Blade Ruins, I have a task for you. Take these Mag'har battle standards and place them at three distinct locations in the ogre compound. An area of high visibility is recommended. Look for the gigantic flaming pyres on the upper levels. Place a standard near the first, second, and third Burning Blade pyres.]], [[The standard will leave a lasting impression upon any ogres who may have missed the battle.]], },
-    { [[Elkay'gan the Mystic at Garadar in Nagrand wants you to use the Mag'har Battle Standard at the First Burning Blade Pyre, Second Burning Blade Pyre, and Third Burning Blade Pyre. Return the left-over Mag'har Battle Standards to him when you are finished.]], },
+    [[軍旗與實行]],
+    { [[如果你要前往燃燒之劍廢墟，我有個任務要給你。帶著這些瑪格哈戰鬥戰旗，將它們插在巨魔廢墟裡三個不同的地方。最好是插在明顯易見之處，尋找巨大的燃燒柴堆。將戰旗放置於第一、第二和第三個燃燒之劍柴堆上。]], [[戰旗會為戰鬥失敗的巨魔留下持續性的影響。]], },
+    { [[納葛蘭，卡拉達爾的『秘法師』伊萊克根要你在第一個燃燒之劍柴堆、第二個燃燒之劍柴堆以及第三個燃燒之劍柴堆上使用瑪格哈戰鬥戰旗。完成後將瑪格哈戰鬥戰旗還給他。]], },
   },
   [9911] = {
     [[沼泽中的伯爵]],
     { [[这块带血的下颚骨是虚空鳐的骨头，这只体型庞大的虚空鳐一定是赞加沼泽中最大的生物。从下颚骨的构造来看，“伯爵”放弃了食用腐肉的传统，改吃新鲜的肉类。]], [[想必塞纳里奥远征队会对这件样本感兴趣的。去泥泞山西边的营地找观察者莉萨奥谈谈吧。]], },
-    { [[Bring "Count" Ungula's Mandible to Watcher Leesa'oh.]], },
+    { [[將『伯爵』安古拉的上顎帶給看守者里薩歐。]], },
   },
   [9912] = {
     [[塞纳里奥远征队]],
@@ -23479,12 +23652,12 @@ __ns.L.quest = {
     { [[将3对象牙交给纳格兰埃瑞斯码头的沙德雷克。]], },
   },
   [9915] = {
-    [[More Heads Full of Ivory]],
+    [[更多象長牙]],
   },
   [9916] = {
-    [[Bleeding Hollow Supply Crates]],
-    { [[The Boulderfist have moved the supplies they stole from our village to the twin clefts of Nagrand, found west of here in the Halaani Basin.]], [[While you are in the area, keep your eye out for the supply crates. If we can get those back, it would ease much of the burden that has fallen upon the matrons of Garadar.]], },
-    { [[Elkay'gan the Mystic at Garadar in Nagrand wants you to recover 20 Bleeding Hollow Supply Crates.]], },
+    [[血之谷補給木箱]],
+    { [[石拳已把從我們村子裡偷走的補給移到納葛蘭的雙子斷崖了，就在哈剌尼盆地的西邊。]], [[你在區域裡的時候，要把眼睛張大注意那些補給木箱。如果我們可以把那些東西拿回來，就會減輕卡拉達爾監護員身上的重擔。]], },
+    { [[納葛蘭，卡拉達爾的『秘法師』伊萊克根要你取得20個血之谷補給木箱。]], },
   },
   [9917] = {
     [[是我眼花了？]],
@@ -23499,7 +23672,7 @@ __ns.L.quest = {
   [9919] = {
     [[孢子村]],
     { [[你真是个好心的<race>，<name>。完全不像我见过的其他人。]], [[你应该去见见我的同胞，他们一定会感激你的。把这些孢子囊拿去交给我的首领姆希菲。你可以在北边的孢子村找到他。]], },
-    { [[Go to Sporeggar, north of the Spawning Glen, and deliver the Salvaged Spore Sacs to Msshi'fn.]], },
+    { [[前往重生峽谷北邊的斯博格爾，將獲救的孢子囊送給米斯恩。]], },
   },
   [9920] = {
     [[击碎者姆摩尔]],
@@ -23509,27 +23682,27 @@ __ns.L.quest = {
   [9921] = {
     [[火刃废墟]],
     { [[这些食人魔狩猎队分明是入侵者的先遣部队。我们必须在这帮家伙纠集大军夷平城镇之前歼灭他们。]], [[你的双手将不可避免地沾满鲜血，<race>。]], [[食人魔的主营地设在塔拉正东方，泰罗卡森林边界处的火刃废墟处。要让石拳氏族知道，塔拉绝不会屈服！]], },
-    { [[Mo'mor the Breaker at Telaar in Nagrand wants you to kill 15 Boulderfist Crushers and 15 Boulderfist Mystics.]], },
+    { [[納葛蘭，泰拉的『破壞者』哞哞爾要你去殺死15個石拳粉碎者和15個石拳秘法師。]], },
   },
   [9922] = {
     [[纳格兰的峡谷]],
     { [[<name>，干得漂亮。准备好接受新任务了吗？]], [[报告称石拳食人魔的另一支分遣队躲藏在纳格兰西北部哈兰盆地中的两个大裂谷里。]], [[去对付那些剩下的石拳食人魔吧。]], },
-    { [[Mo'mor the Breaker at Telaar in Nagrand has asked that you slay 25 Boulderfist Warriors and 25 Boulderfist Mages.]], },
+    { [[納葛蘭，泰拉的『破壞者』哞哞爾要你去殺死25個石拳戰士和25個石拳法師。]], },
   },
   [9923] = {
     [[快帮帮我！]],
-    { [[HELP! They're gonna eat me! I just know it!]], [[Find the key, I know it has to be on one of these ogres.]], [[If you get me out of here, my father will reward you handsomely! He's the leader of Telaar, Arechron.]], },
-    { [[Find the Boulderfist Key and Free Corki. Speak with Arechron in Telaar should you succeed.]], },
+    { [[救命!他們要吃了我!我剛剛才知道!]], [[找到鑰匙，我知道它一定在某個巨魔身上。]], [[如果你可以讓我離開這裡，我父親會重重的酬謝你!他是泰拉的領導者，阿爾克隆。]], },
+    { [[找到石拳鑰匙並釋放柯爾奇。成功後和泰拉的阿爾克隆談談。]], },
   },
   [9924] = {
     [[考尔奇又走丢了！]],
-    { [[<Arechron sighs.>]], [[This is so embarrassing. Do you remember my boy, Corki? You rescued him from the Burning Blade Ruins recently. Well, his curiosity has gotten the best of him once more. He told me that he was going to investigate the Boulderfist menace for 'uncle' Mo'mor and ran off to the ogre mounds in the Halaani Basin, north of here.]], [[Do you think you could track him down? I would be eternally grateful.]], },
+    { [[<阿爾克隆嘆氣。>]], [[這真是尷尬。你記得我的孩子，柯爾奇嗎?你不久前將他從燃燒之劍氏族廢墟救出來。嗯，他的好奇心又讓他再次陷入困境了。他告訴我他要去幫哞哞爾「叔叔」調查石拳威脅，就跑去北邊哈剌尼盆地的巨魔土丘了。]], [[你覺得你能找到他嗎?我會永遠感激的。]], },
     { [[塔拉的阿雷克隆要你去搭救考尔奇。]], },
   },
   [9925] = {
     [[安全问题]],
     { [[杰赫不顾我们的安危，将星界财团的营地设立在靠近沃舒古的地方。他为何这么做？就因为这家伙认为在码头做买卖比在南边的山脉能多获得十个百分点的收入。]], [[至于那些距我们只有十步之遥的空灵爪牙，那就是我这个安全官员的事儿了，完全与杰赫无关。]], [[替我杀掉一些空灵爪牙，我就付你星界财团本地安全预算的十个百分点。别激动，这笔预算的金额没你想象的那么多。]], },
-    { [[Zerid at Aeris Landing in Nagrand wants you to kill 12 Voidspawn near Oshu'gun.]], },
+    { [[納葛蘭，艾瑞斯平臺的澤瑞德要你去歐夏剛附近殺死12個虛無再生者。]], },
   },
   [9926] = {
     [[FLAG Shadow Council/Warmaul Questline]],
@@ -23537,12 +23710,12 @@ __ns.L.quest = {
   [9927] = {
     [[无情的计谋]],
     { [[<兰特瑞索递给你一捆旗帜。>]], [[这些是我最近收集到的一批战槌食人魔军旗。]], [[我要你前往正南方的基尔索罗要塞，尽你所能地杀死那里的基尔索罗成员。每杀死一名基尔索罗士兵，就在尸体上插一面战槌食人魔军旗。完成这项任务以及计划所需的另一项任务之后，回来向我复命。]], },
-    { [[Lantresor of the Blade at the Burning Blade Ruins in Nagrand wants you to drive 20 Warmaul Ogre Banners through the bodies of Kil'sorrow members at Kil'sorrow Fortress.]], [[Return any unused Warmaul Ogre Banners.]], },
+    { [[納葛蘭，燃燒之劍氏族廢墟的『劍刃』蘭崔索要你將20個戰槌巨魔旗幟插在吉爾索洛堡壘的吉爾索洛成員屍體上。]], [[將未使用的戰槌巨魔旗幟交回。]], },
   },
   [9928] = {
     [[欺诈所需的军备]],
     { [[要实现我的计划，你就得从基尔索罗堡垒偷些军备过来。]], [[在堡垒中搜寻装有基尔索罗军备的箱子，然后把这些箱子统统带回来给我就可以了。]], [[基尔索罗堡垒就在火刃废墟正南偏西一点的位置。]], },
-    { [[Lantresor of the Blade at the Burning Blade Ruins in Nagrand wants you to collect 20 Kil'sorrow Armaments.]], },
+    { [[納葛蘭，燃燒之劍氏族廢墟的『劍刃』蘭崔索要你去收集20個吉爾索洛裝備。]], },
   },
   [9929] = {
     [[BETA The Missing Merchant]],
@@ -23557,7 +23730,7 @@ __ns.L.quest = {
   [9931] = {
     [[以牙还牙]],
     { [[我要你在那些战槌食人魔愚蠢而肥胖的脑袋里播下仇恨的种子。去吧，嘲颅废墟就坐落在此地西北方的山脚下。]], [[<兰特瑞索指着你带回来的基尔索罗军备箱。>]], [[你认得这些旗子吗？这就是基尔索罗军旗。我要你杀入嘲颅废墟，将这些基尔索罗军旗插在战槌食人魔的尸体上。记住，战槌食人魔的老巢在西北方，别找错了地方。]], },
-    { [[Lantresor of the Blade at the Burning Blade Ruins in Nagrand wants you to drive 20 Kil'sorrow Banners through the bodies of Warmaul ogres at the Laughing Skull Ruins.]], [[Return any unused Kil'sorrow Banners.]], },
+    { [[燃燒之劍氏族廢墟的『劍刃』蘭崔索要你將20個吉爾索洛旗幟插在獰笑骷髏氏族廢墟的戰槌巨魔屍體上。]], [[交回未使用的吉爾索洛旗幟。]], },
   },
   [9932] = {
     [[尸证]],
@@ -23566,43 +23739,43 @@ __ns.L.quest = {
   },
   [9933] = {
     [[回到塔拉]],
-    { [[<Lantresor points to an unmarked crate.>]], [[Take it. It is my offering to your people. You have single-handedly saved my clan from extermination.]], [[You may tell your leader that Lantresor of the Burning Blade and his Boulderfist ogres accept the offering of peace.]], [[<Lantresor bows.>]], },
-    { [[Take the Burning Blade Peace Offering to Arechron at Telaar.]], },
+    { [[<傳授者指向一個沒有標記的木箱。>]], [[拿著。這是我給你人民的一點心意。你獨自拯救了我的氏族不被滅絕。]], [[你可以告訴你的領導者，火刃的傳授者和他的石拳巨魔接受這個和平的禮物。]], [[<傳授者鞠躬。>]], },
+    { [[將火刃和平禮物帶給泰拉的阿爾克隆。]], },
   },
   [9934] = {
-    [[Message to Garadar]],
-    { [[<Lantresor points to an unmarked crate.>]], [[Take it. It is my offering to your people. You have single-handedly saved my clan from extermination.]], [[You may tell your leader that Lantresor of the Burning Blade and his Boulderfist ogres accept the offering of peace.]], [[<Lantresor bows.>]], },
-    { [[Take the Burning Blade Peace Offering to Garrosh at Garadar.]], },
+    [[給卡拉達爾的訊息]],
+    { [[<傳授者指向一個沒有標記的木箱。>]], [[拿著。這是我給你人民的一點心意。你獨自拯救了我的氏族不被滅絕。]], [[你可以告訴你的領導者，火刃的傳授者和他的石拳巨魔接受這個和平的禮物。]], [[<傳授者鞠躬。>]], },
+    { [[將火刃和平禮物帶給卡拉達爾的卡爾洛斯。]], },
   },
   [9935] = {
     [[通缉：巫婆吉塞尔达]],
     { [[死亡通缉令：]], [[基尔索罗的巫婆吉塞尔达和她的仆从们犯下了诸多谋杀、绑架、行窃、举行活祭仪式、与燃烧军团来往密切等重大罪行。]], [[他们聚集在纳格兰东南部的基尔索罗堡垒，就在纳格兰与泰罗卡森林的交界处附近。]], [[谁能让吉塞尔达得到正义的制裁，就能从加拉达尔的监护者布罗克处领到一笔丰厚的赏金。]], },
-    { [[Slay Giselda the Crone and any combination of 15 Kil'sorrow Agents. Return to Warden Bullrok at Garadar should you complete this task.]], },
+    { [[殺死『老巫婆』吉絲達，及任何身份的15個吉爾索洛密探。完成任務後回到卡拉達爾找守望者波洛克。]], },
   },
   [9936] = {
     [[通缉：巫婆吉塞尔达]],
     { [[死亡通缉令：]], [[基尔索罗的巫婆吉塞尔达和她的仆从们犯下了诸多谋杀、绑架、行窃、举行活祭仪式、与燃烧军团来往密切等重大罪行。]], [[他们聚集在纳格兰东南部的基尔索罗堡垒，就在纳格兰与泰罗卡森林的交界处附近。]], [[谁能让吉塞尔达得到正义的制裁，就能从塔拉的监护者莫布吉尔处领到一笔丰厚的赏金。]], },
-    { [[Slay Giselda the Crone and any combination of 15 Kil'sorrow Agents. Return to Warden Moi'bff Jill at Telaar should you complete this task.]], },
+    { [[殺死『老巫婆』吉絲達，及任何身份的15個吉爾索洛密探。完成任務後回到泰拉找守望者莫布夫·吉爾。]], },
   },
   [9937] = {
     [[通缉：饥饿者杜恩]],
-    { [[You have destroyed two of the biggest threats in Nagrand, <name>. Are you ready to take on the scourge of the Spirit Fields?]], [[Durn the Hungerer lords over the area surrounding Oshu'gun, decimating all in his path. Thus far, none have been able to rid Nagrand of this ferocious gronn. Gather your allies and venture to the Spirit Fields, far southwest of here, near Oshu'gun, and track down Durn. Slay him and I assure you rewards commensurate with the difficulty of the task at hand.]], },
+    { [[你解決掉納葛蘭兩個最大的威脅，<name>。你準備好拿下靈魂原野的天譴軍團了嗎?]], [[『飢餓者』唐恩在歐夏剛區域作威作福，大量毀滅擋他路的人。到現在為止，還沒有人能除掉納葛蘭這個兇猛的古羅。召集你的盟友前往西邊的靈魂原野，就在靠近歐夏剛的地方，找到唐恩。殺了他，我會給你和這任務同樣困難度的獎勵。]], },
     { [[杀死饥饿者杜恩，完成任务后向监护者布罗克复命。]], },
   },
   [9938] = {
     [[通缉：饥饿者杜恩]],
-    { [[You have destroyed two of the biggest threats in Nagrand, <name>. Are you ready to take on the scourge of the Spirit Fields?]], [[Durn the Hungerer lords over the area surrounding Oshu'gun, decimating all in his path. Thus far, none have been able to rid Nagrand of this ferocious gronn. Gather your allies and venture to the Spirit Fields, west of here, and track down Durn. Slay him and I assure you rewards commensurate with the difficulty of the task at hand.]], },
+    { [[你解決掉納葛蘭兩個最大的威脅，<name>。你準備好拿下靈魂原野的天譴軍團了嗎?]], [[『飢餓者』唐恩在歐夏剛區域作威作福，大量毀滅擋他路的人。到現在為止，還沒有人能除掉納葛蘭這個兇猛的古羅。召集你的盟友前往西邊的靈魂原野，找到唐恩。殺了他，我會給你和這任務同樣困難度的獎勵。]], },
     { [[杀死饥饿者杜恩，完成任务后向塔拉的监护者莫布吉尔复命。]], },
   },
   [9939] = {
     [[通缉：顾问佐尔布]],
     { [[死亡通缉令：]], [[顾问佐尔布曾策划多起针对加拉达尔的袭击事件，并伙同其手下的劫掠者和萨满祭司杀害了无数的兽人。毫无疑问，他是个心狠手辣的危险份子。]], [[佐尔布盘踞在纳格兰北部的嘲颅废墟。]], [[谁能杀死顾问佐尔布，就能从加拉达尔的监护者布罗克处领到一笔丰厚的赏金。]], },
-    { [[Slay Zorbo the Advisor, 10 Warmaul Shaman and 10 Warmaul Reavers. Return to Warden Bullrok if you manage to complete this task.]], },
+    { [[殺死『諫言者』索爾波，10個戰槌薩滿和10個戰槌搶奪者。完成任務後去找守望者波洛克。]], },
   },
   [9940] = {
     [[通缉：顾问佐尔布]],
     { [[死亡通缉令：]], [[顾问佐尔布曾策划多起针对塔拉的袭击事件，并伙同其手下的劫掠者和萨满祭司杀害了无数的破碎者。毫无疑问，他是个心狠手辣的危险份子。]], [[佐尔布盘踞在纳格兰北部的嘲颅废墟。]], [[谁能杀死顾问佐尔布，就能从塔拉的监护者莫布吉尔处领到一笔丰厚的赏金。]], },
-    { [[Slay Zorbo the Advisor, 10 Warmaul Shaman and 10 Warmaul Reavers. Return to Warden Moi'bff Jill if you manage to complete this task.]], },
+    { [[殺死『諫言者』索爾波、10個戰槌薩滿和10個戰槌搶奪者。完成任務後去找守望者莫布夫·吉爾。]], },
   },
   [9941] = {
     [[BETA Tracking Down the Culprits]],
@@ -23627,12 +23800,12 @@ __ns.L.quest = {
   [9945] = {
     [[战槌之战]],
     { [[在前往先祖之地的途中，我们遭到了战槌食人魔的伏击。他们从四面八方涌来，很快就杀死了车队的卫兵和其他兽人，躺在车上的长者遗体也惨遭亵渎。]], [[难道这样的羞辱就能显示战槌氏族的强大？就连石拳食人魔都不会犯下如此低劣的恶行。]], [[<name>，即使是身为玛格汉氏族的灵魂师，我也有很多力所不能及的事，所以我需要你的帮助。请你立刻前往西北方的战槌山寻找那帮强盗，杀光他们！]], },
-    { [[Elder Yorley at the Mag'hari Procession in Nagrand has asked that you slay 15 Warmaul Brutes and 15 Warmaul Warlocks.]], },
+    { [[納葛蘭，瑪格哈利隊伍的長老優兒利要你去殺死15個戰槌蠻卒和15個戰槌術士。]], },
   },
   [9946] = {
     [[掠夺者考瓦尔]],
-    { [[Have you ever seen an ogre king, <race>? Few have and lived to tell the tale. Unfortunately, that is exactly what we are dealing with here.]], [[The leader of these barbarians is an ogre named Cho'war. Rumor has it that Cho'war was the ogre responsible for forcing the gronn out of the cave. Cho'war then declared himself king and dissolved the ogre clans that served under the gronn. Thus, Warmaul was born.]], [[Find Cho'war deep in the caves of Warmaul Hill. Slay him and bring me his head.]], },
-    { [[Elder Yorley at the Mag'hari Procession in Nagrand has asked that you slay Cho'war the Pillager and retrieve the Head of Cho'war.]], },
+    { [[你有看過巨魔國王嗎，<race>?很少人看過還能活著訴說這個故事的。不幸的是，這就是我們目前所面臨的問題。]], [[這些野蠻人的領導者就是一個叫做喬沃的巨魔。傳說喬沃就是那個逼迫古羅離開洞穴的巨魔。喬沃便自己稱王，消滅效命於古羅的巨魔氏族。因此，戰槌產生了。]], [[到戰槌洞穴深處找到喬沃。殺了他並把他的頭顱帶來給我。]], },
+    { [[納葛蘭，瑪格哈利隊伍的長老優兒利要你去殺死『掠取者』喬沃並取得喬沃的頭顱。]], },
   },
   [9947] = {
     [[BETA Return to Rokag]],
@@ -23642,7 +23815,7 @@ __ns.L.quest = {
   [9948] = {
     [[寻找幸存者]],
     { [[我只知道食人魔喜食新鲜的肉类。也就是说，他们很可能将掳去的玛格汉战俘暂时囚禁起来，以保持食物的新鲜。想想就令人作呕，但是我们可以利用这一点。]], [[前往战槌山寻找玛格汉俘虏。牢笼的钥匙通常由各个牢笼附近的食人魔保管。]], [[杀掉看守牢笼的食人魔，夺得钥匙，搭救玛格汉俘虏。]], },
-    { [[Elder Ungriz at the Mag'hari Procession in Nagrand has asked that you free 15 Mag'har Prisoners.]], },
+    { [[納葛蘭，瑪格哈利隊伍的長老昂古力斯要你釋放15名瑪格哈囚犯。]], },
   },
   [9949] = {
     [[BETA A Bird's-Eye View]],
@@ -23676,13 +23849,13 @@ __ns.L.quest = {
   },
   [9955] = {
     [[掠夺者考瓦尔]],
-    { [[They call him Cho'war the pillager, <name>. He's the ogre that forced out the gronn that used to rule over these ogres. You better believe he's powerful!]], [[The chef said that Cho'war lives in the big cave - wherever that may be... Get that key and get me out of here! If we live through this, my father will no doubt give you the big reward! As soon as I'm free, seek him out.]], },
+    { [[他們叫他『掠取者』喬沃，<name>。就是這個巨魔強行攻佔以前統治他們的古羅。你最好相信他是很強大的!]], [[大廚說喬沃住在一個大籠子裡 - 不管那是在什麼地方……拿到鑰匙把我救出去!如果我們可以度過這個難關我的父親絕對會給你一份厚禮!只要我自由了，就去找他。]], },
     { [[夺得考瓦尔的钥匙，将考尔奇从牢笼中释放出来，完成任务后返回塔拉向阿雷克隆复命。]], },
   },
   [9956] = {
     [[被破坏的货车]],
     { [[我是商队的一名成员，我们当时奉命将一批货物运往赞加沼泽的奥雷柏尔营地。然而，就在车队行进到沼泽边界附近时，一队战槌食人魔突然拦住了我们的去路。他们残忍地杀害了商队的其他成员，将我和所有的货物一并劫回了营地。]], [[谢天谢地，他们忘了锁住关押我的牢笼，于是我趁他们睡着时逃了出来。]], [[虽然伙伴们都不幸罹难，可是那些被偷走的货物还是能用的，请你一定要帮我们回收。战槌山就在纳格兰西北部。]], },
-    { [[Huntress Kima at Telaar in Nagrand wants you to recover 20 Telaar Supply Crates.]], },
+    { [[納葛蘭，泰拉的女獵人奇瑪要你取得20個泰拉補給木箱。]], },
   },
   [9957] = {
     [[塞纳里奥树林出事了？]],
@@ -23701,7 +23874,7 @@ __ns.L.quest = {
   },
   [9960] = {
     [[塞纳里奥树林出事了？]],
-    { [[Hey there, <class>.  We haven't heard from the druids of the Cenarion Thicket in quite some time.]], [[I want you to go over there and check to see what's happening.  You can find it by heading northwest through the forest.]], },
+    { [[嘿，<class>。我們很久沒聽到來自塞納里奧灌木林的德魯伊的消息了。]], [[我要你去那裡看看發生了什麼事。通過森林往西北方走就會找到了。]], },
     { [[与泰罗卡森林地区的塞纳里奥树林中的某位德鲁伊谈一谈。]], },
   },
   [9961] = {
@@ -23711,7 +23884,7 @@ __ns.L.quest = {
   },
   [9962] = {
     [[鲜血竞技场：断蹄]],
-    { [[So are you ready for your first battle? If you are, let me know and I'll get things started. All you have to do is go wait in the Ring of Blood for your opponent to arrive.]], [[This fight is against Brokentoe, a ferocious clefthoof.]], [[Good luck! I hope you brought friends.]], [[And remember, the fight's over when either you or your opponent are lying face down on the arena floor.]], },
+    { [[你準備好進行第一場戰鬥了嗎?如果是的話就讓我知道比賽可以開始了。你要做的就是去血色競技場等待對手到來。]], [[這是場對抗斷趾的比賽，他是個兇猛的裂蹄。]], [[祝你好運!我希望你會帶著朋友一起。]], [[還有記住，當你或你的對手陣亡倒地時比賽就結束了。]], },
     { [[击败断蹄，获胜之后找巨魔仆从伍迪领取奖励。]], },
   },
   [9963] = {
@@ -23742,7 +23915,7 @@ __ns.L.quest = {
   [9968] = {
     [[奇怪的能量]],
     { [[塞纳里奥树林中的巨蛾不知何故发生了巨变。]], [[这儿曾栖息着许多种生物，现在却只剩巨蛾了。它们本是性情温顺的小昆虫，如今却变得极具攻击性。]], [[我要将邪恶巨蛾与普通的巨蛾进行比较。你能替我收集这两类蛾子的标本吗？那些未受影响的蛾子分布在南边和北边。]], [[我想这必定与德鲁伊被杀一事有关。]], },
-    { [[Collect 4 Teromoth Samples and 4 Vicious Teromoth Samples.  Then return to Earthbinder Tavgren just outside the Cenarion Thicket in Terokkar Forest.]], },
+    { [[收集4個泰洛飛蛾樣本和4個兇惡的泰洛飛蛾樣本。再回到泰洛卡森林找塞納里奧灌木林外的大地束縛者塔伏格蘭。]], },
   },
   [9969] = {
     [[BETA The Final Reagents]],
@@ -23792,7 +23965,7 @@ __ns.L.quest = {
   [9978] = {
     [[不择手段]],
     { [[此事依然毫无头绪，但是我知道如何获得更多的线索。]], [[埃博尔是位消息灵通的破碎者商人。如果你能让他开口说话，我们必定能得到些有趣的信息。]], [[他一般在图雷姆和沙塔斯城之间往返。当心些，他随身带着一名护卫呢。]], },
-    { [[Find and convince Empoor to tell you what he knows.]], },
+    { [[找到並說服安普爾，使他告訴你所知道的事。]], },
   },
   [9979] = {
     [[星界商人拉斯莱]],
@@ -23821,13 +23994,13 @@ __ns.L.quest = {
   },
   [9984] = {
     [[隐秘之城]],
-    { [[Although you cannot read the strange script on the scroll, the ornate seal at the bottom of the document implies that it was drafted by an arakkoa of high standing. Luanga may have masterminded the capture and interrogation of Deirom, but it seems he was taking orders from someone else.]], [[You remember Thander mentioning that Andarl has studied the arakkoa. Perhaps he can decipher the scroll's contents.]], },
-    { [[Take Luanga's Orders to Andarl at the Allerian Stronghold.]], },
+    { [[雖然你看不懂這個卷軸上的陌生筆跡，但文件底下的華美封印暗指這是出自一位高階的阿拉卡之手。盧安卡或許策劃俘虜並審問杜葛爾，但看來他是受某人之命。]], [[你記得薩德爾提過安達爾歐曾研究阿拉卡。或許他可以解釋這個卷軸的內容。]], },
+    { [[將盧安卡的命令交給艾蘭里堡壘的安達爾歐。]], },
   },
   [9985] = {
     [[隐秘之城]],
-    { [[Although you cannot read the strange script on the scroll, the ornate seal at the bottom of the document implies that it was drafted by an arakkoa of high standing. Luanga may have masterminded the capture and interrogation of Dugar, but it seems he was taking orders from someone else.]], [[You remember Rokag mentioning that Kurgatok has studied the arakkoa. Perhaps he can decipher the scroll's contents.]], },
-    { [[Bring Luanga's Orders to Kurgatok at Stonebreaker Hold.]], },
+    { [[雖然你看不懂這個卷軸上的陌生筆跡，但文件底下的華美封印暗指這是出自一位高階的阿拉卡之手。盧安卡或許策劃俘虜並審問杜葛爾，但似乎他是受某人之命。]], [[你記得瑞克格提過庫爾卡拓克曾研究阿拉卡。或許他可以解釋這個卷軸的內容。]], },
+    { [[將盧安卡的命令交給碎石堡的庫爾卡拓克。]], },
   },
   [9986] = {
     [[教训鸦人]],
@@ -23837,17 +24010,17 @@ __ns.L.quest = {
   [9987] = {
     [[教训鸦人]],
     { [[我们需要显示arakkoa，他们不能肆无忌惮地攻击我们的人民。如果我们不阻止他们，那么对于我们的商人，信使或者士兵来说，这些道路将不再是安全的。]], [[我们的侦察员已经确定了该地区每个主要arakkoa定居点的领导人。在面纱里找到阿什卡兹，阿依特和乌达克，在面纱里面，面纱和面纱，杀死他们。]], },
-    { [[Kill Ashkaz in Veil Reskk, Ayit in Veil Shienor, and Urdak in Veil Skith and return to Rokag at Stonebreaker Hold.]], },
+    { [[殺死迷霧瑞斯克的阿斯卡斯，迷霧辛諾的阿翼特，和迷霧斯奇司的烏達克再回到碎石堡找瑞克格。]], },
   },
   [9988] = {
     [[公子哥的好朋友]],
-    { [[Don't let Thander and company fool you. They may look like a band of fearsome warriors, but underneath all that steel, they're nothing more than a troop of dandies!]], [[And they won't be seen in public without their hats. They're extravagant affairs made from felt and fur, complete with the gaudiest feathers you've ever seen.]], [[The most desirable feathers come from any of the arakkoa, of course, and my supply is running low. I'll gladly pay you if you'll collect them for me.]], },
-    { [[Bring 30 Arakkoa Feathers to Ros'eleth in the Allerian Stronghold.]], },
+    { [[別讓薩德爾和他的夥伴騙倒你了。他們或許看起來像一群可怕的戰士，但在那些剛硬之下，他們只不過是一群花花公子!]], [[他們不會不戴帽子出現在公共場合。他們穿戴毛皮從事奢侈的社交活動，身上插著你所見過最俗麗的羽毛。]], [[當然，最搶手的羽毛來自阿拉卡，而我的補給正逐漸缺少。我願意付你錢讓你去收集它們。]], },
+    { [[將30根阿拉卡羽毛交給艾蘭里堡壘的羅斯勒斯。]], },
   },
   [9989] = {
-    [[BETA Alien Spirits]],
-    { [[When I first came to Outland, and opened my ears to the voices of its spirits, I was amazed at what I heard. In time, I also came to notice which spirits I couldn't hear.]], [[For all my attempts, I have never been able to make contact with the spirit of an arakkoa ancestor. Their magic is fundamentally different from ours, but I'm not convinced that their spirits are beyond my reach.]], [[Bring me feathers from many arakkoa; perhaps having some token from them will provide the link I need.]], },
-    { [[Bring 30 Arakkoa Feathers to Malukaz at Stonebreaker Hold.]], },
+    [[不同的靈魂]],
+    { [[當我第一次來到外域，張開耳朵聆聽周圍的靈魂時，我對所聽到的聲音感到吃驚。時間久了，我也開始注意那些我聽不到的靈魂。]], [[我盡了所有的努力，但我就是無法和阿拉卡的先祖之靈搭上線。他們的魔法和我們徹底不同，但我不相信是因此而無法與他們的靈魂聯繫。]], [[幫我帶來許多阿拉卡的羽毛;或許從他們身上弄到一些象徵物可以提供我所需要的連結。]], },
+    { [[將30根阿拉卡羽毛交給碎石堡的瑪魯卡茲。]], },
   },
   [9990] = {
     [[调查图雷姆]],
@@ -23856,7 +24029,7 @@ __ns.L.quest = {
   },
   [9991] = {
     [[侦查大地]],
-    { [[To be my eyes will require some diligence on your part. Nethrandamus will take you through the Legion camps, but you must catalog everything that you see. Even the smallest detail that you may think to be inconsequential could be useful for our purposes.]], [[Primarily, I want you to note what structures are in the camps and what comprises the camps' defenses.]], [[Nethrandamus is ready when you are, <name>. Do not be afraid, he will keep you safe from harm.]], },
+    { [[要當我的眼線需要一點勤奮。尼斯蘭德瑪斯會帶你通過燃燒軍團營地，但你一定要將看見的所有東西記載下來。就算是你覺得最微小不重要的細節都可能對我們的目的很有助益。]], [[首先，我要你注意營地裡有什麼樣的建築物，構成營地的防禦是什麼。]], [[尼斯蘭德瑪斯會等你準備好，<name>。不要害怕，他會保護你不受傷害的。]], },
     { [[好好享受这趟旅程吧。调查完毕之后跟奥图里斯谈一谈。]], },
   },
   [9992] = {
@@ -23865,9 +24038,9 @@ __ns.L.quest = {
     { [[收集30颗奥雷巴种子，把它们交给奥蕾莉亚要塞的洛瑟蕾丝。]], },
   },
   [9993] = {
-    [[Olemba Seed Oil]],
-    { [[The oily seeds from the forest's olemba trees could prove very valuable. I'd like to gather a larger quantity of them, press them for their oil, and then see what I can do with it.]], [[Just think, there's a whole forest full of trees out there, producing a lot of seeds that go to waste. I don't care if it turns out to be cooking oil, lamp oil, or weapon oil, I won't let it go to waste!]], [[Bring me any of the seeds that you happen to gather from the olemba cones. They're all over the place.]], },
-    { [[Bring 30 Olemba Seeds to Rakoria in Stonebreaker Hold.]], },
+    [[奧萊姆貝種子油]],
+    { [[森林奧萊姆貝樹的油種子非常有價值。我想收集很多種子，粹取它們的油，再看看拿來做些什麼。]], [[想想看，那裡有整森林的樹，製造出一大堆被浪費掉的種子。不管它最後變成烹飪油，燈油，或武器用油，我就是不能讓它白白浪費!]], [[將你從奧萊姆貝松果收集到的種子帶來給我。它們散落各處。]], },
+    { [[將30顆奧萊貝種子交給碎石堡的瑞克利亞。]], },
   },
   [9994] = {
     [[这些东西是什么？]],
@@ -23876,8 +24049,8 @@ __ns.L.quest = {
   },
   [9995] = {
     [[这些东西是什么？]],
-    { [[I don't know about you, but I have no idea what all of those things are.  I do know one thing though - they look dangerous!]], [[<name>, I think you should take this box of parts to Tooki at Stonebreaker Hold to the southeast.  He may have some idea of what these are.]], },
-    { [[Deliver the Box of Parts to Tooki at Stonebreaker Hold in Terokkar Forest.]], },
+    { [[我是不知道你覺得怎麼樣，不過我不知道那些東西是什麼。但我知道一件事 - 它們看起來很危險!]], [[<name>，我覺得你該帶一盒零件回東南方的碎石堡交給吐奇。他或許會知道這些是什麼。]], },
+    { [[將一箱零件運回泰洛卡森林交給碎石堡的吐奇。]], },
   },
   [9996] = {
     [[攻击火翼岗哨]],
@@ -23886,23 +24059,23 @@ __ns.L.quest = {
   },
   [9997] = {
     [[攻击火翼岗哨]],
-    { [[We know that the blood elves of Firewing Point are working for Kael'thas and Illidan.  And from what you've told me, clearly they are using the Broken of Tuurem as smuggling go-betweens for the creation of some horrible weapon.]], [[Whatever they're up to out there, the most efficient thing that we can do right now is to thin out their numbers.]], [[The Firewing blood elves need to be taken out!  Head over to Firewing Point to the northeast and see to it.]], },
-    { [[Kill 10 Firewing Defenders, 10 Firewing Bloodwarders, and 10 Firewing Warlocks.  Then report back to Sergeant Chawni at Stonebreaker Camp in Terokkar Forest.]], },
+    { [[我們知道火翼崗哨的血精靈為凱爾薩斯及伊利丹工作。而根據你的消息，很明顯的他們利用杜瑞的破碎者做為中間的走私者偷運一些可怕的武器。]], [[無論他們在那幹嘛，我們現在可以做得最有效的事就是減少他們的人數。]], [[必須解決掉這些火翼血精靈們!出發前往東北方的火翼崗哨去解決他們。]], },
+    { [[殺死10個火翼防衛者，10個火翼血守衛，10個火翼術士。再回到泰洛卡森林向碎石營地的丘尼士官回報。]], },
   },
   [9998] = {
     [[野蛮的邻居]],
     { [[最近占据了东边废墟的那些邪兽人给山德制造了成堆的困扰和麻烦。他们一进入废墟，就迫不及待地开始建造堡垒并整修了房屋。]], [[现在，他们日夜不停地赶工，似乎在谋划着什么。我已经派了一名非常值得信赖的斥候去监视他们，不过，我们不能再耽误时间了。你要立刻前往噬骨废墟，消灭他们的苦工，然后去北边的奥蕾莉亚岗哨找到塞洛莉娅·影衣，她会给你指示后续的任务。]], },
-    { [[Kill 12 Warped Peons and then report to Theloria Shadecloak at Allerian Post.]], },
+    { [[殺死12個乖戾的苦工再向艾蘭里哨站的瑟蘿莉雅·影篷回報。]], },
   },
   [9999] = {
     [[争取时间]],
-    { [[As long as the transporters stand, nothing we do to the forge camps will have any permanence. We must find a way to destroy the Legion structures.]], [[I need time to devise a plan of attack. If you can keep their engineers and tinkerers busy, it would greatly slow down their progress, buying me the time I need.]], [[Stay as far away as possible from the overseers, <name>. They are extremely dangerous beings.]], },
+    { [[只要傳送門還在，我們對煉冶場做的一切都不能長久。我們一定要想出一個辦法摧毀燃燒軍團建築。]], [[我需要時間設計一個攻擊計畫。如果你可以讓他們的工程師和技工無暇分心，那就會大大地減緩他們的進展，幫我爭取一點需要的時間。]], [[離監督者越遠越好，<name>。他們是非常危險的生物。]], },
     { [[纳格兰西部的受难者奥图里斯要求你除掉2个恶魔卫士军团士兵、3个莫尔葛工程师和8个甘尔葛修理工。]], },
   },
   [10000] = {
-    [[An Unwelcome Presence]],
-    { [[Our forces at Thrallmar thought they had the fel orcs contained in the Hellfire Citadel area, but the recent arrivals at the ruins to the east say otherwise.]], [[We can't permit them to gain a foothold here. Rokag has dispatched Shadowstalker Kaide to the ruins to keep an eye on them, but we have to do something to keep them from digging in.]], [[Go to the ruins, decimate their peons, and then look for Kaide in the trees to the north. He'll tell you where to go from there.]], },
-    { [[Kill 12 Warped Peons and then report to Shadowstalker Kaide.]], },
+    [[不受歡迎的存在]],
+    { [[我們在索爾瑪的軍隊認為他們將魔獄獸人控制在地獄火堡壘區域裡，但最近剛到達東邊廢墟的人卻有不同的說法。]], [[我們不能讓他們在這裡立足。瑞克格派了巡影者凱德到廢墟去監視他們，但我們仍要做點什麼來阻止他們進入。]], [[前往廢墟，殺死他們的苦工，再到北邊的樹林裡找凱德。他會告訴你下一步該往哪裡走。]], },
+    { [[殺死12個乖戾的苦工再向巡影者凱德回報。]], },
   },
   [10001] = {
     [[主规划师]],
@@ -23911,18 +24084,18 @@ __ns.L.quest = {
   },
   [10002] = {
     [[莉塞蕾·火纹]],
-    { [[Over the past couple of days, I've observed a blood elf woman traveling to and from the fel orc stronghold and conversing with the fel orc leader. From her body language, she's clearly issuing orders. But why? Whose orders is she conveying?]], [[My curiosity got the better of my judgment and I shadowed her when she left the fel orc encampment. She headed north, to Firewing Point. I stopped before reaching the perimeter of the blood elf outpost.]], [[Kill her before she leaves the fel orc camp again.]], },
+    { [[過去這幾天來，我觀察到一個血精靈女人來往魔獄獸人要塞並和魔獄獸人領導者交談。從她的肢體語言看起來，她很明顯的是在發布命令。但是為什麼?她是在傳達誰的命令?]], [[我的好奇心蓋過了我的判斷力，於是我在她離開魔獄獸人營地時尾隨她。她往北方走，回到火翼崗哨。我在到達血精靈的前哨周圍前停了下來。]], [[在她再次離開魔獄獸人營地前殺了她。]], },
     { [[找到莉塞蕾·火纹并杀掉她，然后向塞洛莉娅·影衣复命。]], },
   },
   [10003] = {
     [[莉塞蕾·火纹]],
-    { [[Over the past couple of days, I've observed a blood elf woman traveling to and from the fel orc stronghold and conversing with the fel orc leader. From her body language, she's clearly issuing orders. But why? Whose orders is she conveying?]], [[My curiosity got the better of my judgment and I shadowed her when she left the fel orc encampment. She headed north, to Firewing Point. I stopped before reaching the perimeter of the blood elf outpost.]], [[Kill her before she leaves the fel orc camp again.]], },
-    { [[Locate and slay Lisaile Fireweaver, then return to Shadowstalker Kaide.]], },
+    { [[過去這幾天來，我觀察到一個血精靈女人來往魔獄獸人要塞並和魔獄獸人領導者交談。從她的肢體語言看起來，她很明顯的是在發布命令。但是為什麼?她是在傳達誰的命令?]], [[我的好奇心蓋過了我的判斷力，於是我在她離開魔獄獸人營地時尾隨她。她往北方走，回到火翼崗哨。我在到達血精靈的前哨周圍前停了下來。]], [[在她再次離開魔獄獸人營地前殺了她。]], },
+    { [[找到並殺死麗莎艾歐·織火者，再回去找巡影者凱德。]], },
   },
   [10004] = {
     [[耐心与理解]],
-    { [[Take the blueprints and travel to Shattrath City in the Terokkar forest. Once at Shattrath, go to the Lower City and look for a mo'arg by the name Sal'salabim. He'll probably be at the bar, drinking away his sorrows.]], [[By the way, you may need to convince him to lend his assistance. Try to approach him with patience and understanding. If that does not work, use your fists.]], },
-    { [[Altruis the Sufferer in western Nagrand wants you to take the Master Planner's Blueprints to Sal'salabim in Shattrath City and convince him to help you.]], },
+    { [[帶著藍圖前往泰洛卡森林的撒塔斯城。到了那裡就立刻去陰鬱城找一個叫沙薩拉畢恩的莫阿格。他大概會在酒吧裡，借酒澆愁。]], [[對了，你要說服他協助你。試著以耐心和諒解接近他。如果沒有用，就用你的拳頭來解決。]], },
+    { [[西納葛蘭的『受難者』奧翠司要你帶著規劃大師的藍圖去找撒塔斯城的沙薩拉畢恩並說服他幫助你。]], },
   },
   [10005] = {
     [[告知缚地者塔弗格伦]],
@@ -23931,7 +24104,7 @@ __ns.L.quest = {
   },
   [10006] = {
     [[告知缚地者塔弗格伦]],
-    { [[<name>, I think that after you're done celebrating here, you should go back to the Cenarion Thicket and speak with Earthbinder Tavgren.]], [[I'm certain that he'll want to know what really happened out there.]], },
+    { [[<name>，我想在這邊慶祝完之後，你該回去塞納里奧灌木林和大地束縛者塔伏格蘭談談。]], [[我相信他會想知道那裡真正發生什麼事。]], },
     { [[与泰罗卡森林塞纳里奥树林外的缚地者塔弗格伦谈一谈。]], },
   },
   [10007] = {
@@ -23940,9 +24113,9 @@ __ns.L.quest = {
     { [[杀死10名噬骨蹂躏者和6名噬骨碎脊者，然后向塞洛莉娅·影衣复命。]], },
   },
   [10008] = {
-    [[What Happens in Terokkar Stays in Terokkar]],
-    { [[If word reaches Thrallmar that they've failed to contain the fel orcs, we're going to be receiving a lot of company down here. Frankly, I'm not sure I want all that attention, so we're going to keep this little problem under wraps, got it?]], [[If we can inflict enough casualties on the fel orcs, chances are their presence will never come to the attention of anyone outside Stonebreaker. So, let's end it now.]], [[Wade in there, swing your weapon, wave your hands, or whatever it is you do - just kill fel orcs.]], },
-    { [[Shadowstalker Kaide wants you to kill 10 Bonechewer Devastators and 6 Bonechewer Backbreakers.]], },
+    [[把泰洛卡的事留在泰洛卡]],
+    { [[如果消息傳到索爾瑪讓他們知道控制魔獄獸人的事失敗了，我們就要有一大堆同伴了。老實說，我不想成為大家的焦點，所以我們不要讓這個小問題浮上檯面，懂嗎?]], [[如果我們可以讓魔獄獸人造成足夠的傷亡，他們的出現就不會再引起碎石堡外任何人的注意了。所以，讓我們現在就結束它吧。]], [[打起精神來吧，擺動你的武器，揮舞你的雙手，不管怎麼做都可以 - 只要殺死魔獄獸人。]], },
+    { [[巡影者凱德要你去殺死10個噬骨破壞者和6個噬骨斷背者。]], },
   },
   [10009] = {
     [[大打出手]],
@@ -23951,28 +24124,28 @@ __ns.L.quest = {
   },
   [10010] = {
     [[就这么简单？]],
-    { [[<Sal'salabim points to the blueprint.>]], [[You see where fel cannons are?]], [[<Sal'salabim draws an arrow denoting a change of direction.>]], [[You turn fel cannon around and use on structures.]], [[Wait! Don't be mad! One thing you not know. Overseers have key to turn cannons. You need key first! One from each overseer!]], [[Not so easy, eh?]], [[Take information back to Altruis.]], },
+    { [[<沙薩拉畢恩指著藍圖。>]], [[你看到惡魔火砲在哪了嗎?]], [[<沙薩拉畢恩畫下一個箭頭表示改變方向。>]], [[你把惡魔火砲轉過來用在建築物上。]], [[等等!別太瘋狂!有一件你不知道的事。監督者有啟動火砲的鑰匙。你要先弄到鑰匙!每個監督者身上各有一把!]], [[不是這麼簡單，對吧?]], [[把消息帶回去給奧翠司。]], },
     { [[沙塔斯城的萨萨拉比姆要你返回纳格兰西部向受难者奥图里斯复命。]], },
   },
   [10011] = {
     [[扫荡铸魔营地]],
-    { [[Gather your allies, <name>. You will need them if you are to face an overseer.]], [[Once you have a suitable group, find and kill the overseers at each camp. Take their keys and use them to turn and fire the fel cannons upon the camps. Return to me once the camps are destroyed.]], },
+    { [[召集你的盟友，<name>。如果你要挑戰監督者就需要他們。]], [[一旦你有了適合的團隊，就到各個煉冶場找到並殺死監督者。拿走他們的鑰匙並用它們開啟惡魔火砲對煉冶場發射。等煉冶場都被摧毀後再回到我這裡。]], },
     { [[纳格兰西部的受难者奥图里斯要求你摧毁铸魔营地：仇恨和铸魔营地：畏惧。]], },
   },
   [10012] = {
     [[邪兽人的计划]],
     { [[这张潦草无比的计划书明显出自于某一个邪兽人的手笔。虽然你不知道它到底在说什么，但里面隐含的意思却非常清楚：邪兽人接受了火翼岗哨的血精灵下达的命令。]], [[为什么这两个种族会联合起来？波尔泰姆或许会知道一些内幕。你决定把地图带回奥蕾莉亚要塞去交给他。]], },
-    { [[Bring the Fel Orc Plans to Bertelm at the Allerian Stronghold.]], },
+    { [[將魔獄獸人計畫交給艾蘭里堡壘的伯特泰歐。]], },
   },
   [10013] = {
-    [[An Unseen Hand]],
-    { [[The writing on the plans is far too delicate and precise to have come from any of the fel orcs. You can't make out what the text says, but the implications are pretty clear: the fel orcs are taking orders from the blood elves at Firewing Point.]], [[Why would the two forces be working together? Rokag might have some insight into this odd alliance. You decide to make your way back to Stonebreaker Hold and show him the map.]], },
-    { [[Bring the Fel Orc Plans to Rokag at Stonebreaker Hold.]], },
+    [[看不見的手]],
+    { [[計畫書上的字體太精細準確，不像是魔獄獸人寫出來的。你無法理解文字在表達什麼，但它的含意十分明顯:魔獄獸人正接受火翼崗哨的血精靈命令。]], [[為什麼這兩個力量會結合在一起?瑞克格或許對這奇怪的聯盟組合有些見解。你決定回到碎石堡給他看看這個圖像。]], },
+    { [[將魔獄獸人計畫交給碎石堡的瑞克格。]], },
   },
   [10014] = {
     [[火翼岗哨的项目]],
-    { [[As I was saying, we've just received some further intel and there's a much larger problem at hand.]], [[The blood elves are hard at work on the construction of a second bomb at Firewing Point.  I cannot stress strongly enough the implications of them completing and using such a device on the Allerian Stronghold!]], [[My scouts tell me that they are guarding the codes to the device in the four smaller buildings ringing the central courtyard.  Get in there and retrieve those codes before it's too late!]], },
-    { [[Steal the four Mana Bomb Code Sheets and deliver them to Lieutenant Meridian at the Allerian Post in Terokkar Forest.]], },
+    { [[如同我說過的，我們剛收到一些進一步的消息，即將有一個更大的問題出現。]], [[血精靈們正在火翼崗哨努力建造第二顆炸彈。我無法堅強到去承受他們完成並將這樣的裝置使用在艾蘭里堡壘的後果!]], [[我的斥候告訴我他們將裝置的密碼警戒看守在4個環繞著中央庭園的小房子裡。趕快到那裡去取得那些密碼以免為時已晚。]], },
+    { [[偷取4份法力炸彈密碼清單並將它們送到泰洛卡森林的艾蘭里哨站交給莫瑞狄恩中尉。]], },
   },
   [10015] = {
     [[火翼岗哨的项目]],
@@ -23990,12 +24163,12 @@ __ns.L.quest = {
     { [[给沙塔斯城的莎妮尔带回8个巨牙毒囊。]], [[为奥尔多完成任务将会使你在占星者阵营中的声望等级降低。]], },
   },
   [10018] = {
-    [[Vestments of the Wolf Spirit]],
-    { [[Generations ago, when orc clans still called Terokkar Forest home, the wolf spirit played an important role in their lives. When the orcs departed, they had no longer had any need for the spirit and they left it behind.]], [[In time, the spirit grew lonely and it too left the forest.]], [[I believe I can bring the wolf spirit back to his ancestral home, just as we orcs have returned. The ritual will require me to create vestments from the pelts of the wolves of the forest to guide the spirit back to its home.]], },
+    [[狼魂法衣]],
+    { [[幾個世代前，當獸人氏族仍將泰洛卡森林視為家園時，狼魂在他們生活中是一個重要的角色。當獸人離開，他們不再需要狼魂於是就將它留下了。]], [[時間過去，狼魂變的很孤單便也離開了森林。]], [[我相信我可以將狼魂帶回他的祖傳家園，就像我們獸人回來一樣。儀式需要用森林的狼皮來製作法衣，才能引導靈魂回到它的家。]], },
     { [[在碎石场举办12场木材Worg Pelts到Malukaz。]], },
   },
   [10019] = {
-    [[More Venom Sacs]],
+    [[更多毒囊]],
   },
   [10020] = {
     [[萨恩莉亚的解药]],
@@ -24013,9 +24186,9 @@ __ns.L.quest = {
     { [[为奥蕾莉亚要塞的波尔泰姆带回铁腭的毛皮。]], },
   },
   [10023] = {
-    [[Patriarch Ironjaw]],
-    { [[You've done well in gathering the first pelts.]], [[The final piece of the vestments requires a pelt unlike any other. There is one particular wolf, an old and cunning one, that has earned his place as the patriarch of the forest wolves. He is known among them as Ironjaw, the mighty hunter.]], [[In my visions, I have seen him wandering the northeastern region of the forest. Including his pelt in the vestments will surely light the wolf spirit's path.]], [[Do not mourn Ironjaw. He will be well honored.]], },
-    { [[Bring Ironjaw's Pelt to Malukaz at Stonebreaker Hold.]], },
+    [[鐵顎族王]],
+    { [[你收集第一堆毛皮表現的很好。]], [[法衣的最後一個部份需要一種獨一無二的毛皮。有一隻特別的狼，又老又奸詐，靠它的力量當上了森林狼的族王。森林狼們稱他為鐵顎，萬能的獵人。]], [[在我的幻境中，我看過他在森林的東北區徘徊。在法衣裡加入他的毛皮一定會點亮狼的精神之路。]], [[不要為鐵顎哀悼。他會很光榮的。]], },
+    { [[將鐵顎的生皮交給碎石堡的瑪魯卡茲。]], },
   },
   [10024] = {
     [[沃雷塔尔的预言]],
@@ -24023,7 +24196,7 @@ __ns.L.quest = {
     { [[将8颗湿鳞蜥蜴的眼睛交给沙塔斯城的奥术师艾蒂莉亚。]], [[为占星者完成任务将会使你在奥尔多阵营中的声望等级降低。]], },
   },
   [10025] = {
-    [[More Basilisk Eyes]],
+    [[更多蜥蜴眼]],
   },
   [10026] = {
     [[魔法扰动]],
@@ -24032,8 +24205,8 @@ __ns.L.quest = {
   },
   [10027] = {
     [[魔法扰动]],
-    { [[There's nothing more annoying than preparing to cast a spell, only to have it interrupted by some unseen force. After the fourth time, I knew it couldn't be coincidence and I sent Keb'ezil out to investigate.]], [[I guarantee you'll never encounter an imp that talks back more than Keb.]], [[Anyway, he managed to find the source of the problem, a pesky creature known as a warp stalker. They have a habit of disturbing the magical energy wherever they blink into existence. I've had enough of their interference.]], },
-    { [[Kill 10 Warp Stalkers and return to Kurgatok at Stonebreaker Hold.]], },
+    { [[沒有什麼比準備施放法術還討人厭的，除了被某種看不見的力量給中斷。第四次發生之後我知道這可能是某種巧合，所以我派奇柏伊斯歐去調查。]], [[我保證你永遠不會遇到一個比奇柏伊斯歐還會回嘴的小鬼。]], [[總而言之，他設法找到了一個問題的來源，一個叫做扭曲行者的討厭生物。他們習慣干擾所有看的到的魔法能量。我受夠他們的干擾。]], },
+    { [[殺死10個扭曲行者並回到碎石堡向庫爾卡拓克回報。]], },
   },
   [10028] = {
     [[强大的容器]],
@@ -24041,19 +24214,19 @@ __ns.L.quest = {
     { [[为奥蕾莉亚要塞的洛瑟蕾丝带回8个德莱尼容器。]], },
   },
   [10029] = {
-    [[BETA The Spirits Are Calling]],
-    { [[The spirits of the dead in the Bone Wastes have been calling out to me and they are in pain!]], [[<class>, you must journey to the Bone Wastes to the south and find my assistant, Soolaveen with the Refugee Caravan.  He must be feeling it too, and will need your assistance to help put the spirits there to rest.]], [[If you hurry, you may catch them.  I know that they were going to stop for a while in the northern portion of the Bone Wastes before continuing south to Auchindoun.]], },
-    { [[Anchorite Lyteera wants you to locate her assistant, Soolaveen at the Refugee Caravan in the Bone Wastes of Terokkar Forest.]], [[Completing quests for the Aldor will cause your Scryers reputation level to decrease.]], },
+    [[亡靈在召喚]],
+    { [[白骨荒野的亡者靈魂一直在召喚著我!其中一個叫索拉伏恩在懇求我的幫助。]], [[<class>，你一定要前往南方的白骨荒野幫助這個靈魂。他就在奧齊頓的北邊入口附近。為了跟他溝通，你必須跨越時空到來生一下。我會給你一份精華讓你在荒野裡使用。]], [[如果你覺得需要更多的精華，就回來找我。]], },
+    { [[隱士麗蒂娜要你去泰洛卡森林的白骨荒野，在難民商隊找到她的助理，索拉伏恩。]], [[為奧多爾完成任務會讓你的占卜者聲望降低。]], },
   },
   [10030] = {
     [[收集骸骨]],
     { [[无数德莱尼人在奥金顿大爆炸中不幸罹难，尸骨就散落在白骨荒野。他们不安宁的灵魂仍在世间飘荡。]], [[<class>，帮帮我吧，将他们的尸骨带往最终的安息之地！只有这样，他们才能安然长眠。]], [[收集无眠之骨，将它们交给白骨荒野中心奥金顿的疯狂的拉姆杜尔。尽管此人名字古怪，可他懂得如何处理这些尸骨。]], },
-    { [[Collect 10 Restless Bones.  Deliver them to Ramdor the Mad, just off the western side of the Ring of Observance in Auchindoun, which is in the middle of the Bone Wastes of Terokkar Forest.]], },
+    { [[收集10根無法安息的白骨。交給奧齊頓儀式競技場西邊的瘋狂的藍姆多，位在泰洛卡森林的白骨荒野中間。]], },
   },
   [10031] = {
     [[迷失者的解脱]],
     { [[奥金顿大爆炸使许多德莱尼人的灵魂堕落腐化。如今，他们痛苦地在白骨荒野徘徊着。]], [[<name>，求求你，让他们获得安宁吧。消灭奥金顿外的失落的幽魂和破碎的骷髅。]], [[什么？你认为让他们继续在痛苦中挣扎会更好？]], [[完成任务后你就返回难民车队，告诉苏拉文你都做了什么。]], },
-    { [[Destroy 10 Lost Spirits and 10 Broken Skeletons, and then speak with Soolaveen at the Refugee Caravan in the Bone Wastes of Terokkar Forest.]], },
+    { [[殺死10個迷失的靈魂和10個德萊尼骷髏，然後跟難民商隊的索拉伏恩談話，位在泰洛卡森林的白骨荒野。]], },
   },
   [10033] = {
     [[通缉：白骨秃鹫！]],
@@ -24062,8 +24235,8 @@ __ns.L.quest = {
   },
   [10034] = {
     [[通缉：白骨秃鹫！]],
-    { [[The bonelashers of the Bone Wastes bit Mawg and made him sick.  Now he wants all of them destroyed!]], [[While they can be found throughout the wastes, they are known to congregate at Carrion Hill in the north.]], [[Return to Mawg Grimshot after you've done the deed and he'll give you a good reward.]], },
-    { [[Kill 20 Bonelashers and then report to Mawg Grimshot at Stonebreaker Hold in Terokkar Forest.]], },
+    { [[白骨荒野的鞭骨者襲擊矛克使他病了。現在他要他們全部消失!]], [[雖然鞭骨者遍佈整個荒原，但是大部分的鞭骨者聚集在北邊的腐蝕嶺。]], [[完成任務後回報矛克·邪擊，他會給你一筆重賞的。]], },
+    { [[殺了20隻鞭骨者後回報給泰洛卡森林裡碎石堡的矛克·邪擊。]], },
   },
   [10035] = {
     [[托古斯！]],
@@ -24078,17 +24251,17 @@ __ns.L.quest = {
   [10037] = {
     [[宁可去钓鱼]],
     { [[说到湖泊，东北边的那面湖泊是钓鱼的好地方。我以前常常跟朋友们一起去，但是现在，我妈妈不再让我去那个地方了。]], [[她总是说那里很危险，但是，我只看到一些小蜘蛛出现在湖泊周围啊。或许，或许……说不准这些蜘蛛会对你做些什么吧……]], [[但是，但是呢，我特别爱吃湖里的鳗鱼。如果你恰好也要去湖泊那边的话，能不能帮我带回来一些呢？你放心，这些狂躁不安的鳗鱼一旦被制服，就能轻易地带回来了哦。]], },
-    { [[Bring 8 Pristine Shimmerscale Eels to Seth in Shattrath.]], },
+    { [[將8隻新鮮閃鱗鰻交給撒塔斯的塞斯。]], },
   },
   [10038] = {
     [[援助列兵维克斯]],
     { [[我刚刚收到一份来自格兰戈瓦村的报告，据说一队暗影氏族的成员在那座废弃的村落安营扎寨。]], [[<name>，去跟列兵维克斯谈谈，看你能不能帮他查明这帮鬼鬼祟祟的家伙想做什么。出了要塞往西走，绕过裂石堡就是格兰戈瓦村了。列兵维克斯在村子北面的入口。]], },
-    { [[Locate and speak with Private Weeks near the north entrance to Grangol'var Village in Terokkar Forest.]], },
+    { [[在泰洛卡森林的葛蘭戈瓦村北方入口處找到士兵維克斯並與他談話。]], },
   },
   [10039] = {
-    [[Speak with Scout Neftis]],
-    { [[I am informed that one of our scouts near Grangol'var Village is currently observing a shadowy band that has recently moved in there.]], [[<name>, I want you to speak with Scout Neftis and see how you can assist her in figuring out what this unknown group is up to.]], [[Just head south out of here, and then due west, skirting the north of the Bone Wastes.  Her last report puts her position near the southern entrance to the village.]], },
-    { [[Locate and speak with Scout Neftis near the south entrance to Grangol'var Village in Terokkar Forest.]], },
+    [[與斥候奈夫提斯談話]],
+    { [[我已經通知那位目前在葛蘭戈瓦村附近監視幽暗團隊的斥候近日遷移到那裡。]], [[<name>，我要你與斥候奈夫提斯談談並看你要如何協助她找出這個不明團隊的目的。]], [[朝著這裡的南方前進，然後轉向正西方，繞過白骨荒野的北方。她最後一次的報告指出她的位置位於村子的南邊入口附近。]], },
+    { [[在泰洛卡森林的葛蘭戈瓦村南方入口處找到斥候奈夫提斯並與她談談。]], },
   },
   [10040] = {
     [[他们是谁？]],
@@ -24098,7 +24271,7 @@ __ns.L.quest = {
   [10041] = {
     [[他们是谁？]],
     { [[我不知道他们究竟是谁，但我知道他们充满了敌意！]], [[据我观察，营地中有三个家伙总是喋喋不休的。穿上这件伪装服，潜入格兰戈瓦村，与阴暗新兵、阴暗劳工和阴暗顾问聊聊天。]], [[要小心，阴暗猎人可以识破你的伪装，这些猎人看上去就不好对付！维系伪装的魔法能量有些脆弱，因此打探敌情期间，你千万不能离开村子。如果你弄丢了这件伪装，就回来找我吧。我会为你另做一件的。]], },
-    { [[While in disguise, speak with the Shadowy Initiate, the Shadowy Laborer and the Shadowy Advisor.  Then return to Scout Neftis at Grangol'var Village in Terokkar Forest.]], },
+    { [[於偽裝中與幽暗的新兵，幽暗的工人及幽暗的諫言者說話。完成後回到泰洛卡森林的葛蘭戈瓦村中找斥候奈夫提斯回報。]], },
   },
   [10042] = {
     [[暗影议会必须死！]],
@@ -24107,23 +24280,23 @@ __ns.L.quest = {
   },
   [10043] = {
     [[暗影议会必须死！]],
-    { [[What!  Those guys are Shadow Council?!]], [[<name>, you have to go back in there and waste them!  I want you to take out their leader and as many of their executioners and summoners as you can.]], [[After you're done with that, report back to Advisor Faila at Stonebreaker Hold.]], [[Good luck, <class>!]], },
-    { [[Kill 10 Shadowy Executioners, 10 Shadowy Summoners and Shadowmaster Grieve, and then return to Advisor Faila at Stonebreaker Hold in Terokkar Forest.]], },
+    { [[什麼!這些傢伙都是暗影議會的?!]], [[<name>，你必須回到那裡並殺光他們!我要你殺掉他們的領導者以及所有的劊子手和召喚者。]], [[在你完成後，回報給碎石堡的諫言者菲拉。]], [[祝你好運，<class>!]], },
+    { [[殺掉10個幽暗的劊子手，10個幽暗的召喚者及暗影大師葛瑞弗，然後回到泰洛卡森林的碎石堡回報諫言者菲拉。]], },
   },
   [10044] = {
-    [[A Visit With the Greatmother]],
-    { [[The Greatmother has asked that I seek you out and deliver a message. She wishes to speak with you at once.]], [[My will has been sapped but make no mistake, <name>, if you anger the Greatmother, I will come down upon you with all the force that I can muster. She is in the main hall.]], [[<Garrosh points at the large building to the north.>]], [[Listen to what she has to say and do as she tells you.]], },
-    { [[Speak to Greatmother Geyah and listen to what she has to tell you.]], },
+    [[與祖母的會面]],
+    { [[祖母要我前來找你並傳達一個訊息。她希望和你談談。]], [[我的毅力已經降低了但還不會出錯，<name>，如果你使祖母生氣，我將會盡我最後所能擊敗你。她在主廳中。]], [[<卡爾洛斯指著北方的大建築物。>]], [[聆聽並照她的話去實行。]], },
+    { [[與祖母吉雅談談，並聆聽她跟你說的內容。]], },
   },
   [10045] = {
-    [[Material Components]],
-    { [[Mother Kashur wishes to speak with you, <name>. Before this becomes possible, you must collect the herbs required to create a potion that will expand your mind, allowing you to commune with the spirits.]], [[You must gather Olemba root from Terokkar, marshberries from Zangarmarsh, Telaari fronds from Nagrand and dragonspine from the Blade's Edge mountains. I have written down instructions on this parchment as to the cultivation of these herbs. Return to me when you have gathered the materials.]], },
-    { [[Greatmother Geyah at Garadar in Nagrand has asked that you collect 1 Olemba Root, 1 Marshberry, 1 Telaari Frond and 1 Dragonspine.]], },
+    [[材料成分]],
+    { [[卡修爾母親想與你談談，<name>。在此成真前，你得先收集所需的藥草來製作可擴展你的心靈，進而得以與神靈溝通的藥劑。]], [[你得取得泰洛卡的奧萊姆貝根莖，贊格沼澤的沼澤梅，納葛蘭的泰拉蕊藻葉以及劍刃山脈的龍脊。我已經把這些藥草種植地的指引寫在這個羊皮紙上。等你收集好這些材料後回來找我。]], },
+    { [[納葛蘭的卡拉達爾的祖母吉雅要你收集1個奧萊姆貝根莖，1個沼澤梅，1個泰拉蕊藻葉及1個龍脊。]], },
   },
   [10046] = {
-    [[BETA Through the Dark Portal]],
-    { [[Two weeks ago, our scouts reported a heavily armed Alliance force under the command of Field Commander Romus departing Nethergarde Keep. With so many soldiers and supplies, along with such a distinguished commander, they can only have one goal: Outland.]], [[The warchief sent an advance force through the portal, but if the Alliance believes there is a need for that many troops, perhaps we'd be wise to send our own reinforcements.]], [[Journey through the Dark Portal and report to Nazgrel at Thrallmar.]], },
-    { [[Travel through the Dark Portal and speak with Nazgrel at Thrallmar.]], },
+    [[通過黑暗之門]],
+    { [[兩個星期前，我們的斥候回報一批聯盟的重裝隊伍在戰場元帥洛摩斯的指揮下離開守望堡。如此眾多的士兵及物資，與這麼一位顯赫的領導者，他們的目標只有一個:外域。]], [[酋長已經派了先兵部隊通過大門，但如果聯盟認為有需要到那麼多軍隊的話，可能我們就得明智的派遣我們自己的增援軍隊了。]], [[前往經過黑暗之門，回報索爾瑪的納茲格雷爾。]], },
+    { [[通過黑暗之門，與索爾瑪的納茲格雷爾談談。]], },
   },
   [10047] = {
     [[荣耀之路]],
@@ -24147,12 +24320,12 @@ __ns.L.quest = {
   },
   [10051] = {
     [[逃离火翼岗哨！]],
-    { [[Thank goodness for you!]], [[<class>, I need you to help me escape.  I have information vital to the security of the Allerian Stronghold and probably all of Outland!]], [[I came here from the Cenarion Expedition on a diplomatic mission, but as you can see, they weren't very friendly.  If you help me get to safety, I can assure you that you will be handsomely rewarded!]], [[We won't be able to do this on our own - you do have a group with you, right?]], },
+    { [[感謝老天!]], [[<class>，我需要你幫我逃離。我這有對艾蘭里堡壘的防禦以及可能有關整個外域的重要訊息!]], [[我從塞納里奧遠征隊那過來，擔負著外交任務，不過就像你看到的，他們不是很友善。如果你能夠保護我平安，我擔保你可以得到相當可觀的獎賞!]], [[我們可能沒辦法只靠自己 - 你有隊伍吧，有嗎?]], },
     { [[护送伊斯拉·星鬃逃离火翼岗哨，然后向泰罗卡森林奥蕾莉亚要塞的乌瑞克·猎日者上尉复命。]], },
   },
   [10052] = {
     [[逃离火翼岗哨！]],
-    { [[Thank goodness for you!]], [[<class>, I need you to help me escape.  I have information vital to the security of Stonebreaker Hold and probably all of Outland!]], [[I came here from the Cenarion Expedition on a diplomatic mission, but as you can see, they weren't very friendly.  If you help me get to safety, I can assure you that you will be handsomely rewarded!]], [[We won't be able to do this on our own - you do have a group with you, right?]], },
+    { [[感謝老天!]], [[<class>，我需要你幫我逃離。我這有對碎石堡的防禦以及可能有關整個外域的重要訊息!]], [[我從塞納里奧遠征隊那過來，擔負著外交任務，不過就像你看到的，他們不是很友善。如果你能夠保護我平安，我擔保你可以得到相當可觀的獎賞!]], [[我們可能沒辦法只靠自己 - 你有隊伍吧，有嗎?]], },
     { [[护送伊斯拉·星鬃逃离火翼岗哨，然后向泰罗卡森林裂石堡的顾问菲埃拉复命。]], },
   },
   [10053] = {
@@ -24196,9 +24369,9 @@ __ns.L.quest = {
     { [[Slay 15 Bleeding Hollow Grunts, 10 Bleeding Hollow Necrolytes, 5 Bleeding Hollow Peons, and Warlord Morkh. Then report to Stone Guard Ambelan at Spinebreaker Ridge.]], },
   },
   [10061] = {
-    [[BETA The Unyielding]],
-    { [[When the Bonechewer fel orcs attacked the Expedition Armory, the garrison there fell quickly.  The battle was bloody and fierce, and there were no survivors.]], [[Although the dead were buried, their spirits continue to haunt those ruins.  Of late, I have been receiving visions that these spirits may soon become a threat to Thrallmar.]], [[There is only one course of action to take.  We must grant these spirits rest.  You must overcome them in battle.]], },
-    { [[Grelag wants you to defeat 12 Unyielding Footmen, 10 Unyielding Sorcerers, and 5 Unyielding Knights at the Expedition Armory to the south of Honor Hold.]], },
+    [[永不屈服]],
+    { [[當噬骨者魔獄獸人攻擊遠征隊軍械庫時，很快的就攻下了那裡。這場戰役非常慘烈，沒有任何人倖存。]], [[雖然死者已經埋葬了，他們的靈魂卻還在廢墟裡徘徊。最近，我預見到這些靈魂可能很快會變成索爾瑪的威脅。]], [[只有一個方法可以解決。我們必須讓這些靈魂安息。你必須與他們戰鬥。]], },
+    { [[格萊克要你前往榮譽堡南方的遠征軍械庫打敗12個不屈的步兵，10個不屈的魔巫士，和5個不屈的騎士。]], },
   },
   [10062] = {
     [[BETA Looking to the Leadership]],
@@ -24232,38 +24405,38 @@ __ns.L.quest = {
   },
   [10068] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10069] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10070] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10071] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10072] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10073] = {
     [[护井者索兰尼亚]],
-    { [[And now, I need for you to do something.]], [[Well Watcher Solanian is in need of your services.  You would do well to ingratiate yourself with him.]], [[He awaits you on the exterior platform that the ramp in this chamber leads up to.]], },
-    { [[Speak with Well Watcher Solanian at the Sunspire on Sunstrider Isle.]], },
+    { [[現在，我需要你去做一些事。]], [[看井者索蘭尼亞需要你的貢獻。你很會討他的歡心。]], [[他就在這房間樓梯往上走的戶外觀景平臺上等你。]], },
+    { [[與逐日者之島上日尖塔的看井者索蘭尼亞談談。]], },
   },
   [10074] = {
     [[沃舒古水晶尘]],
     { [[哈兰曾经是德莱尼人研究纳鲁水晶的重要基地。]], [[我们发现，产自“钻石山”沃舒古的水晶具有极高的研究价值，而且这个区域的所有生物体内似乎都残留着这种水晶尘。如果你在探险途中找到水晶尘的话，就把它们统统拿来给我吧。我会奖励你一枚勋章，你可以用它向军需官购买东西。]], },
-    { [[Chief Researcher Amereldine at Halaa wants 20 Oshu'gun Crystal Powder Samples.]], },
+    { [[哈剌的首席調查員阿莫瑞丹需要20個歐夏剛水晶粉末樣本。]], },
   },
   [10075] = {
     [[沃舒古水晶尘]],
@@ -24271,7 +24444,7 @@ __ns.L.quest = {
   [10076] = {
     [[沃舒古水晶尘]],
     { [[哈兰曾经是德莱尼人研究纳鲁水晶的重要基地。]], [[我们发现，产自“钻石山”沃舒古的水晶具有极高的研究价值，而且这个区域的所有生物体内似乎都残留着这种水晶尘。如果你在探险途中找到水晶尘的话，就把它们统统拿来给我吧。我会奖励你一枚勋章，你可以用它向军需官购买东西。]], },
-    { [[Chief Researcher Kartos at Halaa wants 20 Oshu'gun Crystal Powder Samples.]], },
+    { [[哈剌的首席調查員阿莫瑞丹需要20個歐夏剛水晶粉末樣本。]], },
   },
   [10077] = {
     [[沃舒古水晶尘]],
@@ -24287,14 +24460,14 @@ __ns.L.quest = {
     { [[杀死12个甘尔葛工兵，然后向工头比格姆斯复命。]], },
   },
   [10081] = {
-    [[To Meet Mother Kashur]],
-    { [[Do not be alarmed by what you might see once the effect has taken hold! These spirits are all around us - always. The potion allows your mind to be able to understand and ultimately see the spirits. You will need to be under its influence if you are to speak with Mother Kashur.]], [[You will find her a great ways to the southwest, at the Ancestral Grounds.]], },
-    { [[Greatmother Geyah wants you to speak with Mother Kashur.]], },
+    [[與卡修爾母親會面]],
+    { [[一旦作用生效了可別被你可能見到的東西嚇到!這些靈魂都在我們身邊 - 一直都是。這瓶藥劑能讓你的心靈理解並最後見到這些靈魂。如果你要和卡修爾母親談談就得在這種狀態下才行。]], [[你會在西南方的一條大路上找到她，就在先祖之地那。]], },
+    { [[祖母吉雅要你與卡修爾母親談談。]], },
   },
   [10082] = {
-    [[The Agitated Ancestors]],
-    { [[Do you see them walking around us? The Ancestral Grounds are normally quiet and undisturbed.]], [[As of late, the ancestral spirits have risen and are extremely agitated. Something is causing a great disturbance to the spirits. We must discover what that something could be, but first, we must put the immediate threat to rest.]], [[These ghosts that you see walking about are not truly the ancestors but a representation of their state of being. You must destroy the agitated orc spirits. Do this and return to me.]], },
-    { [[Mother Kashur has asked that you put to rest 15 Agitated Orc Spirits.]], },
+    [[焦慮的先祖們]],
+    { [[你有看到他們在我們身邊走動嗎?先祖之地正常來說都是平靜且不受打擾的。]], [[直到最近，先祖之靈紛紛覺醒且極度焦慮。某種事物嚴重打擾了這些靈魂。我們必須找出到底是什麼事，但首先，我們得先把這立即的威脅擺一邊。]], [[這些你看到正在走動的鬼魂不是真的先祖們而是他們狀態的呈現。你必須摧毀那些激動的獸人靈魂。去完成後回來找我。]], },
+    { [[卡修爾母親要你殺掉15個激動的獸人靈魂。]], },
   },
   [10084] = {
     [[BETA Assault on Mageddon]],
@@ -24302,9 +24475,9 @@ __ns.L.quest = {
     { [[Kill Nightlord Malphas at Forge Base: Mageddon, and report to Force Commander Danath Trollbane at Honor Hold.]], },
   },
   [10085] = {
-    [[A Visit With The Ancestors]],
-    { [[I need for you to journey to the villages of the ancestors, <name>. Seek each one out and see if the ancestors remain.]], [[Visit Sunspring Post to the north, visit the Laughing Skull Ruins far to the north against the mountains, visit Garadar to the northeast, and finally, visit the Bleeding Hollow Ruins on the borders of Nagrand and the Terokkar Forest, to the east.]], [[Return to me once you have observed the ancestors in their homes.]], },
-    { [[Mother Kashur at the Ancestral Grounds in Nagrand has asked that you Visit Sunspring Post, Visit Laughing Skull Ruins, Visit Garadar and Visit Bleeding Hollow Ruins.]], },
+    [[拜訪先祖們]],
+    { [[我需要你到先祖們的村落去，<name>。到每一處仔細的尋找並看看先祖們是否還在。]], [[拜訪北邊的日春崗哨，山另一側遙遠北方的獰笑骷髏廢墟，東北的卡拉達爾，還有最後一個，納葛蘭和泰洛卡森林邊界的血之谷廢墟，就在東方。]], [[一旦你在他們的家中見到先祖們後回到我這裡來。]], },
+    { [[納葛蘭上先祖之地的卡修爾母親要你去拜訪日春崗哨，獰笑骷髏廢墟，卡拉達爾以及血之谷廢墟。]], },
   },
   [10086] = {
     [[我为部落工作！]],
@@ -24382,13 +24555,13 @@ __ns.L.quest = {
     { [[Locate and kill Urga'zz within the mines beneath Thrallmar, then return to Foreman Razelcraz.]], },
   },
   [10101] = {
-    [[When Spirits Speak]],
-    { [[Oshu'gun - the diamond mountain - was once sacred to my people. It was there that the clans would gather every year to celebrate the springtime festival. It was there that our shaman communed with the honored ancestors. It was the center of our culture - until the shadows overtook us. When the clans became a horde, the spirits of Oshu'gun fell silent. The ancestors turned their backs on us.]], [[Yet something now draws them from their rest. Venture to Oshu'gun and discover what could trouble the spirits so.]], },
-    { [[Mother Kashur at the Ancestral Grounds in Nagrand has asked that you seek out the vision you had. Find K'ure in Oshu'gun.]], },
+    [[當靈魂們說話時]],
+    { [[歐夏剛 - 鑽石山 - 對我們來說曾經那麼神聖。那裡曾是我們氏族每年收集慶祝春天節慶的地方。那裡曾是我們薩滿與光榮的先祖之靈交談的地方。那裡曾是我們文化的中心 - 直到那些暗影打敗我們。當氏族轉化成部落，這些歐夏剛的靈魂沉默了。先祖們背過身不再看顧我們。]], [[現在有某種事物將他們從平靜中喚醒了。到歐夏剛去探險並找出是什麼在打擾這些靈魂們。]], },
+    { [[納葛蘭的先祖之地的卡修爾母親要你去找出擁有的幻象。去找歐夏剛的庫爾。]], },
   },
   [10102] = {
-    [[A Secret Revealed]],
-    { [[As my energies bled away over the centuries, a void slowly grew in my place - devouring the souls of those nearby. Helplessly, I watched as generations of orc souls were drawn into the vortex. Recently, my enemies harnessed the vortex and used it to draw countless void minions into their Burning Legion.]], [[Now, the key to ending this cycle and freeing the orc spirits lies with another naaru - A'dal. I have sensed his essence within the ancient city of Shattrath in the Terokkar Forest.]], },
+    [[秘密的揭露]],
+    { [[我的能量在過去幾個世紀中不斷的流失，在這段期間我所在的地方有一個虛無緩慢的成長-吞噬附近的靈魂。無可奈何的，我眼睜睜看著歷代獸人的靈魂被吸入這場漩渦中。最近，我的敵人控制了這個漩渦並用來吸引無數的虛無爪牙加入燃燒軍團。]], [[現在，終結這場循環及釋放這些獸人靈魂的關鍵就是另一個那魯 - 阿達歐。我感應到她的本體就在泰洛卡森林裡撒塔斯的先祖之城裡。]], },
     { [[与沙塔斯城的阿达尔谈一谈。]], },
   },
   [10103] = {
@@ -24402,9 +24575,9 @@ __ns.L.quest = {
     { [[与泰罗卡森林奥蕾莉亚要塞的安达尔谈一谈。]], },
   },
   [10105] = {
-    [[News for Rakoria]],
-    { [[Now that Swamprat Post is complete, our control of the roads in and out of the marsh is much less tenuous. Our presence in Terokkar Forest is much less secure. Even so, at Stonebreaker Hold, Rakoria awaits word of our progress.]], [[She's sharp and capable, <name>, but be careful around her. She's got a lot of a goods she's eager to move along the roads, but don't assume she's got our best interests at heart. Rakoria goes where she believes there's profit to be found.]], },
-    { [[Speak with Rakoria at Stonebreaker Hold in Terokkar Forest.]], },
+    [[給瑞克利亞的消息]],
+    { [[如今斯溫派特崗哨已經完工了，我們對於道路的進出控管比較有辦法了。而我們在泰洛卡森林的存在比較不安全了。即使如此，在碎石堡，瑞克利亞等著我們的進度報告。]], [[她機警又能幹，<name>，但小心她的周圍。她沿路上有很多容易搬動的貨品，但別認為她衷心的對我們有興趣。瑞克利亞只去她認為有利可圖的地方。]], },
+    { [[與泰洛卡森林裡碎石堡的瑞克利亞談談。]], },
   },
   [10106] = {
     [[地狱火半岛的工事]],
@@ -24413,8 +24586,8 @@ __ns.L.quest = {
   },
   [10107] = {
     [[外交手段]],
-    { [[Kilrath sends news of the Boulderfist leader: He is an orc! An ancient orc that passed through the Dark Portal in the time of our fathers and has since returned to his homeland. I wish for you to track down this orc and try to convince him to pull back the Boulderfist ogres. He resides on an upper platform in the Burning Blade Ruins to the southeast near the border of Terokkar. Good luck, <name>!]], [[Be warned, he is a blademaster...]], },
-    { [[Jorin Deadeye at Garadar in Nagrand has asked that you find and speak with Lantresor of the Blade in the Burning Blade Ruins.]], },
+    { [[科伊瑞斯傳來有關石拳領導者的消息:他是個獸人!一個在我們父親那年代通過黑暗之門的古老獸人並且在那之後就回到他的家鄉了。我希望你去擊敗這個獸人並試著說服他撤回這些石拳巨魔。他就住在東南方接近泰洛卡森林邊緣的燃燒之劍廢墟上面的平臺。祝你好運，<name>!]], [[小心點，他可是個劍刃高手……]], },
+    { [[納葛蘭裡卡拉達爾的喬林·亡眼要你去燃燒之劍廢墟尋找『劍刃』蘭崔索並與他談談。]], },
   },
   [10108] = {
     [[外交手段]],
@@ -24443,12 +24616,12 @@ __ns.L.quest = {
   },
   [10113] = {
     [[奈辛瓦里狩猎队]],
-    { [["Go out and find us some supplies," he said. I was nearly killed about 15 times before I found this place! These Broken might not be the most hospitable bunch but at least they're not trying to tear my skin from my bones.]], [[Anyway, I'm not going back. My days of huntin' big game are over. If you end up heading northeast towards Zangarmarsh and run into the Nesingwary Safari, let them know that "Shotgun" quit.]], [[Hey, maybe you can take my place! Good luck, stranger.]], },
-    { [["Shotgun" Jones wants you to speak with Hemet Nesingwary at the Nesingwary Safari on the outskirts of northeast Nagrand.]], },
+    { [[「出去替我們找一些補給品，」他這樣說。在我找到這地方前我差點死了快15次!這些破碎者也許不是最好客的傢伙但至少他們沒試著要把我皮肉分離掉。]], [[不管怎樣，我不準備回去了。我大獵殺的歲月已經結束了。如果你往東北方朝贊格沼澤去並且到了奈辛瓦里狩獵隊，跟他們說『獵槍』退出了，]], [[嘿，也許你可以取代我喔!祝你好運，陌生人。]], },
+    { [[『獵槍』瓊斯要你到納葛蘭東北方的郊區與奈辛瓦里狩獵隊的赫米特·奈辛瓦里談談。]], },
   },
   [10114] = {
     [[奈辛瓦里狩猎队]],
-    { [[These orcs have never seen a tauren before - if you can believe such a thing. If it weren't for Captain Kroghan, they would have probably been serving me for their next meal right about now.]], [[But where are my manners? I am Ohlorn Farstrider, hunter extraordinaire! I am part of the Nesingwary expedition that came up here from Azeroth in search of big game. If you are interested in the hunt, perhaps you should visit my crew at the Nesingwary Safari, due east of here near the border of Zangarmarsh.]], },
+    { [[這些獸人之前從來沒有看過一隻牛頭人 - 要是你肯相信像這種事的話。如果不是為了隊長卡洛克汗，他們可能現在已經把我當他們下一頓的餐點給吃了。]], [[喔我的禮貌到哪了呢?我是歐洛恩·遠行者，不凡的獵人!我是從艾澤拉斯到這找尋大獵物的奈辛瓦里遠征隊營地的一員。要是你對狩獵有興趣，也許你應該來參觀我們在奈辛瓦里狩獵隊的營地，在這裡的正東方接近贊格沼澤的邊界。]], },
     { [[欧洛恩·远行者要你前往纳格兰的奈辛瓦里狩猎队营地，跟“好儿子”沙度·远行者谈一谈。]], },
   },
   [10115] = {
@@ -24458,12 +24631,12 @@ __ns.L.quest = {
   },
   [10116] = {
     [[通缉：穆玛基酋长]],
-    { [[Wanted: Chieftain Mummaki - leader of the foul and degenerate Lost One tribe of the Daggerfen, for his brutal attacks against the Orebor Harborage.]], [[The chieftain and his band of assassins are responsible for the deaths of numerous Kurenai and draenei and should only be approached by seasoned combatants.]], [[Travelers are advised to avoid the Daggerfen Village area to the west of the Orebor Harborage.]], [[To claim the bounty, present proof of the chietain's demise to Ikuti.]], },
+    { [[懸賞:姆瑪奇酋長 - 匕首沼地這個邪惡及墮落失落者部族的領導者，因為他對奧雷伯爾港的殘暴攻擊。]], [[這個酋長及他一整隊的刺客要為許多卡爾奈及德萊尼的死負責並且只有由經驗豐富的戰士才有辦法對付他。]], [[建議旅客全部避開匕首沼地村週遭區域到奧雷伯爾港的西邊。]], [[如要換取獎賞，將酋長死亡的證據交給伊庫堤。]], },
     { [[将穆玛基酋长的图腾交给奥雷柏尔营地的伊库提。]], },
   },
   [10117] = {
     [[通缉：穆玛基酋长]],
-    { [[Wanted: Chieftain Mummaki - leader of the foul and degenerate Lost One tribe of the Daggerfen, for his brutal attacks against Zabra'jin and its inhabitants.]], [[The chieftain and his band of assassins are responsible for the deaths of numerous scouts and messengers and should only be approached by seasoned combatants.]], [[Travelers are advised to avoid the Daggerfen Village area to the northwest of Zabra'jin.]], [[To claim the bounty, present proof of the chietain's demise to Shadow Hunter Denjai.]], },
+    { [[懸賞:姆瑪奇酋長 - 匕首沼地這個邪惡及墮落失落者部族的領導者，因為他對薩布拉金所發動的殘暴攻擊。]], [[這個酋長及他一整隊的刺客要為許多斥候及傳令員的死負責並且只有由經驗豐富的戰士才有辦法對付他。]], [[建議旅客全部避開匕首沼地村週遭區域到薩布拉金的西北方。]], [[如要領取獎賞，將酋長死亡的證據交給暗影獵人丹傑。]], },
     { [[将穆玛基酋长的图腾交给暗影猎手德恩加。]], },
   },
   [10118] = {
@@ -24474,7 +24647,7 @@ __ns.L.quest = {
   [10119] = {
     [[穿越黑暗之门]],
     { [[20年来，黑暗之门一直是一座无声的纪念碑，对一段早已被忘却的历史的纪念。]], [[<雷索恩环视四周。>]], [[我从未想到过自己会看到这一天的到来，但是我们就站在这里，望向无底的深渊。]], [[我们的军队在黑暗之门的另一侧陷入混战，如果得不到支援的话，我们很可能会输掉这场残酷的战争。<class>，你必须跨越黑暗之门，伸出援手。]], [[立即向指挥官杜隆报到吧。他就在外域等着你……]], },
-    { [[Travel through the Dark Portal and find Commander Duron. He awaits your arrival on the other side - in the Outland.]], },
+    { [[通過黑暗之門找到指揮官杜朗。他在另一邊等你 - 就在外域裡。]], },
   },
   [10120] = {
     [[抵达外域]],
@@ -24488,8 +24661,8 @@ __ns.L.quest = {
   },
   [10122] = {
     [[堡垒的外围]],
-    { [[Each day, Hellfire Citadel opens its gates, and more fel orcs pour out and into the camps they've established along the ramparts south of the fortress.]], [[I dispatched one of my most capable scouts, Private Imarion, to track their movements, preparations and numbers, but he hasn't returned to report his findings.]], [[Imarion was to focus his efforts on the northernmost camp along the Southern Rampart, near where it joined the Citadel. Find him, <name>. Without his information, we're sitting ducks.]], },
-    { [[Search the northernmost camp along the Southern Rampart for any trace of Private Imarion.]], },
+    { [[每一天，地獄火堡壘都會打開大門，接著更多的魔獄獸人湧入沿著堡壘南方的城牆建立的營地裡。]], [[我派了一位最能幹的斥候，士兵艾瑪倫，去偵察他們的行動，人口數量，但他還沒將他的發現呈報回來。]], [[艾瑪倫將他的注意力集中在沿著南方堡壘最北方的營地，就在堡壘的交處。去找到他，<name>。沒有這份報告，我們只能坐以待斃。]], },
+    { [[到沿著南方堡壘最北方的營地找尋士兵艾瑪倫的足跡。]], },
   },
   [10123] = {
     [[魔火峡谷]],
@@ -24498,13 +24671,13 @@ __ns.L.quest = {
   },
   [10124] = {
     [[机甲残骸]],
-    { [[Your battle prowess has been noted by high command, <class>. They want to send you to the front lines to meet up with Maimfist's crew. They're radicals, devoted to the complete extermination of the Burning Legion, so you may fit right in...]], [[Head east about 200 paces and veer south at the jutting mass of land. You'll see Reaver's Fall where an old farm used to stand. Once there, you are to report to Foward Commander To'arch.]], [[Now move out!]], },
+    { [[你英勇的戰鬥受到極度的肯定，<class>。他們派你到前線去與殘拳的部下會面。他們是激進份子，全心為了徹底消滅燃燒軍團而奉獻，因此你們可能會很合得來……]], [[朝東方大概200步的距離在群起突出的陸地處轉向南方。你會看到搶奪者荒野這個用來停留的老農地。一到那裡，就找前線指揮官吐阿奇報到。]], [[現在馬上啟身!]], },
     { [[前往机甲残骸，向前线指挥官托尔克报到。]], },
   },
   [10125] = {
-    [[BETA Mission: Disrupt Communications]],
-    { [[Directly east of here is the Legion Front. The front acts as a mobile command station for the Burning Legion. Jutting out of the ground you'll see Legion antennas. The Legion uses these to communicate with their forge camps throughout Outland. They also serve as wards to scramble Legion transmissions, making magical surveillance impossible.]], [[I want you to take these explosives and use them to obliterate the antennas. Get all of them, <name>. They run south to north on the border of the Legion Front.]], },
-    { [[Forward Commander To'arch at Reaver's Fall in Hellfire Peninsula has asked that you use To'arch's Explosives and destroy Legion Antenna: Spite, Legion Antenna: Rage, Legion Antenna: Hate, Legion Antenna: Fear.]], },
+    [[任務:中斷聯繫]],
+    { [[這裡的正東方就是軍團前線。這個前哨站就像燃燒軍團的行動指揮站一樣。你可以看到突出地面的部份就是軍團的天線。他們使用這些與外域中各個煉冶場聯繫。也用來當做一種防護用來混亂軍團所發出的連繫，使魔法無法去做偵測。]], [[我要你拿著這些爆裂物去摧毀天線。帶著這邊所有的爆裂物，<name>。他們就在軍團前線邊緣的南北之間移動。]], },
+    { [[地獄火半島上搶奪者荒野的前線指揮官吐阿奇要你使用吐阿奇的爆裂物摧毀軍團天線:洩憤、軍團天線:狂怒、軍團天線:仇恨以及軍團天線:恐懼。]], },
   },
   [10126] = {
     [[BETA Warboss Nekrogg's Orders]],
@@ -24512,9 +24685,9 @@ __ns.L.quest = {
     { [[Travel south along the west side of the South Rampart and search the next camp for signs of Private Imarion.]], },
   },
   [10127] = {
-    [[BETA Mission: Sever the Tie]],
-    { [[It would be a dereliction of duty if I did not order you to take out the demons that inhabit the Legion Front, just east of this base.]], [[Both sides of the front are set up in the same manner: Fel handlers roam between Legion encampments, which are in turn guarded by wrathguards. A shivan subjugator oversees the entire operation. Kill 'em all and let Kazzak sort 'em out.]], [[And watch out for patrolling fel reavers. I know you're tough but those things will make short work of you.]], },
-    { [[Forward Commander To'arch at Reaver's Fall in Hellfire Peninsula wants you to kill 4 Fel Handlers, 8 Wrathguards, and Subjugator Shi'aziv.]], },
+    [[任務:切斷聯繫]],
+    { [[假如我沒命令你殺死駐紮於基地東方軍團前線的惡魔們，這將是疏忽職守。]], [[軍團前線兩邊以相同的方式駐防:惡魔處理者在軍團兵營之間巡邏，憤怒守衛輪班保衛著兵營。一個希樊征服者監督整個營地的運作。殺死他們並且讓卡札克整治他們。]], [[留意巡邏的惡魔搶奪者。我知道你很強壯，但是那些東西會迅速解決你。]], },
+    { [[地獄火半島上搶奪者荒野的前線指揮官吐阿奇要你殺掉4個惡魔處理者，8個憤怒守衛，以及征服者薛艾希。]], },
   },
   [10128] = {
     [[BETA Saving Private Imarion]],
@@ -24528,8 +24701,8 @@ __ns.L.quest = {
   },
   [10130] = {
     [[西侧的威胁]],
-    { [[In addition to other instructions, the orders tell the remaining fel orcs to prepare their equipment and rations for a coming attack.]], [[According to the plans, Warboss Nekrogg's forces are to form the western flank of a pincer attack on Honor Hold.]], [[With the hold's garrison concentrating on its eastern walls, an attack from the west would be devastating. Honor Hold can only hope to hold out if the western forces are kept out of the battle.]], },
-    { [[Kill 10 Shattered Hand Guards, 10 Shattered Hand Berserkers, and 5 Shattered Hand Acolytes, then report to Lieutenant Amadi at Honor Hold's western guard tower.]], },
+    { [[除了其他指示之外，這命令指示剩下的魔獄獸人為即將到來的攻擊準備好他們的裝備和糧食。]], [[依據計畫，戰王奈克羅格的部隊將在對榮譽堡的夾擊行動中負責西面側翼。]], [[當榮譽堡的守軍集結在東牆的時候，來自西面的攻擊將是極具破壞性的。榮譽堡只能希望堅持下去，如果西方部隊沒有加入戰鬥的話。]], },
+    { [[殺死10個破碎之手護衛、10個破碎之手狂戰士以及5個破碎之手侍僧然後回到榮譽堡的西側防禦哨塔回報阿瑪迪中尉。]], },
   },
   [10131] = {
     [[BETA Planning the Escape]],
@@ -24538,7 +24711,7 @@ __ns.L.quest = {
   },
   [10132] = {
     [[巨人的威胁]],
-    { [[You see that huge red crystal to the north?  It fell from the sky not long ago, causing a massive earthquake.]], [[When we came out here to investigate the disturbance, we found all of these colossi wandering about that weren't previously here.]], [[There's definitely something strange about that crystal and the energies that it's emanating, but I don't have time for that.  Those mountain giants are my immediate concern.]], [[I want you to head up to Fallen Sky Ridge with some friends and deal with them.]], },
+    { [[你看的見北方那顆巨大的紅色水晶嗎?它不久前從天空上掉下來，引起一場巨大的地震。]], [[當我們前去調查這場騷動時，我們發現該處多了許多原本不存在的戈羅西四處徘徊。]], [[對於那水晶和它散發的能量，很明顯的有些怪事正在發生，但是我沒有時間關心那件事。那些山巨人才是我的當務之急。]], [[我要你招募幾名隊友一同前往墜天山脈解決他們。]], },
     { [[杀死5个暴怒的巨人，然后返回地狱火半岛的塞纳里奥哨站，向图拉希恩复命。]], },
   },
   [10133] = {
@@ -24603,8 +24776,8 @@ __ns.L.quest = {
   },
   [10145] = {
     [[BETA Mission: Sever the Tie UNUSED]],
-    { [[It would be a dereliction of duty if I did not order you to take out the demons that inhabit the Legion Front, just north of this base.]], [[Both sides of the front are set up in the same manner: Fel handlers roam between Legion encampments, which are in turn guarded by wrathguards. A shivan subjugator oversees the entire operation. Kill 'em all and let Kazzak sort 'em out.]], [[And watch out for patrolling fel reavers. I know you're tough but those things will make short work of you.]], },
-    { [[Forward Commander Kingston at Expedition Point in Hellfire Peninsula wants you to kill 4 Fel Handlers, 8 Wrathguards, and Subjugator Yalqiz.]], },
+    { [[假如我沒命令你殺死駐紮於基地東方軍團前線的惡魔們，這將是疏忽職守。]], [[軍團前線兩邊以相同的方式駐防:惡魔處理者在軍團兵營之間巡邏，憤怒守衛輪班保衛著兵營。一個希樊征服者監督整個營地的運作。殺死他們並且讓卡札克整治他們。]], [[留意巡邏的惡魔搶奪者。我知道你很強壯，但是那些東西會迅速解決你。]], },
+    { [[地獄火半島上遠征隊哨塔的前線指揮官金斯頓要你殺死4個惡魔處理者，8個憤怒守衛，和征服者亞奎斯。]], },
   },
   [10146] = {
     [[任务：穆尔凯斯和沙德拉兹之门]],
@@ -24628,8 +24801,8 @@ __ns.L.quest = {
   },
   [10150] = {
     [[堡垒的外围]],
-    { [[Each day, Hellfire Citadel opens its gates, and more fel orcs pour out and into the camps they've established along the ramparts south of the fortress.]], [[I dispatched one of my most capable trackers, Scout Makha, to track their movements, preparations and numbers, but she hasn't returned to report her findings.]], [[Makha was to focus her efforts on the northernmost camp along the Northern Rampart, near where it ends in the rocks. Find her, <name>. Without her information, we're sitting ducks.]], },
-    { [[Search the northernmost camp along the Northern Rampart for any trace of Scout Makha.]], },
+    { [[每一天，地獄火堡壘打開它的大門，更多的魔獄獸人湧入他們沿著要塞南邊堡壘建立的營地。]], [[我派出一個最有能力的追蹤者，斥候馬克哈，以追蹤他們的移動，準備行動和人數，但是她沒有回來報告她的發現。]], [[馬克哈集中搜查位於北方堡壘沿途最北邊的營地，在岩石堆末端的附近。去找到她，<name>。沒有她的情報，我們猶如眾矢之的。]], },
+    { [[沿著最北邊的營地到北方堡壘搜尋任何有關斥候馬克哈的線索。]], },
   },
   [10151] = {
     [[BETA Warboss Nekrogg's Orders]],
@@ -24638,8 +24811,8 @@ __ns.L.quest = {
   },
   [10152] = {
     [[西侧的威胁]],
-    { [[In addition to other instructions, the orders tell the remaining fel orcs to prepare their equipment and rations for a coming attack.]], [[According to the plans, Warboss Nekrogg's forces are to form the western flank of a pincer attack on Thrallmar.]], [[With the town's garrison concentrating on its eastern walls, an attack from the west would be devastating. Thrallmar can only hope to hold out if the western forces are kept out of the battle.]], },
-    { [[Kill 10 Shattered Hand Guards, 10 Shattered Hand Berserkers, and 5 Shattered Hand Acolytes, then report to Stone Guard Ambelan at Spinebreaker Post near Zeth'Gor.]], },
+    { [[除了其他的指示外，這個命令吩咐剩下的魔獄獸人為了即將到來的戰鬥準備他們的軍備及補給品。]], [[根據計劃所說，戰王奈克羅格的軍隊在對索爾瑪攻擊中擔任鉗形隊伍的西翼側。]], [[由於鎮上的駐軍將注意力集中在東面的城牆上，因此從西而來的攻擊將會徹底將這裡擊潰。如果西邊的軍力能被排除，那索爾瑪就有希望堅守住。]], },
+    { [[殺掉10個破碎之手護衛，10個破碎之手狂戰士，以及5個破碎之手侍僧，完成後回到薩斯葛爾附近的斷脊氏族崗哨找石衛士安比藍。]], },
   },
   [10153] = {
     [[BETA Saving Scout Makha]],
@@ -24693,7 +24866,7 @@ __ns.L.quest = {
   },
   [10163] = {
     [[任务：地狱岩床]],
-    { [[Now that you've got your wings, perhaps you'd be interested in running another bombing mission?]], [[This time we've isolated the Legion's main production area, behind the forge camps to the north. I need you to get on a gryphon and destroy the whole damned thing!]], [[Here are your bombs - now, talk to Gryphoneer Windbellow when you're ready for takeoff.]], },
+    { [[現在你已經得到你的飛龍了，也許你想參加另一個轟炸任務?]], [[這一次我們已經孤立了燃燒軍團的主要生產地區，就在北邊煉冶場的後方。我要你騎上飛龍然後摧毀該區所有該死的傢伙!]], [[這是你的炸彈 - 現在，準備好的話就去跟獅鷲專家風怒談談吧。]], },
     { [[地狱火半岛破碎岗哨的空军指挥官格莱芬加尔要求你杀死20个甘尔葛苦工和5个莫尔葛监工，并摧毁5门邪能火炮。]], },
   },
   [10164] = {
@@ -24714,12 +24887,12 @@ __ns.L.quest = {
   [10167] = {
     [[奥金顿……]],
     { [[在奥金尼地穴深处是一个墓：一个不同于任何存在于这个破碎王国的墓。第一座坟墓就是从这座陵墓诞生的。奥金顿浩瀚的陵墓诞生了。]], [[你必须冒险去Auchindoun的Auchenai地穴找到这个墓。杀死地下的守护者释放内部的俘虏精神。精神掌握着关键......]], },
-    { [[Travel to the Auchenai Crypts in the Bone Wastes of Terokkar Forest and slay Exarch Maladaar to free the spirit of D'ore.]], },
+    { [[前往泰洛卡森林的白骨荒野的奧奇奈地穴，並殺掉主教瑪拉達爾以釋放迪歐瑞的靈魂。]], },
   },
   [10168] = {
-    [[What the Soul Sees]],
-    { [[For several centuries, the spirits of Auchindoun coalesced into my darkened essence. Many of the catastrophes that befell this crypt were a direct result of my weakened state.]], [[Regrettably, there is nothing that can be done to stop this cycle. It is a facet of the naaru condition - without the void, the Light cannot exist.]], [[Your only recourse is to destroy the ancient spirits of Nagrand before they transform into creatures of the void. Use the soul mirrors found throughout this crypt to free them...]], },
-    { [[Locate a Soul Mirror somewhere in the Auchenai Crypts and use it to call forth a Darkened Spirit from Ancient Orc Ancestors in Nagrand. Destroy 15 Darkened Spirits so that the ancestors may rest in peace.]], [[Return to Mother Kashur at the Ancestral Grounds when this task is complete.]], },
+    [[靈魂看見的]],
+    { [[幾個世紀以來，奧齊頓的靈魂聚結成為我黯淡的本質。大多數降臨於這地穴的大災難都是直接使我狀態變弱的原因。]], [[遺憾地是，沒有什麼東西可以制止這個循環。這就是身為那魯的一個問題 - 沒有了虛無，聖光就無法存在。]], [[你的唯一的解決辦法就是在他們轉化成虛無生物之前先去消滅納葛蘭的古老靈魂。使用這些靈魂之鏡尋遍整個地穴以釋放他們……]], },
+    { [[在奧奇奈地穴裡的某處找到一面靈魂之鏡，並且用它召喚來自納葛蘭的古老的獸人元祖的黯淡的靈魂前來。消滅15個黯淡的靈魂好讓那些先祖能夠安息。]], [[當任務完成後，回到先祖之地的卡修爾母親那裡。]], },
   },
   [10169] = {
     [[镇静剂]],
@@ -24749,7 +24922,7 @@ __ns.L.quest = {
   [10174] = {
     [[紫罗兰之塔的诅咒]],
     { [[现在，你可以依靠大法师的法杖与他取得联络了。]], [[他居住在紫罗兰之塔中，就在东南方一座浮空的“岛屿”上。这座被诅咒的塔楼既是他的庇护所，也是他的监狱。肯瑞托法师无法进出紫罗兰之塔，这导致我不能与导师见面。]], [[这根法杖的魔法可以渗透塔楼的防御层，不过需要由肯瑞托议会之外的人来激活它。]], [[利用大法师的法杖生成他的影像，告诉他目前的状况，告诉他，我没有辜负他的期望。]], },
-    { [[Use Archmage Vargoth's Staff to make contact with Archmage Vargoth.]], [[If you lose Archmage Vargoth's Staff, speak to Ravandwyr at Area 52 to receive a replacement.]], },
+    { [[使用大法師瓦戈斯之杖與大法師瓦戈斯連絡。]], [[如果你遺失了大法師瓦戈斯之杖，可以跟52區的羅樊德威談談取得一個替代品。]], },
   },
   [10175] = {
     [[Thrall, Son of Durotan]],
@@ -24773,13 +24946,13 @@ __ns.L.quest = {
   },
   [10179] = {
     [[肯瑞瓦村的管理者]],
-    { [[When it became clear that our expedition was trapped in Outland with no way to return to Azeroth, the Kirin Tor contingent traveled to the Plains of Farahlon and built Kirin'Var village. I left the administration of the town in the hands of Custodian Dieworth, but when Kael'thas and his forces sealed me in the Violet Tower, I lost contact with the custodian.]], [[Search for him in Kirin'Var Village and help him in any way you can, <name>. I'm certain he's got his hands full in the aftermath of the attack.]], },
-    { [[Speak with Custodian Dierworth in Kirin'Var Village.]], },
+    { [[當一切顯示我們的探險隊被困在外域裡沒有方法回到艾澤拉斯時，肯瑞托代表團旅行到法拉隆平原並建立了肯瑞瓦村莊。我將鎮的管理交在管理者戴沃斯手中，但是當凱爾薩斯和他的部隊將我封印在紫蘿蘭之塔裡時，我與管理者失去了聯絡。]], [[到肯瑞瓦村莊去找他，並盡你所能地幫助他，<name>。我肯定他忙於處理攻擊後的餘波。]], },
+    { [[與肯瑞瓦村莊的管理者戴沃斯談談。]], },
   },
   [10180] = {
     [[无法袖手旁观]],
     { [[我试着劝说伊斯法尔留在这里，留在安全的沙塔斯城，可他根本听不进去，竟然决定再次孤身犯险，进入奥金顿。]], [[之前他侥幸从塞泰克大厅捡回一条命，如果这次再被俘虏，恐怕就没那么幸运了。]], [[他想营救妹妹的决心令我敬佩，但是凭他一己之力，绝无成功的希望。]], [[<name>，找到伊斯法尔，和他谈谈。如果你不能劝他回来，或许你可以帮他救出拉卡？]], },
-    { [[Speak with Isfar, who can be found near the entrance to the Sethekk Halls in Auchindoun.]], },
+    { [[與伊斯法談談，你可以在奧齊頓的塞斯克大廳入口附近找到他。]], },
   },
   [10182] = {
     [[战斗法师达斯利克]],
@@ -24808,13 +24981,13 @@ __ns.L.quest = {
   },
   [10187] = {
     [[给大法师的消息]],
-    { [[Although things are grim here, it heartened us quite a bit to hear from you that the archmage has not forgotten the village's plight.]], [[<The custodian glances up at the tower.>]], [[It's ridiculous, isn't it? Sometimes it seems all that separates us is a wall of mere stone. The wall of magic is easy enough to forget.]], [[If you would be so kind, ascend the tower and let Archmage Vargoth know that we are making progress with the village and will soon have a plan to ward off the mana creatures.]], },
-    { [[Speak to Archmage Vargoth at the top of the Violet Tower.]], },
+    { [[雖然這裡的事物很糟糕，但是聽到你說大法師並沒有忘記村莊的困境著實振奮了我們的心。]], [[<管理者瞄了一眼塔樓。>]], [[很荒繆，對吧?有時候看起來好像隔開我們的不過是一個石牆而已。這道魔法牆很容易讓人忘懷的。]], [[如果你很貼心的話，登上塔去讓大法師瓦戈斯知道我們村莊正在進展中，很快就會有抵擋法力生物的計畫了。]], },
+    { [[到紫蘿蘭之塔的頂端與大法師瓦戈斯對話。]], },
   },
   [10188] = {
     [[克拉苏斯的魔符]],
     { [[多年前，在我们离开艾泽拉斯世界之前，肯瑞托议会曾授予远征军一件威力强大的神器——克拉苏斯的魔符。在我们与兽人的战争中，它的存在就是我们胜利的保障；事实上，这枚魔符还能破除禁锢我的妖术。]], [[但是，凯尔萨斯夺走了我全部的财产，并将魔符交给留驻此地的缚法者玛亚纳保管。玛亚纳若是意识到这件神器的力量，肯定不会心甘情愿地拱手相让。]], },
-    { [[Retrieve the Sigil of Krasus from Spellbinder Maryana at Manaforge Coruu, northwest of the Violet Tower. When you have gained the sigil, use Archmage Vargoth's Staff to project an Image of Archmage Vargoth and inform him of your progress.]], [[If you lose Archmage Vargoth's Staff, speak to Ravandwyr at Area 52 to receive a replacement.]], },
+    { [[從法力熔爐寇魯的縛法者瑪莉安娜那取得卡薩斯符印，就在紫羅蘭之塔的西北方。在你拿到這個符印後，使用大法師瓦戈斯之杖投射出大法師瓦戈斯的影像，告訴他你的進度。]], [[如果你遺失了大法師瓦戈斯之杖，可以和52區的羅樊德威談談取得一個替代品。]], },
   },
   [10189] = {
     [[法力熔炉：布纳尔]],
@@ -24834,7 +25007,7 @@ __ns.L.quest = {
   [10192] = {
     [[克拉苏斯的魔法纲要]],
     { [[肯瑞托议会将另一件克拉苏斯的物品也授予了远征军，就是那本名叫《克拉苏斯的魔法纲要》的法术书。书中记载了克拉苏斯掌握的全部法术，这本魔法纲要曾在战争中为我们赢得了巨大的优势。]], [[不过，在凯尔萨斯和他的军队攻陷肯瑞瓦村之前，一个试图修习通灵术的学徒偷走了《克拉苏斯的魔法纲要》。他和他的党羽为了掩人耳目，将纲要分成了数份，各自保存在他们位于镇子南部的家中。]], },
-    { [[Reclaim Krasus's Compendium - Chapter 1, Krasus's Compendium - Chapter 2, and Krasus's Compendium - Chapter 3 from Kirin'Var Village's Town Square. Use Archmage Vargoth's Staff to contact the archmage once you have the chapters.]], [[If you lose Archmage Vargoth's Staff, speak to Ravandwyr at Area 52 to receive a replacement.]], },
+    { [[從肯瑞瓦村莊的小鎮廣場取回卡薩斯的手冊 - 第一章，卡薩斯的手冊 - 第二章，和卡薩斯的手冊 - 第三章。拿到所有章節後使用大法師瓦戈斯之杖與大法師連絡。]], },
   },
   [10193] = {
     [[有价值的目标]],
@@ -24852,9 +25025,9 @@ __ns.L.quest = {
     { [[Bring 30 Arakkoa Feathers to Ros'eleth at the Allerian Stronghold.]], },
   },
   [10196] = {
-    [[BETA More Arakkoa Feathers]],
-    { [[I've had some success drawing the arakkoa spirits closer to me, but they are still very shy. Perhaps if I improve my disguise, they will be more willing to approach me in the trance.]], [[To do that, though, I'll need more feathers like the ones you've already brought me. If you get any more of the feathers, I'd be very happy to take them off your hands.]], },
-    { [[Bring 30 Arakkoa Feathers to Malukaz at Stonebreaker Hold.]], },
+    [[更多的阿拉卡羽毛]],
+    { [[我成功的引來了阿拉卡的靈魂到我身邊，但他們仍然很害羞。也許如果我增強我的偽裝，他們會更願意在催眠狀態下接近我。]], [[雖然，為了這樣，我需要更多像你帶來給我的這種羽毛。如果你有更多這種羽毛的話，我會很樂意從你手中接過來的。]], },
+    { [[帶30根阿拉卡羽毛給碎石堡的瑪魯卡茲。]], },
   },
   [10197] = {
     [[以假乱真]],
@@ -24864,7 +25037,7 @@ __ns.L.quest = {
   [10198] = {
     [[收集情报]],
     { [[我利用你取回的东西做了件日怒制服，并对它施放了幻象术。]], [[几分钟前，指挥官纳萨托·晨铸来到法力熔炉：库鲁恩，准备与奥术师阿尔杜尼斯会面。纳萨托随身带着一帮护卫，他们必定是准备商谈要事。潜入日怒军营，看看能不能探得这次会面的详情。]], [[啊，差点忘了。你最好离奥术傀儡远些，它们在法力熔炉中巡逻，可以看穿伪装上的幻象术。]], },
-    { [[Use the Sunfury Disguise, go into Manaforge Coruu and listen to the conversation between Commander Dawnforge and Arcanist Ardonis.  Report back to Caledis Brightdawn after completing this task.]], [[Completing tasks for the Scryers will cause your Aldor reputation level to decrease.]], },
+    { [[使用日怒偽裝，進入法力熔爐寇魯聽取指揮官黎鑄與秘法師艾登尼斯的對話。完成任務後回報給卡利迪斯·曙光。]], [[為占卜者完成任務會讓你的奧多爾聲望降低。]], },
   },
   [10199] = {
     [[一点添加剂]],
@@ -24877,9 +25050,9 @@ __ns.L.quest = {
     { [[返回虚空风暴的52区，向间谍大师萨罗迪恩复命。]], },
   },
   [10201] = {
-    [[And Now, the Moment of Truth]],
-    { [[The oil is finally ready for its first test. It seems heavy enough to serve as a high quality weapon oil.]], [[The only way to find out is to have a professional try it out. See Grek over there by the wanted posters? Sure, he's no poet, but the orc knows his way around a weapon!]], [[Take a sample of the oil to him and ask him to use it on his weapon. After he's had a chance to test it out, let me know what he thinks of it.]], },
-    { [[Find Grek and ask him to try it on his weapon. Once he's tried out the oil, return to Rakoria with the results.]], },
+    [[現在，真相的時刻]],
+    { [[這個油已經準備好接受第一次測試了。他看起來濃烈到足以作為高品質的武器油了。]], [[查明的唯一方法就是進行專業的試驗。看到在懸賞告示旁的葛利克嗎?當然，他不出名，但是獸人知道他對武器有他的看法!]], [[拿著這個油的樣本給他並要他使用在他的武器上。在他有機會測試後，讓我知道他對這個東西的看法。]], },
+    { [[找到葛利克並要他將東西試用在他的武器上。一旦他測試過這個油後，回去向瑞克利亞報告結果。]], },
   },
   [10202] = {
     [[叛徒]],
@@ -24908,7 +25081,7 @@ __ns.L.quest = {
   },
   [10207] = {
     [[BETA Forward Base: Reaver's Fall REUSE]],
-    { [[Your battle prowess has been noted by high command, <class>. They want to send you to the front lines to meet up with Maimfist's crew. They're radicals, devoted to the complete extermination of the Burning Legion, so you may fit right in...]], [[Head east about 200 paces and veer south at the jutting mass of land. You'll see Reaver's Fall where an old farm used to stand. Once there, you are to report to Foward Commander To'arch.]], [[Now move out!]], },
+    { [[你在戰爭中的英勇表現已經被高層注意到了，<class>。他們想要派你去前線與殘拳的軍隊會合。他們激進，全心奉獻於殲滅全數的燃燒軍團，因此你應該可以處的很好……]], [[朝東方大概200步後在大型土地凸出處轉向南方。一旦到達那裡，就找前線指揮官吐阿奇報到。]], [[現在快行動!]], },
     { [[前往机甲残骸，向前线指挥官托尔克报到。]], },
   },
   [10208] = {
@@ -24919,7 +25092,7 @@ __ns.L.quest = {
   [10209] = {
     [[召唤者坎西恩的战利品]],
     { [[接下来你必须帮我救出我的魔宠格拉修斯，它被血精灵召唤师坎西恩捉去了。在凯尔萨斯派来毁灭肯瑞瓦村的军队中，坎西恩是地位最高的魔导师之一。他将格拉修斯当作战利品，得意地在其他人面前炫耀。]], [[当然，我敢肯定这个蠢货一定尝试过强迫格拉修斯为他效力。从占卜结果来看，坎西恩就在“法力熔炉：杜隆”，你应该知道这个地方吧。]], },
-    { [[Defeat Summoner Kanthin at Manaforge Duro, on the island to the north of Sunfury Hold, and reclaim the Stone of Glacius from him. When you have obtained the stone, use Archmage Vargoth's Staff to contact the archmage.]], [[If you lose Archmage Vargoth's Staff, speak to Ravandwyr at Area 52 to receive a replacement.]], },
+    { [[到日怒要塞的北方小島上，打倒法力熔爐杜羅的召喚者卡辛恩，並從他手中將葛拉希厄斯之石拿回來。當你拿到石頭後，使用大法師瓦戈斯之杖與大法師連絡。]], [[如果你遺失了大法師瓦戈斯之杖，可以找52區的羅樊德威拿取替代品。]], },
   },
   [10210] = {
     [[阿达尔]],
@@ -24942,9 +25115,9 @@ __ns.L.quest = {
     { [[寻找飞艇坠毁事故的幸存者。]], },
   },
   [10214] = {
-    [[BETA When This Mine's a-Rockin']],
-    { [[The mine's been overrun by a plague of gan'arg misfits, and on top of that, the peons have decided that this is a fine time for a nap! I don't know how they can sleep through all the disurbances coming from the mine, but that's the least of my problems.]], [[If we don't get rid of those gan'arg pests soon, Thrallmar's supply of ore and other minerals will be cut off. I've already asked Watch Commander Krunk for help, but he says he can't spare the men with the town under constant attack. Will you help?]], },
-    { [[Kill 15 Gan'arg Sappers and return to Foreman Razelcraz.]], },
+    [[礦場的騷動]],
+    { [[礦坑被一群甘納格不適應者的人潮佔領，在這種情況下，那些苦工決定這是打盹的好時間!我不知道他們怎麼在礦坑所有的干擾下還能睡得著，不過那不是我最重要的問題。]], [[假如我們不能快點除掉那些討厭的甘納格，索爾瑪的礦石和其他礦物的供應將被切斷。我已經要求警備隊長克朗克提供協助，但他說因為城裡持續受到攻擊的情況下他沒有多餘的人可以分配。你願意幫助我們嗎?]], },
+    { [[殺掉15個甘納格工人，完成後回報工頭瑞絲坎茲。]], },
   },
   [10216] = {
     [[安全第一]],
@@ -25001,7 +25174,7 @@ __ns.L.quest = {
   },
   [10228] = {
     [[伊瑟基尔]],
-    { [[I believe that the dead, which we have been caring for these last 500 odd years, should be left alone. Maladaar has other plans. He has retreated to the Crypt of Remembrance to start his experiments... Necromancy.]], [[I hope you weren't thinking about going in there... Not before helping me out so that these damned spirits will finally leave me alone. I know where they keep their treasures, <race>. Got your attention, eh?]], [[Bring me the book of the dead, held by the Aldor, Ezekiel of Shattrath.]], },
+    { [[我相信這些我們已經關心了至少500年以上的鬼魂應該要被遺忘。 瑪拉達爾有其他的想法。他撤到紀念土窖開始他的實驗……巫術。]], [[我希望你別想要去那裡……至少先幫助我出去之後再去，以便這些該死的鬼魂可以離開我身邊。我知道他們將寶物藏在哪，<race>。想聽了嗎，啊?]], [[從撒塔斯的艾多爾，伊斯奇歐那把亡者之書帶給我。]], },
     { [[与沙塔斯城的伊瑟基尔谈一谈。]], },
   },
   [10229] = {
@@ -25017,7 +25190,7 @@ __ns.L.quest = {
   [10231] = {
     [[什么书？我没见过什么书]],
     { [[拉姆杜尔？呃，让我想想……拉姆杜尔……哦，是那个死亡祭司。他要亡者之书做什么？唔，无所谓。很抱歉，我没说实话，但那本书真的不在我这儿。准确地说，我不再拥有它了。它被偷走了，或许是某个卑贱的难民干的。]], [[奥金顿已是了无生气的死地，亡者之书对我们来说没有任何用处了。如果你找到它，就留着好了。]], [[上周我还看见那帮无赖鬼鬼祟祟地在附近出没。就从他们身上开始调查吧。现在他们可能在贫民窟玩骰子。]], },
-    { [[Ezekiel said the book has been stolen. Your best bet is to find the Ruffians and see if they have any information.]], },
+    { [[艾澤基爾提到書已經被偷了。你最好的辦法就是去找那些惡棍並看看他們是否有什麼消息。]], },
   },
   [10232] = {
     [[废料场中的燃烧军团]],
@@ -25080,9 +25253,9 @@ __ns.L.quest = {
     { [[进入法力熔炉：布纳尔，找到布纳尔控制台。]], [[为奥尔多完成任务将降低你在占星者阵营中的声望等级。]], },
   },
   [10244] = {
-    [[BETA R.T.F.R.C.M.]],
-    { [[Cracking the seal on this rather large tome, you can't quite make out what the words say.  They appear to be written in the language of demons.]], [[However, you can make out the pictures, which tell their own story.]], [[This is clearly a fel reaver construction manual, and you know for a fact that Mama Wheeler will want to take a look at it!]], },
-    { [[Take the Fel Reaver Construction Manual to Mama Wheeler at the Midrealm Post inside Eco-Dome Midrealm in the Netherstorm.]], },
+    [[惡魔搶奪者製造手冊]],
+    { [[打開這本相當大的書冊封印，你無法辨認這些字在說些什麼。他們看起來像是以一種惡魔語來書寫的。]], [[不過，你可以辨認這些圖片，訴說著他們本身的故事。]], [[這很明顯的是個惡魔搶奪者建造手冊，而且你知道因為一種原因威勒媽媽會想要看看這本書。]], },
+    { [[將惡魔搶奪者製造手冊帶到虛空風暴的秘境領地裡的領地崗哨給威勒媽媽。]], },
   },
   [10245] = {
     [[布纳尔控制台拓文]],
@@ -25160,7 +25333,7 @@ __ns.L.quest = {
     { [[杀死6个入侵的恶魔卫士，然后向银色使者普罗维尔复命。]], },
   },
   [10260] = {
-    [[BETA Netherologist Coppernickels]],
+    [[虛空學家卡伯尼寇斯]],
     { [[你一定是穿过了那座由刀锋山连接虚空风暴的桥才来到这里的。你也一定看见Netherologist Coppernickels和他那些疯狂的研究装备了吧？]], [[奇怪……我还在等着他的报告呢，已经迟到太久太久了。他一定是把这事给忘记了。你知道那些“科学家”的，忙起来什么都忘了。]], [[立刻回到桥边帮我逮住他，马上要来他的报告，无论他说什么借口都不行。]], [[谢谢你了！]], },
     { [[前往刀锋山与虚空风暴相连接的桥边寻找Netherologist Coppernickels，并与他交谈。]], },
   },
@@ -25217,7 +25390,7 @@ __ns.L.quest = {
   [10271] = {
     [[重要生意]],
     { [[你肯定已经看见了，这一带生活着许多处于不同生长阶段的虚空龙。无论是幼龙还是成年虚空龙，体内都蕴涵着某种精华。凯……呃，我的一名客户迫切地想要得到它。]], [[大多数人都不敢冒着生命危险来收集龙类精华，因此我们只能自己动手啦。你可以从虚空龙身上收集到这种精华，但关键问题在于我们是否能联手建立起一条稳定的供应渠道。这样，你搞到第一批之后就立即带回来给我。]], },
-    { [[Gather 8 Nether Dragon Essence, then return to the Ethereal Teleport Pad area. Nether Dragon Essence may be obtained from Nether Drakes or Nether Dragons.]], },
+    { [[收集8個虛空龍精華然後回到伊斯利傳送器地區。你可以從虛空龍或者虛空龍身上取得虛空龍精華 。]], },
   },
   [10272] = {
     [[成功的开始]],
@@ -25226,7 +25399,7 @@ __ns.L.quest = {
   },
   [10273] = {
     [[棘手的目标]],
-    { [[Your former employer, Wind Trader Marid, must've gotten wind that you're helping us now. Through my projection, I've seen his nether-stalkers entering the area, hoping to track us down.]], [[We've been able evade them so far, but Marid must be dealt with before the problem grows more severe.]], [[If your impressions of Marid are correct, he'll do just about anything to secure the supply of his product. Return to him and tell him you're prepared to offer a deal. Lure him away and slay him.]], },
+    { [[你的前雇主，風之貿易者瑪利德，一定是收到了你正在幫助我們的風聲。根據我的推測，我曾經看過他的虛空行者來到這裡，希望找出我們的下落。]], [[目前為止我們都可以逃過他們的追蹤，但是在問題變的更嚴重之前瑪利德必須處理掉。]], [[假如你對瑪利德的印象是正確的話，他將會為了保住產品的供應而不擇手段。回去找他然後告訴他你準備提出一項交易。將他引誘出來然後殺死他。]], },
     { [[与星界商人玛里德谈一谈，诱使他离开商栈。杀死玛里德后向苍穹之脊的泰莉和乔拉德复命。]], },
   },
   [10274] = {
@@ -25285,9 +25458,9 @@ __ns.L.quest = {
     { [[准备就绪后告知萨尔。跟随萨尔离开敦霍尔德城堡，并帮助他解救塔蕾莎，履行自己的使命。]], [[完成任务后，与旧希尔斯布莱德丘陵的伊洛希恩交谈。]], },
   },
   [10285] = {
-    [[Return to Andormu]],
-    { [[This timeline has been restored and the assault of the Infinite Dragonflight upon Hillsbrad has been quashed.]], [[Return to Andormu at once. He awaits your arrival in the master's lair.]], },
-    { [[Return to the child Andormu at the Caverns of Time in the Tanaris desert.]], },
+    [[回去安杜姆身邊]],
+    { [[時間線已經恢復正常而恆龍軍團在希爾斯布萊德之上的戰役已經平息了。]], [[馬上回去找安杜姆。他在主人的巢穴等著你。]], },
+    { [[回去塔納利斯沙漠的時光之穴找小孩安杜姆 。]], },
   },
   [10286] = {
     [[埃雷利恩的秘密]],
@@ -25297,11 +25470,11 @@ __ns.L.quest = {
   [10287] = {
     [[“恋人”曝光]],
     { [[我是埃雷利恩的朋友，但我不会为了他丢掉自己的性命。他的“恋人”是薇拉·火语。]], [[去告诉他的妻子吧。不知道这个彪悍的女人会做出什么事来？]], },
-    { [[Return to Magistrix Carinda at Falcon Watch.]], },
+    { [[回去找獵鷹哨站的博學者卡莉達。]], },
   },
   [10288] = {
     [[抵达外域]],
-    { [[I want you to speak with Amish Wildhammer, standing about 30 paces south of us, and catch the first flight to Honor Hold. When you arrive at Honor Hold, you'll be greeted by Marshal Isildor. I have prepared a report detailing our situation here.  Give him the report, and tell him you're ready for duty.]], [[You have your orders, soldier, now move out!  And though your blood must be burning to help us against the fiends below, waste no time here.  Honor Hold needs you even more.]], },
+    { [[我要你與艾米思·蠻錘談談，你往南邊走大約30步的地方，並且搭上第一班飛往榮譽堡的航班。當你到達榮譽堡時，治安官伊斯歐朵爾將迎接你。我已經準備好一份報告詳述我們在這裡的情況。給他這份報告，並且告訴他你已準備好要出任務了。]], [[你已經接到命令了，士兵，現在出發吧!並且雖然你體內的滿腔熱血一定很幫助我們對抗下面的惡魔，但是不要在這裡浪費時間。榮譽堡更需要你的幫助。]], },
     { [[地狱火半岛上黑暗之门的指挥官杜隆要求你将杜隆的报告交给阿米什·蛮锤。]], },
   },
   [10289] = {
@@ -25321,8 +25494,8 @@ __ns.L.quest = {
   },
   [10292] = {
     [[更多能量！]],
-    { [[Gathering a precious commodity in small batches has a quaint, cottage-industry feel to it, but it's just not competitive in today's market.]], [[No, what we need is a method of mass producing farahlite! Then, the quantity on the market will be completely within our control.]], [[I have an idea, but it's going to require a powerful, focused energy source. There's only one possible place to find an energy source powerful enough. Go to the Legion's camps to our north and 'procure' some of their cannon.]], },
-    { [[Zuben Elgenubi wants you to capture 8 Legion Cannon and bring them back to the Stormspire.]], },
+    { [[在商店中販賣一些限量的精緻商品有一種古色古香的農村風味，但是這在今日的市場是不具有競爭力的。]], [[不，我們需要的是大量生產法拉萊特的一種方法!然後，市面上的法拉萊特鋪貨量將完全在我們的掌控中。]], [[我有一個想法，但是它將需要一種強大、集中的能源。只有一個地方可發現如此強大的能源。去北方的燃燒軍團營地，並且〝借出〞他們的一些火砲。]], },
+    { [[祖班·艾貞努比要你去取得8座軍團火砲並將這些火砲帶回風暴之尖。]], },
   },
   [10293] = {
     [[完美的水晶]],
@@ -25346,7 +25519,7 @@ __ns.L.quest = {
   },
   [10297] = {
     [[开启黑暗之门]],
-    { [[Beyond this timeway, in the heart of the Black Morass, the Guardian, Medivh, feverishly works to open the Dark Portal, heralding in the age of orcs upon Azeroth.]], [[The Infinite have sent their rift lords to stop this from happening.]], [[Scattered across the morass, rifts will materialize. Infinite will pour out of the rifts and attempt to destroy Medivh's shields and, ultimately, Medivh.]], [[Kill their rift lords and leaders! Do this until Medivh succeeds. Use this chrono-beacon should you require aid.]], },
+    { [[在時間之道的前方，黑色沼澤的中央地帶，守護者麥迪文正在開啟黑暗之門，宣佈著艾澤拉斯的獸人時代即將來臨。]], [[恆龍軍團派出了他們的裂縫領主去阻止這件事的發生。]], [[散佈在沼澤四周的裂縫領主將會現形。恆龍軍團的裂縫領主將會傾巢而出試著摧毀麥迪文的防禦網，最後是麥迪文本人。]], [[殺死他們的裂縫領主還有領導者!持續你的保護行動直到麥迪文成功開啟黑暗之門。當你需要協助的時候就使用這個時間信號燈。]], },
     { [[时光之穴黑色沼泽的萨艾特要求你保护麦迪文，直到他成功开启黑暗之门。]], [[任务完成后向萨艾特复命。]], },
   },
   [10298] = {
@@ -25367,7 +25540,7 @@ __ns.L.quest = {
   [10301] = {
     [[魔法纲要的防护]],
     { [[你夺回了克拉苏斯的魔法纲要，这令我非常欣慰。但是如果没有紫色单片眼镜的话，这本书就是一摞废纸。睿智的克拉苏斯非常清楚，许多人都会觊觎书中记载的强大法术；于是他为魔法纲要设置了完美的防护机制。]], [[只有知识渊博的法师才能利用紫色单片眼镜揭开书中的秘密。]], [[在凯尔萨斯进攻这里时，他手下一位名叫掠法者玛拉瑟雷的军官将眼镜抢走，带去了日怒堡东北方的一处法师塔中。她只是把它当成了一件有点价值的小玩意收藏着。]], },
-    { [[Obtain the Heliotrope Oculus from Spellreaver Marathelle at Sunfury Hold. Use Archmage Vargoth's Staff to contact the archmage once you have achieved your goal.]], [[If you lose Archmage Vargoth's Staff, speak to Ravandwyr at Area 52 to receive a replacement.]], },
+    { [[從日怒要塞的法術搶奪者瑪拉希歐身上取得紫羅蘭眼睛。完成之後使用大法師瓦戈斯之杖與大法師連絡。]], [[如果你遺失了大法師瓦戈斯之杖，與52區的羅樊德威交談以取得一個替代品。]], },
   },
   [10302] = {
     [[暴躁的变异体]],
@@ -25469,7 +25642,7 @@ __ns.L.quest = {
   },
   [10322] = {
     [[关闭法力熔炉：杜隆]],
-    { [[We've received news from one of the two manaforges that remain operational.  The Sunfury army is losing control of Manaforge Duro.]], [[Droves of errant mana creatures have been attracted to it by its increased energy production - the manaforge is in chaos.]], [[An explosion at Duro has the potential to cause a chain reaction that would endanger all of Outland.  Overseer Athanel is in possesion of the access crystal you need to safely disable the manaforge.]], },
+    { [[我們已經從仍舊在運作的兩座法力熔爐之一得到消息。日怒軍團正失去對法力熔爐杜羅的控制。]], [[日漸增加的能源產量吸引了附近遊蕩的法力生物 - 法力熔爐正處於混亂之中。]], [[若是在杜羅發生爆炸的話有可能會引起連鎖反應，那會危及整個外域。監督者阿森尼爾握有你需要用來安全關閉法力熔爐的控制水晶。]], },
     { [[学者卡尔亚要你前往法力熔炉：杜隆，从工头安萨奈尔手中夺得杜隆控制水晶。对法力熔炉：杜隆的控制台使用水晶关闭法力熔炉。]], [[为奥尔多完成任务将降低你在占星者阵营中的声望等级。]], },
   },
   [10323] = {
@@ -25526,7 +25699,7 @@ __ns.L.quest = {
   [10334] = {
     [[贝希的铃铛]],
     { [[在哪里呢，我的贝希跑到哪里去了？那次袭击之后，我就一直在农田和礼拜堂广场附近寻找她，可怎么都看不见她的身影！]], [[贝希留下的唯一物件就是这个老铃铛了。过去她一听到铃铛响就会跑过来，但是我这把骨头恐怕已经摇不响它了。]], [[我把贝希的铃铛交给你，你能帮我到田地那边去摇摇铃铛，看看她会不会出现……或许贝希正四处寻找着这铃铛的声音呢。]], },
-    { [[Find Bessy in the fields near Kirin'Var Village's Chapel Hill.]], },
+    { [[在肯瑞瓦村莊的禮拜堂山丘附近找到貝絲。]], },
   },
   [10335] = {
     [[调查废墟]],
@@ -25536,7 +25709,7 @@ __ns.L.quest = {
   [10336] = {
     [[库鲁萨斯的爪牙]],
     { [[几周前，燃烧军团占据了法兰伦废墟，彻底阻碍了我们调查遗迹并挖掘文物的计划。]], [[今天早些时候我收到情报，据称一个名叫库鲁萨斯的恐惧魔王杀光了军中的其他将士，然后便开始召唤恶魔来侍奉他。]], [[<class>，我要你前往东北方的法兰伦废墟，将这些恶魔全部消灭。]], },
-    { [[Slay 10 Hounds of Culuthas and 5 Eyes of Culuthas.  Then return to Nether-Stalker Nauthis at the Stormspire in the Netherstorm.]], },
+    { [[殺死10隻卡露薩斯之犬和5隻卡露薩斯之眼。完成後返回虛空風暴的風暴之尖找虛空行者那魯利斯。]], },
   },
   [10337] = {
     [[奶牛回家]],
@@ -25581,7 +25754,7 @@ __ns.L.quest = {
   [10345] = {
     [[血肉会撒谎……]],
     { [[<race>，瞧见这些尸体了吗？是阿克努斯干的。他吸干了尸体，只留下一具干枯的躯壳。但是，你千万别被表象欺骗了！尸体中蛰伏着蠢蠢欲动的血肉兽，随时准备伏击那些放松警惕的蠢材。]], [[我刚刚接到新的指令，必须留在这里等待增援。不如你拿上我的点火器，替我烧毁矿井中的干枯的尸体。无论如何，我们必须完成任务。]], },
-    { [[Use the Protectorate Igniter on 12 Withered Corpses. Return the Protectorate Igniter to Agent Araxes outside of Access Shaft Zeon when the task is complete.]], },
+    { [[對12具腐敗的屍體使用護國者的點火器。在你的任務完成之後，將護國者的點火器還給在礦井之路通道外面的密探阿雷克斯。]], },
   },
   [10346] = {
     [[返回地狱岩床]],
@@ -25590,7 +25763,7 @@ __ns.L.quest = {
   },
   [10347] = {
     [[返回地狱岩床]],
-    { [[<name>, are you ready for another sortie over the Abyssal Shelf?  I fear that, if we do not maintain pressure on the legion forces there and allow them to strengthen their hold, then we may suffer a large demon attack from the north.]], [[What say you, <class>?  Do you want to take another windrider and hammer the Abyssal Shelf one more time?]], },
+    { [[<name>，你準備好對深淵沙洲進行另一次攻擊了嗎?我擔心如果我們不繼續對那裡的軍團部隊施壓並允許他們鞏固堡壘防禦的話，我們可能會受到北方一股大規模的惡魔攻擊。]], [[你說怎麼樣，<class>?你想要乘坐另一隻雙足飛龍去再次重擊深淵沙洲嗎?]], },
     { [[地狱火半岛机甲残骸的空军指挥官布拉克要求你杀死20个甘尔葛苦工和5个莫尔葛监工，并摧毁5门邪能火炮。]], },
   },
   [10348] = {
@@ -25665,8 +25838,8 @@ __ns.L.quest = {
   },
   [10366] = {
     [[约尔]],
-    { [[The path of the Light and purity is not an easy one to walk, <name>. Even I, at times, struggle with following its course.]], [[You should seek out my master, Jol, at the Exodar. She trained me when I was beginning my journey, and I believe she will find in you a new star pupil.]], [[You will find Jol in the Vault of Lights of the Exodar at the Vindicators' Sanctum, a room surrounded by a vibrant glow of light.]], },
-    { [[Speak with Jol in the Vindicators' Sanctum of the Exodar.]], },
+    { [[聖光和純潔之路並不條容易行進的道路，<name>。即使是我，有時候也會在這條路上掙扎。]], [[你應該去找我的師傅，喬歐，她在艾克索達。她在我開始我的聖光之路時訓練過我，我相信她將發現你是一位有潛力的新人。]], [[你將可在位於艾克索達的復仇者聖所裡的聖光地窖裡找到喬歐，就在一間被閃耀明亮的光輝所包圍的房間裡。]], },
+    { [[在艾克索達的復仇者聖所與喬歐談談。]], },
   },
   [10367] = {
     [[叛徒]],
@@ -25684,7 +25857,7 @@ __ns.L.quest = {
     { [[对无情的阿尔泽斯使用残冠长者法杖，趁阿尔泽斯失去力量时杀死他。完成任务后向沙纳尔废墟的纳拉杜复命。]], },
   },
   [10370] = {
-    [[BETA Nazgrel's Command <TXT>]],
+    [[納茲格雷爾的命令<TXT>]],
   },
   [10371] = {
     [[犹鲁斯·麦酒]],
@@ -25692,9 +25865,9 @@ __ns.L.quest = {
     { [[与犹鲁斯·麦酒谈一谈。]], },
   },
   [10372] = {
-    [[A Discreet Inquiry]],
-    { [[Eralan, an associate of mine in Tranquillien, has made an inquiry about securing some help for an urgent job.]], [[Now, I don't know what she has in mind because I don't ask questions, but you've proven yourself more than capable. I want you to travel to Tranquillien in the Ghostlands and have a word with Eralan.]], [[She may be a bit gruff, but she's trustworthy.]], },
-    { [[Speak with Eralan in Tranquillien.]], },
+    [[謹慎的要求]],
+    { [[依蘭兒，一位我在安寧地的伙伴，為了一項緊急的工作發出了求助的要求。]], [[說實在的，我不知道她在想什麼因為我也沒有問，不過你已經證明你不只是有能力而已。我想要你前往鬼魂之地的安寧地，並且與依蘭兒談談。]], [[她可能會有點粗魯，不過她是值得信任的人。]], },
+    { [[與安寧地的依蘭兒談談。]], },
   },
   [10373] = {
     [[战斗的号角：瘟疫之地！]],
@@ -25707,7 +25880,7 @@ __ns.L.quest = {
     { [[找到高级执行官德灵顿。他将自己的大本营建在提瑞斯法林地和幽暗城以东的亡灵壁垒。]], },
   },
   [10375] = {
-    [[BETA Obsidian Warbeads]],
+    [[黑曜石戰爭串珠]],
     { [[您已经向我们的人证明了自己，<name>。现在是时候让你们向我们表明，即使面对最强大的敌人，你们也愿意和我们站在一起。]], [[外域的食人魔是]], },
   },
   [10377] = {
@@ -25728,13 +25901,13 @@ __ns.L.quest = {
   },
   [10382] = {
     [[奔赴前线]],
-    { [[Well, <name>, I hope you're prepared for the next phase of our operation. The Legion never rests - and neither shall we! Take a gryphon and fly over to Honor Point - it's a small post near the Legion Front.]], [[Speak with Field Marshal Brock. He'll have instructions for you when you arrive. Oh, and tell that pasty-faced shield-kisser I said 'hello'.]], },
+    { [[那個，<name>，我希望你已經準備好迎接我們下一階段的行動。軍團永遠都不會停止 - 我們也是!乘著一隻獅鷲獸飛到榮譽崗哨 - 一個接近軍團前線的小型哨站。]], [[去與戰場元帥布洛克談談。在你抵達後他會給你指示。喔，順便告訴那個臉色蒼白的盾牌親吻者我說「哈囉」。]], },
     { [[乘坐狮鹫飞往荣耀岗哨，抵达之后与巴洛克元帅谈一谈。]], },
   },
   [10383] = {
-    [[This is a Breadcrumb!]],
-    { [[Hello.  You should find out about those wabbits.]], },
-    { [[Speak with Jonathan LeCraft about the wabbits.]], },
+    [[線索在這!]],
+    { [[哈囉。你應該查明那些兔子。]], },
+    { [[與強納森·樂卡夫特談論關於兔子的事。]], },
   },
   [10384] = {
     [[复仇军的数据]],
@@ -25747,33 +25920,33 @@ __ns.L.quest = {
     { [[复仇军前沿基地中的复仇军发射器 - 塞塔所投射出来的指挥官阿米尔的影像要你带回15份复仇军中继数据。]], },
   },
   [10386] = {
-    [[BETA The Fel Reaver Slayer]],
-    { [[Overlord Hun Maimfist is always looking for volunteers for his suicide attacks against the Burning Legion.  You definitely have the courage for one of his "missions."]], [[Speak with him if you've got the stomach for more carnage.  He is celebrating just over there by that fallen fel reaver.  He and his guards killed it just a few hours ago, we would all have died here but for his ferocity and skill in battle.]], },
-    { [[Speak with Overlord Hun Maimist.]], },
+    [[惡魔搶奪者殺手]],
+    { [[殘拳霸主一直在為他對燃燒軍團的自殺性攻擊尋找志願者。你無疑地擁有他這項〝任務〞所需要的勇氣。]], [[如果你對更多的大屠殺感興趣的話，去找他談談。他就在廢棄的惡魔搶奪者那裡慶祝的勝利。他和他的警衛在幾小時前殺了它，如果沒有他戰鬥時的勇猛和技巧，我們全部都會死在這裡。]], },
+    { [[與殘拳霸主談談。]], },
   },
   [10387] = {
-    [[BETA The Fel Reaver Slayer]],
-    { [[Overlord Hun Maimfist is always looking for volunteers for his suicide attacks against the Burning Legion.  You definitely have the courage for one of his "missions."]], [[Speak with him if you've got the stomach for more carnage.  He is celebrating just over there by that fallen fel reaver.  He and his guards killed it just a few hours ago, we would all have died here but for his ferocity and skill in battle.]], },
-    { [[Speak with Overlord Hun Maimist.]], },
+    [[惡魔搶奪者殺手]],
+    { [[殘拳霸主一直在為他對燃燒軍團的自殺性攻擊尋找志願者。你無疑地擁有他這項〝任務〞所需要的勇氣。]], [[如果你對更多的大屠殺感興趣的話，去找他談談。他就在廢棄的惡魔搶奪者那裡慶祝的勝利。他和他的警衛在幾小時前殺了它，如果沒有他戰鬥時的勇猛和技巧，我們全部都會死在這裡。]], },
+    { [[與殘拳霸主談談。]], },
   },
   [10388] = {
     [[返回萨尔玛]],
-    { [[Hope you enjoyed your flight, friend. A messenger arrived while you were away - seems Nazgrel's got a new use for you. You'd best head back to Thrallmar and check in with him. I have a feeling the Legion's just getting warmed up.]], },
-    { [[Return to Thrallmar and speak with Nazgrel.]], },
+    { [[希望你旅途還愉快，夥伴。一個信差在你離開時抵達 - 看來好像納茲格雷爾有新的任務要給你。你最好回頭到索爾瑪去跟他報到。我有預感軍團正要開始行動。]], },
+    { [[回到索爾瑪與納茲格雷爾談談。]], },
   },
   [10389] = {
     [[痛苦与黑暗]],
     { [[你好，<name>。我破译出了燃烧军团的信件，发现了这些恶魔进攻地狱火半岛的战略计划。显然，有一大群可怕的地狱恐惧魔聚集在了西边的阿苟纳之池附近。我们绝对不能对这样一支庞大的军队坐视不理。你必须赶到那里去，杀掉那些该死的恶魔，削弱他们的力量。]], },
-    { [[Magister Bloodhawk wants you to kill 10 terrorfiends in the Pools of Aggonar.]], },
+    { [[博學者血鷹要你去阿葛納爾之池殺10個恐懼惡魔。]], },
   },
   [10390] = {
     [[铸魔营地：暴虐]],
-    { [[<name>, we have reason to believe that the easternmost forge camp is not yet complete. The Legion's gan'arg servants are working 'round the clock to get the facility up and running. We can't allow that to happen.]], [[Head east to Forge Camp: Mageddon and slay 10 gan'arg. Bring me the head of their master - Razorsaw - and the Legion's fel reaver production will grind to a halt!]], },
-    { [[Nazgrel in Thrallmar wants you to attack Forge Camp: Mageddon and kill 10 gan'arg servants and return with the head of Razorsaw.]], },
+    { [[<name>，我們有理由相信位在最東邊的煉冶場還沒有建造完畢。燃燒軍團的甘納格僕人正在夜以繼日的趕工完成煉冶場。我們不能允許這種事情發生。]], [[到東邊的煉冶場:黑色祭壇殺死10個甘納格。把他們首領 - 鍛造王鋒鋸 - 的人頭帶給我，然後燃燒軍團的惡魔搶奪者生產作業就會中斷了!]], },
+    { [[索爾瑪的納茲格雷爾要你攻擊煉冶場:黑色祭壇，殺死10個甘納格僕人並將鍛造王鋒鋸的頭帶回來。]], },
   },
   [10391] = {
     [[军团的火炮]],
-    { [[There is a second production facility, Forge Camp: Rage, that lies to the immediate northeast of Thrallmar. The demons have positioned a number of their fel cannons along the ridge - and they're aimed straight at us! You must enter the camp and destroy these fel cannons.]], [[<name>, you must be sure to detonate them all - or nothing will stop the Legion from raining fiery hell down upon our heads!]], },
+    { [[燃燒軍團又有了第二個製造場所，煉冶場:狂怒，緊接在索爾瑪的東北方。他們在山坡上佈置了大量的惡魔火砲-而且那些砲口是直接對著我們的!你必須去煉冶場引爆那些火砲彈藥堆。]], [[拿著這些炸藥並將他們設置在每個彈藥堆裡。<name>，你必須確定你已經破壞了所有的彈藥堆-不然誰都沒有辦法阻止燃燒軍團對著我們的頭上發射火雨般的砲彈!]], },
     { [[摧毁铸魔营地：狂乱中的3座邪能火炮I型，然后返回萨尔玛向纳兹格雷尔复命。]], },
   },
   [10392] = {
@@ -25783,18 +25956,18 @@ __ns.L.quest = {
   },
   [10393] = {
     [[邪恶的计划]],
-    { [[The text on the note is written in some dark, indecipherable scrawl. The more you stare at them, the more the symbols seem to twist and burn before your eyes. There is only one in Thrallmar that can transcribe such vile script - the blood elf Magister Bloodhawk.]], },
+    { [[字條上遍佈了昏暗，而難以辨識的潦草筆跡。你看得越仔細，這些文字符號越呈現出模糊扭曲的景象讓你看的眼花撩亂。只有一個人在索爾瑪可以解讀出如此邪惡的文字-血精靈博學者血鷹。]], },
     { [[将燃烧军团信件交给萨尔玛的魔导师文森特·血鹰。]], },
   },
   [10394] = {
     [[铸魔营地：暴虐]],
-    { [[Pay close attention, <name>. We've been surveying the Legion camps that lie along the ridge ahead. We have reason to believe that these so-called 'Forge Camps' are where the demons are constructing those blasted Fel Reavers.]], [[You can see the closest target, Forge Camp: Mageddon, to the west. Our intelligence suggests that it's still under construction. If you can slay the Gan'arg Servants and their master - Razorsaw - we can bring the Legion's Fel Reaver production to a grinding halt!]], },
+    { [[注意聽我說，<name>。我們一直都在監視燃燒軍團在前方山坡的軍營。我們相信這些所謂的「煉冶場」是那些惡魔們拿來生產那些該死的惡魔搶奪者的地方。]], [[你可以去西邊看看其中一個最近的營地，煉冶場:黑色祭壇。我們的情報顯示那裡還在建造中。假如你可以殺死甘納格僕人還有他們的主人-鋒鋸-我們就可以讓燃燒軍團的惡魔搶奪者生產線崩潰!]], },
     { [[杀掉铸魔营地：暴虐的剃刀电锯和10个甘尔葛仆从，然后返回荣耀岗哨向巴洛克元帅复命。]], },
   },
   [10395] = {
     [[邪恶的信件]],
-    { [[The text on the note is written in some dark, indecipherable scrawl. The more you stare at them, the more the symbols seem to twist and burn before your eyes. There is only one at Honor Hold who can decipher such archaic script - the draenei mystic, Kryv.]], [[Take the Burning Legion Missive to Warp-Scryer Kryv who resides within the War-Room at Honor Hold.]], },
-    { [[Take the Missive to Warp-Scryer Kryv in the main keep of Honor Hold.]], },
+    { [[字條上遍佈了昏暗，而難以辨識的潦草筆跡。你看的越仔細，這些文字符號越呈現出模糊扭曲的景象讓你看的眼花撩亂。這麼古老的筆跡只有榮譽堡的一個人才看的懂-德萊尼秘法師-克里。]], [[把燃燒軍團公文交給星移占卜師克里，他住在榮譽堡的指揮室。]], },
+    { [[帶著這封公文給在榮譽堡主要塞中的星移占卜師克里。]], },
   },
   [10396] = {
     [[我的敌人的敌人……]],
@@ -25803,7 +25976,7 @@ __ns.L.quest = {
   },
   [10397] = {
     [[登陆场：歼灭]],
-    { [[Well, we've located the Legion's final base on the ridge - Invasion Point: Annihilator. It lies northwest of Forge Camp: Rage - and it houses a warp-portal through which the Legion has been drawing its reinforcements!]], [[You've got to close that portal to prevent any more demons from coming through. The Point's overlord, Warbringer Arix'Amal, holds the portal's activation key. Take it from him and shut that blasted gateway down!]], },
+    { [[沒錯，我們在山脊上找到了燃燒軍團最後的基地-侵略點:殲滅者。它的位置在煉冶場:狂怒的西北方-內藏有一道傳送門可以讓燃燒軍團傳送援軍進來!]], [[你必須關閉那個傳送門以阻止更多的惡魔被傳送過來。侵略點:殲滅者的霸主，戰爭使者阿瑞克斯阿摩，擁有那個傳送門的啟動鑰匙。從他身上取得鑰匙然後關閉那個該死的門!]], },
     { [[杀掉阿利萨玛尔，找到燃烧军团传送门钥匙，利用它毁掉怨恨符文。]], },
   },
   [10398] = {
@@ -25813,13 +25986,13 @@ __ns.L.quest = {
   },
   [10399] = {
     [[黑暗之心]],
-    { [[It is just as I feared. Arix'Amal - the demon you killed earlier, was working for a secret Legionlord - Arazzius the Cruel. It appears this new villain has amassed a force of hellish terrorfiends near the Pools of Aggonar.]], [[You must journey there and slay the terrorfiends before they strike against us. But be wary, friend - the Pools of Aggonar lie within a tortured, poisonous valley. You can find the cursed pools to the northwest of here, beyond Hellfire Citadel.]], [[Light be with you, <name>.]], },
+    { [[這正是我所擔心的。阿瑞克斯阿摩 - 你之前所殺的惡魔，是軍團領主 - 殘忍的阿拉薩爾斯的手下。看來這個新的壞蛋已經在阿葛納爾之池聚集了一批凶惡的恐懼惡魔部隊。]], [[你必須到那裡去 - 在他們對我們發動攻擊前殺死那些恐懼惡魔。你要小心，我的朋友 - 阿葛納爾之池圍繞在充滿毒煙瘴氣又崎嶇不平的山谷之中。你可以在西北邊找到那些被詛咒的池子，往地獄火堡壘的方向找就對了。]], [[願聖光與你同在，<name>。]], },
     { [[在阿苟纳之池杀掉10个恐惧魔，然后向荣耀堡的位面占卜者克雷夫复命。]], },
   },
   [10400] = {
     [[霸王]],
-    { [[The honorable Warp-Scryer has told me of your perils, <name> - and of the new foe you've discovered. If Kryv is to be believed, this 'Arazzius the Cruel' is as powerful and evil as any foe the Sons of Lothar have ever faced.]], [[Will you stand for us now, <name>? Will you face this Legionlord and deliver the Light's justice upon him? If so, you will find him at the Pools of Aggonar. If not, his evil will most certainly find you.]], },
-    { [[Slay Arazzius the Cruel in the Pools of Aggonar and return to Force Commander Danath Trollbane in the keep of Honor Hold.]], },
+    { [[高貴的星移占卜師已經告訴我有關你的冒險事蹟，<name> - 包含你所發現的新的敵人。如果克里可信的話，這個「殘忍的阿拉薩爾斯」就跟洛薩之子之前對付過的敵人一樣強大與邪惡。]], [[這次你會為我們挺身而出嗎，<name>?你會去對付這個軍團領主並且以聖光的名義制裁他嗎?如果是如此，你可以在阿葛納爾之池找到他。如果不是的話，他所犯下的罪行總有一天會找上你。]], },
+    { [[殺掉阿葛納爾之池的殘忍的阿拉薩爾斯，完成後回到榮譽堡要塞找軍隊指揮者達納斯·托爾貝恩。]], },
   },
   [10401] = {
     [[BETA Mission: End All, Be All]],
@@ -25832,9 +26005,9 @@ __ns.L.quest = {
     { [[前往沙纳尔废墟，寻找纳拉杜的下落。]], },
   },
   [10404] = {
-    [[BETA Against the Legion]],
-    { [[We've established that the Burning Legion has been providing Kael'thas with technological assistance, magnifying his threat many times over.]], [[Based on the Legion's numbers in the region, the largest impact we can make on our enemy's alliance is through a head-on attack on the forge bases to the north.]], [[Go to Forge Base: Oblivion and Forge Base: Gehenna and destroy our enemies.  May the Light guide your blade, <name>.]], },
-    { [[Exarch Orelis at Area 52 wants you to go to Forge Base: Oblivion and Forge Base: Gehenna and slay 12 Gan'arg Forgehands, 6 Mo'arg Forgelords and 6 Wrathbringers.]], [[Performing quests for the Aldor will cause your Scryers reputation to decrease.]], },
+    [[對抗軍團]],
+    { [[我們已經證實燃燒軍團提供了凱爾薩斯技術上的支援，多次四處擴大他的威脅。]], [[根據本地軍團的數量來看，藉由直擊北邊的煉冶場帶給敵軍同盟的影響最大。]], [[到熔爐基地:遺忘還有熔爐基地:苦難去消滅我們的敵人。願聖光指引你的劍刃，<name>。]], },
+    { [[在52區的主教歐瑞利斯要你去熔爐基地:遺忘和熔爐基地:苦難，並殺掉12個甘納格鍛造黑手，6個莫阿格鍛造王和6個憤怒使者。]], [[為奧多爾完成任務會使你的占卜者聲望降低。]], },
   },
   [10405] = {
     [[破坏行动]],
@@ -25843,7 +26016,7 @@ __ns.L.quest = {
   },
   [10406] = {
     [[传达信息]],
-    { [[I'm sending one of my demolitionists out to place the disruption device. Just make sure no harm comes to him as he's placing the disruptor.]], [[Keep him protected! He will not fight back if enemies attack him as he is only a holographic image but the image can be destroyed!]], [[Return to me once the job is done.]], },
+    { [[我正派我的一名爆破專家去安置破壞裝置。請確保他在安置破壞裝置時的安全。]], [[保護他!他無法反擊敵人的攻擊，因為他只是一名投射的影像而已，但是影像還是會被摧毀的!]], [[一旦工作完成，回到我這裡。]], },
     { [[复仇军前沿基地中的复仇军发射器 - 塞塔所投射出来的指挥官阿米尔的影像要你护送维序派爆破师前往法力熔炉：乌提斯的管道，并在他破坏时保护他的安全。]], },
   },
   [10407] = {
@@ -25869,7 +26042,7 @@ __ns.L.quest = {
   [10411] = {
     [[电磁冲击！]],
     { [[你在法力熔炉的废墟四周可以发现大量从迪门修斯体内渗透出的流质。滴水的淤泥怪已经占据了乌提斯外围的池塘，池塘正下方就是复仇军的前线基地，基地中到处都是一种名叫空灵废弃者的流质生命体。]], [[要对付这些软泥怪，最好的办法就是用电磁冲击枪将它们轰成小水珠。利用这瓶药剂强化你的电流攻击能力吧，如此一来，那些软泥怪就会衰变成原始的形态。消灭那些水珠！]], },
-    { [[Researcher Navuud at the Protectorate Watch Post in Netherstorm has asked that you destroy 30 Void Waste Globules and 30 Seeping Sludge Globules.]], },
+    { [[在虛空風暴上護國者哨站裡的研究員納巫德要求你破壞30個虛無荒廢者球體和30個爛泥軟泥怪球體。]], },
   },
   [10412] = {
     [[火翼徽记]],
@@ -25882,10 +26055,10 @@ __ns.L.quest = {
     { [[将一瓶虚空软泥交给虚空风暴维序派哨站的研究员纳乌德。]], },
   },
   [10414] = {
-    [[Single Firewing Signet]],
+    [[單一的火翼徽章]],
   },
   [10415] = {
-    [[More Firewing Signets]],
+    [[更多的火翼徽章]],
   },
   [10416] = {
     [[能量的聚合]],
@@ -25911,17 +26084,17 @@ __ns.L.quest = {
     { [[将一套邪能装备交给沙塔斯城的伊沙娜。]], [[为奥尔多完成任务将会使你在占星者阵营中的声望等级降低。]], },
   },
   [10421] = {
-    [[Fel Armaments]],
+    [[魔化武器]],
   },
   [10422] = {
     [[泰拉留斯上尉]],
     { [[十天前，泰拉留斯上尉带领一小队士兵去了南边的复仇军前沿基地，至今杳无音信。]], [[他们很可能遭到了伏击，说不定已经命丧敌手，但是我的仪器接收到了奇怪的信号。]], [[我认为是求援信号，但是这东西以前出过好几次差错，所以我们也不敢肯定。如果泰拉留斯还活着，他应该是被囚禁起来了。你必须设法营救他，或许牢笼的钥匙就在守卫身上。]], },
-    { [[Flesh Handler Viridius at the Protectorate Watch Post in Netherstorm has asked that you find and free Captain Tyralius.]], },
+    { [[在虛空風暴裡的護國者哨站的血肉處理者維迪厄斯已經要求你找到並釋放泰拉里斯上尉。]], },
   },
   [10423] = {
     [[前往风暴尖塔]],
     { [[首席技师贾巴尔很想知道诊断程序的结果。他要我们留意圆顶发生器的运行状况，如果力场变得越来越不稳定的话，力场产生的效果也会变得更加难以控制。这对我们和任何其他生活在圆顶下的生物来说都是一场灭顶之灾。]], [[贾巴尔就在风暴尖塔，从生态圆顶出发一路向北，越过桥梁就能看见风暴尖塔底部的升降机了。把诊断结果告诉贾巴尔吧。]], },
-    { [[Speak with Ghabar at the Stormspire.]], },
+    { [[與風暴之尖的加巴交談。]], },
   },
   [10424] = {
     [[重要的诊断]],
@@ -25930,7 +26103,7 @@ __ns.L.quest = {
   },
   [10425] = {
     [[逃离前沿基地]],
-    { [[Thank K'aresh! He would have torn me apart!]], [[I'm a Protectorate soldier, fleshling. My platoon was sent on a recon mission about 10 days ago. As we were moving across the upper ledges of this island, a group of Ethereum jumped us. At least I think it was Ethereum. They had the same energy color but their wrappings looked void.]], [[Only Tyralius was spared. I think they put him in a prison cell.]], [[I've got to get back to the Protectorate Watch Post! Can you escort me back?]], },
+    { [[感謝凱瑞西!他可能把我四分五裂!]], [[我是一名護國者士兵，新兵。大約10天前我的排被派遣執行一項偵察任務。當我們正移動穿過這座島上方岩架時，一群伊斯利恩突然襲擊我們。至少我認為它是伊斯利恩。他們有相同的能量顏色，但是他們外表看起來虛無。]], [[只有泰拉里斯逃過一劫。我認為他們把他關在一座監禁室裡。]], [[我必須回到護國者哨站!你能護送我嗎?]], },
     { [[护送被俘虏的维序派前锋返回虚空风暴的维序派哨站。]], },
   },
   [10426] = {
@@ -25956,7 +26129,7 @@ __ns.L.quest = {
   [10430] = {
     [[测试原型]],
     { [[我一直在研制便携式的发生器维修包，供星界财团在气候恶劣的地区使用。虽然目前的设计并非为虚空风暴定制的，但我想问题应该不大。]], [[我准备派一批最优秀的技师在虚空石西边方的边缘生态圆顶对它进行测试。将维修设备交给塔沙尔吧，他知道如何使用它。如果效果不错的话，我们就利用维修包来强化大型生态圆顶的护罩发生器。]], },
-    { [[Bring the Repair Apparatus to Tashar at Eco-Dome Farfield.]], },
+    { [[將修理儀器帶去秘境原野交給塔斯爾。]], },
   },
   [10431] = {
     [[外界的帮助]],
@@ -25976,7 +26149,7 @@ __ns.L.quest = {
   [10434] = {
     [[两个同伴]],
     { [[干得不错。]], [[<舒利对你眨了眨眼睛。>]], [[我想这样他们就会相信我是普通的皮毛商人了。现在我要派你去联络我在风暴尖塔的同伴，虚灵应该不会对你起疑心的。]], [[去风暴尖塔寻找粗暴的贾森和针眼奥蒂吧。他们会告诉你所有你需要知道的事情。就说是舒利派你去的。]], },
-    { [[Speak with Audi the Needle at the Stormspire.]], },
+    { [[與風暴之尖的歐杜毒針交談。]], },
   },
   [10435] = {
     [[找回货物]],
@@ -25985,7 +26158,7 @@ __ns.L.quest = {
   },
   [10436] = {
     [[警报解除！]],
-    { [[Before we can begin the test, we have to make certain the area is clear of anything that might interfere. In our case, that means these overgrown lizards.]], [[<Tashar gestures toward the scythetooth raptors.>]], [[There's no telling what might happen if one those decides to take a nice bite out of the generator while it's charging. I've seen a lot of strange things in all my years as a technician, including more than a few abominations that had their beginnings as humble animals.]], },
+    { [[在我們能開始試驗之前，我們必須先確定這地區已清除掉會干擾的任何東西。在我們的情況中，那表示是這些長得太快的蜥蜴。]], [[<塔斯爾指向那些鐮齒迅猛龍。>]], [[假如那些傢伙之一決定在生成器啟動時咬一口，那將無法預料會發生什麼事。在我身為一位技師的所有歲月中，我已經看見過許多奇怪的東西，包括開始裝的很謙遜而令人厭惡的縫合怪。]], },
     { [[边缘生态圆顶的塔沙尔要你杀死12只镰牙迅猛龙。]], },
   },
   [10437] = {
@@ -25995,8 +26168,8 @@ __ns.L.quest = {
   },
   [10438] = {
     [[虚空幼龙之翼]],
-    { [[Here it is, <name>. Take this phase disruptor and mount up! The Protecotrate nether drake will fly you close enough to Ultris so that you can drop the disruptor on top of the void conduit.]], [[Drop as many disruptor charges as possible to ensure complete annihilation!]], [[When you are ready, speak with the nether drake and he'll take you up.]], [[If you miss the mark you will have to get more bombs from me before you can go up again.]], },
-    { [[Professor Dabiri at the Protectorate Watch Post in Netherstorm wants you to use your Phase Disruptor when you get in range of the Void Conduit that rests atop Ultris. Drop as many charges of the Phase Disruptor as you can to ensure total annihilation. The Phase Disruptor charges will automatically home in on the Void Conduit so long as you are close enough to use it.]], [[Return to Professor Dabiri should you succeed!]], },
+    { [[來，<name>。帶著這個相位干擾器上陣吧!受保護的虛空龍將會帶你飛到夠接近奧崔斯的地方讓你可以將干擾器丟在虛無導線上方。]], [[盡量多丟幾個干擾器以確定消滅完全!]], [[你準備好後，就跟虛無龍談談，他會帶你上去。]], [[要是你錯過了目標，你可以在上去前跟我拿更多的炸彈。]], },
+    { [[虛空風暴的護國者哨站的戴比瑞教授要你在進入奧崔斯之上的虛無導線範圍內使用你的相位干擾器。多丟幾個相位干擾器以確認全數目標都消滅了。在你跟虛無導線距離夠近的時候使用相位干擾器它就會自動導向虛無導線。]], [[在你成功後回去找戴比瑞教授!]], },
   },
   [10439] = {
     [[诸界吞噬者迪门修斯]],
@@ -26006,16 +26179,16 @@ __ns.L.quest = {
   [10440] = {
     [[成功啦！]],
     { [[实验非常成功！我们可以利用这台装置进行生态圆顶的修复作业了。]], [[返回风暴尖塔汇报实验结果吧，告诉贾巴尔我已查明引发遮罩生成器运行故障的基本原因。<name>，数座生态圆顶护罩发生器的重要功能单元都不翼而飞。这不是意外事件，也绝对不是技术故障。换句话说，我们遭窃了。]], },
-    { [[Return to the Stormspire and speak with Ghabar.]], },
+    { [[回到風暴之尖與加巴談談。]], },
   },
   [10441] = {
     [[推销货物]],
-    { [[<Audi lowers her voice again.>]], [[Now that we have the goods, I'll be sending most of the parts on to Area 52. There's enough here for more than one generator, presenting us with a perfect business opportunity.]], [[I've seen the Cenarion Expdedition's representative trying to negotiate. I want you to let her know that we can provide what she seeks at a very reasonable price. There's no reason for her to continue dealing with those two-timing ethereals.]], },
-    { [[Speak with Aurine Moonblaze at the bottom of the Stormspire.]], },
+    { [[<歐杜再度壓低他的聲音。>]], [[現在我們有了貨品了，我會將大部份送到52區去。這裡的已經夠超過一台生成器使用了，為我們帶來了一個完美的商機。]], [[我看過塞納里奧遠征隊的代表試著去議價。我要你讓她知道我們可以以非常合理的價格提供她需要的東西。她沒道理繼續應付那些騙人的伊斯利。]], },
+    { [[與風暴之尖底層的阿魯尼·月火談談。]], },
   },
   [10442] = {
     [[帮助塞纳里奥哨站]],
-    { [[<class>, there's some tauren by the name of Thiah Redmane that keeps pestering us for assistance.  She's with the Cenarion Expedition, and they've setup a little post just to the west on the south side of the the road leading to Zangarmarsh.]], [[If you hit Thornfang Hill, you've gone too far.]], [[Do you think you might head over there and see what she needs?  I don't want to have to bother Ranger Captain Venn'ren with such trivialities.]], },
+    { [[<class>，有個叫做塞伊亞·紅髮的牛頭人為了要我們提出協助而一直糾纏我們。她屬於塞納里奧遠征隊，而且他們已經在從這裡通往贊格沼澤西邊道路的南面設立了一個小哨站。]], [[假如你走到了棘牙丘陵，表示你走過頭了。]], [[你可以去那邊看看她需要什麼幫助嗎?我可不想為了這種小事情而驚動到遊俠隊長范瑞。]], },
     { [[驯鹰者德蕾娜·河风要你前往地狱火半岛的塞纳里奥哨站，帮助塞安·红鬃。]], },
   },
   [10443] = {
@@ -26040,28 +26213,38 @@ __ns.L.quest = {
   },
   [10447] = {
     [[终极密码]],
-    { [[They're building a second mana bomb in the courtyard.  My intel suggests that the final code for the bomb is being held by Sharth Voldoun, the overseer of the project at Firewing Point.]], [[<name>, you have to go back in there and retrieve the final code from him.  He keeps himself to the top of the highest spire.]], [[Take the final code to the mana bomb that they're working on in the central courtyard and set it off.]], [[Only then will we be certain that Stonebreaker Hold is safe.]], },
-    { [[Sergeant Chawni wants you to use the Final Code Sheet to set off the Mana Bomb.  Then report back to Tooki at Stonebreaker Hold in Terokkar Forest.]], },
+    { [[他們正在庭院中興建第二個法力炸彈。我的情報顯示這顆炸彈的最終的密碼是由火翼崗哨這個工程的監督者，薩爾斯·烏德恩所持有。]], [[<name>，你必須回到那裏去從他身上取得最終的密碼。他通常都在最高的那座塔的頂端。]], [[取得這個最終的密碼到中庭找到炸彈並將它引爆。]], [[只有這樣我們才能確保碎石堡的安全。]], },
+    { [[丘尼士官要你使用最終密碼清單去引爆法力炸彈。完成後回報泰洛卡森林裡碎石堡的吐奇。]], },
   },
   [10448] = {
-    [[Report to Stonebreaker Camp]],
-    { [[This calls for immediate action!]], [[We have someone out in the field closer to Firewing Point that I want you to speak with.  She'll have a better idea of what our next step should be.]], [[Report to Sergeant Chawni out at Stonebreaker Camp and apprise her of the situation.]], [[Take the road north out of the hold.  From the middle of Tuurem, follow the road to the east.  You'll find the camp on the bank of the river that lies just southwest of Firewing Point.]], [[Good luck, <name>.]], },
-    { [[Tooki wants you to report to Sergeant Chawni at Stonebreaker Camp in Terokkar Forest.]], },
+    [[到碎石營地報到]],
+    { [[立即行動!]], [[我們在出了這裡接近火翼崗哨的地方有個我要你去談談的人。她對你下一步要做的事有更好的想法。]], [[到碎石營地外找丘尼士官報告並告知她狀況。]], [[出了崗哨外順著路往北方出發。從杜瑞的中部，順著路到東邊去。你就會在火翼崗哨正西南方的河岸邊找到這個營地。]], [[祝你好運，<name>。]], },
+    { [[吐奇要你去向泰洛卡森林裡碎石營地的丘尼士官報到。]], },
   },
   [10449] = {
     [[药剂师塞兰娜]],
-    { [[Apethecary Zelana has been studying the beasts of Hellfire Peninsula in the field.  She wants a sample of the blood you gathered; with luck, she might discover what turned those Bonechewer bastards' skins red!]], [[Zelana is at Reaver's Fall, southeast of Thrallmar.  Follow the road east and when you see a destroyed, green-glowing hunk of metal, you're there.  She has a camp set up behind the wyverns.]], },
+    { [[藥劑師席蓮娜一直在研究地獄火半島的野獸。她想要你收集的一個血液樣本;幸運的話，她或許會發現是什麼把那些噬骨者混蛋的皮膚變成紅色的!]], [[席蓮娜在搶奪者荒野，索爾瑪的東南方。沿著往東的路走，等你看到一塊被摧毀，發著綠光的金屬，你就到了。她在雙足翼龍後面有一個營地。]], },
     { [[萨尔玛的乌托克·断斧要你前往机甲残骸，将噬骨血样交给药剂师塞兰娜。]], },
   },
   [10450] = {
     [[噬骨之血]],
-    { [[Bonechewers!  They should all die!  The sight of their red skin and depravity makes my blood boil!]], [[I have a mission for you, <name>.  Kill bonechewer orcs and collect their vile blood.  There is an apothecary who needs the blood for her tests, so we can discover how these orcs fell to the demon taint, a taint from which we so recently freed ourselves.]], [[Bonechewers scavenge near the ruined battlements along the Path of Glory, to the south.  Return to me when your mission is complete.]], },
+    { [[噬骨者!他們全都該死!看到他們紅色的皮膚和墮落讓我的血液沸騰!]], [[我有個任務要給你，<name>。殺死噬骨者獸人並收集他們邪惡的鮮血。有一個藥劑師需要血液來做她的實驗，這樣我們就能知道這些獸人是如何被惡魔給污染的，一種我們最近才剛讓自己解放出來的污染。]], [[到南方的光榮之路，噬骨者在旁邊毀壞的城垛搜尋有用的物品。當你完成任務後回來找我。]], },
     { [[将12瓶噬骨之血交给萨尔玛的乌托克·断斧。]], },
   },
   [10451] = {
     [[逃离库斯卡水池]],
-    { [[Thank the Earthmother! I parted ways with the others several days ago. I was intent on discovering the source of the disturbance that the spirits of water were feeling. My search led me to Coilskar where I discovered that the naga were befouling the water supply of Shadowmoon Valley.]], [[Unfortunately, I was discovered and taken prisoner. There's no telling what ghastly things they had in store for me.]], [[We must leave this place! Help me escape and then seek out Torlok at the Altar of Damnation.]], },
+    { [[感謝大地之母!我跟其他人在幾天前分開了。我立志要查出引起水之靈騷動的來源。我的調查引領我到了考斯卡，納迦污染影月谷水源頭的地方。]], [[不幸的是，我被發現並囚禁了起來。我無法形容他們對我做了什麼恐怖的事。]], [[我們必須離開這個地方!幫我逃離並找到在詛咒祭壇的托爾洛克。]], },
     { [[护送大地治愈者维尔达逃离库斯卡水池，然后前往古尔丹之手以西的诅咒祭坛，向大地治愈者托洛克复命。]], },
+  },
+  [10452] = {
+    [[DON'T USE [PH] Fel Orc 1]],
+    { [[[PH Fel Orc 1.]], },
+    { [[[PH Fel Orc 1.]], },
+  },
+  [10453] = {
+    [[DON'T USE [PH] Fel Orc bread]],
+    { [[[PH Fel Orc bread]], },
+    { [[[PH Fel Orc bread]], },
   },
   [10454] = {
     [[FLAG - OFF THE RAILS]],
@@ -26069,17 +26252,17 @@ __ns.L.quest = {
   [10455] = {
     [[危险的荒野]],
     { [[我们目前正在全力进行着活木林生态环境的培育，但这里的山猫数量有些超出了控制范围。]], [[虽然林地山猫的数量曾经处于比较稳定的状态，但是现在它们已经威胁到了希尔瓦纳的生存空间，并可能导致许多令人不愉快的事情。]], [[我现在甚至怀疑拉什鸦巢的那群鸦人正是此事的幕后黑手，但现在，最迫切的问题还是来自于这些山猫本身。]], [[若是你能帮助我们解决这个问题，那可就真是太好了。]], },
-    { [[Rina Moonspring wishes you to slay 12 Grovestalker Lynxes with all due haste and then return to her at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[琳娜·月泉要你以最快的速度殺掉12隻森林山貓後回到劍刃山脈的希爾瓦納找她。]], },
   },
   [10456] = {
     [[徘徊的恶狼]],
     { [[那些肮脏污秽的部落在东边建立了一处定居点。他们还带了一大群恐狼来，估计要用来看家或是当作座骑。]], [[这些野兽经常冲过桥来劫掠和骚扰我们的营地。它们甚至捕食了我们的许多精灵龙，这已经严重影响了活木林内所有植物的授粉，影响到了它们的生长和繁殖。]], [[你立刻从这里东侧出镇，越过血槌峡谷上的桥，到东边的锯齿山去猎杀那里的狼群，记得将它们的尾巴砍下来作为证据！]], },
-    { [[Rina Moonspring has asked you to bring her 4 Thunderlord Dire Wolf Tails.  After doing so, return to her at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[琳娜·月泉要你帶給她4根雷霆王恐狼尾。完成後，回到劍刃山脈的希爾瓦納找她。]], },
   },
   [10457] = {
     [[自我保护]],
     { [[尽管你已经为防卫活木林做出了许多卓越的贡献，但我还是觉得这处新的家园需要更多的保护。]], [[拜托你，带上这棵已被我灌注入自然之力的小树苗。只要在那些被我埋下了种子的地方使用它，它就会令种子迅速成长，破土而出，成为强大的树人卫士。]], [[这些树人卫士对于林地的防御体系来说相当重要，既然你选择了希尔瓦纳作为长期的住所，想必你也会很重视这套防御体系。]], },
-    { [[Use Rina's Bough on 5 of the Grove Seedlings to summon forth defenses for the Living Grove.  Then return to Rina Moonspring at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[在5株果樹幼苗身上使用琳娜的樹枝以召喚今後生命之林的防護者。完成後回到劍刃山脈的希爾瓦納找琳娜·月泉。]], },
   },
   [10458] = {
     [[愤怒的火灵和地灵]],
@@ -26181,8 +26364,8 @@ __ns.L.quest = {
   },
   [10480] = {
     [[愤怒的水灵]],
-    { [[The Illidari naga of the region have taken control of the only clean water supply that exists in Shadowmoon Valley.]], [[Directly north of here you will find the lair of the naga: Coilskar. Around Coilskar are pockets of agitated water that howl to the land in anguish. It is at those pockets that the enraged spirits of water now wander.]], [[Travel to Coilskar and use the totem of spirits to capture watery souls. You will find the largest concentration of these spirits near Coilskar Cistern.]], },
-    { [[Earthmender Torlok at the Altar of Damnation in Shadowmoon Valley wants you to use the Totem of Spirits to capture 5 Watery Souls.]], },
+    { [[本區的伊利達瑞納迦已控制了影月谷唯一純淨的水源頭。]], [[你可以在這裡的正北方找到納迦的巢穴:考斯卡。考斯卡週遭是好幾塊波濤洶湧的水流區對著島嶼痛苦的怒吼著。那些就是暴怒的水之魂在其中徘徊。]], [[到考斯卡去使用這個靈魂圖騰捕捉水之魂。你在考斯卡水池附近可以找到這些靈魂的最廣大集散地。]], },
+    { [[影月谷的詛咒祭壇的大地治癒者托爾洛克要你使用靈魂圖騰去捕獲5個水之魂。]], },
   },
   [10481] = {
     [[愤怒的气灵]],
@@ -26211,43 +26394,43 @@ __ns.L.quest = {
   },
   [10486] = {
     [[危险的荒野]],
-    { [[The Thunderlord were once a proud orc clan before they were transformed into fel orcs through the blood of Mannoroth.]], [[Recently we recovered this orc stronghold from the ogres that infest the ravine below.  They had moved in when the Thunderlord clan abandoned it.]], [[We will keep this place and I will have your help doing so.]], [[In the Jagged Ridge to the south and the west, there are bloodletters that have become like a plague upon us.  They eat and breed incessantly.]], [[Kill them and then return to me.]], },
-    { [[Gor'drek has asked you to slay 12 Bladewing Bloodletters.  Return to him at Thunderlord Stronghold in the Blade's Edge Mountains once you have accomplished that.]], },
+    { [[在雷霆王被曼諾洛斯之血轉化成魔獄獸人前他們曾是一個驕傲的獸人氏族。]], [[最近我們從污染下游河谷的巨魔手中重新發現了這個獸人村落。他們在雷霆王氏族遺棄這裡後進駐。]], [[我們要保住這個地方，而我需要你來幫忙。]], [[在鋸齒山脊的南方及西方，那裡有一群放血者已經變成我們的災難。他們不停地繁殖。]], [[殺掉他們並於完成後回來找我。]], },
+    { [[葛德雷克要你去殺掉12個刃翼血信。完成後回到劍刃山脈的雷霆王村找他。]], },
   },
   [10487] = {
-    [[Dust from the Drakes]],
-    { [[The Alliance has recently moved in to the west, using their elven magics to grow a town and grove in a short matter of time.  We must keep their defenses weak so that they do not also grow a spine.]], [[I have a plan that will do that and more.  I want you to traverse the bridge to the southwest, which crosses over Bloodmaul Ravine and leads into the Living Grove.]], [[Attack their fey drake defenses in the Living Grove and bring back the magical dust that sometimes can be found upon their wings.]], },
-    { [[Gor'drek wants you to gather 4 Dusts of the Fey Drake.  After doing so, return to him at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    [[龍的粉末]],
+    { [[聯盟最近進駐西邊，使用他們精靈法術在短期內建立一個城鎮及果園。我們得將她們的防禦削弱以防她們不會也生出勇氣來。]], [[我有個方法可以達成目的甚至更好。我要你越過橋到西南方去，經過血槌深谷進去生命之林。]], [[攻擊她們在生命之林的精靈龍防禦並將在它們翅膀中找到的魔法粉塵帶回來給我。]], },
+    { [[葛德雷克要你去取得4份精靈龍粉末。完成後，回到劍刃山脈的雷霆王村找他。]], },
   },
   [10488] = {
     [[自我保护]],
-    { [[With the magical dust you recovered, I have fashioned a magic ointment that will aid in our own defenses.]], [[Our dire wolves are the perfect combination of mount, sentry and friend, but the Alliance scum have been poaching them in the Jagged Ridge.]], [[<name>, I want you to take this ointment and apply it to our dire wolf friends.  The Alliance will get a rude surprise the next time that they send one of their hunting parties.]], [[Be aware though that some of the wolves may not like this, and will turn on you.]], },
-    { [[Use Gor'drek's Ointment on 5 of the Thunderlord Dire Wolves to strengthen them and the defense of the Jagged Ridge.  Then return to Gor'drek at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[有了你帶回的魔法粉塵，我製作了一個魔法藥膏可助於我們本身的防護。]], [[我們的恐狼完美的將坐騎，守衛及朋友集結於一身，但是那些聯盟的人渣在鋸齒山脊那獵殺它們。]], [[<name>，我要你將這個藥膏使用在我們那些恐狼朋友身上。下一次聯盟再派他們的獵殺團隊來時就會得到一個野蠻的驚喜。]], [[要小心還是有一些狼可能不喜歡這個藥膏，將會反咬你。]], },
+    { [[在5隻雷霆王恐狼身上使用葛德雷克的藥膏來強化它們及鋸齒山脊的防禦。完成後回到劍刃山脈的雷霆王村找葛德雷克。]], },
   },
   [10489] = {
     [[追杀战争古树]],
-    { [[WANTED!]], [[Stronglimb Deeproot, ancient of war and chief defender of the Living Grove south of Sylvanaar.]], [[Find him by heading west across the bridge that traverses the Bloodmaul Ravine.]], [[Return his hewn trunk to Tor'chunk Twoclaws inside the Thunderlord Stronghold inn.]], },
-    { [[Acquire Stronglimb Deeproot's Trunk and deliver it to Tor'chunk Twoclaws at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[懸賞!]], [[斯卓霖普·深根，戰爭古樹及希爾瓦納南方的生命之林防衛者領袖。]], [[往西邊過了橋後越過血槌深谷就可以找到他。]], [[將他的大箱帶回給雷霆王村旅館內的吐查克·雙爪。]], },
+    { [[取得斯卓霖普·深根的樹幹並送到劍刃山脈的雷霆王村給吐查克·雙爪。]], },
   },
   [10490] = {
     [[水之召唤]],
-    { [[I'm sensing that it's been a while since last you were tested.  This is because Farseer Nobundo has been asking for you.]], [[You must have grown greatly in wisdom because you are being called to learn the mysteries of the element of water.]], [[I trust that you remember how to take the boat from Auberdine in Darkshore on Kalimdor back to the Exodar?  And that you remember where to find the farseer at the Crystal Hall inside the Exodar, yes?]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall inside the Exodar on Azuremyst Isle.]], },
+    { [[我感覺到距離你上一次測試已經有一段時日了。這是因為先知諾柏多對你有所要求。]], [[你被派去學習了水元素的奧義因此你的智慧一定大有長進。]], [[我相信你記得如何從卡林多上黑海岸的奧伯丁搭船到艾克索達吧?你也記得哪裡可以找到艾克索達裡水晶大廳的先知，對吧?]], },
+    { [[與藍謎島中艾克索達裡水晶大廳的先知諾柏多談談。]], },
   },
   [10491] = {
     [[空气的召唤]],
-    { [[<name>, once again Farseer Nobundo has been asking for you.  It must be time for you to learn the secrets of air, the last of the elements!]], [[I want you to know that I'm very proud of all that you have accomplished thus far.  I know that you have great things ahead of you.]], [[Take the boat from Auberdine in Darkshore on Kalimdor.  Cross the Veiled Sea and seek out the farseer inside the Crystal Hall of the Exodar on Azuremyst Isle.]], },
-    { [[Speak with Farseer Nobundo at the Crystal Hall inside the Exodar on Azuremyst Isle.]], },
+    { [[<name>，先知諾柏多再一次的對你有所要求。該是時候要你去學習風的秘密，元素當中的最後一個!]], [[我要你知道我對你到目前所完成的所有事感到驕傲。我知道你前途光明。]], [[到卡林多上黑海岸的奧伯丁搭船。穿越迷霧之海到藍謎島上艾克索達的水晶大廳內找先知。]], },
+    { [[與藍謎島中艾克索達裡水晶大廳的先知諾柏多談談。]], },
   },
   [10492] = {
     [[热心的建议]],
     { [[你好，<class>。我这里有一些你可能会很感兴趣的东西。]], [[它跟你们这个职业的人平常穿着的那些护甲有点类似，但质量上远远好于你们现在所拥有的。要是你能帮我一个小忙的话，我愿意拿它来从你手里换一件普通的套装组件。]], [[栖息在冬泉谷的霜刃豹和熊身上的血液有着某种我目前很需要的特性。给我带来一批样本，再把普通套装的手腕部分拿来，当然了，你还得支付一些金币。你会发现这其实是笔很划算的交易。]], },
-    { [[Acquire 15 Winterspring Blood Samples and 20 gold and bring them along with a set of Bindings of Elements to Deliana in Ironforge.]], },
+    { [[取得15滴冬泉血滴樣本，20金和1套野性之心束腕給鐵爐堡的德莉娜。]], },
   },
   [10493] = {
     [[热心的建议]],
     { [[嗨，<class>！从你的言行举止就能看出你是个历经沧桑、见多识广的家伙。但是我打赌你没有见过这么一件护甲。]], [[要是你能帮我一个小忙的话，我愿意拿它来从你手里换一件普通套装的手腕部分。]], [[我需要大量生活在希利苏斯地区的蝎子和蜘蛛的毒液。把毒液样本带给我，再支付一些金币，我就跟你交换。]], },
-    { [[Acquire 15 Silithus Venom Samples and 20 gold and bring them along with a set of Lightforge Bracers to Mokvar in Orgrimmar.]], },
+    { [[取得15滴希利蘇斯毒液樣本，20金和1套光鑄護腕，帶給奧格瑪的莫克瓦。]], },
   },
   [10494] = {
     [[公平的补偿]],
@@ -26292,27 +26475,27 @@ __ns.L.quest = {
   [10502] = {
     [[血槌食人魔]],
     { [[比起部落的雷神要塞，另一群势力对希尔瓦纳具备着更致命的威胁。]], [[我说的正是栖息在群山之中的食人魔原住民。血槌氏族居住在峡谷内的东方和南方，他们的确不是唯一一群威胁着我们的食人魔，但他们却是最近的。]], [[你要立刻向南，穿越活木林，然后沿路向东走入谷地，进入他们的哨站。之后，就请在血槌哨站消灭尽量多的食人魔吧。]], },
-    { [[Commander Skyshadow has tasked you with the destruction of any 30 Bloodmaul Ogres at Bloodmaul Outpost.  Return to him at Sylvanaar in the Blade's Edge Mountains once your gruesome task is completed.]], },
+    { [[指揮官天影要你去血槌前哨站殺死30個血槌巨魔。當你完成這個可怕的任務後，回到劍刃山脈的希爾瓦納向他回報。]], },
   },
   [10503] = {
     [[刀塔的威胁]],
     { [[雷神要塞所面临的形势比联盟的希尔瓦纳更加严峻。]], [[我指的是那些刀塔氏族的食人魔，目前驻扎在正西边的沟壑之中。的确，他们不是唯一一支食人魔氏族，但他们离我们最近，威胁也最大，我们必须击败他们，才能得到生存的空间。]], [[你立刻向北走，穿过锯齿山，然后沿着路一直前进，进入他们的要塞。到那里以后，你要尽全部力量消灭刀塔要塞和刀塔平原那边的刀塔食人魔和刀塔迅猛龙。]], },
-    { [[Tor'chunk Twoclaws has tasked you with the destruction of any 30 Bladespire Ogres and 10 Bladespire Raptors at Bladespire Hold and the Bladespire Grounds.  Return to him at Thunderlord Stronghold in the Blade's Edge Mountains once your task is completed.]], },
+    { [[吐查克·雙爪要求你在劍刃要塞還有劍刃庭園殺死30個劍刃巨魔還有10隻劍刃迅猛龍。任務完成時回到劍刃山脈的雷霆王村向他回報。]], },
   },
   [10504] = {
     [[刀塔食人魔]],
     { [[在血槌氏族北方，坐落着另一个更具威胁的食人魔氏族的大本营——刀塔氏族的刀塔要塞。]], [[刀塔食人魔是刀锋山脉中最强大的食人魔氏族，甚至已经得到了屠龙者格鲁尔和他七个儿子的宠爱。]], [[现在我们已经解决掉了血槌氏族，是时候关注一下他们的竞争对手了。]], [[你从血槌要塞出发的话，只需直接向北穿越谷地，就可以直接抵达刀塔要塞和刀塔平原。请在那边消灭尽量多的刀塔食人魔吧。]], },
-    { [[You have been asked by Commander Skyshadow to kill any 30 Bladespire Ogres in Bladespire Hold and the Bladespire Grounds.  Return to him at Sylvanaar in the Blade's Edge Mountains once you have done so.]], },
+    { [[指揮官天影要你在劍刃要塞還有劍刃庭園殺死30個劍刃巨魔。任務完成時回到劍刃山脈的希爾瓦納向他回報。]], },
   },
   [10505] = {
     [[血槌食人魔]],
     { [[除了刀塔氏族以外，还有另一支食人魔力量威胁着我们的安全，那就是血槌食人魔，他们甚至在刀塔哨站的南方建立起了血槌哨站。]], [[虽然血槌食人魔并非是山脉中最强大的氏族，但是他们也崇拜屠龙者格鲁尔，同样具有相当强大的实力。]], [[既然我们已经解决掉了刀塔氏族，那么现在是时候来对付他们的竞争对手了。]], [[从刀塔要塞往南走，穿过峡谷就能到达血槌哨站，到那里去吧，在哨站周围消灭尽可能多的血槌食人魔。]], },
-    { [[You have been asked by Tor'chunk Twoclaws to kill any 30 Bloodmaul Ogres at Bloodmaul Outpost.  Return to him at Thunderlord Stronghold in the Blade's Edge Mountains once you have done so.]], },
+    { [[吐查克·雙爪要你在血槌前哨站殺死30個血槌巨魔。任務完成時回到劍刃山脈的雷霆王村向他回報。]], },
   },
   [10506] = {
     [[严峻的形势]],
     { [[部落的狼群数量锐减之后，他们已经开始积极地寻找替代品。不过，这附近没有任何可用的野兽资源，他们的目标或许在谷底。]], [[谷地底下的血槌食人魔养着大量的恶狼作为看门宠物。但是，我对上次把你派去屠杀雷神狼群的做法也感到十分厌恶，我们为什么就不能换一个方法呢？]], [[最近我从精灵龙的翅膀上掉落下的粉尘中提炼出了一种很有意思的魔粉。把这些粉末撒在血槌恐狼的身上，这样部落就不会想要它们了。]], },
-    { [[Rina Moonspring wants you to take her Diminution Powder and apply it to 5 of the Bloodmaul Dire Wolves, which can be found at Bloodmaul Outpost and in Bloodmaul Ravine.  After doing so, return to her at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[琳娜·月泉要你帶著她的縮小粉末並使用在5隻血槌恐狼身上，你可以在血槌前哨站及血槌深谷找到這些狼群。完成後，回到劍刃山脈的希爾瓦納找她。]], },
   },
   [10507] = {
     [[转折点]],
@@ -26332,22 +26515,22 @@ __ns.L.quest = {
   [10510] = {
     [[进入德拉诺晶矿]],
     { [[啊啊，终于找到愿意帮助我们的人了！]], [[我和伯格瑞姆都是探险者协会的成员，到这里来就是为了考察这处伟大的山脉。我们听过许多有关这里的传说，真是迫不及待地要安顿下来开始研究了。]], [[听这里的暗夜精灵说，在谷地下面的正东向，有一处叫作德拉诺晶矿的地方出产一种很特殊的水晶。我对这种水晶非常有兴趣，所以想要搞到一些水晶的样本进行研究。]], },
-    { [[Bronwyn Stouthammer has asked you to collect 5 Draenethyst Mine Crystals and then return to her at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[波爾葛利姆·頑錘要你去收集5個德萊尼礦坑水晶然後回到劍刃山脈的希爾瓦納找她。]], },
   },
   [10511] = {
     [[奇怪的美酒]],
     { [[悠闲假日的最好伴侣那就是美酒名酿了，来这里度假怎么能没有酒。但糟糕的是，这些精灵真的完全不懂发酵与酿造的艺术。]], [[我听说谷地下面的血槌食人魔也是嗜酒如命，存有不少美酒。说起来，我还真想试上一试。]], [[嘿，帮我个忙怎么样？你马上向南穿越活木林，沿路下坡，进入东边的血槌哨站里，替我抢点酒来如何？我听说那里到处都是装得满满的大酒桶，由他们的酿酒师负责保管。]], },
-    { [[Borgrim Stouthammer wants you to procure 11 Bloodmaul Brutebane Brew for him.  Once you've done that, return it to him at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[波爾葛利姆·頑槌要你拿到11瓶血槌蠻禁烈酒給他。一旦你完成後，將這個帶到劍刃山脈的希爾瓦納給他。]], },
   },
   [10512] = {
     [[灌醉刀塔食人魔]],
     { [[打死我也不会再喝一口这难闻到家的泥浆了！不过，我突然有了一个好主意。]], [[<伯格瑞姆狡黠地眨了眨眼睛。>]], [[那么，计划如此：血槌食人魔没有这种泥浆水是活不成的，这一点我们都知道了。但我也很好奇，想知道他们的死对头刀塔食人魔对这玩意有什么看法。]], [[<name>，我要求你立刻把这桶垃圾拿到刀塔食人魔那边去，丢给他们喝。从血槌哨站一路沿着谷地向北去就可以找到刀塔食人魔了。]], },
-    { [[Take the Bloodmaul Brutebane Keg and use it in an attempt to get 5 Bladespire Ogres drunk.  If you're successful, return to Borgrim at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[帶著這個血槌蠻禁烈酒並試著用來讓5個劍刃巨魔喝醉。如果你成功了，回到劍刃山脈的希爾瓦納找波爾葛利姆。]], },
   },
   [10513] = {
     [[欧鲁诺克·裂心]],
     { [[<name>，我不知道要如何才能掌握元素之灵提到的法术。老实说，我甚至不知道从何下手。]], [[<托洛克凝视着远方，陷入了沉思。>]], [[嗯……此行可能会毫无收获，不过这是我们惟一的希望。诅咒祭坛曾有一位兽人长者来访。我跟他攀谈过几句。据说他隐居在东北方的库斯卡水池附近的山上。去寻找这位名叫欧鲁诺克·裂心的兽人。]], [[我说过，此行可能无功而返。]], },
-    { [[Seek out Oronok Torn-heart on the Shattered Shelf - north of Coilskar Cistern.]], },
+    { [[到破碎暗礁去找歐朗諾克·碎心 - 就在考斯卡水池的北方。]], },
   },
   [10514] = {
     [[历经沧桑……]],
@@ -26362,21 +26545,21 @@ __ns.L.quest = {
   [10516] = {
     [[守备官的困境]],
     { [[这听起来很奇怪，但我确实是故意要继续待在这只笼子里面的。我来这里的目的是收集刀塔食人魔的情报，目前的状况给了我一个非常好的机会。]], [[其实，只要我愿意，我随时都可以离开，但是我需要先拿回我的佩剑和盾牌。]], [[这群食人魔中的两个头目拿着它们：德罗加姆拿着剑，玛戈多格拿着盾牌。]], [[要是有必要谨慎些的话，你可以去南边的血槌哨站搞一些酒来，把他们周围的其他食人魔都灌醉，这样他们就不会有援手了，当然，还是得小心那些不喝酒的守卫！]], },
-    { [[Retrieve Vindicator Vuuleen's Blade and Vindicator Vuuleen's Shield.  Then return them to Vindicator Vuuleen at Bladespire Hold in the Blade's Edge Mountains.]], },
+    { [[帶回復仇者瓦黎恩之刃及復仇者瓦黎恩之盾。然後將這兩項物品帶回劍刃山脈的劍刃要塞給復仇者瓦黎恩。]], },
   },
   [10517] = {
     [[高尔迪姆，你完蛋了……]],
     { [[刀塔要塞的领袖据说是高尔迪姆。相信我……应该就是这个名字没错了。]], [[不过，我可绝对不会轻视这个家伙。他将自己的氏族发展壮大了许多，不仅得到了屠龙者格鲁尔的宠爱，甚至成为了刀锋山脉的统治者。高尔迪姆身边总是带着大量的随从，甚至有几名发誓绝对不碰酒的可靠侍卫。]], [[为了希尔瓦纳的安全，我命令你立刻返回那边，刺杀高尔迪姆。]], },
-    { [[Vindicator Vuuleen has asked you to kill Gorr'Dim, leader of the Bladespire Hold ogres.  Once you have done so, return to her at Bladespire Hold in the Blade's Edge Mountains.]], },
+    { [[復仇者瓦黎恩要你去殺掉哥爾迪姆，劍刃要塞巨魔的首領。一旦完成後，回到劍刃山脈的尖石要塞找她。]], },
   },
   [10518] = {
     [[插旗子]],
     { [[我要你从那些刀塔勇士的身上偷一面刀塔旗帜，带到南边的血槌哨站去。之后，你要把旗子插在那里的北槌哨塔的顶上。]], [[这样一来，你就会马上激怒那些血槌食人魔，遭到他们的无情攻击，同时也会进一步挑起他们对刀塔要塞的仇恨，使他们忽略掉希尔瓦纳。]], [[你插上旗子之后，必定会引出血槌氏族的古恩·格鲁诺什，杀死他并夺走他的头盔，然后你就可以返回希尔瓦纳了。]], [[<name>，这可是个艰难的任务，最好还是带上一两位朋友同行吧。]], },
-    { [[Use the Bladespire Banner atop the Northmaul Tower to lure Gurn Grubnosh.  Deliver the banner and the Helm of Gurn Grubnosh to Commander Skyshadow at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[在北槌哨塔頂端使用劍刃旗幟來誘引葛恩·葛羅巴諾斯。將旗幟跟葛恩·葛羅巴諾斯的頭盔送到劍刃山脈的希爾瓦納給指揮官天影。]], },
   },
   [10519] = {
     [[诅咒密码 - 真相和历史]],
-    { [[<Oronok adjusts his posture and stands to his full height.>]], [[I had to be sure, <name>. And to be sure, I had to test you. Please excuse the little masquerade. I am as much a farmer as you are <female/male>. Which is to say, not at all.]], [[If you are to recover the Cipher of Damnation, you will need to listen to what I have to tell you. When you are ready, let me know and I will tell you the story.]], },
+    { [[<歐朗諾克調整他的姿勢站得直挺挺的。>]], [[我得要確認，<name>。為了確認，我得考驗你。請原諒這個小小的偽裝。我天生是個農夫就像你是<女性/男性>一樣。要說的話，也不完全是。]], [[如果你發現了毀滅密碼，你會需要聽聽我要跟你說的事。你準備好後讓我知道，我會告訴你故事內容。]], },
     { [[影月谷欧鲁诺克农场的欧鲁诺克·裂心要你听听他的故事。跟欧鲁诺克谈谈，听这位年老的兽人讲述他的故事。]], },
   },
   [10520] = {
@@ -26402,17 +26585,17 @@ __ns.L.quest = {
   [10524] = {
     [[雷神氏族的神器]],
     { [[这些印有标记的器物都是由雷神氏族的兽人制造的。在变异成邪兽人以后，这些兽人一直居住在雷神要塞中。]], [[刀塔氏族的食人魔甚至也曾在要塞居住过一段时间，直到最近才被部落赶走。]], [[想必你已经听说了还有其他部分圣物遗失的消息，包括一面鼓、一支箭，还有一块石板，目前我们正在搜索它们的踪迹，希望你也来帮忙。]], [[去刀塔要塞寻找这几样东西吧，如果找到的话，请把它们交给洛克加·血握。]], },
-    { [[Retrieve the Thunderlord Clan Drum, Thunderlord Clan Arrow and the Thunderlord Clan Tablet.  Return them, along with the Thunderlord Clan Artifact, to Rokgah Bloodgrip at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[取回雷霆王氏族大鼓，雷霆王氏族之箭以及雷霆王氏族石板。將它們隨同雷霆王氏族手工藝品一起帶回，交給劍刃山脈雷霆王村的洛克嘎·血握。]], },
   },
   [10525] = {
-    [[Vision Guide]],
-    { [[<race> fool.  You almost destroyed the drum!]], [[I've worked too hard to get here, and my hands have been empty up until now.  At least you were able to succeed where the others only met with failure, or worse.]], [[It is time to evoke a vision that will lead you to the last relic that I have been seeking.]], [[Take this fiery fragment of my soul.  Use it to transform your body into flame and denature your spirit into a vision guide that will shoot forth to reveal the location of the final Thunderlord relic.]], },
-    { [[Use the Fiery Soul Fragment to transform your spirit into a vision guide.  Speak with Rokgah Bloodgrip at Thunderlord Stronghold after your vision has guided you to the location of the final Thunderlord relic.]], },
+    [[幻象導覽]],
+    { [[<race>笨蛋。你差點毀掉這個鼓!]], [[我費盡千辛萬苦來到這裡，直到現在才有所收獲。至少你能夠在別人都失敗，或是更慘的地方成功。]], [[是時候喚出幻象來引領你找到最後一個我一直在找尋的神器。]], [[拿著這個代表我的靈魂的熾熱之魂碎片。用它來將你的身體轉化為火，將你的靈魂變為幻象指引你前往最後發現雷霆王神器的位置。]], },
+    { [[使用熾熱之魂碎片將你的靈魂轉化成幻象導覽模式。在你的幻象導覽帶領你找到最後一個雷霆王神器的所在地後，與雷霆王村的洛克嘎·血握談談。]], },
   },
   [10526] = {
     [[雷霆之刺]],
-    { [[If the vision that I granted you is true, then you must travel down into the ravine and to the south end of Bloodmaul Ravine.  There you will find the Draenethyst Mine.]], [[Journey to the back of the mine, and retrieve the Thunderspike.  Ignore everything else!  I have no interest in the crystals of the mine, nor the ogres therein.]], [[As soon as you have the spear return it to me here!]], [[And, <name>, be very careful with it... I would hate to think what would happen to you should you break it.]], },
-    { [[Rokgah Bloodgrip has tasked you with the retrieval of the Thunderspike.  Return it to her at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[如果那個我讓你看見的幻象屬實，那麼你就得往下到河谷以及血槌深谷的南方盡頭。在那你會找到德萊尼礦坑。]], [[到礦坑的後方去，取得雷霆之矛。不用管其他東西!我對於礦坑內的水晶沒有興趣，還有巨魔也是一樣。]], [[一但你拿到這個矛就馬上帶回來這裡給我!]], [[還有，<name>，你要非常小心……我可不願去想要是它有任何損傷的話你會發生什麼事。]], },
+    { [[洛克嘎·血握派你去取回雷霆之矛。將它帶回劍刃山脈的雷霆王村給她。]], },
   },
   [10527] = {
     [[阿托尔，欧鲁诺克之子]],
@@ -26426,13 +26609,13 @@ __ns.L.quest = {
   },
   [10529] = {
     [[猎人之道]],
-    { [[Lieutenant Dawnrunner at Farstrider Retreat has requested an audience with all able hunters.  It would greatly benefit you to seek her out, <name>.  She is a beacon of wisdom for those of our calling.]], [[Farstrider Retreat lies south of Silvermoon City.]], },
-    { [[Speak with Lieutenant Dawnrunner at Farstrider Retreat.]], },
+    { [[遠行者居所的晨奔中尉需要一個觀眾隨同所有的獵人。這大大助於你去找出她來，<name>。她是我們職業的智慧指引者。]], [[遠行者居所在銀月城的南方。]], },
+    { [[與遠行者居所的晨奔中尉談談。]], },
   },
   [10530] = {
     [[猎人之道]],
-    { [[Lieutenant Dawnrunner at Farstrider Retreat has requested an audience with all able hunters.  It would greatly benefit you to seek her out, <name>.  She is a beacon of wisdom for those of our calling.]], [[Farstrider Retreat lies south of Silvermoon City.]], },
-    { [[Speak with Lieutenant Dawnrunner at Farstrider Retreat.]], },
+    { [[遠行者居所的晨奔中尉要求一位聽眾與所有的獵人同行。這會有助於你去找出她來，<name>。她是我們職業的智慧引導。]], [[遠行者居所就在銀月城的南方。]], },
+    { [[與遠行者居所的晨奔中尉談談。]], },
   },
   [10531] = {
     [[阿拉希盆地之战！]],
@@ -26467,7 +26650,7 @@ __ns.L.quest = {
   },
   [10538] = {
     [[沸腾之血]],
-    { [[That last experiment was not a complete loss]], },
+    { [[最後的實驗並非完全沒有用 - 我有保存一點你帶給我的鮮血。現在煮沸後，它應該已擺脫了血之谷巫者加諸於其人民血液中的詛咒。]], [[我需要更多來研究。去薩斯葛爾的獸人身上收集血之谷鮮血。等你收集好血液，把它帶到他們受詛咒的鍋爐去煮沸它。將沸騰的血帶回來給我。]], },
     { [[将血环血样投入被诅咒的大锅中煮沸，然后将12份沸腾之血交给断背岗哨的药剂师阿尔布雷克。]], },
   },
   [10539] = {
@@ -26483,27 +26666,27 @@ __ns.L.quest = {
   [10541] = {
     [[诅咒密码 - 第二块碎片]],
     { [[英雄，谢谢你。没有你的帮助，我的灵魂将永远禁锢在这个被诅咒的地方。]], [[<阿托尔递给你一只带锁的箱子。>]], [[把箱子交给我的父亲，他住在库斯卡水池附近的农场，在遥远的东北方……箱子里面装着洛恩戈鲁和诅咒密码的第二块碎片。]], [[他听闻我的死讯后必定会非常悲伤。答应我，让他相信我是在宁静祥和中离开这个世界的。告诉他我看见了美丽的狩猎场，告诉他我在那儿等他……]], },
-    { [[Take Ar'tor's Lockbox to Oronok Torn-heart at Oronok's Farm in Shadowmoon Valley.]], },
+    { [[將阿爾托的上鎖帶鎖箱交給影月谷裡歐朗諾克的農場的歐朗諾克·碎心。]], },
   },
   [10542] = {
-    [[They Stole Me Hookah and Me Brews!]],
-    { [[T'chali used to be a pretty friendly troll.  Me come down here to teach the Bloodmaul how to brew their beer.  But once me do that, the Bloodmaul bury T'chali and leave him here to rot!]], [[The worst part of it was that they stole me hookah!]], [[So, you want to help T'chali?  You bring me hookah back.  T'chali think the ogres that stole it headed southwest over by the mine.]], [[And while you're in there, pick up some brews, too!]], },
-    { [[Retrieve T'chali's Hookah and 10 Bloodmaul Brutebane Brews.  Bring them back to T'chali the Witch Doctor at Bloodmaul Ravine in the Blade's Edge Mountains.]], },
+    [[他們偷走我的水煙筒和酒!]],
+    { [[提洽里曾經是一個非常友善的食人妖。我來這裡是為了?血槌氏族如何釀造酒。但是如果我這樣做，血槌氏族會埋了提洽里然後讓他的屍體放在這裡腐爛!]], [[最不好的事情是他們偷走了我的水煙筒!]], [[那麼，你想要幫助提洽里嗎?你幫我找回我的水煙筒。提洽里認為偷走它的巨魔往西南方礦坑的礦坑方向去了。]], [[還有當你到那邊的時候，順便撿一些酒!]], },
+    { [[取得提洽里的水煙筒還有10份血槌蠻禁烈酒。帶到劍刃山脈交給血槌深谷的巫醫提洽里。]], },
   },
   [10543] = {
-    [[Grimnok and Korgaah, I Am For You!]],
-    { [[T'chali has been waiting for his revenge!]], [[The day they bury T'chali and leave him to die, it was Grimnok Battleborn that led them.  And the next day it was Korgaah that come south to raid and kick T'chali in the head.]], [[I want them dead!]], [[You will find Grimnok atop the Southmaul Tower in Bloodmaul Outpost.  You will find Korgaah in the top of a building at the north end of Bladespire Hold.  Korgaah has sober defenders, so use the brew to distract him away from them, because they won't drink.]], },
-    { [[T'chali the Witch Doctor has asked you to kill his chief tormentors, Grimnok Battleborn and Korgaah.  After you have done so, return to him at Bloodmaul Ravine in the Blade's Edge Mountains.]], },
+    [[葛瑞諾克和柯爾卡赫，我為你們而來!]],
+    { [[提洽里一直在等待著他復仇的時刻!]], [[他們活埋提洽里讓他自生自滅的那天，就是由葛瑞諾克·巴拓伯恩領導。隔天劍刃氏族的柯爾卡赫到南方發動攻擊的時候踢到提洽里的頭。]], [[我要他們死光光!]], [[你可以在血槌前哨站的南槌哨塔頂端找到葛瑞諾克。柯爾卡赫則在劍刃要塞最北邊的一棟建築物的頂端。柯爾卡赫的身邊有清醒的防衛者，所以你要使用這瓶酒來引誘他離開他們。]], },
+    { [[巫醫提洽里要你殺死最令他痛苦的人，葛瑞諾克·巴拓伯恩還有柯爾卡赫。完成後回到劍刃山脈的血槌深谷找他。]], },
   },
   [10544] = {
     [[诅咒你们的氏族！]],
     { [[塔卡里想要报复所有的食人魔！]], [[塔卡里生前是一个非常有影响力的巫医。只要进入到他的坟墓，你就能找到一个充满着邪恶力量的雕像。]], [[在刀塔要塞和血槌哨站的建筑物和塔的入口处使用这个雕像，不过要小心，施法召唤时会出现出一个邪灵，你必须先击败它。当你击败这个邪灵后，它所在的那座建筑物就会被诅咒。]], [[一定要小心，如果你试图诅咒一座已经被诅咒过的建筑物，那么你就又要面对一个邪灵的挑战！]], },
-    { [[Use the Wicked Strong Fetish to curse 5 buildings or towers in Bladespire Hold and 2 in Bloodmaul Outpost.  Return to T'chali the Witch Doctor at Bloodmaul Ravine in the Blade's Edge Mountains after you have done so.]], },
+    { [[使用邪惡重型神像詛咒5個在劍刃要塞的建築物或者高塔以及血槌前哨站的2個建築物或者高塔。任務完成時回到劍刃山脈的血槌深谷找巫醫提洽里。]], },
   },
   [10545] = {
-    [[Bladespire Kegger]],
-    { [[As T'chali was saying, he helped out his Bloodmaul friends to make their brew.  But what T'chali did not say was why.]], [[The Bloodmaul are in dire straits.  The Bladespire clan be crushing them, and they needed a new weapon to help out with their fight.]], [[That's when T'chali came up with a great idea.  Why not make the perfect brew, one that strengthens you and weakens your enemy?  Only thing is, T'chali does not know if it works.]], [[So, you gonna take this brew up to Bladespire Hold and see if it works!]], },
-    { [[T'chali has asked you to take the Bloodmaul Brutebane Keg and use it in an attempt to get 5 Bladespire Ogres drunk.  If successful, return to T'chali the Witch Doctor at Bloodmaul Ravine in the Blade's Edge Mountains.]], },
+    [[劍刃氏族的喝酒大會]],
+    { [[正如提洽里所說，他幫他的血槌朋友釀造酒。但是他卻沒說背後的原因。]], [[血槌氏族正在面對可怕的困境。劍刃氏族快打垮他們了，而他們需要新的武器來幫助戰鬥。]], [[這個時候提洽里想出了一個很棒的方法。為什麼不釀造一種完美的酒，使這種酒可以提高你們的力量同時又削弱敵人的戰鬥力呢?只不過，提洽里不知道這個方法是否能成功。]], [[所以，你必須把這種酒帶到劍刃要塞看它是否有效用!]], },
+    { [[提洽里要你使用血槌蠻禁烈酒讓5個劍刃巨魔喝醉。任務完成後回到劍刃山脈的血槌深谷找巫醫提洽里。]], },
   },
   [10546] = {
     [[伯拉克，欧鲁诺克之子]],
@@ -26516,14 +26699,14 @@ __ns.L.quest = {
     { [[位于日蚀岗哨北面石桥旁的欧鲁诺克之子伯拉克要你将一枚腐烂的鸦人之卵交给沙塔斯城中的暴食者托比亚斯。]], },
   },
   [10548] = {
-    [[The Sad Truth]],
-    { [[Remember how I told you about the fat merchant who was looking for that ring?  As it turns out, he had his archeologist son looking for the thing and it didn't turn out so well.  By not so well I mean they killed him and shrunk his head.]], [[Now this might seem cold, calculating, and exceptionally callous, but he'd pay a lot to get his son's head back.  Sounds like the perfect job for you!]], [[Go east until you find the troll ruins of Zeb'Tela and Zeb'Nowa.  You're bound to find it one of the chests there.]], },
-    { [[Eralan in Tranquillien wants you to retrieve the Archeologist's Shrunken Head from one of the chests in Zeb'Tela or Zeb'Nowa.]], },
+    [[悲傷的事實]],
+    { [[還記得我跟你說過那個在尋找戒指的胖商人嗎?結果是，他派他的考古學家兒子去尋找戒指但是進行的不太順利。我說的不太順利是指他們殺了他兒子然後縮小了他兒子的頭顱。]], [[我這麼說可能會讓你覺得我沒人性、心機重而且非常的冷酷無情，但是他願意付大筆的金錢取回他兒子的頭顱。聽起來你是最適合的人選!]], [[往東邊前進直到你遇到食人妖廢墟札布泰拉還有札布諾瓦。你一定會在其中的一個箱子找到你要的頭顱。]], },
+    { [[安寧地的依蘭兒要你從札布泰拉還有札布諾瓦其中的一個箱子取得考古學家的皺縮頭顱。]], },
   },
   [10550] = {
     [[一捆血蓟]],
     { [[我可没说谎。这蛋真是美味中的极品。你从哪儿搞到的？]], [[唔，如果你想要更多的血蓟，只管来找我，咱们各取所需嘛。]], [[这是你要的一捆血蓟。回去找你的头儿吧。]], },
-    { [[Take the Bundle of Bloodthistle back to Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley.]], },
+    { [[將一捆血薊交給影月谷的日蝕崗哨附近橋上的柏爾拉克, 歐朗諾克之子。]], },
   },
   [10551] = {
     [[为奥尔多效力]],
@@ -26543,18 +26726,18 @@ __ns.L.quest = {
   },
   [10555] = {
     [[诡异的魔法]],
-    { [[The magic practiced by the Lashh'an arakkoa is unnatural. They rip out handfuls-clawfuls?-of their own feathers as reagents!]], [[That doesn't sound like good magic to me. I've come here to learn more about their spells. Unfortunately getting close is too much for me.]], [[You could succeed: cast one of their spells on yourself, then return to me. You'll have to find one of their spellbooks, high up in the trees of Veil Lashh.]], [[And unless you've grown feathers I can't see, you'll need to get some of those.]], },
-    { [[Collect 18 Plucked Lashh'an Feathers, then read the Lashh'an Tome in the treetops of Veil Lashh.]], },
+    { [[拉斯汗阿拉卡所研究的法術是很邪惡的。他們一手抓滿-還是應該說一爪?-自己身上的羽毛當做施法材料!]], [[我並不覺得那是一種善良的法術。我來這邊是為了研究他們的法術，可惜我無法接近他們。]], [[你可以這樣做:將他們的法術施放在你自己身上，然後回來找我。你必須找到他們的其中一本法術書，位置就在迷霧拉斯的樹林高處。]], [[除非你自己可以長出羽毛，我看是長不出來啦，你就必須取回他們的一些羽毛。]], },
+    { [[收集18根掉落的拉斯汗羽毛，然後在迷霧拉斯的樹梢上閱讀拉斯汗書卷。]], },
   },
   [10556] = {
     [[潦草的字迹]],
     { [[书页上绘制的图案显示鸦人在拉什鸦巢的某个法阵中用羽毛施法。]], [[似乎鸦人是在利用这个诡异的法术召唤出卡利鸟的灵魂。]], },
-    { [[Use the Fistful of Feathers on the Lashh'an Spell Circle, then return to Daranelle at Sylvanaar before the kaliri spirit fades.]], },
+    { [[在拉斯汗的法陣使用一把羽毛，然後在卡里瑞的精神退去之前回去找希爾瓦納的達藍艾歐。]], },
   },
   [10557] = {
     [[试飞：风动电容器]],
     { [[我造了一个很棒很棒的装置，叫风动电容器，它完美无缺，肯定能正常工作！但……你就说你愿不愿意帮我测试一下吧？]], [[报酬可是绝对非常丰厚喔！]], [[去和我的孪生兄弟拉雷谈谈吧。祝你好运，<name>。实验完成以后再回来找我。或者……要是万一你受伤或者挂了的话，你的亲戚将可以拿走你的报酬。]], },
-    { [[Speak with Rally Zapnabber and use the Zephyrium Capacitorium.  Return to Tally Zapnabber at Toshley's Station.]], },
+    { [[跟瑞利·薩普納伯談話然後使用ZC號。回去托斯利基地找塔利·薩普納伯。]], },
   },
   [10558] = {
     [[荣耀堡的崇敬]],
@@ -26562,9 +26745,9 @@ __ns.L.quest = {
     { [[地狱火半岛荣耀堡的远征军指挥官达纳斯·托尔贝恩要求你进入地狱火堡垒的破碎大厅对抗邪兽人，直到你在荣耀堡的声望达到崇敬。]], },
   },
   [10559] = {
-    [[Revered Among Thrallmar]],
-    { [[You've proven yourself time and again, <class>.  Yet more trials await you.]], [[Continue to fight the Fel Horde inside the Shattered Halls of Hellfire Citadel and your name will be known to all of Thrall's followers in this land.]], },
-    { [[Nazgrel at Thrallmar in Hellfire Peninsula wants you to become revered with Thrallmar by fighting the Fel Orcs inside the Shattered Halls of Hellfire Citadel.]], },
+    [[索爾瑪的崇敬]],
+    { [[你又再一次的證明了你自己，<class>。然而更多的考驗在等著你。]], [[繼續跟那些地獄火堡壘的破碎大廳裡面的魔獄部落戰鬥，你的大名就會流傳在這片大地的索爾瑪追隨者之間。]], },
+    { [[在地獄火半島索爾瑪的納茲格雷爾要你跟地獄火堡壘的破碎大廳裡面的魔獄獸人戰鬥以獲得索爾瑪的崇敬。]], },
   },
   [10560] = {
     [[沙塔尔的崇敬]],
@@ -26583,7 +26766,7 @@ __ns.L.quest = {
   },
   [10563] = {
     [[前往军团要塞]],
-    { [[The fortress of Legion Hold is nigh impregnable, and to be completely honest, I can't spare the forces for an assault. Our hopes are riding on you, <name>.]], [[What little information we've been able to gather indicates that the Legion stocks and prepares its infernals at the hold. With the help of a disguise I'll give you, you must sneak into Legion Hold and learn about the their plans. Your best hope is to intercept or overhear communication between their commanders. Good luck, <name>.]], },
+    { [[軍團要塞的城堡堅固到幾乎無法攻陷，而且我坦白跟你說，我不能為了一次突擊而分散我的部隊。我們只能指望你了，<name>。]], [[從我們收集到的有限資料顯示燃燒軍團在軍團要塞囤積了大量的戰備物資，同時也預備了一些地獄火。你必須帶著我給你的偽裝潛入軍團要塞打聽他們的計畫。你最大的期望是可以攔截或者偷聽他們指揮者之間的軍情交流。祝你好運，<name>。]], },
     { [[前往军团要塞寻找军团通讯装置。在伪装状态下站在军团通讯装置附近，偷听燃烧军团的计划。完成任务后向蛮锤要塞的空军指挥官努埃恩复命。]], },
   },
   [10564] = {
@@ -26594,17 +26777,17 @@ __ns.L.quest = {
   [10565] = {
     [[维克鸦巢水晶]],
     { [[多年来维克鸦人一直是我们的眼中钉。他们信奉某种奇怪的宗教，行为也因此变得癫狂。据说他们身上携带的维克鸦巢水晶具有某种邪恶的用途。]], [[我对维克鸦人的宗教仪式了解得不多，只知道他们利用维克鸦巢法阵对维克鸦巢水晶充能。杀入维克鸦巢，直到你找到水晶，然后将充能的水晶带回来供我研究。]], },
-    { [[Collect and use a Vekh'nir Crystal at the Vekh'nir Spell Circle, then return the Charged Vekh'nir Crystal to Dertrok at the Mok'Nathal Village.]], },
+    { [[收集一個維克尼爾水晶並且在維克尼爾的法力之環使用它，然後把充能維克尼爾水晶交給摩克納薩爾村的德托克。]], },
   },
   [10566] = {
     [[测试魔杖]],
     { [[我制作了四根魔杖，它们能强化维克鸦巢水晶的能量。带上这四根魔杖前往托格玛洞穴，在鸦人的食人魔奴隶身上试验它们的效果。]], [[每根魔杖都需要一颗充能的维克鸦巢水晶才能发挥效用。]], [[当你找出效果最好的那根魔杖后，回来向我复命。]], },
-    { [[Try out each of Dertrok's wands on an Arakkoa Ogre Slave, then return to Dertrok. Each wand will require an Infused Vekh'nir Crystal to use.]], },
+    { [[對一個阿拉卡巨魔奴隸測試每一根德托克的魔杖。每一根魔杖都需要消耗一個灌能維克尼爾水晶。]], },
   },
   [10567] = {
     [[制造坠饰]],
     { [[卢安荒野的鸦人是乌鸦之神的狂热崇拜者，整个氏族都听从乌鸦预言者的号令。]], [[鸦人们相信预言者为他们传达乌鸦之神的教义，是氏族的守护者。]], [[乌鸦预言者在鸦人中享有绝对的控制力，因此我们需要预言者佩戴的魔法坠饰。]], [[杀死卢安鸦人，将卢安利爪放置在祭坛处以吸引乌鸦预言者的注意。]], },
-    { [[Find 6 Ruuan'ok Claws and use them at the Ruaan'ok Oracle Circle to summon a Harbinger of the Raven. Kill it and return its Harbinger's Pendant to Timeon at Ruuan Weald.]], },
+    { [[在魯安歐克神諭者法陣找到6個魯安歐克之爪來召喚1個烏鴉神諭使。殺死它然後將神諭使墜飾交給魯安曠野的泰姆昂。]], },
   },
   [10568] = {
     [[巴尔里石板]],
@@ -26649,7 +26832,7 @@ __ns.L.quest = {
   [10576] = {
     [[影月谷的乔装者]],
     { [[<伯拉克打量着你。>]], [[这事儿有些棘手，不过我应该能办到。]], [[<name>，我打算把你伪装成一名伊利达雷血精灵。但首先你得给我找些血精灵的护甲来，护甲必须保持整洁，不能有任何血渍！这样才不会引起怀疑。]], [[替我收集一些护甲，剩下的事就交给我吧。]], [[伪装完毕后，你就要亲自把口信传达给他们的总指挥官了。]], },
-    { [[Borak, Son of Oronok at the bridge near Eclipse Point in Shadowmoon Valley wants you to recover 6 pieces of Eclipsion Armor.]], },
+    { [[位在影月谷靠近日蝕崗哨一座橋上的柏爾拉克, 歐朗諾克之子要你找回6件日蝕護甲。]], },
   },
   [10577] = {
     [[伊利丹的信使……]],
@@ -26658,7 +26841,7 @@ __ns.L.quest = {
   },
   [10578] = {
     [[诅咒密码 - 伯拉克的命令]],
-    { [[That Cipher fragment will never reach Zuluhed. You're going to ambush Ruul the Darkener and his transport before it has a chance to make the delivery.]], [[The Dragonmaw Fortress is directly east of here, across the Netherwing Fields. Somewhere between Dragonmaw Fortress and the Sanctum of the Stars is where you'll find Ruul. Strike hard and strike fast! And <name>, from the sound of it, this Ruul is going to be tough. Keep your guard up.]], [[Return the Cipher to me should you succeed.]], },
+    { [[那個密碼碎片永遠不會到達祖魯希德的手上。你必須在『晦暗者』魯歐運送的時候偷襲他，你不能給他任何機會完成他的運送。]], [[龍喉堡壘就在正東方，當你穿過虛空之翼農場就會看到。你會在龍喉堡壘和星光聖所之間的某處找到魯歐。用你最快最大的力量去偷襲他。但是，<name>，我有聽說過，這個魯歐可是很強悍的。保持你的警戒心。]], [[當你成功之後把密碼交還給我。]], },
     { [[从亵渎者鲁尔手中夺回诅咒密码的第二块碎片，然后向位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克复命。]], [[该任务最好组队完成。]], },
   },
   [10579] = {
@@ -26669,12 +26852,12 @@ __ns.L.quest = {
   [10580] = {
     [[侏儒都去哪里了？]],
     { [[尽管这里一切都进展顺利，但我的心情还是不怎么好，因为我先前几天被迫把托什雷和他的那些侏儒朋友都赶出了这里。]], [[可我们也确实没有办法，他们的科技实验对林地环境的影响很不好，可能会把我们的努力成果搅得一团糟。]], [[不知你是否能替我去探望探望他们，看看他们现在过得怎样？听说他们向东走去了，过了桥。我猜他们可能转向了南边，向着远离雷神要塞的方向继续前进。]], [[看看锯齿山的南部有没有他们的踪迹吧。]], },
-    { [[Commander Skyshadow has asked you to look in the southern area of the Jagged Ridge of the Blade's Edge Mountains for a clue as to the whereabouts of Toshley and the other gnomes.]], },
+    { [[指揮官天影要求你去劍刃山脈南邊的鋸齒山脊尋找托斯利還有其他地精去向的線索。]], },
   },
   [10581] = {
     [[废话连篇]],
     { [[非常好，我在此郑重警告你，你在这片山岭地带找不到任何东西。]], [[别想跟着那些散在地上的碎零件到托什雷的基地去！你找不到托什雷，你找不到任何侏儒。]], },
-    { [[In a round-about way, R-3D0 has informed you that if you follow the trail of spare parts up the ramp here to the Razor Ridge, you will find the gnomes at a place named Toshley's Station.]], [[If you find him, speak with Toshley.]], },
+    { [[講了一圈，原來R-3D0型機器人已經告訴你跟著散落地面的零件痕跡上斜坡到剃刀山脊，你就會發現地精們在一個叫做托斯利基地的地方。]], [[假如你找的到托斯利的話，跟他談談吧。]], },
   },
   [10582] = {
     [[暗影议会的爪牙]],
@@ -26689,7 +26872,7 @@ __ns.L.quest = {
   [10584] = {
     [[能量转换器]],
     { [[北边刀塔哨站里那些蠢笨的食人魔曾袭击过我们，抢走了我们的能量转换器！你得去把它们给我抢回来，有多少抢回来多少。]], [[不过，想都不用想，他们那又肥又笨的手掌肯定把转换器都搞坏了。那么这样吧，你需要直接释放它们里面的能量，然后对着释放出来的电浆使用这个电磁收集器，把它固化吸收。]], [[它可能会给你搞出点麻烦，所以收录进磁力球之后，你得把它“杀掉”。]], },
-    { [[Toshley has asked you to take the Protovoltaic Magneto Collector and gather up 5 Electromentals.  Return to him at Toshley's Station in the Blade's Edge Mountains after you have done so.]], },
+    { [[托斯利要你帶著原始電磁集電器去收集5個電流體。任務完成時回去劍刃山脈的托斯利基地找托斯利。]], },
   },
   [10585] = {
     [[召唤之厅]],
@@ -26708,7 +26891,7 @@ __ns.L.quest = {
   },
   [10588] = {
     [[诅咒密码]],
-    { [[How many times has this spell has been used in the history of our worlds? Undoubtedly, its power for destruction is unparalleled.]], [[What you must do now is take the cipher, now made whole, and read from it at the Altar of Damnation - where the memory of Gul'dan stands.]], [[What you will see once the words are uttered are the memories left imprinted upon the land. Stand your ground and await the coming of Cyrukh.]], [[You must be victorious, <name>. This land can not withstand another shattering.]], },
+    { [[在我們的世界歷史中，這個法術被使用過了幾次呢?毫無疑問的，它的破壞威力是無與倫比的。]], [[你現在必須拿著這個密碼(現在已經完成了)並且在詛咒祭壇 - 就是在古爾丹的回憶佇立的地方，唸出上面的文字。]], [[一旦你開始讀密碼的時候，你就會看見這段銘記於大地的回憶。留在原地等著迎接賽洛庫的到來。]], [[你一定要獲得勝利，<name>。我們的大地已經無法再承受額外的打擊了。]], },
     { [[在诅咒祭坛念诵诅咒密码，召唤出火焰之王森卢肯。]], [[杀死火焰之王森卢肯，然后与诅咒祭坛的大地治愈者托洛克谈一谈。]], },
   },
   [10589] = {
@@ -26717,54 +26900,54 @@ __ns.L.quest = {
     { [[将军团传送控制器交给蛮锤要塞的空军指挥官努埃恩。据说军团要塞的莫尔葛武器匠身上携带着这东西。]], },
   },
   [10590] = {
-    [[Prove Your Hatred]],
-    { [[It is time you remembered history that should not be forgotten... the slaughter of our people by Arthas and his Scourge army.]], [[Vengeance on the Scourge is the only way to ease your pain.  It is unfortunate they are not susceptible to fear and pain.  Only their utter destruction will bring you even a shred of satisfaction.]], [[Speak with Argent Officer Garush for knowledge of scourgestones and how to obtain them]], },
-    { [[Mehlar Dawnblade at the Bulwark wants you to bring him 20 Minion's Scourgestones.]], },
+    [[復仇的證明]],
+    { [[是時候讓你記得不該被遺忘的歷史了……屠殺我們族人的阿薩斯和他的天譴軍團。]], [[向天譴軍團復仇是減輕你痛苦的唯一辦法。很不幸他們對恐懼和痛苦沒太大的感覺。只有他們徹底的毀滅才能為你帶來一點快樂。]], [[和銀色黎明軍官加魯什談談，了解天譴石和如何取得它們的知識 - 在我們再次交談前我要看到很多以做為你承諾的證據。]], },
+    { [[瑪拉·曦刃要你幫他帶回20個爪牙的天譴石。]], },
   },
   [10592] = {
-    [[Wisdom of the Banshee Queen]],
-    { [[The scourgestones are weak when separated from the skeletal grasp that once held them.  Simply holding them in my hands has caused them to fracture and break.]], [[<Mehlar crushes the scourgestones into a pile of rubble.>]], [[Take these fragments to the Banshee Queen, Lady Sylvanas Windrunner, at her throne in Undercity.  With her lies the knowledge to turn these remains into a weapon against the Scourge.]], },
-    { [[Bring the Scourgestone Fragments to Lady Sylvanas Windrunner in Undercity.]], },
+    [[女妖之王的智慧]],
+    { [[天譴石離開擁有它們的骷髏之握時就會變的很脆弱。單單把它們握在我的手裡就讓它們碎裂了。]], [[<瑪拉把天譴石捏成一堆小碎石。>]], [[帶著這些碎片去找女妖之王，希瓦娜斯·風行者，她在幽暗城的王座裡。她知道如何將這些殘餘物變成對抗天譴軍團的武器。]], },
+    { [[將天譴石碎片交給幽暗城的希瓦娜斯·風行者。]], },
   },
   [10593] = {
-    [[Ancient Evil]],
-    { [[If you wish to turn these stones into a weapon to fight the Scourge, you must acquire something equally vile to fortify them.]], [[An ancient evil lies hidden at the bottom of the Temple of Atal'Hakkar in the Swamp of Sorrows.  Release the creature there and destroy him, taking only a small part of his body back to Mehlar Dawnblade.  My guards will deliver the scourgestone fragments to Mehlar.]], },
-    { [[Unlock the secrets of the Temple of Atal'Hakkar to release Atal'alarion and recover the Putrid Vine from his flesh.  Return to Mehlar at the Bulwark when you have done this.]], },
+    [[古老的禍害]],
+    { [[這些石頭提醒著我不想記住的汙點，但卻也是我無法忘記的。當你把這些石頭帶來給我的時候就是在考驗我的耐性。]], [[不過，很明顯的你的內心渴望和我同樣的復仇，所以我會幫你完成這個目標。]], [[去探索位在悲傷沼澤的阿塔萊神廟深處吧。你必須解開它的秘密釋放古老的禍害，摧毀它並把它身體的一部份帶回來給瑪拉·曦刃。我的守衛會將天譴石碎片交給瑪拉。]], },
+    { [[解開阿塔萊神廟的秘密釋放阿塔拉利恩，並且從他的肉體取回腐爛的藤蔓。當你已經完成時，返回亡靈壁壘的米哈爾那裡。]], },
   },
   [10594] = {
     [[测量振荡频率]],
     { [[把这些扫描器带到晶歌山脉去。你只需把它们按照特定的样式和位置摆放在地上，就可以创造出一个多维度的力场群，这个力场群会解读和分析出那些水晶的频谱。然后呢，你要按这样的方式站在它们中间，让五个振动场都能覆盖到你，这样我就可以得到我需要的信息了！]], [[你的扫描器甚至还会对落入场中的其它东西产生反应。]], [[哦，对了，运行的时候，可能还会产生一道空间裂隙！我不知道里面有什么东西会跑出来，但你最好有心理准备。]], },
-    { [[Nickwinkle the Metro-Gnome wants you to place the Oscillating Frequency Scanners in such a way that when you stand amongst them, you are hit by five overlapping Oscillation fields.]], [[Return to him at Toshley's Station in the Blade's Edge Mountains after you have done so.]], },
+    { [[地鐵地精尼克偉恩寇要你以下列的方式來安裝震盪頻率掃瞄器。你必須在安裝完畢時同時處在五個震盪區域之中。]], [[完成之後，回到劍刃山脈的托斯利基地向地鐵地精尼克偉恩回報。]], },
   },
   [10595] = {
     [[兵临城下！]],
-    { [[<Gulmok looks to the sky.>]], [[Our scouts are putting up a good fight, but the infernals keep coming!]], [[From their base of Legion Hold to the southwest, the demons bombard us with impunity! Even the elite Kor'kron guard cannot hold them off forever.]], [[I'm drafting every able-bodied <race> to do their part in defense of Shadowmoon Village. This is no game, <class>. The survival of the village is at stake. Do your duty to the Horde, and join the fray!]], },
-    { [[Blood Guard Gulmok outside of Shadowmoon Village, wants you to kill 10 Infernal Attackers.]], },
+    { [[<高莫克望著天空。>]], [[我們的斥候部隊已經展開了一場激戰，但是地獄火還是一直不斷的轟過來!]], [[來自他們位於西南方的軍團要塞基地，那些惡魔們根本是毫髮無傷的一直轟炸我們!就連柯爾克隆精英守衛也無法永久的阻擋他們。]], [[我正在佈置戰局讓所有的<race>都可以盡他們的責任共同防禦影月村。這可不是一場遊戲，<class>。影月村的生死存亡正在危急關頭。盡你身為部落一份子的責任，投入我們戰力薄弱的地方共同作戰吧!]], },
+    { [[影月村外面的血衛士高莫克要你去殺10個地獄火攻擊者。]], },
   },
   [10596] = {
     [[前往军团要塞]],
     { [[军团守住的堡垒是你的目标。你们没有增援部队，所以正面攻击是不可能的。]], [[我们所得到的一点信息表明，军团库存并准备在持有的地狱。在我给你的伪装帮助下，你必须潜入军团拘留所，并发现他们的计划。]], [[最好的希望是拦截或无意中指挥官之间的交流。]], },
-    { [[Make your way to Legion Hold, locate the Legion Communication Device, and learn about the Legion's plans while in disguise. Return to Blood Guard Gulmok at Shadowmoon Village when you've completed your mission.]], },
+    { [[去軍團要塞，找到軍團傳輸設備，然後在偽裝的狀態下打聽燃燒軍團的計畫。任務完成後向影月村的血衛士高莫克回報。]], },
   },
   [10597] = {
     [[制造炸弹]],
-    { [[We can't allow the Legion to trample us on their march to Black Temple.]], [[Find a way to destroy the infernals they intend to use against us. That's not a request, <name> it's an order.]], [[The Fetid Pool near Legion Hold holds an old fel reaver power core you could use as the basis for a kind of fel bomb. Search the other wreckage near the fel reaver for a section of armor plating. You should be able to make a bomb powerful enough to take out those infernals and give the hold a nice shake!]], },
-    { [[Obtain a Fel Reaver Power Core and a Fel Reaver Armor Plate, then bring them to Blood Guard Gulmok at Shadowmoon Village.]], },
+    { [[我們可不能讓燃燒軍團進軍黑暗神廟的腳步給踩傷了。]], [[想辦法摧毀那些燃燒軍團準備用來對付我們的地獄火。這可不是請求，<name>;這是命令。]], [[靠近軍團要塞的惡臭水池保存了舊的惡魔搶奪者能量核心，你可以把它當作某種魔化炸彈的基礎材料。在要塞附近搜索另一個殘骸，尋找一個能量母體還有一個鎧甲。你應該可以利用這些東西組成一個炸彈，威力足以摧毀所有的地獄火，同時還可以讓軍團要塞好好的感受一下地動山搖的滋味!]], },
+    { [[取得惡魔搶奪者能量核心，惡魔搶奪者能量母體還有惡魔搶奪者鎧甲，把它們帶給影月村的血衛士高莫克。]], },
   },
   [10598] = {
     [[炸毁地狱火！]],
     { [[我们装配出来的这玩意虽然其丑无比，但是它能消灭军团要塞的地狱火大军。瞧瞧魔能机甲能量核心对恶臭之池的影响，这东西蕴藏的爆炸威力可不容小觑。]], [[如果在军团要塞的绿色雕文中心引爆这个邪能炸弹，应该可以一举歼灭所有地狱火。]], },
-    { [[Use the Fel Bomb while standing on the green glyph in Legion Hold to destroy the infernals, then report to Blood Guard Gulmok at Shadowmoon Village.]], },
+    { [[當你站在軍團要塞的綠紋圈上面的時候引爆魔化炸彈。當你完成任務，回報給影月村的血衛士高莫克。]], },
   },
   [10599] = {
     [[死亡熔炉]],
-    { [[While you were taking care of the infernals at Legion Hold, I've been going over your reports. We've got no reason to believe the Legion lied about what's going on at the Deathforge. They're really cranking out infernals down there, so I've dispatched a scouting party to keep watch over it.]], [[If we don't shut down the Deathforge, they'll rebuild the infernal stockpile that you destroyed at Legion Hold.]], [[Report to Scout Zagran atop Slag Watch, to the southeast of here and overlooking the Deathforge.]], },
-    { [[Report to Scout Zagran at Slag Watch.]], },
+    { [[當你在軍團要塞解決那些地獄火的時候，我在重新思考你作的報告。我們沒有理由相信燃燒軍團會對死亡熔爐的情況撒謊。他們真的在那邊加速地獄火的生產速度，所以我已經派出一支偵察隊去監視死亡熔爐。]], [[假如我們無法讓死亡熔爐停工的話，他們會重建你在軍團要塞所摧毀的地獄火堆。]], [[你去跟一個叫做爐熔守望的塔裡跟斥候薩葛蘭回報，它的位置就在死亡熔爐的北方。]], },
+    { [[向爐熔守望的斥候薩葛蘭回報。]], },
   },
   [10600] = {
     [[暗影议会的爪牙]],
-    { [[<Zagran listens to you recount the events at Legion Hold, nodding.>]], [[That fills in the gaps we've seen. We've caught glimpses of them launching infernals in the direction of the hold, but haven't been able to find much more than that.]], [[The Shadow Council has the forge pretty much locked down. Looks like you're going to need to fight your way in. Start eliminating the Shadow Council guarding the entrance to the Deathforge!]], },
-    { [[Scout Zagran at Slag Watch wants you to kill 10 Deathforge Guardians and 5 Deathforge Summoners.]], },
+    { [[<薩葛蘭一邊點頭一邊聽你訴說在軍團要塞發生的事件。>]], [[你的描述彌補了我們資訊不足之處。我們曾經偷偷見到他們往要塞的方向運送地獄火，但是再也打聽不到其他的消息。]], [[暗影議會幾乎把整個死亡熔爐給層層封鎖住了。看來你必須要殺出一條血路才進的去。開始清除由暗影議會所把守通往死亡熔爐的通道吧!]], },
+    { [[爐熔守望的斥候薩葛蘭要你去殺10個死亡熔爐守護者還有5個靈魂行者。]], },
   },
   [10601] = {
     [[卡格罗什的命运]],
@@ -26778,18 +26961,18 @@ __ns.L.quest = {
   },
   [10603] = {
     [[击败战争使者！]],
-    { [[We've made a lot of progress against the Shadow Council here at the Deathforge, but now it's time to finish the job.]], [[I found a key among the items in Kagrosh's pack. At least he accomplished something before they got to him.]], [[The key should help you to track down this Warbringer Razuun you observed at Legion Hold.]], [[After you've hunted down and dealt with Warbringer Razuun, report directly to Blood Guard Gulmok. We must not keep him waiting.]], },
-    { [[Defeat Warbringer Razuun, recover Razuun's Orders, and report to Blood Guard Gulmok at Shadowmoon Village.]], },
+    { [[我們在死亡熔爐對抗暗影議會的行動進展良好，但是現在該是我們解決他們的時候了。]], [[我在凱格羅西的背包裡頭的物品裡找到一把鑰匙。至少在他們殺了凱格羅西之前他完成了某項使命。]], [[這把鑰匙可以幫助你追蹤你在軍團要塞偵察到的戰爭使者瑞術恩。]], [[在你找到並且解決了戰爭使者瑞術恩之後，直接去向血衛士高莫克回報吧。我們不能讓他等太久。]], },
+    { [[擊敗戰爭使者瑞術恩，奪回瑞術恩的指令，然後向影月村的血衛士高莫克回報。]], },
   },
   [10604] = {
     [[控制权]],
-    { [[According to Razuun's orders, the massive infernal staging area is called Invasion Point: Cataclysm and it's located in the mountains behind our village! The only way to reach it is by using a teleporter at Legion Hold.]], [[Certain Legion minions carry a device allowing them to use the teleporter. You must capture one of these devices to win access to the teleporter. Slaughter all of the demons if you must, but you can't afford to return empty-handed. Do not delay; the enemy is perilously close.]], },
-    { [[Bring a Legion Teleporter Control to Blood Guard Gulmok at Shadowmoon Village. The Mo'arg Weaponsmiths at Legion Hold are known to carry the devices.]], },
+    { [[根據瑞術恩的指令，地獄火大量聚集的地點叫做侵略點:災難，而且這個地點就在我們村子的後方山區裡!想到達那邊的唯一方法是使用軍團要塞裡頭的一個傳送器。]], [[燃燒軍團的軍隊之中有特定的人員會攜帶可以啟動傳送器的儀器。你必須搶回一些這種儀器才能啟動傳送器。假如有需要你就殺光那邊的惡魔也沒關係，但是你不准給我空手回來。不要耽擱時間;敵人已經非常靠近我們了。]], },
+    { [[將軍團傳送門控制器交給影月村的血衛士高莫克。在軍團要塞的莫阿格武器鐵匠都會攜帶這種儀器。]], },
   },
   [10605] = {
-    [[Carendin Summons]],
-    { [[You have a hungry look about you, <name>.  Perhaps it is time you advanced your training.]], [[Travel to Undercity and speak with Carendin Halgar, the old bag of bones knows a trick or two you might find useful.]], },
-    { [[Speak with Carendin Halgar in Undercity.]], },
+    [[凱倫丁的召喚]],
+    { [[你的臉上有種渴望學習的表情，<name>。也許是時候可以加強你的訓練了。]], [[去跟幽暗城的凱倫丁·哈加爾談一談吧，這個老傢伙倒還懂得一兩手絕活你將來可能會派上用場。]], },
+    { [[跟幽暗城的凱倫丁·哈加爾談話。]], },
   },
   [10606] = {
     [[魔能机甲维修窍门大全]],
@@ -26799,25 +26982,25 @@ __ns.L.quest = {
   [10607] = {
     [[乌鸦之神的低语]],
     { [[格里施纳的鸦人利用乌鸦预言者留下的图腾，聆听来自乌鸦之神的神喻。不幸的是，我们无法解读鸦人的语言。]], [[这枚预言者的坠饰或许能帮助我们。你必须借助鸦人的灵魂来破解他们的语言。当鸦人之魂附着在你身上后，你就能破解图腾的秘密了。]], [[<name>，帮我们揭开乌鸦之神的秘密吧。]], },
-    { [[Kill Grishna arakkoa to gain Understanding Ravenspeech for 2 minutes. While under the effects of the spell, you can find and receive the prophecy from the four shrines. Return when you have visited all four.]], },
+    { [[殺死葛瑞納阿拉卡取得理解烏鴉語的效果2分鐘。在法術的效果之下，你可以從四個聖物之中得知四段預言。當你得知四段預言之後就回來找我。]], },
   },
   [10608] = {
     [[水晶剥石者的麻烦]],
     { [[那些该死的剥石者搞得我根本没办法到晶歌山脉下面去进行研究！它们一直在不停地挖掘那里的水晶，每一爪都是在毁灭我研究这些歌唱水晶的机会。]], [[你看起来像是个能帮我解决问题的人。到南边去，把那些该死的水晶剥石者都消灭干净吧。]], },
-    { [[Nickwinkle the Metro-Gnome wants you to slay 10 Crystal Flayers and then return to him at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[地鐵地精尼克偉恩寇要你殺死10個水晶鐮奪怪然後回到劍刃山脈的托斯利基地向他回報。]], },
   },
   [10609] = {
     [[先有龙还是先有蛋？]],
     { [[我正在研究各种龙类精华的药用价值，它们很可能是治愈多种疾病的灵药！]], [[我想派人前往南边的晶歌山脉，取回一些龙类精华。]], [[你愿意帮忙吗？对着那些从虚空龙蛋中孵化出的虚空幼龙使用时间定相调节器就行，将你收集到的各种龙类精华带回来给我。]], [[不过，这个时间定相调节器只是个我改造出来的工具，其实我自己也不知道虚空幼龙能转化出什么样龙类精华。]], },
-    { [[Collect 3 Proto-Nether Drake Essences, 3 Adolescent Drake Essences and 3 Mature Drake Essences.  Return with them to Fizit "Doc" Clocktock at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[收集3個原始虛空龍之精華、3個年輕的虛空龍之精華還有3個成熟的虛空龍之精華。交給劍刃山脈托斯利基地的費茲特「醫生」克羅克塔可。]], },
   },
   [10610] = {
     [[Prospecting Basics]],
   },
   [10611] = {
     [[魔能机甲维修窍门大全]],
-    { [[The best way to destroy the rest of the Legion's supplies is to use their own weapons against them. I've been working on a rig that will let you take control of one of those Fel Reaver Sentinels below.]], [[There are a couple things I need to work out, yet. For that, I'll need the manual that Doctor Maleficus keeps locked in a chest near the bottom of the ramp. He probably won't give up the key without a fight, so you'll need to capture it. Bring the fel reaver manual back to me and I'll do the rest.]], },
-    { [[Kill Doctor Maleficus and obtain the Doctor's Key. Use the key to open the Doctor's Strongbox to retrieve The Art of Fel Reaver Maintenance and deliver the book to Nakansi at Invasion Point Cataclysm.]], },
+    { [[要消滅燃燒軍團剩餘庫存的最好的方法是利用他們的武器來打擊他們。我已經在著手研究一個裝置，讓你可以控制一個下面的惡魔搶奪者哨兵。]], [[但是目前我還剩下幾個難題。為了克服它們，我需要博士嘎崔克鎖在斜坡底部保險箱裡的技術手冊。他大概不會平白無故的把保險箱的鑰匙送給你，所以你必須把它搶回來。只要把惡魔搶奪者的技術手冊交給我，我會搞定剩下的事情。]], },
+    { [[殺死博士莫歐費卡斯取得博士的鑰匙 。使用鑰匙打開博士的保險箱取得惡魔搶奪者保養技術，然後將這本書交給災難侵佔崗哨的那卡西。]], },
   },
   [10612] = {
     [[狂暴的魔能机甲]],
@@ -26826,13 +27009,13 @@ __ns.L.quest = {
   },
   [10613] = {
     [[狂暴的魔能机甲]],
-    { [[<Nakansi leafs through the manual.>]], [[All the information is here, but be warned. These things weren't built to be controlled remotely.]], [[We can modify one for you to use for a short time, but you'll have to work fast, or there's no telling what might happen! I wouldn't be surprised if your little stunt with the fel reaver catches the attention of the Legion scum, either. Try to keep yourself safe, but remember, the mission and the safety of Shadowmoon Village come first!]], },
-    { [[Use a Fel Reaver Control Console to take control of a Fel Reaver Sentinel. Destroy 60 Deathforged Infernals before your fel reaver fails. When your mission is complete, report to Nakansi at Invasion Point: Cataclysm.]], },
+    { [[<那卡西翻閱這本手冊。>]], [[我們需要的資訊都在這裡，但有一件事要注意。這些東西原本就設計成不受遠端控制。]], [[我們可以修改一台讓你暫時使用，但是你的動作要快，不然後果難測!假如你用惡魔搶奪者使出的手段驚動到燃燒軍團的手下我一點也不驚訝。保持警戒，但要記住，首要任務是維護影月村的安全!]], },
+    { [[使用惡魔搶奪者控制平台控制一個惡魔搶奪者哨兵。在你的惡魔搶奪者失效之前摧毀60個死鑄地獄火。任務完成後，向侵略點:災難的那卡西回報。]], },
   },
   [10614] = {
-    [[Whispers on the Wind]],
-    { [[I have chased rumors of the Mok'Nathal across Outland with nothing to show for it. Finally, we may have found their home.]], [[But now that the moment is here, I am filled with unease. Unease that has kept me awake deep into the nights during my search. Will they accept me?]], [[I... know their leader's name: Leoroxx. Seek him out. You must be my eyes in this.]], },
-    { [[Search out Leoroxx at the Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    [[風中低語]],
+    { [[我已經尋遍外域有關摩克納薩爾的謠言，但沒有任何關於它的蹤跡。最後，我們可能找到他們的家。]], [[但是既然現在就在這裡，我心裡卻充滿著不安。在我搜尋的期間，心神不安使我到深夜都無法入睡。他們會接受我嗎?]], [[我……知道他們領導人的名字:李歐羅克斯。將他找出來。這次你必須當我的眼睛。]], },
+    { [[到劍刃山脈的摩克納薩爾村找到李歐羅克斯。]], },
   },
   [10615] = {
     [[卢安荒野]],
@@ -26842,12 +27025,12 @@ __ns.L.quest = {
   [10617] = {
     [[丝翼蛾茧]],
     { [[丝翼巨蛾的茧丝用途广泛，是制作各种生活用品的主要原料。我们对茧丝的需求量居高不下。]], [[但是当幼虫开始蜕变时，就很难收集到蛾茧了。]], [[我们的士兵正忙着抵抗外敌入侵，如果你愿意抽空帮我们收集一些蛾茧就最好不过了。]], },
-    { [[Taerek at Mok'Nathal Village wants you to collect 8 Silkwing Cocoons from Silkwing Larva.]], [[Kill the Larva quickly or they will turn into Silkwings, ruining their cocoons.]], },
+    { [[摩克納薩爾村的塔爾瑞克要你從絲翼幼蟲身上收集8個絲翼之繭。]], [[在幼蟲成長成絲翼之前殺掉它，不然繭就會被破壞。]], },
   },
   [10618] = {
     [[最柔软的翅膀]],
     { [[对年轻的士兵而言，捕杀丝翼幼虫是一个艰巨的挑战。值得庆幸的是，就算无法从幼虫身上收集到蛾茧，我们仍然能够利用丝翼巨蛾的翅膀。]], [[事实上，蛾翼的用途比蛾茧更为广泛，我们对此的需求量也相当巨大。]], [[如果你恰好要外出，能不能帮我带些蛾翼回来？]], },
-    { [[Silmara at Mok'Nathal Village wants you to collect 12 Iridescent Wings.]], },
+    { [[摩克納薩爾村的希歐瑪納要你收集12個彩虹之翼。]], },
   },
   [10619] = {
     [[灰舌氏族]],
@@ -26857,7 +27040,7 @@ __ns.L.quest = {
   [10620] = {
     [[山脊上的危险]],
     { [[托什雷最初决定迁移到外域时，就雇佣了我们作帮手，我们从那时候起就搬到了这里。]], [[现在，我们终于在这里扎下一些根基了。这里几乎所有的狂热科学家们都在进行着各自的研究计划，而我们这些硬汉队的成员则要负责保护他们。]], [[现在我们需要你帮忙，请前往北边的剃刀山，或是东边的鳞翼岩床，清理那边的捕猎者吧。这些行踪诡秘的蜘蛛总是隐藏在露出地面的大块岩石附近，一旦有警惕心松懈的旅人经过，就会跳出来发动袭击。]], },
-    { [[Dizzy Dina wants you to kill 10 Ridgespine Stalkers.  After you have done so, return to her at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[迪希·迪娜要你殺死10隻山脊行者。任務完成後，回到劍刃山脈的托斯利基地向她回報。]], },
   },
   [10621] = {
     [[伊利达雷斩除碎片]],
@@ -26876,13 +27059,13 @@ __ns.L.quest = {
   },
   [10624] = {
     [[阴森的历史]],
-    { [[Have you felt the cold chill? Perhaps what you thought was a hand on your shoulder? That was not your mind playing tricks on you, <race>. The land is haunted. Ghosts litter the landscape, stuck here for all eternity.]], [[Would you like to see them? Are you sure about that? These types of things tend to change a person - and not for the better.]], [[Very well, I will need you to collect for me the ever-burning ash that is found near any of the fel lava pools of western Shadowmoon. Anywhere near green lava...]], },
+    { [[你有沒有感覺到一股陰風吹過?或許你會想是有人把手放在你的肩膀上?那並不是你的憑空想像，<race>。這片土地一直以來都有鬼的存在。所有的地方都充滿著鬼魂，他們永遠都被困在這裡。]], [[你想看它們嗎?你確定?這種東西想改變一個人-往壞的方向。]], [[好吧，我要你去幫我去影月谷西邊的地獄熔岩池的附近收集永燃灰燼。只要是靠近綠色的熔岩……]], },
     { [[将15份永燃灰烬样本交给影月谷影月村的主药剂师希尔达迦。]], },
   },
   [10625] = {
     [[幽灵眼镜]],
-    { [[I call them "Spectrecles." Clever, no? When you equip these goggles, you will be able to see the spirits of Shadowmoon Valley.]], [[Before I let you have them, though, you must promise me that you will help us clear out the ghosts at the village.]], [[Take the goggles and destroy any and all spirits that you see wandering about Shadowmoon Village. Hopefully, destroying these spirits will force any that remain to move elsewhere.]], },
-    { [[Chief Apothecary Hildagard at Shadowmoon Village in Shadowmoon Valley wants you to slay 12 Shadowmoon Zealots.]], },
+    { [[我稱它為「顯靈鏡」。我真聰明，是嗎?當你戴上這個護目鏡，你將可以看到影月谷的鬼魂。]], [[然而在我給你之前，你必須答應我你會幫我們清除這些在村子的鬼魂。]], [[戴上這個護目鏡然後消滅你看到所有在影月村遊蕩的鬼魂。我們希望，消滅這些鬼魂會逼迫剩下的鬼魂移居別處。]], },
+    { [[影月谷的影月村的總藥劑師希爾達嘉要你殺死12個影月狂熱者。]], },
   },
   [10626] = {
     [[夺取武器]],
@@ -26912,16 +27095,16 @@ __ns.L.quest = {
   [10632] = {
     [[锋利的牙齿]],
     { [[你能帮助托什雷和他的科学家朋友们，这可真是太好了。然而，我却没有那个奢侈的条件去纵容我的“个人兴趣爱好”。]], [[如果你真想改善这里的状况，就得按我说的去做。现在，我需要武器。]], [[我们的枪在远距离的时候效果很不错，但如果被那些虫子接近的话，就需要强力的近战武器了。]], [[栖息在北边剃刀山一带的刃喉鞭尾龙有着锋利的牙齿，非常适合做成武器的刃部。给我带一些回来。]], },
-    { [[Razak Ironsides has asked you to gather up 5 Extra Sharp Daggermaw Teeth.  Return them to him at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[洛薩克·鐵面要你取回5個特級銳利匕爪牙齒。完成後回到劍刃山脈的托斯利基地交給他。]], },
   },
   [10633] = {
     [[塔隆·血魔的传说]],
     { [[世间流传着许多关于塔隆·血魔的故事，但是大多数都只是传说。人们并不知道塔隆·血魔返回德拉诺世界后发生的事。]], [[我们只能确定一件事，那就是他已经死了。]], [[我曾听这儿的斥候说，在遥远的东南方，跨越灵翼平原，穿过灵翼小径就能到达暗影祭坛，有位远古的兽人灵魂居住在那儿。戴上幽灵眼镜搜寻这位兽人。他应该知道更多关于塔隆·血魔的事。]], },
-    { [[Chief Apothecary Hildagard at Shadowmoon Village in Shadowmoon Valley wants you to find the Ancient Shadowmoon Spirit.]], [[If you lose your Spectrecles, Chief Apothecary Hildagard can make you a new pair.]], },
+    { [[影月谷影月村的總藥劑師希爾達嘉要你尋找古老的影月靈魂。]], [[假如你的顯靈鏡遺失的話，總藥劑師希爾達嘉可以幫你製作一副新的。]], },
   },
   [10634] = {
     [[占卜：血魔的护甲]],
-    { [[In life, Gorefiend was a bastard, but in death, Gorefiend was an unmitigated terror.]], [[To the southeast you will find Netherwing Ledge. What was once part of the mainland of Shadowmoon is now a floating island in the sky.]], [[Vhel'kur, spawn of Deathwing, once called it his home, but now knows it as his grave. He flies an endless circle above the island, seething at his defeat to Gorefiend.]], [[If you are to recover the Gorefiend's armor, it is Vhel'kur that you must defeat.]], },
+    { [[血魔在世的時候是一個壞蛋，但是死後，他所製造的恐懼並沒有因而減少。]], [[你可以在東南方找到虛空之翼礦脈。有一塊曾經屬於影月谷的土地現在變成了浮在半空中的小島。]], [[身為死亡之翼後代的弗歐克爾曾經以這個小島為家，但是現在成了他的墓地。他在小島上不停的繞圈子飛行，為了他打敗血魔而激動著。]], [[假如你想取得血魔的護甲，你就必須打敗弗歐克爾。]], },
     { [[将血魔的护甲交给影月谷东南方暗影祭坛的上古影月之魂。]], },
   },
   [10635] = {
@@ -26955,13 +27138,13 @@ __ns.L.quest = {
     { [[前往纳格兰西部寻找受难者奥图里斯。]], [[为奥尔多完成任务将会降低你在占星者阵营中的声望等级。]], },
   },
   [10641] = {
-    [[Against the Legion]],
-    { [[The Burning Legion has proven its capacity to corrupt mortal souls time and again.  If I'm to entrust you with the knowledge you seek, I must have proof of your allegiance.]], [[A demoness known as Sathal has eluded me for a long time as she's gifted with an incorporeal form.]], [[She watches over the Wrath Priestesses as they do her bidding at Forge Base: Gehenna.  Slay one of her minions and spill her blood on the ground.  This affront should cause Sathal to materialize temporarily.  Slay her while you can.]], },
-    { [[Altruis the sufferer wants you to obtain Freshly Drawn Blood from a Wrath Priestess at Forge Base: Gehenna in Netherstorm.  Spill it on the ground and slay the Avatar of Sathal.  Return to Altruis when you've completed this task.]], },
+    [[對抗軍團]],
+    { [[燃燒軍團再次的腐化凡人的靈魂證明了他們的能耐。假如要我信任你所追尋的知識，我需要你證明你對我的忠誠心。]], [[一個叫做薩撒爾的惡魔長久以來都在利用她天生的虛無形態躲避我。]], [[她守護著憤怒女牧師而她們則在熔爐基地:苦難替她效命。殺死她的一名手下然後把鮮血灑在地上。這種公開的挑釁會讓薩撒爾暫時現形。在她消失前殺了她。]], },
+    { [[『受難者』奧翠司要你從虛空風暴的熔爐基地:苦難的憤怒女牧師身上取得一個新鮮滴落的血液。將它灑在地上然後殺死薩撒爾的化身。任務完成後回去找奧翠司。]], },
   },
   [10642] = {
     [[要塞中的幽灵]],
-    { [[I fear that these dwarves do not understand what they have built upon. This area was once the ancestral grounds for the Shadowmoon orcs. I speak of spirits, <race>.]], [[For nearly twenty years they have laid dormant beneath the WIldhammer Stronghold, but recently, something has riled them up.]], [[Venture beyond the gates of Wildhammer and seek out the pools and rivers of fel lava found across this land. Near the lava will be ever-burning ash. Bring me this ash so that I may craft something that will help us.]], },
+    { [[我擔心這些矮人們不知道他們把城堡蓋在了什麼樣的地方之上。這個地區曾經屬於影月獸人的祖先，我說的是他們靈魂沉睡的地方，<race>。]], [[近二十年來他們都在蠻錘要塞的地底沉睡著，但最近某種原因驚醒了他們。]], [[穿過蠻錘之門尋找這片大地之下的地獄熔岩池還有地獄熔岩流。靠近熔岩的地方就有永燃灰燼。把這個灰燼帶給我，我才可以用它製造對我們有幫助的東西。]], },
     { [[将15份永燃灰烬样本交给影月谷蛮锤要塞的仲裁者索鲁斯。]], },
   },
   [10643] = {
@@ -26972,7 +27155,7 @@ __ns.L.quest = {
   [10644] = {
     [[塔隆·血魔的传说]],
     { [[世间流传着许多关于塔隆·血魔的故事，但是大多数都只是传说。人们并不知道塔隆·血魔返回德拉诺世界后发生的事。]], [[我们只能确定一件事，那就是他已经死了。]], [[我曾听这儿的斥候说，在遥远的东南方，跨越灵翼平原，穿过灵翼小径就能到达暗影祭坛，有位远古的兽人灵魂居住在那儿。戴上幽灵眼镜搜寻这位兽人。他应该知道更多关于塔隆·血魔的事。]], },
-    { [[Zorus the Judicator at Wildhammer Stronghold in Shadowmoon Valley wants you to find the Ancient Shadowmoon Spirit.]], [[If you lose your Spectrecles, Zorus the Judicator can make you a new pair.]], },
+    { [[影月谷的蠻錘要塞的『執法官』索羅斯要你找到古老的影月靈魂。]], [[假如你弄丟了你的顯靈鏡，『執法官』索羅斯可以幫你做一副新的。]], },
   },
   [10645] = {
     [[我就是塔隆·血魔……]],
@@ -27033,7 +27216,7 @@ __ns.L.quest = {
   [10657] = {
     [[电闪雷鸣]],
     { [[现在风动电容器使用起来的能源成本实在是太高了。但是，我突然想起来东边的鳞翼岩床附近的飞蛇可以喷吐出闪电，它的腺体应该可以为我们所用。]], [[我已经重新设定了这个电磁收集器的极性，令它可以吸收闪电。现在，你直接带着它去吸收那些飞蛇喷出的免费闪电吧。]], },
-    { [[Toshley wants you to use the Repolarized Magneto Sphere to absorb 25 lightning strikes from the Scalewing Serpents.  As well, collect 5 Scalewing Lightning Glands.  Then, deliver them back to him at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[托斯利要你使用再極化的磁力發電機球體從鱗翼風蛇身上吸收25個閃電之擊。同時，收集5個鱗翼閃電腺。然後回到劍刃山脈的托斯利基地交給他。]], },
   },
   [10658] = {
     [[更多日怒徽记]],
@@ -27043,7 +27226,7 @@ __ns.L.quest = {
   },
   [10660] = {
     [[奇怪的生物……]],
-    { [[I am interested in learning more about the strange reptiles that mill about the lava flows of Shadowmoon Valley. Never have I seen beasts able to withstand the searing heat of molten lava!]], [[Outside of Shadowmoon Village, where the ground has ruptured and lava flows through the cracks, you will find felfire diemetradons. Slay them and bring me their spleens. From their spleens I will be able to begin preliminary analysis of their resistance to heat.]], [[Begin your search to the southeast.]], },
+    { [[我對研究那些在影月谷流動熔岩附近徘徊的奇怪爬蟲類很有興趣。我從來沒有看過可以忍受熔岩漿如此高溫的野獸!]], [[在影月村外面一個地面破碎又有熔岩流在地面的裂縫中穿梭的地方你可以找到惡魔烈焰雙帆龍。殺死他們並且把他們的脾臟拿給我。我可以對他們的脾臟進行初步的分析以了解他們對熱的抗性為何如此的高。]], [[從東南方開始搜尋吧。]], },
     { [[影月谷影月村的研究员提欧鲁斯要求你给他带回8个魔火脾脏。]], },
   },
   [10661] = {
@@ -27058,7 +27241,7 @@ __ns.L.quest = {
   },
   [10663] = {
     [[隐居的铁匠]],
-    { [[<The orc shakes his head at his failure.>]], [[This is beyond my ability, but that's not to say the weapon can't be recreated.]], [[It pains me to suggest this, but your only hope may be a human smith by the name of David Wayne. It's true he was once a member of the Alliance's expedition, but that was a long time ago and he has since left the Sons of Lothar. These days, he lives in a small camp on a peninsula east of Firewing Point in Terokkar Forest. Take the ingots to him and see if he can help you.]], },
+    { [[<獸人失敗地搖了搖頭。>]], [[這已經超出了我的能力範圍之外，但那並不表示這武器不能重新製造供你使用。]], [[有一個技術高強的鐵匠大衛·偉恩，他曾經陪伴洛薩之子到德拉諾。他是一位了不起的鐵匠，可惜選擇離開了遠征隊。這些日子以來，他住在泰洛卡森林的火翼崗哨東方，那是在一個半島上的小營地 。把這些金屬錠帶給他然後看他是否可以幫你製造武器。]], },
     { [[将一箱铁锭交给泰罗卡森林内韦恩的避难所的戴维·韦恩。]], },
   },
   [10664] = {
@@ -27068,8 +27251,8 @@ __ns.L.quest = {
   },
   [10665] = {
     [[能源舰的热源]],
-    { [[Working with the ingots you brought is going to require a lot of heat]], [[I'm going to need a supplemental heat source for the forge and there are very few things in Outland that can supply that kind of power.]], [[The Mechanar area of Tempest Keep turns out manacells containing an incredible amount of power. Find one of the overcharged manacells from the stacks around Mechano-Lord Capacitus and bring it back here.]], },
-    { [[David Wayne at Wayne's Retreat wants you to bring him an Overcharged Manacell.]], },
+    { [[要熔鑄你帶來的這些金屬錠將需要很大的熱能-這不是一般的熔爐可以供應的。]], [[我將需要額外的熱能來源提供給我的熔爐而且在外域只有非常少數的東西可以提供那麼大的能量。]], [[風暴要塞的麥克納爾區那邊的法力容器含有非常大的能量。從機械王卡帕希特斯附近的法力容器堆尋找一個滿溢的法力容器然後帶回來給我。]], },
+    { [[韋恩的避難所的大衛·偉恩要你交給他一個滿溢的法力容器。]], },
   },
   [10666] = {
     [[魔语辞典]],
@@ -27099,27 +27282,27 @@ __ns.L.quest = {
   [10671] = {
     [[不仅仅是一磅肉]],
     { [[<name>，我这里还有点别的事情想拜托你。我们这有个大脑袋的侏儒想研究一下剃刀山北方拉扎安码头一带的魔化野兽。]], [[更具体地说，他们想要直接研究那些血肉兽的肌肉。]], [[<迪娜厌恶地皱了皱眉。>]], [[但是，首先，显然他们不想弄脏自己的双手；其次，他们只想要充入了以太能量的肉。但这似乎并不是所有的血肉兽身上都会有。]], [[我得说，我们算是人穷志就短，没选择了，只能干，你呢？]], },
-    { [[Dizzy Dina has asked you to acquire 5 Ether-Energized Flesh and return them to her at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[迪希·迪娜要你取得5個蒼穹能量肉體然後回到劍刃山脈的托斯利基地交給她。]], },
   },
   [10672] = {
     [[没理由啊……]],
-    { [[We must study these creatures further.]], [[Far to the east - near the huge lava flow beneath the ruins of Baa'ri - you will find arcano control units. These controllers were crafted by a genius named Gnomus for the sole purpose of exploring lava via mechanical scorpion.]], [[He has long since lost his mind and is now only interested in eating the hottest food known to gnome-kind.]], [[<Tiorus gives you a funny look.>]], [[I want you to use the control and tag the diemetradons of the lava flow for further study.]], },
+    { [[我們必須對這種生物做進一步的研究。]], [[在東邊遠處的巴瑞廢墟下方，大型熔岩流的附近你可以找到秘法控制裝置。這些控制器是由一個叫做葛諾瑪斯的天才所製造，唯一的目的是透過機械操控的蠍子來探測熔岩漿。]], [[他已經有很長的一段時間失去了理智而現在只對一種地精們所熟知最熱的食物有興趣。]], [[<提歐魯斯做出好笑的表情。>]], [[我要你使用控制器然後標示那些在熔岩流的雙帆龍以進行進一步的研究。]], },
     { [[影月谷影月村的研究员提欧鲁斯要求你前往巴尔里废墟附近的熔岩流，使用魔蝎控制器控制一只魔蝎，并用它标记8只大型魔火双帆龙。]], },
   },
   [10673] = {
     [[魔脊龙]],
-    { [[Gnomus knows about the massive diemetradon and plans to eat it! He must have been able to see what I could see through the eyes of his arcano-scorp. Look, there's no time to explain. He's crazy and that craziness is going to cost us the closest thing we've got to a fireproof jumpsuit.]], [[Get back to the lava flow near Baa'ri and track down Felspine the Greater. Once you find it, kill it and bring me back its hide.]], [[Don't try and reason with me, <name>. I'm well past that point.]], },
-    { [[Researcher Tiorus at Shadowmoon Village in Shadowmoon Valley wants you to kill Felspine the Greater and recover Felspine's Hide.]], },
+    { [[葛諾瑪斯已經知道了雙帆龍聚集的所在處並且計畫要把他們吃光光!他一定是透過他的秘法蠍子的眼睛看到我所看到的景象。聽我說，我沒有時間跟你解釋。他已經瘋了而且他的瘋狂行徑將會使得我們喪失製作防火跳傘裝最後的一樣材料。]], [[回到巴瑞附近的熔岩流然後尋找偉大的魔脊。一旦你找到它，殺了它然後將他的毛皮帶回來給我。]], [[不要跟我討價還價，<name>。我不吃那一套。]], },
+    { [[影月谷的影月村的研究員提歐魯斯要你殺死偉大的魔脊並且取回魔脊之皮。]], },
   },
   [10674] = {
     [[捕捉光球]],
     { [[拉扎安虚灵正在北边的拉扎安码头研究着某些非常有趣的科技。]], [[我想，要是你去拿这个陷阱把他们的那些飘在空中的粉红色小光球偷几个过来的话，他们应该是不会介意的吧？反正看起来好像也就是他们用来装饰房子的东西。]], [[这个陷阱具备特殊的功能设计，只要打开，就可以直接把那种光球给吸引过来。当然，那些光球也可能会向拉扎安虚灵报警，暴露你的位置。]], },
-    { [[Toshley would like you to use the Light Trap to catch 15 Razaani Light Orbs.  Return to him at Toshley's Station in the Blade's Edge Mountains after you have done so.]], },
+    { [[托斯利要你使用聖光陷阱捕捉15個雷森光球。任務完成後回到劍刃山脈的托斯利基地向他回報。]], },
   },
   [10675] = {
     [[侏儒之怒！]],
     { [[<托什雷擦去了脸上的血。>]], [[这些光球竟然是由虚空能量和灵魂混合组成的，甚至其中还包含着侏儒的灵魂！]], [[他们竟敢……难道那些我们派去探索北方的人就是被他们杀死的吗？！]], [[<name>，你必须阻止这一切。不过，恐怕唯一的阻止方式就只有杀死他们的头目——节点亲王拉扎安了。]], [[我想，你必须首先干掉大票的拉扎安虚灵，把他引出藏身之地。]], [[把他身上收集到所有灵魂都给我带回来。]], },
-    { [[Toshley wants you to retrieve the Collection of Souls and return it to him at Toshley's Station in the Blade's Edge Mountains.]], },
+    { [[托斯利要你取得靈魂收集品然後回到劍刃山脈的托斯利基地交給他。]], },
   },
   [10676] = {
     [[伊利达雷的斩除者]],
@@ -27148,13 +27331,13 @@ __ns.L.quest = {
   },
   [10681] = {
     [[古尔丹之手]],
-    { [[The elements need your help, <race>! Shadowmoon Valley has been subject to unspeakable evils. The spirits remain tortured to this day. Many are enraged and unwilling to commune with the Earthen Ring.]], [[Help this world heal, friend.]], [[Southeast of Shadowmoon Village - in the heart of Shadowmoon Valley - you will find an area known as the Altar of Damnation. Make your way there and speak with Earthmender Torlok.]], },
+    { [[元素之靈需要你的幫忙，<race>!影月谷已經受到一股無法形容的邪惡勢力給支配著。生靈們一直被折磨著直到今天。許多人顯得憤怒並且不願意加入陶土議會。]], [[朋友，請幫忙治癒這片大地。]], [[在影月村的東南方-影月谷的中央地帶-你會發現一個地區稱為詛咒祭壇。去那邊跟大地治癒者托爾洛克交談吧。]], },
     { [[与影月谷诅咒祭坛的大地治愈者托洛克谈一谈。]], },
   },
   [10682] = {
     [[该谈判了……]],
     { [[当我们刚刚抵达卢安荒野时，拜龙教还仅仅在西边隧道另一侧的黑翼集会所周围活动。但现在，他们的势力范围越来越大，已经接近我们的周边了。]], [[我要求你立刻去找到拜龙教派往这里的监工，他应该就在卢安荒野里的几处营地之间来回巡逻。]], [[去与他谈判，转告他，只要他们不再胡乱屠杀野生动物，不再砍伐树木，我们之间就还有和平共处的空间与余地。]], },
-    { [[Tree Warden Chawn has asked you to negotiate with Overseer Nuaar.  Return to the tree warden at Evergrove in the Blade's Edge Mountains afterward.]], },
+    { [[林木守衛蕭恩要你去與監督者奴阿爾協商。完成後回到劍刃山脈的永恆樹林找林木守衛。]], },
   },
   [10683] = {
     [[巴尔里石板]],
@@ -27188,13 +27371,13 @@ __ns.L.quest = {
   },
   [10689] = {
     [[奥图里斯]],
-    { [[You don't see many demon hunters nowawdays.  They're viewed with suspicion by their own people and it's very rare to find one that doesn't have some sort of allegiance to Illidan.]], [[There are rumors of one such demon hunter out in Nagrand.  His name is Altruis.  He hates all demons with a passion and will help us if you can convince him that you share his goals.]], [[Go to western Nagrand and find him.  He might be willing to shed some light on these new demon hunter training grounds.]], },
+    { [[你沒看見當今的許多惡魔獵人。他們被他們自己的族人以懷疑的眼光觀看，而要找到沒有對伊利丹多少有點忠誠的是非常稀少的。]], [[有謠傳說在納葛蘭外面有一個這樣的惡魔獵人。他的名字是奧翠司。他出於憤怒地憎惡全部的惡魔，如果你能使他相信你有與他共同的目標，那他將幫助我們。]], [[到西方的納葛蘭去並找到他。他可能願意散發一些光芒在這些新惡魔獵人訓練場地上。]], },
     { [[前往纳格兰西部寻找受难者奥图里斯。]], [[为占星者完成任务将会降低你在奥尔多阵营中的声望等级。]], },
   },
   [10690] = {
     [[兽穴之母]],
     { [[悬赏！]], [[雷玛，兽穴之母，雷神要塞正南方锯齿山地区的主要守卫者。]], [[向东出城，过桥后横穿血槌峡谷便可找到她。她就隐蔽在山岭南部边缘一处隧道的尽头。]], [[将她的死亡消息告知希尔瓦纳的指挥官萨卡斯·天影以换取报酬。]], },
-    { [[Kill Rema and then inform Commander Skyshadow at Sylvanaar in the Blade's Edge Mountains.]], },
+    { [[殺死瑞瑪然後通知在劍刃山脈之希爾瓦納的指揮官天影。]], },
   },
   [10691] = {
     [[返回群星圣殿]],
@@ -27262,8 +27445,8 @@ __ns.L.quest = {
   },
   [10707] = {
     [[阿塔玛平台]],
-    { [[It has been known to us that the fel orcs, under Illidan's command, have guarded an Ata'mal crystal known as the Heart of Fury at the Ata'mal Terrace.  They cloud its presence with dark magic, to keep it from the Sha'tar.]], [[Fight your way to the Atam'al Terrace outside the Black Temple and turn your eyes to the sky.  Shadowlord Deathwail will circle the terrace, beyond your reach.  You will have to slay him and his warlocks before you can obtain the crystal.]], [[It won't be easy, <name>.  I wish you luck.]], },
-    { [[Go to the top of the Atam'al Terrace in Shadowmoon Valley and obtain the Heart of Fury.  Return to Akama at the Warden's Cage in Shadowmoon Valley when you've completed this task.]], },
+    { [[我們已經知道那些受伊利丹控制的魔獄獸人在阿塔莫露臺守護著一顆名為狂怒之心的阿塔莫水晶。他們以黑暗魔法掩蓋它的光芒以防落入薩塔的手中。]], [[以你的方式打入黑暗神廟外的阿塔莫露臺並往天空方向看。暗影領主戴斯衛歐會在你無法到達的工匠區盤旋。你必須殺掉他跟他的術士群們才能拿取水晶。]], [[一點都不容易啊，<name>。祝你好運了。]], },
+    { [[到影月谷內阿塔莫工匠區的頂端取得狂怒之心。完成任務後回到影月谷的典獄官監牢找阿卡瑪。]], },
   },
   [10708] = {
     [[阿卡玛的保证]],
@@ -27273,52 +27456,52 @@ __ns.L.quest = {
   [10709] = {
     [[团圆]],
     { [[你来自黑暗之门对面的世界？你认识雷克萨？唔，我跟他确实很熟。]], [[他是我儿子。]], [[但是他早就做出了选择。他不属于莫克纳萨氏族，没人欢迎他来这儿。血槌食人魔已经够我们烦心了。]], [[记住这一点：并不是每个混血儿都是莫克纳萨氏族的一员。]], },
-    { [[Return to Rexxar at Thunderlord Stronghold in Blade's Edge Mountains.]], },
+    { [[回到劍刃山脈的雷霆王村找雷克薩。]], },
   },
   [10710] = {
     [[试飞：晶歌山脉]],
     { [[最近我一直在摆弄风动电容器，而且又有了个新的测试项目想要做一下！你想帮忙吗？]], [[这次的飞行距离很短，也会很快！]], [[啊……虽然……我保证这东西没危险……但这个，你看……你最好是签了这份免责声明。走个形式而已嘛，真的！]], [[祝你好运！要发射的话就去和拉雷谈谈吧，实验结束以后再回来找我！]], },
-    { [[Sign Tally's Waiver, then speak with Rally Zapnabber to use the Zephyrium Capacitorium.  Return to Tally Zapnabber at Toshley's Station.]], },
+    { [[簽署塔利的切結書，接著與瑞利·薩普納伯談談以使用ZC號。完成後回到托斯利基地找塔利·薩普納伯。]], },
   },
   [10711] = {
     [[试飞：拉扎安码头]],
     { [[<name>，我刚刚提高了风动电容器百分之三十的功率，马上要开始一个与体重和风速有关的新实验了！要不要来试试我的新理论？这个实验会把你送到拉扎安码头附近。]], [[准备好发射以后，就与拉雷谈谈吧……]], },
-    { [[Speak with Rally Zapnabber to use the Zephyrium Capacitorium.  Return to Tally Zapnabber at Toshley's Station.]], },
+    { [[與瑞利·薩普納伯談談以使用ZC號。完成後回到托斯利基地找塔利·薩普納伯。]], },
   },
   [10712] = {
     [[试飞：卢安荒野]],
     { [[嘿，<name>！总算找到你了，真高兴！我这里又有个非常重要的任务了！]], [[这是一个虚空风向标。我希望你在飞行中记录上面的读数，然后把资料送给我在卢安荒野的表弟。]], [[跟拉雷谈谈，用风动电容器飞去卢安荒野吧。飞的时候，记得旋转风向标！]], [[着陆以后，把这个风向标交给欧玛利·萨普纳波。]], [[祝你好运，<name>。千万别迟到！]], },
-    { [[Speak with Rally Zapnabber to use the Zephyrium Capacitorium.  While flying to Ruuan Weald, spin the Nether-weather Vane.  Deliver the Spinning Nether-weather Vane to O'Mally Zapnabber in Ruuan Weald.]], },
+    { [[與瑞利·薩普納伯談談以使用ZC號。飛到魯安曠野的途中，轉動虛空天氣風向儀。將旋轉的虛空天氣風向儀送到魯安曠野給歐瑪利·贊普奈。]], },
   },
   [10713] = {
     [[……谈判不成就动手！]],
     { [[他们所做的事情无异于毁灭整个卢安荒野，我们绝不能袖手旁观。我们目前最重要的任务就是保护这里的树木。]], [[<class>，我要求你立刻进入荒野之中，向他们送达我们的意图。我要求你杀死每一名你所见到的伐木工！]], [[他们既然不肯听从理性的劝告，那就让我们用这种更霸道的方式去说服他们吧！]], },
-    { [[Venture out into the Ruuan Weald and slay 10 Wyrmcult Hewers, then return to Tree Warden Chawn at Evergrove in the Blade's Edge Mountains.]], },
+    { [[到魯安曠野去殺掉10個巨龍教團砍伐者，完成後回到劍刃山脈的永恆樹林找林木守衛蕭恩。]], },
   },
   [10714] = {
     [[斯比雷之翼]],
     { [[血槌食人魔竟敢滋扰莫克纳萨氏族，就让我来替父亲排忧解难吧。食人魔是头脑简单的生物，他们从莫克纳萨氏族捞不到什么好处的。]], [[这件事背后一定另有阴谋。<name>，让我的猎鹰斯比雷偷听血槌首领们的谈话，或许它能识破其中的隐情。]], },
-    { [[Find a Bloodmaul Taskmaster and a Bloodmaul Soothsayer engaged in conversation, then use Rexxar's Whistle to summon Spirit to spy on them. When this is complete, return to Rexxar at Thunderlord Village in the Blade's Edge Mountains.]], },
+    { [[找到忙著聊天的一對血槌監工及血槌預言者，接著使用雷克薩的哨子召喚出精靈來暗中監視他們。完成後，回到劍刃山脈的雷霆王村找雷克薩。]], },
   },
   [10715] = {
     [[进入沸土峡谷]],
     { [[雷克萨要我为他配制毒药？我会满足他的要求，不过凡事都有代价，朋友之间也不例外。免费的东西只会破坏友谊。]], [[首先，你得去西南方的沸土峡谷跑一趟。]], [[那儿生活着外域乃至诸界中最毒的生物——硬壳穿地虫。我需要这种生物的毒囊做为毒药的原料。]], },
-    { [[Baron Sablemane has told you that in order to make the poison that Rexxar needs, you must acquire 7 Crust Burster Venom Glands.  Return to him at the Circle of Blood in the Blade's Edge Mountains once you have done so.]], },
+    { [[沙伯邁恩男爵已經告訴你為了要做出雷克薩需要的毒藥，你必須取得7個地殼穿刺者的毒腺。一旦你完成任務，返回到劍刃山脈位於血之環的沙伯邁恩男爵處。]], },
   },
   [10716] = {
     [[BETA Test Flight: Raven's Wood <needs reward>]],
-    { [[The Zephyrium Capacitorium is ready for its longest launch yet!  What do you say, <name>?  Do you want to fly one more time?]], [[I've been boosting the proplusion system but, until I get all the variables hammered out, the capicitorium will need added fuel to give it the necessary kick!  Speak with Rally before the flight]], },
-    { [[Speak with Rally Zapnabber to use the Zephyrium Capacitorium.  Return to Tally Zapnabber at Toshley's Station.]], },
+    { [[ZC號已經準備好做最長遠的升空了!你覺得呢，<name>?你想要再飛行一次嗎?]], [[我已經改良了推進系統但是，直到我算出所有變數前，卡皮悉拓鋰得需要添加燃料以提供必要的後衝力!在飛行前去和瑞利談談 - 他知道細節。]], [[祝你好運，<name>。這趟飛行將會帶你到遠方的烏鴉林去。如果你在這場飛行後還活著 - 還有林中的巨魔及阿拉卡 - 就回到這來慶祝吧!]], },
+    { [[與瑞利·薩普納伯談談使用ZC號的事。完成後回到托斯利基地找塔利·薩普納伯。]], },
   },
   [10717] = {
     [[偷猎]],
     { [[对不起，我失礼了，但我确实是在无意中听到了你与查恩的对话。我想，我或许能帮得上忙。]], [[我最近在研究黑翼集会所的状况，帮助德鲁伊们应付来自那边的威胁。]], [[我希望能从那边捉来几只雏龙以供研究，这样我们就能了解到他们到底是在崇拜与畏惧一个怎样的存在了。]], [[但首先，我们得弄到更多的网。我注意到在卢安荒野附近活动的拜龙教偷猎者身上似乎总是带着网。]], },
-    { [[Samia Inkling has asked you to acquire 5 Wyrmcult Nets and return them to her at Evergrove in the Blade's Edge Mountains.]], },
+    { [[沙彌亞·暗示者要你去取得5個巨龍教團織網並帶回劍刃山脈的永恆樹林交給她。]], },
   },
   [10718] = {
-    [[The Spirits Have Voices]],
-    { [[<name>, now that you can see me, there is something you must tell Rexxar. I know that he seeks his people, and I know where they are.]], [[The Mok'Nathal, as they are known, have a village to the east beyond the Razor Ridge.]], [[Go, give Rexxar this news. His people are in danger, and I know that he will want to come to their aid.]], },
-    { [[Garm Wolfbrother has told you where the Mok'Nathal, Rexxar's people, live. Speak of this to Rexxar at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    [[靈魂會說話]],
+    { [[<name>，既然你能看見我，有樣東西你必須告訴雷克薩。我知道他在尋找他的族人，並且我也知道他們在那裡。]], [[摩克納薩爾，正如他們被人所知道的，在剃刀山脊東方有一個村莊。]], [[去那裡，帶給雷克薩這則消息。他的人處境危險，而且我知道他將想要來幫助他們。]], },
+    { [[嘎姆·狼伴已經告訴你摩克納薩爾，雷克薩的族人，住在那裡。對劍刃山脈之雷霆王村的雷克薩說這件事。]], },
   },
   [10719] = {
     [[你拿到记录了吗？]],
@@ -27328,27 +27511,27 @@ __ns.L.quest = {
   [10720] = {
     [[最小的生物]],
     { [[若是你贸然闯入血槌营地投毒，必定会引起食人魔的注意。这帮家伙虽说头脑简单，可毕竟不是傻子。我来教你如何利用自然界中那些体型小巧的生物完成投毒任务。]], [[你只要有节奏地敲击这面科多皮鼓，土拨鼠就会听你的号令行动。]], [[雷神要塞以北，沿着刃喉谷越过鲜血之环之后就是血槌营地，营地附近就有个土拨鼠洞。]], [[利用土拨鼠在血槌营地的酒桶中投毒。]], },
-    { [[Use the Kodohide Drum at the Marmot Den. While controlling the Marmot, poison the three kegs in the Bloodmaul Camp. When that is completed, return to Rexxar at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[在土撥鼠的巢穴使用科多獸皮鼓。在控制土撥鼠後，在血槌營地的3只小桶裡下毒。當那完成時，返回劍刃山脈之雷霆王村的雷克薩那裡。]], },
   },
   [10721] = {
-    [[A Boaring Time for Grulloc]],
-    { [[<name>, I have a pet boar named Huffer. He wants to help you to have some fun with one of the nearby sons of Gruul.]], [[Grulloc inhabits a place known as the Cursed Hollow. When you get there, let Huffer loose. The gronn will have a fine time chasing him around, and you will retrieve the bag that he guards and deliver it to Baron Sablemane.]], [[To get to the Cursed Hollow, head down the northern ramp and east through Dragons' End. The hollow is on the eastern edge.]], },
-    { [[Obtain Grulloc's Sack and deliver it to Baron Sablemane at the Circle of Blood in the Blade's Edge Mountains.]], },
+    [[葛魯洛克的豬時光]],
+    { [[<name>，我有一頭寵物野豬名字叫胡佛。他想要幫助你去整整附近戈魯爾的兒子之一。]], [[葛魯洛克居住在一個稱為詛咒之谷的地方。當你到達那裡時，放開胡佛。那個古羅將有一段時間會在附近追趕胡佛，而你就取回他看守的一只袋子，並且把它交給沙伯邁恩男爵。]], [[想去詛咒之谷就由北邊的斜坡道向下走，並向東穿過飛龍之末。詛咒之谷在東方的邊界上。]], },
+    { [[取得葛魯洛克的袋子，並且將它帶到劍刃山脈的血之環交給沙伯邁恩男爵。]], },
   },
   [10722] = {
     [[黑翼集会所]],
     { [[我知道该怎么做了！<name>，你必须立刻伪装成工头努埃尔的样子，并且去出席那个会议！]], [[那些在集会所的里拜龙教徒都穿着完全一样的标准装束，只要从他们那里收集来一些衣物，就可以搞一身完美的伪装了。]], [[到时候，你可以伪装成工头努埃尔的样子去与库尔菲斯·暗鳞会面，看看他要说些什么，然后把这一切报告给护树者查恩。]], [[穿过龙颅小径以后，沿着路穿越乌鸦林和格里施纳就可以了，集会所就在路的尽头。]], },
-    { [[Gather up enough Costume Scraps from the various wyrmcultists to create an Overseer Disguise.  Use the disguise to attend the meeting with Kolphis Darkscale, and report your findings back to Tree Warden Chawn at Evergrove in the Blade's Edge Mountains.]], },
+    { [[從各個巨龍教徒身上收集足夠的戲服碎塊來做出一套監督者偽裝。使用這個偽裝來參加和克菲斯·暗鱗的會議，並將你的發現回報給劍刃山脈裡永恆樹林的林木守衛蕭恩。]], },
   },
   [10723] = {
     [[食龙者高格鲁姆]],
-    { [[The gronn we seek is Gorgrom the Dragon-Eater. With Sablemane's trap, you will make short work of the gronn. You will find him accepting sacrifices from the ogres of Boulder'mok.]], [[Follow the road north from the Circle of Blood, then west at Ruuan Weald. Go northwest through the tunnel.]], [[First, kill the ogres for their heads. We will send a message. Set the trap at his altar. When he is dead, plant the grisly totems near him - none can mistake that message.]], [[Take the bear.]], [[<Misha growls.>]], },
-    { [[Go to Boulder'mok and collect 3 Grisly Totems from the Boulder'mok ogres. Use Sablemane's Trap at Gorgrom's Altar to set the trap and summon and kill Gorgrom the Dragon-Eater.]], [[When Gorgrom is dead, place the 3 Grisly Totems near his corpse, then return to Rexxar at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[我們尋找的古羅是柯爾葛羅姆，食龍者。由於沙伯邁恩的陷阱，你將可迅速解決掉古羅。你將發現他接受圓面之地巨魔們的獻祭。]], [[沿著來自血之環北方的道路，然後再向魯安曠野的西方。穿過隧道往西北去。]], [[首先，殺死巨魔們取下他們的頭。我們將送出一個訊息。在他的祭壇上設置陷阱。當他死掉時，在他身邊插入這可怕的圖騰 - 沒有一個人會誤解那訊息。]], [[做掉這魯莽的人。]], [[<米莎咆哮著。>]], },
+    { [[去圓面之地並且從圓面巨魔那裡收集3個可怕圖騰。於柯爾葛羅姆的祭壇使用沙伯邁恩的陷阱，並召喚及殺死食龍者，柯爾葛羅姆。]], [[當柯爾葛羅姆死掉後，把3個可怕圖騰放置在他屍體附近，然後返回劍刃山脈之雷霆王村的雷克薩那裡。]], },
   },
   [10724] = {
-    [[Prisoner of the Bladespire]],
-    { [[Shortly after my arrival in the mountains, I came under attack by a group of Bladespire ogres.]], [[Though I fought free of them, and slew many, they took my wyvern, Leokk, captive. Spirit has found him, locked in a cage in the heart of the Bladespire encampment outside of Gruul's lair.]], [[One of the ogres must carry his key. Find it and Spirit can use it to unlock Leokk's cage.]], [[You will find the encampment at the north end of the Daggermaw Canyon down below.]], },
-    { [[Kill Bladespire ogres to get the Wyvern Cage Key. Once you have it, go to the Wyvern Cage and use Spirit's Whistle to summon Spirit, who will unlock the cage. After Leokk is free, return to Rexxar at Thunderlord Village in the Blade's Edge Mountains.]], },
+    [[劍刃囚犯]],
+    { [[在我到達這些山之後不久，我受到一隊劍刃巨魔的攻擊。]], [[雖然我在與他們戰鬥中順利逃脫，並且殺死很多巨魔，但他們帶走了我的翼龍，里奧克，還把他關了起來。精靈們已經找到他，被關在戈魯爾之巢外劍刃營地中央的一只籠裡。]], [[其中的一個巨魔必定帶著鎖他的鑰匙。找到它，那精靈就能用它打開關里奧克籠子的鎖。]], [[你可以在下方匕爪峽谷的最北邊找到那些巨魔的營地。]], },
+    { [[殺死劍刃巨魔取得雙足翼龍的牢籠鑰匙。取得鑰匙後，找到雙足翼龍的牢籠並且使用精靈之哨召喚打開籠子的精靈。在里奧克自由後，返回劍刃山脈的雷霆王村向雷克薩回報。]], },
   },
   [10725] = {
     [[紫罗兰之眼的荣耀]],
@@ -27429,8 +27612,8 @@ __ns.L.quest = {
   },
   [10742] = {
     [[摊牌]],
-    { [[Now it comes to this. We will bring Goc forth from his lair, and we will destroy him. With Goc dead, the Bladespire ogres will threaten the Mok'Nathal no longer. Go to Goc's altar outside Gruul's Lair, then blow my horn. I will come, and we will face the son of Gruul together.]], },
-    { [[Use Rexxar's Battle Horn at the Altar of Goc, then kill Goc. Return to Rexxar at Thunderlord Village in the Blade's Edge Mountains when this is done.]], },
+    { [[終於到了。我們會把苟克從他的巢穴引出來，然後我們就會殺了他。隨著苟克一死，這些血錘巨魔就再也無法威脅摩克納薩爾了。到位於戈魯爾之巢外苟克的祭壇去，接著吹響我的號角。我會出現，跟你一起面對這個戈魯爾之子。]], },
+    { [[在苟克祭壇上使用雷克薩的戰爭號角，接著殺掉苟克。完成任務後回到劍刃山脈的雷霆王村找雷克薩。]], },
   },
   [10744] = {
     [[胜利的消息]],
@@ -27439,18 +27622,18 @@ __ns.L.quest = {
   },
   [10745] = {
     [[胜利的消息]],
-    { [[You must bring word of our success to Overlord Or'barokh immediately! Now that we've crushed the Legion and obliterated their presence in Shadowmoon Valley, the overlord can turn his attention to our other foes.]], [[Although the Kor'kron guard will never admit it, they'll be glad we're no longer fighting on two fronts.]], },
-    { [[Return to Shadowmoon Village and speak with Overlord Or'barokh.]], },
+    { [[你必須馬上將我們成功的消息傳給歐巴洛卡赫霸主知道!如今我們已經擊潰了軍團並使他們在影月谷消聲匿跡，統治者就可以將注意力轉往我們其他的敵人身上。]], [[雖然柯爾克隆守衛不會承認，不過他們會很高興我們不用再到兩個前線上戰鬥了。]], },
+    { [[回到影月村與歐巴洛卡赫霸主談談。]], },
   },
   [10747] = {
     [[拜龙教的龙崽]],
     { [[我得好好检查检查那些他们在黑翼集会所培育出来的雏龙。]], [[在他们那处洞穴内的基地周围，有许多雏龙在活动。洞穴内还有一个大规模的龙蛋群，只要你接近，就会有雏龙从中破壳而出。]], [[拜托你，<name>，带上这张网，捉几只雏龙过来。]], [[向西走过龙颅之桥，然后一路穿越龙颅小径，再沿着道路穿过格里施纳和乌鸦林，就可以找到它们了。]], },
-    { [[Samia Inkling has asked you to use the Blackwhelp Net to capture 10 Wyrmcult Blackwhelps.  Return them to her at Evergrove in the Blade's Edge Mountains.]], },
+    { [[沙彌亞·暗示者要你使用黑色幼龍網補抓10隻巨龍教團黑色幼龍。將這些幼龍帶到劍刃山脈的永恆樹林給她。]], },
   },
   [10748] = {
     [[玛克纳尔必须死！]],
     { [[他们让我们别无选择，<name>。现在看来，必须除掉他们的头目——灰烬之喉玛克纳尔，才能彻底消灭黑翼集会所的威胁。]], [[我不知道你经过那附近的时候有没有见过他的样子，他算是一只半龙人，半身是人，半身是龙。他很强，千万不要轻敌！]], [[迅速解决掉他，这样就能确保卢安荒野和常青林的安宁与和谐了。]], },
-    { [[On behalf of the Cenarion Expedition druids of Evergrove, and the indigenous life of the Ruuan Weald, Tree Warden Chawn has asked you to slay Maxnar the Ashmaw.  Return to him at Evergrove in the Blade's Edge Mountains after you have done so.]], },
+    { [[代表永恆樹林的塞納里奧遠征隊的德魯伊，以及魯安曠野當地的生命，林木守衛蕭恩要你去殺掉灰喉麥克斯納爾。完成後回到劍刃山脈的永恆樹林找他。]], },
   },
   [10749] = {
     [[萨博迈恩男爵的毒药]],
@@ -27460,12 +27643,12 @@ __ns.L.quest = {
   [10750] = {
     [[征服之路]],
     { [[<name>，我从驭风者那儿得知，日蚀血精灵正在谋划一次大规模的行动。他们目前已经开始在东南方的征服之路一带聚集兵力。]], [[我要你前往日蚀岗哨附近的征服之路侦察敌情。判断清楚局势后，使用这支信号枪。一名库卡隆驭风者会在看到信号之后去接应你。将你探得的情报告诉他，而他也会给你下一步的指示。]], },
-    { [[Travel to the Path of Conquest in Shadowmoon Valley. Once you have done a preliminary assessment of the area, use the Kor'kron Flare Gun to signal a Kor'kron Wind Rider.]], [[Speak with Overlord Or'barokh should you lose your Kor'kron Flare Gun and require a replacement.]], },
+    { [[前往影月谷的征服之路。一旦你完成這一區的初步偵察後，使用柯爾克隆信號槍對柯爾克隆飛龍騎士發送信號。]], [[萬一你遺失了你的柯爾克隆信號槍就跟歐巴洛卡赫霸主談談，他會給你一個替代品。]], },
   },
   [10751] = {
     [[扫清道路]],
     { [[<race>，我们必须得继续深入调查。我和另一些驭风者将进入征服之路的上空。真希望我们能查探到更详细的敌情。不过，请你为我们清理前面路上的障碍，当然，最重要的是，确保我们不被血精灵的弓箭给射下来！]], [[在你成功削减他们的数量之后，使用库卡隆信号枪，给我们的驭风者编队发出信号。]], },
-    { [[Slay 20 Eclipsion Soldiers, 10 Eclipsion Cavaliers, and 10 Eclipsion Spellbinders and then use the Kor'kron Flare Gun to signal another Kor'kron Wind Rider to report your task complete.]], [[Speak with Overlord Or'barokh at Shadowmoon Village in Shadowmoon Valley should you lose your Kor'kron Flare Gun and require a replacement.]], },
+    { [[殺掉20個伊克利普森士兵，10個伊克利普森騎士，以及10個伊克利普森縛法者，接著使用柯爾克隆信號槍發送信號給柯爾克隆飛龍騎士回去回報任務完成。]], [[萬一你遺失了你的柯爾克隆信號槍的話可以找影月谷裡影月村的歐巴洛卡赫霸主談談，他會給你一個替代品。]], },
   },
   [10752] = {
     [[前往灰谷]],
@@ -27475,7 +27658,7 @@ __ns.L.quest = {
   [10753] = {
     [[清理荒野]],
     { [[燃烧军团所犯下的恶行可谓磬竹难书。对于这片土地上任何敢于反抗他们的生物，他们都会派出军团实行残忍的清洗政策，而无力反抗他们的种族已经一个接一个地都灭绝了。<name>，帮助我阻止他们对自然所犯下的罪孽吧。]], [[越过东边的丘陵地带，你就会看见刀刃峡谷内，正有燃烧军团的爪牙在那里腐化着大自然。阻止这一切，尽可能多地杀掉邪能腐蚀者和魔誓生物吧。]], },
-    { [[Kill 4 Felsworn Scalewing, 4 Felsworn Daggermaw, and 2 Fel Corrupters.]], },
+    { [[殺死4隻魔誓鱗翼，4隻魔誓匕爪還有2隻惡魔墮落者。]], },
   },
   [10754] = {
     [[堡垒的钥匙]],
@@ -27490,7 +27673,7 @@ __ns.L.quest = {
   [10756] = {
     [[罗霍克大师]],
     { [[钥匙柄上的符号……雕刻在模具内的符号很难辨别，但是我能认出这是碎手邪兽人的钥匙。]], [[这是个很好的机会，这把钥匙可以让你进入破碎大厅。]], [[与我们的铁匠罗霍克谈一谈。如果说有谁能铸造这把钥匙的话，只能是他了。]], },
-    { [[Bring the Primed Key Mold to Rohok in Thrallmar.]], },
+    { [[將原始鑰匙模子帶去給索爾瑪的洛赫克。]], },
   },
   [10757] = {
     [[罗霍克的要求]],
@@ -27509,12 +27692,12 @@ __ns.L.quest = {
   },
   [10760] = {
     [[斯克瑟隆废墟]],
-    { [[The Sketh'lon Wreckage, just to the east, is an eerie place. The peons are convinced that it's cursed.]], [[There are few trees here, so the peons have no choice but to venture into the arakkoa ruins to chop wood. The arakkoa spirits prey on the work groups, draining their life and using it to fuel their foul magics.]], [[We must find out what is driving the dark conclave and stop them before their influence expands. Search the Sketh'lon Wreckage for evidence of their plans.]], },
-    { [[Recover the Skethlon Commander's Journal Page 1, Skethlon Commander's Journal Page 2, and Skethlon Commander's Journal Page 3 from the Dark Conclave arakkoa at the Sketh'lon Wreckage to Sergeant Kargrul at Shadowmoon Village.]], },
+    { [[史凱瑟隆殘骸，就在東方，是一個令人恐懼的地方。那些勞役確信它被詛咒了。]], [[這裡的樹很少，所以勞役們別無他法只有冒險進入阿拉卡廢墟伐木。阿拉卡精靈折磨工作團，吸取他們的生命，並且用它去增強他們的邪惡魔力。]], [[我們必須查明什麼正驅策著黑暗議會，並在他們的影響擴大之前制止他們。為他們計畫的證據搜尋史凱瑟隆殘骸吧。]], },
+    { [[自史凱瑟隆殘骸的黑暗議會阿拉卡身上取回史凱瑟隆指揮官日誌 - 第一頁，史凱瑟隆指揮官日誌 - 第二頁，和史凱瑟隆指揮官日誌 - 第三頁交給影月村的卡古爾中士。]], },
   },
   [10761] = {
     [[寻找逃亡者]],
-    { [[There's nothing here that would explain why the spirits of these arakkoa have remained in this world or how they came into thirst for the blood of orcs.]], [[I think our best lead is to try to find the deserter mentioned in the journal. If he left his comrades at the camp, there's a chance you might be able to persuade him to help us understand what the dark conclave arakkoa are planning.]], [[Start your search for him on the road through the Magma Fields to the southeast.]], },
+    { [[這裡沒有什麼可以解釋為什麼阿拉卡的精靈依然存在在這世界中，或是他們為什麼那麼渴望獸人的血。]], [[我認為我們的最好的方向是去努力找出日記中所提到的背棄者。如果他將他的同志遺棄在營地的話，我想你會有機會去說服他幫助我們了解黑暗議會阿拉卡正在計畫些什麼。]], [[在東南方的熔岩平原道路上開始找尋他吧。]], },
     { [[在熔岩平原找到帕沙恩，并与他谈一谈。]], },
   },
   [10762] = {
@@ -27529,13 +27712,13 @@ __ns.L.quest = {
   },
   [10764] = {
     [[比地狱更炎热]],
-    { [[It's not working, <lad / lass>.  I cannot give it enough heat... the materials will not be properly tempered.]], [[You know, the Fel Reavers used by the Burning Legion are powered by a scalding core of fel fire - it burns much hotter than normal fire.]], [[If you could find enough people to take one down, you could heat the mold in the insides of the fallen reaver.  Beware, <class>, those fel reavers pack quite a punch.]], },
+    { [[沒有用，<少年/少女>。我不能給它足夠的熱氣……材料無法被正確地加溫。]], [[你知道的，燃燒軍團使用的惡魔搶奪者們是以滾燙之魔化火焰的核心提供動力的 - 它燃燒所產生的溫度比一般的火焰熱得多。]], [[假如你能找到足夠的人取得一個，你就能在倒下的搶奪者裡面加熱鑄模。注意，<class>，那些惡魔搶奪者們幾乎都是成群結隊的。]], },
     { [[摧毁地狱火半岛的魔能机甲，将未淬火的钥匙模具插入魔能机甲的残骸，然后将灼烧过的钥匙模具交给荣耀堡的达姆菲。]], },
   },
   [10765] = {
     [[世界的碰撞……]],
     { [[在征服之路的南端，有一处商队的大棚车营地。在那里，我发现一个巨人在和一个血精灵使者密会。你大概也已经注意到，这一带有许多体型较小的巨人出没。这事情绝对不简单，士兵。]], [[我要你杀入征服之路，到密会的现场去破坏他们的谈判，再看看能否搜寻到什么线索和信息。完成任务后，使用信号枪给我们驭风者发出信号。]], },
-    { [[Slay Chancellor Bloodleaf and Corok the Mighty and recover Illidan's Command. Use the Kor'kron Flare Gun to signal another Kor'kron Wind Rider once you have accomplished this task.]], [[Speak with Overlord Or'barokh at Shadowmoon Village in Shadowmoon Valley should you lose your Kor'kron Flare Gun and require a replacement.]], },
+    { [[殺掉大法官血葉和偉大的科羅克，並取回伊利丹的命令。一旦你已經完成這項任務，使用柯爾克隆信號槍發出信號通知柯爾克隆飛龍騎士。]], [[萬一你失去你的柯爾克隆信號槍，與影月谷之影月村的歐巴洛卡赫霸主交談，並要求代替品。]], },
   },
   [10766] = {
     [[登陆场：灾难]],
@@ -27544,13 +27727,13 @@ __ns.L.quest = {
   },
   [10767] = {
     [[登陆场：灾难]],
-    { [[Now that we have access to the Legion's base at Invasion Point: Cataclysm, we need to figure out a way to shut down their operations there. Shadowmoon Village won't be safe until the Legion's presence is erased from the valley.]], [[I've sent an advance party up to the invasion point to help you formulate a plan to destroy the Legion's supplies. Go back to Legion Hold and step into the teleporter with the green crystals above it. Nakansi will meet you at your destination.]], },
-    { [[Report to Nakansi at Invasion Point: Cataclysm.]], },
+    { [[目前我們已經進入軍團在侵略點:災難的基地，我們需要想出一種方式去停止它們在這的運作。影月村將不會是安全的，除非軍團被趕出山谷。]], [[我已經送一隊先遣隊到侵略點幫助你擬定一個計畫去破壞軍團的補給。回去軍團要塞並踏進上方有綠色水晶的傳送器。那卡西將在你的目的地與你見面。]], },
+    { [[在侵略點:災難向那卡西報告。]], },
   },
   [10768] = {
     [[伊利达雷徽章]],
     { [[现在我们驭风者部队必须返回影月村，马上开始准备发动下一轮的进攻。而你，我命令你在这边收集一些日蚀血精灵身上的徽章。]], [[收集到足够的徽章之后，你可以使用库卡隆信号枪召唤来一名驭风者。<race>，接下来你就要当间谍了！]], },
-    { [[Collect 10 Illidari Tabards and then use the Kor'kron Flare Gun to signal another Kor'kron Wind Rider.]], [[Speak with Overlord Or'barokh at Shadowmoon Village in Shadowmoon Valley should you lose your Kor'kron Flare Gun and require a replacement.]], },
+    { [[收集10件伊利達瑞外袍，然後使用柯爾克隆信號槍發出信號給另一名飛龍騎士。]], [[萬一你失去你的柯爾克隆信號槍的話，與影月谷裡影月村的歐巴洛卡赫霸主交談，並要求代替品。]], },
   },
   [10769] = {
     [[散播敌意……]],
@@ -27570,22 +27753,22 @@ __ns.L.quest = {
   [10772] = {
     [[征服之路]],
     { [[<name>，我从狮鹫骑士们那边得知，日蚀血精灵正在谋划一次大规模的行动。他们目前已经开始在东南方的征服之路一带聚集兵力。]], [[我要你前往日蚀岗哨附近的征服之路侦察敌情。判断清楚局势后，使用这支信号枪。一名蛮锤狮鹫骑士会在看到信号之后去接应你。将你探得的情报告诉他，而他也会给你下一步的指示。]], },
-    { [[Travel to the Path of Conquest in Shadowmoon Valley. Once you have done a preliminary assessment of the area, use the Wildhammer Flare Gun to signal a Wildhammer Gryphon Rider.]], [[Speak with Thane Yoregar at Wildhammer Stronghold in Shadowmoon Valley should you lose your Wildhammer Flare Gun and require a replacement.]], },
+    { [[旅行到影月谷的征服之路。一旦你完成這地區的初步評估，使用蠻錘信號槍發出信號通知另一位蠻錘獅鷲騎士。]], [[萬一你失去你的蠻錘信號槍，與影月谷之蠻錘要塞的賽恩尼·憂瑞卡爾交談，並要求代替品。]], },
   },
   [10773] = {
     [[扫清道路]],
     { [[<race>，我们必须得继续深入调查。我和另一些狮鹫骑士将进入征服之路的上空。真希望我们能查探到更详细的敌情。不过，请你为我们清理前面路上的障碍，当然，最重要的是，确保我们不被血精灵的弓箭给射下来！]], [[在你成功削减他们的数量之后，使用蛮锤信号枪，给我们的狮鹫骑士编队发出信号。]], },
-    { [[Slay 20 Eclipsion Soldiers, 10 Eclipsion Cavaliers, and 5 Sons of Corok and then use the Wildhammer Flare Gun to signal another Wildhammer Gryphon Rider to report your task complete.]], [[Speak with Thane Yoregar at Wildhammer Stronghold in Shadowmoon Valley should you lose your Wildhammer Flare Gun and require a replacement.]], },
+    { [[殺死20名伊克利普森士兵，10名伊克利普森騎士，和科難lJ的5個兒子，然後使用蠻錘信號槍發出信號通知另一名蠻錘獅鷲騎士報告你任務完成。]], [[萬一你失去你的蠻錘信號槍，與影月谷之蠻錘要塞的賽恩尼·憂瑞卡爾交談，並要求代替品。]], },
   },
   [10774] = {
     [[血精灵 + 巨人 = ？？]],
     { [[在征服之路的南端，有一处商队的大棚车营地。在那里，我发现一个巨人在和一个血精灵使者密会。你大概也已经注意到，这一带有许多体型较小的巨人出没。这事情绝对不简单，士兵。]], [[我要你杀入征服之路，到密会的现场去破坏他们的谈判，再看看能否搜寻到什么线索和信息。完成任务后，使用信号枪给我们狮鹫骑士发出信号。]], },
-    { [[Slay Chancellor Bloodleaf and Corok the Mighty and recover Illidan's Command. Use the Wildhammer Flare Gun to signal another Wildhammer Gryphon Rider once you have accomplished this task.]], [[Speak with Thane Yoregar at Wildhammer Stronghold in Shadowmoon Valley should you lose your Wildhammer Flare Gun and require a replacement.]], },
+    { [[殺掉大法官血葉和偉大的科羅克，並取回伊利丹的命令。一旦你完成這項任務，使用蠻錘信號槍發出信號通知另一個蠻錘獅鷲騎士。]], [[萬一你失去你的蠻錘信號槍，與影月谷之蠻錘要塞的賽恩尼·憂瑞卡爾交談，並要求代替品。]], },
   },
   [10775] = {
     [[伊利达雷徽章]],
     { [[现在我们狮鹫骑士编队必须返回蛮锤要塞，马上开始准备发动下一轮的进攻。而你，我命令你在这边收集一些日蚀血精灵身上的徽章。]], [[收集到足够的徽章之后，你可以使用蛮锤信号枪召唤来一名狮鹫骑士。<race>，接下来你就要当间谍了！]], },
-    { [[Collect 10 Illidari Tabards and then use the Wildhammer Flare Gun to signal another Wildhammer Gryphon Rider.]], [[Speak with Thane Yoregar at Wildhammer Stronghold in Shadowmoon Valley should you lose your Wildhammer Flare Gun and require a replacement.]], },
+    { [[收集10件伊利達瑞外袍，然後使用蠻錘信號槍發出信號給另一名蠻錘獅鷲騎士。]], [[萬一你失去你的蠻錘信號槍的話，與影月谷之蠻錘要塞的賽恩尼·憂瑞卡爾交談，並要求代替品。]], },
   },
   [10776] = {
     [[散播敌意……]],
@@ -27620,7 +27803,7 @@ __ns.L.quest = {
   [10782] = {
     [[为杖头充能]],
     { [[法杖就快做好了！]], [[这片被诅咒的土地上依然涌动着古尔丹残存的力量，我们需要将这种力量灌入未完成的杖头。东边的魔能熔池附近有一座诅咒祭坛，就在死亡熔炉南面。]], [[那儿禁锢着古尔丹的残骸碎片。如果携带未完成的杖头进入祭坛，某些实体可能会对此做出回应，你可别惊慌失措。此行危险重重，请千万小心。]], },
-    { [[Equip the Unfinished Headpiece, travel to the Altar of Damnation, and use it while standing near Gul'dan. When the headpiece is energized, return to Parshah in the Magma Fields.]], },
+    { [[裝備未完工的權杖頭，旅行到詛咒祭壇，並在靠近古爾丹時使用它。當權杖頭被灌注能量之後，返回在熔岩平原的帕莎那裡。]], },
   },
   [10783] = {
     [[萨博迈恩男爵]],
@@ -27630,37 +27813,37 @@ __ns.L.quest = {
   [10784] = {
     [[踏平血槌营地]],
     { [[<托查克凑到你耳边，压低了嗓门。>]], [[<name>，有你这样的勇士帮助我们对抗食人魔真是荣幸。我相信雷克萨已经制定了周密的计划，但是我还想请你帮个忙，在你返回雷神要塞前能不能去血槌营地杀些食人魔？]], [[这样会收到事半功倍的效果。]], [[沿着雷神要塞北边的坡道一直走，在坡道尽头往西穿越巨龙之末，然后往北穿越沸土峡谷和刃喉谷就到了。]], },
-    { [[Tor'chunk Twoclaws has asked you to slay 10 Bloodmaul Maulers and 5 Bloodmaul Warlocks.  Afterward, return to him at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[吐查克·雙爪要求你殺死10個血槌槌兵和5個血槌術士。之後，返回到劍刃山脈之雷霆王村的他那裡。]], },
   },
   [10785] = {
     [[有陷阱！]],
-    { [[There's is no cause of fury greater in this world than that of Gruul and his sons. They slaughtered my people - my children - and now I will have revenge.]], [[I have fashioned a trap from dragon fire, and if you're clever enough, you can use it to kill even a gronn.]], [[Just hurry, take the trap to Rexxar. My thirst for revenge must be quenched.]], },
-    { [[Deliver the Dragonfire Trap to Rexxar at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[在這個世界沒有其他原因能比戈魯爾和他兒子們更能令我憎惡!他們屠殺我的族人-我的孩子-現在我將嚐到報仇的滋味!]], [[我已經利用龍火做成一個陷阱，如果你夠聰明的話，你甚至可以使用它來殺死古羅。]], [[快一點就對了，把陷阱拿給雷克薩。]], [[我渴求報仇的火焰必須要被撲滅!]], },
+    { [[將龍火陷阱交付給劍刃山脈之雷霆王村的雷克薩。]], },
   },
   [10786] = {
     [[砾石营地的食人魔]],
-    { [[I know that Rexxar has plans for you to head to Boulder'mok.  I have something that I want you to do while you are there.]], [[We must take any chance we can get to strike down the ogres of these mountains, or they will overrun us, and all that we have bled and died for will be for nothing!]], [[Boulder'mok lies far to the northwest.  Travel north to Ruuan Weald, and from there head west through the tunnel and past the Raven's Wood.]], [[<name>, I want you to kill the Bladespire ogres of Boulder'mok.  Wipe them out!]], },
-    { [[Slaughter 5 Boulder'mok Brutes and 3 Boulder'mok Shaman, and then return to Tor'chunk Twoclaws at Thunderlord Stronghold in the Blade's Edge Mountains.]], },
+    { [[我知道雷克薩有計畫要你向圓面之地前進。當你到那裡時，我有一些想要你去做的事情。]], [[我們必須把握任何能打倒這些山上的巨魔的機會，否則他們將佔領我們，這樣我們就會流血並且無意義的死去!]], [[圓面之地位於西北方遠處。向北走到魯安曠野，然後從那裡走向西邊，穿過隧道並通過烏鴉林。]], [[<name>，我想要你殺掉圓面之地的劍刃巨魔們。徹底消滅他們!]], },
+    { [[屠殺5個劍刃蠻卒和3個劍刃薩滿，然後返回劍刃山脈之雷霆王村的吐查克·雙爪那裡。]], },
   },
   [10788] = {
-    [[Return to Talionia]],
-    { [[One of your masters, Talionia, in Silvermoon City has sent a summons for you, <name>.  I'm certain it is time you learned to summon and control a more powerful demon, so I suggest you see her at once.  I understand Talionia is found in The Sanctum, a cozy little den of evil found along Murder Row.]], },
-    { [[Speak with Talionia in Silvermoon City.]], },
+    [[返回塔萊妮亞那裡]],
+    { [[你的主人之一，塔萊妮亞，在銀月城裡等待著你了，<name>。我想是時候你學習召喚和控制更強大的惡魔了，因此我建議你立刻去見她。我知道可沿著兇殺路找到一個舒適的邪惡小窩，密室，並在那裡找到塔萊妮亞。]], },
+    { [[與銀月城的塔萊妮亞交談。]], },
   },
   [10789] = {
-    [[Return to Carendin Halgar]],
-    { [[Ah, so there you are, <name>.]], [[Carendin Halgar has sent out word for you to come see him in the Magic Quarter of Undercity.  He is not known for his patience, so I would not wait long.]], },
-    { [[Speak with Carendin Halgar in Undercity.]], },
+    [[返回凱倫丁·哈加爾那裡]],
+    { [[啊，原來你在這，<name>。]], [[凱倫丁·哈加爾已放話要你去幽暗城的魔法區見他。他的耐性可是不太好，因此你最好不要讓他久等。]], },
+    { [[與幽暗城的凱倫丁·哈加爾交談。]], },
   },
   [10790] = {
-    [[Return to Gan'rul Bloodeye]],
-    { [[You are a long way from home, <race>.  Perhaps it is time you returned to learn from your master, Gan'rul Bloodeye.  His knowledge is known to all of our craft, even those of us here.]], [[Gan'rul dwells in the Cleft of Shadow in Orgrimmar.]], },
+    [[返回甘盧爾·血眼那裡]],
+    { [[你離家很遠了，<race>。或許是你回去向你的主人甘盧爾·血眼學習的時候了。他知道我們所有工藝的知識，即使是這裡我們所熟知那些。]], [[甘盧爾居住在奧格瑪的暗影之穴。]], },
     { [[去奥格瑞玛和甘鲁尔·血眼谈一谈。]], },
   },
   [10791] = {
-    [[Welcoming the Wolf Spirit]],
-    { [[I've nearly completed the vestments that I'll wear during the ceremony. As I add the finishing touches, I'd like you to set this incense by the candles near the runestone to my left.]], [[I believe it will help us to attract the wolf spirit's attention, since it was made in the days of the orcish clans. I can almost imagine my ancestors using it in a ceremony paying tribute to the wolf spirit after a successful hunt.]], [[Once you've placed the incense, I'll begin the ceremony.]], },
-    { [[Use the Ceremonial Incense near the candles in Malukaz's hut and observe the ceremony. When the ceremony is complete, speak with Malukaz again.]], },
+    [[歡迎狼魂]],
+    { [[我已經差不多完成我將在儀式期間穿的法衣了。當我加上最後的裝飾時，我要你將薰香設置在我左邊符文石附近的蠟燭旁。]], [[我相信它將幫助我們吸引狼魂的注意，畢竟它是過去獸人氏族所做的。我幾乎能想像我的祖先在一次成功的打獵之後，用它在儀式中向狼魂獻上崇敬。]], [[一旦你已經安置好薰香，我就開始儀式。]], },
+    { [[在瑪魯卡茲的小屋裡蠟燭附近使用典禮薰香並且觀察儀式。當儀式完成的時候，再次與瑪魯卡茲交談。]], },
   },
   [10792] = {
     [[燃烧吧，塞斯高！]],
@@ -27680,12 +27863,12 @@ __ns.L.quest = {
   [10795] = {
     [[多古克]],
     { [[我在常青林见过你好几次，一直想跟你商量件事。]], [[我接到好几份报告，称血槌食人魔准备对希尔瓦纳和卢安荒野发动攻击。我们还不知道是谁在背后捣鬼，不过先下手为强，必须将他们的计划扼杀在摇篮中！]], [[食人魔的作战基地血槌营地就在卢安荒野的西北方，去干掉他们的首领多古克！]], },
-    { [[Commander Haephus Stonewall has asked you to kill Dorgok at Bloodmaul Camp.  Return to him at Evergrove in the Blade's Edge Mountains after you have done the deed.]], },
+    { [[指揮官海法斯·石牆要你殺死血槌營地的多爾哥克。在你完成之後，返回劍刃山脈的永恆樹林找他。]], },
   },
   [10796] = {
     [[踏平血槌营地！]],
     { [[听说你狠狠地打击了食人魔的嚣张气焰，大家都为此感到自豪。现在我要你再次拿起武器，踏平血槌营地！]], [[沿着卢安荒野西北方的坡谷一直走就是血槌营地了。]], [[<class>，祝你好运！]], },
-    { [[Lieutenant Fairweather has tasked you with slaying 10 Bloodmaul Maulers and 5 Bloodmaul Warlocks.  Afterward, return to her at Evergrove in the Blade's Edge Mountains.]], },
+    { [[中尉費爾威德要你殺死10個血槌槌兵和5個血槌術士。之後，返回劍刃山脈的永恆樹林找她。]], },
   },
   [10797] = {
     [[戈隆的信物]],
@@ -27695,17 +27878,17 @@ __ns.L.quest = {
   [10798] = {
     [[拜访男爵]],
     { [[这真是个坏消息。原来是食龙者高格鲁姆暗地里指使血槌食人魔滋扰希尔瓦纳！]], [[刀塔食人魔已经搅得我们不得安宁了，我想不通他为什么还要操纵血槌食人魔来对付希尔瓦纳。要想与戈隆抗衡，单凭我们的力量是不够的。]], [[我认识一位名叫萨博迈恩男爵的能人，他精通各种奇异的魔法。去鲜血之环找他吧，沿着坡道往南走，穿过东南方的峡谷就到了。]], [[向萨博迈恩男爵寻求帮助，请他替我们制作对付戈隆的陷阱。]], },
-    { [[Speak with Baron Sablemane about fashioning a trap.  He is located at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[和沙伯邁恩男爵談談關於製作陷阱的事。他就在劍刃山脈的血之環。]], },
   },
   [10799] = {
     [[进入沸土峡谷]],
     { [[嗯，我会帮你制作龙火陷阱，但是你得用别的东西来交换。]], [[鲜血之环附近居住着一个戈隆，他手中有我想要的东西。但是你不能直接面对他，至少现在还不是时候。]], [[我打算利用硬壳穿地虫的毒囊配制某种催眠粉。]], [[硬壳穿地虫就分布在西南方的沸土峡谷，把它们的毒囊带回来给我，动作快点！]], },
-    { [[Baron Sablemane has told you to bring him 7 Crust Burster Venom Glands.  Return to him at the Circle of Blood in the Blade's Edge Mountains once you have procured them.]], },
+    { [[沙伯邁恩男爵要你幫他帶來7份地殼穿刺者毒腺。等你取得它們後回到劍刃山脈的血之環找他 。]], },
   },
   [10800] = {
     [[晚安，戈隆]],
     { [[我真是个天才。催眠粉已经配制好了，利用它去对付那个名叫格鲁洛克的戈隆吧。我说过，这家伙手中有我想要的东西。]], [[前往鲜血之环另一侧，巨龙之末东部边缘的诅咒洞窟寻找他的踪迹。]], [[如果我是你的话，一拿到格鲁洛克的包裹，我就会立即离开。催眠粉的有效时间不会持续太长的。]], },
-    { [[Baron Sablemane wants you to steal Grulloc's Sack, and then return it to him at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[沙伯邁恩男爵要你去偷葛魯洛克的袋子，然後將它帶回劍刃山脈的血之環給他。]], },
   },
   [10801] = {
     [[有陷阱！]],
@@ -27715,12 +27898,12 @@ __ns.L.quest = {
   [10802] = {
     [[食龙者高格鲁姆]],
     { [[必须让食人魔明白，我们不是好惹的。得给他们点颜色看看。]], [[杀入砾石营地，取得食人魔的徽记。]], [[在高格鲁姆的祭坛处布下陷阱，诱使高格鲁姆落入圈套。利用陷阱杀死高格鲁姆后，将可怕的图腾插在他的尸体旁。那些食人魔就会知道，如果他们胆敢再次来犯的话，高格鲁姆和那些死去的同伴就是他们的下场。]], },
-    { [[Go to Boulder'mok and collect 3 Grisly Totems from the Boulder'mok ogres. Use Sablemane's Trap at Gorgrom's Altar to summon and kill Gorgrom the Dragon-Eater.]], [[When Gorgrom is dead, place the 3 Grisly Totems near his corpse, then return to Commander Haephus Stonewall at Evergrove in the Blade's Edge Mountains.]], },
+    { [[去圓面之地從圓面巨魔那裡收集3種可怕圖騰。在柯爾葛羅姆的祭壇使用沙伯邁恩的陷阱來召喚並殺死食龍者柯爾葛羅姆。]], [[當柯爾葛羅姆死掉時，把3種可怕圖騰放置在他的屍體附近，然後返回劍刃山脈的永恆樹林找指揮官海法斯·石牆。]], },
   },
   [10803] = {
     [[砾石营地的食人魔]],
     { [[我知道你要前往砾石营地执行任务，恰好有件事可以交给你顺路去办。]], [[我们必须把握一切机会，击毙盘踞在刀锋山的食人魔，否则他们就会攻入常青林，摧毁我们用生命换来的土地！往西南方走，越过大桥和隧道，乌鸦林以西就是砾石营地了。]], [[<name>，我要你去杀死砾石营地的刀塔食人魔。]], },
-    { [[Slaughter 5 Boulder'mok Brutes and 3 Boulder'mok Shaman, and then return to Lieutenant Fairweather at Evergrove in the Blade's Edge Mountains.]], },
+    { [[屠殺5個圓面蠻卒和3個圓面薩滿，然後返回劍刃山脈的永恆樹林找中尉費爾威德。]], },
   },
   [10804] = {
     [[友善]],
@@ -27730,12 +27913,12 @@ __ns.L.quest = {
   [10805] = {
     [[扫荡格鲁尔的巢穴]],
     { [[你真是位足智多谋的勇士，现在我要派你去对付格鲁尔和他的儿子们，为我报仇雪恨。]], [[刀塔氏族备受戈隆的宠爱。你或许杀过不少刀塔食人魔，但是应该还没有跟他们中的强者较量过吧。]], [[格鲁尔安排了最强壮的食人魔驻守在巢穴外，你必须削弱他们的防御力量。往北穿越刃喉谷，格鲁尔的巢穴就在刃喉谷尽头。]], },
-    { [[Baron Sablemane has tasked you and your friends with the deaths of 10 Bladespire Enforcers, 5 Bladespire Battlemages, 5 Bladespire Ravagers and their leader, Fingrom.  When you have managed this feat, return to him at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[沙伯邁恩男爵要你和你的朋友殺死10個劍刃執行者，5個劍刃戰鬥法師，5個劍刃劫毀者和他們領導人，費葛羅姆的任務。當你已經設法完成這項偉績時，返回劍刃山脈的血之環找他。]], },
   },
   [10806] = {
     [[摊牌]],
     { [[与刀塔食人魔的统治者——苟克决战的时刻即将来临。我要亲临现场，见证戈隆的死亡。]], [[在苟克的祭坛处使用我的徽记，我会与你并肩作战。]], [[让我们共同击败苟克吧。]], },
-    { [[Use Sablemane's Signet at the Altar of Goc, then kill Goc. Return to Baron Sablemane at the Circle of Blood in the Blade's Edge Mountains when this is done.]], },
+    { [[在茍克祭壇使用沙伯邁恩的徽章，然後殺死茍克。當完成時，返回劍刃山脈的血之環找沙伯邁恩男爵。]], },
   },
   [10807] = {
     [[灰舌破碎者]],
@@ -27755,7 +27938,7 @@ __ns.L.quest = {
   [10810] = {
     [[损坏的面具]],
     { [[当你检查着这个破碎的面具时，似乎听到其中传出了某种奇怪的声音。如果这个面具没有损坏，或许声音还会更清晰一些。]], [[卢安荒野的塔利·萨普纳波或许能修好这个面具。]], },
-    { [[Bring the Damaged Mask to O'Mally Zapnabber in Ruuan Weald.]], },
+    { [[將破損的面具帶給魯安曠野的歐瑪利·贊普奈。]], },
   },
   [10811] = {
     [[寻找奈尔萨拉库]],
@@ -27765,7 +27948,7 @@ __ns.L.quest = {
   [10812] = {
     [[神秘的面具]],
     { [[好了，现在应该没问题了。啊？你问这是什么？怎么说呢，它是个联络工具，有了这个，那些傻瓜就可以互相联络了。谁是傻瓜？就是燃烧军团呀！我建议你把这个面具带去给荒野之王安塔里恩看看，他就在那边踱着方步呢。他老是走来走去的，静不下来。]], [[好了，快去吧，他最近一直想搞到一个这种面具。]], },
-    { [[Bring the Mystery Mask to Wildlord Antelarion in Ruuan Weald.]], },
+    { [[將神秘面罩帶給魯安曠野的野蠻領主安德烈利安。]], },
   },
   [10813] = {
     [[格里洛克之眼]],
@@ -27795,22 +27978,22 @@ __ns.L.quest = {
   [10818] = {
     [[萨博迈恩男爵的邀请]],
     { [[<name>，在你外出执行任务时，萨博迈恩男爵派了他的宠物龙送来消息。]], [[他想见见你。看来男爵想让你帮他对付戈隆。]], [[说起萨博迈恩男爵与戈隆的仇恨，我倒觉得你是整个外域最适合帮助他的人选。不过如果我是你的话，我就先叫上几个伙伴，去鲜血之环打几场。]], },
-    { [[You have received an invitation to speak again with Baron Sablemane on some matter of import.  Go to him at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[你收到邀請再次與沙伯邁恩男爵談一些關於進口的事務。去劍刃山脈的血之環找他。]], },
   },
   [10819] = {
     [[魔誓防毒面具]],
-    { [[I have a very special mission for you, <name>. I need you to infiltrate Forge Camp: Anger east of here. When you enter the camp you will need to wear the Felsworn gas mask and locate the Legion communicator. Once you have located the communication device speak with whomever is on the other side of the device.]], [[If all works out you can trick the demon into something devious! Try telling the demon that camp anger has revolted.]], [[Good luck to you <class>.]], },
-    { [[Wear the Felsworn Gas Mask and use the Legion Communicator at Forge Camp: Anger.]], },
+    { [[我有一個非常特殊的任務要交給你，<name>。我要你滲透進入東邊的煉冶場:怒氣。當你到達煉冶場你將需要戴上邪誓防毒面具然後找到軍團通報器。一旦你找到通報裝置就跟裝置另一邊的人談話，不管他是誰。]], [[假如一切順利你就可以誆騙這些惡魔做出一些不光明正大的事情!試著告訴那個惡魔，煉冶場:怒氣已經造反了。]], [[祝你好運<class>。]], },
+    { [[戴著邪誓防毒面具使用煉冶場:怒氣的軍團通報器。]], },
   },
   [10820] = {
     [[欺骗敌人]],
     { [[你要是再一声也不吭，你就死定了！说话！说话呀！]], [[什么？营地里有叛乱？绝对不可能！我的仆从从来不会有胆子反抗我的权威。]], [[什么，是真的？好吧，背叛的代价，可是会越来越沉重的，直到他们根本无法负担。让他们都永远闭上嘴吧！完成了命令再来向我报告。]], },
-    { [[Kill 4 Doomforge Attendants and 4 Doomforge Engineers.]], },
+    { [[殺死4個末日之爐侍者和4個末日之爐工程師。]], },
   },
   [10821] = {
     [[你被解雇了！]],
     { [[什么？厄运传令者对这次的叛乱袖手旁观？她也敢！她以前好几次都想取代我的地位，不过失败了。这是最后一次了，我不会再给她机会了。这个位子是我的，我不给，她不能抢！你必须立刻把她召唤出来，干掉她。]], [[召唤她到铸魔营地：怒火的钥匙是由她手下最精锐的怒火守卫拿着的。把那五支钥匙抢来，启动营地里的五块军团方尖塔。方尖塔的作用时间很短，所以你要尽量同时启动它们。记住，怒火守卫不是只会看守钥匙的简单人物。]], },
-    { [[Kill Doomcryer and report back to Wildlord Antelarion in Evergrove.]], },
+    { [[殺死末日哀嚎者然後回到永恆樹林向野蠻領主安德烈利安回報。]], },
   },
   [10822] = {
     [[单枚日怒徽记]],
@@ -27826,7 +28009,7 @@ __ns.L.quest = {
   [10825] = {
     [[神秘的宝珠]],
     { [[这枚不同寻常的神秘宝珠是从鸦人身上掉落出来的。]], [[它散发出一股奇异的紫色光芒，内部似乎还有着什么东西跳动的声音。将它捧在手中时，你立刻感到略微的不适，所以你赶紧将它放进了背包里。]], [[或许卢安荒野的护树者查恩会有兴趣研究一下这枚宝珠，你决定立刻向西穿过隧道和龙颅之桥，前去见他。]], },
-    { [[Deliver the Orb of the Grishna to Tree Warden Chawn at Ruuan Weald in the Blade's Edge Mountains.]], },
+    { [[將葛瑞納寶珠送到劍刃山脈的魯安曠野給林木守衛蕭恩。]], },
   },
   [10826] = {
     [[萨格拉斯印记]],
@@ -27842,37 +28025,37 @@ __ns.L.quest = {
   [10829] = {
     [[通知特维布尔]],
     { [[这下糟了！鸦人正在利用邪恶的灵魂支配古树和守卫者！]], [[幸好还有一位古树没受到影响。他的名字叫特维布尔，如果我们还想拯救乌鸦林内所有古树的话，你就必须马上去找到他！]], [[到乌鸦林去，在刚经过格里施纳的交岔路口就可以看到他。]], },
-    { [[Tree Warden Chawn has asked you to seek out and speak with Treebole, an ancient of lore who lives in the Raven's Wood of the Blade's Edge Mountains.]], },
+    { [[林木守衛蕭恩要你尋找並且與樹老長者交談，一位傳說住在劍刃山脈的烏鴉林裡的長者。]], },
   },
   [10830] = {
     [[树人的驱魔]],
     { [[格里施纳让邪恶的柯柯之灵控制了许多叶须古树和石皮古树的思想。]], [[我们必须拯救乌鸦林中所有的树木，不然很快我们就会永远失去它们！]], [[去格里施纳找一些格里施纳鸦人宝珠，将其内蕴涵的魔法能量与恶鸦身上的恐怖绒毛中蕴涵的魔法能量结合起来。]], [[之后，再使用组合而成的驱魔羽毛引出古树身上的柯柯的灵魂，并杀死它，就可以挽救一切了。石皮古树的力量十分强大，恐怕无法被仪式所影响，但只要你能拯救足够多的叶须古树，它们也能得到解放。]], },
-    { [[Collect 5 Grishnath Orbs and 5 Dire Pinfeathers and then combine them into Exorcism Feathers.  Use these feathers to exorcise and slay 5 Koi-Koi Spirits from the Raven's Wood Leafbeards.  Once you've done this, return to Treebole in the Raven's Wood of the Blade's Edge Mountains.]], },
+    { [[收集5個葛瑞許納什寶珠和5根可怕幼羽，然後將它們合併成驅邪羽毛。使用這些羽毛驅除並殺掉5個佔據烏鴉林葉鬚樹人的可伊靈魂。等你完成，返回劍刃山脈的烏鴉林找樹老長者。]], },
   },
   [10831] = {
-    [[Becoming a Mooncloth Tailor]],
-    { [[I can teach you the ways of mooncloth tailoring, if you are interested.. By specializing in mooncloth tailoring, creating primal mooncloth will yield twice the normal amount and you will have access to several exclusive patterns. All that is required is that you pass a simple test.]], [[As to the test, your task is to create a small sample of primal mooncloth in the moonwell at Cenarion Refuge. I will provide all the materials you'll need. When you've created the sample, bring it back to me for examination.]], },
-    { [[Use the Square of Imbued Netherweave while standing in Cenarion Refuge's moonwell to create a Sample of Primal Mooncloth. Bring the completed sample back to Nasmara Moonsong in Shattrath's Lower City.]], [[*WARNING!* You can only select one tailoring specialization.]], },
+    [[成為一名月布裁縫師]],
+    { [[如果你感興趣，我能教你月布裁縫技術的方法。專精於月布縫製技術後，製作出來的原始月布將比一般產量高出兩倍，且你將能接觸幾種獨有的圖樣。只要你通過一次簡單的試驗。]], [[關於這個試驗，你的任務是去塞納里奧避難所的月井製作一個原始月布的小樣本。我將提供你所需的材料。等你製作出樣本，把它帶回來讓我檢查。]], },
+    { [[站在塞納里奧避難所的月井中使用魔染幽紋曲尺來製作一個原始月布樣本。將完成的樣本帶回撒塔斯的陰鬱城給那斯馬拉·月歌。]], [[*警告!*你只能選擇一種裁縫專業。]], },
   },
   [10832] = {
-    [[Becoming a Spellfire Tailor]],
-    { [[I can teach you the ways of spellfire tailoring if you wish, but be warned, it's a dangerous pursuit.]], [[Creating spellcloth in Netherstorm attracts powerful nether-wraiths. I'm searching for a way to lessen backlash, but I need more nether-wraith essence for my research.]], [[Take this beacon with you to Netherstorm and use it to summon a nether-wraith. Bring back its essence and I'll agree to teach you. As a spellfire tailor, you'll receive twice as much cloth and have access to exclusive patterns.]], },
-    { [[Bring a sample of Nether-wraith Essence to Gidge Spellweaver in Shattrath's Lower City.]], [[*WARNING!* You can only select one tailoring specialization.]], },
+    [[成為一名魔焰裁縫師]],
+    { [[如果你想要的話我能教你魔焰裁縫技術的方法，但是先警告你，它是一項危險的工作。]], [[在虛空風暴創造的魔法布吸引了強大的虛空鬼魂。我正在尋找一種降低反衝的方法，但是我的研究需要更多虛空怨靈的精華。]], [[帶著這個信號燈到虛空風暴，並且用它召喚一個虛空怨靈。帶回它的精華我就同意教你。身為一名魔焰裁縫，你將得到雙倍的布並且能接觸到獨有的圖樣。]], },
+    { [[帶一個虛空怨靈精華的樣品到撒塔斯的陰鬱城給蓋吉·術法編織者。]], [[*警告!* 你只能選擇一種裁縫專業。]], },
   },
   [10833] = {
-    [[Becoming a Shadoweave Tailor]],
-    { [[If you become a shadoweave specialist, you will make twice as much shadowcloth as an average tailor and have access to several exclusive patterns.]], [[Of course, any tailor can use the Altar of Shadows, but a shadoweave tailor possesses a deeper attunement to the altar, unlocking powers that few can fathom.]], [[Take this crystal to eastern Shadowmoon Valley, and find Netherwing Pass leading south from the Netherwing Fields. Near the world's edge, you will find the Altar of Shadows. Use the crystal there.]], },
-    { [[Use the Crystal of Deep Shadows near the Altar of Shadows to deepen your attunement to the altar, then return to Andrion Darkspinner in Shattrath's Lower City.]], [[*WARNING!* You can only select one tailoring specialization.]], },
+    [[成為一名影紋裁縫師]],
+    { [[如果你變成一位影紋裁縫專家，你將可比一般裁縫師縫製多出兩倍的暗影布，且可以用到數種獨有的圖樣。]], [[當然，任何一位裁縫師都可以使用暗影祭壇，但是暗影裁縫師能更深入的融入祭壇，解開只有少數人可以探查的力量。]], [[將這顆水晶拿到東方的影月谷，然後在虛空之翼農場南方找到虛空之翼小徑。在靠近世界的邊緣，你將會發現暗影祭壇。在那裡使用水晶。]], },
+    { [[在暗影祭壇附近使用暗影深淵水晶，以加深你與祭壇的協調，然後回到撒塔斯陰鬱城中的安德利恩·暗紋紡織者那裡。]], [[*警告!*當完成此任務，你將成為一位暗影專家。你只能選擇一種專業技能。]], },
   },
   [10834] = {
     [[“暗眼”格里洛克]],
-    { [[Grillok Darkeye has wagered a piece of himself to dark powers, and gained great magic for it.  His lost eye burns deep in some hellish pit, now a demon's trinket... and the patch that covers his betrayal holds its own dark secrets.]], [[Bring me Grillok's eyepatch, <name>, and I will reward you greatly for your service...]], },
-    { [[Kill Grillok Darkeye and bring Grillok's Eyepatch to Zezzak in Spinebreaker Post.]], },
+    { [[葛銳洛克『暗眼』已經將一部份的自己抵押給黑暗力量，並且因而獲得極強的魔法。他失去的眼睛在某個地獄坑洞深處燃燒著，現在一個惡魔的小飾物……和掩蓋他背叛的眼罩掌握著它自己的黑暗秘密。]], [[把葛銳洛克的眼罩帶來給我，<name>，而我將為你的效勞大大地酬謝你……]], },
+    { [[殺死葛銳洛克『黑眼』並且將葛銳洛克的眼罩帶去給斷脊氏族崗哨的雷札克。]], },
   },
   [10835] = {
     [[药剂师安东尼维奇]],
     { [[<name>，我就目前针对血环兽人的研究发现写了一份初步报告。我在萨尔玛的同事安东尼维奇一定很想看。他也在研究邪兽人的相关现象……希望能避免这样的悲剧再次降临在我们的兽人盟友身上。]], [[把这份报告书带给他，我会继续研究你带来的血样。运气够好的话，我们就能分析出使邪兽人陷入痛苦之中的真正原因了。]], },
-    { [[Bring Albreck's Findings to Apothecary Antonivich in Thrallmar.]], },
+    { [[將艾柏瑞克的發現帶去索爾瑪給藥劑師安拓維奇。]], },
   },
   [10836] = {
     [[攻击龙喉要塞]],
@@ -27892,12 +28075,12 @@ __ns.L.quest = {
   [10839] = {
     [[基斯鸦巢：泰罗克黑石]],
     { [[基斯鸦巢位于难民车队西北方，就在沙塔斯城以南某处隐蔽的小树林中。据说斯克提斯的移民队在那里建立了一座邪恶的祭坛。想要救赎基斯鸦巢的鸦人，就必须净化这座泰罗克黑石。]], [[对着黑石使用这根净化法杖，它受到过阿达尔的赐福，应该可以净化黑石。出发吧，愿圣光与你同在。]], },
-    { [[Use the Rod of Purification on the Darkstone of Terokk in Veil Skith and return to Kirrik at the Refugee Caravan in Bone Wastes.]], },
+    { [[在迷霧斯奇司的泰洛克黑石上使用淨化魔棒，並返回白骨荒野的難民商隊找奇瑞克。]], },
   },
   [10840] = {
     [[圣光之墓]],
     { [[在东边焦土之下，掩埋着圣光之墓，那是一处不为人知的死者安息之地。而在我的车队被袭击之前，我正准备去清除游荡在那附近大量邪灵。]], [[但现在，我却得知另外一种邪恶的灵体生物已经完全占据了圣光之墓。那些该死的虚灵居然还开始大肆掠夺很多年以前与那些死者共同安息在陵墓中的宝物。]], [[在我的车队处于困境中时，我绝对不能离开，你是否可以帮忙替我去圣光之墓完成的我的工作呢？]], },
-    { [[High Priest Orglum wants you to journey to the Tomb of Lights and kill 10 Ethereal Nethermancers and 10 Ethereal Plunderers and then return to him by the Refugee Caravan.]], },
+    { [[高階祭司歐格蘭要你去進入聖光之墓，殺死10個伊斯利虛空術師和10個伊斯利掠奪者，然後回到難民商隊找他。]], },
   },
   [10841] = {
     [[BETA The Vengeful Harbringer]],
@@ -27905,42 +28088,42 @@ __ns.L.quest = {
     { [[[PH]  Activate the thingy.]], },
   },
   [10842] = {
-    [[The Vengeful Harbinger]],
-    { [[The Tomb of Lights has become corrupted by the Shadow Council and the draenei dead have become cursed spirits, angry and confused with a burning hatred for the living.]], [[Before I left Shattrath I was given a draenei tomb relic.  It can be used near the Ancient Draenei Altar deep within the Tomb of Lights to summon a tomb guardian.  This creature will activate the altar and will begin to purge the tomb of corrupt spirits, freeing them to ascend.  Protect the tomb guardian until the ritual is complete.]], },
-    { [[High Priest Orglum wants you to journey into the Tomb of Lights and use the Draenei Tomb Relic near the Ancient Draenei Altar.]], [[Defend the Tomb Guardian and defeat the Vengeful Harbinger.  When the ritual is complete, speak with the Draenei Ascendant at the Ancient Draenei Altar.]], },
+    [[復仇先驅]],
+    { [[聖光之墓已經被暗影議會腐化了，德萊尼死者變成了被詛咒的靈魂，對活著的人懷著強烈的憎恨、憤怒且困惑。]], [[在我離開撒塔斯之前，我得到了一件德萊尼墓地遺物。在聖光之墓深處的遠古德萊尼祭壇附近使用這件遺物，召喚出德萊尼墓穴守衛。這個生物將啟動祭壇並淨化墳墓裡腐敗的靈魂，釋放他們升天。保護德萊尼墓穴守衛直到儀式完成。]], },
+    { [[高階祭司歐格蘭要你進入聖光之墓，並且在遠古德萊尼祭壇附近使用德萊尼墓地遺物。]], [[保衛墓穴守衛並戰勝復仇的先驅。當儀式完成時，與遠古德萊尼祭壇的德萊尼祖先談談。]], },
   },
   [10843] = {
     [[很久以前……]],
     { [[很久很久以前，我们就和刀塔食人魔干上了，双方的战争到现在都没有停止过。]], [[在我们猛烈的攻势下，刀塔食人魔节节败退，他们的残余部队不得不退避到刀塔哨站。刀塔哨站位于剃刀山的西南边缘，就在你来时的路上。]], [[我要你去哨站干掉他们的首领诺什·布罗纳特，以此证明你的能力。]], [[让我们看看你有多大能耐！]], },
-    { [[In order to prove yourself to the Mok'Nathal, Leoroxx has ordered you to slay Gnosh Brognat, leader of the ogres at the Bladespire Outpost.  Return to Leoroxx at Mok'Nathal Village in the Blade's Edge Mountains after you have done so, or do not return at all.]], },
+    { [[為了向摩克納薩爾證明自己，李歐羅克斯已經命令你殺死葛諾斯·布羅格納，劍刃崗哨的巨魔領導人。完成後返回劍刃山脈的摩克納薩爾村找李歐羅克斯，不然就不要回來。]], },
   },
   [10844] = {
-    [[BETA Forge Camp: Anger]],
+    [[煉冶場:怒氣]],
   },
   [10845] = {
     [[恐惧之翼]],
     { [[我曾经派了一批猎手前去侦察晶歌山脉，他们回报称水晶附近的虚空幼龙数量急速增长，对我们构成了严重的威胁。]], [[在上一项任务中，你成功地证明了自己是一位出色的杀手；那么现在就让我们瞧瞧你有没有本事干掉一头成年的虚空龙吧。]], [[往南穿越鳞翼岩床之后就是晶歌山脉。进入山脉杀死虚空幼龙之母——恐惧之翼。]], },
-    { [[Leoroxx has challenged you to slay Dreadwing.  Return to him at Mok'Nathal Village once you have managed to kill her.]], },
+    { [[李歐羅克斯要你殺死魔翼 。等你殺死她再返回摩克納薩爾村找他。]], },
   },
   [10846] = {
     [[了解莫克纳萨]],
     { [[<莱欧洛克斯死死地盯着你，不由令你心生寒意。>]], [[你对莫克纳萨氏族一无所知。我们在夹缝中艰难求生，你能理解吗？]], [[如果你想体会这种感受，就必须经受严酷的生存考验。]], [[村子南边的托格玛洞穴是维克鸦人的地盘。他们将食人魔战俘囚禁在洞穴中，那里也是鸦人首领维克的栖身处。]], [[杀死维克！]], },
-    { [[To begin your understanding of the Mok'Nathal, slay Vekh, leader of the Vekh'nir arakkoa.  Then, return to Leoroxx at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[要開始你對摩克納薩爾的了解，就要殺掉維克，維克尼爾阿拉卡的領導者。然後，返回劍刃山脈的摩克納薩爾村找李歐羅克斯。]], },
   },
   [10847] = {
     [[斯克提斯之眼]],
     { [[斯克提斯弥漫着一股不祥的气息。]], [[恐怖的邪恶力量笼罩了整个鸦人氏族，命运已经露出狰狞的面孔。我们曾滥用黑暗魔法，做了不少坏事。在阿达尔的指引之下，我才了解到圣光的真谛，并由此得到救赎。]], [[泰罗克通过施放了黑暗魔法的宝珠监视斯克提斯的所有属地。从泰罗卡森林北部的里斯克鸦巢和西诺鸦巢偷回宝珠，让我也透过斯克提斯之眼看看泰罗克都在监视些什么。]], },
-    { [[Bring the Eye of Reskk and the Eye of Shienor to Rilak the Redeemed in the Lower City district of Shattrath.]], },
+    { [[將瑞斯克之眼還有辛諾之眼交給撒塔斯城內陰鬱城的『贖罪者』里拉克。]], },
   },
   [10848] = {
     [[哈兹鸦巢：邪恶的幽灵]],
     { [[哈兹鸦巢是斯克提斯最邪恶的属地。]], [[尽管奥金顿大爆炸将整座村落夷为平地，泰罗克的力量依然侵蚀了游荡在那里的邪灵。前往西边的哈兹鸦巢，消灭那些可悲的幽灵。他们聚集在位于白骨荒野和泰罗卡森林边界的暗影墓穴。]], [[这将是我们向泰罗克和斯克提斯守护者发动的第一轮攻击。]], },
-    { [[Kill 4 Deathtalon Spirits, 4 Screeching Spirits and 2 Spirit Ravens and return to Kirrik at the Refugee Caravan.]], },
+    { [[殺死4個死亡之爪靈魂、4個尖嘯靈魂還有2個烏鴉之魂然後回報給難民商隊的奇瑞克。]], },
   },
   [10849] = {
     [[寻找基尔利克]],
     { [[还有另一位鸦人也选择了背弃泰罗克的道路，那就是觉醒者基尔利克。]], [[在基尔利克看来，泰罗克根本称不上先知，不过是个夸夸其谈的骗子罢了。泰罗克唯一预见到的只有他自己的恶行招致的厄运而已。]], [[基尔利克引领着我们勇敢地逃离了斯克提斯。而在我们前往沙塔斯城寻求圣光的救赎时，他则前往别的属地搭救其他不甘堕落的鸦人。]], [[这封信件讲述了泰罗克通过宝珠监视属地的情况。必须把此事告诉基尔利克！走出沙塔斯城之后，你沿着南边的道路进入白骨荒野，寻找难民车队，就可以找到他。]], },
-    { [[Take Rilak's Missive to Kirrik at the Refugee Caravan in the Bone Wastes.]], },
+    { [[將里拉的書信交給白骨荒野的難民商隊的奇瑞克。]], },
   },
   [10850] = {
     [[虚空气体燃料]],
@@ -27948,7 +28131,7 @@ __ns.L.quest = {
   [10851] = {
     [[敌人的图腾]],
     { [[有些氏族奉行正确的行事之道，以此表达对先祖的尊敬；有些氏族则误入了歧途。]], [[刀塔食人魔总是随身携带着图腾，但他们不是利用图腾来表达对先祖的敬意，而是滥用它们来满足自己的控制欲。]], [[我们应该偷走他们的图腾，因为刀塔食人魔不配拥有哪怕一根图腾！只有我们才能更好地利用它们。]], [[刀塔哨站位于莫克纳萨村以西，就在剃刀山的西南方。杀死刀塔秘术师和刀塔打击者，将他们的图腾带回来给我！]], },
-    { [[Collect 5 Bladespire Totems for Spiritcaller Dohgar at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[收集5個劍刃氏族圖騰交給劍刃山脈的摩克納薩爾村的招魂師多赫加。]], },
   },
   [10852] = {
     [[失踪的伙伴]],
@@ -27958,7 +28141,7 @@ __ns.L.quest = {
   [10853] = {
     [[召唤灵魂]],
     { [[我们必须拯救晶歌山脉中的虚空幼龙之灵。]], [[在孵化前，这些虚空幼龙原本是黑龙。]], [[但是当德拉诺世界爆炸时，一股虚空力量席卷了所有生灵，由此产生的副作用改变了黑龙卵。]], [[孵化出的虚空幼龙沦为扭曲的异形生命体，我们要帮助它们恢复以往的平静。]], [[前往晶歌山脉，杀死灵魂召唤图腾附近的虚空幼龙，然后将虚空幼龙之灵带回来。]], },
-    { [[Spiritcaller Dohgar has asked you to use the Spirit Calling Totems to collect 8 Lesser Nether Drake Spirits and return them to him at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[招魂師多赫加要你使用召靈圖騰收集8個次級虛空龍靈魂然後回到劍刃山脈的摩克納薩爾村交給他。]], },
   },
   [10854] = {
     [[奈尔萨拉库之力]],
@@ -27977,7 +28160,7 @@ __ns.L.quest = {
   },
   [10857] = {
     [[传送这个看看！]],
-    { [[As fun as killing demons might be, it does us little good when the Legion can keep using its teleporters to replace anything we kill.]], [[Unfortunately, I don't have any high-powered explosives handy... but the mo'arg that maintain the teleporters do.]], [[Take this rod... I've tuned its powers to interfere with mo'arg brain frequencies.  Return to Forge Base: Gehenna and use it on any Mo'arg you see.  You won't have long, but you'll be able to use their demolition charges on the nearby teleporters.]], },
+    { [[儘管殺死惡魔很有趣，但是當軍團持續用它的傳送器輸送任何被我們殺死的替補成員時，對我們完全沒好處。]], [[不幸地，我手邊沒有任何威力強大的爆裂物……不過負責維持傳送器運作的莫阿格那有。]], [[帶著這根魔棒……我已經調整它的功率去干擾莫阿格的大腦頻率。回到熔爐基地:苦難並在你能看到的任何莫阿格身上使用它。你不會有太長的時間，但你將能使用他們的破壞爆裂物摧毀鄰近的傳送器。]], },
     { [[虚空猎手纳乌希思要你前往铸魔基地：炼狱，对莫尔葛恶魔使用精神干涉魔杖，然后对铸魔基地内的三处传送装置使用他们的引爆传送器能力。]], },
   },
   [10858] = {
@@ -27987,28 +28170,28 @@ __ns.L.quest = {
   },
   [10859] = {
     [[收集光球]],
-    { [[The Razaani ethereals have strange devices that emit small, pink floating light orbs.  They remind me of souls.]], [[They are not to be confused with the large yellow balls that break free of the ethereal when they die, these are something else entirely.]], [[I'd like for you to head north to Razaan's Landing and drop some totems, which will attact the pink light orbs.]], [[Bring them back to me so that I might determine exactly what they are.]], },
-    { [[Spiritcaller Dohgar has asked you to use the Orb Collecting Totem to collect 15 Razaani Light Orbs.  Return to him at Mok'Nathal Village in the Blade's Edge Mountains after you have done so.]], },
+    { [[雷森伊斯利有一種奇怪的儀器會發出微小、粉紅色光芒的飄浮光球。它們讓我想起靈魂。]], [[它們不會與伊斯利死亡時所釋放的大黃球相混淆，這些完全是別種東西。]], [[我要你到北方的雷森平台設置一些圖騰，這些圖騰將會攻擊粉紅光球。]], [[把它們帶回來給我這樣我才能確切地判斷它們是什麼。]], },
+    { [[招魂師多赫加要你使用寶珠召集圖騰收集15個雷森光球。任務完成後回到劍刃山脈的摩克納薩爾村向他回報。]], },
   },
   [10860] = {
     [[莫克纳萨的美味]],
     { [[你饿吗，<race>？只有善于自助的人才能得到魂灵的眷顾。如果你想享受美餐，那就听好了——这世上不会有免费的东西，美味佳肴也是如此！]], [[剃刀山的迅猛龙以及鳞翼岩床的鳞翼蛇是制作两道佳肴的主料。给我带一些迅猛龙肋排和蛇肉回来，我就为你烹饪美食。]], [[如果你办事够利索的话，我甚至可以教你怎么制作这两道菜。]], },
-    { [[Matron Varah has given you a list of ingredients for the making of her two favorite dishes, which includes the collection of 3 Raptor Ribs and 3 Serpent Flesh.  Bring them to her at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[女總管瓦拉給你一份可以製作兩道他最喜歡的菜餚的材料名單，包含了3個迅猛龍肋骨還有3份毒蛇肉。回到劍刃山脈的摩克納薩爾村的把材料交給她。]], },
   },
   [10861] = {
     [[蕾希鸦巢：先发制人]],
     { [[西南方的蕾希鸦巢是斯克提斯的属地之一，泰罗克的爪牙企图在鸦人幼雏孵化之前就令他们堕落。蕾希鸦巢的黑暗巫师们对那些尚未孵化的蛋施加了暗影诅咒，一旦幼雏破壳而出，就会对泰罗克唯命是从。]], [[你现在立刻前往蕾希鸦巢，在诅咒生效之前打破鸟蛋。如果为时已晚的话，你可以杀掉那些邪恶的雏鸟。]], [[要记住，圣光在黑暗中最为耀眼。]], },
-    { [[Break the cursed eggs in Veil Lithic. Redeem 3 Hatchlings and slay 3 Malevolent Hatchlings before returning to Kirrik at the Refugee Caravan.]], },
+    { [[打破在迷霧里斯克受詛咒的蛋。在返回難民商隊找奇瑞克之前，救回3隻幼鳥並殺掉3隻有害的幼鳥。]], },
   },
   [10862] = {
     [[向部落投降]],
     { [[那些可恶的鸦人简直是无孔不入，整天都在寻求着攻击我们的机会。他们会袭击我们派出去的猎人，有时候甚至还会侵入到我们的城墙之内。尽管我们已经在全力消灭他们，可他们的魔法太强，常常都能从我们手中逃走。]], [[不过，我还知道，另有一些鸦人声称他们不想与部落采取敌对态度，这些鸦人就居住在西北边的沙塔斯城。救赎者瑞拉克是他们的首领。去贫民窟把他找出来，逼迫他向我们伟大的部落投降。]], },
-    { [[Rokag wants you to seek out Rilak the Redeemed in Shattrath and demand that he and his people surrender to the Horde.]], },
+    { [[瑞克格要你在撒塔斯城尋找『贖罪者』里拉克並且要求他跟他的人民歸順部落。]], },
   },
   [10863] = {
     [[鸦人的秘密]],
     { [[在边境地区，我们每天都得对付这群鸦人的骚扰。他们想什么时候攻击就什么时候攻击，他们可能直接过来攻击这里，也可能袭击我们的供给线，还可能杀掉我们派出去的斥候。]], [[可是，我们对这些神秘的生物知之甚少。我听说在西北边的沙塔斯城居住着一群友好的鸦人。或许他们会愿意分享同族的秘密。]], [[救赎者瑞拉克是他们的首领，他就居住在贫民窟的北边，去找他吧。]], },
-    { [[Lady Dena Kennedy wants you to seek out Rilak the Redeemed in Shattrath and find out what secrets he will share of the Arakkoa.]], },
+    { [[戴娜·甘迺迪女士要你在撒塔斯城找到『贖罪者』里拉克向他探聽他願意分享的阿拉卡秘密。]], },
   },
   [10864] = {
     [[收集灵魂]],
@@ -28018,7 +28201,7 @@ __ns.L.quest = {
   [10865] = {
     [[通知莱欧洛克斯！]],
     { [[快，你必须将拉扎安码头的情况告诉莱欧洛克斯！]], [[那些光球是由灵魂凝聚而成的，其中一些是莫克纳萨氏族成员的灵魂！]], },
-    { [[Spiritcaller Dohgar has implored you to inform Leoroxx about what the Razaani ethereal are up to.  He can be found at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[招魂師多赫加要你去通知李歐羅克斯關於雷森伊斯利的企圖。他的位置在劍刃山脈的摩克納薩爾村。]], },
   },
   [10866] = {
     [[疲惫的祖鲁希德]],
@@ -28028,12 +28211,12 @@ __ns.L.quest = {
   [10867] = {
     [[只有一个办法]],
     { [[只有一个办法能阻止他们……阻止他们亵渎莫克纳萨氏族先祖的灵魂！]], [[愿亡者的灵魂能享受安宁……<name>，如果你愿意帮助我们的话，就立即返回拉扎安码头。]], [[杀死拉扎安虚灵，直到他们的首领节点亲王拉扎安露面。从拉扎安手中夺得灵魂之盒，然后将它交给唤灵者多戈加尔！]], },
-    { [[Leoroxx has beseeched you to retrieve the Collection of Souls and return them to Spiritcaller Dohgar at Mok'Nathal Village in the Blade's Edge Mountains.]], },
+    { [[李歐羅克斯請你取回靈魂收集品然後帶回劍刃山脈的摩克納薩爾村交給招魂師多赫加。]], },
   },
   [10868] = {
-    [[Arakkoa War Path]],
-    { [[The arakkoa have attacked us again, this time striking in the night and then using their dark magic to escape before we could charge out to meet them in numbers.  They use their summoning circles to rescue their warriors from certain death but they cannot run from us if we attack their homes.  Veil Reskk and Veil Shienor lie to the north and northeast.]], [[Find these arakkoa nests and kill as many as you can.]], },
-    { [[Advisor Faila asks that you kill 14 Shienor Talonites and 6 Shienor Sorcerers and then return to her in Stonebreaker Hold.]], },
+    [[阿拉卡作戰方式]],
+    { [[阿拉卡再度攻擊我們了，這一次他們趁半夜的時候襲擊我們然後在我們可以衝出去跟他們正面交鋒之前就使用他們的黑暗魔法逃脫。他們使用他們的召喚法陣來復活他們某些死亡的戰士但是假如我們攻擊他們的家園他們就不能逃跑了。迷霧瑞斯克還有迷霧辛諾就在這裡的北邊和東北邊。]], [[找到這些阿拉卡的巢穴然後盡可能的殺光他們。]], },
+    { [[諫言者菲拉要你殺死14個辛諾鷹爪還有6個辛諾巫士然後回到碎石堡找她。]], },
   },
   [10869] = {
     [[剿灭鸦人]],
@@ -28057,23 +28240,23 @@ __ns.L.quest = {
   },
   [10873] = {
     [[夜间的绑架]],
-    { [[Our small outpost is under constant attack. Several nights ago, we were raided by the spiders of Netherweb Ridge, on the southeastern edge of the Bone Wastes. They poisoned many of our people, wrapped them in webs and carried them away. Some of our warriors took up arms and with little preparation pursued the spiders.]], [[We have not seen the captives or our hunting parties since. We hope that some may still be alive, perhaps imprisoned by the spiders.  Our numbers are few. Will you search for our people?]], },
-    { [[Scout Navrin wants you to travel to the Netherweb Ridge and free 6 Webbed Sha'tar Warriors and then return to him at Sha'tar Outpost.]], },
+    { [[我們的小哨站遭受不斷的攻擊。數天前我們在白骨荒野東南方的邊界遭受幽網山脊的蜘蛛們襲擊。它們的攻擊使得我們許多人中毒並且被蜘蛛網住拖走了。我們的一些士兵在匆忙之中拿起了身邊的武器裝備，在夜色中追補那些蜘蛛。]], [[我們已經好幾天沒看到我們被抓走的俘虜或者外出追捕那些蜘蛛的士兵了。我們希望有些人還活著，也許只是被蜘蛛囚禁起來而已。我們的人數太少了。你可以幫忙搜救我們的人嗎?]], },
+    { [[斥候納夫靈要你去幽網山脊釋放6名被網住的薩塔戰士然後回到薩塔前哨找他。]], },
   },
   [10874] = {
     [[沙拉斯鸦巢：信号火焰]],
-    { [[Terokk's perch, Skettis, looms above the Bone Wastes to the east. At the base of Skettis lies Veil Shalas, the most formidable of Terokk's colonies. It is through the stronghold of Veil Shalas that Terokk's forward Sages wage war against the Light.]], [[The evil-doers of Shalas communicate with their master using a complex system of magical signal fires. Travel to the east, <race>, and extinguish the fires. Once Veil Shalas is silenced, we can begin to plot the fall of Skettis.]], [[But I get ahead of myself.]], },
-    { [[Kirrik at the Refugee Caravan wants you to extinguish the four signal fires of Veil Shalas.]], },
+    { [[泰洛克的棲息地，司凱堤斯，隱現在東邊白骨荒野的上方。迷霧撒拉斯在司凱堤斯的底部，那是泰洛克最受人畏懼的領地。透過在迷霧撒拉斯的要塞，泰洛克的前鋒賢者發動對聖光的戰爭。]], [[撒拉斯的壞蛋們跟他們的主人透過一種複雜的魔法火源信號來溝通。往東邊去，<race>，消滅那些火源。一旦迷霧撒拉斯被消滅，我們就可以策劃攻陷司凱堤斯。]], [[但是我想得太遠了。]], },
+    { [[難民商隊的奇瑞克要你熄滅迷霧撒拉斯的四個火源信號。]], },
   },
   [10875] = {
     [[向纳兹格雷尔报到]],
     { [[在你利用恶魔占卜器进行探测活动时，我把你在这边针对邪兽人的行动报告发去了萨尔玛。而我们卓越的领袖纳兹格雷尔似乎想与你谈谈。我相信他心里一定有了一个完美的计划……]], },
-    { [[Speak with Nazgrel in Thrallmar.]], },
+    { [[跟索爾瑪的納茲格雷爾談話。]], },
   },
   [10876] = {
     [[城墙之底]],
-    { [[Force Commander Gorax is training Shattered Hand captains at the base of Hellfire Citadel, honing them to a bloody razor's edge.  You must kill him, <name>, for his loss would be a mighty blow to the fel orcs.]], [[However, that is not all you must do.]], [[Take this banner.  Place it atop Gorax's corpse.  Gorax's commander, the Hand of Kargath, must answer your challenge if he has even a drop of true orc blood within him!]], [[His head, the head of the hand of Kargath, is what I seek.]], },
-    { [[Kill Force Commander Gorax, place the Challenge From the Horde upon his corpse, kill The Hand of Kargath, and then bring the Head of the Hand of Kargath to Nazgrel in Thrallmar.]], },
+    { [[軍隊指揮官葛洛克斯正在訓練地獄火堡壘的破碎之手隊長，逼他們磨練戰技。你必須殺死他，<name>，因為他的死亡將帶給魔獄獸人沉重的打擊。]], [[然而，這不全然是你要做的事情。]], [[拿著這個旗幟。插在葛洛克斯的屍體上面。如果葛洛克斯的指揮官，卡加斯之手身上流著任何一滴正統的獸人血液的話就會回應你的挑戰!]], [[他的頭顱，卡加斯之手的頭顱，就是我要的東西。]], },
+    { [[殺死軍隊指揮官葛洛克斯，將部落的挑戰安置在他的屍體上，殺死卡加斯之手，然後將卡加斯之手的頭顱交給索爾瑪的納茲格雷爾。]], },
   },
   [10877] = {
     [[恐怖圣物]],
@@ -28083,17 +28266,17 @@ __ns.L.quest = {
   [10878] = {
     [[黑暗前夕]],
     { [[我们的车队遭到暗影议会秘教信徒的袭击之后，派遣了一位斥候来到沙塔斯城寻求帮助。可是，这里的卫兵却认为我们现在已经安全了，他们完全低估了那些疯子。]], [[总之，我们绝对会被这些秘教新兵在半夜里割破喉咙。所以，你最好能在他们来攻击我们之前把他们解决掉。]], [[在南边的奥金顿北门就能找到那些袭击者。]], },
-    { [[Mekeda at the Refugee Caravan in Terokkar Forest wants you to kill 8 Cabal Skirmishers, 4 Cabal Spell-Weavers and 2 Cabal Initiates.]], },
+    { [[泰洛卡森林，難民商隊的麥克達要你殺死8個卡巴爭鬥者，4個卡巴織法者還有2個卡巴新教徒。]], },
   },
   [10879] = {
     [[斯克提斯的攻势]],
-    { [[Skettis has waged war on us! Have you gathered enough to help with Shattrath's defense?]], [[Hold off the attackers!]], },
-    { [[Hold off the attackers and speak with Rilak.]], },
+    { [[司凱堤斯已經對我們發動了戰爭!你已經聚集足夠的力量幫助撒塔斯的防禦了嗎?]], [[阻止那些攻擊者!]], },
+    { [[阻止那些進攻者然後跟里拉談話。]], },
   },
   [10880] = {
     [[秘教的命令]],
     { [[这封信上印有一个黑色的图章，尽管它所使用的语言你可以理解，但似乎仍然使用了某些暗语。]], [[或许难民车队里有人能读得懂这封信。]], },
-    { [[Bring the Cabal Orders to Mekeda at the Refugee Caravan in Terokkar Forest.]], },
+    { [[將卡巴的命令帶到泰洛卡森林的難民商隊給麥克達。]], },
   },
   [10881] = {
     [[暗影墓穴]],
@@ -28107,12 +28290,12 @@ __ns.L.quest = {
   },
   [10883] = {
     [[风暴钥匙]],
-    { [[You have proven yourself capable of great feats, <name>. Your discovery of the Cipher of Damnation and Kael'Thas' involvement is most important to our cause. Should Kael use the cipher, what little is left of this world may collapse.]], [[A'dal is convinced that Kael must be stopped and now seeks adventurers willing to undergo trials. Those that prove their strength will be granted favor by the naaru.]], [[<Khadgar nods.>]], [[A'dal awaits...]], },
+    { [[你已證明你自己完成重大任務的能力，<name>。你發現毀滅密碼和凱爾薩斯的關連對我們的目標非常重要。萬一凱爾使用那些密碼，這個世界所剩不多的事物都可能會被瓦解。]], [[阿達歐確信凱爾必須被阻止，並且正在尋找願意經歷試煉的冒險者。證明他們的能力者將被授予那魯的眷顧。]], [[<卡德加點頭。>]], [[阿達歐正在等你……]], },
     { [[与沙塔斯城的阿达尔谈一谈。]], },
   },
   [10884] = {
     [[纳鲁的试炼：仁慈]],
-    { [[Four trials you must pass before you are deemed worthy by the naaru.]], [[Within the Shattered Halls of Hellfire Citadel are three of your people. They are held there by the merciless one, Kargath Bladefist. He seeks to execute them as a sign of his virility and power. You must save these prisoners before such an atrocity can come to pass. As proof of deed, bring me the unused axe of the executioner. It must not have a drop of blood on its blade!]], },
+    { [[在你被那魯認可之前，你必須通過四次考驗。]], [[在地獄火堡壘的破碎大廳裡有三個你的族人。他們被殘酷的人，卡加斯·刃拳抓住。他企圖處決他們以作為他男子氣概和力量的標誌。在這樣的一個暴行發生之前，你必須救出這些囚犯。作為行動的證據，為我帶來劊子手未使用的斧。它的斧刃上不能有一滴血!]], },
     { [[沙塔斯城的阿达尔要求你从地狱火堡垒的破碎大厅中取回未使用的刽子手之斧。]], [[该任务必须在英雄等级难度的地下城中完成。]], },
   },
   [10885] = {
@@ -28128,7 +28311,7 @@ __ns.L.quest = {
   [10887] = {
     [[逃离墓穴]],
     { [[我很感激你的帮助，<name>。我还以为我会被杀掉呢。]], [[不过，现在我们得赶紧离开这里了，用不了多久就会有更多的秘会教徒来追捕我们。]], },
-    { [[Help Akuno find his way to the Refugee Caravan in Terokkar Forest.  Speak to Mekeda after you've completed this quest.]], },
+    { [[幫助阿庫諾回到泰洛卡森林的難民商隊。任務完成後跟麥克達交談。]], },
   },
   [10888] = {
     [[纳鲁的试炼：玛瑟里顿]],
@@ -28138,22 +28321,25 @@ __ns.L.quest = {
   [10889] = {
     [[返回沙塔斯]],
     { [[泰罗克必定会发动复仇的反攻。]], [[立即前往沙塔斯城，向瑞拉克报信！]], },
-    { [[Travel to Shattrath City and speak with Rilak.]], },
+    { [[去撒塔斯城跟里拉談話。]], },
+  },
+  [10890] = {
+    [[[UNUSED] <NYI> ]],
   },
   [10891] = {
-    [[Imperial Plate Armor]],
-    { [[There's a dwarf in Gadgetzan by the name of Derotain Mudsipper who'll teach you how to make imperial plate armor. All you gotta do is get to the Tanaris desert and find him. Interested?]], },
-    { [[Speak with Derotain Mudsipper in Gadgetzan.]], },
+    [[帝國的金屬盔甲]],
+    { [[在加基森有一個矮人，名字叫德羅泰恩，他將教你怎樣製造帝國的金屬。而你必須做的只是到塔納利斯沙漠並且找到他。感興趣嗎?]], },
+    { [[與加基森的德羅泰恩交談。]], },
   },
   [10892] = {
-    [[Imperial Plate Armor]],
-    { [[There's a dwarf in Gadgetzan by the name of Derotain Mudsipper who'll teach you how to make imperial plate armor. All you gotta do is get to the Tanaris desert and find him. Interested?]], },
-    { [[Speak with Derotain Mudsipper in Gadgetzan.]], },
+    [[帝國的金屬盔甲]],
+    { [[在加基森有一個矮人，名字叫德羅泰恩，他將教你怎樣製造帝國的金屬。而你必須做的只是到塔納利斯沙漠並且找到他。感興趣嗎?]], },
+    { [[與加基森的德羅泰恩交談。]], },
   },
   [10893] = {
     [[德莱卡·长尾]],
     { [[那些黑翼拜龙教徒彻底占据了隧道，我们面临的情况越来越严峻了。坦白地讲，他们人数太多了。]], [[尽管我们目前还能应付他们小规模的进犯，但如果对方全力认真进攻这里的话，我们几乎无法对他们造成任何阻碍。]], [[目前的状况要求我们必须选出一个人，穿越隧道到另一边去，刺杀他们的领袖德莱卡·长尾。你愿意成为这个人吗？]], },
-    { [[Eliminate Draaca Longtail, the leader of the wyrmcultists in Wyrmskull Tunnel.  Report back to Watcher Moonshade at the Wyrmskull Tunnel in the Blade's Edge Mountains once you have done so.]], },
+    { [[殺死德拉卡·長尾，龍骨隧道裡的巨龍教徒領導者。一旦你完成，回到劍刃山脈的龍骨隧道看守者月影。]], },
   },
   [10894] = {
     [[龙颅观察者]],
@@ -28167,13 +28353,13 @@ __ns.L.quest = {
   },
   [10896] = {
     [[被感染的保卫者]],
-    { [[The trees of this land are ravaged by the power that was unleashed from Auchindoun.  The foul magic that was unleashed blasted the land into the wastes you see all around.  The trees that survived are now infested with wretched wood mites that crawl under their bark and gnaw at their flesh.]], [[Rotting forest-rages and infested root-walkers are breeding grounds for the mites.  They are found along the edge of the wood to the east.  Destroy these creatures and then kill the mites that flee their husks.]], },
-    { [[Lakotae wants you to kill 25 wood mites and then return to him at the Refugee Caravan.  The mites can be found living inside the bodies of rotting forest-ragers and infested root-walkers.]], },
+    { [[這塊土地的樹木被奧齊頓釋放出來的能量給毀壞了。釋放出來的腐敗魔法能量將這塊土地摧殘成你目前四處都可以看到的荒野。倖存的樹木現在被討厭的蝕木蟲侵擾，這些蟲在他們的樹皮下爬行並且啃食他們的樹身。]], [[腐爛的森林盛怒者以及群聚的根鬚行者是這些蝕木蟲的宿主。你可以在森林東邊的邊緣地帶找到他們。消滅這些生物，然後殺死自它們樹身逃出的蝕木蟲。]], },
+    { [[拉庫提要你殺死25隻蝕木蟲，然後回到難民商隊那裡找他。蝕木蟲寄宿在腐爛的森林狂怒者和群聚的根鬚行者的軀體裡。]], },
   },
   [10897] = {
-    [[Master of Potions]],
-    { [[As you know, plants have properties that allow alchemists to re-energize and reinvigorate others through potions.]], [[My familiarity with the plants of Outland allows me to teach alchemists how to make the most out of them.  If you're interested in expanding your knowledge of potions, I have but one task to ask of you.]], [[High Botanist Freywinn in Tempest Keep is rumored to have written a comprehensive botany guide.  Bring it to me along with samples of your work and I'll teach you the knowledge you seek.]], },
-    { [[Lauranna Thar'well wants you to go to the Botanica in Tempest Keep and retrieve the Botanist's Field Guide from High Botanist Freywinn.  In addition she also wants you to bring her 5 Super Healing Potions, 5 Super Mana Potions and 5 Major Dreamless Sleep Potions.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級藥水]],
+    { [[正如你所知，植物具有特性，而允許鍊金師透過藥水重新能量化並且使其它人恢復生氣。]], [[我對外域植物的熟悉允許我教鍊金師怎樣從它們當中做出最大效用。如果你有興趣擴增你藥水的知識，我有一項任務要你去完成。]], [[有謠傳說在風暴要塞的大植物學家費瑞衛恩寫了一本綜合植物學指南。將它與你工作的樣品一起帶到我這裡，我將教你所尋找的知識。]], },
+    { [[羅安娜·薩威爾要你去風暴要塞的波塔尼卡，並且從大植物學家費瑞衛恩那裡取回植物學家的野地指南。另外她也想要你為她帶回來5瓶超強效治療藥水，5瓶超強效法力藥水和5瓶昏睡藥水。]], [[*警告!*你只能選擇一種鍊金術專業化。]], },
   },
   [10898] = {
     [[天空之翼]],
@@ -28181,12 +28367,12 @@ __ns.L.quest = {
     { [[护送天空之翼，完成之后向沙塔斯城的救赎者瑞拉克报告。]], },
   },
   [10899] = {
-    [[Master of Transmutation]],
-    { [[Any alchemist will tell you that matter is malleable, any substance can be transformed into another - but nothing is really created or destroyed.]], [[A true master of transmutation can learn to overcome this limitation - and I can teach you how to obtain this mastery!]], [[As a prospective transmuter you're undoubtedly familiar with primal might - the combination of the material representation of all primal forces.  Show me proof of your transmuting prowess and I will share my knowledge with you.]], },
-    { [[Zarevhi at the Stormspire in Netherstorm wants you to bring him 4 Primal Mights.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級轉化]],
+    { [[任何鍊金師都會告訴你物質是有延展性的，任何物質都可以轉化成另一個形態 - 但不是真的憑空創造物品或者在轉化的過程中破壞它。]], [[一位真正的轉化大師能學會克服這限制 - 而且我能教你怎樣習得這項專精!]], [[身為未來的轉化師你無疑擅長原始的力量 - 所有原始力量之物質代表的結合。讓我看看的轉化能力，我將與你分享我的知識。]], },
+    { [[虛空風暴，風暴之尖的薩爾菲要你帶給他4個原始力量。]], [[*警告!*你只能選擇一種鍊金術專精。]], },
   },
   [10900] = {
-    [[The Mark of Vashj]],
+    [[瓦許的印記]],
   },
   [10901] = {
     [[卡达什圣杖]],
@@ -28194,9 +28380,9 @@ __ns.L.quest = {
     { [[Skar'this the Heretic in the heroic Slave Pens of Coilfang Reservoir wants you to bring him the Earthen Signet and the Blazing Signet.]], },
   },
   [10902] = {
-    [[Master of Elixirs]],
-    { [[I've devoted my life to perfecting my elixirs.  Despite my success, I haven't been able to create an elixir of eternal life.]], [[I think I know the reagent I'm missing.  I've heard of a place called the Caverns of Time in Azeroth where intruders known as rift lords and rift keepers phase in and out of the timeline.]], [[This intrusive time-shifting creates tears in time itself, twisting it infinitely into crystallized essences.  Bring these to me along with samples of your work and I'll teach you all I know.]], },
-    { [[Go to the Black Morass in the Caverns of Time and obtain 10 Essences of Infinity from Rift Lords and Rift Keepers.  Bring these along with  5 Elixirs of Major Defense, 5 Elixirs of Mastery and 5 Elixirs of Major Agility to Lorokeem in Shattrath's Lower City.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級藥劑]],
+    { [[我終生致力於藥劑製作的完善技術。盡管我目前很成功，我還是無法製造長生不老的藥劑。]], [[我想我知道我所缺少的試劑。我聽說艾澤拉斯有個地方叫做時光之穴，時空的侵入者裂縫領主還有裂縫看守者都在那邊逐步入侵還有離開時間線。]], [[這種侵入性的時空轉移在時間線上製造了裂縫，最後扭曲形成晶化的精華。將這些精華還有你做出來的樣本帶給我然後我就會教你我所知道的東西。]], },
+    { [[去時光之穴的黑色沼澤從裂縫領主還有裂縫看守者身上取得10個無限精華。同時帶著5個極效防禦藥劑、5個專精藥劑還有5個極效敏捷藥劑交給撒塔斯的陰鬱城的羅洛其恩。]], [[*警告!*你只能選擇一種鍊金術專精。]], },
   },
   [10903] = {
     [[返回荣耀堡]],
@@ -28206,27 +28392,27 @@ __ns.L.quest = {
   [10904] = {
     [[收集邪能炮弹]],
     { [[我们必须阻止燃烧军团继续利用死亡之门，必须要关闭它。不过，首先得毁掉他们的两道迁跃门才行！]], [[但问题是，我们没有任何摧毁大型设施所需要的工具，所以你必须利用他们自己的武器去对付他们。]], [[那边的死亡之力、死亡注视者、死亡熔炉锻造师，还有死亡熔炉技师的身上都携带有邪能火炮的炮弹。]], [[虽然一般来说没有东西可以摧毁那几道门，但如果你能将这些炮弹带回来给我，我就能在其中灌注入自然的愤怒能量！]], },
-    { [[The Evergrove Druid has asked you to collect 5 Fel Cannonballs.  Once you have done so, use the Druid Signal to call to the Evergrove Druid inside of Death's Door at the Blade's Edge Mountains.]], },
+    { [[永恆樹林德魯伊要你收集5個惡魔砲彈。等你完成，就到劍刃山脈使用德魯伊信號召喚死亡之門內的永恆樹林德魯伊。]], },
   },
   [10905] = {
-    [[Master of Potions]],
-    { [[My knowledge of alchemy is vast.  It is, however, general in nature.  If you wish to specialize, you will have to find others who have narrower fields of study.]], [[If you wish to specialize in potion creation, I would recommend that you seek the help of Lauranna Thar'well of the Cenarion Expedition.]], [[Her knowledge of plants will allow you to make the most of your raw materials.  Look for her in Zangarmarsh and tell her I sent you to her.]], },
-    { [[Speak to Lauranna Thar'well at Cenarion Refuge in Zangarmarsh.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級藥水]],
+    { [[我的鍊金術知識很廣泛。不過，它的本質是很普通的。如果你希望專攻其中的一門領域，你必須找到專精該門研究的人。]], [[如果你希望專精於藥水，我建議你尋求塞納里奧遠征隊的羅安娜·薩威爾幫助。]], [[她對植物的知識將讓你可發揮原料的最大作用。到贊格沼澤找她，並告訴她是我叫你到她那裡的。]], },
+    { [[跟贊格沼澤的塞納里奧避難所的羅安娜·薩威爾交談。]], [[*警告!*你只能選擇一種鍊金術專精。]], },
   },
   [10906] = {
-    [[Master of Elixirs]],
-    { [[My knowledge of alchemy is vast.  It is, however, general in nature.  If you wish to specialize, you will have to find others who have narrower fields of study.]], [[If you wish to specialize in elixir creation, I would recommend that you seek the help of the arakkoa known as Lorokeem.]], [[His knowledge of elixirs is unmatched, yet he  squanders his skill pursuing an elixir of eternal life.  Find him and see what he can teach you.]], },
-    { [[Speak to Lorokeem in Shattrath's Lower City.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級藥劑]],
+    { [[我的鍊金術知識很廣泛。不過，它的本質是很普通的。如果你希望專攻其中的一門領域，你必須找到專精該門研究的人。]], [[如果你希望專精於藥劑方面，我建議你去找一個叫羅洛其恩的阿拉卡尋求幫助。]], [[他在藥劑上的知識是無人能比的，但他卻把技巧浪費在追尋永生的藥劑上。找到他看看他能教你什麼。]], },
+    { [[跟撒塔斯城的陰鬱城的羅洛其恩交談。]], [[*警告!*你只能選擇一種鍊金術專精。]], },
   },
   [10907] = {
-    [[Master of Transmutation]],
-    { [[My knowledge of alchemy is vast.  It is, however, general in nature.  If you wish to specialize, you will have to find others who have narrower fields of study.]], [[If you wish to specialize in transmutation, I would recommend that you seek the help of the ethereal known as Zarevhi.  He resides in the Stormspire in Netherstorm.]], [[His mastery of transmutation is... well, outlandish!  See what you can learn from him, but beware - ethereals drive a hard bargain.]], },
-    { [[Speak to Zarevhi at the Stormspire in Netherstorm.]], [[*WARNING!* You can only select one alchemy specialization.]], },
+    [[大師級轉化]],
+    { [[我的鍊金術知識很廣泛。不過，它的本質是很普通的。如果你希望專攻其中的一門領域，你必須找到專精該門研究的人。]], [[如果你希望專精於轉化，我建議你尋求一個叫薩爾菲的伊斯利幫助。他居住於虛空風暴的風暴之尖。]], [[他對轉化的精通是……嗯，很古怪的!看看你能向他學些什麼，但是注意 - 伊斯利很會討價還價。]], },
+    { [[跟虛空風暴的風暴之尖的薩爾菲談話。]], [[*警告!*你只能選擇一種鍊金術專精。]], },
   },
   [10908] = {
     [[救赎者瑞拉克]],
     { [[看你一脸惊讶的样子，跟我谈话很不自在吧。我不会责怪你的。鸦人本来就该令人生畏。]], [[跟沙塔斯城的救赎者瑞拉克谈谈吧。他就在贫民窟北部，跟其他逃离斯克提斯的鸦人在一起。]], [[另外，<name>，我们还会见面的。]], },
-    { [[Kirrik the Awakened wants you to speak with Rilak the Redeemed in the Lower City district of Shattrath.]], },
+    { [[『覺醒者』奇瑞克要你跟撒塔斯的陰鬱城區內的『贖罪者』里拉克談話。]], },
   },
   [10909] = {
     [[邪灵]],
@@ -28236,32 +28422,32 @@ __ns.L.quest = {
   [10910] = {
     [[死亡之门]],
     { [[现在我们面临着来自燃烧军团的进一步威胁。南边有一座被称作死亡之门的传送门，它直接通向军团繁殖那些邪恶爪牙的可怕世界。]], [[你现在立即出发，沿着斜坡往东走，离开常青林，再沿着道路一直向南前进，经过刀刃峡谷、拉扎安码头、剃刀山和鳞翼岩床之后，再沿着斜坡向下进入维克哈营地并穿过隧道，就可以到达莫克纳萨村南边的死亡之门了。]], [[到达那里之后，使用这枚德鲁伊信号弹。]], },
-    { [[Wildlord Antelarion has implored you to travel to Death's Door.  Once you arrive there, use the Druid Signal to call down an Evergrove Druid so that you can speak with them.]], },
+    { [[野蠻領主安德烈利安請你到死亡之門。到達之後，使用德魯伊信號召喚一個永恆樹林德魯伊好讓你可以跟他們談話。]], },
   },
   [10911] = {
     [[自由射击！]],
-    { [[Now that the ammunition can affect the Burning Legion, it's time for you to use it.]], [[There are two warp-gates, which are used for teleportation and enhancement of the void terrors.  One is in the south and the other in the north, and each is within range of a fel cannon.]], [[Use the naturalized ammunition to take control of each fel cannon and destroy the warp-gates.]], [[Attack the gate with artillery to begin, and be prepared to kill its defenders to keep the cannon alive if necessary.]], },
-    { [[Use the Naturalized Ammunition to take control of the Death's Door Fel Cannons.  Use them to destroy both the South Warp-Gate and the North Warp-Gate.  Then, use the Druid Signal to call out to an Evergrove Druid to report your success.]], },
+    { [[既然那些彈藥可以影響燃燒軍團，是時候讓你使用它了。]], [[他們有兩個星移門用來傳送還有加強他們的虛無恐獸。一個在北邊一個在南邊，但是兩個都在惡魔火砲的射程範圍內。]], [[使用同化彈藥以取得各個惡魔火砲的控制權並摧毀星移門。]], [[讓砲隊先展開攻擊，必要的話準備殺死它的防衛者讓火砲保留下來。]], },
+    { [[使用同化彈藥以取得死亡之門的惡魔火砲控制權。使用它們來摧毀南方星移門還有北方星移門。然後，使用德魯伊信號召喚一個永恆樹林德魯伊來回報你的勝利。]], },
   },
   [10912] = {
     [[犬王]],
     { [[犬王拜尔蒙必须死！他负责主持着令传送门生效的仪式。]], [[死亡之门就在峡谷的最北端，你看到它的时候，也就意味着你找到了拜尔蒙。]], [[带上这根魔杖，它会对你有帮助的。当你与犬王拜尔蒙战斗时，立刻使用它，我的两个朋友就会出现，助你一臂之力。]], [[击败拜尔蒙之后，立刻回去向荒野之王安塔里恩复命。]], [[还有，<name>，谢谢你来这里为我们贡献自己的力量。]], },
-    { [[The Evergrove Druid has told you that the final thing you must do is to slay Baelmon the Hound-Master.  Afterward, return to Evergrove in the Blade's Edge Mountains, and inform Wildlord Antelarion of your success.]], },
+    { [[永恆樹林德魯伊告訴你最後的一件事是殺死『魔犬之主』貝爾蒙。任務完成後，回到劍刃山脈的永恆樹林向野蠻領主安德烈利安回報。]], },
   },
   [10913] = {
     [[不适当的葬礼]],
     { [[难道没有办法阻止堕落继续发生吗？我们与奥金尼之间的战争旷日持久，毫无结束的希望。可是，每一名死者——不管是奥金尼的士兵还是沙塔尔的士兵——他们的灵魂都被带到了未知的领域。]], [[我绝对不允许这样的事情发生！虽然不能好好地安葬他们，但也绝对不能让那些魔鬼夺走他们的灵魂！带上这个火把到正东边的战场去。烧掉你看到的每一具遗体！我们不能让他们利用这些遗体来进行任何邪恶的仪式。]], },
-    { [[Commander Ra'vaj at the Sha'tari Outpost in the Bone Wastes of Terokkar Forest wants you to burn 8 Slain Auchenai Warriors and 8 Slain Sha'tar Vindicators.]], },
+    { [[泰洛卡森林白骨荒野，薩塔前哨的指揮官洛沃要你燒毀8個陣亡的奧奇奈戰士還有8個陣亡的薩塔復仇者。]], },
   },
   [10914] = {
     [[呼唤英雄]],
     { [[这样还不够，我们需要一位真正的英雄。奥金尼的士兵数量还在源源不断地增加，我们的军队很快就会被彻底被打垮。]], [[<指挥官拉瓦伊看着你。>]], [[你会是我们所期待的英雄吗？回到战场上去吧，与他们的士兵战斗，缠住他们，这样我的斥候们才能深入敌后去探察他们到底在干些什么。]], },
-    { [[Commander Ra'vaj at the Sha'tari Outpost in the Bone Wastes of Terokkar Forest wants you to slay 12 Auchenai Initiates and 5 Auchenai Doomsayers.]], },
+    { [[泰洛卡森林白骨荒野，薩塔前哨的指揮官洛沃要你殺死12個奧奇奈新教徒還有5個奧奇奈末日預言者。]], },
   },
   [10915] = {
     [[死去的主教]],
     { [[他们把偷来的灵魂都注入某个从奥金尼地穴挖出的灵柩中。我的斥候们认为那具灵柩里的正是奥金尼地穴第一任大主教的遗体。他们想复活这个老家伙！]], [[你必须杀入奥金顿西边，在他们献上足够的灵魂之前干掉那个灵柩里的东西。跟着那些正向那边走过去的灵魂，你就不会迷路。]], [[听着，无论那个灵柩里是什么东西，你都必须消灭他！]], },
-    { [[Commander Ra'vaj at the Sha'tari Outpost in the Bone Wastes of Terokkar Forest wants you to destroy the contents of the Auchenai Coffin.]], },
+    { [[泰洛卡森林白骨荒野，薩塔前哨的指揮官洛沃要你摧毀奧奇奈棺材的內容物。]], },
   },
   [10916] = {
     [[挖掘念珠]],
@@ -28270,7 +28456,7 @@ __ns.L.quest = {
   },
   [10917] = {
     [[流亡者的交易]],
-    { [[As an outcast, I am marked by death by arakkoa loyal to the city of Skettis.  I cannot leave these walls for fear of my life, but that doesn't mean I cannot strike at them in retaliation.]], [[I have a small cache of treasure that I'm willing to part with, should you help me strike back at my would-be assassins.  Bring me feathers from the denizens of the various Veils of Terokkar as proof of their demise.]], },
+    { [[身為一個流亡者，我身上被效忠於司凱堤斯城的阿拉卡標上了死亡的記號。為了生存我不能離開這些城牆，但那並不表示我不能給他們復仇的一擊。]], [[我有一小堆寶物願意分享，只要你幫我對付那些我想要成為的刺客。把泰洛卡迷霧裡不同居民的羽毛帶來給我做為他們死亡的證據。]], },
     { [[将30片鸦人的羽毛交给沙塔斯城贫民窟的维卡克斯。]], },
   },
   [10918] = {
@@ -28292,7 +28478,7 @@ __ns.L.quest = {
   [10922] = {
     [[挖掘行动]],
     { [[啊！你看上去是个有点能力的家伙，<race>。我和我的队员希望能找一个护卫，在我们去北边的挖掘场工作时保护我们的安全。要知道，报酬相当丰厚哦！而且你要做的，仅仅是确保我和我的同伴们不会被那些可恶的怪物们杀掉。]], [[如果你能顺利地完成任务，保证我们不出任何意外的话，杜瓦弗维兹会给你一大笔钱的！]], },
-    { [[Escort Letoll and his crew and protect them while they make their dig. Return to Dwarfowitz at the Sha'tari Outpost if you succeed.]], },
+    { [[護送里同還有他的工作人員然後在他們挖掘的時候保護他們。任務完成後回到薩塔前哨找德拉弗懷玆。]], },
   },
   [10923] = {
     [[邪恶临近]],
@@ -28310,17 +28496,17 @@ __ns.L.quest = {
   [10926] = {
     [[返回沙塔尔营地]],
     { [[我们现在已经无法靠自己的力量回去了。巨牙蜘蛛毒液的毒性太强了，你必须帮帮我们！返回沙塔尔营地报信，斥候纳弗林会派救援队来找我们的。]], },
-    { [[Vindicator Haylen wants you to return to Sha'tari Base Camp and speak with Scout Navrin.]], },
+    { [[復仇者赫藍要你回到薩塔營地跟斥候納夫靈談話。]], },
   },
   [10927] = {
     [[消灭洞穴蛛]],
-    { [[Commander Skyshadow wants this tunnel cleared out so we can expedite trade with the Harborage. I must not leave my post here so I am leaving the task in your hands. Clear the tunnel and report to Commander Skyshadow at once!]], },
-    { [[Sentinel Moonwhisper at the tunnel between Zangarmarsh and Blade's Edge Mountains wants you to kill 6 Cavern Crawlers and report to Commander Skyshadow in Sylvanaar.]], },
+    { [[指揮官天影要清空這條通道以促進我們跟避難營的貿易。我不能離開我的哨站所以我只好把任務交到你的手裡。清空通道然後馬上回報指揮官天影!]], },
+    { [[連接贊格沼澤和劍刃山脈隧道的哨兵月語要你殺死6隻洞穴爬行者然後回報希爾瓦納的指揮官天影。]], },
   },
   [10928] = {
     [[消灭洞穴蛛]],
-    { [[Tor'chunk Twoclaws wants this tunnel cleared out so we can expedite trade with Swamp Rat. I must not leave my post here so I am leaving the task in your hands. Clear the tunnel and report to Tor'chunk Twoclaws at once!]], },
-    { [[Grunt Grahk at the tunnel between Zangarmarsh and Blade's Edge Mountains wants you to kill 6 Cavern Crawlers and report to Tor'chunk Two-claws in Thunderlord Stronghold.]], },
+    { [[吐查克·雙爪要清空這條通道以促進我們跟沼澤叛徒的交易。我不能離開我的哨站所以我把任務交到你的手上。清空這個通道然後馬上回報吐查克·雙爪!]], },
+    { [[連接贊格沼澤和劍刃山脈隧道的蠻兵葛拉赫要你殺死6隻洞穴爬行者然後回報雷霆王村的吐查克·雙爪。]], },
   },
   [10929] = {
     [[击鼓]],
@@ -28329,8 +28515,8 @@ __ns.L.quest = {
   },
   [10930] = {
     [[巨大的骨虫]],
-    { [[I was right! These carcasses you brought me belong to the baby bone worms. Do you know what that means? It means that somewhere out there is a big one! I think we can get it to come out if we can provide the right kind of food. Let's see... something big! Yes!]], [[I remember seeing clefthooves east of here on the other side of the Bone Wastes. Get out there and kill a clefthoof. Once it's dead, use the drums. Hopefully the big one will come up to feed. If you manage to kill it, bring me its organs!]], },
-    { [[Dwarfowitz at the Sha'tari Base Camp in the Bone Wastes wants you to recover Enormous Bone Worm Organs.]], [[He wants his Fumper back too.]], },
+    { [[我是對的!你帶給我的這些屍體屬於白骨蟲幼蟲。你知道那表示什麼嗎?它表示在外面的某處有一隻大的!我認為如果我們能提供正確的食物，就能引誘它出來。讓我們看看……需要大型的屍體誘餌!是的!]], [[我記得在這東邊白骨荒野的另一邊看見過裂蹄。到那去並殺掉一隻裂蹄。一旦它死了，就敲響鼓。希望會那隻大蟲會出來吃它。如果有，你就設法殺死它，並把它的器官帶來給我!]], },
+    { [[白骨荒野的薩塔前哨的德拉弗懷玆要你取得巨大的白骨蟲器官。]], [[他同時也想要回他的太鼓。]], },
   },
   [10931] = {
     [[回到埃索达]],
@@ -28369,33 +28555,33 @@ __ns.L.quest = {
   },
   [10938] = {
     [[暗月祝福套牌]],
-    { [[Now that you have gathered all of the Blessings cards together into a deck, a ninth card mysteriously appears with the same backing as the first eight.   On this card is inscribed, "Return these cards to the Darkmoon Faire and be rewarded."   You have heard that this faire alternately stops at Mulgore and Goldshire every few months, so you will have to wait until they are here next.]], },
+    { [[你現在收集齊了整套的祝福套卡，跟前八張卡片有著同樣花色的第九張卡片神奇的出現。卡片上寫著:「將卡片歸還暗月馬戲團，就可以獲得獎勵。」你聽說這個馬戲團會固定每隔幾個月在莫高雷跟閃金鎮停留，所以你必須得等到下次他們到這裡來的時候。]], },
     { [[当暗月马戏团来到镇上的时候，把祝福套牌交给他们。]], },
   },
   [10939] = {
     [[暗月风暴套牌]],
-    { [[Now that you have gathered all of the Storms cards together into a deck, a ninth card mysteriously appears with the same backing as the first eight.   On this card is inscribed, "Return these cards to the Darkmoon Faire and be rewarded."   You have heard that this faire alternately stops at Mulgore and Goldshire every few months, so you will have to wait until they are here next.]], },
+    { [[你現在收集齊了整套的風暴套卡，跟前八張卡片有著同樣花色的第九張卡片神奇的出現。卡片上寫著:「將卡片歸還暗月馬戲團，就可以獲得獎勵。」你聽說這個馬戲團會固定每隔幾個月在莫高雷跟閃金鎮停留，所以你必須得等到下次他們到這裡來的時候。]], },
     { [[当暗月马戏团来到镇上的时候，把风暴套牌交给他们。]], },
   },
   [10940] = {
     [[暗月报复套牌]],
-    { [[Now that you have gathered all of the Furies cards together into a deck, a ninth card mysteriously appears with the same backing as the first eight.   On this card is inscribed, "Return these cards to the Darkmoon Faire and be rewarded."   You have heard that this faire alternately stops at Mulgore and Goldshire every few months, so you will have to wait until they are here next.]], },
+    { [[你現在收集齊了整套的狂怒套卡，跟前八張卡片有著同樣花色的第九張卡片神奇的出現。卡片上寫著:「將卡片歸還暗月馬戲團，就可以獲得獎勵。」你聽說這個馬戲團會固定每隔幾個月在莫高雷跟閃金鎮停留，所以你必須得等到下次他們到這裡來的時候。]], },
     { [[当暗月马戏团来到镇上的时候，把报复套牌交给他们。]], },
   },
   [10941] = {
     [[暗月愚人套牌]],
-    { [[Now that you have gathered all of the Lunacy cards together into a deck, a ninth card mysteriously appears with the same backing as the first eight.   On this card is inscribed, "Return these cards to the Darkmoon Faire and be rewarded."   You have heard that this faire alternately stops at Mulgore and Goldshire every few months, so you will have to wait until they are here next.]], },
+    { [[你現在收集齊了整套的失心套卡，跟前八張卡片有著同樣花色的第九張卡片神奇的出現。卡片上寫著:「將卡片歸還暗月馬戲團，就可以獲得獎勵。」你聽說這個馬戲團會固定每隔幾個月在莫高雷跟閃金鎮停留，所以你必須得等到下次他們到這裡來的時候。]], },
     { [[当暗月马戏团来到镇上的时候，把愚人套牌交给他们。]], },
   },
   [10942] = {
     [[儿童周]],
     { [[有你做伴，哪怕只有很短的几天，我们的这位小姑娘也一定会非常开心。]], [[收下这只孤儿哨吧。只要吹响它，就可以召唤出你要照看的小孩子。你只需要负责照顾她一段时间就可以了——实际上就是儿童周期间。]], [[<name>，召唤出这个孩子吧。她肯定迫不及待地想要跟你见面，随你探索城外的美丽世界！]], },
-    { [[Use the Blood Elf Orphan Whistle to call for the ward that you will be looking after during Children's Week.]], },
+    { [[使用血精靈孤兒哨呼喚你在兒童週領養的小孩。]], },
   },
   [10943] = {
     [[儿童周]],
     { [[有你做伴，哪怕只有很短的几天，我们的这位小姑娘也一定会非常开心。]], [[收下这只孤儿哨吧。只要吹响它，就可以召唤出你要照看的小孩子。你只需要负责照顾她一段时间就可以了——实际上就是儿童周期间。]], [[<name>，召唤出这个孩子吧。她肯定迫不及待地想要跟你见面，随你探索城外的美丽世界！]], },
-    { [[Use the Draenei Orphan Whistle to call for the ward that you will be looking after during Children's Week.]], },
+    { [[使用德萊尼孤兒哨呼喚你在兒童週領養的小孩。]], },
   },
   [10944] = {
     [[危险的秘密]],
@@ -28524,7 +28710,7 @@ __ns.L.quest = {
   },
   [10969] = {
     [[寻找阿米尔]],
-    { [[It would seem that an outside force has taken an interest in the business practices of the Consortium. Five Consortium dealers have gone missing in the past two days. We have reason to believe the Ethereum are involved. If you are interested in assisting, seek out Commander Ameer at the Protectorate Watch Post.]], [[You will find the Protectorate Watch Post directly east of here on the next island.]], },
+    { [[看起來有一股外來的勢力對聯合團的商業活動虎視眈眈。在過去兩天內已經有5名聯合團商人失蹤了。我們有理由相信伊斯利恩罪嫌重大。假如你想協助我們的話就去護國者哨站尋找指揮官阿密爾吧。]], [[護國者哨站就在正東方的下一座島上。]], },
     { [[前往维序派哨站，找到指挥官阿米尔。]], },
   },
   [10970] = {
@@ -28618,7 +28804,7 @@ __ns.L.quest = {
   [10989] = {
     [[枯瘦的莫戈多格]],
     { [[枯瘦的莫戈多格正在塔顶上等你。他告诉我说，要寻找一个像你一样的<race><class>。你去跟他谈一谈吧。]], [[现在就去，还有，千万不要告诉任何人。这是机密！]], },
-    { [[Visit Mog'dorg the Wizened atop the tower where Chort is standing, just outside the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[前往劍刃山脈的血之環找乾癟的莫格多克。他就站在劍刃山脈，血之環外的塔頂，丘特的旁邊。]], },
   },
   [10990] = {
     [[The Eagle's Essence]],
@@ -28647,23 +28833,28 @@ __ns.L.quest = {
   },
   [10995] = {
     [[格鲁洛克的巨龙颅骨]],
-    { [[To the east, at the terminus of Dragons' End, is the Cursed Hollow.  Therein, Grulloc, son of Gruul, plots his dimwitted schemes.]], [[I heard that one of his possessions was stolen from him through trickery.  Was that you?  Unfortunate that he was not slain in the process.]], [[If we are to regain our freedom, I would have you take his most prized possession, a dragon skull from when he rejoiced in his father's slaying of the Black Dragonflight.  The only way you'll get the skull is to vanquish him.]], },
-    { [[Retrieve Grulloc's Dragon Skull and deliver it to Mog'dorg the Wizened atop the tower at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[詛咒之谷位在東邊飛龍之末的邊界處。戈魯爾之子，葛魯洛克就在那邊策劃他的愚蠢計劃。]], [[我聽說他的一樣物品被人用巧妙的手法給偷走了。是你做的嗎?可惜他沒有在過程中喪失性命。]], [[如果我們想重獲自由，我要你搶走他最重要的資產，那就是他父親屠殺黑龍軍團的龍頭骨。你要取得龍頭骨的唯一方法就是殺死他。]], },
+    { [[取得葛魯洛克的龍頭骨，帶到劍刃山脈的血之環外，交給塔頂乾癟的莫格多克。]], },
   },
   [10996] = {
     [[玛古克的宝箱]],
     { [[玛古克一般在东南边的剃刀山上巡逻，那是因为他的父亲派他去看守东边的山脉。他非常喜欢去威胁那些妨碍到他的生物。]], [[因为他是格鲁尔的儿子，所以，如果我们想要继续活下来，他就必须被消灭，而你将负责执行这一任务。]], [[玛古克一直随身带着一只宝箱，你记得把箱子带回来给我，以证明你确实把他干掉了。当然，箱子里的东西你可以随意处置。]], },
-    { [[Retrieve Maggoc's Treasure Chest and deliver it to Mog'dorg the Wizened atop the tower at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[取得瑪格歐克的寶箱，帶到劍刃山脈的血之環，交給塔頂乾癟的莫格多克。]], },
   },
   [10997] = {
     [[戈隆的军旗]],
     { [[你熟悉沙塔斯城吗，<class>？在它的西北边有个地方叫壁垒山，进去的唯一途径是乘坐飞行坐骑。]], [[格鲁尔的一个儿子斯莱格控制了居住在那里的戈杜尼食人魔。虽然他们距离我们的确非常遥远，但我们也不能让他有好日子过，否则他在知道其余的兄弟被杀害之后，很可能会回来给我们制造麻烦。]], [[<name>，你赶紧到那里去干掉他，将他的军旗带回来，作为他死亡的证明。]], },
-    { [[Retrieve Slaag's Standard and deliver it to Mog'dorg the Wizened atop the tower at the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[取得史拉格的軍旗，帶到劍刃山脈的血之環，交給塔頂乾癟的莫格多克。]], },
   },
   [10998] = {
     [[维姆高尔的魔典]],
     { [[There is one more gronn to be slain: Skulloc Soulgrinder.  He keeps himself hidden away, but there is a way to coax him forth.]], [[He was trained by an ogre warlock known as Vim'gol the Vile, whose grimoire you must retrieve!]], [[Vim'gol must be summoned by yourself, and four others, each standing within a different fire ring at his circle.  Find Vim'gol's Circle in the mountains, to the northeast, near the Broken Wilds.]], [[And, <name>, if you hear Vim'gol talk about growing bigger, get back to the fire rings!]], },
     { [[You must retrieve Vim'gol's Vile Grimoire.  Deliver it to Mog'dorg the Wizened atop the tower at the Circle of Blood in the Blade's Edge Mountains.]], },
+  },
+  [10999] = {
+    [[見一個殺一個]],
+    { [[我要8顆穴居人的石牙。]], },
+    { [[我要8顆穴居人的石牙。]], },
   },
   [11000] = {
     [[磨魂者]],
@@ -28677,12 +28868,12 @@ __ns.L.quest = {
   },
   [11002] = {
     [[玛瑟里顿之死]],
-    { [[The source of Illidan Stormrage's fel orc army has been vanquished. The manufactory halts production of its grim product - at least for now. All that remains are a few trinkets and this severed head - a fitting trophy for a hero of the Alliance.]], [[Return Magtheridon's head to Danath Trollbane at Honor Hold.]], },
+    { [[伊利丹·怒風的魔獄獸人軍隊來源已經消失了。生產殘忍戰爭工具的工廠也停止運作了，至少現在是如此。一切只剩下幾個小飾品以及這個割下來的頭顱 - 一個適合聯盟英雄的戰利品。]], [[將瑪瑟里頓之首交給榮譽堡的達納斯·托爾貝恩。]], },
     { [[将玛瑟里顿的徽记交给荣耀堡的远征军指挥官达纳斯·托尔贝恩。]], },
   },
   [11003] = {
     [[玛瑟里顿之死]],
-    { [[The source of Illidan Stormrage's fel orc army has been vanquished. The manufactory halts production of its grim product - at least for now. All that remains are a few trinkets and this severed head - a fitting trophy for a hero of the Horde.]], [[Return Magtheridon's head to Nazgrel at Thrallmar.]], },
+    { [[伊利丹·怒風的魔獄獸人軍隊來源已經消失了。生產殘忍戰爭工具的工廠也停止運作了，至少現在是如此。一切只剩下幾個小飾品以及這個割下來的頭顱 - 一個適合部落英雄的戰利品。]], [[將瑪瑟里頓之首交給索爾瑪的納茲格雷爾。]], },
     { [[将玛瑟里顿的徽记交给萨尔玛的纳兹格雷尔。]], },
   },
   [11004] = {
@@ -28832,11 +29023,11 @@ __ns.L.quest = {
   [11036] = {
     [[食物储备！]],
     { [[首先，我得承认我不太明白这份订单是干嘛用的。不过，火箭主管弗斯拉格列出了详细的说明——这批果脯需以品质上等的水果为原料，必须经过严格的防腐和密封处理。]], [[他还提出了别的要求，失重状态、低气压什么的。我根本就不懂这些术语，好在他开出的价格不错，那么我就按他的吩咐交货吧。总之，将这个食品箱交给52区的火箭主管弗斯拉格。沿着这条道路进入虚空风暴后一直走就到52区了。]], },
-    { [[Bring the Preserved Fruit to Rocket-Chief Fuselage at Area 52.]], },
+    { [[將罐頭水果交給52區的火箭主管夫斯拉吉。]], },
   },
   [11037] = {
-    [[A Strange Vision]],
-    { [[I've had a most unusual vision, <name>, and I don't know quite what to make of it. I've seen an arrow, an immense arrow, riding into the sky on a trail of fire. Such a feat is trivial for a skilled mage, but somehow I know the arrow I saw is not the product of magic.]], [[It will be unlike anything the people of Azeroth have ever achieved. You must seek out the people working on this, <name>. Lend them your help, for without it, their efforts may yet fail.]], },
+    [[奇怪的景象]],
+    { [[我預見了一個非比尋常的景象，<name>，而且我不完全知道那是怎麼辦到的。我看見一枝箭，一枝巨大的箭衝向天際，背後拖曳著一道火焰燃燒的痕跡。這種事情對一個技術高超的法師來說算不上什麼，但是我的預感告訴我這個巨大的箭矢並不屬於魔法的產物。]], [[這個東西將不是艾澤拉斯的居民可以達到的成就。你必須找到製造這個東西的人，<name>。協助他們，否則他們的工作可能最後還是會失敗。]], },
     { [[与52区的火箭主管弗斯拉格谈一谈。]], },
   },
   [11038] = {
@@ -28852,7 +29043,7 @@ __ns.L.quest = {
   [11040] = {
     [[给火箭主管的零件]],
     { [[我与地精合作的次数，你用一只手就能数得过来，更多的时候我们是竞争关系。但是，当火箭主管弗斯拉格说他需要材料时，我还是不忍心拒绝他的请求。]], [[这只箱子里装的都是我不需要的零件，不过火箭主管或许能用得上。如果你正要去52区的话，就顺路把这箱子带给他，好吗？]], [[说不定装上这些做工精细的侏儒零件后，他的工程制品就不会爆炸了！]], },
-    { [[Bring Bossi's Spare Parts to Rocket-Chief Fuselage at Area 52.]], },
+    { [[把波西的備用零件送給52區的火箭主管夫斯拉吉。]], },
   },
   [11041] = {
     [[未完的工作……]],
@@ -28867,7 +29058,7 @@ __ns.L.quest = {
   [11043] = {
     [[更好的狮鹫]],
     { [[我听说蛮锤矮人在影月谷南部的蛮锤要塞中饲养了一批狮鹫。如果你正要去那儿的话，就代表我跟他们谈谈好吗？我想到了一些改善狮鹫坐骑的好点子！]], [[为什么要局限于一般的盔甲呢？我们可以给它们装上高度计、后视镜，或者是火箭！若是将这些宝贝玩意儿绑在狮鹫背上，大胆想象它们的飞行速度吧！我会把这样的武装狮鹫命名为“高机动全装甲强袭作战狮鹫8000型改”。你说，这是否很劲了？]], },
-    { [[Speak with Brunn Flamebeard at Wildhammer Stronghold.]], },
+    { [[跟蠻錘要塞的布朗恩·焰鬚談話。]], },
   },
   [11044] = {
     [[灾难的幻象]],
@@ -28887,12 +29078,12 @@ __ns.L.quest = {
   [11047] = {
     [[学徒的请求]],
     { [[作为双足飞龙管理员的学徒，我的职责之一就是在双足飞龙没有飞行任务的时候照料它们。可是它们的数量太少，几乎轮不上休息。]], [[如果我们不尽快调来一批新的双足飞龙，恐怕它们会累坏的。影月谷西部的影月村设有一处大型的双足飞龙训练场，达玛·蛮鬃在那儿负责饲养和训练工作。]], [[你能跟她谈谈我们面临的窘境吗？]], },
-    { [[Speak with Dama Wildmane at Shadowmoon Village.]], },
+    { [[跟影月村的達瑪·野鬃談話。]], },
   },
   [11048] = {
-    [[Kroghan's Report]],
-    { [[My original orders were to remain in Garadar for a short time, then continue on and report to Blood Guard Gulmok at Shadowmoon Village. What I've seen in my time here is that Garadar could benefit from a long term Horde liaison.]], [[I know that Blood Guard Gulmok needs all the troops he can get, but I know he'll understand that my mission here isn't yet complete. Travel to Shadowmoon Village, in northwestern Shadowmoon Valley, and inform Blood Guard Gulmok of my delayed arrival.]], },
-    { [[Speak with Blood Guard Gulmok at Shadowmoon Village.]], },
+    [[卡洛克汗的報告]],
+    { [[本來我接獲的命令是要留在卡拉達爾一段時間，然後繼續前進向影月村的血衛士高莫克回報。在這裡的這段時間我覺得卡拉達爾需要部落更長遠的幫助。]], [[我知道血衛士高莫克需要集結所有人員的每一份力量，但是我想他能諒解我在這的任務使命尚未達成。前往影月村，在影月谷的西北方，告訴血衛士高莫克我將會有所擔擱。]], },
+    { [[跟影月村的血衛士高莫克談話。]], },
   },
   [11049] = {
     [[寻找灵翼龙卵]],
@@ -28935,7 +29126,7 @@ __ns.L.quest = {
   [11057] = {
     [[低处的麻烦]],
     { [[<class>，我们理解你想要帮助奥格瑞拉的迫切心情。但是，在接受你的帮助之前，我另有一件事要交给你去做。]], [[奥格瑞拉下面，有许多同胞正被格鲁尔之子奴役。枯瘦的莫戈多格想要领导食人魔推翻戈隆的统治，你不如先去和他谈谈。]], [[他就在鲜血之环竞技场东边的塔楼顶部。]], },
-    { [[Chu'a'lor has asked you to speak with Mog'dorg the Wizened atop one of the towers just outside the Circle of Blood in the Blade's Edge Mountains.]], },
+    { [[裘阿洛要你到劍刃山脈血之環外的其中一座高塔中，與乾癟的莫格多克談話。]], },
   },
   [11058] = {
     [[埃匹希斯圣物]],
@@ -29078,6 +29269,11 @@ __ns.L.quest = {
     { [[身为一名龙喉队长，你最重要的责任之一就是扼杀燃烧军团在外域的一切活动。记住，让那些打扰到伊利丹大人的家伙都永远闭嘴，这是你的义务！]], [[现在，那群愚蠢的恶魔正尝试在纳格兰西方的暮光岭一带建立一处传送门。他们必须为背叛而付出代价，而你，就将是我们派去收取这代价的代表。]], [[前往暮光岭，消灭那里的恶魔。对他们的防御工事，你至少每天得发动一次攻击。]], },
     { [[影月谷龙喉营地的莫格霍尔大王要你杀死20名死影密探。]], },
   },
+  [11088] = {
+    [[<DEPRECATED>Unravelling Your Training]],
+    { [[幫我帶來很多的魔焰布，然後你就能忘記一切。]], },
+    { [[替強納森·巧手帶來10塊魔焰布。]], },
+  },
   [11089] = {
     [[雷萨赫尔的灵魂火炮]],
     { [[Reth'hedron now lords over the Twilight Ridge of Nagrand. An eredar of such power being loosed upon this world does not bode well for the Illidari. Alas, we do not have the resources required to slay Reth'hedron. Not with the war the bastards have brought to the Black Temple. No... I have a better plan.]], [[You will subdue Reth'hedron, banishing him back through the Twilight Portal. For this a soul cannon must be fashioned.]], [[Return to me with the materials on this list.]], },
@@ -29190,13 +29386,13 @@ __ns.L.quest = {
   },
   [11117] = {
     [[抓住鹿角小飞兔！]],
-    { [[Here now. Ye hear that? There be sounds in them hills. Those're the wolpertingers! Wily beasts, they are, attracted by the smells o' Brewfest. I've a mind to catch me some, but I knocked me shin and can't outrun the buggers. Ye can help me, though!]], [[Take this net and cast it over the little blighters. Bring me a good five of 'em and I'll make it worth yer while! Oh, and one more thing - in order to even see these critters, ye need t' be blitzed! Load up on the booze!]], },
-    { [[Goldark Snipehunter has asked you to capture 5 Stunned Wolpertingers using the Wolpertinger Net. He mentioned that you must be intoxicated to see them.]], },
+    { [[就在那邊，你聽到了嗎?從那邊的丘陵傳過來的，那是鹿角兔!被啤酒節氣味吸引過來的野生動物。我一直想抓一些來，可惜我撞傷了我的小腿，跑不過那些兔崽。但是你可以幫我!]], [[帶上這個補網，然後抓住那些小笨蛋。幫我帶五隻回來，我給的報酬絕對值得!噢，還有一件事，為了要看見那些怪東西，你一定得喝醉!大杯乾下去!]], },
+    { [[茍達克·狙獵者要你用鹿角兔補網幫他抓5隻昏迷的鹿角兔。他提到你必須在喝醉的情況下才看得到那些鹿角兔。]], },
   },
   [11118] = {
     [[粉色的雷象]],
-    { [[Getting drunk is a time-honored tradition at Brewfest]], },
-    { [[Visit the beer gardens outside of Stormwind, Darnassus, and the Exodar, zap three elekks at each location, and return to Goldark Snipehunter. You must be drunk to see the pink elekks.]], },
+    { [[在啤酒節中喝醉是個長久以來的優良傳統 - 是天殺的必要!問題是我接到從艾澤拉斯各地的報告都指出，我們的慶典被幻覺所騷擾!我們可不能容許這種事!]], [[這些伊萊克不能被一般武器所傷害，武器會直接穿過他們，所以帶著這個驚人的地精裝置前往其他的啤酒廣場，把牠們打倒讓牠們灰飛湮滅。要記得，你一定要喝醉才能看到牠們!]], },
+    { [[前往暴風城、達納蘇斯還有艾克索達外頭的啤酒廣場，在那些地方宰掉三隻伊萊克，然後回去找茍達克·狙獵者。你一定要喝醉才看得見那些粉紅伊萊克。]], },
   },
   [11119] = {
     [[突袭巴什伊尔码头！]],
@@ -29205,8 +29401,13 @@ __ns.L.quest = {
   },
   [11120] = {
     [[粉色的雷象]],
-    { [[Look. We're running a business here. People being drunk? It's good business. But I'll tell ya one thing that puts a cramp in the profits - hallucinations. Wouldn't ya know it, the boys are reporting that the sot- er, the loyal customers are seeing pink elekks everywhere.]], [[I don't need my customers unsettled. Look, take this ray and travel to the other beer gardens to take care of 'em for me, would ya? And be sure to get drunk!]], },
-    { [[Visit the beer gardens outside of Silvermoon, Thunder Bluff, and the Undercity, zap three elekks at each location, and return to Glodrak Huntsniper. You must be drunk to see the pink elekks.]], },
+    { [[聽著，我們正在此地做點生意。人們都喝醉啦?這是筆好生意，但我得告訴你有件事情在限制我們的利潤 - 那些幻覺。你不知道那個嗎?那些孩子向我報告說，我忠實的老主顧們正在四處尋找粉紅伊萊克。]], [[我可不希望我的老主顧心神不寧。聽好，帶著這隻鰭刺去其他的啤酒廣場，並且替我好好照顧牠，行嗎?記得一定要喝醉啊!]], },
+    { [[造訪銀月城、雷霆崖還有幽暗城外的啤酒廣場，在每個地方各宰掉三隻伊萊克，然後回去找葛羅卓克·獵狙者。你一定要喝醉才看得見那些粉紅伊萊克。]], },
+  },
+  [11121] = {
+    [[!REUSE ME!]],
+    { [[<NYI>Seek <QUESTGIVER> in <LOCATION>.  S/he wishes for you to aid them in a difficult task.]], },
+    { [[Speak with <QUESTGIVER> in the <AREA>.]], },
   },
   [11122] = {
     [[来来回回]],
@@ -29215,23 +29416,31 @@ __ns.L.quest = {
   },
   [11123] = {
     [[[DEPRECATED] 调查废墟]],
-    { [[Poor James never recovered from the destruction of the Shady Rest and the murder of his family. The boys and I are doing what we can to find the bastards who did this.]], [[I've sent our best investigator, Inspector Tarem, out to the ruins, but this is too big a job for any one man. If you'd lend Tarem a hand, we'd appreciate it. Light knows, we'd all like to be out there helping.]], [[The main road will lead you to the inn, but take care. Your journey will take you beyond the protection of my soldiers.]], },
+    { [[可憐的詹姆士一直沒有辦法從樹蔭旅店的被毀和他家人被殺害中復原過來。我和小伙子們盡力地想把犯案的混蛋給揪出來。]], [[我派出了我們最好的調查員，巡察員塔倫，前往廢墟調查，不過他孤身一人，任務又實在太龐大。要是你願意幫塔倫一把，我們都會很感激的。聖光知道，我們全都想去幫忙。]], [[主大道會引領你前去旅店，但小心點。你會超過我們士兵保護的範圍。]], },
     { [[跟树荫旅店的调查员塔雷姆谈一谈。]], },
   },
   [11124] = {
     [[[DEPRECATED] 调查废墟]],
-    { [[If you follow the road south from the village, and then west toward the Barrens, you'll come across the ruins of the Shady Rest Inn.]], [[Theramore has sent an investigator to discover how the inn met its fate. Normally, I'd advise you to steer clear, but we have orders from Orgrimmar to 'assist' in the investigation.]], [[Accept any help the Theramore investigator offers, even feed him a tidbit or two of information if you'd like, but save your real findings for me.]], },
+    { [[如果你從村子出去沿著路往南，然後轉西朝貧瘠之地去，你就會經過樹蔭旅店的廢墟。]], [[塞拉摩派出了一個調查員想找出旅店到底發生了什麼事。一般來說我會建議你別淌這渾水，但我們有來自奧格瑪的命令要我們『協助』調查。]], [[你可以接受塞拉摩調查員的任何協助，你高興的話甚至可以給他一兩條消息，但記得把你真正的發現向我報告。]], },
     { [[跟树荫旅店的调查员塔雷姆谈一谈。]], },
+  },
+  [11125] = {
+    [[[PH] New Hinterlands Quest]],
   },
   [11126] = {
     [[叛徒]],
     { [[见到你很荣幸，<class>。我来到塞拉摩是为了帮忙解决这些叛逃者的麻烦。他们不仅到处张贴宣传海报，甚至已经有一些人渗透进了我们的城镇。]], [[这些叛逃者正到处散布着谣言和宣传资料，希望能说服其他人加入他们的队伍。]], [[事实上，从城镇到码头的每个岗哨附近都能看到他们的身影。找到他们，揭露他们，然后羞辱他们。在现在这个节骨眼上，任何事情都有可能给他们带来更多的同情者。]], },
     { [[与5个叛逃煽动者对质，然后向塞拉摩码头附近的加莉亚·哈斯汀汇报。]], },
   },
+  [11127] = {
+    [[<NYI>Thunderbrew Secrets]],
+    { [[我絕對沒有從我們的雷酒表親那邊偷過一樣東西，他們是一群好人。但如果你想在這個行業中領先，有時候就得做一些不幸的事情，這就是為什麼我會去雇人來替我做那些事。]], [[葛林布茲·雷酒是家族中的古怪份子，他就住在月溪鎮的南邊，西部荒野的小丘上。我聽說他有了麥芽酒的新配方，我要在這東西打擊市場前拿到它。你願意替我把它拿來嗎?我會給你報酬的。一個麥酒家族的人有恩必報。]], },
+    { [[前往西部荒野，從葛林布茲的營地中偷取葛林布茲的秘密配方，再回啤酒節場地去找<NAME>·麥酒。]], },
+  },
   [11128] = {
     [[宣传战]],
     { [[这些叛逃者并非只是在和卫兵闲谈。我们还在码头的一艘船上发现了大量传单，不知道叛逃者是怎么偷运进来的。]], [[那艘运送传单的船现在还停泊在塞拉摩，就在最远的那个码头。如果你能潜入那艘船，夺走他们的宣传资料，他们的人就会失去最有力的工具。不过要小心！这艘船被一群经验丰富的海盗控制着，而且货物很可能被藏在船长室里。]], },
-    { [[Bring the Deserter Propaganda to Calia Hastings near the docks in Theramore.]], },
+    { [[把叛逃者宣傳計畫帶給塞拉摩碼頭的卡莉雅·哈斯丁。]], },
   },
   [11129] = {
     [[凯雷失踪了！]],
@@ -29256,16 +29465,16 @@ __ns.L.quest = {
   [11133] = {
     [[羞辱叛逃者]],
     { [[我已经把你从叛逃者的雇佣兵朋友手中夺来的传单修改了。现在，任何人读到这些传单，都会得到一个和他们的本意截然相反的观点。]], [[如果我们将这些传单分发给足够多的卫兵，那样这些叛逃者在我们的领地里就会陷入空前的窘境。]], [[<加莉亚递给你一叠修改过的传单。>]], [[你为什么不在我策划下一步行动的时候赶紧行动起来呢？]], },
-    { [[Calia Hastings wants you to distribute the Altered Leaflets to 6 Theramore Guards, then report back to her near the docks in Theramore.]], },
+    { [[卡莉雅·哈斯丁要你把這些竄改過的傳單散發給6個塞拉摩守衛，然後回到塞拉摩的碼頭向她回報。]], },
   },
   [11134] = {
     [[叛逃者的末日]],
     { [[现在我们已经把这些叛逃者从塞拉摩扫了出去，是时候完成最后一击了。我的线人告诉我，叛逃者们在一艘船上部署着行动，它就停泊在码头东南面的小岛旁。]], [[逮捕他们的首领贾维斯·格雷希德，这样就会让其他人丧失战斗意志。去船上找到他，并说服他投降。如果他表现出战意的话，我一点都不惊讶。不过当他知道自己不可能获胜的时候，一定会投降的。]], },
-    { [[Capture Gavis Greyshield, then report to Calia Hastings near the docks in Theramore.]], },
+    { [[抓住蓋維司·灰盾，然後向塞拉摩碼頭的卡莉雅·哈斯丁回報。]], },
   },
   [11135] = {
     [[无头骑士]],
-    { [[The Headless Horseman is driven away, but he will return as long as Hallow's End looms.  <name>, end our misery, and the insane lament of the Horseman.  Face him when he is joined with his head, and destroy it!]], [[He rests in the Forlorn Cloister of the Scarlet Monastery, in Tirisfal Glade.  Find his pumpkin shrine and say this:]], [[Horseman, rise]], [[Your time is nigh]], [[You felt death once]], [[Now, know demise!]], [[Go, <name>.  And may the Light go with you.]], },
+    { [[無頭騎士被趕走了，但只要萬鬼節還沒結束他就還會再回來。<name>，結束我們的苦難還有無頭騎士瘋狂的哀傷。當他的頭與身體合而為一的時候摧毀它!]], [[他深眠在血色修道院中的孤寂迴廊，就在提里斯法林地。找到他的南瓜祭壇然然後說:]], [[騎士甦醒吧!你的時刻已經近了。]], [[你曾嘗過死亡的滋味，現在感受終結吧!]], [[去吧，<name>。願聖光與你同在。]], },
     { [[找到无头骑士的南瓜神龛。]], },
   },
   [11136] = {
@@ -29275,8 +29484,8 @@ __ns.L.quest = {
   },
   [11137] = {
     [[[DEPRECATED] 尘泥沼泽有迪菲亚兄弟会？]],
-    { [[My scouts have reported a shipwreck just off the beach to the northeast. Shipwrecks aren't all that unusual out here, but the reports also indicated the survivors were all wearing red bandanas!]], [[The Defias are craftsmen and guildsmen, not sailors. What are they doing at the site of a shipwreck on a continent they've no interest in?]], [[Their leader is rumored to reside on a large island just off the coast to the northeast of the tower. Kill him and retrieve any documents you find in his possession.]], },
-    { [[Obtain the Defias Orders from Garn Mathers and bring them to Captain Wymor at Sentry Point.]], },
+    { [[我的斥候向我回報了一場東北方海岸的船難。船難在這一帶並不是什麼罕見之事，但報告的內容卻提到了所有的倖存者都帶著紅色的頭巾!]], [[迪菲亞是工匠與商會成員，並不是水手。他們在船難現場做什麼?尤其是在一個他們向來沒有興趣的大陸上。]], [[謠傳他們的領袖暫居在哨塔東北方的島嶼上。殺了他然後把他身上所有的文件都帶來。]], },
+    { [[從加爾恩·邁瑟斯身上取得迪菲亞指令，然後交給警戒崗哨的衛摩爾上尉。]], },
   },
   [11138] = {
     [[雷恩·米克基尔]],
@@ -29291,7 +29500,7 @@ __ns.L.quest = {
   [11140] = {
     [[找回货物！]],
     { [[呃，我能把这东西修一修，让你好歹能潜下去。只是……我觉得它撑不了多久。]], [[沉船的残骸目前遍布整个海底，在这座岛屿东边的海岸直到奥卡兹岛之间几乎都是。趁这顶头盔还能撑住，去两座岛之间的海底找到那些残骸的位置。用这个打捞设备来搜索残骸，看看有没有那货物的踪迹。小心点，别太接近奥卡兹岛，那些多头蛇非常危险。]], },
-    { [[Bring 6 Salvaged Strongboxes to Renn McGill in Dustwallow Marsh.]], },
+    { [[把6個打撈起來的保險箱交給塵泥沼澤的瑞恩·麥格吉爾。]], },
   },
   [11141] = {
     [[通知吉安娜]],
@@ -29300,8 +29509,8 @@ __ns.L.quest = {
   },
   [11142] = {
     [[调查奥卡兹岛]],
-    { [[It looks like Renn's hunch about Alcaz Island was right. We need to survey that island, but it would take a whole brigade of troops to fight our way in there.]], [[Theramore's defenses can't weather such a hit, so I've arranged with Cassa Crimsonwing, the apprentice to Theramore's gryphon master, to allow you to use one of her beasts to survey Alcaz from the air.]], [[Alcaz Island holds the key to the Defias' plans for their prisoner and perhaps the prisoner's identity itself.]], },
-    { [[Speak to Cassa Crimsonwing and use one of her gryphons to survey Alcaz Island. When your survey is complete, speak with Lady Jaina Proudmoore in Theramore.]], },
+    { [[看來瑞恩對奧卡茲島的直覺是對的。我們需要調查那個島嶼，但這得動用一整個旅的部隊才能打到那個島上。]], [[塞拉摩的防衛武力無法承擔這樣的攻擊，我和卡莎·紅翼商量過了，她是塞拉摩獅鷲獸管理員的學徒，讓你能夠使用她的一隻騎獸從空中偵察奧卡茲島。]], [[奧卡茲島掌握著迪菲亞計畫中有關他們的囚犯，甚至是囚犯身份的關鍵。]], },
+    { [[和卡莎·紅翼談談，並用她的獅鷲獸偵察奧卡茲島。當你的偵察結束之後，和塞拉摩的珍娜女士談談。]], },
   },
   [11143] = {
     [[恐怖的联系]],
@@ -29316,17 +29525,17 @@ __ns.L.quest = {
   [11145] = {
     [[恐怖图腾的囚犯]],
     { [[我们正在尽全力拖住恐怖图腾的掠夺者，但他们一直都在发动对哨塔的攻击。更糟的是，他们发现并俘虏了上尉派去收集情报、守卫道路的巡逻兵。]], [[我怀疑那些俘虏都被关押在西北方的黑蹄村。根据我对恐怖图腾的了解，村里的卫兵很可能会随身带着囚笼的钥匙。我不管你怎么做，<class>，我只想看到我们的人活着回来。]], },
-    { [[Sergeant Lukas at North Point Tower wants you to free 5 Theramore Prisoners.]], },
+    { [[北點哨塔的盧卡斯中士要你釋放5個塞拉摩囚犯。]], },
   },
   [11146] = {
     [[[DEPRECATED] 捕捉迅猛龙]],
-    { [[The patch of swamp to the northeast is home to a particularly nasty breed of raptors. We've lost more than one unwary soldier to them, but I think we can turn them against our Grimtotem neighbors.]], [[Take this rope and use it to capture bloodfen raptors or bloodfen screechers that you've subdued. I wouldn't try to capture one of the beasts until you've weakened them quite a bit in combat. It's going to be quite a struggle.]], },
-    { [[Sergeant Lukas at North Point Tower wants you to capture 6 raptors. You can capture either Bloodfen Raptors or Bloodfen Screechers.]], },
+    { [[東北方的一片沼澤中住著一窩特別討厭的迅猛龍。已經有不只一名缺乏警覺的士兵死在牠們手上了，但我想我們可以利用牠們來對付我們的恐怖圖騰鄰居。]], [[帶著這根繩索並用它來捕捉那些你制服的血沼迅猛龍或血沼尖嘯龍。除非你已經在戰鬥中使那些野獸虛弱，否則我是不會嘗試去捕捉牠們的。這恐怕得費上一番功夫。]], },
+    { [[北點哨塔的盧卡斯中士要你去捕捉6隻迅猛龍。你可以捕捉血沼迅猛龍或血沼尖嘯龍。]], },
   },
   [11147] = {
     [[释放迅猛龙]],
     { [[现在我们有了迅猛龙，下一步就是“鼓励”它们去攻击西北方黑蹄村的恐怖图腾。]], [[我还有一块没吃完的……好吧，是什么肉不重要。这就是你的诱饵。把它放在黑蹄村定居点中央的风车附近。剩下来就看迅猛龙被训练得如何了。]], },
-    { [[Sergeant Lukas at North Point Tower wants you to place the Raptor Bait near the windmill in Blackhoof Village.]], },
+    { [[北點哨塔的盧卡斯中士要你去把迅猛龍誘餌放在黑蹄村的風車前面。]], },
   },
   [11148] = {
     [[恐怖图腾的军备]],
@@ -29356,22 +29565,22 @@ __ns.L.quest = {
   [11156] = {
     [[[DEPRECATED] 恐角袭击者]],
     { [[恐怖图腾的成员聚集在北面的恐角岗哨，现在他们真是越来越大胆了。在晚上，你能常常听到他们在颂唱与这里的居民战斗的“事迹”。]], [[他们决心把我们从农场上赶走，但是塔贝萨在这里训练了一代代的学徒，怎么会说走就走呢？我们尽全力保护着农场，但学徒加里奥在上次战斗中受伤了。]], [[去恐角岗哨消灭你能找到的所有恐怖图腾！必须阻止他们的进攻！]], },
-    { [[Kill 12 Direhorn Grimtotems and return to Apprentice Morlann at Tabetha's Farm.]], },
+    { [[殺死12個恐角的恐怖圖騰，然後向塔貝薩農場的學徒莫蘭恩回報。]], },
   },
   [11158] = {
     [[[DEPRECATED] 血沼羽毛]],
     { [[看见布洛格在这里，你是不是非常惊讶呢，小<race>？别担心，泥链镇的地精都是布洛格的朋友，你也可以喔。]], [[新的大王不敢向那些摧毁了我们故乡并屠杀我们同胞的黑龙复仇，所以布洛格就离开了蕨墙村。布洛格来这里，是为了让那些朋友们的灵魂重新得到安息，并向黑龙复仇！不过，布洛格首先需要做一些准备。为了举行仪式，布洛格需要羽毛，具有强大魔力的羽毛，比如镇子西边鲜血沼泽墓穴那边迅猛龙的羽毛。]], },
-    { [[Bring 5 Bloodfen Feathers to Brogg at Mudsprocket.]], },
+    { [[帶5根血沼羽毛給泥鏈營地的布洛葛。]], },
   },
   [11159] = {
     [[石槌之魂]],
     { [[布洛格已经完成了图腾，它可以让朋友们的灵魂安息。那些龙打过来的时候，杀死了所有没来得及逃走的石槌食人魔。布洛格跟着莫格穆洛克大王逃了出来，希望能领导其他幸存下来的石槌食人魔发动反击。]], [[不过，反击一直没有开始，而死去同胞们的灵魂却一直困扰着布洛格与其他人。把这根图腾带到北边的石槌废墟去，在那些食人魔的骸骨旁使用它，将他们的灵魂吸引到你这里，击败那些灵魂，就能让他们获得安息。]], },
-    { [[Brogg, at Mudsprocket, wants you to put 10 Stonemaul Spirits to rest.]], },
+    { [[泥鏈營地的布洛葛，希望你讓10個石槌之靈安息。]], },
   },
   [11160] = {
     [[石槌战旗]],
     { [[当那些龙跑过来夺走布洛格的家时，大多数的石槌食人魔都逃跑了，没来得及带走任何东西，甚至包括氏族的旗帜。]], [[布洛格知道旗帜就藏在石槌食人魔山中，不过现在，那地方被称作火焰洞穴。布洛格一定要夺回旗帜，用它向那些杀死了朋友们的龙复仇。]], [[总之，布洛格氏族的领地火焰洞穴，就在泥链镇的西北方，不过那里现在全是龙族。旗帜一定就藏在洞穴深处，要小心，<name>。]], },
-    { [[Retrieve the Stonemaul Banner and bring it to Brogg at Mudsprocket.]], },
+    { [[找到石槌軍旗並且把它帶給泥鏈營地的布洛葛。]], },
   },
   [11161] = {
     [[憎恨的精华]],
@@ -29381,7 +29590,7 @@ __ns.L.quest = {
   [11162] = {
     [[挑战黑龙军团]],
     { [[布洛格已经决定要对沼泽里那些黑龙展开复仇了。<name>，为了这一刻你一直在提供帮助。你会帮忙吗？]], [[把布洛格的氏族旗帜带上，到东边去找一处类似龙嘴的洞穴，把旗帜插在那里。这样就象征着布洛格对奥妮克希亚的挑战。]], [[布洛格和石槌氏族一定要夺回属于我们自己的土地！]], },
-    { [[Plant the Stonemaul Banner near the entrance to Onyxia's Lair, then return to Brogg at Mudsprocket.]], },
+    { [[把石槌軍旗插在奧妮克希亞的巢穴的入口，等待奧妮克希亞的回應，然後向泥鏈營地的布洛葛回報。]], },
   },
   [11163] = {
     [[对不起，我是卧底]],
@@ -29406,7 +29615,7 @@ __ns.L.quest = {
   [11169] = {
     [[[DEPRECATED] 恐怖图腾的武器]],
     { [[我在上次恐怖图腾进攻的时候受伤了，不过在受伤之前，我从敌人那里夺取了一根奇怪的图腾。]], [[那个东西在战斗中会发射纯粹的能量箭，不过我实验了这么久，还是想不出它是怎么运作的。如果你愿意帮我测试一下那图腾的话，我很愿意把它借给你。]], [[那些令人讨厌的尘泥杂斑鳄鱼和尘泥利齿鳄鱼把农场周围的泥沼地当成了自己的家。试着在图腾附近和鳄鱼战斗。]], },
-    { [[Apprentice Garion at Tabetha's Farm wants you to test the Captured Totem on 10 Mottled Drywallow Crocolisks or Drywallow Daggermaws.]], },
+    { [[塔貝薩農場的學徒加利昂希望你對10隻塵泥雜斑鱷魚或塵泥利齒鱷魚測試俘虜圖騰。]], },
   },
   [11171] = {
     [[妖术领主？哈！]],
@@ -29415,13 +29624,13 @@ __ns.L.quest = {
   },
   [11172] = {
     [[[DEPRECATED] 坠毁的飞艇]],
-    { [[Not long ago, a goblin zeppelin crashed to the east. A representative of the Steamwheedle Cartel passed through here a few days ago.]], [[She was looking for information about the zeppelin's cargo and it's pilot, Beezil, but none of us really got a good look at the crash. I doubt she'll be able to clean up after the wreck by herself, much less recover whatever cargo the vessel might have carried.]], [[If you have time, you may want to check up on her out at Beezil's Wreck, due east of here, near the mountains.]], },
+    { [[不久之前，有一艘哥布林飛艇墜毀在東邊。幾天前有一位熱砂企業的代表經過了這裡。]], [[她正在尋找關於飛艇貨物還有駕駛員比吉爾的消息，但是我們沒有人去失事地點仔細的察看。我懷疑她是否有能力獨自處理那些殘骸，並且找回飛艇原本運載的那些貨物。]], [[假如你有空的話，你可以去比吉爾的飛艇殘骸那邊找她，就在這裡東邊靠近山區的地方。]], },
     { [[跟比吉尔的飞艇残骸的莫希·斯蒂格里谈一谈。]], },
   },
   [11173] = {
     [[[DEPRECATED] 沼泽中的毒药]],
     { [[如果你指望学徒莫兰恩去做些什么的话，我想他所能做的也只有对着材料发牢骚了。]], [[我通常都是无视他，但根本不起作用。这次，我要试些不同的方法。]], [[如果我在他发现之前把缺少的材料补上，也许他就能让我安静一会。我们最常用的材料是沼泽毒药，那东西可以从农场北面沼泽的暗牙爬行者和毒性切割者身上得到。如果你能帮我弄来毒药，我就可以在莫兰恩发现前把它放回去。]], },
-    { [[Bring 6 vials of Marsh Venom to Apprentice Garion at Tabetha's Farm.]], },
+    { [[將6瓶沼澤毒液交給塔貝薩的農場的學徒加利昂。]], },
   },
   [11174] = {
     [[[DEPRECATED] 阻止腐蚀]],
@@ -29446,12 +29655,12 @@ __ns.L.quest = {
   [11181] = {
     [[除巫草]],
     { [[在我身为草药师的这么多年里，我观察到大自然可以为大部分烦人的问题提供完美的解决方案。我曾经读到流浪法师和巫医经常使用一种被称为“除巫草”的草药，它的烟能将恶魔从隐藏的暗处驱赶出来。]], [[I如果这是真的，那么除巫草应该就生长在女巫岭的浅水附近。它有着阔叶和红色茎秆，你应该很容易就能分辨出来。把你能找到的药草都带回来给我吧，<name>。它可能是我们唯一的希望了。]], },
-    { [[Bring 9 sprigs of Witchbane to Mordant Grimsby at Swamplight Manor.]], },
+    { [[帶9株女巫剋星給水光莊園的莫丹特·格林思比。]], },
   },
   [11183] = {
     [[净化女巫岭]],
     { [[火把已经准备好了。把它插在码头的尽头，对可能出现的一切情况做好准备吧。]], [[我不知道火把的浓烟会带来什么……如果真的有东西出现的话。我必须说，我对这种民间魔法是有所怀疑的，但现在我们也没有时间来想其它办法了。看在你和加尔的份上，祝你好运。]], },
-    { [[Mordant Grimsby at Swamplight Manor wants you to plant the torch at the end of the dock and defeat anything that appears.]], },
+    { [[水光莊園的莫丹特·格林思比希望你把火炬放在碼頭的盡頭，並且擊敗任何出現的東西。]], },
   },
   [11184] = {
     [[[DEPRECATED] 悬赏：贪婪的血爪]],
@@ -29460,13 +29669,13 @@ __ns.L.quest = {
   },
   [11185] = {
     [[[DEPRECATED] 药剂师的信]],
-    { [[Recovered from the body of a Forsaken apothecary, this letter contains alarming evidence of a close alliance between the Grimtotems and the new masters of Lordaeron.]], [["As a demonstration of good faith and a symbol of our newfound trust, we have dispatched Apothecary Cylla to aid you in battling our mutual enemy in the land of Kalimdor. None will stand before our combined might and determination."]], [[This letter should be brought to the attention of the SI:7 agent at Tabetha's Farm, Andello Porter.]], },
-    { [[Bring the Sealed Letter to Andello Porter at Tabetha's Farm.]], },
+    { [[從一名被遺忘者藥劑師身上取得的信中藏著驚人的跡象，內容指出恐怖圖騰和羅德隆的新主人有著密切的聯繫。]], [[「為了表示我們的誠意以及當作我們合作關係的象徵，我們已經派遣藥劑師西拉協助你對付我們在卡林多大陸的共同敵人。沒有人可以阻擋我們聯合起來的力量和決心。」]], [[你應該將這封信交給軍情七處在塔貝薩的農場的探員─安德羅·波特。]], },
+    { [[將蠟封的信件交給塔貝薩的農場的安德羅·波特。]], },
   },
   [11186] = {
-    [[Signs of Treachery?]],
-    { [[Recovered from the body of a Forsaken apothecary, this letter hints at an underground correspondence between Undercity and the Grimtotem leadership.]], [["As a demonstration of good faith and a symbol of our newfound trust, we have dispatched Apothecary Cylla to aid you in battling our mutual enemy in the land of Kalimdor. None will stand before our combined might and determination."]], [[Perhaps Nazeer Bloodpike in Brackenwall Village will know how to handle this information.]], },
-    { [[Bring the Sealed Letter to Nazeer Bloodpike in Brackenwall Village.]], },
+    [[背叛的跡象?]],
+    { [[從一名被遺忘者藥劑師身上取得的信中暗示幽暗城與恐怖圖騰的高層之中有人私下勾結。]], [[「為了表示我們的誠意以及當作我們合作關係的象徵，我們已經派遣藥劑師西拉協助你對付我們在卡林多大陸的共同敵人。沒有人可以阻擋我們聯合起來的力量和決心。」]], [[也許蕨牆村的納澤爾·血矛會知道如何處理這份情報。]], },
+    { [[將蠟封的信件交給蕨牆村的納澤爾·血矛。]], },
   },
   [11191] = {
     [[[DEPRECATED] 破旧的灯塔]],
@@ -29501,7 +29710,7 @@ __ns.L.quest = {
   [11198] = {
     [[击败泰瑟尔！]],
     { [[不管海怪是不是真的存在，我们都不准备让船只去冒险。我已经命令最棒的神射手做好与泰瑟尔交战的准备了。炮兵已经在码头增加了三门迫击炮。]], [[我将下令点亮灯塔。如果泰瑟尔进攻的话，你的任务就是在那个怪兽杀害所有神射手之前，用迫击炮打倒它。它多半不会老是呆在一个地方，用迫击炮吸引它的注意。]], },
-    { [[Major Mills at the Theramore docks wants you to defeat Tethyr.]], },
+    { [[泰拉摩碼頭的米爾斯少校要你打敗泰瑟爾。]], },
   },
   [11200] = {
     [[More than Coincidence]],
@@ -29514,14 +29723,14 @@ __ns.L.quest = {
     { [[Bring the Grimtotem Battle Plan to Krog at Brackenwall Village.]], },
   },
   [11203] = {
-    [[Seek Out Tabetha]],
-    { [[The arms you captured in Blackhoof Village have not seen any combat beyond mere training exercises, which means the Grimtotems who destroyed the Shady Rest are still at large.]], [[To the south, in the heart of the Quagmire, lives the witch Tabetha. Though she is a human, she has dealt honorably with us and trained some of our mages.]], [[Ask her for assistance in tracking down the band of Grimtotem responsible for burning the inn. The Alliance must not be allowed to think we were complicit in the attack.]], },
+    [[尋找塔貝薩]],
+    { [[你在黑蹄村奪回的武器裝備上除了訓練時的刮痕，並沒有明顯的打鬥痕跡，這表示燒毀樹蔭旅店的恐怖圖騰仍然逍遙法外。]], [[這裡的南邊，也就是泥潭沼澤的中心處住著一位女巫塔貝薩。雖然她是一個人類，但是她跟我們的關係良好並且還幫助我們訓練一些法師。]], [[去找她協助我們追蹤這些燒毀旅店的恐怖圖騰。不能讓聯盟認為我們跟這起攻擊事件有關連。]], },
     { [[与泥潭沼泽中的一处小农庄里的塔贝萨谈一谈。]], },
   },
   [11204] = {
-    [[Return to Krog]],
-    { [[I hope I've been helpful to you and I'm sorry I can't offer more information. My apprentices and I produce such a large volume of arms and armor that it's almost impossible to recall details about any individual piece.]], [[Not only do we outfit the braves defending tauren lands, but the Grimtotems have a particular fondness for my work. A seasoned warrior knows good work when he sees it.]], },
-    { [[Speak with Krog at Brackenwall Village.]], },
+    [[回報克羅格]],
+    { [[我希望我能幫上你的忙，而且很抱歉我無法提供更多的訊息。我的學徒和我製作過太多的武器和護甲，我們沒辦法對每一件裝備提供太詳細的資訊。]], [[我們不但提供守衛這片牛頭人大地的勇士們裝備，那些恐怖圖騰們也特別鍾愛我們的作品。一個經驗豐富的武士總是會欣賞手工精良的裝備。]], },
+    { [[跟蕨牆村的克羅格談話。]], },
   },
   [11205] = {
     [[烧毁恐角岗哨！]],
@@ -29539,14 +29748,14 @@ __ns.L.quest = {
     { [[比吉尔的飞艇残骸处的莫希·斯蒂格里要你找回8件飞艇上的货物。]], },
   },
   [11208] = {
-    [[Delivery for Drazzit]],
-    { [[Drazzit will expect to hear something from me soon, but I don't think the site is secure enough for me to leave. If you have time, would you be willing to take some of the salvaged cargo down to him at Mudsprocket?]], [[If you haven't been there yet, it's a small settlement to the southwest of here, beyond the Stonemaul Ruins. You can take the road there from Tabetha's Farm, too. When you get to Mudsprocket, the guy you're looking for is Drazzit Dripvalve.]], },
-    { [[Take the Zeppelin Cargo to Drazzit Dripvalve at Mudsprocket.]], },
+    [[替德拉席特送貨]],
+    { [[德拉席特會很期待聽到我的消息，但我不認為此地已經安全到我可以離開的程度。如果你有空的話，你願意替我把一些搶救起來的貨物送給泥鏈營地的德拉席特嗎?]], [[要是你還沒去過那裡的話，那是個小營地就在此處的西南邊，靠近石槌廢墟。你也可以走塔貝薩農場的那條路。等你到了泥鏈營地，你要找的人叫做德拉席特·滴栓。]], },
+    { [[把飛艇貨物交給泥鏈營地的德拉席特·滴栓。]], },
   },
   [11209] = {
     [[纳特的交易]],
-    { [[So you found a copy of Dastardly Denizens of the Deep, did you? Well, I can tell you from experience, it's all true. I've even seen a few of 'em with my own eyes.]], [[But you want to know about Tethyr.  I said I'd make you a deal, so here's what I want you to do. I'm working on a new line of baits, but I haven't tested this one yet.]], [[Just take this paste]], },
-    { [[Nat Pagle at Nat's Landing wants you to test his new fish bait.]], },
+    { [[所以你找到了《深海的卑鄙居民》的抄本，對嗎?根據我的經驗我可以告訴你，這全是真的。我曾經親眼看過好幾隻那種東西。]], [[不過如果你想知道泰瑟爾的事情。我們得要有個交易，有點事情我希望你去做。我正在試做一系列的新魚餌，不過我還沒有試過這個。]], [[拿著這沱魚漿 -- 對啦，聞起來是有點爛爛的臭味 -- 把它塗在你身上，然後游到西南邊的沉船那邊。如果你僥倖活下來了，再告訴我它效果如何!]], },
+    { [[納特平台的納特·帕格要你去測試他的新魚餌。]], },
   },
   [11210] = {
     [[果然是真的]],
@@ -29574,19 +29783,19 @@ __ns.L.quest = {
     { [[跟泥链镇的德拉兹特·迪普瓦尔谈一谈。]], },
   },
   [11215] = {
-    [[Help Mudsprocket]],
-    { [[The Steamwheedle Cartel's new outpost in the southern part of the marsh isn't faring so well. The zeppelin carrying supplies to Mudsprocket crashed, leaving them without vital tools, food, and medical supplies.]], [[Follow the road down south and into the marsh's interior. You'll pass by Tabetha's Farm and the Stonemaul Ruins before the road brings you to Mudsprocket. Offer any help you can provide to the town's leadership.]], },
+    [[幫助泥鏈營地]],
+    { [[熱砂企業在沼澤南方的新哨站並不遠。運送補給品到泥鏈營地的飛艇失事了，使他們缺乏重要的工具、食物和醫療用品。]], [[順著路南下並且進入沼澤的內部。在這條路帶你到達泥鏈營地之前，你會經過塔貝薩的農場還有石槌廢墟。盡可能的幫助那邊的領導人吧。]], },
     { [[跟泥链镇的德拉兹特·迪普瓦尔谈一谈。]], },
   },
   [11216] = {
     [[大法师奥图鲁斯]],
-    { [[I was sent here by my mentor to look for assistance, but unfortunately I'm not allowed outside of Lower City and the individuals that frequent this establishment tend to be less than helpful.]], [[You do seem different, more like the adventurous type.  If you're interested in aiding our cause, speak to Archmagae Alturus outside of Medivh's old dwelling, Karazhan.]], [[In the meantime, I'm going to see about gaining access to the rest of the city.  One of our old associates is rumored to be here.]], },
+    { [[我的導師叫我來這裡尋找協助，但可惜他們不允許我離開陰鬱城，而且會來這裡的人通常都無法幫上什麼忙。]], [[你的確看起來不一樣，像是一位冒險家。假如你有興趣協助我們的話就去麥迪文的舊住所，卡拉贊的外頭跟大法師艾特羅斯談談。]], [[同時，我將試著徵求前往這座城市其他地方的通行權。據說我們有一位舊夥伴就在這裡。]], },
     { [[与逆风小径卡拉赞外的大法师奥图鲁斯谈一谈。]], },
   },
   [11217] = {
     [[[DEPRECATED] 龙尾草]],
     { [[飞艇的坠毁延缓了补给品的到达，我们的药品和绷带都用完了。]], [[我们正在利用一切可以获得的资源，不过这些虫子、伤者和一切与我们为敌的家伙都让我们焦头烂额，我快要坚持不下去了！我找到了一种草药，可以治疗伤口和缓解疼痛，但它也快要用完了。]], [[这种草药被称为龙尾草，它遍布在村子东面的黑龙谷和巨龙沼泽地区。那种植物的茎杆是卷曲的，而且你看着它们的时候似乎会微微地跳动。]], },
-    { [[Gizzix Grimegurgle at Mudsprocket wants you to bring him 8 Wyrmtail stalks.]], },
+    { [[泥鏈營地的吉希克斯·污流要你交給他8根龍尾草的莖。]], },
   },
   [11219] = {
     [[赶快灭火！]],
@@ -29595,18 +29804,18 @@ __ns.L.quest = {
   },
   [11220] = {
     [[无头骑士]],
-    { [[Until the head of the Headless Horseman is destroyed, his rampage will not end.]], [[The Horseman rests within the Forlorn Cloister of the Scarlet Monastery, in Tirisfal Glade.  Go to his pumpkin shrine and speak these words:]], [[Horseman, rise]], [[Your time is nigh]], [[You felt death once]], [[Now, know demise!]], [[This will rouse the fiend.  Destroy the head of the Horseman's and he will plague us no longer.]], },
+    { [[在無頭騎士的頭顱被消滅之前，他的暴行都不會停止。]], [[騎士深眠在血色修道院中的孤寂迴廊，就在提里斯法林地。前去那裡並且說出以下的話語:]], [[騎士甦醒吧!你的時刻已經近了。]], [[你曾嘗過死亡的滋味，現在感受終結吧!]], [[這樣會激怒那個魔鬼。摧毀無頭騎士的頭顱，他將無法再騷擾我們。]], },
     { [[找到无头骑士的南瓜神龛。]], },
   },
   [11222] = {
-    [[Warn Bolvar!]],
-    { [[Although we don't have all the answers we might like, it's imperative that you bring our findings to Highlord Bolvar Fordragon right away!]], [[He needs to know that the Defias have a powerful patron in Stormwind and that they're involved in the disappearance of King Varian!]], [[I can use my magic to expedite your trip to Stormwind. Just speak to me when you're prepared to go, <name>.]], },
-    { [[Speak to Highlord Bolvar Fordragon in Stormwind Keep.]], },
+    [[警告伯瓦爾!]],
+    { [[也許我們沒有所有的答案，但把我們的發現交給大領主伯瓦爾·弗塔根至關緊要，而且要盡快!]], [[他必須要知道迪菲亞在暴風城中有著有力的支持者，而且這和瓦里安王的失蹤有關!]], [[我可以利用我的魔法縮短你前往暴風城的旅途。你準備好出發的時候就告訴我吧，<name>。]], },
+    { [[和暴風城的大領主伯瓦爾·弗塔根談談。]], },
   },
   [11223] = {
     [[返回吉安娜身边]],
-    { [[Do not let Lady Prestor's protestations distract you, <name>. That she is blind to this problem does not surprise me, but that is a separate matter.]], [[As I was saying, you and Lady Jaina have my thanks for bringing your findings to me in such haste. Let her know that no good citizen of Stormwind will rest until our king walks among us again.]], [[Go to the Mage Quarter at the western end of the city and speak with Archmage Malin at the foot of the tower there. He will speed your return to Theramore.]], },
-    { [[Speak to Lady Jaina Proudmoore in Theramore.]], },
+    { [[不要被普瑞斯托女士的異議給影響了，<name>。關於她漠視這個問題，我一點也不感到訝異，但這可屬於另外一個問題了。]], [[回歸正題，我很感謝你與珍娜女士如此迅速的將這個發現告訴我。請你轉告她，暴風城將動員每一位市民直到國王回到我們的身邊為止。]], [[前往城市西邊盡頭的法師區找大法師馬林吧，他就位在塔樓的底部。他將協助你更快速地回到塞拉摩。]], },
+    { [[跟塞拉摩的珍娜·普勞德摩爾女士談話。]], },
   },
   [11225] = {
     [[女巫岭的隐士]],
@@ -29633,55 +29842,70 @@ __ns.L.quest = {
     { [[你想要参加赛羊会？希望你已经准备好体验速度的刺激了。但是在你四处撒野之前，你得证明自己能够驾驭这些彪悍的坐骑。]], [[那么，我会借你一根特殊的马鞭和一头赛羊。你需要证明自己的驾驭能力。]], [[让赛羊保持快走、慢跑和疾跑状况各8秒。关于如何驱使赛羊，你可以询问我的学徒波尔·冻石。]], },
     { [[你有4分钟时间驾驭赛羊，让它保持三种不同的速度各8秒。]], },
   },
+  [11320] = {
+    [[[NYI] Now this is Ram Racing... Almost.]],
+    { [[Quest Description]], },
+    { [[Log Descritpion]], },
+  },
   [11321] = {
     [[Did Someone Say "Souvenir?"]],
     { [[Brewfest isn't just about racing rams, it's also about drinking!  When you have a moment, take this voucher to Belbi Quikswitch.  She's near the back of the Brewfest camp.  If you can't see her, don't worry, she'll be sure to see you.]], [[In any case, take this voucher to her to get your free Brewfest stein.  She'll also be more than happy to handle any and all other Brewfest transactions.]], },
     { [[去美酒节营地的贝尔比那里兑换美酒节礼品券。]], },
   },
+  [11334] = {
+    [[打中，得分!]],
+    { [[[PH] Shoot a marked target.]], },
+    { [[[PH] Rinling wants you to shoot a marked target and then return the Target Rifle to him.]], },
+  },
   [11335] = {
     [[战斗的召唤：阿拉希盆地]],
     { [[事实上，我们在多线作战，<小子/小姑娘>，而且我们不能把军队部署得太过分散，否则我们可能会全盘皆输！]], [[我们需要以天为单位来部署最关键的部队，今天，阿拉希盆地的战斗最需要勇敢的士兵！]], [[带着胜利的消息回来吧，<name>。我们不允许部落狗来威胁属于我们的资源！]], },
-    { [[Win an Arathi Basin battleground match and return to an Alliance Brigadier General at any Alliance capital city or Shattrath.]], },
+    { [[在阿拉希盆地的戰場中獲勝，然後向任何一座首都或撒塔斯的聯盟准將回報。]], },
   },
   [11336] = {
     [[战斗的召唤：奥特兰克山谷]],
     { [[事实上，我们在多线作战，<小子/小姑娘>，而且我们不能把军队部署得太过分散，否则我们可能会全盘皆输！]], [[我们需要以天为单位来部署最关键的部队，今天，奥特兰克山谷的战斗最需要勇敢的士兵们！]], [[现在就出发吧，<name>，去帮助雷矛远征军。我们不能就这么看着霜狼氏族逃脱他们应受的惩罚。]], },
-    { [[Win an Alterac Valley battleground match and return to an Alliance Brigadier General at any Alliance capital city or Shattrath.]], },
+    { [[在奧特蘭克山谷的戰場中獲勝，然後向任何一座首都或撒塔斯的聯盟准將回報。]], },
   },
   [11337] = {
     [[战斗的召唤：风暴之眼]],
     { [[对抗部落的战斗是没有尽头的，<name>。即使在外域，对于地盘的争夺和世代积累的仇恨同样引发了一场场战斗。]], [[现在，进入风暴之眼，为联盟夺取辉煌的胜利，就像我们在艾泽拉斯做的一样。]], },
-    { [[Win an Eye of the Storm battleground match and return to an Alliance Brigadier General at any Alliance capital city or Shattrath.]], },
+    { [[在暴風之眼的戰場中獲勝，然後向任何一座首都或撒塔斯的聯盟准將回報。]], },
   },
   [11338] = {
     [[战斗的召唤：战歌峡谷]],
     { [[银翼哨兵通过战斗来保护战歌峡谷的森林。我们帮助他们，并不是因为我们爱好树木，而是因为森林为联盟领地提供了天然的屏障。]], [[今天他们那里的情势非常危急，远远超过以往任何时候。我们必须立刻派出援军，除非我们希望看到灰谷成为贫瘠之地的附属地！]], },
-    { [[Win a Warsong Gulch battleground match and return to an Alliance Brigadier General at any Alliance capital city or Shattrath.]], },
+    { [[在戰歌峽谷的戰場中獲勝，然後向任何一座首都或撒塔斯的聯盟准將回報。]], },
   },
   [11339] = {
     [[战斗的召唤：阿拉希盆地]],
     { [[阿拉希盆地快要让联盟夺走了，我们必须尽快派出援兵，否则我们所做的一切都将成为徒劳。]], [[不要拖延了，<class>。去阿拉希盆地消灭敌人，胜利属于部落！]], },
-    { [[Win an Arathi Basin battleground match and return to a Horde Warbringer at any Horde capital city or Shattrath.]], },
+    { [[在阿拉希盆地的戰場中獲勝，然後向任何一座首都或撒塔斯的部落戰爭使者回報。]], },
   },
   [11340] = {
     [[战斗的召唤：奥特兰克山谷]],
-    { [[We've recently come extremely close to driving the Stormpike invaders from Alterac Valley.  As a result we're redirecting all our reinforcements to aid the Frostwolf Clan.]], [[A decisive victory there would free up the resources we need to crush the Alliance scum on all the other battlefronts.]], [[Go, <name>.  Earn great honor by heeding the call of the brave Frostwolf warriors.]], },
-    { [[Win an Alterac Valley battleground match and return to a Horde Warbringer at any Horde capital city or Shattrath.]], },
+    { [[最近我們快要將雷矛入侵者趕出奧特蘭克山谷了。因此我們重新指派所有我們的援軍去支援霜狼部族。]], [[那裡一場決定性的勝利會釋出我們需要的資源，好用來擊敗其它所有戰線的聯盟雜碎。]], [[去吧，<name>。聽從勇敢霜狼戰士的呼喚，贏得無上的榮耀。]], },
+    { [[在奧特蘭克山谷的戰場中獲勝，然後向任何一座首都或撒塔斯的部落戰爭使者回報。]], },
   },
   [11341] = {
     [[战斗的召唤：风暴之眼]],
-    { [[We will fight and crush the enemy wherever we find them.  Azeroth, Outland, the place makes no difference.]], [[We cannot allow the Alliance to establish superiority in the Eye of the Storm.  Take the battle to them today... tomorrow it might be too late!]], },
-    { [[Win an Eye of the Storm battleground match and return to a Horde Warbringer at any Horde capital city or Shattrath.]], },
+    { [[我們將會戰鬥並擊敗我們在各處發現的敵人。艾澤拉斯，外域，各地都一樣。]], [[我們不允許聯盟在暴風之眼中佔有優勢。今天就去對他們開戰...明天可能就太遲了!]], },
+    { [[在暴風之眼的戰場中獲勝，然後向任何一座首都或撒塔斯的部落戰爭使者回報。]], },
   },
   [11342] = {
     [[战斗的召唤：战歌峡谷]],
-    { [[The Alliance is an insidious enemy, <name>.  They claim to defend the Ashenvale forests to justify their acts of aggression against our territories in the Barrens.]], [[Today we have an opportunity to drive the enemy from our lands once and for all.  Go to Warsong Gulch and take back what is rightfully ours!]], },
-    { [[Win a Warsong Gulch battleground match and return to a Horde Warbringer at any Horde capital city or Shattrath.]], },
+    { [[聯盟是陰險的敵人，<name>。他們藉口想保護梣谷的森林只是為了掩飾他們想侵略我們在貧瘠之地的領土。]], [[今天我們可以將敵人一勞永逸地趕出我們領土的機會來臨了。前往戰歌峽谷並且奪回屬於我們的東西!]], },
+    { [[在戰歌峽谷的戰場中獲勝，然後向任何一座部落主城或撒塔斯的部落戰爭使者回報。]], },
+  },
+  [11345] = {
+    [[彈丸的獎品]],
+    { [[[PH] Shoot a marked target.]], },
+    { [[[PH] Rinling wants you to shoot a marked target and then return the Target Rifle to him.]], },
   },
   [11354] = {
-    [[Wanted: Nazan's Riding Crop]],
-    { [[Today I have a buyer who is interested in a piece that's held by the mount of Illidan's herald. I, of course, speak of Vazruden the Herald and his dragon mount, Nazan.]], [[If you want the finder's fee that I offer in return, find them flying above the Ramparts at Hellfire Citadel and return with the dragon's riding crop.]], [[My sources tell me that the item in question is personally held by the dragon. It is said that Nazan refuses to allow Vazruden to strike him with it.]], },
-    { [[Wind Trader Zhareem has asked you to obtain Nazan's Riding Crop. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:納桑的騎乘馬鞭]],
+    { [[今天有位買家看上了伊利丹信使的坐騎所擁有的幾樣東西。當然，我說的是『信使』維斯路登和他的龍坐騎，納桑。]], [[假如你對我付出的賞金有興趣的話，你可以在地獄火壁壘找到他們，並且從他們身上取得騎乘馬鞭。]], [[消息指出那條馬鞭是由那隻龍所持有，據說是因為納桑不讓維斯路登使用它。]], },
+    { [[風之貿易者札令姆要你取得納桑的騎乘馬鞭。將這樣物品帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11356] = {
     [[穿戏服的孤儿院长]],
@@ -29690,28 +29914,28 @@ __ns.L.quest = {
   },
   [11357] = {
     [[戴面具的孤儿院长]],
-    { [[For Hallow's End, orc orphans were taken on a trip to many Horde villages.  The orphan matrons thought it would be good for them to see real heroes adventuring in the field.]], [[Why don't you visit them?  A brave <class> like yourself could strengthen their spirits with tales of your valor!  Go to either Razor Hill in Durotar, Brill in Tirisfal Glades or Falconwing Square in Eversong Woods.  Speak with the masked orphan matron and she'll introduce you to the children.]], },
-    { [[Speak with a Masked Orphan Matron in either Razor Hill, Brill or Falconwing Square.]], },
+    { [[在萬鬼節期間，獸人孤兒被安排參加許多部落村莊的參觀行程。孤兒監護員認為讓那些孩子們看見真正英雄的英勇行徑對他們來說是一件好事。]], [[你何不去看看他們呢?像你這麼勇敢的<class>可以跟孩子們說說你勇猛的冒險故事，鼓舞他們的心志!他們在杜洛塔的剃刀嶺、提里斯法林地的布瑞爾還有永歌森林的獵鷹之翼廣場。跟戴面具的孤兒監護員談話，她就會介紹你給孩子們認識。]], },
+    { [[跟剃刀嶺、布瑞爾，或者獵鷹之翼廣場的其中一位戴面具的孤兒監護員談話。]], },
   },
   [11360] = {
     [[消防练习]],
     { [[在无头骑士的威胁之下，闪金镇的英雄们随时都准备着组成消防队，扑灭这里的火势。你愿意加入我们吗？]], [[就在这里北边不远，暴风城的卫兵们已经建立了一处小营地，练习救火。你也到那里去练习吧，用小水桶把水泼到火盆上就行了。小水桶在水缸周围放了许多，你可以自由取用。]], [[再见，<name>。你完成了消防队的练习之后，请再过来找我们！]], },
-    { [[Throw water buckets onto 5 fires, and then speak with the Costumed Orphan Matron.]], },
+    { [[把水桶丟向5個火源，然後跟變裝的孤兒監護員談話。]], },
   },
   [11361] = {
     [[灭火练习]],
     { [[步兵队在村外不远的地方设立了一处消防练习点。要知道，剃刀岭的建筑物这几天总是会着火。你也应该去参加练习，成为一名消防员！]], [[从西门走出剃刀岭，然后立刻转向右边，就能找到训练营。到那里拿个水桶就赶紧开始练习灭火吧！]], },
-    { [[Toss buckets on 5 fires, then speak with the Masked Orphan Matron in Razor Hill.]], },
+    { [[把水桶扔向5個火源，然後再和剃刀嶺的戴面具的孤兒監護員談談。]], },
   },
   [11362] = {
-    [[Wanted: Keli'dan's Feathered Stave]],
-    { [[There is no accounting for taste. Take my most recent buyer for instance.]], [[There is a blood orc within Hellfire Citadel known as Keli'dan the Breaker. He bears a most mundane stave; certainly nothing to take a second glance at. And yet, this is what my customer wishes.]], [[Who am I to say no?]], [[If you desire my compensation, you will find him and his stave within the Blood Furnace.]], },
-    { [[Wind Trader Zhareem has asked you to obtain Keli'dan's Feathered Stave. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:凱利丹的羽飾手杖]],
+    { [[世人的品味真是無奇不有。舉一個我最近遇上的買家來說好了。]], [[地獄火堡壘有一個魔血獸人叫做『破壞者』凱利丹。他帶著一根非常平凡的手杖，平常人根本連看都不想看它。但是呢，這正是我的客戶想要的東西。]], [[我為什麼要拒絕這筆生意呢?]], [[假如你想要賞金的話，幫我前往血熔爐找到他跟他的手杖。]], },
+    { [[風之貿易者札令姆要你取得凱利丹的羽飾手杖。將手杖帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11363] = {
-    [[Wanted: Bladefist's Seal]],
-    { [[Today I have a very wealthy collector in need of something very unique indeed.]], [[Warchief Kargath Bladefist carries upon his person his seal of command, which he uses to sign all official documents. I want you to retrieve it for me.]], [[You will find him deep within the Shattered Halls. No doubt you will have to wade through a veritable army to get to him. I have no doubt that you will succeed.]], },
-    { [[Wind Trader Zhareem has asked you to obtain Bladefist's Seal. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:刃拳的徽印]],
+    { [[今天有一名非常有錢的收藏家需要一樣非常特殊的物品。]], [[那就是大酋長卡加斯·刃拳隨身攜帶的一個命令徽印，他平常都用這個徽印簽署所有正式的文件。我要你幫我取得這個徽印。]], [[你可以在破碎大廳的深處找到他。毫無疑問地你一定要費力的戰勝一支訓練有素的部隊才能見到他。我相信你一定辦得到。]], },
+    { [[風之貿易者札令姆要你取得刃拳的徽印。將徽印帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11364] = {
     [[悬赏：碎手百夫长]],
@@ -29719,19 +29943,19 @@ __ns.L.quest = {
     { [[虚空猎手玛哈杜恩要求你杀死4名碎手百夫长。完成任务后返回沙塔斯城的贫民窟，找他领取奖赏。]], },
   },
   [11368] = {
-    [[Wanted: The Heart of Quagmirran]],
-    { [[I have an unusual request. A certain wealthy individual that I am in contact with off-world is interested in a macabre piece.]], [[Specifically, she wants the heart of Quagmirran.]], [[I hear that the beast has three, but one will suffice for our purposes. As I understand it, you can find Quagmirran resting within a deep pool of water at the Slave Pens.]], },
-    { [[Wind Trader Zhareem has asked you to obtain The Heart of Quagmirran. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:奎克米瑞之心]],
+    { [[我有個不尋常的任務。我接觸到一個來自異世界的有錢人，對於恐怖的東西特別有興趣。]], [[她尤其想要奎克米瑞之心。]], [[我聽說那個怪物有三顆心臟，不過一顆就足夠滿足我們的需求。據我所知，你可以在奴隸監獄的深水池中找到奎克米瑞。]], },
+    { [[風之貿易者札令姆要你取得奎克米瑞之心。將這顆心帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11369] = {
-    [[Wanted: A Black Stalker Egg]],
-    { [[There is only ever one great mother of the marsh walkers in Zangarmarsh. She is always known as the Black Stalker, and she hatches from one of the eggs left behind when her mother dies.]], [[I have a buyer who is interested in one of those eggs. He mentioned something about adding her as a zoo attraction.]], [[If you are interested in the reward I am offering, travel to the Underbog and slay the Black Stalker for her egg.]], },
-    { [[Wind Trader Zhareem wants you to obtain a Black Stalker Egg. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:黑色捕獵者的蛋]],
+    { [[贊格沼澤的那些沼澤行者中有一隻巨大的母獸。她總是被稱為黑色捕獵者，而每當母獸死去前她就會產下一顆蛋。]], [[我有個買家對這種蛋很有興趣。他提到關於什麼增加動物園收藏之類的。]], [[如果你對我提供的報酬有興趣，那就前往深幽泥沼，然後殺死黑色捕獵者並且取得她的蛋。]], },
+    { [[風之貿易者札令姆要你取得黑色捕獵者的蛋。將蛋帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11370] = {
-    [[Wanted: The Warlord's Treatise]],
-    { [[While it is known that Warlord Kalithresh of the naga is a great warrior in his own right, there are fewer who know that he has codified all of his knowledge.]], [[One of my customers is aware of it though, and is keenly interested in obtaining his treatise.]], [[I ask that you travel to the Steamvault in Coilfang Reservoir and obtain this book for me.]], },
-    { [[Wind Trader Zhareem has asked you to acquire The Warlord's Treatise. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:督軍的論述]],
+    { [[很多人都知道納迦族中的督軍卡利斯瑞是個強大的戰士，卻很少人知道他把他的知識全都記錄下來。]], [[我有位顧客得知了此事，有很高的興趣想把論述拿到手。]], [[我想拜託你去盤牙蓄湖的蒸汽洞窟把那本書拿來給我。]], },
+    { [[風之貿易者札令姆要你取得督軍的論述。將東西帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11371] = {
     [[悬赏：盘牙侍从]],
@@ -29739,14 +29963,14 @@ __ns.L.quest = {
     { [[虚空猎手玛哈杜恩要求你杀死14名盘牙侍从。完成任务后返回沙塔斯城的贫民窟，找他领取奖赏。]], },
   },
   [11372] = {
-    [[Wanted: The Headfeathers of Ikiss]],
-    { [[I've recently been approached by a tauren whose husband is about to be elevated to chieftain. She wishes to make a special addition to his headdress.]], [[Specifically, she wants to obtain the headfeathers from the dastardly Talon King Ikiss.]], [[If you are interested in collecting my reward, travel to Auchindoun's Sethekk Halls and find him.]], },
-    { [[Wind Trader Zhareem has asked you to acquire The Headfeathers of Ikiss. Deliver them to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:伊奇斯的冠羽]],
+    { [[最近有個牛頭人向我接頭，她的丈夫最近獲選成為酋長。她想替他的頭飾增添一點花樣。]], [[她尤其想拿到卑鄙的鷹王伊奇斯的冠羽。]], [[你要是對我的賞金有興趣的話，可以前去奧齊頓的賽司克大廳。]], },
+    { [[風之貿易者札令姆要你取得伊奇斯的冠羽。將東西帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11373] = {
-    [[Wanted: Shaffar's Wondrous Pendant]],
-    { [[Today I have a personal request of you, yet the reward will certainly match the danger.]], [[My family has a 'history', shall we say, with Nexus-Prince Shaffar and his followers. If the amulet he wears were to fall into my hands then surely that would mean that he had been dealt with.]], [[If the bounty I am offering is of interest to you then journey to his lair within Auchindoun's Mana-Tombs.]], },
-    { [[Wind Trader Zhareem wants you to obtain Shaffar's Wondrous Amulet. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:薩法爾的奇妙護符]],
+    { [[今天我有個私人的任務要拜託你，當然酬勞與它的危險度相等。]], [[我的家族和奈薩斯王子薩法爾還有他的手下，很有點『淵源』。要是他配戴的護符落入我的手中，那就表示他已經被解決了。]], [[如果你對我提供的賞金有興趣的話，你可以前往他在奧齊頓，法力墓穴的老巢。]], },
+    { [[風之貿易者札令姆要你取得薩法爾的奇妙護符。將東西帶回撒塔斯陰鬱城交給他以領取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11374] = {
     [[悬赏：主教的灵魂宝钻]],
@@ -29754,14 +29978,14 @@ __ns.L.quest = {
     { [[商人扎雷姆要求你夺得主教的灵魂宝钻。将宝钻带回沙塔斯城的贫民窟交给他，就能领取奖赏。]], [[该任务只能在英雄模式下完成。]], },
   },
   [11375] = {
-    [[Wanted: Murmur's Whisper]],
-    { [[When I'm done speaking, you may not want to take this commission.]], [[I have an eccentric client who specializes in the study of dead realities. It is rumored that the being known as Murmur destroyed the last world from which he was summoned. The professor is interested in examining his 'whisper' as he called it to understand how it is that Murmur accomplished such a feat.]], [[Will you journey to the Shadow Labyrinth within Auchindoun and retrieve it for me?]], },
-    { [[Wind Trader Zhareem has asked you to obtain Murmur's Whisper. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:莫爾墨的低語]],
+    { [[等我說完，也許你就不會接下這個任務了。]], [[我有個古怪的客人專門在研究死去的存在。謠傳說現在被稱為莫爾墨的東西摧毀了那個他原先存在的世界。教授對他的「低語」很感興趣，想知道莫爾墨是如何完成這項任務。]], [[你願意前往奧齊頓的暗影迷宮，把那個東西帶來給我嗎?]], },
+    { [[風之貿易者札令姆要你取得莫爾墨的低語。把東西帶到撒塔斯陰鬱城交給他好換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11376] = {
-    [[Wanted: Malicious Instructors]],
-    { [[Mah'duun has heard it said that none are as cruel as the six-armed demonesses inside the Shadow Labyrinth.]], [[Go to Auchindoun, seek them out, kill them all.]], [[If you cannot accomplish so simple a task, we do not have anything further to say to one another.]], },
-    { [[Nether-Stalker Mah'duun wants you to kill 3 Malicious Instructors. Return to him in Shattrath's Lower City once they all lie dead in order to collect the bounty.]], },
+    [[懸賞:惡毒導師]],
+    { [[瑪頓恩聽說沒有人比暗影迷宮中的六臂女惡魔更殘酷了。]], [[前往奧齊頓吧，那這些惡魔給揪出來，全部殺光。]], [[如果這麼簡單的任務你都無法達成，那我們彼此也沒什麼話好說了。]], },
+    { [[虛空行者瑪頓恩要你殺死3名惡毒導師。完成之後回到撒塔斯陰鬱城找他領取賞金。]], },
   },
   [11377] = {
     [[甜美的复仇]],
@@ -29769,9 +29993,9 @@ __ns.L.quest = {
     { [[贫民窟的巨石洛克希望你用他的烹锅制作一些炖卡利鸟，完成之后回去找他。]], },
   },
   [11378] = {
-    [[Wanted: The Epoch Hunter's Head]],
-    { [[The tastes of my customers range from the mundane to the exotic. And sometimes they want to do very mundane things with the exotic objects they seek.]], [[Such is the case with my latest request. My client, who shall remain nameless, wishes to obtain the head of the Epoch Hunter to mount on his wall.]], [[<class>, will you find a way to travel back in time to Old Hillsbrad and procure said head for my trophy-hunting patron?]], },
-    { [[Wind Trader Zhareem has asked you to obtain the Epoch Hunter's Head. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:紀元狩獵者的頭顱]],
+    { [[我的顧客的品味從世俗到獨特，無奇不有。有些時候他們想要非常世俗的事物但伴隨他們所尋求的獨特異國物品。]], [[就像是最近的這個任務，我的客戶，恕我無法說出他的名字，想要拿紀元狩獵者的頭顱來妝點他的牆壁。]], [[<class>，你願意找出方法回到過去，前往舊希爾斯布萊德，替我那喜好獵奇的贊助人拿到那顆頭顱嗎?]], },
+    { [[風之貿易者札令姆要你取得紀元狩獵者的頭顱。帶到撒塔斯的陰鬱城交給他以換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11379] = {
     [[超级美味烧烤]],
@@ -29789,9 +30013,9 @@ __ns.L.quest = {
     { [[贫民窟的巨石洛克希望你用他的烹锅制作一些灵魂之汤，完成之后回去找他。]], },
   },
   [11382] = {
-    [[Wanted: Aeonus's Hourglass]],
-    { [[I swear that some of my customers are crazy. There are possessions that you go after, and there are ones that you dare not even think of!]], [[My current client is clearly over-the-top insane. He covets the hourglass that Aeonus holds.]], [[Yes, you heard right, Aeonus of the Infinite Dragonflight!]], [[Who am I to argue since he's paying a king's ransom? So, ready to go to the Caverns of Time and travel to the Black Morass to retrieve it for me?]], },
-    { [[Wind Trader Zhareem has asked you to acquire Aeonus's Hourglass. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:艾奧那斯的沙漏]],
+    { [[我發誓我有些顧客真的瘋了。有些執著你還值得去追求，有些你根本不應該想到這種事!]], [[我最近的這個客人已經超過瘋狂的極限了。他想要艾奧那斯的沙漏。]], [[對，你沒聽錯，恆龍軍團的艾奧那斯!]], [[但拿出了一個國王才付得出的賞金，我又能向誰抱怨?那，你準備好前往時光之穴，回到黑色沼澤替我拿到沙漏嗎?]], },
+    { [[風之貿易者札令姆要你取得艾奧那斯的沙漏。帶到撒塔斯的陰鬱城交給他以換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11383] = {
     [[悬赏：裂隙领主]],
@@ -29799,19 +30023,19 @@ __ns.L.quest = {
     { [[虚空猎手玛哈杜恩要求你杀死4名裂隙领主。完成任务后返回沙塔斯城的贫民窟，找他领取奖赏。]], },
   },
   [11384] = {
-    [[Wanted: A Warp Splinter Clipping]],
-    { [[Not long ago, I was approached by a kaldorei druidess with a touching request. And plenty of gold, of course!]], [[It would appear that the forces of Darnassus wish to restore an ancient of the arcane known as Warp Splinter. The giant tree has been confused or corrupted, I'm not certain, but you'll find it inside of the Botanica at Tempest Keep.]], [[She said that all they would need to regrow him was a small clipping.]], },
-    { [[Wind Trader Zhareem has asked you to obtain a Warp Splinter Clipping. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:扭曲分裂者的剪枝]],
+    { [[不久之前，一個卡多雷的女德魯伊交給我一項任務。當然，還有不少的金幣!]], [[顯然達納蘇斯方面希望能夠讓一個名為扭曲分裂者的秘法古樹復原。那棵巨樹現在陷入了恍惚或是腐化中，我不是很確定，但你可以在風暴要塞的波塔尼卡深處找到它。]], [[她說他們只需要一小段剪枝來讓它重新生長。]], },
+    { [[風之貿易者札令姆要你取得扭曲分裂者的剪枝。帶到撒塔斯的陰鬱城交給他以換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11385] = {
-    [[Wanted: Sunseeker Channelers]],
-    { [[It has been whispered to Mah'duun that the channelers of the military unit known as the Sunseekers must be killed today.]], [[They are to be found within the Botanica at Tempest Keep.]], [[You want the bounty, you kill the channelers.]], },
-    { [[Nether-Stalker Mah'duun wants you to kill 6 Sunseeker Channelers. Return to him in Shattrath's Lower City once they all lie dead in order to collect the bounty.]], },
+    [[懸賞:尋日導魔師]],
+    { [[風又再對瑪頓恩低語，隸屬於尋日者的導魔師今天就得被殺死。]], [[你可以在風暴要塞的波塔尼卡中找到他們。]], [[你想要賞金的話，就殺死那些導魔師。]], },
+    { [[虛空行者瑪頓恩要你殺死6名尋日導魔師。完成之後回到撒塔斯陰鬱城找他領取賞金。]], },
   },
   [11386] = {
-    [[Wanted: Pathaleon's Projector]],
-    { [[I always assumed that Pathaleon the Calculator used magic to project his image across Outland. Apparently I was wrong.]], [[My latest customer tells me that the blood elf uses a mechanical device for his communication with the leaders of Prince Kael'thas's special projects. As I understand it, he acquired it from the Zaxxis rebels in the Netherstorm.]], [[My client wishes to obtain the projector. Why don't you pay Pathaleon a visit? He can be found within the Mechanar at Tempest Keep.]], },
-    { [[Wind Trader Zhareem has asked you to acquire Pathaleon's Projector. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:帕薩里歐的投映器]],
+    { [[我一直以為操縱者帕薩里歐使用魔法將他的影像在外域各處投射。很顯然我錯了。]], [[我最近的一個客人告訴我，血精靈使用一種特殊的機械裝置來和凱爾薩斯王子的投影溝通。就我所知，他們是從虛空風暴的薩希斯反叛者那邊取得的。]], [[我的客戶想要那個投映器。你何不去拜訪一下帕薩里歐?他就在風暴要塞的麥克納爾。]], },
+    { [[風之貿易者札令姆要你取得帕薩里歐的投映器。帶到撒塔斯的陰鬱城交給他以換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11387] = {
     [[悬赏：风暴锻铸摧毁者]],
@@ -29819,14 +30043,14 @@ __ns.L.quest = {
     { [[虚空猎手玛哈杜恩要求你杀死5名风暴锻铸摧毁者。完成任务后返回沙塔斯城的贫民窟，找他领取奖赏。]], },
   },
   [11388] = {
-    [[Wanted: The Scroll of Skyriss]],
-    { [[Today's client seeks something truly unique.]], [[It is said that Harbinger Skyriss is a servant of the Old Gods. It is also said that he carries a large scroll that contains their instructions for his domination of life in the universe on their behalf.]], [[My current buyer wishes to get <his / her> hands on that scroll, nevermind that <he / she> won't be able to read the language upon it.]], [[Travel to Tempest Keep's Arcatraz and get it for me, will you, <class>?]], },
-    { [[Wind Trader Zhareem has asked you to obtain The Scroll of Skyriss. Deliver it to him in Shattrath's Lower City to collect the reward.]], [[This quest may only be completed on Heroic difficulty.]], },
+    [[懸賞:史蓋力司卷軸]],
+    { [[今天的客人想找樣真的很罕見的東西。]], [[傳說先驅者史蓋力司是上古諸神的僕人。還說他有著一個巨大的卷軸記載著他們要如何支配宇宙生命的指示。]], [[目前的這位買家希望<他/她>能親自摸摸那個卷軸，當然<他/她>是讀不了上頭的文字的。]], [[到風暴要塞的亞克崔茲，把東西拿來給我，好嗎，<class>?]], },
+    { [[風之貿易者札令姆要你取得史蓋力司卷軸。帶到撒塔斯的陰鬱城交給他以換取賞金。]], [[這個任務只能在英雄難度下完成。]], },
   },
   [11389] = {
-    [[Wanted: Arcatraz Sentinels]],
-    { [[The sentinels within the Arcatraz have gone haywire. The prisoners run rampant and the guards attack those that would help.]], [[Mah'duun hears the speaker on the nether winds. The speaker says to destroy the sentinels]], [[Accomplish this and today's bounty is yours.]], },
-    { [[Nether-Stalker Mah'duun wants you to dismantle 5 Arcatraz Sentinels. Return to him in Shattrath's Lower City once that has been accomplished in order to collect the bounty.]], },
+    [[懸賞:亞克崔茲哨兵]],
+    { [[亞克崔茲的哨兵們陷入瘋狂了。裡面的囚犯們行為全都失控了而其他的守衛會攻擊想幫忙的人。]], [[瑪頓恩聽見了虛空之風中的細語。它說消滅那些哨兵們。]], [[完成這項任務的話，今天的賞金就屬於你的了。]], },
+    { [[虛空行者瑪頓恩要你解決5個亞克崔茲哨兵。完成之後回到撒塔斯的陰鬱城找他領取賞金。]], },
   },
   [11392] = {
     [[召唤无头骑士]],
@@ -29870,7 +30094,7 @@ __ns.L.quest = {
   },
   [11409] = {
     [[赛羊会前的热身]],
-    { [[So you want to check out the racing rams?  The dwarves think they have got a handle on it, but let's be honest, they are drunk most of the time, so how hard can it really be?]], [[Now before I let you strut your stuff, you'll need to show me that you can handle these fine, legally obtained creatures.]], [[So here's the deal:  I'll lend you some racing reins and the use of a ram. You need to prove to me that you can handle using these rams.]], [[Keep the ram at a trot, canter and gallop for 8 seconds each.]], },
+    { [[所以你想瞧瞧競速山羊?那些矮人覺得自己會駕馭山羊，但說實話，他們大部分的時候都醉得一塌糊塗，你想這能有多難?]], [[在我讓你出發之前，你得向我證明你能控制這些善良又合法的動物。]], [[條件如下:我會借給你一些競速韁繩還有一頭競速山羊。你得向我證明你會操縱這些山羊。]], [[讓山羊在快步、慢跑和疾馳的狀態下各維持8秒。]], },
     { [[你有4分钟时间驾驭赛羊，让它保持三种不同的速度各8秒。]], },
   },
   [11412] = {
@@ -29885,28 +30109,43 @@ __ns.L.quest = {
   },
   [11419] = {
     [[美酒节赛羊会]],
-    { [[If you show this hand stamp to Driz Tumblequick, the Ram Racing Apprentice, he'll allow you to purchase Brewfest riding rams.]], },
-    { [[Bring the "Honorary Brewer" Hand Stamp to Driz Tumblequick near the entrance to the Brewfest Grounds in Durotar.]], },
+    { [[假如你給山羊競速學徒，德瑞茲·迅跌看這個手印的話，他就會讓你購買啤酒節騎乘用山羊。]], },
+    { [[將『榮譽釀酒者』手印交給德瑞茲·迅跌，他就在杜洛塔的啤酒營地入口附近。]], },
   },
   [11425] = {
     [[Test Quest - Craig]],
     { [[Go on a quest!]], },
-    { [[Vermin, gotta hate 'em.]], },
+    { [[害蟲，開始憎恨他們。]], },
   },
   [11431] = {
     [[抓住鹿角小飞兔！]],
-    { [[Hey there!  I'm a crazy dwarf!  We dwarves believe when you get enough brew together, invisible creatures show up.  In fact they are probably wandering around the Brewfest grounds right now! But you can only see them if you are really drunk.]], [[We dwarves will come up with any excuse to drink.]], [[I bet you want a reason to drink too...  So here it is, bring me 5 of those wolpertingers with this net I got from a really drunk dwarf.]], [[If you can't see them, you're probably not drunk enough.]], },
-    { [[The "dwarf," Glodrak Huntsniper, has asked you to capture 5 Stunned Wolpertingers using the Wolpertinger Net. He mentioned that you must be intoxicated to see them.]], },
+    { [[你好啊!我是個瘋矮人!我們矮人相信只要你喝夠多啤酒，隱形的生物就會出現。事實上它們可能現在就在啤酒營地附近閒晃!但除非你喝醉不然你是看不見它們的。]], [[我們矮人想得出任何可以喝得爛醉的理由。]], [[我打賭你也想要一個喝酒的理由...所以幫我帶五隻鹿角兔回來，就用這個我從一個爛醉如泥的矮人身上弄來的網子。]], [[要是你看不見它們，那就表示你還不夠醉。]], },
+    { [[『矮鬼』葛羅卓克·獵狙者要你用鹿角兔補網幫他抓5隻昏迷的鹿角兔。他提到你必須在喝醉的情況下才看得到那些鹿角兔。]], },
+  },
+  [11435] = {
+    [[Gathered Pumpkins NYI]],
+    { [[嗨，<name>!感謝你把騎士趕走!現在他既然走了，監護員說我們可以在村莊裡隨便閒逛了!]], [[我發現一些騎士留下來的南瓜。它們看起來好恐怖...你願意把它們交給監護員看嗎?]], },
+    { [[拿一堆南瓜燈籠回去給變裝的孤兒監護員。]], },
+  },
+  [11437] = {
+    [[[PH] Beer Garden A]],
+    { [[[PH] Speak to a Brewfest Barker in any Beer Garden outside of Darnassus, the Exodar, Shattrath City, or Stormwind City and receive a free pretzel.]], },
+    { [[[PH] Speak to a Brewfest Barker in any Beer Garden and receive a free pretzel.]], },
+  },
+  [11438] = {
+    [[[PH] Beer Garden B]],
+    { [[[PH] Speak to a Brewfest Barker in any Beer Garden outside of Darnassus, the Exodar, Shattrath City, or Stormwind City and receive a free pretzel.]], },
+    { [[[PH] Speak to a Brewfest Barker in any Beer Garden and receive a free pretzel.]], },
   },
   [11439] = {
     [[消防练习]],
     { [[卡拉诺斯最勇敢的矮人们已经组建了一支消防队，随时准备抵御无头骑士的进攻。你想帮忙吗？]], [[巡山人在这里的南边设立了一处练习场，训练大家的灭火技术。你也到那里去练习吧，用小水桶把水泼到火盆上。小水桶在水缸周围放了许多，你可以自由取用。]], [[再见，<name>。你完成了消防队的练习之后，请再过来找我们！]], },
-    { [[Throw water buckets onto 5 fires, and then speak with the Costumed Orphan Matron.]], },
+    { [[把水桶丟向5個火源，然後跟變裝的孤兒監護員談話。]], },
   },
   [11440] = {
     [[消防练习]],
     { [[在无头骑士的威胁之下，碧蓝岗哨的英雄们随时都准备着组成消防队，扑灭这里的火势。你愿意加入我们吗？]], [[就在这里西边不远，卫兵们已经建立了一处小营地以便练习救火。你也到那里去练习吧，用小水桶把水泼到火盆上就是了。小水桶在水缸周围放了许多，你可以自由取用。]], [[再见，<name>。你完成了消防队的练习之后，请再过来找我们！]], },
-    { [[Throw water buckets onto 5 fires, and then speak with the Costumed Orphan Matron.]], },
+    { [[把水桶丟向5個火源，然後跟變裝的孤兒監護員談話。]], },
   },
   [11441] = {
     [[美酒节！]],
@@ -29931,12 +30170,12 @@ __ns.L.quest = {
   [11449] = {
     [[灭火练习]],
     { [[卫兵们在镇外不远的地方设立了一处消防练习点。我们绝对不能让布瑞尔的建筑物处在火灾的威胁之下。你也应该去参加练习，成为一名消防员！]], [[从西门经过墓地，然后一直沿路走，就能找到训练营。到那里拿个水桶就赶紧开始练习灭火吧！]], },
-    { [[Toss buckets on 5 fires, then speak with the Masked Orphan Matron in Brill.]], },
+    { [[把水桶扔向5個火源，然後再和布瑞爾的戴面具的孤兒監護員談談。]], },
   },
   [11450] = {
     [[灭火练习]],
     { [[卫兵们在镇外不远的地方设立了一处消防练习点。我们绝对不能让无头骑士摧毁我们耗费了如此巨大的代价才重建起来的建筑物。你也应该去参加练习，成为一名消防员！]], [[从南边出门，然后走到十字路口，就能找到训练营了。]], },
-    { [[Toss buckets on 5 fires, then speak with the Masked Orphan Matron in Falconwing Square.]], },
+    { [[把水桶扔向5個火源，然後再和獵鷹之翼廣場的戴面具的孤兒監護員談談。]], },
   },
   [11451] = {
     [[奥利卡的诗]],
@@ -29984,9 +30223,9 @@ __ns.L.quest = {
     { [[卡雷苟斯要求你击败魔导师平台内的凯尔萨斯。取下凯尔萨斯的徽记之后，立刻向破碎残阳基地的主教拉雷索尔复命。]], },
   },
   [11496] = {
-    [[The Sanctum Wards]],
-    { [[Our first priority is to capture the Sun's Reach Sanctum.  Once we've secured it, we'll be able to use its energy to open a portal from Shattrath.]], [[The sanctum is overrun with the Wretched - former blood elves who've devolved into mindless husks of their former selves.  Its defenses would've normally prevented this intrusion, but the Wretched have stolen the power sources from the protective wards.]], [[Hunt down the Wretched and get the mana remnants they carry.  Use them to energize the sanctum wards.]], },
-    { [[Captain Theris Dawnhearth at the Shattered Sun Staging Area wants you to obtain 4 Mana Remnants from Wretched Fiends and Wretched Devourers and use them to energize one of the Crystal Wards surrounding the Sun's Reach Sanctum to the east.]], },
+    [[聖所結界]],
+    { [[我們的首要目標就是佔領日境聖所。一旦我們安穩地控制那裡，我們就能夠使用它的能量來開啟通往撒塔斯的傳送門。]], [[聖所中充滿了鄙惡者 - 一些曾是血精靈但墮落成毫無心智徒具外殼的生物。一般而言，它的防禦機制本來會阻擋入侵，但鄙惡者盜取了結界的動力來源。]], [[獵殺那些鄙惡者，取得他們身上的法力殘餘。用它來補充聖所結界的能量。]], },
+    { [[破碎之日會所的塞里斯·晨爐上尉要你從鄙惡者惡魔與鄙惡者吞噬者身上取得4個法力殘餘。使用它們來替日境聖所周圍靠東邊的一個水晶結界充能。]], },
   },
   [11497] = {
     [[学习飞翔]],
@@ -29995,8 +30234,8 @@ __ns.L.quest = {
   },
   [11498] = {
     [[学习飞翔]],
-    { [[Though it may end up hurting my business in the long run, you look the sort that dreams of flying <his / her> own mount through the skies, rather than being flown from place to place.]], [[I understand the feeling completely.]], [[You, my friend, need to head to Shadowmoon Village in the northwest corner of Shadowmoon Valley. When you get there, speak with Olrokk about some flight instruction. Mind you, his training's not cheap. But, I think that you'll find it worth your while.]], },
-    { [[Speak with Olrokk at Shadowmoon Village in Shadowmoon Valley.]], },
+    { [[雖然這或許最後會危及我長遠的生意，但以<他/她>自己的坐騎馳騁天際的夢想，總是比一個地方接著一個地方的接駁飛行要更好。]], [[我完全明白這種感覺。]], [[你，我的朋友，要走一趟影月谷西北邊的影月村。等你到了那裡，和歐洛克談談關於飛行指導的事情。提醒你，他的訓練可不便宜。但你會發覺這是值得的。]], },
+    { [[和歐洛克談談，他在影月谷的影月村。]], },
   },
   [11499] = {
     [[悬赏：凯尔萨斯王子的徽记之戒]],
@@ -30004,9 +30243,9 @@ __ns.L.quest = {
     { [[商人扎雷姆要求你夺得凯尔萨斯王子的徽记之戒。将戒指带回沙塔斯城的贫民窟交给他，就能领取奖赏。]], [[该任务只能在英雄模式的魔导师平台完成。]], },
   },
   [11500] = {
-    [[Wanted: Sisters of Torment]],
-    { [[It has been whispered to Mah'duun that the sisters of torment are to be sent back to the hells from which they sprang.]], [[Mah'duun knows that these demons can be found at the Magisters' Terrace on the Isle of Quel'Danas.]], [[You will do this thing to earn the bounty, or you will not.]], },
-    { [[Nether-Stalker Mah'duun wants you to slay 4 Sisters of Torment. Return to him in Shattrath's Lower City once you have done so in order to collect the bounty.]], },
+    [[懸賞:折磨之女]],
+    { [[風又再對瑪頓恩低語，折磨之女得被送回他們出現的地獄。]], [[瑪頓恩知道這些惡魔可以在奎爾達納斯之島的博學者殿堂找到。]], [[也許你會完成這件事以換取賞金，又或許你不會。]], },
+    { [[虛空行者瑪頓恩要你解決4名折磨之女。完成之後回到撒塔斯的陰鬱城找他以換取賞金。]], },
   },
   [11502] = {
     [[保卫哈兰]],
@@ -30095,8 +30334,8 @@ __ns.L.quest = {
     { [[将奇怪的发动机零件交给泰雷多尔的凯莉·弗莱。]], },
   },
   [11532] = {
-    [[Distraction at the Dead Scar]],
-    { [[The Legion will move against us as soon as their forces to the south are freed up.  The Scourge at the Dead Scar are keeping their forces occupied at the moment.  It won't last long, however.]], [[I want you to fly a dragonhawk over to the scar and put a dent in the demons' numbers with these arcane charges.]], [[If all goes well, they won't even notice us taking the armory from Kael's lackeys.  Talk to Ayren, the dragonhawk master in the west part of the harbor, when you're ready to fly there.]], },
+    [[分散死亡之痕的注意力]],
+    { [[一旦軍團南下的部隊獲得抒解，他們就會立刻對付我們。天譴軍團也持續地聚集在死亡之痕。但這維持不了多久了。]], [[我要你騎著龍鷹前往死亡之痕，用這些秘法炸藥減少那些惡魔的數量。]], [[如果一切順利的話，他們甚至不會知道我們從凱爾的僕人那邊取得這些軍火。等你準備好就和埃倫談談，那個港口西邊的龍鷹管理者。]], },
     { [[战斗法师艾尔娜希望你去和艾雷·碎云谈一谈，飞往死亡之痕。用奥术炸弹杀死2个深渊霸主、3个艾瑞达巫师和12个天怒执行者。]], },
   },
   [11533] = {
@@ -30125,13 +30364,13 @@ __ns.L.quest = {
     { [[先驱者伊努罗希望你前往黎明广场，杀死仇恨使者和6名燃烧军团恶魔，然后将破碎残阳战旗插在仇恨使者的尸体上。]], },
   },
   [11538] = {
-    [[The Battle for the Sun's Reach Armory]],
-    { [[The Burning Legion holds the Sun's Reach Armory, which is of tactical importance to our operation.  As long as their morale remains high we will not wrest the building from their control.]], [[The emissaries of hate are Legion shocktroopers sent to reinforce tactical Legion positions.  The enemy rallies upon their arrival for they fear them more than they fear us.]], [[Today we will change that.  Take this banner and slay the demons of the Legion.  When the emissary is sent, slay and impale him.]], },
-    { [[Harbinger Inuuro wants you to slay 6 Burning Legion Demons and the Emissary of Hate in Dawning Square or the Sun's Reach Armory.  Use the Shattered Sun Banner to impale the Emissary of Hate's corpse.]], },
+    [[日境軍械庫的戰鬥]],
+    { [[燃燒軍團控制著日境軍械庫，它在我們的行動中具有重要的戰略價值。只要他們的士氣高昂，我們就很難奪取建築物的控制權。]], [[憎恨密使是軍團的打擊部隊派來鞏固他們的戰術據點。敵人靠著他們的抵達正在重整。比起我們，他們更懼怕這些憎恨密使。]], [[今天，我們要改變這件事。拿起這個旗幟並且殺死那些軍團惡魔。等到憎恨密使出現，殺死他並且刺穿他。]], },
+    { [[先驅者因努羅要你殺在曙光廣場或日境軍械庫的6隻燃燒軍團惡魔以及憎恨密使。用破碎之日旗幟刺穿憎恨密使的屍體。]], },
   },
   [11539] = {
-    [[Taking the Harbor]],
-    { [[One of Kael's most elite forces, the Dawnblade army, has been stationed at the Sun's Reach Harbor and Dawnstar Village.]], [[The harbor is of critical importance to our plans, so any Dawnblade casualties you inflict will be of tremendous help.  Kael'thas will rue the day that he turned his back on his people and sided with the Burning Legion.]], },
+    [[奪下港口]],
+    { [[凱爾最精英的部隊之一，曦刃軍團目前駐紮日境港和晨星村。]], [[港口在我們的計畫中佔有關鍵的位置，所以你對曦刃造成的每一分損傷都對我們來說是莫大的助力。凱爾薩斯會悔恨他為什麼要背棄他的人民，與燃燒軍團同流合污。]], },
     { [[阳湾军械库的魔导师伊拉斯塔希望你去消灭6个晨锋召唤者、6个晨锋血骑士和3个晨锋射手。]], },
   },
   [11540] = {
@@ -30145,8 +30384,8 @@ __ns.L.quest = {
     { [[瓦琳德拉上尉希望你能解救10个绿鳃奴隶。完成任务之后，去阳湾港口的银月之傲号上向她复命。]], },
   },
   [11542] = {
-    [[Intercept the Reinforcements]],
-    { [[We're making a push to solidify our control of Sun's Reach by capturing the harbor next.  Unfortunately a fleet of Dawnblade reservists is on its way to reinforce Kael's forces there.]], [[Take this oil and secure a dragonhawk from Ayren Cloudbreaker.    You should be able to fly within reach of the ships' sails; once you're close enough, set them on fire.]], [[Land in one of the ships and attack the reservists.  With their ship sails on fire they won't be able to mount much of a defense.]], },
+    [[攔截援軍]],
+    { [[我們需要將戰線往前推進，來鞏固我們對日境的控制權，目標就是佔領港口。不幸的是，一支曦刃後備兵的艦隊正在支援凱爾部隊的路上。]], [[帶上這些火油，然後從埃倫·破雲者那邊借調一隻龍鷹。你可以飛近那些船帆；一旦你靠得夠近，就把那些船帆全點燃。]], [[找一艘船降落，然後對付那些後備部隊。只要他們的船帆著火，他們就無法好好組織防禦。]], },
     { [[阳湾军械库的守备官凯兰要求你去跟艾雷·碎云谈一谈，并飞越晨锋部队的增援舰队。将火油投掷到对方的船帆上，使之引燃。落地后，再杀死6名晨锋预备兵。]], },
   },
   [11543] = {
@@ -30263,7 +30502,7 @@ __ns.L.quest = {
   },
   [11731] = {
     [[扔火炬]],
-    { [[So you want to be a fire juggler?  Do you have what it takes?  The dexterity?  The reflexes?  ...the courage?  If you think so, then let's give you a little practice!]], [[Take these torches and run near the bonfire.  You'll see  braziers with markers flashing above them.  Toss a torch at a marked brazier.  Be quick! Do it before the mark fades if you want credit for the toss!]], [[Hit enough marked braziers before the time limit, then come back here... for your next lession.]], },
+    { [[你想當一名火焰雜耍師?你已經具備這個資格了嗎?你夠靈敏嗎?反應夠快嗎?你有勇氣嗎?假如你認為你已經具備以上的條件，那麼我們來做個小小的練習吧!]], [[拿著這些火炬，然後跑到營火的旁邊。你會看到火盆上閃爍著標誌。對標示的火盆投擲一根火炬。動作要快!你得在標誌消失以前擲出火炬才算數!]], [[在時間結束之前擊中足夠數量的火盆，然後回到這裡……我們再來進行下一個課程。]], },
     { [[赢得一场扔火炬游戏，然后与吞火大师谈一谈。]], },
   },
   [11732] = {
@@ -30650,9 +30889,9 @@ __ns.L.quest = {
     { [[与任意联盟主城的吞火大师谈一谈。]], },
   },
   [11883] = {
-    [[Fire Dancing?]],
-    { [[You wish the learn the art of fire dancing?]], [[Well, then. Speak to a Master Fire Dancer at any Horde capital. They should be able to help you.]], },
-    { [[Speak to a Master Fire Dancer in any Horde capital.]], },
+    [[火舞?]],
+    { [[你想要學習火舞的藝術?]], [[很好，那去跟任何一個部落主城的火舞者大師談談。他們應該可以協助你。]], },
+    { [[跟任一個何部落主城的火舞者大師談談。]], },
   },
   [11885] = {
     [[仇敌的血脉]],
@@ -30686,7 +30925,7 @@ __ns.L.quest = {
   },
   [11922] = {
     [[扔火炬]],
-    { [[So you want to be a fire juggler?  Do you have what it takes?  The dexterity?  The reflexes?  ...the courage?  If you think so, then let's give you a little practice!]], [[Take these torches and run near the bonfire.  You'll see  braziers with markers flashing above them.  Toss a torch at a marked brazier.  Be quick! Do it before the mark fades if you want credit for the toss!]], [[Hit enough marked braziers before the time limit, then come back here... for your next lession.]], },
+    { [[你想當一名火焰雜耍師?你已經具備這個資格了嗎?你夠靈敏嗎?反應夠快嗎?你有勇氣嗎?假如你認為你已經具備以上的條件，那麼我們來做個小小的練習吧!]], [[拿著這些火炬，然後跑到營火的旁邊。你會看到火盆上閃爍著標誌。對標示的火盆投擲一根火炬。動作要快!你得在標誌消失以前擲出火炬才算數!]], [[在時間結束之前擊中足夠數量的火盆，然後回到這裡……我們再來進行下一個課程。]], },
     { [[赢得一场扔火炬游戏，然后与食焰大师谈一谈。]], },
   },
   [11923] = {
@@ -30710,9 +30949,9 @@ __ns.L.quest = {
     { [[赢得一场扔火炬游戏，然后与食焰大师谈一谈。]], },
   },
   [11933] = {
-    [[Stealing the Exodar's Flame]],
-    { [[This flame, stolen from the heart of the Exodar itself, floods you with warmth. This raw power is foreign to you, but the Talespinner might know more...]], },
-    { [[Return the Flame of the Exodar to the Festival Talespinner.]], },
+    [[盜取艾克索達之焰]],
+    { [[這個從艾克索達核心偷出來的火焰，讓你感到很溫暖。這股新的力量對你而言很陌生，但故事使者或許知道更多……]], },
+    { [[將艾克索達之焰帶回去給節慶故事使者。]], },
   },
   [11935] = {
     [[盗取银月城的烈焰]],
@@ -30799,18 +31038,23 @@ __ns.L.quest = {
   },
   [12022] = {
     [[扔酒杯！]],
-    { [[Hey there!  You look like you can handle your brew.  But can you handle your brew mug?]], [[The Dark Irons have come back with a vengeance to ruin our celebration.  Tossing mugs at them is the best way to stop them, but first, let's see if you can toss one at old S.T.O.U.T. here.]], [[It's easy, pick up a complimentary sampler and take a drink.  Just make sure you're facing S.T.O.U.T.  Talk to me after you've hit him 5 times.]], },
-    { [[Use the Complimentary Brewfest Sampler to hit S.T.O.U.T. 5 times, then talk to Boxey Boltspinner.]], },
+    { [[喂!看起來啤酒難不倒你。但你能好好使用啤酒杯嗎?]], [[黑鐵矮人要回來報復，毀掉我們的節慶。拿酒杯丟他們是最好的阻止方法，但首先，讓我們瞧瞧你能不能在老S.T.O.U.T.這裡丟中一個。]], [[這很簡單，拿起一杯免費招待的啤酒節樣品，然後乾了它。接下來要確定你面對著S.T.O.U.T.。等你丟中他5次之後再告訴我。]], },
+    { [[使用免費招待的啤酒節樣品並丟中S.T.O.U.T.5次，然後和博克西·栓旋者談談。]], },
   },
   [12062] = {
     [[侮辱科林·烈酒]],
     { [[科林·烈酒就在隔壁房间，煽动黑铁矮人对美酒节发动新一轮攻击。去击败他！]], [[你只需用言语挑衅他就行啦，比如告诉他他酿造的啤酒连猪都不愿意喝。]], [[做好战斗准备。上一个侮辱他的啤酒的家伙……被送去喂了野猪。]], },
     { [[与科林·烈酒谈一谈。]], },
   },
+  [12133] = {
+    [[砸碎南瓜]],
+    { [[這個大型南瓜燈籠放在村莊的中央。那些看著它眼睛的人，可以感受到其中的黑暗威脅。]], [[砸碎南瓜之後露出一個老舊、燒焦的聖徽。]], },
+    { [[將燒焦的聖徽交給變裝的孤兒監護員。]], },
+  },
   [12191] = {
     [[扔酒杯！]],
-    { [[Those pesky Dark Irons are back! We need to make sure that you can defend yourself if needed. More importantly, we need to know that you can defend our property!]], [[S.T.O.U.T. here is ready for action, are you? Drink from the Complimentary Brewfest Samplers then throw the mug at S.T.O.U.T.! Hit the target 5 times then talk to me.]], },
-    { [[Use the Complimentary Brewfest Sampler to hit S.T.O.U.T. 5 times, then talk to Bizzle Quicklift.]], },
+    { [[那些討厭的黑鐵矮人又回來了!我們要確定你有保護自己的能力。更重要的是，我們要知道你能保護我們的財產!]], [[S.T.O.U.T.已經準備好了，對吧?把免費招待的啤酒節樣品給喝光，然後拿酒杯來丟擲S.T.O.U.T.!擊中目標5次之後再來找我。]], },
+    { [[使用免費招待的啤酒節樣品並丟中S.T.O.U.T.5次，然後和比索·迅提談談。]], },
   },
   [12193] = {
     [[Say, There Wouldn't Happen to be a Souvenir This Year, Would There?]],
@@ -30827,15 +31071,158 @@ __ns.L.quest = {
     { [[会员总是享有特权的。只要你成为“本月美酒”俱乐部的成员，就能在第一时间品尝到世间最棒的佳酿。]], [[将“本月美酒”俱乐部会员资料表交给铁炉堡石火旅店的拉尔金·雷酒吧。]], },
     { [[将“本月美酒”俱乐部会员资料表交给铁炉堡石火旅店的拉尔金·雷酒。]], },
   },
+  [12286] = {
+    [[糖果桶]],
+  },
   [12306] = {
     [[本月美酒俱乐部]],
-    { [[There is strength in numbers, <name>.  Being part of the "Brew of the Month" club means knowing you and your brethren will always have access to the best brew.]], [[Bring your "Brew of the Month" club membership form to Ray'ma in the Darkbriar Lodge in Orgrimmar's Valley of Spirits.]], },
-    { [[Bring the "Brew of the Month" club membership form to Ray'ma in the Darkbriar Lodge in Orgrimmar's Valley of Spirits.]], },
+    { [[<name>，團結就是力量。成為「每月啤酒」俱樂部的一員，意味著你和你的同好隨時享用最青的啤酒。]], [[帶著你的「每月啤酒」俱樂部會員表格交給雷瑪，他就在奧格瑪精神谷的暗木小屋裡。]], },
+    { [[帶著「每月啤酒」俱樂部會員表格交給雷瑪，他就在奧格瑪精神谷的暗木小屋裡。]], },
   },
   [12318] = {
     [[Save Brewfest!]],
     { [[<name>, our spies have discovered a fiendish plot!  The Dark Iron dwarves want our beloved Brewfest destroyed!]], [[Coren Direbrew, head of a renegade family of brewers, has marshaled the dwarves of Blackrock Depths.  Their vile mole machines attack us constantly.]], [[Our spy is in the Grim Guzzler, a tavern in the bowels of Blackrock Depths.  He'll know more of Direbrew's plot.]], [[Find our spy.  Save Brewfest!]], },
     { [[Speak with the Brewfest Spy in the Grim Guzzler of Blackrock Depths.]], },
+  },
+  [12331] = {
+    [[糖果桶]],
+  },
+  [12332] = {
+    [[糖果桶]],
+  },
+  [12333] = {
+    [[糖果桶]],
+  },
+  [12334] = {
+    [[糖果桶]],
+  },
+  [12335] = {
+    [[糖果桶]],
+  },
+  [12336] = {
+    [[糖果桶]],
+  },
+  [12337] = {
+    [[糖果桶]],
+  },
+  [12338] = {
+    [[糖果桶]],
+  },
+  [12339] = {
+    [[糖果桶]],
+  },
+  [12340] = {
+    [[糖果桶]],
+  },
+  [12341] = {
+    [[糖果桶]],
+  },
+  [12342] = {
+    [[糖果桶]],
+  },
+  [12343] = {
+    [[糖果桶]],
+  },
+  [12344] = {
+    [[糖果桶]],
+  },
+  [12345] = {
+    [[糖果桶]],
+  },
+  [12346] = {
+    [[糖果桶]],
+  },
+  [12347] = {
+    [[糖果桶]],
+  },
+  [12348] = {
+    [[糖果桶]],
+  },
+  [12349] = {
+    [[糖果桶]],
+  },
+  [12350] = {
+    [[糖果桶]],
+  },
+  [12351] = {
+    [[糖果桶]],
+  },
+  [12352] = {
+    [[糖果桶]],
+  },
+  [12353] = {
+    [[糖果桶]],
+  },
+  [12354] = {
+    [[糖果桶]],
+  },
+  [12355] = {
+    [[糖果桶]],
+  },
+  [12356] = {
+    [[糖果桶]],
+  },
+  [12357] = {
+    [[糖果桶]],
+  },
+  [12358] = {
+    [[糖果桶]],
+  },
+  [12359] = {
+    [[糖果桶]],
+  },
+  [12360] = {
+    [[糖果桶]],
+  },
+  [12396] = {
+    [[糖果桶]],
+  },
+  [12397] = {
+    [[糖果桶]],
+  },
+  [12398] = {
+    [[糖果桶]],
+  },
+  [12399] = {
+    [[糖果桶]],
+  },
+  [12400] = {
+    [[糖果桶]],
+  },
+  [12401] = {
+    [[糖果桶]],
+  },
+  [12402] = {
+    [[糖果桶]],
+  },
+  [12403] = {
+    [[糖果桶]],
+  },
+  [12404] = {
+    [[糖果桶]],
+  },
+  [12405] = {
+    [[糖果桶]],
+  },
+  [12406] = {
+    [[糖果桶]],
+  },
+  [12407] = {
+    [[糖果桶]],
+  },
+  [12408] = {
+    [[糖果桶]],
+  },
+  [12409] = {
+    [[糖果桶]],
+  },
+  [12410] = {
+    [[糖果桶]],
+  },
+  [12420] = {
+    [[每月啤酒俱樂部]],
+    { [[會員享有優惠。成為「每月啤酒俱樂部」的會員，表示你有管道獲得到最新、最青的啤酒。]], [[帶著你的「每月啤酒」俱樂部會員表格給拉金·雷酒，他就在鐵爐堡的石火旅店中。]], },
+    { [[把「每月啤酒」俱樂部會員表格帶給拉金·雷酒，他就在鐵爐堡的石火旅店中。]], },
   },
   [12491] = {
     [[科林的烈酒]],
@@ -30856,5 +31243,120 @@ __ns.L.quest = {
     [[好帽子……]],
     { [[我的帽子？是啊，那顶帽子的款式非同寻常，很早以前的事儿啦……如今可没几个裁缝知道怎么缝制。]], [[年少轻狂的时候，我将它当作身份的象征。很多人想要击败我，赢得那顶帽子……可惜没人成功。]], [[啊，这些都是陈芝麻烂谷子的事了。我已经老了，每天喝喝酒，钓钓鱼，早就不与人决斗啦。]], },
     { [[卡洛斯要你进入旧希尔斯布莱德，击败年轻时候的卡洛斯。然后将他的帽子交给塔纳利斯的卡洛斯。]], },
+  },
+  [63978] = {
+    [[Cloak and Daggers]],
+    { [[As a Rogue, you specialize in striking from the shadows, dispatching foes with a variety of poisons and bleeding attacks. Use Stealth to sneak around and then speak with me when your ready for more training.]], },
+    { [[Use Stealth to sneak around.]], },
+  },
+  [64028] = {
+    [[新的開始]],
+    { [[一封信以魔法出現在你護甲的內襯上。上頭寫著：「歡迎來到聯盟的首都，暴風城!去找<class>訓練師展開鍛鍊。他們會幫助你準備面對橫跨艾澤拉斯甚至更遠處的冒險旅程。」]], },
+    { [[在暴風城內找到<class>訓練師。]], },
+  },
+  [64031] = {
+    [[生存工具]],
+    { [[我們開始之前，你必須先裝備適合你能力的武器與護甲。冒險者的生活充滿刺激，你永遠猜不到接下來會發生什麼事!我準備了冒險求生包給你。裡頭有額外的武器、護甲，和補給品。我相信你能妥善運用。]], },
+    { [[打開求生包，裝備其中的武器。]], },
+  },
+  [64034] = {
+    [[戰鬥訓練]],
+    { [[隨著你的力量提升，你做為<class>的能耐也會提高。你可以在艾澤拉斯各地找到訓練師，尤其是在暴風城、達納蘇斯、和鐵爐堡等重要都市。獲得知識必須付出相應的代價，但僅此一次我會退你費用。等你準備好了，就跟我交談學習你的技能吧。]], },
+    { [[與<class>訓練師交談學習法術。]], },
+  },
+  [64035] = {
+    [[天賦異稟]],
+    { [[每個<class>會使用不同的能力、天賦、與技巧。我們彼此之間的差異來自不同的興趣與偏好。當你能力升級時，你可以透過天賦強化並特化你的技能。不需要訓練師的幫助。如果你對於天賦的想法改變了，可以找<class>訓練師交談，重新規劃。]], },
+    { [[打開天賦介面，使用天賦點數。]], },
+  },
+  [64037] = {
+    [[東瘟疫之地]],
+    { [[大領主伯瓦爾·弗塔根命令所有身強體壯的聯盟成員至聖光之願禮拜堂向巴薩羅梅領主。銀白十字軍急需各位的協助，從天譴軍團手中奪回東瘟疫之地。去找獅鷲獸管理員杜加爾·朗德瑞克交談，就能騎乘他飼育的獅鷲獸，以任何馬匹都比不上的速度前往東瘟疫之地。為了聯盟的榮耀！]], },
+    { [[前往東瘟疫之地找到萊尼德·巴薩羅梅。他在聖光之願禮拜堂等候你的到來。]], },
+  },
+  [64038] = {
+    [[黑暗之門]],
+    { [[有一座沉默多年的地獄之門，如今又開始有動靜。大領主伯瓦爾·弗塔根命令所有身強體壯的聯盟成員至詛咒之地報到。與獅鷲獸管理員杜加爾·朗德瑞克交談能安排飛行前往。抵達詛咒之地後，向警備隊長勒松·尼德溫報到。他在黑暗之門等你…]], },
+    { [[到詛咒之地向警備隊長勒松·尼德溫報到。他在黑暗之門前等你。]], },
+  },
+  [64046] = {
+    [[新的開始]],
+    { [[一封信以魔法出現在你護甲的內襯上。上頭寫著：「歡迎來到部落的首都，奧格瑪!去找<class>訓練師展開鍛鍊。他們會幫助你準備面對橫跨艾澤拉斯甚至更遠處的冒險旅程。」]], },
+    { [[在奧格瑪內找到<class>訓練師。]], },
+  },
+  [64047] = {
+    [[新的開始]],
+    { [[一封信以魔法出現在你護甲的內襯上。上頭寫著：「歡迎來到牛頭人的首都，雷霆崖!去找<class>訓練師展開鍛鍊。他們會幫助你準備面對橫跨艾澤拉斯甚至更遠處的冒險旅程。」]], },
+    { [[在雷霆崖內找到<class>訓練師。]], },
+  },
+  [64048] = {
+    [[生存工具]],
+    { [[我們開始之前，你必須先裝備適合你能力的武器與護甲。冒險者的生活充滿刺激，你永遠猜不到接下來會發生什麼事!我準備了冒險求生包給你。裡頭有額外的武器、護甲，和補給品。我相信你能妥善運用。]], },
+    { [[打開求生包，裝備其中的武器。]], },
+  },
+  [64049] = {
+    [[生存工具]],
+    { [[我們開始之前，你必須先裝備適合你能力的武器與護甲。冒險者的生活充滿刺激，你永遠猜不到接下來會發生什麼事!我準備了冒險求生包給你。裡頭有額外的武器、護甲，和補給品。我相信你能妥善運用。]], },
+    { [[打開求生包，裝備其中的武器。]], },
+  },
+  [64050] = {
+    [[戰鬥訓練]],
+    { [[隨著你的力量提升，你做為<class>的能耐也會提高。你可以在艾澤拉斯各地找到訓練師，尤其是在奧格瑪、雷霆崖、和幽暗城等重要都市。獲得知識必須付出相應的代價，但僅此一次我會退你費用。等你準備好了，就跟我交談學習你的技能吧。]], },
+    { [[與<class>訓練師交談學習法術。]], },
+  },
+  [64051] = {
+    [[戰鬥訓練]],
+    { [[隨著你的力量提升，你做為<class>的能耐也會提高。你可以在艾澤拉斯各地找到訓練師，尤其是在奧格瑪、雷霆崖、和幽暗城等重要都市。獲得知識必須付出相應的代價，但僅此一次我會退你費用。等你準備好了，就跟我交談學習你的技能吧。]], },
+    { [[與<class>訓練師交談學習法術。]], },
+  },
+  [64052] = {
+    [[天賦異稟]],
+    { [[每個<class>會使用不同的能力、天賦、與技巧。我們彼此之間的差異來自不同的興趣與偏好。當你能力升級時，你可以透過天賦強化並特化你的技能。不需要訓練師的幫助。如果你對於天賦的想法改變了，可以找<class>訓練師交談，重新規劃。]], },
+    { [[打開天賦介面，使用天賦點數。]], },
+  },
+  [64053] = {
+    [[天賦異稟]],
+    { [[每個<class>會使用不同的能力、天賦、與技巧。我們彼此之間的差異來自不同的興趣與偏好。當你能力升級時，你可以透過天賦強化並特化你的技能。不需要訓練師的幫助。如果你對於天賦的想法改變了，可以找<class>訓練師交談，重新規劃。]], },
+    { [[打開天賦介面，使用天賦點數。]], },
+  },
+  [64054] = {
+    [[Orgrimmar]],
+    { [[As a new citizen here, I want you to explore the city and introduce yourself. Along the way, I would like you to deliver these packages to x, y, z within a.]], [[]], [[When you are done, meet with Thrall in the Valley of Wisdom for your next assignment.]], [[]], [[Speak with a nearby guard and use your map if you need directions around the city.]], },
+    { [[Deliver packages to the citizens of Orgrimmar and then meet with Thrall in the Valley of Wisdom.]], },
+  },
+  [64062] = {
+    [[Thunder Bluff]],
+    { [[As a new citizen here, I want you to explore the city and introduce yourself. Along the way, I would like you to deliver these packages to Innkeeper Pala, Chesmu, and Krumn within the heart of the city.]], [[]], [[When you are done, meet with the mighty chief, Cairne Bloodhoof for your next assignment.]], [[]], [[Speak with a nearby guard and use your map if you need directions around the city.]], },
+    { [[Deliver packages to the citizens of Thunder Bluff and then meet with Cairne Bloodhoof at the center of the city.]], },
+  },
+  [64063] = {
+    [[黑暗之門]],
+    { [[有一座沉默多年的地獄之門，如今又開始有動靜。大酋長命令所有身強體壯的部落成員至詛咒之地報到。在奧格瑪城外找到飛艇大師，搭乘飛艇前往格羅姆高營地。到了之後，再與塞斯塔交談，請她安排送你前往斯通納德。盡快向督軍達圖恩報到。他在黑暗之門等你…]], },
+    { [[到詛咒之地向督軍達圖恩報到。他在黑暗之門前等你。]], },
+  },
+  [64064] = {
+    [[The Dark Portal]],
+    { [[Welcome to Thunder Bluff, <name>.]], [[]], [[There exists a hellish gate that has loomed silent for years, but it is silent no longer. ]], [[]], [[If you would help us, then report to Warlord Dar'toon at once. He awaits you before the Dark Portal in the Blasted Lands...]], },
+    { [[Travel to the Blasted Lands and find Watch Warlord Dar'toon. He awaits your arrival before the Dark Portal at the Blasted Lands.]], },
+  },
+  [64139] = {
+    [[莉雅德倫女士召見]],
+    { [[你對我們騎士團的奉獻和在階級的晉升都獲得了注意。事實上，莉雅德倫女士本人，血騎士的團長，要求要和你談談。這是份殊榮，<name>。通常莉雅德倫女士將一般成員的管理都交給我，但她現在有興趣和你親自見見。別耽擱了，<name>。]], },
+    { [[在銀月城和莉雅德倫交談。]], },
+  },
+  [64140] = {
+    [[大師之路]],
+    { [[在我的騎士團的階級裡，存在著一個精英騎士的內部議會。議會的成員都是領袖精心挑選出來，最犧牲奉獻，技能高超，和值得信任的血騎士。大部分的人都透過他們的薩拉斯戰馬坐騎認識大師。每個會員的候選人一定要有個議會裡的推薦人而且一定要展現他們對軍隊中心信條的奉獻。如果你願意的話，我選擇推薦你來成為一個血騎士大師。]], },
+    { [[再和莉雅德倫女士談談以接受她的推薦。]], },
+  },
+  [64141] = {
+    [[承諾的手勢]],
+    { [[血騎士的忠誠在<他的/她的>劍末也不會停止，<name>。騎士團不只是要求它的成員操練和戰鬥。一個真正的騎士對所有騎士團的活動全心奉獻，即使有些活動表面上看來不那麼光榮。這第一次的任務既不是密集的戰鬥，也不是光榮的活動，但沒有這樣的貢獻，騎士團就會分崩離析。我會給你一個博學者阿斯塔樂·血誓的人需要的物品清單，這樣才能讓我們的魔法保有聖光能量。]], },
+    { [[帶40塊符文布，6個奧金錠，10根太陽草，5個黑暗符文和150金幣給銀月城的莉雅德倫女士。]], },
+  },
+  [64143] = {
+    [[聖光真正的主人]],
+    { [[一個血騎士能以其他被稱為「聖騎士」的傢伙所完全無法理解的技巧來行使聖光的力量。但儘管我們發揮了聖光的潛力，他們依舊鄙視我們。我們一定要給他們一個訊息讓他們知道我們不是好對付的。我腦袋裡想的既不簡短也不簡單，但如果你值得託付的話，第一步就是滲入提爾之手修道院的藏書房取得一瓶提爾之手聖水。]], },
+    { [[銀月城的莉雅德倫女士要你幫她帶來提爾之手聖水。]], },
   },
 };

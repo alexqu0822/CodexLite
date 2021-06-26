@@ -639,7 +639,11 @@ local _ = nil;
 			if lvl <= 0 then
 				lvl = info.min;
 			end
-			ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
+			local activeWindow = ChatEdit_GetActiveWindow();
+			if activeWindow ~= nil then
+				activeWindow:Insert("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
+			end
+			-- ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
 		end
 		local function drop_handler_toggle(_, quest)
 			__ns.MapPermanentlyToggleQuestNodes(quest);
@@ -808,7 +812,11 @@ local _ = nil;
 								return;
 							end
 							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID() + FauxScrollFrame_GetOffset(QuestLogListScrollFrame));
-							ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+							local activeWindow = ChatEdit_GetActiveWindow();
+							if activeWindow ~= nil then
+								activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+							end
+							-- ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
 							return;
 						end
 						return script(self, button);

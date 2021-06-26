@@ -10,7 +10,6 @@
     <script file = "refloot.lua" />
     <script file = "units.lua" />
     <script file = "event.lua" />
-    <script file = "_extra.lua" />
 
     <script file = "deDE\items.lua" />
     <script file = "deDE\maps.lua" />
@@ -92,6 +91,7 @@
     <script file = "zhTW\units.lua" />
     <!-- <script file = "zhTW\zones.lua" /> -->
 
+    <script file = "_extra.lua" />
 
 </Ui>
 

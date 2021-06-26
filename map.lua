@@ -118,7 +118,9 @@ local _ = nil;
 		local Minimap_ChangeCommonLargeNodesMapUUID, Minimap_ChangeVariedNodesMapUUID;
 		local Minimap_ShowNodesMapQuest, Minimap_HideNodesQuest;
 		local Minimap_DrawNodesMap, Minimap_HideNodes, Minimap_OnUpdate;
-		local MapAddCommonNodes, MapDelCommonNodes, MapAddLargeNodes, MapDelLargeNodes, MapAddVariedNodes, MapDelVariedNodes;
+		local MapAddCommonNodes, MapDelCommonNodes, MapUpdCommonNodes;
+		local MapAddLargeNodes, MapDelLargeNodes, MapUpdLargeNodes;
+		local MapAddVariedNodes, MapDelVariedNodes, MapUpdVariedNodes;
 		local MapTemporarilyShowQuestNodes, MapTemporarilyHideQuestNodes, MapResetTemporarilyQuestNodesFilter;
 		local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
 		local MapHideNodes, MapDrawNodes;
@@ -269,18 +271,23 @@ local _ = nil;
 			__popt:reset(3);
 		end
 	-->
-	local function UUIDCheckState(uuid)
+	local function UUIDCheckState(uuid, val)
 		for quest, refs in next, uuid[4] do
 			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
-				local meta = __core_meta[quest];
-				if meta == nil then
-					return true;
-				end
 				for line, texture in next, refs do
-					local meta_line = meta[line];
-					if meta_line == nil or not meta_line[5] then
+					if texture == val then
 						return true;
 					end
+				end
+			end
+		end
+		return false;
+	end
+	local function UUIDCheckStateVaried(uuid)
+		for quest, refs in next, uuid[4] do
+			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
+				if refs['start'] ~= nil or refs['end'] ~= nil then
+					return true;
 				end
 			end
 		end
@@ -454,7 +461,7 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					if not UUIDCheckState(uuid) then
+					if not UUIDCheckState(uuid, -9998) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -470,7 +477,7 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					if not UUIDCheckState(uuid) then
+					if not UUIDCheckState(uuid, -9999) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -486,7 +493,7 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					if not UUIDCheckState(uuid) then
+					if not UUIDCheckStateVaried(uuid) then
 						local pins = data[2];
 						local num_pins = #pins;
 						if num_pins > 0 then
@@ -504,7 +511,7 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckState(uuid, -9998) then
 						local coords = data[1];
 						local pins = data[2];
 						local color3 = uuid[3];
@@ -525,7 +532,7 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckState(uuid, -9999) then
 						local coords = data[1];
 						local pins = data[2];
 						local color3 = uuid[3];
@@ -546,7 +553,7 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckStateVaried(uuid) then
 						local coords = data[1];
 						local pins = data[2];
 						local color3 = uuid[3];
@@ -992,21 +999,21 @@ local _ = nil;
 		function Minimap_HideNodesQuest(quest)
 			local num_pins = 0;
 			for coord, pin in next, MM_COMMON_PINS do
-				if not UUIDCheckState(pin.uuid) then
+				if not UUIDCheckState(pin.uuid, -9998) then
 					pin:Release();
 					MM_COMMON_PINS[coord] = nil;
 					num_pins = num_pins - 1;
 				end
 			end
 			for coord, pin in next, MM_LARGE_PINS do
-				if not UUIDCheckState(pin.uuid) then
+				if not UUIDCheckState(pin.uuid, -9999) then
 					pin:Release();
 					MM_LARGE_PINS[coord] = nil;
 					num_pins = num_pins - 1;
 				end
 			end
 			for coord, pin in next, MM_VARIED_PINS do
-				if not UUIDCheckState(pin.uuid) then
+				if not UUIDCheckStateVaried(pin.uuid) then
 					pin:Release();
 					MM_VARIED_PINS[coord] = nil;
 					num_pins = num_pins - 1;
@@ -1021,7 +1028,7 @@ local _ = nil;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckState(uuid, -9998) then
 						local color3 = uuid[3];
 						local coords = data[1];
 						for index = 1, #coords do
@@ -1061,7 +1068,7 @@ local _ = nil;
 			local large = META_LARGE[map];
 			if large ~= nil then
 				for uuid, data in next, large do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckState(uuid, -9999) then
 						local color3 = uuid[3];
 						local coords = data[1];
 						for index = 1, #coords do
@@ -1101,7 +1108,7 @@ local _ = nil;
 			local varied = META_VARIED[map];
 			if varied ~= nil then
 				for uuid, data in next, varied do
-					if UUIDCheckState(uuid) then
+					if UUIDCheckStateVaried(uuid) then
 						local color3 = uuid[3];
 						local TEXTURE = uuid[5];
 						local coords = data[1];
@@ -1257,6 +1264,12 @@ local _ = nil;
 				meta[uuid] = nil;
 			end
 		end
+		function MapUpdCommonNodes(uuid)
+			if not UUIDCheckState(uuid, -9998) then
+				WorldMap_HideCommonNodesMapUUID(wm_map, uuid);
+				Minimap_HideCommonNodesMapUUID(mm_map, uuid);
+			end
+		end
 		--	large_objective pin
 		function MapAddLargeNodes(uuid, coords_table)
 			if coords_table ~= nil then
@@ -1288,6 +1301,12 @@ local _ = nil;
 				meta[uuid] = nil;
 			end
 		end
+		function MapUpdLargeNodes(uuid)
+			if not UUIDCheckState(uuid, -9999) then
+				WorldMap_HideLargeNodesMapUUID(wm_map, uuid);
+				Minimap_HideLargeNodesMapUUID(mm_map, uuid);
+			end
+		end
 		--	varied_objective pin
 		function MapAddVariedNodes(uuid, coords_table, flag)
 			if flag == nil then
@@ -1313,8 +1332,13 @@ local _ = nil;
 					end
 				end
 			else
-				WorldMap_ChangeVariedNodesMapUUID(wm_map, uuid);
-				Minimap_ChangeVariedNodesMapUUID(mm_map, uuid);
+				if UUIDCheckStateVaried(uuid) then
+					WorldMap_ChangeVariedNodesMapUUID(wm_map, uuid);
+					Minimap_ChangeVariedNodesMapUUID(mm_map, uuid);
+				else
+					WorldMap_HideVariedNodesMapUUID(wm_map, uuid);
+					Minimap_HideVariedNodesMapUUID(mm_map, uuid);
+				end
 			end
 		end
 		function MapDelVariedNodes(uuid, del, flag)
@@ -1325,6 +1349,12 @@ local _ = nil;
 				if data ~= nil then
 					varied[uuid] = nil;
 				end
+			end
+		end
+		function MapUpdVariedNodes(uuid)
+			if not UUIDCheckStateVaried(uuid) then
+				WorldMap_HideVariedNodesMapUUID(wm_map, uuid);
+				Minimap_HideVariedNodesMapUUID(mm_map, uuid);
 			end
 		end
 		--
@@ -1484,10 +1514,13 @@ local _ = nil;
 		--
 		__ns.MapAddCommonNodes = MapAddCommonNodes;
 		__ns.MapDelCommonNodes = MapDelCommonNodes;
+		__ns.MapUpdCommonNodes = MapUpdCommonNodes;
 		__ns.MapAddLargeNodes = MapAddLargeNodes;
 		__ns.MapDelLargeNodes = MapDelLargeNodes;
+		__ns.MapUpdLargeNodes = MapUpdLargeNodes;
 		__ns.MapAddVariedNodes = MapAddVariedNodes;
 		__ns.MapDelVariedNodes = MapDelVariedNodes;
+		__ns.MapUpdVariedNodes = MapUpdVariedNodes;
 		__ns.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
 		__ns.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
 		__ns.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
