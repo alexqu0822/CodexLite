@@ -770,7 +770,7 @@ local _ = nil;
 			local loc = __loc_quest[quest];
 			if info ~= nil and loc ~= nil then
 				local color = IMG_LIST[GetQuestStartTexture(info)];
-				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (locl ~= nil and loc[1] or "Quest: " .. id) .. "]|r|h";
+				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "]|r|h";
 			end
 			return body;
 		end
