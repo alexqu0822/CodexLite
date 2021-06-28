@@ -319,7 +319,7 @@ local _ = nil;
 			if del == true then
 				__ns.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
-			else
+			elseif uuid ~= nil then
 				__ns.MapUpdCommonNodes(uuid);
 			end
 		end
@@ -486,7 +486,7 @@ local _ = nil;
 				if info.U ~= nil then
 					for uid, rate in next, info.U do
 						if rate >= SET.min_rate then
-							AddUnit(quest, line, uid, show_coords, large_pin, false);
+							AddUnit(quest, line, uid, show_coords, large_pin, nil);
 						end
 					end
 				end
