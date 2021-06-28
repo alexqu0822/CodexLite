@@ -101,7 +101,9 @@ local _ = nil;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
-		local AddLine, AddLineByID, DelLine, LoadQuestCache, UpdateQuests;
+		local AddLine, AddLineByID, DelLine;
+		local AddLineAllObj, DelLineAllObj;
+		local LoadQuestCache, UpdateQuests;
 		local UpdateQuestGivers;
 		local CalcQuestColor;
 		--	setting
