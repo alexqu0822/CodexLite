@@ -51,6 +51,16 @@ local __db_event = __db.event;
 		else
 			patchDB(__db.fix_horde);
 		end
+		for id, val in next, __db.waypoints do
+			local waypoints = {  };
+			for _, tbl in next, val do
+				for _, p in next, tbl do
+					waypoints[#waypoints + 1] = p;
+				end
+			end
+			__db_unit[id] = __db_unit[id] or {  };
+			__db_unit[id].waypoints = waypoints;
+		end
 	end
 -->
 

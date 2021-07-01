@@ -321,7 +321,7 @@ local _ = nil;
 			if del == true then
 				__ns.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
-			elseif uuid ~= nil then
+			elseif del == false then
 				__ns.MapUpdCommonNodes(uuid);
 			end
 		end
@@ -351,7 +351,7 @@ local _ = nil;
 			if del == true then
 				__ns.MapDelLargeNodes(uuid);
 				LARGE_UUID_FLAG[uuid] = nil;
-			else
+			elseif del == false then
 				__ns.MapUpdLargeNodes(uuid);
 			end
 		end
@@ -409,7 +409,7 @@ local _ = nil;
 					end
 				end
 				PreloadCoords(info);
-				local coords = show_coords and info.coords or nil;
+				local coords = show_coords and (info.waypoints or info.coords) or nil;
 				if large_pin then
 					AddLargeNodes('unit', uid, quest, line, coords);
 				else
