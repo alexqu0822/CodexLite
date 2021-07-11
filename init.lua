@@ -92,7 +92,7 @@ local SET = nil;
 -->
 
 -->		EventHandler
-	local _EventHandler = CreateFrame("FRAME");
+	local _EventHandler = CreateFrame('FRAME');
 	core.__eventHandler = _EventHandler;
 	local function _noop_()
 	end
@@ -422,7 +422,7 @@ local SET = nil;
 	};
 	local __player_map_id = C_Map_GetBestMapForUnit('player');
 	-->		data
-		local mapHandler = CreateFrame("FRAME");
+		local mapHandler = CreateFrame('FRAME');
 		mapHandler:SetScript("OnEvent", function(self, event)
 			local map = C_Map_GetBestMapForUnit('player');
 			if __player_map_id ~= map then

@@ -49,10 +49,10 @@ local _ = nil;
 	local _log_ = __ns._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
-	local wm_wrap = CreateFrame("FRAME", nil, mapCanvas);
+	local wm_wrap = CreateFrame('FRAME', nil, mapCanvas);
 		wm_wrap:SetSize(1, 1);
 		wm_wrap:SetPoint("CENTER");
-	local mm_wrap = CreateFrame("FRAME", nil, Minimap);
+	local mm_wrap = CreateFrame('FRAME', nil, Minimap);
 		mm_wrap:SetSize(1, 1);
 		mm_wrap:SetPoint("CENTER");
 	local CommonPinFrameLevel, LargePinFrameLevel = 1, 1;
@@ -159,7 +159,7 @@ local _ = nil;
 		function NewWorldMapPin(__PIN_TAG, pool_inuse, pool_unused, size, Release, frameLevel)
 			local pin = next(pool_unused);
 			if pin == nil then
-				pin = CreateFrame("BUTTON", nil, wm_wrap);
+				pin = CreateFrame('BUTTON', nil, wm_wrap);
 				pin:SetNormalTexture(IMG_PATH_PIN);
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);
@@ -622,7 +622,7 @@ local _ = nil;
 		function NewMinimapPin(__PIN_TAG, pool_inuse, pool_unused, size, Release, frameLevel)
 			local pin = next(pool_unused);
 			if pin == nil then
-				pin = CreateFrame("BUTTON", nil, mm_wrap);
+				pin = CreateFrame('BUTTON', nil, mm_wrap);
 				pin:SetNormalTexture(IMG_PATH_PIN);
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);

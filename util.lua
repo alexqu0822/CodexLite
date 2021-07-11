@@ -764,6 +764,27 @@ local _ = nil;
 		end
 	-->
 	-->		Chat
+		--
+		local function SendFilterRep(id, level, title)
+			return "[[" .. level .. "] " .. title .. " (" .. id .. ")]";
+		end
+		local function SendFilter(msg)
+			--"|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h"
+			return gsub(msg, "|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h", SendFilterRep);
+		end
+	
+		local __SendChatMessage = nil;
+		local function CdxlSendChatMessage(text, ...)
+			__SendChatMessage(SendFilter(text), ...);
+		end
+		local __BNSendWhisper = nil;
+		local function CdxlBNSendWhisper(presenceID, text, ...)
+			__BNSendWhisper(presenceID, SendFilter(text), ...);
+		end
+		local __BNSendConversationMessage = nil;
+		local function CdxlBNSendConversationMessage(target, text, ...)
+			__BNSendConversationMessage(target, SendFilter(text), ...);
+		end
 		local function ChatFilterReplacer(body, id)
 			local quest = tonumber(id);
 			local info = __db_quest[quest];
@@ -863,6 +884,12 @@ local _ = nil;
 			end
 		end
 		local function InitMessageFactory()
+			__SendChatMessage = _G.SendChatMessage;
+			_G.SendChatMessage = CdxlSendChatMessage;
+			__BNSendWhisper = _G.BNSendWhisper;
+			_G.BNSendWhisper = CdxlBNSendWhisper;
+			__BNSendConversationMessage = _G.BNSendConversationMessage;
+			_G.BNSendConversationMessage = CdxlBNSendConversationMessage;
 			QuestLogFrame:HookScript("OnShow", HookQuestLogTitle);
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SAY", ChatFilter);
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_YELL", ChatFilter);
