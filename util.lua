@@ -766,7 +766,7 @@ local _ = nil;
 	-->		Chat
 		--
 		local function SendFilterRep(id, level, title)
-			return "[[" .. level .. "] " .. title .. " (" .. id .. ")]";
+			return "[[" .. gsub(level, "[^0-9]", "") .. "] " .. title .. " (" .. id .. ")]";
 		end
 		local function SendFilter(msg)
 			--"|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h"
