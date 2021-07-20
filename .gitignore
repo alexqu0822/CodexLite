@@ -1,5 +1,16 @@
 .git
 .vs
+.vscode
+*.bat
+*.cmd
+*.sh
+*.code-workspace
+*temp*
+!*template*
+*.zip
+*.7z
+*.rar
+
 # *
 # !*/
 # !*.lua
@@ -9,9 +20,6 @@
 # !*.blp
 # !*.ogg
 # !*.ttf
-*.zip
-*.7z
-*.rar
 
 ARCHIVED.lua
 dev/*
