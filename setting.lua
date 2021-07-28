@@ -772,6 +772,9 @@ local _ = nil;
 			SV.quest_permanently_blocked[GUID] = SV.quest_permanently_blocked[GUID] or {  };
 			SV.quest_permanently_bl_list[GUID] = SV.quest_permanently_bl_list[GUID] or {  };
 		end
+		if SV.__overridedev == false then
+			__ns.__dev = false;
+		end
 		SET.quest_lvl_green = -1;
 		SET.quest_lvl_yellow = -1;
 		SET.quest_lvl_orange = -1;
