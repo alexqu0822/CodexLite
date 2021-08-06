@@ -35,7 +35,7 @@ local _ = nil;
 
 	local SET = nil;
 -->		MAIN
-	local SettingUI = CreateFrame("FRAME", "CODEX_LITE_SETTING_UI", UIParent, BackdropTemplateMixin ~= nil and "BackdropTemplate" or nil);
+	local SettingUI = CreateFrame('FRAME', "CODEX_LITE_SETTING_UI", UIParent);
 	__ns.__ui_setting = SettingUI;
 	local tab_entries = { };
 	local set_entries = { };
@@ -523,13 +523,13 @@ local _ = nil;
 				label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
 				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
-				local slider = CreateFrame("SLIDER", nil, Panel, "OptionsSliderTemplate");
+				local slider = CreateFrame('SLIDER', nil, Panel, "OptionsSliderTemplate");
 				slider:SetWidth(240);
 				slider:SetHeight(15);
 				slider:SetMinMaxValues(bound[1], bound[2])
 				slider:SetValueStep(bound[3]);
 				slider:SetObeyStepOnDrag(true);
-				slider:SetPoint("TOPLEFT", head, "TOPLEFT", 10, -LineHeight - 2);
+				slider:SetPoint("LEFT", head, "CENTER", 10, -LineHeight - 2);
 				slider.Text:ClearAllPoints();
 				slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
 				slider.Low:ClearAllPoints();
@@ -598,7 +598,7 @@ local _ = nil;
 				for index, val in next, vals do
 					local check = CreateFrame('CHECKBUTTON', nil, Panel, "OptionsBaseCheckButtonTemplate");
 					check:SetSize(24, 24);
-					check:SetPoint("TOPLEFT", head, "TOPLEFT", 36 + (index - 1) * 80, -LineHeight * 1.5);
+					check:SetPoint("LEFT", head, "CENTER", 18 + (index - 1) * 80, -LineHeight * 1.5);
 					check:SetHitRectInsets(0, 0, 0, 0);
 					check:Show();
 					check.func = meta[2];
@@ -673,16 +673,6 @@ local _ = nil;
 			SettingUI:SetSize(320, 360);
 			SettingUI:SetFrameStrata("DIALOG");
 			SettingUI:SetPoint("CENTER");
-			SettingUI:SetBackdrop({
-				bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
-				edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-				tile = false,
-				tileSize = 16,
-				edgeSize = 1,
-				insets = { left = 0, right = 0, top = 0, bottom = 0, }
-			});
-			SettingUI:SetBackdropColor(0.15, 0.15, 0.15, 0.9);
-			SettingUI:SetBackdropBorderColor(0.0, 0.0, 0.0, 1.0);
 			SettingUI:EnableMouse(true);
 			SettingUI:SetMovable(true);
 			SettingUI:RegisterForDrag("LeftButton");
@@ -694,11 +684,16 @@ local _ = nil;
 			end);
 			SettingUI:Hide();
 			--
+			local BG = SettingUI:CreateTexture(nil, "BACKGROUND");
+			BG:SetAllPoints();
+			BG:SetColorTexture(0.0, 0.0, 0.0, 0.9);
+			SettingUI.BG = BG;
+			--
 			local Title = SettingUI:CreateFontString(nil, "ARTWORK", "GameFontNormal");
 			Title:SetPoint("CENTER", SettingUI, "TOP", 0, -16);
 			Title:SetText(__UILOC.TAG_SETTING or __addon);
 			--
-			local close = CreateFrame("BUTTON", nil, SettingUI);
+			local close = CreateFrame('BUTTON', nil, SettingUI);
 			close:SetSize(16, 16);
 			close:SetNormalTexture(IMG_CLOSE);
 			-- close:GetNormalTexture():SetTexCoord(4 / 32, 28 / 32, 4 / 32, 28 / 32);
@@ -776,6 +771,9 @@ local _ = nil;
 			SV.quest_temporarily_blocked[GUID] = SV.quest_temporarily_blocked[GUID] or {  };
 			SV.quest_permanently_blocked[GUID] = SV.quest_permanently_blocked[GUID] or {  };
 			SV.quest_permanently_bl_list[GUID] = SV.quest_permanently_bl_list[GUID] or {  };
+		end
+		if SV.__overridedev == false then
+			__ns.__dev = false;
 		end
 		SET.quest_lvl_green = -1;
 		SET.quest_lvl_yellow = -1;

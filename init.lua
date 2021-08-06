@@ -92,7 +92,7 @@ local SET = nil;
 -->
 
 -->		EventHandler
-	local _EventHandler = CreateFrame("FRAME");
+	local _EventHandler = CreateFrame('FRAME');
 	core.__eventHandler = _EventHandler;
 	local function _noop_()
 	end
@@ -422,7 +422,7 @@ local SET = nil;
 	};
 	local __player_map_id = C_Map_GetBestMapForUnit('player');
 	-->		data
-		local mapHandler = CreateFrame("FRAME");
+		local mapHandler = CreateFrame('FRAME');
 		mapHandler:SetScript("OnEvent", function(self, event)
 			local map = C_Map_GetBestMapForUnit('player');
 			if __player_map_id ~= map then
@@ -681,65 +681,75 @@ local SET = nil;
 	core.GetMapAdjoined = GetMapAdjoined;
 	core.GetMapChildren = GetMapChildren;
 	--
+	local function PreloadCoordsFunc(coords, wcoords)
+		local num_coords = #coords;
+		local index = 1;
+		while index <= num_coords do
+			local coord = coords[index];
+			local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
+			-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
+			-- coord[5] = x;
+			-- coord[6] = y;
+			-- coord[7] = instance;
+			if x ~= nil and y ~= nil and instance ~= nil then
+				local wcoord = { x, y, instance, coord[4], };
+				wcoords[index] = wcoord;
+				coord[5] = wcoord;
+				index = index + 1;
+			else
+				tremove(coords, index);
+				num_coords = num_coords - 1;
+			end
+		end
+		local pos = num_coords + 1;
+		for index = 1, num_coords do
+			local coord = coords[index];
+			local wcoord = wcoords[index];
+			local map = coord[3];
+			local amaps = GetMapAdjoined(map);
+			if amaps ~= nil then
+				for amap, _ in next, amaps do
+					local amap, x, y = GetZonePositionFromWorldPosition(amap, wcoord[1], wcoord[2]);
+					if amap ~= nil then
+						coords[pos] = { x * 100.0, y * 100.0, amap, coord[4], wcoord, };
+						pos = pos + 1;
+					end
+				end
+			end
+			local cmaps = GetMapChildren(map);
+			if cmaps ~= nil then
+				for cmap, _ in next, cmaps do
+					local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
+					if cmap ~= nil then
+						coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
+						pos = pos + 1;
+					end
+				end
+			end
+			local pmap = GetMapParent(map);
+			if pmap ~= nil then
+				local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
+				if pmap ~= nil then
+					coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
+					pos = pos + 1;
+				end
+			end
+		end
+	end
 	local function PreloadCoords(info)
 		local coords = info.coords;
 		local wcoords = info.wcoords;
 		if coords ~= nil and wcoords == nil then
 			wcoords = {  };
 			info.wcoords = wcoords;
-			local num_coords = #coords;
-			local index = 1;
-			while index <= num_coords do
-				local coord = coords[index];
-				local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
-				-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
-				-- coord[5] = x;
-				-- coord[6] = y;
-				-- coord[7] = instance;
-				if x ~= nil and y ~= nil and instance ~= nil then
-					local wcoord = { x, y, instance, coord[4], };
-					wcoords[index] = wcoord;
-					coord[5] = wcoord;
-					index = index + 1;
-				else
-					tremove(coords, index);
-					num_coords = num_coords - 1;
-				end
-			end
-			local pos = num_coords + 1;
-			for index = 1, num_coords do
-				local coord = coords[index];
-				local wcoord = wcoords[index];
-				local map = coord[3];
-				local amaps = GetMapAdjoined(map);
-				if amaps ~= nil then
-					for amap, _ in next, amaps do
-						local amap, x, y = GetZonePositionFromWorldPosition(amap, wcoord[1], wcoord[2]);
-						if amap ~= nil then
-							coords[pos] = { x * 100.0, y * 100.0, amap, coord[4], wcoord, };
-							pos = pos + 1;
-						end
-					end
-				end
-				local cmaps = GetMapChildren(map);
-				if cmaps ~= nil then
-					for cmap, _ in next, cmaps do
-						local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
-						if cmap ~= nil then
-							coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
-							pos = pos + 1;
-						end
-					end
-				end
-				local pmap = GetMapParent(map);
-				if pmap ~= nil then
-					local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
-					if pmap ~= nil then
-						coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
-						pos = pos + 1;
-					end
-				end
-			end
+			PreloadCoordsFunc(coords, wcoords);
+		end
+		local waypoints = info.waypoints;
+		local wwaypoints = info.wwaypoints;
+		if waypoints ~= nil and wwaypoints == nil then
+			wwaypoints = {  };
+			info.wwaypoints = wwaypoints;
+			PreloadCoordsFunc(waypoints, wwaypoints);
 		end
 	end
 	__ns.core.PreloadCoords = PreloadCoords;

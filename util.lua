@@ -81,7 +81,7 @@ local _ = nil;
 	local SET = nil;
 -->		MAIN
 	-->		methods
-		local function GetLevelTag(quest, info, modifier)
+		local function GetLevelTag(quest, info, modifier, colored)
 			local lvl_str = "[";
 				local tag = __ns.GetQuestTagInfo(quest);
 				if tag ~= nil then
@@ -92,37 +92,74 @@ local _ = nil;
 				if lvl <= 0 then
 					lvl = min;
 				end
-				if lvl >= SET.quest_lvl_red then
-					lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-				elseif lvl >= SET.quest_lvl_orange then
-					lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-				elseif lvl >= SET.quest_lvl_yellow then
-					lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-				elseif lvl >= SET.quest_lvl_green then
-					lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-				else
-					lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
-				end
-				if modifier then
-					lvl_str = lvl_str .. "/";
-					local diff = min - __ns.__player_level;
-					if diff > 0 then
-						if diff > 1 then
-							lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
-						else
-							lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
-						end
+				if colored ~= false then
+					if lvl >= SET.quest_lvl_red then
+						lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+					elseif lvl >= SET.quest_lvl_orange then
+						lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+					elseif lvl >= SET.quest_lvl_yellow then
+						lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+					elseif lvl >= SET.quest_lvl_green then
+						lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
 					else
-						if min >= SET.quest_lvl_red then
-							lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
-						elseif min >= SET.quest_lvl_orange then
-							lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
-						elseif min >= SET.quest_lvl_yellow then
-							lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
-						elseif min >= SET.quest_lvl_green then
-							lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
+						lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+					end
+					if modifier then
+						lvl_str = lvl_str .. "/";
+						local diff = min - __ns.__player_level;
+						if diff > 0 then
+							if diff > 1 then
+								lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
+							else
+								lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
+							end
 						else
-							lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
+							if min >= SET.quest_lvl_red then
+								lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
+							elseif min >= SET.quest_lvl_orange then
+								lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
+							elseif min >= SET.quest_lvl_yellow then
+								lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
+							elseif min >= SET.quest_lvl_green then
+								lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
+							else
+								lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
+							end
+						end
+					end
+				else
+					if lvl >= SET.quest_lvl_red then
+						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
+					elseif lvl >= SET.quest_lvl_orange then
+						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
+					elseif lvl >= SET.quest_lvl_yellow then
+						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
+					elseif lvl >= SET.quest_lvl_green then
+						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
+					else
+						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
+					end
+					if modifier then
+						lvl_str = lvl_str .. "/";
+						local diff = min - __ns.__player_level;
+						if diff > 0 then
+							if diff > 1 then
+								lvl_str = lvl_str .. min;
+							else
+								lvl_str = lvl_str .. min;
+							end
+						else
+							if min >= SET.quest_lvl_red then
+								lvl_str = lvl_str .. min;
+							elseif min >= SET.quest_lvl_orange then
+								lvl_str = lvl_str .. min;
+							elseif min >= SET.quest_lvl_yellow then
+								lvl_str = lvl_str .. min;
+							elseif min >= SET.quest_lvl_green then
+								lvl_str = lvl_str .. min;
+							else
+								lvl_str = lvl_str .. min;
+							end
 						end
 					end
 				end
@@ -639,7 +676,11 @@ local _ = nil;
 			if lvl <= 0 then
 				lvl = info.min;
 			end
-			ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
+			local activeWindow = ChatEdit_GetActiveWindow();
+			if activeWindow ~= nil then
+				activeWindow:Insert("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
+			end
+			-- ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
 		end
 		local function drop_handler_toggle(_, quest)
 			__ns.MapPermanentlyToggleQuestNodes(quest);
@@ -649,7 +690,7 @@ local _ = nil;
 			local color = IMG_LIST[GetQuestStartTexture(info)];
 			local lvl_str = GetLevelTag(quest, info, modifier);
 			local loc = __loc_quest[quest];
-			return lvl_str .. "|c" .. color[5] .. (loc and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
+			return lvl_str .. "|c" .. color[5] .. (loc ~= nil and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
 		end
 		function __ns.NodeOnModifiedClick(node, uuid)
 			local refs = uuid[4];
@@ -723,13 +764,34 @@ local _ = nil;
 		end
 	-->
 	-->		Chat
+		--
+		local function SendFilterRep(id, level, title)
+			return "[[" .. gsub(level, "[^0-9]", "") .. "] " .. title .. " (" .. id .. ")]";
+		end
+		local function SendFilter(msg)
+			--"|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h"
+			return gsub(msg, "|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h", SendFilterRep);
+		end
+	
+		local __SendChatMessage = nil;
+		local function CdxlSendChatMessage(text, ...)
+			__SendChatMessage(SendFilter(text), ...);
+		end
+		local __BNSendWhisper = nil;
+		local function CdxlBNSendWhisper(presenceID, text, ...)
+			__BNSendWhisper(presenceID, SendFilter(text), ...);
+		end
+		local __BNSendConversationMessage = nil;
+		local function CdxlBNSendConversationMessage(target, text, ...)
+			__BNSendConversationMessage(target, SendFilter(text), ...);
+		end
 		local function ChatFilterReplacer(body, id)
 			local quest = tonumber(id);
 			local info = __db_quest[quest];
 			local loc = __loc_quest[quest];
 			if info ~= nil and loc ~= nil then
 				local color = IMG_LIST[GetQuestStartTexture(info)];
-				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false) .. (loc[1] or "Quest: " .. id) .. "]|r|h";
+				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "]|r|h";
 			end
 			return body;
 		end
@@ -777,7 +839,7 @@ local _ = nil;
 						if info ~= nil and loc ~= nil then
 							ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
 							local color = IMG_LIST[GetQuestStartTexture(info)];
-							ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. (loc[1] or "Quest: " .. id) .. "|r");
+							ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "|r");
 							if __core_quests_completed[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
 								ItemRefTooltip:AddLine(__UILOC.COMPLETED, 0.0, 1.0, 0.0);
 							end
@@ -808,7 +870,11 @@ local _ = nil;
 								return;
 							end
 							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID() + FauxScrollFrame_GetOffset(QuestLogListScrollFrame));
-							ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+							local activeWindow = ChatEdit_GetActiveWindow();
+							if activeWindow ~= nil then
+								activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+							end
+							-- ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
 							return;
 						end
 						return script(self, button);
@@ -818,6 +884,12 @@ local _ = nil;
 			end
 		end
 		local function InitMessageFactory()
+			__SendChatMessage = _G.SendChatMessage;
+			_G.SendChatMessage = CdxlSendChatMessage;
+			__BNSendWhisper = _G.BNSendWhisper;
+			_G.BNSendWhisper = CdxlBNSendWhisper;
+			__BNSendConversationMessage = _G.BNSendConversationMessage;
+			_G.BNSendConversationMessage = CdxlBNSendConversationMessage;
 			QuestLogFrame:HookScript("OnShow", HookQuestLogTitle);
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SAY", ChatFilter);
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_YELL", ChatFilter);
