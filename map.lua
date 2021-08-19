@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map'); end
 
 -->		variables
 	local next = next;
@@ -79,11 +79,11 @@ local _ = nil;
 		end
 		function __popt:count(index, count)
 			__popt[index] = __popt[index] + count;
-			if __ns.__dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if __ns.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
 		end
 		function __popt:reset(index)
 			__popt[index] = 0;
-			if __ns.__dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if __ns.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
 		end
 		function __popt:echo(index)
 			return __popt[index];
@@ -273,9 +273,11 @@ local _ = nil;
 	-->
 	local function UUIDCheckState(uuid, val)
 		for quest, refs in next, uuid[4] do
-			if QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
+			local meta = __core_meta[quest];
+			if meta ~= nil and meta.completed ~= 1 and meta.completed ~= -1 and QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				for line, texture in next, refs do
-					if texture == val then
+					local meta_line = meta[line];
+					if meta_line ~= nil and not meta_line[5] and texture == val then
 						return true;
 					end
 				end
@@ -994,7 +996,7 @@ local _ = nil;
 			end
 			local cost = __ns._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
 			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
 		end
 		function Minimap_HideNodesQuest(quest)
 			local num_pins = 0;
@@ -1152,7 +1154,7 @@ local _ = nil;
 			end
 			local cost = __ns._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
 			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
 		end
 		function Minimap_HideNodes()
 			local num_pins = 0;
@@ -1561,19 +1563,19 @@ local _ = nil;
 			function mapCallback:OnMapChanged()
 				--  Optionally override in your mixin, called when map ID changes
 				-- self:RefreshAllData();
-				--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
+				--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
 				local uiMapID = WorldMapFrame:GetMapID();
 				if uiMapID ~= wm_map then
 					WorldMap_HideNodesMap(wm_map);
 					wm_map = uiMapID;
 					WorldMap_DrawNodesMap(uiMapID);
 				end
-				--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
+				--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
 			end
 			function mapCallback:OnCanvasScaleChanged()
 				local scale = mapCanvas:GetScale();
 				if map_canvas_scale ~= scale then
-					--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
+					--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
 					map_canvas_scale = scale;
 					local pin_scale_max = SET.pin_scale_max;
 					--
@@ -1592,7 +1594,7 @@ local _ = nil;
 						varied_size = varied_size * pin_scale_max / scale;
 					end
 					IterateWorldMapPinSetSize();
-					--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
+					--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
 				end
 			end
 			function mapCallback:OnCanvasSizeChanged()
@@ -1666,4 +1668,4 @@ local _ = nil;
 -->		dev
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.map'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map'); end

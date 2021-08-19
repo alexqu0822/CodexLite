@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.setting'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.setting'); end
 
 -->		variables
 	local next = next;
@@ -773,7 +773,7 @@ local _ = nil;
 			SV.quest_permanently_bl_list[GUID] = SV.quest_permanently_bl_list[GUID] or {  };
 		end
 		if SV.__overridedev == false then
-			__ns.__dev = false;
+			__ns.__is_dev = false;
 		end
 		SET.quest_lvl_green = -1;
 		SET.quest_lvl_yellow = -1;
@@ -818,4 +818,4 @@ local _ = nil;
 -->
 
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.setting'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.setting'); end

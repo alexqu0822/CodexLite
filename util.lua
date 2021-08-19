@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.util'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.util'); end
 
 -->		variables
 	local type = type;
@@ -1091,4 +1091,4 @@ local _ = nil;
 	end
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.util'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.util'); end

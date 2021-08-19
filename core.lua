@@ -5,17 +5,17 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.core'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core'); end
 
 -->		variables
 	local strfind = strfind;
-	local next = next;
+	local next, wipe = next, wipe;
 	local bit_band = bit.band;
 	local GetNumQuestLogEntries = GetNumQuestLogEntries;
 	local GetQuestLogTitle = GetQuestLogTitle;
@@ -108,6 +108,8 @@ local _ = nil;
 		local CalcQuestColor;
 		--	setting
 		local SetQuestStarterShown, SetQuestEnderShown, SetQuestAutoInverseModifier;
+		--	setup
+		local SetupCompleted;
 	-->
 	-->		--	color
 		local COLOR3 = {  };
@@ -879,7 +881,7 @@ local _ = nil;
 			end
 		end
 		function UpdateQuests()
-			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
+			--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
 			local _, num = GetNumQuestLogEntries();
 			local quest_changed = false;
 			local need_re_draw = false;
@@ -1178,14 +1180,14 @@ local _ = nil;
 			if need_re_draw then
 				__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 			end
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
+			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
 		end
 	-->
 	-->		avl quest giver
 		local QUEST_WATCH_REP = {  };
 		local QUEST_WATCH_SKILL = {  };
 		function UpdateQuestGivers()
-			--[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart("module.core.UpdateQuestGivers"); end
+			--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart("module.core.UpdateQuestGivers"); end
 			local lowest = __ns.__player_level + SET.quest_lvl_lowest_ofs;
 			local highest = __ns.__player_level + SET.quest_lvl_highest_ofs;
 			for _, quest_id in next, __db_avl_quest_list do
@@ -1291,7 +1293,7 @@ local _ = nil;
 				end
 			end
 			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
-			--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core.UpdateQuestGivers'); end
+			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core.UpdateQuestGivers'); end
 		end
 	-->
 	-->		misc
@@ -1410,7 +1412,7 @@ local _ = nil;
 			wipe(COMMON_UUID_FLAG);
 			wipe(LARGE_UUID_FLAG);
 			wipe(VARIED_UUID_FLAG);
-			QUESTS_COMPLETED = GetQuestsCompleted();
+			SetupCompleted();
 		end
 	-->
 	-->		events and hooks
@@ -1584,8 +1586,8 @@ local _ = nil;
 			end
 		end
 	-->
-	function __ns.core_setup()
-		SET = __ns.__setting;
+	function SetupCompleted()
+		wipe(QUESTS_COMPLETED);
 		local temp = GetQuestsCompleted();
 		for quest, _ in next, temp do
 			QUESTS_COMPLETED[quest] = 1;
@@ -1603,9 +1605,13 @@ local _ = nil;
 				QUESTS_COMPLETED[_prev] = -2;
 			end
 		end
+	end
+	function __ns.core_setup()
+		SET = __ns.__setting;
+		SetupCompleted();
 		-- __eventHandler:RegEvent("ADDON_LOADED");
 		-- __eventHandler:RegEvent("PLAYER_ENTERING_WORLD");
-		--__eventHandler:RegEvent("SKILL_LINES_CHANGED");
+		-- __eventHandler:RegEvent("SKILL_LINES_CHANGED");
 
 		__eventHandler:RegEvent("GOSSIP_SHOW");
 		__eventHandler:RegEvent("QUEST_GREETING");
@@ -1667,4 +1673,4 @@ local _ = nil;
 		-->		NAME_PLATE_UNIT_REMOVED	
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.core'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core'); end
