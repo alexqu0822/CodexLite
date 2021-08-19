@@ -10,7 +10,7 @@ __ala_meta__.quest = __ns;
 local core = {  };
 __ns.core = core;
 __ns.____bn_tag = select(2, BNGetInfo());
-__ns.__dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
+__ns.__is_dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
 __ns.__toc = select(4, GetBuildInfo());
 __ns.__expansion = GetExpansionLevel();
 __ns.__maxLevel = GetMaxLevelForExpansionLevel(__ns.__expansion);
@@ -24,7 +24,7 @@ __ns.__fenv = setmetatable({  }, {
 		end,
 	}
 );
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
@@ -76,7 +76,7 @@ local _ = nil;
 	end
 -->
 
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.init'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.init'); end
 
 local SET = nil;
 
@@ -886,7 +886,7 @@ local SET = nil;
 	__ns.core.UnitHelpFac = UnitHelpFac;
 	local date = date;
 	local function _log_(...)
-		if __ns.__dev then
+		if __ns.__is_dev then
 			_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), ...);
 		end
 	end
@@ -947,30 +947,30 @@ local SET = nil;
 
 -->		INITIALIZE
 	local function init()
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.patch'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.patch'); end
 		__ns.apply_patch();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.patch'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.patch'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db'); end
 		__ns.load_extra_db();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.setting'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.setting'); end
 		__ns.setting_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.setting'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.setting'); end
 		SET = __ns.__setting;
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.map'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.map'); end
 		__ns.map_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.map'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.comm'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.map'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.comm'); end
 		__ns.comm_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.comm'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.core'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.comm'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.core'); end
 		__ns.core_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.core'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.util'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.core'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.util'); end
 		__ns.util_setup();
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.util'); end
-		--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.util'); end
+		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init'); end
 		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
 	end
 	function __ns.PLAYER_ENTERING_WORLD()
@@ -989,4 +989,4 @@ local SET = nil;
 	_EventHandler:RegEvent("LOADING_SCREEN_DISABLED");
 -->
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init'); end

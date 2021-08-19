@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.db-extra'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.db-extra'); end
 
 local tremove = tremove;
 local __db = __ns.db;
@@ -69,7 +69,7 @@ local function load_extra_db()
 			chain_prev_quest[_next] = quest;
 		end
 	end
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.faction'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.faction'); end
 	-->		faction quest list
 		local key = UnitFactionGroup('player') == "Alliance" and "facA" or "facH";
 		local str = UnitFactionGroup('player') == "Alliance" and "A" or "H";
@@ -89,8 +89,8 @@ local function load_extra_db()
 			end
 		end
 	-->
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db.faction'); end
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.item2quest'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.faction'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.item2quest'); end
 	-->		item to quest
 		for quest, info in next, __db_quest do
 			if blacklist_quest[quest] == nil then
@@ -123,8 +123,8 @@ local function load_extra_db()
 			end
 		end
 	-->
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db.item2quest'); end
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_start('module.init.init.extra_db.del_unused'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.item2quest'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.del_unused'); end
 	-->		del unused
 		-->		cache
 		local temp_U = {  };
@@ -256,9 +256,9 @@ local function load_extra_db()
 		-->
 		collectgarbage('collect');
 	-->
-	--[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.init.init.extra_db.del_unused'); end
+	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.del_unused'); end
 end
 
 __ns.load_extra_db = load_extra_db;
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.db-extra'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.db-extra'); end

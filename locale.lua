@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.locale'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.locale'); end
 
 local UILOC = setmetatable(
 	{  },
@@ -327,4 +327,4 @@ else
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.locale'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.locale'); end

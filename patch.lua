@@ -5,13 +5,13 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__dev then
+if __ns.__is_dev then
 	setfenv(1, __ns.__fenv);
 end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__dev then __ns._F_devDebugProfileStart('module.patch'); end
+--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.patch'); end
 
 local tremove = tremove;
 local __db = __ns.db;
@@ -79,4 +79,4 @@ local __db_event = __db.event;
 
 __ns.apply_patch = apply_patch;
 
---[=[dev]=]	if __ns.__dev then __ns.__performance_log_tick('module.patch'); end
+--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.patch'); end
