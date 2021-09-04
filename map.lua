@@ -276,6 +276,9 @@ local _ = nil;
 			local meta = __core_meta[quest];
 			if meta ~= nil and meta.completed ~= 1 and meta.completed ~= -1 and QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				for line, texture in next, refs do
+					if line == 'event' then
+						return true;
+					end
 					local meta_line = meta[line];
 					if meta_line ~= nil and not meta_line[5] and texture == val then
 						return true;

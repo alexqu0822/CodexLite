@@ -514,9 +514,9 @@ local _ = nil;
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
+					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						AddItem(quest, line2, iid2, show_coords, large_pin);
+						AddItem(quest, line, iid2, show_coords, large_pin);
 					end
 				end
 			end
@@ -548,9 +548,9 @@ local _ = nil;
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
+					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						DelItem(quest, line2, iid2, total_del, large_pin);
+						DelItem(quest, line, iid2, total_del, large_pin);
 					end
 				end
 			end
@@ -1471,8 +1471,9 @@ local _ = nil;
 			local info = __db_quest[quest_id];
 			if info ~= nil then
 				DelQuestEnd(quest_id, info);
+				local flag = info.flag;
 				local exflag = info.exflag;
-				if exflag ~= nil and bit_band(exflag, 1) ~= 0 then
+				if exflag ~= nil and bit_band(exflag, 1) ~= 0 and (flag == nil or bit_band(flag, 4096) == 0) then
 					AddQuestStart(quest_id, info, IMG_INDEX.IMG_S_REPEATABLE);
 				else
 					DelQuestStart(quest_id, info);
@@ -1487,8 +1488,8 @@ local _ = nil;
 						end
 					end
 					local _prev = __db_chain_prev_quest[quest_id];
-					if _prev ~= nil then
-						QUESTS_COMPLETED[_prev] = -2;
+					if _prev ~= nil and QUESTS_COMPLETED[_prev] ~= 1 then
+						QUESTS_COMPLETED[_prev] = 2;
 					end
 				end
 			end
@@ -1601,8 +1602,8 @@ local _ = nil;
 				end
 			end
 			local _prev = __db_chain_prev_quest[quest];
-			if _prev ~= nil then
-				QUESTS_COMPLETED[_prev] = -2;
+			if _prev ~= nil and QUESTS_COMPLETED[_prev] ~= 1 then
+				QUESTS_COMPLETED[_prev] = 2;
 			end
 		end
 	end
