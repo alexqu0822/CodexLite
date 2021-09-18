@@ -236,7 +236,7 @@ local _ = nil;
 							return true;
 						end
 					end,
-					{ -__ns.__maxLevel, 0, 1, },
+					{ -__ns.__maxLevel - 10, 0, 1, },
 					round_func_table[0],
 					'tab.map',
 				},
@@ -251,7 +251,7 @@ local _ = nil;
 							return true;
 						end
 					end,
-					{ 0, __ns.__maxLevel, 1, },
+					{ 0, __ns.__maxLevel + 10, 1, },
 					round_func_table[0],
 					'tab.map',
 				},
