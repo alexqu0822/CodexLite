@@ -92,6 +92,7 @@ local _ = nil;
 	local CACHE = {  };	--	如果META初始不为空（从保存变量中加载），需要根据META表初始化
 	local OBJ_LOOKUP = {  };
 	local QUESTS_COMPLETED = {  };
+	local QUESTS_CONFILCTED = {  };
 	__ns.__core_meta = META;
 	__ns.__obj_lookup = OBJ_LOOKUP;
 	__ns.__core_quests_completed = QUESTS_COMPLETED;
@@ -104,6 +105,7 @@ local _ = nil;
 		local AddLine, AddLineByID, DelLine;
 		local AddLineAllObj, DelLineAllObj;
 		local LoadQuestCache, UpdateQuests;
+		local AddConfilct, DelConfilct;
 		local UpdateQuestGivers;
 		local CalcQuestColor;
 		--	setting
@@ -514,9 +516,9 @@ local _ = nil;
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
+					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						AddItem(quest, line2, iid2, show_coords, large_pin);
+						AddItem(quest, line, iid2, show_coords, large_pin);
 					end
 				end
 			end
@@ -548,9 +550,9 @@ local _ = nil;
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
+					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						DelItem(quest, line2, iid2, total_del, large_pin);
+						DelItem(quest, line, iid2, total_del, large_pin);
 					end
 				end
 			end
@@ -880,6 +882,51 @@ local _ = nil;
 				end
 			end
 		end
+		function AddConfilct(quest_id)
+			--	QUESTS_CONFILCTED
+			local info = __db_quest[quest_id];
+			if info ~= nil then
+				local _excl = info.excl;
+				if _excl ~= nil then
+					for index = 1, #_excl do
+						local ex = _excl[index];
+						if QUESTS_CONFILCTED[ex] == nil then
+							QUESTS_CONFILCTED[ex] = true;
+							AddConfilct(ex);
+						end
+					end
+				end
+				local _next = info.next;
+				if _next ~= nil then
+					if QUESTS_CONFILCTED[_next] == nil then
+						QUESTS_CONFILCTED[_next] = true;
+						AddConfilct(_next);
+					end
+				end
+				-- local _pres = info.preSingle;
+				-- if _pres ~= nil then
+				-- 	for index = 1, #_pres do
+				-- 		local ps = _pres[index];
+				-- 		if QUESTS_CONFILCTED[ps] == nil then
+				-- 			QUESTS_CONFILCTED[ps] = true;
+				-- 			AddConfilct(ps);
+				-- 		end
+				-- 	end
+				-- end
+				-- local _preg = info.preGroup;
+				-- if _preg ~= nil then
+				-- 	for index = 1, #_preg do
+				-- 		local pg = _preg[index];
+				-- 		if QUESTS_CONFILCTED[pg] == nil then
+				-- 			QUESTS_CONFILCTED[pg] = true;
+				-- 			AddConfilct(pg);
+				-- 		end
+				-- 	end
+				-- end
+			end
+		end
+		function DelConfilct(quest_id)
+		end
 		function UpdateQuests()
 			--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
 			local _, num = GetNumQuestLogEntries();
@@ -1131,6 +1178,7 @@ local _ = nil;
 					end
 				end
 			end
+			QUESTS_CONFILCTED = {  };
 			for quest_id, meta in next, META do
 				if meta.flag == -1 then
 					CACHE[quest_id] = nil;
@@ -1172,6 +1220,8 @@ local _ = nil;
 					quest_changed = true;
 					need_re_draw = true;
 					__ns.PushDelQuest(quest_id, meta.completed);
+				else
+					AddConfilct(quest_id);
 				end
 			end
 			if quest_changed then
@@ -1192,8 +1242,8 @@ local _ = nil;
 			local highest = __ns.__player_level + SET.quest_lvl_highest_ofs;
 			for _, quest_id in next, __db_avl_quest_list do
 				local info = __db_quest[quest_id];
-				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil then
-					if info.lvl == nil or info.min == nil then print(quest_id, info.lvl, info.min); end
+				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
+					-- if info.lvl == nil or info.min == nil then print(quest_id, info.lvl, info.min); end
 					local acceptable = info.lvl >= lowest and info.min <= highest;
 					if acceptable then
 						local parent = info.parent;
@@ -1209,7 +1259,7 @@ local _ = nil;
 						if acceptable then
 							local _next = info.next;
 							if _next ~= nil then
-								if QUESTS_COMPLETED[_next] == 1 then
+								if QUESTS_COMPLETED[_next] then
 									acceptable = false;
 								end
 							end
@@ -1219,29 +1269,29 @@ local _ = nil;
 									acceptable = false;
 									for index2 = 1, #preSingle do
 										local id = preSingle[index2];
-										if QUESTS_COMPLETED[id] == 1 then
+										if QUESTS_COMPLETED[id] then
 											acceptable = true;
 											break;
 										end
 									end
 								end
 								if acceptable then
-									local excl = info.excl;
-									if excl ~= nil then
-										for index2 = 1, #excl do
-											local id = excl[index2];
-											if META[id] ~= nil or QUESTS_COMPLETED[id] == 1 then
-												acceptable = false;
-												break;
-											end
-										end
-									end
+									-- local excl = info.excl;
+									-- if excl ~= nil then
+									-- 	for index2 = 1, #excl do
+									-- 		local id = excl[index2];
+									-- 		if META[id] ~= nil or META[id] ~= nil then
+									-- 			acceptable = false;
+									-- 			break;
+									-- 		end
+									-- 	end
+									-- end
 									if acceptable then
 										local preGroup = info.preGroup;
 										if preGroup ~= nil then
 											for index2 = 1, #preGroup do
 												local id = preGroup[index2];
-												if QUESTS_COMPLETED[id] ~= 1 then
+												if QUESTS_COMPLETED[id] == nil then
 													acceptable = false;
 													break;
 												end
@@ -1288,7 +1338,7 @@ local _ = nil;
 					else
 						DelQuestStart(quest_id, info);
 					end
-				elseif not show_starter then
+				else
 					DelQuestStart(quest_id, info);
 				end
 			end
@@ -1464,31 +1514,43 @@ local _ = nil;
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
 		end
-		function __ns.QUEST_TURNED_IN(quest_id, xp, money)
-			_log_('QUEST_TURNED_IN', quest_id, xp, money);
+		local function QUEST_TURNED_IN()
+			GetQuestsCompleted(QUESTS_COMPLETED);
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
+		end
+		function __ns.QUEST_TURNED_IN(quest_id, xp, money)
+			_log_('QUEST_TURNED_IN', quest_id, xp, money);
+			QUESTS_COMPLETED[quest_id] = true;
+			QUEST_TURNED_IN();
+			-- C_Timer.After(0.5, QUEST_TURNED_IN);
+			C_Timer.After(1.0, QUEST_TURNED_IN);
+			-- C_Timer.After(1.5, QUEST_TURNED_IN);
+			-- C_Timer.After(2.0, QUEST_TURNED_IN);
+			-- C_Timer.After(2.5, QUEST_TURNED_IN);
+			-- C_Timer.After(3.0, QUEST_TURNED_IN);
 			local info = __db_quest[quest_id];
 			if info ~= nil then
 				DelQuestEnd(quest_id, info);
+				local flag = info.flag;
 				local exflag = info.exflag;
-				if exflag ~= nil and bit_band(exflag, 1) ~= 0 then
+				if exflag ~= nil and bit_band(exflag, 1) ~= 0 and (flag == nil or bit_band(flag, 4096) == 0) then
 					AddQuestStart(quest_id, info, IMG_INDEX.IMG_S_REPEATABLE);
 				else
 					DelQuestStart(quest_id, info);
-					QUESTS_COMPLETED[quest_id] = 1;
-					local info = __db_quest[quest_id];
-					if info ~= nil then
-						local _excl = info.excl;
-						if _excl ~= nil then
-							for _, val in next, _excl do
-								QUESTS_COMPLETED[val] = -1;
-							end
-						end
-					end
+					-- QUESTS_COMPLETED[quest_id] = 1;
+					-- local info = __db_quest[quest_id];
+					-- if info ~= nil then
+					-- 	local _excl = info.excl;
+					-- 	if _excl ~= nil then
+					-- 		for _, val in next, _excl do
+					-- 			QUESTS_COMPLETED[val] = -1;
+					-- 		end
+					-- 	end
+					-- end
 					local _prev = __db_chain_prev_quest[quest_id];
-					if _prev ~= nil then
-						QUESTS_COMPLETED[_prev] = -2;
+					if _prev ~= nil and QUESTS_COMPLETED[_prev] ~= 1 then
+						QUESTS_COMPLETED[_prev] = 2;
 					end
 				end
 			end
@@ -1587,24 +1649,25 @@ local _ = nil;
 		end
 	-->
 	function SetupCompleted()
-		wipe(QUESTS_COMPLETED);
-		local temp = GetQuestsCompleted();
-		for quest, _ in next, temp do
-			QUESTS_COMPLETED[quest] = 1;
-			local info = __db_quest[quest];
-			if info ~= nil then
-				local _excl = info.excl;
-				if _excl ~= nil then
-					for _, val in next, _excl do
-						QUESTS_COMPLETED[val] = -1;
-					end
-				end
-			end
-			local _prev = __db_chain_prev_quest[quest];
-			if _prev ~= nil then
-				QUESTS_COMPLETED[_prev] = -2;
-			end
-		end
+		GetQuestsCompleted(QUESTS_COMPLETED);
+		-- wipe(QUESTS_COMPLETED);
+		-- local temp = GetQuestsCompleted();
+		-- for quest, _ in next, temp do
+		-- 	QUESTS_COMPLETED[quest] = 1;
+		-- 	local info = __db_quest[quest];
+		-- 	if info ~= nil then
+		-- 		local _excl = info.excl;
+		-- 		if _excl ~= nil then
+		-- 			for _, val in next, _excl do
+		-- 				QUESTS_COMPLETED[val] = -1;
+		-- 			end
+		-- 		end
+		-- 	end
+		-- 	local _prev = __db_chain_prev_quest[quest];
+		-- 	if _prev ~= nil and QUESTS_COMPLETED[_prev] ~= 1 then
+		-- 		QUESTS_COMPLETED[_prev] = 2;
+		-- 	end
+		-- end
 	end
 	function __ns.core_setup()
 		SET = __ns.__setting;

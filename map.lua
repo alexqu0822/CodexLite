@@ -43,6 +43,7 @@ local _ = nil;
 	local IMG_INDEX = __ns.core.IMG_INDEX;
 	local IMG_PATH_PIN = __ns.core.IMG_PATH_PIN;
 	local IMG_LIST = __ns.core.IMG_LIST;
+	local ContinentMapID = __ns.core.ContinentMapID;
 
 	local __core_meta = __ns.__core_meta;
 
@@ -125,6 +126,7 @@ local _ = nil;
 		local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
 		local MapHideNodes, MapDrawNodes;
 		--	setting
+		local SetShowPinInContinent;
 		local SetWorldmapAlpha, SetMinimapAlpha;
 		local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
 		local SetHideNodeModifier, SetMinimapNodeInset, SetMinimapPlayerArrowOnTop;
@@ -276,6 +278,9 @@ local _ = nil;
 			local meta = __core_meta[quest];
 			if meta ~= nil and meta.completed ~= 1 and meta.completed ~= -1 and QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				for line, texture in next, refs do
+					if line == 'event' then
+						return true;
+					end
 					local meta_line = meta[line];
 					if meta_line ~= nil and not meta_line[5] and texture == val then
 						return true;
@@ -510,6 +515,9 @@ local _ = nil;
 			end
 		end
 		function WorldMap_DrawNodesMap(map)
+			if not SET.show_in_continent and ContinentMapID[map] ~= nil then
+				return;
+			end
 			local meta = META_COMMON[map];
 			if meta ~= nil then
 				for uuid, data in next, meta do
@@ -1433,6 +1441,15 @@ local _ = nil;
 	-->
 	-->		--	setting
 		--	set pin
+		function SetShowPinInContinent()
+			if ContinentMapID[wm_map] ~= nil then
+				if SET.show_in_continent then
+					WorldMap_DrawNodesMap(wm_map);
+				else
+					WorldMap_HideNodesMap(wm_map);
+				end
+			end
+		end
 		function SetWorldmapAlpha()
 			wm_wrap:SetAlpha(SET.worldmap_alpha);
 		end
@@ -1505,6 +1522,7 @@ local _ = nil;
 	-->
 	-->		--	extern method
 		--
+		__ns.SetShowPinInContinent = SetShowPinInContinent;
 		__ns.SetWorldmapAlpha = SetWorldmapAlpha;
 		__ns.SetMinimapAlpha = SetMinimapAlpha;
 		__ns.SetCommonPinSize = SetCommonPinSize;

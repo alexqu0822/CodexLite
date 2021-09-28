@@ -119,6 +119,7 @@ if LOCALE == 'zhCN' then
 	UILOC.show_buttons_in_log = "显示任务日志按钮";
 	UILOC.show_id_in_tooltip = "在鼠标提示中显示id";
 	--	map
+	UILOC.show_in_continent = "在大陆地图上显示标记";
 	UILOC.show_quest_starter = "显示任务给予者";
 	UILOC.show_quest_ender = "显示任务交还者";
 	UILOC.min_rate = "最低物品掉率";
@@ -178,6 +179,7 @@ elseif LOCALE == 'zhTW' then
 	UILOC.show_buttons_in_log = "顯示任務日志按鈕";
 	UILOC.show_id_in_tooltip = "在鼠標提示中顯示id";
 	--	map
+	UILOC.show_in_continent = "在大陸地圖上顯示標記";
 	UILOC.show_quest_starter = "顯示任務給與者";
 	UILOC.show_quest_ender = "顯示任務交還者";
 	UILOC.min_rate = "最低物品掉率";
@@ -237,6 +239,7 @@ elseif LOCALE == 'ruRU' then
 	UILOC.show_buttons_in_log = "Show buttons in questlog";
 	UILOC.show_id_in_tooltip = "Show ID in tooltip";
 	--	map
+	UILOC.show_in_continent = "Show pins in continents";
 	UILOC.show_quest_starter = "Показать квестодателя";
 	UILOC.show_quest_ender = "Показать здачу задания";
 	UILOC.min_rate = "Минимальный шанс выпадения";
@@ -296,6 +299,7 @@ else
 	UILOC.show_buttons_in_log = "Show buttons in questlog";
 	UILOC.show_id_in_tooltip = "Show ID in tooltip";
 	--	map
+	UILOC.show_in_continent = "Show pins in continents";
 	UILOC.show_quest_starter = "Show Quest Giver";
 	UILOC.show_quest_ender = "Show Quest Turn In";
 	UILOC.min_rate = "Minium Drop Rate";
