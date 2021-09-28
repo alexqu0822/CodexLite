@@ -245,15 +245,15 @@ local SET = nil;
 -->		string
 	local gsub = gsub;
 	local function BuildRegularExp(pattern)
-		-- escape magic characters
+		--	escape magic characters
 		pattern = gsub(pattern, "([%+%-%*%(%)%?%[%]%^])", "%%%1");
-		-- remove capture indexes
+		--	remove capture indexes
 		pattern = gsub(pattern, "%d%$", "");
-		-- catch all characters
+		--	catch all characters
 		pattern = gsub(pattern, "(%%%a)", "%(%1+%)");
-		-- convert all %s to .+
+		--	convert all %s to .+
 		pattern = gsub(pattern, "%%s%+", ".+");
-		-- set priority to numbers over strings
+		--	set priority to numbers over strings
 		pattern = gsub(pattern, "%(.%+%)%(%%d%+%)", "%(.-%)%(%%d%+%)");
 
 		return pattern;
@@ -274,7 +274,7 @@ local SET = nil;
 		--	credit https://gist.github.com/Badgerati/3261142
 		local strbyte, min = strbyte, math.min;
 		function LevenshteinDistance(str1, str2)
-			-- quick cut-offs to save time
+			--	quick cut-offs to save time
 			if str1 == "" then
 				return #str2;
 			elseif str2 == "" then
@@ -287,7 +287,7 @@ local SET = nil;
 			local len2 = #str2;
 			local matrix = {  };
 
-			-- initialise the base matrix values
+			--	initialise the base matrix values
 			for i = 0, len1 do
 				matrix[i] = {  };
 				matrix[i][0] = i;
@@ -296,7 +296,7 @@ local SET = nil;
 				matrix[0][j] = j;
 			end
 
-			-- actual Levenshtein algorithm
+			--	actual Levenshtein algorithm
 			for i = 1, len1 do
 				for j = 1, len2 do
 					if strbyte(str1, i) == strbyte(str2, j) then
@@ -307,7 +307,7 @@ local SET = nil;
 				end
 			end
 
-			-- return the last value - this is the Levenshtein distance
+			--	return the last value - this is the Levenshtein distance
 			return matrix[len1][len2];
 		end
 	end
@@ -416,10 +416,82 @@ local SET = nil;
 	--
 	local WORLD_MAP_ID = C_Map.GetFallbackWorldMapID() or 947;		--	947
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
-	local worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
-		[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
-		[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
-	};
+	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
+	if __ns.__toc < 20000 then
+		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
+			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
+		};
+	elseif __ns.__toc < 30000 then
+		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
+			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
+		};
+	end
+	local TransformMeta = {  };
+	-->		TransformData from HBD
+		local transformData;
+		if __ns.__toc >= 20000 and __ns.__toc < 30000 then
+			transformData = {
+				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
+				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
+			};
+		else
+			transformData = {
+				{ 530, 1, -6933.33, 533.33, -16000, -8000, 9916, 17600 },
+				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2400 },
+				{ 732, 0, -3200, 533.3, -533.3, 2666.7, -611.8, 3904.3 },
+				{ 1064, 870, 5391, 8148, 3518, 7655, -2134.2, -2286.6 },
+				{ 1208, 1116, -2666, -2133, -2133, -1600, 10210.7, 2411.4 },
+				{ 1460, 1220, -1066.7, 2133.3, 0, 3200, -2333.9, 966.7 },
+				{ 1599, 1, 4800, 5866.7, -4266.7, -3200, -490.6, -0.4 },
+				{ 1609, 571, 6400, 8533.3, -1600, 533.3, 512.8, 545.3 },
+			};
+		end
+		for _, transform in next, transformData do
+			local instance = transform[1];
+			local meta = TransformMeta[instance]
+			if TransformMeta[instance] == nil then
+				meta = {
+					{
+						newInstanceID = transform[2],
+						minY = transform[3],
+						maxY = transform[4],
+						minX = transform[5],
+						maxX = transform[6],
+						offsetY = transform[7],
+						offsetX = transform[8],
+					},
+				};
+				TransformMeta[instance] = meta;
+			else
+				meta[#meta + 1] = {
+					newInstanceID = transform[2],
+					minY = transform[3],
+					maxY = transform[4],
+					minX = transform[5],
+					maxX = transform[6],
+					offsetY = transform[7],
+					offsetX = transform[8],
+				};
+			end
+		end
+	-->
+	local function TransformCoord(instance, left, right, top, bottom)
+		if TransformMeta[instance] then
+			for _, data in ipairs(TransformMeta[instance]) do
+				if left <= data.maxX and right >= data.minX and top <= data.maxY and bottom >= data.minY then
+					instance = data.newInstanceID;
+					left   = left   + data.offsetX;
+					right  = right  + data.offsetX;
+					top    = top    + data.offsetY;
+					bottom = bottom + data.offsetY;
+					break;
+				end
+			end
+		end
+		return instance, left, right, top, bottom;
+	end
 	local __player_map_id = C_Map_GetBestMapForUnit('player');
 	-->		data
 		local mapHandler = CreateFrame('FRAME');
@@ -445,19 +517,19 @@ local SET = nil;
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
 				if data ~= nil then
-					-- get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
+					--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
 					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
 					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
 					if x00y00 ~= nil and x05y05 ~= nil then
 						local top, left = x00y00:GetXY();
 						local bottom, right = x05y05:GetXY();
-						local width, height = (left - right) * 2, (top - bottom) * 2;
-						bottom = top - height;
-						right = left - width;
-						meta = { width, height, left, top, instance = instance,       name = data.name, mapType = data.mapType, };
+						bottom = top + (bottom - top) * 2;
+						right = left + (right - left) * 2;
+						instance, left, right, top, bottom = TransformCoord(instance, left, right, top, bottom);
+						meta = { left - right, top - bottom, left, top, instance = instance,       name = data.name, mapType = data.mapType, };
 						mapMeta[map] = meta;
 					else
-						meta = { 0, 0, 0, 0,               instance = instance or -1, name = data.name, mapType = data.mapType, };
+						meta = { 0, 0, 0, 0,                            instance = instance or -1, name = data.name, mapType = data.mapType, };
 						mapMeta[map] = meta;
 					end
 					local pmap = data.parentMapID;
@@ -486,12 +558,13 @@ local SET = nil;
 										meta.children = cmaps;
 									end
 									cmaps[cmap] = 1;
+									cmeta.parent = map;
 								end
 							end
 						end
 					end
-					-- process sibling maps (in the same group)
-					-- in some cases these are not discovered by GetMapChildrenInfo above
+					--	process sibling maps (in the same group)
+					--	in some cases these are not discovered by GetMapChildrenInfo above
 					-->		Maybe classic doesnot use it.
 					local groupID = C_Map_GetMapGroupID(map);
 					if groupID then
@@ -529,9 +602,9 @@ local SET = nil;
 			end
 			return meta;
 		end
-		-- find all maps in well known structures
+		--	find all maps in well known structures
 		processMap(WORLD_MAP_ID);
-		-- try to fill in holes in the map list
+		--	try to fill in holes in the map list
 		for map = 1, 2000 do
 			processMap(map);
 		end
@@ -573,7 +646,38 @@ local SET = nil;
 				end
 			end
 		end
+		--	fill in continent and planet
+		local function FillInChildren(which, map, children)
+			for cmap, _ in next, children do
+				local cmeta = mapMeta[cmap];
+				if cmeta ~= nil then
+					cmeta[which] = map;
+					if cmeta.children ~= nil then
+						FillInChildren(which, map, cmeta.children)
+					end
+				end
+			end
+		end
+		local function FillIn(which, map)
+			local meta = mapMeta[map];
+			if meta ~= nil and meta.children ~= nil then
+				FillInChildren(which, map, meta.children);
+			end
+		end
+		FillIn("universe", 946);
+		FillIn("planet", 947);
+		FillIn("planet", 1945);
+		FillIn("continent", 1414);
+		FillIn("continent", 1415);
+		FillIn("continent", 1945);
 	-->
+	core.ContinentMapID = {
+		[946] = "Universe",
+		[947] = "Azeroth",
+		[1414] = "Kalimdor",
+		[1415] = "Eastern Kingdoms",
+		[1945] = "Outland",
+	};
 	--	return map, x, y
 	local function GetUnitPosition(unit)
 		local y, x, _z, map = UnitPosition(unit);
@@ -645,6 +749,7 @@ local SET = nil;
 		return mapMeta[map];
 	end
 	local function GetMapParent(map)
+		local meta = mapMeta[map];
 		if meta ~= nil then
 			return meta.parent;
 		end
@@ -659,6 +764,12 @@ local SET = nil;
 		local meta = mapMeta[map];
 		if meta ~= nil then
 			return meta.children;
+		end
+	end
+	local function GetMapContinent(map)
+		local meta = mapMeta[map];
+		if meta ~= nil then
+			return meta.continent;
 		end
 	end
 
@@ -684,6 +795,7 @@ local SET = nil;
 	core.GetMapParent = GetMapParent;
 	core.GetMapAdjoined = GetMapAdjoined;
 	core.GetMapChildren = GetMapChildren;
+	core.GetMapContinent = GetMapContinent;
 	--
 	local function PreloadCoordsFunc(coords, wcoords)
 		local num_coords = #coords;
@@ -730,14 +842,24 @@ local SET = nil;
 					end
 				end
 			end
-			local pmap = GetMapParent(map);
-			if pmap ~= nil then
-				local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
-				if pmap ~= nil then
-					coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
-					pos = pos + 1;
+			-- local pmap = GetMapParent(map);
+			-- if pmap ~= nil then
+			-- 	local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
+			-- 	if pmap ~= nil then
+			-- 		coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
+			-- 		pos = pos + 1;
+			-- 	end
+			-- end
+			-- if SET.show_in_continent then
+				local cmap = GetMapContinent(map);
+				if cmap ~= nil then
+					local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
+					if cmap ~= nil then
+						coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
+						pos = pos + 1;
+					end
 				end
-			end
+			-- end
 		end
 	end
 	local function PreloadCoords(info)

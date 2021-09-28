@@ -112,6 +112,18 @@ local _ = nil;
 					'tab.general',
 				},
 			--	tab.map
+				show_in_continent = {
+					'boolean',
+					function(val)
+						SET['show_in_continent'] = val;
+						__ns.SetShowPinInContinent();
+						RefreshSettingWidget('show_in_continent');
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.map',
+				},
 				show_quest_starter = {
 					'boolean',
 					function(val)
@@ -385,6 +397,7 @@ local _ = nil;
 			show_buttons_in_log = true,
 			show_id_in_tooltip = true,
 		--	map
+			show_in_continent = false,
 			show_quest_starter = true,
 			show_quest_ender = true,
 			min_rate = 1.0,
@@ -412,6 +425,7 @@ local _ = nil;
 			"show_buttons_in_log",
 			"show_id_in_tooltip",
 		--	map
+			"show_in_continent",
 			"show_quest_starter",
 			"show_quest_ender",
 			-- "min_rate",

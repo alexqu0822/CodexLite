@@ -175,7 +175,7 @@ local _ = nil;
 				local color = RAID_CLASS_COLORS[class];
 				local coord = CLASS_ICON_TCOORDS[class];
 				return format(" > \124TInterface\\TargetingFrame\\UI-Classes-Circles:0:0:0:0:256:256:%d:%d:%d:%d\124t \124cff%.2x%.2x%.2x%s\124r",
-							coord[1] * 256, coord[2] * 256, coord[3] * 256, coord[4] * 256,
+							coord[1] * 255, coord[2] * 255, coord[3] * 255, coord[4] * 255,
 							color.r * 255, color.g * 255, color.b * 255, name
 						);
 			end
@@ -190,15 +190,12 @@ local _ = nil;
 			frame:SetPoint("CENTER");
 		end
 	-->		events and hooks
-		local function GameTooltipSetQuestTip(tip, uuid, META)
+		local function GameTooltipSetQuestTip(tip, uuid)
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
 			if next(refs) ~= nil then
 				for quest, ref in next, refs do
-					if META == nil then
-						META = __core_meta;
-					end
-					local meta = META[quest];
+					local meta = __core_meta[quest];
 					local info = __db_quest[quest];
 					local color = IMG_LIST[GetQuestStartTexture(info)];
 					--[[
@@ -652,6 +649,17 @@ local _ = nil;
 			local uuid = __ns.CoreGetUUID(type, id);
 			if uuid ~= nil then
 				__ns.GameTooltipSetQuestTip(GameTooltip, uuid);
+			end
+			for name, val in next, __ns.__comm_group_members do
+				local meta_table = __comm_meta[name];
+				if meta_table ~= nil then
+					local uuid = __ns.CommGetUUID(name, type, id);
+					if uuid ~= nil and next(uuid[4]) ~= nil then
+						local info = __ns.__comm_group_members_info[name];
+						GameTooltip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
+						GameTooltipSetQuestTip(GameTooltip, uuid, meta_table);
+					end
+				end
 			end
 		end
 		function __ns.button_info_OnEnter(self)

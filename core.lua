@@ -903,26 +903,26 @@ local _ = nil;
 						AddConfilct(_next);
 					end
 				end
-				local _pres = info.preSingle;
-				if _pres ~= nil then
-					for index = 1, #_pres do
-						local ps = _pres[index];
-						if QUESTS_CONFILCTED[ps] == nil then
-							QUESTS_CONFILCTED[ps] = true;
-							AddConfilct(ps);
-						end
-					end
-				end
-				local _preg = info.preGroup;
-				if _preg ~= nil then
-					for index = 1, #_preg do
-						local pg = _preg[index];
-						if QUESTS_CONFILCTED[pg] == nil then
-							QUESTS_CONFILCTED[pg] = true;
-							AddConfilct(pg);
-						end
-					end
-				end
+				-- local _pres = info.preSingle;
+				-- if _pres ~= nil then
+				-- 	for index = 1, #_pres do
+				-- 		local ps = _pres[index];
+				-- 		if QUESTS_CONFILCTED[ps] == nil then
+				-- 			QUESTS_CONFILCTED[ps] = true;
+				-- 			AddConfilct(ps);
+				-- 		end
+				-- 	end
+				-- end
+				-- local _preg = info.preGroup;
+				-- if _preg ~= nil then
+				-- 	for index = 1, #_preg do
+				-- 		local pg = _preg[index];
+				-- 		if QUESTS_CONFILCTED[pg] == nil then
+				-- 			QUESTS_CONFILCTED[pg] = true;
+				-- 			AddConfilct(pg);
+				-- 		end
+				-- 	end
+				-- end
 			end
 		end
 		function DelConfilct(quest_id)
