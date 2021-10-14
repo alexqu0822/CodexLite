@@ -477,7 +477,20 @@ local SET = nil;
 			end
 		end
 	-->
-	local function TransformCoord(instance, left, right, top, bottom)
+	local function TransformCoord(instance, x, y)
+		if TransformMeta[instance] then
+			for _, data in ipairs(TransformMeta[instance]) do
+				if x <= data.maxX and x >= data.minX and y <= data.maxY and y >= data.minY then
+					instance = data.newInstanceID;
+					x = x + data.offsetX;
+					y = y + data.offsetY;
+					break;
+				end
+			end
+		end
+		return instance, x, y;
+	end
+	local function TransformScope(instance, left, right, top, bottom)
 		if TransformMeta[instance] then
 			for _, data in ipairs(TransformMeta[instance]) do
 				if left <= data.maxX and right >= data.minX and top <= data.maxY and bottom >= data.minY then
@@ -525,7 +538,7 @@ local SET = nil;
 						local bottom, right = x05y05:GetXY();
 						bottom = top + (bottom - top) * 2;
 						right = left + (right - left) * 2;
-						instance, left, right, top, bottom = TransformCoord(instance, left, right, top, bottom);
+						instance, left, right, top, bottom = TransformScope(instance, left, right, top, bottom);
 						meta = { left - right, top - bottom, left, top, instance = instance,       name = data.name, mapType = data.mapType, };
 						mapMeta[map] = meta;
 					else
@@ -681,7 +694,8 @@ local SET = nil;
 	--	return map, x, y
 	local function GetUnitPosition(unit)
 		local y, x, _z, map = UnitPosition(unit);
-		return map, y, x;
+		return TransformCoord(map, x, y);
+		-- return map, y, x;
 	end
 	--	return map, x, y	-->	bound to [0.0, 1.0]
 	local function GetZonePositionFromWorldPosition(map, x, y)
@@ -726,7 +740,8 @@ local SET = nil;
 
 	--	return map, x, y
 	local function GetUnitZonePosition(unit)
-		local y, x, _z, map = UnitPosition(unit);
+		-- local y, x, _z, map = UnitPosition(unit);
+		local map, x, y = GetUnitPosition('player');
 		if x ~= nil and y ~= nil then
 			return GetZonePositionFromWorldPosition(C_Map_GetBestMapForUnit(unit), x, y);
 		end
@@ -736,7 +751,8 @@ local SET = nil;
 	end
 	--	return map, x, y
 	local function GetPlayerZonePosition()
-		local y, x, _z, instance = UnitPosition('player');
+		-- local y, x, _z, map = UnitPosition('player');
+		local map, x, y = GetUnitPosition('player');
 		if x ~= nil and y ~= nil then
 			return GetZonePositionFromWorldPosition(__player_map_id, x, y);
 		end
