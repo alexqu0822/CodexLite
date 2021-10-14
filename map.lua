@@ -44,6 +44,7 @@ local _ = nil;
 	local IMG_PATH_PIN = __ns.core.IMG_PATH_PIN;
 	local IMG_LIST = __ns.core.IMG_LIST;
 	local ContinentMapID = __ns.core.ContinentMapID;
+	local GetUnitPosition = __ns.core.GetUnitPosition;
 
 	local __core_meta = __ns.__core_meta;
 
@@ -679,7 +680,6 @@ local _ = nil;
 		--	variables
 			local GetCVar = GetCVar;
 			local GetTime = GetTime;
-			local UnitPosition = UnitPosition;
 			local GetPlayerFacing = GetPlayerFacing;
 			local minimap_size = {
 				indoor = {
@@ -721,7 +721,7 @@ local _ = nil;
 			local mm_rotate_cos = mm_rotate ~= nil and _radius_cos(mm_rotate) or nil;
 			local mm_check_func = mm_check_func_table[mm_shape];
 			local mm_force_update = false;
-			local mm_player_y, mm_player_x = UnitPosition('player');
+			local mm_player_map, mm_player_x, mm_player_y = GetUnitPosition('player');
 			if mm_player_y == nil then mm_player_y = 0.0; end
 			if mm_player_x == nil then mm_player_x = 0.0; end
 			local mm_dynamic_update_interval = 0.05;
@@ -1208,7 +1208,7 @@ local _ = nil;
 						end
 						local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
 						Minimap:SetZoom(zoom);
-						local y, x = UnitPosition('player');
+						local map, x, y = GetUnitPosition('player');
 						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or (mm_is_rotate and facing ~= mm_rotate)) then
 							mm_player_x = x;
 							mm_player_y = y;
