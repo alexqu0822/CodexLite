@@ -190,12 +190,13 @@ local _ = nil;
 			frame:SetPoint("CENTER");
 		end
 	-->		events and hooks
-		local function GameTooltipSetQuestTip(tip, uuid)
+		local function GameTooltipSetQuestTip(tip, uuid, META)
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
 			if next(refs) ~= nil then
+				META = META or __core_meta;
 				for quest, ref in next, refs do
-					local meta = __core_meta[quest];
+					local meta = META[quest];
 					local info = __db_quest[quest];
 					local color = IMG_LIST[GetQuestStartTexture(info)];
 					--[[
