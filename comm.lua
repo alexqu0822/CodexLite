@@ -14,9 +14,13 @@ local _ = nil;
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.comm'); end
 
 -->		variables
-	local strfind = strfind;
+	local strupper = string.upper;
+	local strmatch = string.match;
+	local gsub = string.gsub;
+	local strfind = string.find;
 	local next = next;
 	local bit_band = bit.band;
+	local GetTime = GetTime;
 	local Ambiguate = Ambiguate;
 	local RegisterAddonMessagePrefix = RegisterAddonMessagePrefix or C_ChatInfo.RegisterAddonMessagePrefix;
 	local IsAddonMessagePrefixRegistered = IsAddonMessagePrefixRegistered or C_ChatInfo.IsAddonMessagePrefixRegistered;
@@ -282,7 +286,7 @@ local _ = nil;
 					if info.fac == nil then
 						if info.facId ~= nil then
 							local _, _, standing_rank, _, _, val = GetFactionInfoByID(info.facId);
-							if val > 0 then
+							if val ~= nil and val > 0 then
 								isFriend = true;
 							else		--	if val <= -3000 then	--	冷淡不会招致主动攻击，敌对开始主动攻击
 								isFriend = false;
@@ -591,6 +595,7 @@ local _ = nil;
 		local MessageBuffer = {  };
 		local MessageTop = 0;
 		local SchedulerRunning = false;
+		local SentTarget = {  };
 		function MessageTicker()
 			local msg = tremove(MessageBuffer, 1);
 			MessageTop = MessageTop - 1;
@@ -601,6 +606,7 @@ local _ = nil;
 				SchedulerRunning = false;
 			end
 			SendAddonMessage(ADDON_PREFIX, msg[1], msg[2], msg[3]);
+			SentTarget[strupper(Ambiguate(msg[3], 'none'))] = GetTime();
 		end
 		function ScheduleMessage(msg, channel, target)
 			MessageTop = MessageTop + 1;
@@ -610,6 +616,31 @@ local _ = nil;
 				C_Timer_After(0.02, MessageTicker);
 			end
 		end
+		-->		Message Filter
+			--	ERR_CHAT_PLAYER_NOT_FOUND_S
+			local C_String = ERR_CHAT_PLAYER_NOT_FOUND_S;
+			local C_Pattern = gsub(C_String, "%%s", "(.+)");
+			local function F_Filter(self, event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, line, arg12, arg13, arg14, ...)
+				if C_String ~= ERR_CHAT_PLAYER_NOT_FOUND_S then
+					C_String = ERR_CHAT_PLAYER_NOT_FOUND_S;
+					C_Pattern = gsub(C_String, "%%s", "(.+)");
+				end
+				local name = strmatch(arg1, C_Pattern);
+				if name ~= nil then
+					name = strupper(Ambiguate(name, 'none'));
+					local t = SentTarget[name];
+					if t ~= nil then
+						if GetTime() - t < 2.0 then
+							return true;
+						else
+							SentTarget[name] = nil;
+						end
+					end
+				end
+				return false;
+			end
+			ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", F_Filter);
+		-->
 	-->
 	-->		comm
 		function PushReset()

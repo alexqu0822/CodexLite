@@ -1244,7 +1244,7 @@ local _ = nil;
 				local info = __db_quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
 					-- if info.lvl == nil or info.min == nil then print(quest_id, info.lvl, info.min); end
-					local acceptable = info.lvl >= lowest and info.min <= highest;
+					local acceptable = info.lvl < 0 or (info.lvl >= lowest and info.min <= highest);
 					if acceptable then
 						local parent = info.parent;
 						if parent ~= nil then
@@ -1275,7 +1275,7 @@ local _ = nil;
 										end
 									end
 								end
-								if acceptable then
+								-- if acceptable then
 									-- local excl = info.excl;
 									-- if excl ~= nil then
 									-- 	for index2 = 1, #excl do
@@ -1329,7 +1329,7 @@ local _ = nil;
 											acceptable = acceptable_rep and acceptable_skill;
 										end
 									end
-								end
+								-- end
 							end
 						end
 					end

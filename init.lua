@@ -65,9 +65,9 @@ local _ = nil;
 	-->		Time
 	if GetTimePreciseSec == nil then
 		_F_devDebugProfileStart("_sys._1core.time.alternative");
-		 GetTimePreciseSec = function()
+		GetTimePreciseSec = function()
 			return _F_devDebugProfileTick("_sys._1core.time.alternative");
-		 end
+		end
 	end
 	local _LN_devBaseTime = GetTimePreciseSec();
 	function __ns._F_devGetPreciseTime()
@@ -946,7 +946,7 @@ local SET = nil;
 	local function GetQuestStartTexture(info)
 		local TEXTURE = IMG_INDEX.IMG_S_NORMAL;
 		local min = info.min;
-		local diff = min - __ns.__player_level;
+		local diff = min < 0 and 0 or (min - __ns.__player_level);
 		if diff > 0 then
 			if diff > 1 then
 				TEXTURE = IMG_INDEX.IMG_S_HIGH_LEVEL;
@@ -959,6 +959,7 @@ local SET = nil;
 				TEXTURE = IMG_INDEX.IMG_S_REPEATABLE;
 			else
 				local lvl = info.lvl;
+				lvl = lvl >= 0 and lvl or __ns.__player_level
 				if lvl >= SET.quest_lvl_red then
 					TEXTURE = IMG_INDEX.IMG_S_VERY_HARD;
 				elseif lvl >= SET.quest_lvl_orange then
