@@ -162,15 +162,17 @@ local _ = nil;
 		function NewWorldMapPin(__PIN_TAG, pool_inuse, pool_unused, size, Release, frameLevel)
 			local pin = next(pool_unused);
 			if pin == nil then
-				pin = CreateFrame('BUTTON', nil, wm_wrap);
-				pin:SetNormalTexture(IMG_PATH_PIN);
+				pin = CreateFrame('FRAME', nil, wm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);
-				pin:SetScript("OnClick", Pin_OnClick);
+				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
-				pin.__NORMAL_TEXTURE = pin:GetNormalTexture();
+				local icon = pin:CreateTexture(nil, "ARTWORK");
+				icon:SetAllPoints();
+				icon:SetTexture(IMG_PATH_PIN);
+				pin.icon = icon;
 			else
 				pool_unused[pin] = nil;
 			end
@@ -194,7 +196,7 @@ local _ = nil;
 			--	and lots of bullshit about 'nudge'
 			local rscale = 0.01 / pin:GetScale();
 			pin:SetPoint("CENTER", mapCanvas, "TOPLEFT", mapCanvas:GetWidth() * x * rscale, -mapCanvas:GetHeight() * y * rscale);
-			pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+			pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 			pin:Show();
 			return pin;
 		end
@@ -214,7 +216,7 @@ local _ = nil;
 			--	and lots of bullshit about 'nudge'
 			local rscale = 0.01 / pin:GetScale();
 			pin:SetPoint("CENTER", mapCanvas, "TOPLEFT", mapCanvas:GetWidth() * x * rscale, -mapCanvas:GetHeight() * y * rscale);
-			pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+			pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 			pin:Show();
 			return pin;
 		end
@@ -236,12 +238,12 @@ local _ = nil;
 			--	and lots of bullshit about 'nudge'
 			local rscale = 0.01 / pin:GetScale();
 			pin:SetPoint("CENTER", mapCanvas, "TOPLEFT", mapCanvas:GetWidth() * x * rscale, -mapCanvas:GetHeight() * y * rscale);
-			pin:SetNormalTexture(texture[1]);
-			pin.__NORMAL_TEXTURE:SetVertexColor(texture[2] or color3[1] or 1.0, texture[3] or color3[2] or 1.0, texture[4] or color3[3] or 1.0);
+			pin.icon:SetTexture(texture[1]);
+			pin.icon:SetVertexColor(texture[2] or color3[1] or 1.0, texture[3] or color3[2] or 1.0, texture[4] or color3[3] or 1.0);
 			-- if color3 ~= nil then
-			-- 	pin.__NORMAL_TEXTURE:SetVertexColor(color3[1] or 1.0, color3[2] or 1.0, color3[3] or 1.0);
+			-- 	pin.icon:SetVertexColor(color3[1] or 1.0, color3[2] or 1.0, color3[3] or 1.0);
 			-- else
-			-- 	pin.__NORMAL_TEXTURE:SetVertexColor(texture[2] or 1.0, texture[3] or 1.0, texture[4] or 1.0);
+			-- 	pin.icon:SetVertexColor(texture[2] or 1.0, texture[3] or 1.0, texture[4] or 1.0);
 			-- end
 			pin:Show();
 			return pin;
@@ -363,7 +365,7 @@ local _ = nil;
 					local num_pins = #pins;
 					if num_pins > 0 then
 						for index = 1, num_pins do
-							pins[index].__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+							pins[index].icon:SetVertexColor(color3[1], color3[2], color3[3]);
 						end
 					end
 				end
@@ -376,7 +378,7 @@ local _ = nil;
 					local num_pins = #pins;
 					if num_pins > 0 then
 						for index = 1, num_pins do
-							pins[index].__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+							pins[index].icon:SetVertexColor(color3[1], color3[2], color3[3]);
 						end
 					end
 				end
@@ -392,8 +394,8 @@ local _ = nil;
 					for index = 1, #pins do
 						local pin = pins[index];
 						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
-						pin:SetNormalTexture(texture[1]);
-						pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
+						pin.icon:SetTexture(texture[1]);
+						pin.icon:SetVertexColor(texture[2], texture[3], texture[4]);
 						pin:SetFrameLevel(texture[7]);
 					end
 				end
@@ -633,14 +635,16 @@ local _ = nil;
 		function NewMinimapPin(__PIN_TAG, pool_inuse, pool_unused, size, Release, frameLevel)
 			local pin = next(pool_unused);
 			if pin == nil then
-				pin = CreateFrame('BUTTON', nil, mm_wrap);
-				pin:SetNormalTexture(IMG_PATH_PIN);
+				pin = CreateFrame('FRAME', nil, mm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
 				pin:SetScript("OnLeave", __ns.OnLeave);
-				pin:SetScript("OnClick", Pin_OnClick);
+				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
-				pin.__NORMAL_TEXTURE = pin:GetNormalTexture();
+				local icon = pin:CreateTexture(nil, "ARTWORK");
+				icon:SetAllPoints();
+				icon:SetTexture(IMG_PATH_PIN);
+				pin.icon = icon;
 			else
 				pool_unused[pin] = nil;
 			end
@@ -663,8 +667,8 @@ local _ = nil;
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
 			--	and lots of bullshit about 'nudge'
-			pin:SetNormalTexture(img);
-			pin.__NORMAL_TEXTURE:SetVertexColor(r, g, b);
+			pin.icon:SetTexture(img);
+			pin.icon:SetVertexColor(r, g, b);
 			pin:Show();
 			return pin;
 		end
@@ -835,7 +839,7 @@ local _ = nil;
 					for index = 1, #coords do
 						local pin = MM_COMMON_PINS[coords[index]];
 						if pin ~= nil then
-							pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+							pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 						end
 					end
 				end
@@ -848,7 +852,7 @@ local _ = nil;
 					for index = 1, #coords do
 						local pin = MM_LARGE_PINS[coords[index]];
 						if pin ~= nil then
-							pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+							pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 						end
 					end
 				end
@@ -866,8 +870,8 @@ local _ = nil;
 						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
 						local pin = MM_VARIED_PINS[coord];
 						if pin ~= nil then
-							pin:SetNormalTexture(texture[1]);
-							pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
+							pin.icon:SetTexture(texture[1]);
+							pin.icon:SetVertexColor(texture[2], texture[3], texture[4]);
 							pin:SetFrameLevel(texture[7]);
 						end
 					end
@@ -895,8 +899,8 @@ local _ = nil;
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(IMG_PATH_PIN);
-									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
@@ -935,8 +939,8 @@ local _ = nil;
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(IMG_PATH_PIN);
-									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
@@ -977,8 +981,8 @@ local _ = nil;
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(texture[1]);
-									pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
+									pin.icon:SetTexture(texture[1]);
+									pin.icon:SetVertexColor(texture[2], texture[3], texture[4]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
@@ -1053,8 +1057,8 @@ local _ = nil;
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(IMG_PATH_PIN);
-									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
@@ -1093,8 +1097,8 @@ local _ = nil;
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(IMG_PATH_PIN);
-									pin.__NORMAL_TEXTURE:SetVertexColor(color3[1], color3[2], color3[3]);
+									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
@@ -1135,8 +1139,8 @@ local _ = nil;
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin:SetNormalTexture(texture[1]);
-									pin.__NORMAL_TEXTURE:SetVertexColor(texture[2], texture[3], texture[4]);
+									pin.icon:SetTexture(texture[1]);
+									pin.icon:SetVertexColor(texture[2], texture[3], texture[4]);
 								end
 								pin:ClearAllPoints();
 								if mm_is_rotate then
