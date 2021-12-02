@@ -2,22 +2,7 @@
 	ALA@163UI
 --]]--
 
-----------------------------------------------------------------
-local noop = function() end
-local C_ChatInfo = {
-	RegisterAddonMessagePrefix = noop,
-	IsAddonMessagePrefixRegistered = noop,
-	GetRegisteredAddonMessagePrefixes = noop,
-	SendAddonMessage = noop,
-};
-local RegisterAddonMessagePrefix = noop
-local IsAddonMessagePrefixRegistered = noop
-local GetRegisteredAddonMessagePrefixes = noop
-local SendAddonMessage = noop
-----------------------------------------------------------------
-
-
-local __version = 6;
+local __version = 7;
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
 local __emulib = __ala_meta__.__emulib;
