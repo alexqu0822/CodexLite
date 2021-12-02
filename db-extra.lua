@@ -232,6 +232,19 @@ local function load_extra_db()
 				end
 			end
 		end
+		for unit, _ in next, temp_U do
+			local info = __db_unit[unit];
+			if info ~= nil then
+				local spawn = info.spawn;
+				if spawn ~= nil then
+					if spawn.U ~= nil then
+						for v, _ in next, spawn.U do
+							temp_U[v] = 1;
+						end
+					end
+				end
+			end
+		end
 		-->		del
 		for unit, _ in next, __db_unit do
 			if temp_U[unit] == nil then

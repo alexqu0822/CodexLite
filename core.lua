@@ -85,7 +85,6 @@ local _ = nil;
 				[4] = description,
 				[5] = finished,
 				[6] = is_large_pin,
-				[7] = one_monster_add_all,
 			},
 		}
 	]]
@@ -392,6 +391,7 @@ local _ = nil;
 		function AddUnit(quest, line, uid, show_coords, large_pin, showFriend)
 			local info = __db_unit[uid];
 			if info ~= nil then
+				local draw = true;
 				if showFriend ~= nil then
 					local isFriend = nil;
 					if info.fac == nil then
@@ -409,23 +409,50 @@ local _ = nil;
 						isFriend = UnitHelpFac[info.fac];
 					end
 					if not showFriend ~= not isFriend then
-						return;
+						draw = false;
 					end
 				end
-				PreloadCoords(info);
-				local coords = show_coords and (info.waypoints or info.coords) or nil;
-				if large_pin then
-					AddLargeNodes('unit', uid, quest, line, coords);
-				else
-					AddCommonNodes('unit', uid, quest, line, coords);
+				if info.waypoints ~= nil then
+					large_pin = false;
+				end
+				if draw then
+					PreloadCoords(info);
+					local coords = show_coords and (info.waypoints or info.coords) or nil;
+					if large_pin and info.waypoints == nil then
+						AddLargeNodes('unit', uid, quest, line, coords);
+					else
+						AddCommonNodes('unit', uid, quest, line, coords);
+					end
+				end
+				local spawn = info.spawn;
+				if spawn ~= nil then
+					if spawn.U ~= nil then
+						for unit, _ in next, spawn.U do
+							AddUnit(quest, line, unit, show_coords, large_pin, showFriend);
+						end
+					end
 				end
 			end
 		end
 		function DelUnit(quest, line, uid, total_del, large_pin)
-			if large_pin then
-				DelLargeNodes('unit', uid, quest, line, total_del);
-			else
-				DelCommonNodes('unit', uid, quest, line, total_del);
+			local info = __db_unit[uid];
+			if info ~= nil then
+				if info.waypoints ~= nil then
+					large_pin = false;
+				end
+				if large_pin then
+					DelLargeNodes('unit', uid, quest, line, total_del);
+				else
+					DelCommonNodes('unit', uid, quest, line, total_del);
+				end
+				local spawn = info.spawn;
+				if spawn ~= nil then
+					if spawn.U ~= nil then
+						for unit, _ in next, spawn.U do
+							DelUnit(quest, line, unit, total_del, large_pin);
+						end
+					end
+				end
 			end
 		end
 		function AddObject(quest, line, oid, show_coords, large_pin)
@@ -982,9 +1009,6 @@ local _ = nil;
 								-- 		DelLineAllObj(quest_id, 1, obj, true);
 								-- 	end
 								-- end
-								local num_monster_lines = 0;
-								local monster_line = -1;
-								local U2 = obj.U2;
 								if completed == 1 or completed == -1 then			--	第一次检测到任务成功或失败时，隐藏已显示的任务目标
 									for line = 1, num_lines do
 										local description, objective_type, finished = GetQuestLogLeaderBoard(line, index);
@@ -1017,10 +1041,6 @@ local _ = nil;
 												meta_line[3] = objective_id;
 												meta_line[6] = large_pin;
 											end
-										end
-										if objective_type == 'monster' and (objective_id == nil or U2 == nil or U2[objective_id] ~= true) then
-											num_monster_lines = num_monster_lines + 1;
-											monster_line = line;
 										end
 										if push_line and objective_id ~= nil then
 											__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
@@ -1080,10 +1100,6 @@ local _ = nil;
 												has_unfinished_event = true;
 											end
 										end
-										if objective_type == 'monster' and (objective_id == nil or U2 == nil or U2[objective_id] ~= true) then
-											num_monster_lines = num_monster_lines + 1;
-											monster_line = line;
-										end
 										if push_line and objective_id ~= nil then
 											__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
 										end
@@ -1098,47 +1114,6 @@ local _ = nil;
 										if meta.event_shown == true then
 											DelEvent(quest_id);
 											meta.event_shown = false;
-										end
-									end
-								end
-								if num_monster_lines == 1 then
-									local U = obj.U2 or obj.U;
-									if U ~= nil and U[1] ~= nil then
-										local meta_line = meta[monster_line];
-										if meta_line[1] and meta_line[3] ~= nil and meta_line[7] == nil then
-											--	DelLine
-											DelLine(quest_id, monster_line, meta_line[2], meta_line[3], false, meta_line[6]);
-										end
-										if completed == 1 or completed == -1 or meta_line[5] then
-											if meta_line[7] == nil then
-												meta_line[7] = -1;
-												--	AddAllHidden
-												for index = 1, #U do
-													local uid = U[index];
-													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, false, large_pin, nil);
-												end
-											elseif meta_line[7] == 1 then
-												meta_line[7] = -1;
-												--	HalfDel
-												--	= DelAllShown + AddAllHidden
-												for index = 1, #U do
-													local uid = U[index];
-													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													DelUnit(quest_id, monster_line, uid, false, large_pin);
-													-- AddUnit(quest_id, monster_line, uid, false, large_pin, nil);
-												end
-											end
-										else
-											if meta_line[7] ~= 1 then
-												meta_line[7] = 1;
-												--	AddAllShown
-												for index = 1, #U do
-													local uid = U[index];
-													local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-													AddUnit(quest_id, monster_line, uid, true, large_pin, nil);
-												end
-											end
 										end
 									end
 								end
@@ -1187,19 +1162,7 @@ local _ = nil;
 						for line = 1, meta.num_lines do
 							local meta_line = meta[line];
 							if meta_line ~= nil then
-								if meta_line[7] ~= nil then		--	num_monster_lines == 1
-									local obj = info.obj;
-									if obj ~= nil then
-										local U = obj.U;
-										if U ~= nil and U[1] ~= nil then
-											for index = 1, #U do
-												local uid = U[index];
-												local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
-												DelUnit(quest_id, line, uid, true, large_pin);
-											end
-										end
-									end
-								elseif meta_line[3] ~= nil then
+								if meta_line[3] ~= nil then
 									DelLine(quest_id, line, meta_line[2], meta_line[3], true, meta_line[6]);
 									_log_('DelLine-F__', nil, meta_line[2], meta_line[3]);
 								end
