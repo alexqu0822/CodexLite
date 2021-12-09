@@ -5,9 +5,6 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
@@ -16,23 +13,32 @@ local _ = nil;
 -->		variables
 	local type = type;
 	local next = next;
+	local strsplit, strmatch, gsub, format = string.split, string.match, string.gsub, string.format;
 	local tonumber = tonumber;
-	local strsplit, strmatch, gsub = strsplit, strmatch, gsub;
 	local GetItemInfoInstant = GetItemInfoInstant;
 	local UnitGUID = UnitGUID;
 	local UnitIsPlayer = UnitIsPlayer;
-	local IsAltKeyDown = IsAltKeyDown;
-	local IsControlKeyDown = IsControlKeyDown;
-	local IsShiftKeyDown = IsShiftKeyDown;
+	local GetFactionInfoByID = GetFactionInfoByID;
+	local IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown = IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetItemCount = GetItemCount;
 	local GetMouseFocus = GetMouseFocus;
 	local IsModifiedClick = IsModifiedClick;
+	local Ambiguate = Ambiguate;
+	local CreateFrame = CreateFrame;
 	local ChatEdit_GetActiveWindow = ChatEdit_GetActiveWindow;
 	local ChatEdit_InsertLink = ChatEdit_InsertLink;
+	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
 	local GameTooltip = GameTooltip;
+	local GameTooltipTextLeft1 = GameTooltipTextLeft1;
+	local ItemRefTooltip = ItemRefTooltip;
 	local ChatFrame2 = ChatFrame2;
 	local FauxScrollFrame_GetOffset = FauxScrollFrame_GetOffset;
+	local QuestLogFrame = QuestLogFrame;
+	local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
+	local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
+	local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
+	local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -55,13 +61,14 @@ local _ = nil;
 	local __loc_profession = __loc.profession;
 	local __UILOC = __ns.UILOC;
 
-	local _F_SafeCall = __ns.core._F_SafeCall;
-	local __eventHandler = __ns.core.__eventHandler;
-	local __const = __ns.core.__const;
-	local IMG_INDEX = __ns.core.IMG_INDEX;
-	local IMG_LIST = __ns.core.IMG_LIST;
-	local TIP_IMG_LIST = __ns.core.TIP_IMG_LIST;
-	local GetQuestStartTexture = __ns.core.GetQuestStartTexture;
+	local __core = __ns.core;
+	local _F_SafeCall = __core._F_SafeCall;
+	local __eventHandler = __core.__eventHandler;
+	local __const = __core.__const;
+	local IMG_INDEX = __core.IMG_INDEX;
+	local IMG_LIST = __core.IMG_LIST;
+	local TIP_IMG_LIST = __core.TIP_IMG_LIST;
+	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
 	local __core_meta = __ns.__core_meta;
 	local __obj_lookup = __ns.__obj_lookup;
@@ -70,15 +77,19 @@ local _ = nil;
 	local __comm_meta = __ns.__comm_meta;
 	local __comm_obj_lookup = __ns.__comm_obj_lookup;
 
-	local UnitHelpFac = __ns.core.UnitHelpFac;
+	local UnitHelpFac = __core.UnitHelpFac;
 	local _log_ = __ns._log_;
 
 	local TIP_IMG_S_NORMAL = TIP_IMG_LIST[IMG_INDEX.IMG_S_NORMAL];
-	local IMG_TAG_CPL = "\124T" .. __ns.core.IMG_PATH .. "TAG_CPL" .. ":0\124t";
-	local IMG_TAG_PRG = "\124T" .. __ns.core.IMG_PATH .. "TAG_PRG" .. ":0\124t";
-	local IMG_TAG_UNCPL = "\124T" .. __ns.core.IMG_PATH .. "TAG_UNCPL" .. ":0\124t";
+	local IMG_TAG_CPL = "\124T" .. __core.IMG_PATH .. "TAG_CPL" .. ":0\124t";
+	local IMG_TAG_PRG = "\124T" .. __core.IMG_PATH .. "TAG_PRG" .. ":0\124t";
+	local IMG_TAG_UNCPL = "\124T" .. __core.IMG_PATH .. "TAG_UNCPL" .. ":0\124t";
 
 	local SET = nil;
+-->
+if __ns.__is_dev then
+	__ns:BuildEnv("util");
+end
 -->		MAIN
 	-->		methods
 		local function GetLevelTag(quest, info, modifier, colored)
@@ -166,8 +177,6 @@ local _ = nil;
 				lvl_str = lvl_str .. "]";
 			return lvl_str;
 		end
-		local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
-		local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
 		local function GetPlayerTag(name, class)
 			if class == nil then
 				return " > " .. name;
@@ -742,32 +751,35 @@ local _ = nil;
 		end
 	-->		DBIcon
 		local function CreateDBIcon()
-			local LDI = LibStub("LibDBIcon-1.0", true);
-			if LDI then
-				LDI:Register(
-					"CodexLite",
-					{
-						icon = [[interface\icons\inv_misc_book_09]],
-						OnClick = function(self, button)
-							if __ns.__ui_setting:IsShown() then
-								__ns.__ui_setting:Hide();
-							else
-								__ns.__ui_setting:Show();
-							end
-						end,
-						text = "CodexLite",
-						OnTooltipShow = function(tt)
-							tt:AddLine("CodexLite");
-							tt:Show();
-						end,
-					},
-					__ns.__svar.minimap
-				);
-				LDI:Show(__addon);
-				if SET.show_db_icon then
-					LibStub("LibDBIcon-1.0", true):Show(__addon);
-				else
-					LibStub("LibDBIcon-1.0", true):Hide(__addon);
+			local LibStub = _G.LibStub;
+			if LibStub ~= nil then
+				local LDI = LibStub("LibDBIcon-1.0", true);
+				if LDI then
+					LDI:Register(
+						"CodexLite",
+						{
+							icon = [[interface\icons\inv_misc_book_09]],
+							OnClick = function(self, button)
+								if __ns.__ui_setting:IsShown() then
+									__ns.__ui_setting:Hide();
+								else
+									__ns.__ui_setting:Show();
+								end
+							end,
+							text = "CodexLite",
+							OnTooltipShow = function(tt)
+								tt:AddLine("CodexLite");
+								tt:Show();
+							end,
+						},
+						__ns.__svar.minimap
+					);
+					LDI:Show(__addon);
+					if SET.show_db_icon then
+						LDI:Show(__addon);
+					else
+						LDI:Hide(__addon);
+					end
 				end
 			end
 		end
@@ -921,8 +933,6 @@ local _ = nil;
 		end
 	-->		QuestLogFrame
 		local function CreateQuestLogFrameButton()
-			local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
-			local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
 			local _ShowQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_ShowQuest:SetSize(85, 21);
 			_ShowQuest:SetPoint("TOPLEFT", QuestLogDescriptionTitle, "TOPLEFT", 0, 0);
@@ -995,9 +1005,7 @@ local _ = nil;
 		GameTooltip:HookScript("OnUpdate", GameTooltipOnUpdate);
 		__eventHandler:RegEvent("MODIFIER_STATE_CHANGED");
 		--
-		if LibStub ~= nil then
-			CreateDBIcon();
-		end
+		CreateDBIcon();
 		CreateQuestLogFrameButton();
 		InitMessageFactory();
 		--
@@ -1005,73 +1013,17 @@ local _ = nil;
 	end
 -->
 
--->		Position Share
-	function __ala_meta__.____OnMapPositionReceived(sender, map, x, y)
-		if map > 0 then
-			map, x, y = __ns.core.GetZonePositionFromWorldPosition(map, x, y);
-		end
-		if map ~= nil then
-			if map > 0 then
-				x = x - x % 0.0001;
-				y = y - y % 0.0001;
-				print(Ambiguate(sender, 'none'), __ns.L.map[map], x * 100, y * 100);
-			else
-				print(Ambiguate(sender, 'none'), "副本中");
-			end
-		end
-	end
-	local __pull_position_ticker = nil;
-	local __listen_name = nil;
-	local function __ticker_func_listen_position()
-		__ala_meta__.__mapshare.PullPosition(__listen_name);
-	end
-	local function ListenPosition(name, period)
-		__listen_name = Ambiguate(name, 'none');print('ListenPosition', name, __listen_name)
-		if __pull_position_ticker == nil then
-			__pull_position_ticker = C_Timer.NewTicker(period or 0.5, __ticker_func_listen_position);
-		end
-	end
-	local function StopListeningPosition()
-		if __pull_position_ticker ~= nil then
-			__pull_position_ticker:Cancel();
-			__pull_position_ticker = nil;
-		end
-	end
-	__ala_meta__.____ListenPosition = ListenPosition;
-	__ala_meta__.____StopListeningPosition = StopListeningPosition;
-	local B_ERR_CHAT_PLAYER_NOT_FOUND_S = ERR_CHAT_PLAYER_NOT_FOUND_S;
-	local P_ERR_CHAT_PLAYER_NOT_FOUND_S = gsub(B_ERR_CHAT_PLAYER_NOT_FOUND_S, "%%s", "(.+)");
-	local function __listen_position_filter(self, event, msg, ...)
-		if __pull_position_ticker ~= nil then
-			if B_ERR_CHAT_PLAYER_NOT_FOUND_S ~= ERR_CHAT_PLAYER_NOT_FOUND_S then
-				B_ERR_CHAT_PLAYER_NOT_FOUND_S = ERR_CHAT_PLAYER_NOT_FOUND_S;
-				P_ERR_CHAT_PLAYER_NOT_FOUND_S = gsub(B_ERR_CHAT_PLAYER_NOT_FOUND_S, "%%s", "(.+)");
-			end
-			local _, _, name = strfind(msg, P_ERR_CHAT_PLAYER_NOT_FOUND_S);
-			if name ~= nil then
-				if name == __listen_name or Ambiguate(name, 'none') == __listen_name then
-					StopListeningPosition();
-					print("Cancel tracking ", __listen_name, "[\124cffff0000OFFLINE\124r]");
-					return true, msg, ...;
-				end
-			end
-		end
-		return false, msg, ...;
-	end
-	ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", __listen_position_filter);
--->
-
 -->		CONFLICTS
 	function __ns._checkConflicts()
 		if SET ~= nil and SET._checkedConflicts then
 			return;
 		end
-		C_Timer.After(4.0, function()
+		__ns.After(4.0, function()
 			local _conflicts = false;
-			if GetAddOnEnableState(UnitName('player'), "Questie") > 0 then
+			if GetAddOnEnableState(__core._PLAYER_NAME, "Questie") > 0 then
 				_conflicts = true;
 			end
-			if GetAddOnEnableState(UnitName('player'), "ClassicCodex") > 0 then
+			if GetAddOnEnableState(__core._PLAYER_NAME, "ClassicCodex") > 0 then
 				_conflicts = true;
 			end
 			if _conflicts then

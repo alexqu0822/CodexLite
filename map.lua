@@ -5,21 +5,27 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map'); end
 
 -->		variables
+	local hooksecurefunc = hooksecurefunc;
 	local next = next;
+	local tremove = table.remove;
 	local _radius_sin, _radius_cos = math.cos, math.sin;
+	local GetCVar = GetCVar;
+	local GetTime = GetTime;
+	local IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown = IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown;
+	local GetPlayerFacing = GetPlayerFacing;
+	local C_Map = C_Map;
 	local CreateFrame = CreateFrame;
 	local WorldMapFrame = WorldMapFrame;	-->		WorldMapFrame:WorldMapFrameTemplate	interiting	MapCanvasFrameTemplate:MapCanvasMixin
 	local mapCanvas = WorldMapFrame:GetCanvas();	-->		equal WorldMapFrame.ScrollContainer.Child	--	not implementation of MapCanvasMixin!!!
+	local CreateFromMixins, MapCanvasDataProviderMixin = CreateFromMixins, MapCanvasDataProviderMixin;
 	local Minimap = Minimap;
+	local GameTooltip = GameTooltip;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -37,14 +43,15 @@ local _ = nil;
 	local __loc_profession = __loc.profession;
 	local __UILOC = __ns.UILOC;
 
-	local _F_SafeCall = __ns.core._F_SafeCall;
-	local __eventHandler = __ns.core.__eventHandler;
-	local __const = __ns.core.__const;
-	local IMG_INDEX = __ns.core.IMG_INDEX;
-	local IMG_PATH_PIN = __ns.core.IMG_PATH_PIN;
-	local IMG_LIST = __ns.core.IMG_LIST;
-	local ContinentMapID = __ns.core.ContinentMapID;
-	local GetUnitPosition = __ns.core.GetUnitPosition;
+	local __core = __ns.core;
+	local _F_SafeCall = __core._F_SafeCall;
+	local __eventHandler = __core.__eventHandler;
+	local __const = __core.__const;
+	local IMG_INDEX = __core.IMG_INDEX;
+	local IMG_PATH_PIN = __core.IMG_PATH_PIN;
+	local IMG_LIST = __core.IMG_LIST;
+	local ContinentMapID = __core.ContinentMapID;
+	local GetUnitPosition = __core.GetUnitPosition;
 
 	local __core_meta = __ns.__core_meta;
 
@@ -73,6 +80,10 @@ local _ = nil;
 	ReCalcFrameLevel(pinFrameLevelsManager);
 
 	local SET = nil;
+-->
+if __ns.__is_dev then
+	__ns:BuildEnv("map");
+end
 -->		MAIN
 	-->		--	count
 		local __popt = { 0, 0, 0, 0, };
@@ -133,8 +144,6 @@ local _ = nil;
 		local SetHideNodeModifier, SetMinimapNodeInset, SetMinimapPlayerArrowOnTop;
 	-->
 	-->		--	Pin Handler
-		local GameTooltip = GameTooltip;
-		local GetFactionInfoByID = GetFactionInfoByID;
 		function Pin_OnEnter(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local uuid = self.uuid;
@@ -682,9 +691,6 @@ local _ = nil;
 	-->
 	-->		--	draw on Minimap			--	只有少部分点显示在小地图，所以单独建表
 		--	variables
-			local GetCVar = GetCVar;
-			local GetTime = GetTime;
-			local GetPlayerFacing = GetPlayerFacing;
 			local minimap_size = {
 				indoor = {
 					[0] = 300, -- scale
@@ -709,6 +715,7 @@ local _ = nil;
 				end,
 			};
 			local mm_shape = "CIRCLE";
+			local GetMinimapShape = _G.GetMinimapShape;
 			if GetMinimapShape ~= nil then
 				mm_shape = GetMinimapShape() or "CIRCLE";
 			else
@@ -1194,6 +1201,7 @@ local _ = nil;
 				if facing ~= nil then
 					local now = GetTime();
 					if __mm_prev_update + mm_dynamic_update_interval <= now then
+						local GetMinimapShape = _G.GetMinimapShape;
 						if GetMinimapShape ~= nil then
 							local shape = GetMinimapShape() or "CIRCLE";
 							if mm_shape ~= shape then

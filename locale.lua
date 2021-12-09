@@ -5,16 +5,20 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.locale'); end
 
+local setmetatable, rawset = setmetatable, rawset;
+local LOCALE = GetLocale();
+
+if __ns.__is_dev then
+	__ns:BuildEnv("locale");
+end
+
 local UILOC = setmetatable(
-	{  },
+	{ GetDebugName = false, },
 	{
 		__newindex = function(tbl, key, val)
 			if val == true then
@@ -33,7 +37,6 @@ local UILOC = setmetatable(
 );
 __ns.UILOC = UILOC;
 
-local LOCALE = GetLocale();
 
 local LOC_PATTERN_LIST = {
 	deDE = {
@@ -264,8 +267,8 @@ elseif LOCALE == 'ruRU' then
 	UILOC.hide_quest = "Скрыть";
 	UILOC.reset_filter = "Обновить";
 	--	pin-onmenu
-	UILOC.pin_menu_hide_quest = "|cffff3f00Hide|r ";
-	UILOC.pin_menu_show_quest = "|cff00ff00Show|r ";
+	UILOC.pin_menu_hide_quest = "|cffff3f00Скрыть|r ";
+	UILOC.pin_menu_show_quest = "|cff00ff00Показать|r ";
 	UILOC.pin_menu_send_quest = "|cffff7f00Send|r";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Отключить ClassicCodex и Questie, а затем перезагрузить интерфейс?";

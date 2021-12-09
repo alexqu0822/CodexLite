@@ -5,22 +5,18 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.comm'); end
 
 -->		variables
-	local strupper = string.upper;
-	local strmatch = string.match;
-	local gsub = string.gsub;
-	local strfind = string.find;
-	local next = next;
-	local bit_band = bit.band;
 	local GetTime = GetTime;
+	local next = next;
+	local tonumber = tonumber;
+	local tremove, wipe = table.remove, table.wipe;
+	local strupper, strsplit, strsub, strmatch, gsub = string.upper, string.split, string.sub, string.match, string.gsub;
+	local GetFactionInfoByID = GetFactionInfoByID;
 	local Ambiguate = Ambiguate;
 	local RegisterAddonMessagePrefix = RegisterAddonMessagePrefix or C_ChatInfo.RegisterAddonMessagePrefix;
 	local IsAddonMessagePrefixRegistered = IsAddonMessagePrefixRegistered or C_ChatInfo.IsAddonMessagePrefixRegistered;
@@ -28,9 +24,15 @@ local _ = nil;
 	local SendAddonMessage = SendAddonMessage or C_ChatInfo.SendAddonMessage;
 	local SendAddonMessageLogged = SendAddonMessageLogged or C_ChatInfo.SendAddonMessageLogged;
 	local IsInGroup, IsInRaid = IsInGroup, IsInRaid;
-	local LE_PARTY_CATEGORY_HOME = LE_PARTY_CATEGORY_HOME;
 	local GetNumGroupMembers = GetNumGroupMembers;
 	local GetRaidRosterInfo = GetRaidRosterInfo;
+	local UnitName = UnitName;
+	local UnitClassBase = UnitClassBase;
+	local UnitExists = UnitExists;
+	local UnitInBattleground = UnitInBattleground;
+	local UnitIsConnected = UnitIsConnected;
+	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
+	local LE_PARTY_CATEGORY_HOME = LE_PARTY_CATEGORY_HOME;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -47,21 +49,25 @@ local _ = nil;
 
 	local __loc_object = __ns.L.object;
 
-	local _F_SafeCall = __ns.core._F_SafeCall;
-	local __eventHandler = __ns.core.__eventHandler;
-	local __const = __ns.core.__const;
-	local PreloadCoords = __ns.core.PreloadCoords;
-	local IMG_INDEX = __ns.core.IMG_INDEX;
-	local GetQuestStartTexture = __ns.core.GetQuestStartTexture;
+	local __core = __ns.core;
+	local _F_SafeCall = __core._F_SafeCall;
+	local __eventHandler = __core.__eventHandler;
+	local __const = __core.__const;
+	local PreloadCoords = __core.PreloadCoords;
+	local IMG_INDEX = __core.IMG_INDEX;
+	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
 	local __core_meta = __ns.__core_meta;
 
-	local UnitHelpFac = __ns.core.UnitHelpFac;
+	local UnitHelpFac = __core.UnitHelpFac;
 	local _log_ = __ns._log_;
 
 	local SET = nil;
-	local PLAYER_NAME = UnitName('player');
 
+-->
+if __ns.__is_dev then
+	__ns:BuildEnv("comm");
+end
 -->		MAIN
 	local ADDON_PREFIX = "CDXLT1";
 	local ADDON_MSG_CONTROL_CODE_LEN = 6;
@@ -77,6 +83,7 @@ local _ = nil;
 	__ns.__comm_group_members = GROUP_MEMBERS;
 	local GROUP_MEMBERS_INFO = {  };
 	__ns.__comm_group_members_info = GROUP_MEMBERS_INFO;
+	local _Inited = {  };
 	-->		function predef
 		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
@@ -85,6 +92,8 @@ local _ = nil;
 		local AddLine, DelLine;
 		local MessageTicker, ScheduleMessage;
 		local PushReset, PushAddQuest, PushDelQuest, PushAddLine, PushResetSingle, PushAddQuestSingle, PushDelQuestSingle, PushAddLineSingle, Push, Pull, PushSingle, PullSingle, BroadcastOnline;
+		local OnCommCodexLite;
+		local OnCommQuestie;
 		local DisableComm, EnableComm;
 		local UpdateGroupMembers;
 	-->
@@ -591,7 +600,6 @@ local _ = nil;
 		end
 	-->
 	-->		net buffer
-		local C_Timer_After = C_Timer.After;
 		local MessageBuffer = {  };
 		local MessageTop = 0;
 		local SchedulerRunning = false;
@@ -601,28 +609,28 @@ local _ = nil;
 			MessageTop = MessageTop - 1;
 			if MessageBuffer[1] ~= nil then
 				SchedulerRunning = true;
-				C_Timer_After(0.02, MessageTicker);
+				__ns.After(0.02, MessageTicker);
 			else
 				SchedulerRunning = false;
 			end
-			SendAddonMessage(ADDON_PREFIX, msg[1], msg[2], msg[3]);
+			SendAddonMessage(msg[1], msg[2], msg[3], msg[4]);
 			SentTarget[strupper(Ambiguate(msg[3], 'none'))] = GetTime();
 		end
-		function ScheduleMessage(msg, channel, target)
+		function ScheduleMessage(prefix, msg, channel, target)
 			MessageTop = MessageTop + 1;
-			MessageBuffer[MessageTop] = { msg, channel, target, };
+			MessageBuffer[MessageTop] = { prefix, msg, channel, target, };
 			if not SchedulerRunning then
 				SchedulerRunning = true;
-				C_Timer_After(0.02, MessageTicker);
+				__ns.After(0.02, MessageTicker);
 			end
 		end
 		-->		Message Filter
 			--	ERR_CHAT_PLAYER_NOT_FOUND_S
-			local C_String = ERR_CHAT_PLAYER_NOT_FOUND_S;
+			local C_String = _G.ERR_CHAT_PLAYER_NOT_FOUND_S;
 			local C_Pattern = gsub(C_String, "%%s", "(.+)");
 			local function F_Filter(self, event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, line, arg12, arg13, arg14, ...)
-				if C_String ~= ERR_CHAT_PLAYER_NOT_FOUND_S then
-					C_String = ERR_CHAT_PLAYER_NOT_FOUND_S;
+				if C_String ~= _G.ERR_CHAT_PLAYER_NOT_FOUND_S then
+					C_String = _G.ERR_CHAT_PLAYER_NOT_FOUND_S;
 					C_Pattern = gsub(C_String, "%%s", "(.+)");
 				end
 				local name = strmatch(arg1, C_Pattern);
@@ -641,12 +649,13 @@ local _ = nil;
 			end
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", F_Filter);
 		-->
+		__ns.ScheduleMessage = ScheduleMessage;
 	-->
 	-->		comm
 		function PushReset()
 			for name, val in next, GROUP_MEMBERS do
 				if val then
-					ScheduleMessage(ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
+					ScheduleMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
 				end
 			end
 		end
@@ -654,7 +663,7 @@ local _ = nil;
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^1^" .. num_lines .. "^" .. title;
 			for name, val in next, GROUP_MEMBERS do
 				if val then
-					ScheduleMessage(msg, "WHISPER", name);
+					ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 				end
 			end
 			_log_('comm.PushAddQuest', msg);
@@ -663,7 +672,7 @@ local _ = nil;
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^-1";
 			for name, val in next, GROUP_MEMBERS do
 				if val then
-					ScheduleMessage(msg, "WHISPER", name);
+					ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 				end
 			end
 			_log_('comm.PushAddQuest', msg);
@@ -672,28 +681,28 @@ local _ = nil;
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^LINE^" .. _quest .. (_finished and "^1^" or "^0^") .. _line .. "^" .. _type .. "^" .. _id .. "^" .. _text;
 			for name, val in next, GROUP_MEMBERS do
 				if val then
-					ScheduleMessage(msg, "WHISPER", name);
+					ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 				end
 			end
 			_log_('comm.PushAddLine', msg);
 		end
 		--
 		function PushResetSingle(name)
-			ScheduleMessage(ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
+			ScheduleMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_RESET, "WHISPER", name);
 		end
 		function PushAddQuestSingle(name, _quest, _completed, title, num_lines)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^1^" .. num_lines .. "^" .. title;
-			ScheduleMessage(msg, "WHISPER", name);
+			ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			_log_('comm.PushAddQuest', msg);
 		end
 		function PushDelQuestSingle(name, _quest, _completed)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^QUEST^" .. _quest .. "^" .. _completed .. "^-1";
-			ScheduleMessage(msg, "WHISPER", name);
+			ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			_log_('comm.PushAddQuest', msg);
 		end
 		function PushAddLineSingle(name, _quest, _line, _finished, _type, _id, _text)
 			local msg = ADDON_MSG_CTRLCODE_PUSH .. "^LINE^" .. _quest .. (_finished and "^1^" or "^0^") .. _line .. "^" .. _type .. "^" .. _id .. "^" .. _text;
-			ScheduleMessage(msg, "WHISPER", name);
+			ScheduleMessage(ADDON_PREFIX, msg, "WHISPER", name);
 			_log_('comm.PushAddLine', msg);
 		end
 		--
@@ -713,7 +722,7 @@ local _ = nil;
 		function Pull()
 			_log_('comm.|cffff0000Pull|r');
 			for name, val in next, GROUP_MEMBERS do
-				ScheduleMessage(ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
+				ScheduleMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
 			end
 		end
 		function PushSingle(name)
@@ -731,13 +740,128 @@ local _ = nil;
 		end
 		function PullSingle(name)
 			_log_('comm.|cffff0000PullSingle|r', name);
-			ScheduleMessage(ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
+			ScheduleMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_PULL, "WHISPER", name);
 		end
 		function BroadcastOnline()
 			_log_('comm.|cffff0000BroadcastOnline|r');
 			for name, val in next, GROUP_MEMBERS do
-				ScheduleMessage(ADDON_MSG_CTRLCODE_ONLINE, "WHISPER", name);
+				ScheduleMessage(ADDON_PREFIX, ADDON_MSG_CTRLCODE_ONLINE, "WHISPER", name);
 			end
+		end
+	--		OnComm
+		--[==[
+			_completed	--	-1 = failed, 0 = uncompleted, 1 = completed
+		--]==]
+		local function OnCommInit(META, name)
+			if META[name] ~= nil then
+				for quest, meta in next, META[name] do
+					for index = 1, meta.num_lines do
+						local meta_line = meta[index];
+						if meta_line ~= nil then
+							DelLine(name, quest, index, meta_line[2], meta_line[3], true);
+						end
+					end
+					local info = __db_quest[quest];
+					if info ~= nil then
+						-- DelQuestStart(name, quest, info);
+						DelQuestEnd(name, quest, info);
+					end
+				end
+			end
+			META[name] = {  };
+		end
+		local function OnCommQuestAdd(META, name, quest, completed, num_lines, title)
+			local meta_table = META[name];
+			local meta = meta_table[quest];
+			if meta == nil then
+				meta_table[quest] = { completed = completed, title = title, num_lines = num_lines, };
+			else
+				meta.completed = completed;
+				meta.title = title;
+			end
+			local info = __db_quest[quest];
+			if info ~= nil then
+				-- AddQuestStart(name, quest, info);
+				AddQuestEnd(name, quest, info, completed == 1 and IMG_INDEX.IMG_E_COMPLETED or IMG_INDEX.IMG_E_UNCOMPLETED);
+			end
+		end
+		local function OnCommQuestDel(META, name, quest)
+			local meta_table = META[name];
+			local meta = meta_table[quest];
+			if meta ~= nil then
+				meta_table[quest] = nil;
+				for index = 1, meta.num_lines do
+					local meta_line = meta[index];
+					if meta_line ~= nil then
+						DelLine(name, quest, index, meta_line[2], meta_line[3], true);
+					end
+				end
+				local info = __db_quest[quest];
+				if info ~= nil then
+					-- DelQuestStart(name, quest, info);
+					DelQuestEnd(name, quest, info);
+				end
+			end
+		end
+		local function OnCommQuestLine(META, name, quest, line, type, id, text, finished)
+			local meta_table = META[name];
+			local meta = meta_table[quest];
+			if meta ~= nil then
+				local meta_line = meta[line];
+				if meta_line == nil then
+					meta[line] = { nil, type, id, text, finished, };
+				else
+					meta_line[2] = type;
+					meta_line[3] = id;
+					meta_line[4] = text;
+					meta_line[5] = finished;
+				end
+				if type == 'object' and __loc_object[id] ~= nil then
+					OBJ_LOOKUP[__loc_object[id]] = id;
+				end
+				AddLine(name, quest, line, type, id, finished);
+			end
+		end
+		function OnCommCodexLite(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
+			_log_('|cff00ff7fOnCommCodexLite|r', msg, name);
+			local control_code = strsub(msg, 1, ADDON_MSG_CONTROL_CODE_LEN);
+			if control_code == ADDON_MSG_CTRLCODE_PUSH then
+				if META[name] ~= nil then
+				--  local _, _head, _quest, _done, _val, _type, _id, _text = strsplit("^", msg);
+					local _, _head, _quest, _1,    _2,   _3,    _4,  _5 = strsplit("^", msg);
+					if _head == "QUEST" then
+						--	_1 : _completed		_2 : _act		_3 : _num_lines		_4 : _title
+						_quest = tonumber(_quest);
+						local _act = tonumber(_2);			--	1 = add, -1 = del
+						if _act == -1 then
+							OnCommQuestDel(META, name, _quest);
+						elseif _act == 1 then
+							OnCommQuestAdd(META, name, _quest, tonumber(_1), tonumber(_3), _4);
+						end
+					elseif _head == "LINE" then
+						--	_1 : finished		_2 : _line		_3 : _type			_4 : _id		_5 : _text
+						_quest = tonumber(_quest);
+						local meta = META[name][_quest];
+						if meta ~= nil then
+							OnCommQuestLine(META, name, _quest, tonumber(_2) or _2, _3, tonumber(_4), _5, _1 == "1");
+						end
+					else
+					end
+				end
+			elseif control_code == ADDON_MSG_CTRLCODE_PULL then
+				if _Inited[name] == nil then
+					PullSingle(name);
+				end
+				PushSingle(name);
+			elseif control_code == ADDON_MSG_CTRLCODE_RESET then
+				OnCommInit(META, name);
+				_Inited[name] = GetTime();
+			elseif control_code == ADDON_MSG_CTRLCODE_ONLINE then
+			end
+		end
+		function OnCommQuestie(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
+			_log_('|cff00ff7fOnCommQuestie|r', msg, name);
+			__ns.ExternalQuestie._OnComm(msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
 		end
 	-->		control
 		function DisableComm()
@@ -774,7 +898,9 @@ local _ = nil;
 						if isconnected then
 							if not GROUP_MEMBERS[name] then
 								--	Add
+								META[name] = {  };
 								PullSingle(name);
+								__ns.ExternalQuestie._PullSingle(name);
 								PushSingle(name);
 							end
 							_GROUP_MEMBERS[name] = true;
@@ -783,6 +909,8 @@ local _ = nil;
 								--	Del
 								CommDelUUID(name);
 								META[name] = nil;
+								_Inited[name] = nil;
+								__ns.ExternalQuestie._DelUnit(name);
 							end
 							_GROUP_MEMBERS[name] = false;
 						end
@@ -794,6 +922,8 @@ local _ = nil;
 						--	Del
 						CommDelUUID(name);
 						META[name] = nil;
+						_Inited[name] = nil;
+						__ns.ExternalQuestie._DelUnit(name);
 					end
 				end
 				GROUP_MEMBERS = _GROUP_MEMBERS;
@@ -808,97 +938,13 @@ local _ = nil;
 		function __ns.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			if prefix == ADDON_PREFIX then
 				local name = Ambiguate(sender, 'none');
-				if name ~= PLAYER_NAME then
-					_log_('|cff00ff7fMSGA|r', msg, name);
-					local control_code = strsub(msg, 1, ADDON_MSG_CONTROL_CODE_LEN);
-					if control_code == ADDON_MSG_CTRLCODE_PUSH then
-					--  local _, _head, _quest, _done, _val, _type, _id, _text = strsplit("^", msg);
-						local _, _head, _quest, _1,    _2,   _3,    _4,  _5 = strsplit("^", msg);
-						local meta_table = META[name];
-						if meta_table ~= nil then
-							if _head == "QUEST" then
-								_quest = tonumber(_quest);
-								local _completed = tonumber(_1);	--	-1 = failed, 0 = uncompleted, 1 = completed
-								local _act = tonumber(_2);			--	1 = add, -1 = del
-								local _num_lines = tonumber(_3);	--	num_lines
-								local _title = _4;					--	title
-								if _act == -1 then
-									local meta = meta_table[_quest];
-									meta_table[_quest] = nil;
-									for index2 = 1, meta.num_lines do
-										local meta_line = meta[index2];
-										if meta_line ~= nil then
-											DelLine(name, _quest, index2, meta_line[2], meta_line[3], true);
-										end
-									end
-									local info = __db_quest[_quest];
-									if info ~= nil then
-										-- DelQuestStart(name, _quest, info);
-										DelQuestEnd(name, _quest, info);
-									end
-								elseif _act == 1 then
-									local meta = meta_table[_quest];
-									if meta == nil then
-										meta_table[_quest] = { completed = _completed, title = _title, num_lines = _num_lines, };
-									else
-										meta.completed = _completed;
-										meta.title = _title;
-									end
-									local info = __db_quest[_quest];
-									if info ~= nil then
-										-- AddQuestStart(name, _quest, info);
-										AddQuestEnd(name, _quest, info, _completed == 1 and IMG_INDEX.IMG_E_COMPLETED or IMG_INDEX.IMG_E_UNCOMPLETED);
-									end
-								end
-							elseif _head == "LINE" then
-								_quest = tonumber(_quest);
-								local meta = meta_table[_quest];
-								if meta ~= nil then
-									local finished = _1 == "1";
-									local _line = tonumber(_2) or _2;
-									local _type = _3;
-									local _id = tonumber(_4);
-									local _text = _5;
-									local meta_line = meta[_line];
-									if meta_line == nil then
-										meta[_line] = { nil, _type, _id, _text, finished, };
-									else
-										meta_line[2] = _type;
-										meta_line[3] = _id;
-										meta_line[4] = _text;
-										meta_line[5] = finished;
-									end
-									if _type == 'object' and __loc_object[id] ~= nil then
-										OBJ_LOOKUP[__loc_object[id]] = id;
-									end
-									AddLine(name, _quest, _line, _type, _id, finished);
-								end
-							else
-							end
-						end
-					elseif control_code == ADDON_MSG_CTRLCODE_PULL then
-						if GROUP_MEMBERS[name] then
-							PushSingle(name);
-						end
-					elseif control_code == ADDON_MSG_CTRLCODE_RESET then
-						if META[name] ~= nil then
-							for _quest, meta in next, META[name] do
-								for index2 = 1, meta.num_lines do
-									local meta_line = meta[index2];
-									if meta_line ~= nil then
-										DelLine(name, _quest, index2, meta_line[2], meta_line[3], true);
-									end
-								end
-								local info = __db_quest[_quest];
-								if info ~= nil then
-									-- DelQuestStart(name, _quest, info);
-									DelQuestEnd(name, _quest, info);
-								end
-							end
-						end
-						META[name] = {  };
-					elseif control_code == ADDON_MSG_CTRLCODE_ONLINE then
-					end
+				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
+					OnCommCodexLite(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID);
+				end
+			elseif prefix == "questie" then
+				local name = Ambiguate(sender, 'none');
+				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
+					OnCommQuestie(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID);
 				end
 			end
 		end
@@ -955,6 +1001,7 @@ local _ = nil;
 				_log_("comm.init.ingroup");
 			end
 		end
+		RegisterAddonMessagePrefix("questie");
 	end
 -->
 

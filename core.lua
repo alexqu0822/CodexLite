@@ -5,18 +5,20 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core'); end
 
 -->		variables
-	local strfind = strfind;
-	local next, wipe = next, wipe;
+	local select = select;
+	local next = next;
+	local wipe = table.wipe;
+	local strfind = string.find;
+	local floor, random = math.floor, math.random;
 	local bit_band = bit.band;
+	local IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown = IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown;
+	local GetQuestDifficultyColor = GetQuestDifficultyColor;
 	local GetNumQuestLogEntries = GetNumQuestLogEntries;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetNumQuestLeaderBoards = GetNumQuestLeaderBoards;
@@ -29,6 +31,29 @@ local _ = nil;
 	local GetFactionInfoByID = GetFactionInfoByID;
 	local GetNumSkillLines = GetNumSkillLines;
 	local GetSkillLineInfo = GetSkillLineInfo;
+
+	local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
+	local GetGossipActiveQuests = GetGossipActiveQuests;
+	local SelectGossipActiveQuest = SelectGossipActiveQuest;
+	local GetNumGossipAvailableQuests = GetNumGossipAvailableQuests;
+	local GetGossipAvailableQuests = GetGossipAvailableQuests;
+	local SelectGossipAvailableQuest = SelectGossipAvailableQuest;
+	local GetNumActiveQuests = GetNumActiveQuests;
+	local GetActiveTitle = GetActiveTitle;
+	local SelectActiveQuest = SelectActiveQuest;
+	local GetNumAvailableQuests = GetNumAvailableQuests;
+	local GetAvailableTitle = GetAvailableTitle;
+	local SelectAvailableQuest = SelectAvailableQuest;
+	local AcceptQuest = AcceptQuest;
+	local IsQuestCompletable = IsQuestCompletable;
+	local CompleteQuest = CompleteQuest;
+	local GetNumQuestChoices = GetNumQuestChoices;
+	local GetQuestReward = GetQuestReward;
+	local ConfirmAcceptQuest = ConfirmAcceptQuest;
+	local GetQuestLogIndexByID = GetQuestLogIndexByID;
+	local GetQuestLogIsAutoComplete = GetQuestLogIsAutoComplete;
+	local ShowQuestComplete = ShowQuestComplete;
+	local StaticPopup_Hide = StaticPopup_Hide;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -50,24 +75,29 @@ local _ = nil;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
 
-	local _F_SafeCall = __ns.core._F_SafeCall;
-	local __eventHandler = __ns.core.__eventHandler;
-	local __const = __ns.core.__const;
-	local __L_QUEST_MONSTERS_KILLED = __ns.core.__L_QUEST_MONSTERS_KILLED;
-	local __L_QUEST_ITEMS_NEEDED = __ns.core.__L_QUEST_ITEMS_NEEDED;
-	local __L_QUEST_OBJECTS_FOUND = __ns.core.__L_QUEST_OBJECTS_FOUND;
-	local __L_QUEST_DEFAULT_PATTERN = __ns.core.__L_QUEST_DEFAULT_PATTERN;
-	local FindMinLevenshteinDistance = __ns.core.FindMinLevenshteinDistance;
-	local PreloadCoords = __ns.core.PreloadCoords;
-	local IMG_INDEX = __ns.core.IMG_INDEX;
-	local GetQuestStartTexture = __ns.core.GetQuestStartTexture;
+	local __core = __ns.core;
+	local _F_SafeCall = __core._F_SafeCall;
+	local __eventHandler = __core.__eventHandler;
+	local __const = __core.__const;
+	local __L_QUEST_MONSTERS_KILLED = __core.__L_QUEST_MONSTERS_KILLED;
+	local __L_QUEST_ITEMS_NEEDED = __core.__L_QUEST_ITEMS_NEEDED;
+	local __L_QUEST_OBJECTS_FOUND = __core.__L_QUEST_OBJECTS_FOUND;
+	local __L_QUEST_DEFAULT_PATTERN = __core.__L_QUEST_DEFAULT_PATTERN;
+	local FindMinLevenshteinDistance = __core.FindMinLevenshteinDistance;
+	local PreloadCoords = __core.PreloadCoords;
+	local IMG_INDEX = __core.IMG_INDEX;
+	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
-	local UnitHelpFac = __ns.core.UnitHelpFac;
+	local UnitHelpFac = __core.UnitHelpFac;
 	local _log_ = __ns._log_;
 
 	local SET = nil;
 
 	__ns.__player_level = UnitLevel('player');
+-->
+if __ns.__is_dev then
+	__ns:BuildEnv("core");
+end
 -->		MAIN
 	local show_starter, show_ender = false, false;
 	local quest_auto_inverse_modifier = IsShiftKeyDown;
@@ -1108,7 +1138,7 @@ local _ = nil;
 										if meta.event_shown ~= true then
 											AddEvent(quest_id);
 											meta.event_shown = true;
-											__ns.PushAddLine(quest_id, 'event', finished, 'event', quest_id, 'event');
+											__ns.PushAddLine(quest_id, 'event', false, 'event', quest_id, 'event');
 										end
 									else
 										if meta.event_shown == true then
@@ -1429,28 +1459,6 @@ local _ = nil;
 		end
 	-->
 	-->		events and hooks
-		local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
-		local GetGossipActiveQuests = GetGossipActiveQuests;
-		local SelectGossipActiveQuest = SelectGossipActiveQuest;
-		local GetNumGossipAvailableQuests = GetNumGossipAvailableQuests;
-		local GetGossipAvailableQuests = GetGossipAvailableQuests;
-		local SelectGossipAvailableQuest = SelectGossipAvailableQuest;
-		local GetNumActiveQuests = GetNumActiveQuests;
-		local GetActiveTitle = GetActiveTitle;
-		local SelectActiveQuest = SelectActiveQuest;
-		local GetNumAvailableQuests = GetNumAvailableQuests;
-		local GetAvailableTitle = GetAvailableTitle;
-		local SelectAvailableQuest = SelectAvailableQuest;
-		local AcceptQuest = AcceptQuest;
-		local IsQuestCompletable = IsQuestCompletable;
-		local CompleteQuest = CompleteQuest;
-		local GetNumQuestChoices = GetNumQuestChoices;
-		local GetQuestReward = GetQuestReward;
-		local ConfirmAcceptQuest = ConfirmAcceptQuest;
-		local GetQuestLogIndexByID = GetQuestLogIndexByID;
-		local GetQuestLogIsAutoComplete = GetQuestLogIsAutoComplete;
-		local ShowQuestComplete = ShowQuestComplete;
-		local StaticPopup_Hide = StaticPopup_Hide;
 		--
 		function __ns.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
 		end
@@ -1486,12 +1494,12 @@ local _ = nil;
 			_log_('QUEST_TURNED_IN', quest_id, xp, money);
 			QUESTS_COMPLETED[quest_id] = true;
 			QUEST_TURNED_IN();
-			-- C_Timer.After(0.5, QUEST_TURNED_IN);
-			C_Timer.After(1.0, QUEST_TURNED_IN);
-			-- C_Timer.After(1.5, QUEST_TURNED_IN);
-			-- C_Timer.After(2.0, QUEST_TURNED_IN);
-			-- C_Timer.After(2.5, QUEST_TURNED_IN);
-			-- C_Timer.After(3.0, QUEST_TURNED_IN);
+			-- __ns.After(0.5, QUEST_TURNED_IN);
+			__ns.After(1.0, QUEST_TURNED_IN);
+			-- __ns.After(1.5, QUEST_TURNED_IN);
+			-- __ns.After(2.0, QUEST_TURNED_IN);
+			-- __ns.After(2.5, QUEST_TURNED_IN);
+			-- __ns.After(3.0, QUEST_TURNED_IN);
 			local info = __db_quest[quest_id];
 			if info ~= nil then
 				DelQuestEnd(quest_id, info);
