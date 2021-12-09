@@ -6,30 +6,121 @@
 local __addon, __ns = ...;
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
+local __ala_meta__ = _G.__ala_meta__;
 __ala_meta__.quest = __ns;
-local core = {  };
-__ns.core = core;
+
+local __core = {  };
+__ns.core = __core;
 __ns.____bn_tag = select(2, BNGetInfo());
 __ns.__is_dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
 __ns.__toc = select(4, GetBuildInfo());
 __ns.__expansion = GetExpansionLevel();
 __ns.__maxLevel = GetMaxLevelForExpansionLevel(__ns.__expansion);
+__ns.After = C_Timer.After;
+__ns.NewTicker = C_Timer.NewTicker;
+__ns.NewTimer = C_Timer.NewTimer;
 
-__ns.__fenv = setmetatable({  }, {
-		__index = _G,
-		__newindex = function(t, key, value)
-			rawset(t, key, value);
-			print("cdx assign global", key, value);
-			return value;
-		end,
-	}
-);
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
+-->		Dev
+	local setfenv = setfenv;
+	local _GlobalRef = {  };
+	local _GlobalAssign = {  };
+	function __ns:BuildEnv(category)
+		local _G = _G;
+		_GlobalRef[category] = _GlobalRef[category] or {  };
+		_GlobalAssign[category] = _GlobalAssign[category] or {  };
+		local Ref = _GlobalRef[category];
+		local Assign = _GlobalAssign[category];
+		setfenv(2, setmetatable(
+			{  },
+			{
+				__index = function(tbl, key, val)
+					Ref[key] = (Ref[key] or 0) + 1;
+					return _G[key];
+				end,
+				__newindex = function(tbl, key, value)
+					rawset(tbl, key, value);
+					Assign[key] = (Assign[key] or 0) + 1;
+					return value;
+				end,
+			}
+		));
+	end
+	function __ns:MergeGlobal(DB)
+		local _Ref = DB._GlobalRef;
+		if _Ref ~= nil then
+			for category, db in next, _Ref do
+				local to = _GlobalRef[category];
+				if to == nil then
+					_GlobalRef[category] = db;
+				else
+					for key, val in next, db do
+						to[key] = (to[key] or 0) + val;
+					end
+				end
+			end
+		end
+		DB._GlobalRef = _GlobalRef;
+		local _Assign = DB._GlobalAssign;
+		if _Assign ~= nil then
+			for category, db in next, _Assign do
+				local to = _GlobalAssign[category];
+				if to == nil then
+					_GlobalAssign[category] = db;
+				else
+					for key, val in next, db do
+						to[key] = (to[key] or 0) + val;
+					end
+				end
+			end
+		end
+		DB._GlobalAssign = _GlobalAssign;
+	end
+-->
+
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
+
+-->		upvalue
+	local xpcall = xpcall;
+	local debugprofilestart, debugprofilestop = debugprofilestart, debugprofilestop;
+	local geterrorhandler = geterrorhandler;
+	local hooksecurefunc = hooksecurefunc;
+	local date = date;
+	local GetTimePreciseSec = GetTimePreciseSec;
+	local next, ipairs = next, ipairs;
+	local select = select;
+	local setmetatable = setmetatable;
+	local tremove, table_concat = table.remove, table.concat;
+	local strbyte, strfind, format, gsub = string.byte, string.find, string.format, string.gsub;
+	local min = math.min;
+	local _bit_band = bit.band;
+	local loadstring = loadstring;
+	local tostring = tostring;
+	local CreateFrame = CreateFrame;
+	local GetQuestTagInfo = GetQuestTagInfo;
+	local UnitPosition = UnitPosition;
+	local C_Map = C_Map;
+	local CreateVector2D = CreateVector2D;
+
+	local _PLAYER_GUID = UnitGUID('player');
+	local _PLAYER_NAME = UnitName('player');
+	local _PLAYER_RACE, _PLAYER_RACEFILE, _PLAYER_RACEID = UnitRace('player');
+	local _PLAYER_CLASS = UnitClassBase('player');
+	local _PLAYER_FACTIONGROUP = UnitFactionGroup('player');
+	__core._PLAYER_GUID = _PLAYER_GUID;
+	__core._PLAYER_NAME = _PLAYER_NAME;
+	__core._PLAYER_RACE = _PLAYER_RACE;
+	__core._PLAYER_RACEFILE = _PLAYER_RACEFILE;
+	__core._PLAYER_RACEID = _PLAYER_RACEID;
+	__core._PLAYER_CLASS = _PLAYER_CLASS;
+	__core._PLAYER_FACTIONGROUP = _PLAYER_FACTIONGROUP;
+-->
+
+if __ns.__is_dev then
+	__ns:BuildEnv("init");
+end
+
 -->		Time
 	local _debugprofilestart, _debugprofilestop = debugprofilestart, debugprofilestop;
 	local TheFuckingAccurateTime = _G.AccurateTime;
@@ -68,6 +159,7 @@ local _ = nil;
 		GetTimePreciseSec = function()
 			return _F_devDebugProfileTick("_sys._1core.time.alternative");
 		end
+		_G.GetTimePreciseSec = GetTimePreciseSec;
 	end
 	local _LN_devBaseTime = GetTimePreciseSec();
 	function __ns._F_devGetPreciseTime()
@@ -81,19 +173,18 @@ local _ = nil;
 local SET = nil;
 
 -->		SafeCall
-	local xpcall = xpcall;
 	local _F_ErrorHandler = geterrorhandler();
 	hooksecurefunc("seterrorhandler", function(handler)
 		_F_ErrorHandler = handler;
 	end);
-	function core._F_SafeCall(func, ...)
+	function __core._F_SafeCall(func, ...)
 		return xpcall(func, _F_ErrorHandler, ...);
 	end
 -->
 
 -->		EventHandler
 	local _EventHandler = CreateFrame('FRAME');
-	core.__eventHandler = _EventHandler;
+	__core.__eventHandler = _EventHandler;
 	local function _noop_()
 	end
 	-->		Simple Event Dispatcher
@@ -162,7 +253,7 @@ local SET = nil;
 -->
 
 -->		Const
-	core.__const = {
+	__core.__const = {
 		TAG_DEFAULT = '__pin_tag_default',
 		TAG_WM_COMMON = '__pin_tag_wm_common',
 		TAG_WM_LARGE = '__pin_tag_wm_large',
@@ -174,11 +265,7 @@ local SET = nil;
 -->
 
 -->		Restricted Implementation
-	local select = select;
-	local loadstring = loadstring;
-	local tostring = tostring;
-	local table_concat = table.concat;
-	local _F_SafeCall = core._F_SafeCall;
+	local _F_SafeCall = __core._F_SafeCall;
 	local _LT_CorePrint_Method = setmetatable(
 		{
 			[0] = function()
@@ -243,7 +330,6 @@ local SET = nil;
 -->
 
 -->		string
-	local gsub = gsub;
 	local function BuildRegularExp(pattern)
 		--	escape magic characters
 		pattern = gsub(pattern, "([%+%-%*%(%)%?%[%]%^])", "%%%1");
@@ -258,21 +344,20 @@ local SET = nil;
 
 		return pattern;
 	end
-	core.__L_QUEST_MONSTERS_KILLED = BuildRegularExp(QUEST_MONSTERS_KILLED);
-	core.__L_QUEST_ITEMS_NEEDED = BuildRegularExp(QUEST_ITEMS_NEEDED);
-	core.__L_QUEST_OBJECTS_FOUND = BuildRegularExp(QUEST_OBJECTS_FOUND);
-	if strfind(QUEST_MONSTERS_KILLED, "：") then
-		core.__L_QUEST_DEFAULT_PATTERN = "(.+)：";
+	__core.__L_QUEST_MONSTERS_KILLED = BuildRegularExp(_G.QUEST_MONSTERS_KILLED);
+	__core.__L_QUEST_ITEMS_NEEDED = BuildRegularExp(_G.QUEST_ITEMS_NEEDED);
+	__core.__L_QUEST_OBJECTS_FOUND = BuildRegularExp(_G.QUEST_OBJECTS_FOUND);
+	if strfind(_G.QUEST_MONSTERS_KILLED, "：") then
+		__core.__L_QUEST_DEFAULT_PATTERN = "(.+)：";
 	else
-		core.__L_QUEST_DEFAULT_PATTERN = "(.+):";
+		__core.__L_QUEST_DEFAULT_PATTERN = "(.+):";
 	end 
 
 	local LevenshteinDistance;
-	if CalculateStringEditDistance ~= nil then
-		LevenshteinDistance = CalculateStringEditDistance;
+	if _G.CalculateStringEditDistance ~= nil then
+		LevenshteinDistance = _G.CalculateStringEditDistance;
 	else
 		--	credit https://gist.github.com/Badgerati/3261142
-		local strbyte, min = strbyte, math.min;
 		function LevenshteinDistance(str1, str2)
 			--	quick cut-offs to save time
 			if str1 == "" then
@@ -330,7 +415,7 @@ local SET = nil;
 		return ids[bestIndex], bestIndex, bestDistance;
 	end
 
-	core.FindMinLevenshteinDistance = FindMinLevenshteinDistance;
+	__core.FindMinLevenshteinDistance = FindMinLevenshteinDistance;
 -->
 
 -->		bit-data
@@ -360,35 +445,30 @@ local SET = nil;
 		["DRUID"] = 1024,
 	};
 	local classbit = {  }; for _class, _bit in next, bitclass do classbit[_bit] = _class; end
-	local __player_race = select(2, UnitRace('player'));
-	local __player_race_bit = bitrace[__player_race];
-	local __player_class = UnitClassBase('player');
-	local __player_class_bit = bitclass[__player_class];
-	local _bit_band = bit.band;
+	local _PLAYER_RACEBIT = bitrace[_PLAYER_RACEFILE];
+	local _PLAYER_CLASSBIT = bitclass[_PLAYER_CLASS];
 	local function bit_check(_b1, _b2)
 		return _bit_band(_b1, _b2) ~= 0;
 	end
 	local function bit_check_race(_b)
-		return _bit_band(_b, __player_race_bit) ~= 0;
+		return _bit_band(_b, _PLAYER_RACEBIT) ~= 0;
 	end
 	local function bit_check_class(_b)
-		return _bit_band(_b, __player_class_bit) ~= 0;
+		return _bit_band(_b, _PLAYER_CLASSBIT) ~= 0;
 	end
 	local function bit_check_race_class(_b1, _b2)
-		return _bit_band(_b1, __player_race_bit) ~= 0 and _bit_band(_b2, __player_class_bit) ~= 0;
+		return _bit_band(_b1, _PLAYER_RACEBIT) ~= 0 and _bit_band(_b2, _PLAYER_CLASSBIT) ~= 0;
 	end
-	core.__bitrace = bitrace;
-	core.__racebit = racebit;
-	core.__bitclass = bitclass;
-	core.__classbit = classbit;
-	core.__player_race = __player_race;
-	core.__player_race_bit = __player_race_bit;
-	core.__player_class = __player_class;
-	core.__player_class_bit = __player_class_bit;
-	core.__bit_check = bit_check;
-	core.__bit_check_race = bit_check_race;
-	core.__bit_check_class = bit_check_class;
-	core.__bit_check_race_class = bit_check_race_class;
+	__core.__bitrace = bitrace;
+	__core.__racebit = racebit;
+	__core.__bitclass = bitclass;
+	__core.__classbit = classbit;
+	__core._PLAYER_RACEBIT = _PLAYER_RACEBIT;
+	__core._PLAYER_CLASSBIT = _PLAYER_CLASSBIT;
+	__core.__bit_check = bit_check;
+	__core.__bit_check_race = bit_check_race;
+	__core.__bit_check_class = bit_check_class;
+	__core.__bit_check_race_class = bit_check_race_class;
 -->
 
 -->		Map			--	坐标系转换方法，参考自HandyNotes	--	C_Map效率非常低，可能因为构建太多Mixin(CreateVector2D)
@@ -403,9 +483,6 @@ local SET = nil;
 			5 = MICRO
 			6 = ORPHAN
 	]]
-	local tremove, next = tremove, next;
-	local UnitPosition = UnitPosition;
-	local C_Map = C_Map;
 	local C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit;
 	local C_Map_GetWorldPosFromMapPos = C_Map.GetWorldPosFromMapPos;
 	local C_Map_GetMapChildrenInfo = C_Map.GetMapChildrenInfo;
@@ -684,7 +761,7 @@ local SET = nil;
 		FillIn("continent", 1415);
 		FillIn("continent", 1945);
 	-->
-	core.ContinentMapID = {
+	__core.ContinentMapID = {
 		[946] = "Universe",
 		[947] = "Azeroth",
 		[1414] = "Kalimdor",
@@ -789,14 +866,14 @@ local SET = nil;
 		end
 	end
 
-	core.GetUnitPosition = GetUnitPosition;
-	core.GetZonePositionFromWorldPosition = GetZonePositionFromWorldPosition;
-	core.GetWorldPositionFromZonePosition = GetWorldPositionFromZonePosition;
-	core.GetWorldPositionFromAzerothWorldMapPosition = GetWorldPositionFromAzerothWorldMapPosition;
-	core.GetAzerothWorldMapPositionFromWorldPosition = GetAzerothWorldMapPositionFromWorldPosition;
-	core.GetUnitZonePosition = GetUnitZonePosition;
-	core.GetPlayerZone = GetPlayerZone;
-	core.GetPlayerZonePosition = GetPlayerZonePosition;
+	__core.GetUnitPosition = GetUnitPosition;
+	__core.GetZonePositionFromWorldPosition = GetZonePositionFromWorldPosition;
+	__core.GetWorldPositionFromZonePosition = GetWorldPositionFromZonePosition;
+	__core.GetWorldPositionFromAzerothWorldMapPosition = GetWorldPositionFromAzerothWorldMapPosition;
+	__core.GetAzerothWorldMapPositionFromWorldPosition = GetAzerothWorldMapPositionFromWorldPosition;
+	__core.GetUnitZonePosition = GetUnitZonePosition;
+	__core.GetPlayerZone = GetPlayerZone;
+	__core.GetPlayerZonePosition = GetPlayerZonePosition;
 	---/run ac=__ala_meta__.quest.core
 	---/print ac.GetWorldPositionFromZonePosition(ac.GetPlayerZonePosition())
 	---/print UnitPosition('player')
@@ -806,12 +883,12 @@ local SET = nil;
 	---/print ac.GetWorldPositionFromZonePosition(1416, 0.184, 0.88)
 	---/print ac.GetZonePositionFromWorldPosition(1416,select(2,ac.GetWorldPositionFromZonePosition(1416, 0.184, 0.88)))
 
-	core.GetAllMapMetas = GetAllMapMetas;
-	core.GetMapMeta = GetMapMeta;
-	core.GetMapParent = GetMapParent;
-	core.GetMapAdjoined = GetMapAdjoined;
-	core.GetMapChildren = GetMapChildren;
-	core.GetMapContinent = GetMapContinent;
+	__core.GetAllMapMetas = GetAllMapMetas;
+	__core.GetMapMeta = GetMapMeta;
+	__core.GetMapParent = GetMapParent;
+	__core.GetMapAdjoined = GetMapAdjoined;
+	__core.GetMapChildren = GetMapChildren;
+	__core.GetMapContinent = GetMapContinent;
 	--
 	local function PreloadCoordsFunc(coords, wcoords)
 		local num_coords = #coords;
@@ -894,7 +971,7 @@ local SET = nil;
 			PreloadCoordsFunc(waypoints, wwaypoints);
 		end
 	end
-	__ns.core.PreloadCoords = PreloadCoords;
+	__core.PreloadCoords = PreloadCoords;
 -->
 
 -->		Texture
@@ -942,7 +1019,6 @@ local SET = nil;
 			TIP_IMG_LIST[index] = format("\124T%s:0\124t", info[1]);
 		end
 	end
-	local _bit_band = bit.band;
 	local function GetQuestStartTexture(info)
 		local TEXTURE = IMG_INDEX.IMG_S_NORMAL;
 		local min = info.min;
@@ -975,16 +1051,15 @@ local SET = nil;
 		end
 		return TEXTURE;
 	end
-	core.IMG_INDEX = IMG_INDEX;
-	core.IMG_PATH = IMG_PATH;
-	core.IMG_PATH_PIN = IMG_PATH_PIN;
-	core.IMG_LIST = IMG_LIST;
-	core.TIP_IMG_LIST = TIP_IMG_LIST;
-	core.GetQuestStartTexture = GetQuestStartTexture;
+	__core.IMG_INDEX = IMG_INDEX;
+	__core.IMG_PATH = IMG_PATH;
+	__core.IMG_PATH_PIN = IMG_PATH_PIN;
+	__core.IMG_LIST = IMG_LIST;
+	__core.TIP_IMG_LIST = TIP_IMG_LIST;
+	__core.GetQuestStartTexture = GetQuestStartTexture;
 -->
 
 -->		Quest
-	local GetQuestTagInfo = GetQuestTagInfo;
 	local QuestTagCache = {
 		[373] = 81,
 		[4146] = 81,
@@ -1021,12 +1096,12 @@ local SET = nil;
 
 -->		Misc
 	local UnitHelpFac = { AH = 1, };
-	if UnitFactionGroup('player') == "Alliance" then
+	if _PLAYER_FACTIONGROUP == "Alliance" then
 		UnitHelpFac.A = 1;
 	else
 		UnitHelpFac.H = 1;
 	end
-	__ns.core.UnitHelpFac = UnitHelpFac;
+	__core.UnitHelpFac = UnitHelpFac;
 	local date = date;
 	local function _log_(...)
 		if __ns.__is_dev then
@@ -1114,18 +1189,20 @@ local SET = nil;
 		__ns.util_setup();
 		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.util'); end
 		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init'); end
+
+		__ns:MergeGlobal(__ns.__svar);
 		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
 	end
 	function __ns.PLAYER_ENTERING_WORLD()
 		_EventHandler:UnregEvent("PLAYER_ENTERING_WORLD");
-		C_Timer.After(0.1, init);
+		__ns.After(0.1, init);
 	end
 	function __ns.LOADING_SCREEN_ENABLED()
 		_EventHandler:UnregEvent("LOADING_SCREEN_ENABLED");
 	end
 	function __ns.LOADING_SCREEN_DISABLED()
 		_EventHandler:UnregEvent("LOADING_SCREEN_DISABLED");
-		C_Timer.After(0.1, init);
+		__ns.After(0.1, init);
 	end
 	-- _EventHandler:RegEvent("PLAYER_ENTERING_WORLD");
 	-- _EventHandler:RegEvent("LOADING_SCREEN_ENABLED");

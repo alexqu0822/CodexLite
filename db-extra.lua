@@ -5,15 +5,17 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.db-extra'); end
 
-local tremove = tremove;
+-->		variables
+local collectgarbage = collectgarbage;
+local next = next;
+local tremove = table.remove;
+local strfind = string.find;
+
 local __db = __ns.db;
 local __db_quest = __db.quest;
 local __db_unit = __db.unit;
@@ -22,9 +24,10 @@ local __db_object = __db.object;
 local __db_refloot = __db.refloot;
 local __db_event = __db.event;
 
-local __bit_check_race = __ns.core.__bit_check_race;
-local __bit_check_class = __ns.core.__bit_check_class;
-local __bit_check_race_class = __ns.core.__bit_check_race_class;
+local __core = __ns.core;
+local __bit_check_race = __core.__bit_check_race;
+local __bit_check_class = __core.__bit_check_class;
+local __bit_check_race_class = __core.__bit_check_race_class;
 
 local blacklist_quest = __db.blacklist_quest;
 local blacklist_item = __db.blacklist_item;
@@ -39,7 +42,11 @@ local avl_quest_list = {  };
 local avl_quest_hash = {  };
 __db.avl_quest_list = avl_quest_list;
 __db.avl_quest_hash = avl_quest_hash;
-local strfind = strfind;
+
+if __ns.__is_dev then
+	__ns:BuildEnv("db-extra");
+end
+
 local function check(tbl, key, str)
 	if tbl.U then
 		for _, unit in next, tbl.U do
@@ -71,8 +78,8 @@ local function load_extra_db()
 	end
 	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.faction'); end
 	-->		faction quest list
-		local key = UnitFactionGroup('player') == "Alliance" and "facA" or "facH";
-		local str = UnitFactionGroup('player') == "Alliance" and "A" or "H";
+		local key = __core._PLAYER_FACTIONGROUP == "Alliance" and "facA" or "facH";
+		local str = __core._PLAYER_FACTIONGROUP == "Alliance" and "A" or "H";
 		for quest, info in next, __db_quest do
 			if blacklist_quest[quest] == nil then
 				local info = __db_quest[quest];

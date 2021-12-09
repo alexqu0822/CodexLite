@@ -5,16 +5,20 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.locale'); end
 
+local setmetatable, rawset = setmetatable, rawset;
+local LOCALE = GetLocale();
+
+if __ns.__is_dev then
+	__ns:BuildEnv("locale");
+end
+
 local UILOC = setmetatable(
-	{  },
+	{ GetDebugName = false, },
 	{
 		__newindex = function(tbl, key, val)
 			if val == true then
@@ -33,7 +37,6 @@ local UILOC = setmetatable(
 );
 __ns.UILOC = UILOC;
 
-local LOCALE = GetLocale();
 
 local LOC_PATTERN_LIST = {
 	deDE = {
@@ -228,25 +231,45 @@ elseif LOCALE == 'ruRU' then
 	UILOC.COMPLETED = "ЗАВЕРШЕННО";
 	UILOC.IN_PROGRESS = "Прогресс";
 	--	setting
-	UILOC.TAG_SETTING = "";
+	UILOC.TAG_SETTING = "перевод Hubbottu@github";
+	UILOC['tab.general'] = "General";
+	UILOC['tab.map'] = "Map";
+	UILOC['tab.interact'] = "Interact";
+	UILOC['tab.misc'] = "Misc";
+	UILOC['tab.blocked'] = "Blocked";
+	--	general
+	UILOC.show_db_icon = "Показать иконку на мини-карте";
+	UILOC.show_buttons_in_log = "Show buttons in questlog";
+	UILOC.show_id_in_tooltip = "Show ID in tooltip";
+	--	map
+	UILOC.show_in_continent = "Show pins in continents";
 	UILOC.show_quest_starter = "Показать квестодателя";
 	UILOC.show_quest_ender = "Показать здачу задания";
-	UILOC.show_db_icon = "Показать иконку на мини-карте";
 	UILOC.min_rate = "Минимальный шанс выпадения";
+	UILOC.worldmap_alpha = "Alpha of icons on world map";
+	UILOC.minimap_alpha = "Alpha of icons on minimap";
 	UILOC.pin_size = "Размер большинства контактов";
 	UILOC.large_size = "Размер отображения босса";
 	UILOC.varied_size = "Размер отображения квестовых NPC";
 	UILOC.pin_scale_max = "Максимальный размер шкалы";
 	UILOC.quest_lvl_lowest_ofs = "Смещение к минимальному уровню задания";
 	UILOC.quest_lvl_highest_ofs = "Смещение к макимальному уровню задания";
+	UILOC.hide_node_modifier = "Modifier of hiding quest";
+	UILOC.minimap_node_inset = "Hide pin on the border of minimap";
+	UILOC.minimap_player_arrow_on_top = "Player arrow on the top of minimap";
+	--	interact
 	UILOC.auto_accept = "Авто принятие задания";
 	UILOC.auto_complete = "Автозаполнение задания";
 	UILOC.quest_auto_inverse_modifier = "Отключить автоматическую сдачу";
-	UILOC.tip_info = "Информация в подсказке";
+	UILOC.objective_tooltip_info = "Информация в подсказке";
 	--	questlogframe
 	UILOC.show_quest = "Показать";
 	UILOC.hide_quest = "Скрыть";
 	UILOC.reset_filter = "Обновить";
+	--	pin-onmenu
+	UILOC.pin_menu_hide_quest = "|cffff3f00Скрыть|r ";
+	UILOC.pin_menu_show_quest = "|cff00ff00Показать|r ";
+	UILOC.pin_menu_send_quest = "|cffff7f00Send|r";
 	--
 	UILOC.CODEX_LITE_CONFLICTS = "Отключить ClassicCodex и Questie, а затем перезагрузить интерфейс?";
 else

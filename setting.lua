@@ -5,18 +5,25 @@
 ----------------------------------------------------------------------------------------------------
 local __addon, __ns = ...;
 
-if __ns.__is_dev then
-	setfenv(1, __ns.__fenv);
-end
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.setting'); end
 
 -->		variables
+	local setmetatable = setmetatable;
+	local type = type;
+	local select = select;
 	local next = next;
+	local tinsert = table.insert;
+	local strlower, strfind, gsub = string.lower, string.find, string.gsub;
+	local min, max = math.min, math.max;
 	local tonumber = tonumber;
+	local CreateFrame = CreateFrame;
 	local GameTooltip = GameTooltip;
+	local UIParent = UIParent;
+	local UISpecialFrames = UISpecialFrames;
+	local SlashCmdList = SlashCmdList;
 
 	local __db = __ns.db;
 	local __db_quest = __db.quest;
@@ -24,16 +31,22 @@ local _ = nil;
 	local __loc_quest = __loc.quest;
 	local __UILOC = __ns.UILOC;
 
-	local _F_SafeCall = __ns.core._F_SafeCall;
-	local __eventHandler = __ns.core.__eventHandler;
-	local IMG_LIST = __ns.core.IMG_LIST;
-	local GetQuestStartTexture = __ns.core.GetQuestStartTexture;
+	local __core = __ns.core;
+	local _F_SafeCall = __core._F_SafeCall;
+	local __eventHandler = __core.__eventHandler;
+	local IMG_LIST = __core.IMG_LIST;
+	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
 	local _log_ = __ns._log_;
 
-	local IMG_CLOSE = __ns.core.IMG_PATH .. "close";
+	local IMG_CLOSE = __core.IMG_PATH .. "close";
+	local _font, _fontsize = SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 
 	local SET = nil;
+-->
+if __ns.__is_dev then
+	__ns:BuildEnv("setting");
+end
 -->		MAIN
 	local SettingUI = CreateFrame('FRAME', "CODEX_LITE_SETTING_UI", UIParent);
 	__ns.__ui_setting = SettingUI;
@@ -534,7 +547,7 @@ local _ = nil;
 				local head = Panel:CreateTexture(nil, "ARTWORK");
 				head:SetSize(24, 24);
 				local label = Panel:CreateFontString(nil, "ARTWORK");
-				label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+				label:SetFont(_font, _fontsize, "NORMAL");
 				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
 				local slider = CreateFrame('SLIDER', nil, Panel, "OptionsSliderTemplate");
@@ -594,7 +607,7 @@ local _ = nil;
 					self:SetChecked(val);
 				end
 				local label = Panel:CreateFontString(nil, "ARTWORK");
-				label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+				label:SetFont(_font, _fontsize, "NORMAL");
 				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", check, "RIGHT", 2, 0);
 				set_entries[key] = check;
@@ -604,7 +617,7 @@ local _ = nil;
 				local head = Panel:CreateTexture(nil, "ARTWORK");
 				head:SetSize(24, 24);
 				local label = Panel:CreateFontString(nil, "ARTWORK");
-				label:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+				label:SetFont(_font, _fontsize, "NORMAL");
 				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
 				local list = {  };
@@ -623,7 +636,7 @@ local _ = nil;
 					check.val = val;
 					list[index] = check;
 					local text = Panel:CreateFontString(nil, "ARTWORK");
-					text:SetFont(SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15), "NORMAL");
+					text:SetFont(_font, _fontsize, "NORMAL");
 					text:SetText(val);
 					text:SetPoint("LEFT", check, "RIGHT", 2, 0);
 					check.text = text;
@@ -743,7 +756,7 @@ local _ = nil;
 		end
 	-->
 	function __ns.setting_setup()
-		local GUID = UnitGUID('player');
+		local GUID = __core._PLAYER_GUID;
 		local SV = _G.CodexLiteSV;
 		if SV == nil or SV.__version == nil or SV.__version < 20210529.0 then
 			SV = {
