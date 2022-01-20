@@ -1,12 +1,10 @@
 # CodexLite
 Quest Helper of WOW #by ALA @ 163UI/网易有爱, [CN] http://wowui.w.163.com/163ui/
-
+Database CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 
 The main purpose is working on the computers with poor performance.
-It costs much less cpu than Questie.
+It costs much less cpu.
 
 It will dynamically adjust update rate based on performance at run time.
 
 Type in '/cdxl' to configure.
-
-# 6.23

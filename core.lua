@@ -458,7 +458,14 @@ end
 				if spawn ~= nil then
 					if spawn.U ~= nil then
 						for unit, _ in next, spawn.U do
+							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
 							AddUnit(quest, line, unit, show_coords, large_pin, showFriend);
+						end
+					end
+					if spawn.O ~= nil then
+						for object, _ in next, spawn.O do
+							local large_pin = __db_large_pin:Check(quest, 'object', object);
+							AddObject(quest, line, object, show_coords, large_pin);
 						end
 					end
 				end
@@ -479,7 +486,14 @@ end
 				if spawn ~= nil then
 					if spawn.U ~= nil then
 						for unit, _ in next, spawn.U do
+							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
 							DelUnit(quest, line, unit, total_del, large_pin);
+						end
+					end
+					if spawn.O ~= nil then
+						for object, _ in next, spawn.O do
+							local large_pin = __db_large_pin:Check(quest, 'object', object);
+							DelObject(quest, line, object, total_del, large_pin);
 						end
 					end
 				end
@@ -497,6 +511,21 @@ end
 						AddCommonNodes('object', oid, quest, line, coords);
 					end
 				-- end
+				local spawn = info.spawn;
+				if spawn ~= nil then
+					if spawn.U ~= nil then
+						for unit, _ in next, spawn.U do
+							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+							AddUnit(quest, line, unit, show_coords, large_pin, showFriend);
+						end
+					end
+					if spawn.O ~= nil then
+						for object, _ in next, spawn.O do
+							local large_pin = __db_large_pin:Check(quest, 'object', object);
+							AddObject(quest, line, object, show_coords, large_pin);
+						end
+					end
+				end
 			end
 			local name = __loc_object[oid];
 			if name ~= nil then
@@ -504,10 +533,28 @@ end
 			end
 		end
 		function DelObject(quest, line, oid, total_del, large_pin)
-			if large_pin then
-				DelLargeNodes('object', oid, quest, line, total_del);
-			else
-				DelCommonNodes('object', oid, quest, line, total_del);
+			local info = __db_object[oid];
+			if info ~= nil then
+				if large_pin then
+					DelLargeNodes('object', oid, quest, line, total_del);
+				else
+					DelCommonNodes('object', oid, quest, line, total_del);
+				end
+				local spawn = info.spawn;
+				if spawn ~= nil then
+					if spawn.U ~= nil then
+						for unit, _ in next, spawn.U do
+							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+							DelUnit(quest, line, unit, total_del, large_pin);
+						end
+					end
+					if spawn.O ~= nil then
+						for object, _ in next, spawn.O do
+							local large_pin = __db_large_pin:Check(quest, 'object', object);
+							DelObject(quest, line, object, total_del, large_pin);
+						end
+					end
+				end
 			end
 		end
 		function AddRefloot(quest, line, rid, show_coords, large_pin)
@@ -1223,6 +1270,7 @@ end
 			if need_re_draw then
 				__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
 			end
+			__ns.PushFlushBuffer();
 			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
 		end
 	-->
@@ -1236,7 +1284,6 @@ end
 			for _, quest_id in next, __db_avl_quest_list do
 				local info = __db_quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
-					-- if info.lvl == nil or info.min == nil then print(quest_id, info.lvl, info.min); end
 					local acceptable = info.lvl < 0 or (info.lvl >= lowest and info.min <= highest);
 					if acceptable then
 						local parent = info.parent;

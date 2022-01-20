@@ -998,33 +998,33 @@ local blacklist_quest = {
 	[11108] = true,
 
 	-- Phase 3 - Hyjal, Black Temple
-	[10445] = true,
-	[10460] = true,
-	[10461] = true,
-	[10462] = true,
-	[10463] = true,
-	[10464] = true,
-	[10465] = true,
-	[10466] = true,
-	[10467] = true,
-	[10468] = true,
-	[10469] = true,
-	[10470] = true,
-	[10471] = true,
-	[10472] = true,
-	[10473] = true,
-	[10474] = true,
-	[10475] = true,
-	[10560] = true,
-	[10944] = true,
-	[10946] = true,
-	[10947] = true,
-	[10948] = true,
-	[10949] = true,
-	[10957] = true,
-	[10958] = true,
-	[10959] = true,
-	[10985] = true,
+	-- [10445] = true,
+	-- [10460] = true,
+	-- [10461] = true,
+	-- [10462] = true,
+	-- [10463] = true,
+	-- [10464] = true,
+	-- [10465] = true,
+	-- [10466] = true,
+	-- [10467] = true,
+	-- [10468] = true,
+	-- [10469] = true,
+	-- [10470] = true,
+	-- [10471] = true,
+	-- [10472] = true,
+	-- [10473] = true,
+	-- [10474] = true,
+	-- [10475] = true,
+	-- [10560] = true,
+	-- [10944] = true,
+	-- [10946] = true,
+	-- [10947] = true,
+	-- [10948] = true,
+	-- [10949] = true,
+	-- [10957] = true,
+	-- [10958] = true,
+	-- [10959] = true,
+	-- [10985] = true,
 
 	-- Phase 4 Zul'Aman
 	[11130] = true,
@@ -1367,7 +1367,8 @@ local blacklist_item = {
 	[22529] = true, -- savage frond
 	
 	-- TBC Phase 1
-	[21887] = true, -- Knothide Leather
+	[25649] = true,	-- 结缔皮碎片
+	[21887] = true, -- 结缔皮
 	[22572] = true, -- Mote of Air
 	[22573] = true, -- Mote of Earth
 	[22574] = true, -- Mote of Fire
@@ -1383,6 +1384,8 @@ local blacklist_item = {
 	[24401] = true, -- Unidentified Plant Parts
 	[26042] = true, -- Oshu'gun Crystal Powder Sample
 	[26043] = true, -- Oshu'gun Crystal Powder Sample
+	[21877] = true,	-- 灵纹布
+	[21840] = true,	-- 灵纹布卷
 };
 __db.blacklist_item = blacklist_item;
 
@@ -5950,6 +5953,7 @@ local large_pin = {
 	},
 	[9918] = {
 		["unit"] = {
+			[18351] = 1,
 			[18354] = 1,
 		},
 	},
@@ -6513,6 +6517,12 @@ local large_pin = {
 	[10299] = {
 		["item"] = {
 			[29366] = 1,
+		},
+		["unit"] = {
+			[20209] = 1,
+		},
+		["object"] = {
+			[183770] = 1,
 		},
 	},
 	[10301] = {
@@ -7442,9 +7452,32 @@ local large_pin = {
 			[32601] = 1,
 		},
 	},
+	[11078] = {
+		["unit"] = {
+			[23061] = 1,
+			[23261] = 1,
+			[23281] = 1,
+			[23282] = 1,
+		},
+		["object"] = {
+			[185936] = 1,
+			[185937] = 1,
+			[185938] = 1,
+			[185932] = 1,
+		},
+	},
 	[11079] = {
 		["item"] = {
 			[32733] = 1,
+		},
+		["unit"] = {
+			[22281] = 1,
+			[23353] = 1,
+			[23354] = 1,
+			[23355] = 1,
+		},
+		["object"] = {
+			[185927] = 1,
 		},
 	},
 	[11128] = {

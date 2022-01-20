@@ -43,7 +43,7 @@ end
 -->		MAIN
 	--
 	local ExternalQuestie = {  };
-	--		Depress
+	--		Decompress
 		--
 		local _HT = {  };
 		local function _Hash(value)
@@ -284,8 +284,8 @@ end
 		o = __loc_object,
 		e = setmetatable({  }, { __index = function() return "event"; end, }),
 	};
-	local _Inited = {  };
-	local function AddQuest(META, name, QuestInfo, OnCommQuestAdd, OnCommQuestLine)
+	local _Inited, _META, _OnCommInit, _OnCommQuestAdd, _OnCommQuestDel, _OnCommQuestLine;
+	local function AddQuest(name, QuestInfo)
 		local quest = QuestInfo.id;
 			-- print("Quest: ", quest);
 		local objectives = QuestInfo.objectives;
@@ -302,7 +302,9 @@ end
 			if title ~= nil then
 				title = title[1];
 			end
-			OnCommQuestAdd(META, name, quest, completed, num_lines, title or ("quest:" .. quest));
+			title = title or ("quest:" .. quest);
+			_OnCommQuestAdd(name, quest, completed, num_lines, title);
+			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, completed, num_lines, title);
 			for line = 1, num_lines do
 				local obj = objectives[line];
 				local type = obj.typ;
@@ -319,76 +321,82 @@ end
 				if req ~= nil and cur ~= nil and req > 0 then
 					text = text .. COLON .. cur .. "/" .. req;
 				end
-				OnCommQuestLine(META, name, quest, line, TypeList[type], id, text, cur == nil or req == nil or cur >= req)
+				_OnCommQuestLine(name, quest, line, TypeList[type], id, text, cur == nil or req == nil or cur >= req);
+				-- _log_('|cff00ff7fQ-Q|r|cff00ffffLine|r', name, quest, line, TypeList[type], id, cur == nil or req == nil or cur >= req, text);
 			end
 		else
 			local title = __loc_quest[quest];
 			if title ~= nil then
 				title = title[1];
 			end
-			OnCommQuestAdd(META, name, quest, 1, 0, title or ("quest:" .. quest));
+			title = title or ("quest:" .. quest);
+			_OnCommQuestAdd(name, quest, 1, 0, title);
+			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, completed, num_lines, title);
 		end
 	end
-	local function DelQuest(META, name, Info, OnCommQuestDel)
+	local function DelQuest(name, Info)
 		-- print("DelQuest", Info.id);
-		OnCommQuestDel(META, name, Info.id);
+		_OnCommQuestDel(name, Info.id);
+		_log_('|cff00ff7fQ-Q|r|cffff0000Del|r', name, Info.id);
 	end
 	local function PullSingle(name, ver, msgVer)
 		-- local msg = '\33\10\3\7\3\118\101\114\7\5\54\46\56\46\49\7\6\109\115\103\86\101\114\37\7\5\109\115\103\73\100\43';
 		local msg = '\33\10\3\7\3' .. 'ver' .. '\7' .. strchar(strlen(ver)) .. ver .. '\7\6' .. 'msgVer' .. strchar(32 + msgVer) .. '\7\5' .. 'msgId' .. '\43';
 		__ns.ScheduleMessage("questie", msg, 'WHISPER', name);
 	end
-	local function OnComm(msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine)
-		local buffer = { ptr = 1, len = strlen(msg), strbyte(msg, 1, -1) };
-			-- local len = strlen(msg);
-			-- print(len);
-			-- for i = 1, len / 16 do
-			-- 	print(strbyte(msg, i * 16 - 15, i * 16));
-			-- end
-		-- do return end
-		if channel ~= "YELL" then
-			ExternalQuestie.__prev = buffer;
-			local val = _ReadTable(buffer, 1);
-			if val ~= nil then
-				_log_('|cff00ff7fOnCommQuestie|r', val, name);
-				val = val[1];
+	local function OnComm(msg, name, channel)
+		if _META[name] ~= nil then
+			local buffer = { ptr = 1, len = strlen(msg), strbyte(msg, 1, -1) };
+				-- local len = strlen(msg);
+				-- print(len);
+				-- for i = 1, len / 16 do
+				-- 	print(strbyte(msg, i * 16 - 15, i * 16));
+				-- end
+			-- do return end
+			if channel ~= "YELL" then
+				ExternalQuestie.__prev = buffer;
+				local val = _ReadTable(buffer, 1);
 				if val ~= nil then
-					local msgId = val.msgId;
-					if msgId == 1 then
-						local QuestInfo = val.quest;
-						if QuestInfo ~= nil then
-							AddQuest(META, name, QuestInfo, OnCommQuestAdd, OnCommQuestLine);
-						end
-					elseif msgId == 2 then
-						DelQuest(META, name, val, OnCommQuestDel);
-					elseif  msgId == 11 then
-						ExternalQuestie._PullSingle(name);
-					elseif msgId == 12 then
-						_Inited[name] = GetTime();
-						local data = val[1];
-						local NumQuest = data[1];
-						local pos = 2;
-							-- print("NumQuest", data[1]);
-						for QuestIndex = 1, NumQuest do
-							local quest = data[pos];
-							local num = data[pos + 1];
-							pos = pos + 2;
-							local QuestInfo = {
-								id = quest,
-								objectives = num > 0 and {  } or nil,
-							};
-							local index = 0;
-							while index < num and data[pos + 1] ~= nil do
-								index = index + 1;
-								QuestInfo.objectives[index] = {
-									typ = strchar(data[pos + 1]),
-									id = data[pos],
-									ful = data[pos + 2],
-									req = data[pos + 3],
-								};
-								pos = pos + 4;
+					-- _log_('|cff00ff7fOnCommQuestie|r', val, name);
+					val = val[1];
+					if val ~= nil then
+						local msgId = val.msgId;
+						if msgId == 1 then
+							local QuestInfo = val.quest;
+							if QuestInfo ~= nil then
+								AddQuest(name, QuestInfo);
 							end
-							AddQuest(META, name, QuestInfo, OnCommQuestAdd, OnCommQuestLine);
+						elseif msgId == 2 then
+							DelQuest(name, val);
+						elseif  msgId == 11 then
+							ExternalQuestie._PullSingle(name);
+						elseif msgId == 12 then
+							_Inited[name] = GetTime();
+							local data = val[1];
+							local NumQuest = data[1];
+							local pos = 2;
+								-- print("NumQuest", data[1]);
+							for QuestIndex = 1, NumQuest do
+								local quest = data[pos];
+								local num = data[pos + 1];
+								pos = pos + 2;
+								local QuestInfo = {
+									id = quest,
+									objectives = num ~= nil and num > 0 and {  } or nil,
+								};
+								local index = 0;
+								while index < num and data[pos + 1] ~= nil do
+									index = index + 1;
+									QuestInfo.objectives[index] = {
+										typ = strchar(data[pos + 1]),
+										id = data[pos],
+										ful = data[pos + 2],
+										req = data[pos + 3],
+									};
+									pos = pos + 4;
+								end
+								AddQuest(name, QuestInfo);
+							end
 						end
 					end
 				end
@@ -406,10 +414,10 @@ end
 			cache[channel] = cache[channel] .. msg;
 		end
 	end
-	local function OnCommLast(msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine)
+	local function OnCommLast(msg, name, channel)
 		local cache = CommCache[name];
 		if cache[channel] ~= nil then
-			OnComm(cache[channel] .. msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine)
+			OnComm(cache[channel] .. msg, name, channel)
 		end
 	end
 	--
@@ -421,7 +429,7 @@ end
 			PullSingle(name, '6.8.1', 5);
 		end
 	end
-	function ExternalQuestie._OnComm(msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine)
+	function ExternalQuestie._OnComm(msg, name, channel)
 		local cc = strbyte(msg, 1, 1);
 		if cc >= 1 and cc <= 9 then
 			if cc == 1 then			--	FIRST
@@ -429,12 +437,22 @@ end
 			elseif cc == 2 then		--	NEXT
 				OnCommNext(strsub(msg, 2), name, channel);
 			elseif cc == 3 then		--	LAST
-				OnCommLast(strsub(msg, 2), name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
+				OnCommLast(strsub(msg, 2), name, channel);
 			elseif cc == 4 then		--	ESCAPE
-				OnComm(strsub(msg, 2), name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
+				OnComm(strsub(msg, 2), name, channel);
 			end
 		else
-			OnComm(msg, name, channel, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
+			OnComm(msg, name, channel);
+		end
+	end
+	function ExternalQuestie._Init(Inited, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine)
+		if RegisterAddonMessagePrefix("questie") then
+			_Inited = Inited;
+			_META = META;
+			_OnCommInit = OnCommInit;
+			_OnCommQuestAdd = OnCommQuestAdd;
+			_OnCommQuestDel = OnCommQuestDel;
+			_OnCommQuestLine = OnCommQuestLine;
 		end
 	end
 	__ns.ExternalQuestie = ExternalQuestie;
