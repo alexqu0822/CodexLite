@@ -431,6 +431,8 @@ end
 			quest_auto_inverse_modifier = "SHIFT",
 			objective_tooltip_info = true,
 		--	misc
+			show_minimappin = true,
+			show_worldmappin = true,
 	};
 	local setting_keys = {
 		--	general

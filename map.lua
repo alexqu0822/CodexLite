@@ -1574,6 +1574,12 @@ end
 			wipe(MM_VARIED_PINS);
 			ResetMMPin();
 		end
+		function __ns.map_ToggleWorldMapPin(shown)
+			wm_wrap:SetShown(shown ~= false);
+		end
+		function __ns.map_ToggleMinimapPin(shown)
+			mm_wrap:SetShown(shown ~= false);
+		end
 	-->
 	-->		--	events and hooks
 		-->		--	MapCanvasDataProvider

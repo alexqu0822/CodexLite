@@ -755,15 +755,22 @@ end
 			if LibStub ~= nil then
 				local LDI = LibStub("LibDBIcon-1.0", true);
 				if LDI then
+					local D = nil;
 					LDI:Register(
 						"CodexLite",
 						{
 							icon = [[interface\icons\inv_misc_book_09]],
 							OnClick = function(self, button)
-								if __ns.__ui_setting:IsShown() then
-									__ns.__ui_setting:Hide();
+								if button == "LeftButton" then
+									if __ns.__ui_setting:IsShown() then
+										__ns.__ui_setting:Hide();
+									else
+										__ns.__ui_setting:Show();
+									end
 								else
-									__ns.__ui_setting:Show();
+									SET.show_minimappin = not SET.show_minimappin;
+									__ns.map_ToggleMinimapPin(SET.show_minimappin);
+									D:SetShown(not SET.show_minimappin);
 								end
 							end,
 							text = "CodexLite",
@@ -780,8 +787,42 @@ end
 					else
 						LDI:Hide(__addon);
 					end
+					local Icon = LDI:GetMinimapButton(__addon);
+					if Icon ~= nil then
+						D = Icon:CreateTexture(nil, "OVERLAY");
+						D:SetAllPoints(Icon.icon);
+						D:SetTexture(__core.IMG_PATH .. "close");
+						D:SetShown(not SET.show_minimappin);
+					end
 				end
 			end
+		end
+	-->		WorldMapPin Toggle
+		local function CreateWorldMapPinSwitch()
+			local Switch = CreateFrame('BUTTON', nil, WorldMapFrame, "UIPanelButtonTemplate");
+			Switch:SetSize(30, 30);
+			Switch:SetText("CL");
+			Switch:SetPoint("TOPRIGHT", WorldMapFrame, "TOPRIGHT", -100, -30);
+			Switch:RegisterForClicks("AnyUp");
+			Switch:SetScript("OnClick", function(self, button)
+				if button == "LeftButton" then
+					if __ns.__ui_setting:IsShown() then
+						__ns.__ui_setting:Hide();
+					else
+						__ns.__ui_setting:Show();
+					end
+				else
+					SET.show_worldmappin = not SET.show_worldmappin;
+					__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
+					Switch.D:SetShown(not SET.show_worldmappin);
+				end
+			end);
+			local D = Switch:CreateTexture(nil, "OVERLAY");
+			D:SetSize(20, 20);
+			D:SetPoint("CENTER");
+			D:SetTexture(__core.IMG_PATH .. "close");
+			D:SetShown(not SET.show_worldmappin);
+			Switch.D = D;
 		end
 	-->
 	-->		Chat
@@ -791,7 +832,7 @@ end
 		end
 		local function SendFilter(msg)
 			--"|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h"
-			return gsub(msg, "|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.+)%](.+)%]|r|h", SendFilterRep);
+			return gsub(msg, "|Hcdxl:([0-9]+)|h|c[0-9a-f]+%[%[(.-)%](.-)%(.-%)%]|r|h", SendFilterRep);
 		end
 	
 		local __SendChatMessage = nil;
@@ -812,7 +853,7 @@ end
 			local loc = __loc_quest[quest];
 			if info ~= nil and loc ~= nil then
 				local color = IMG_LIST[GetQuestStartTexture(info)];
-				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "]|r|h";
+				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (loc ~= nil and loc[1] .. "(" .. id .. ")" or "Quest: " .. id) .. "]|r|h";
 			end
 			return body;
 		end
@@ -894,6 +935,12 @@ end
 							local activeWindow = ChatEdit_GetActiveWindow();
 							if activeWindow ~= nil then
 								activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+								-- local info = __db_quest[quest_id];
+								-- if info ~= nil then
+								-- 	activeWindow:Insert("|Hcdxl:" .. quest_id .. "|h|c" .. IMG_LIST[GetQuestStartTexture(info)][5] .. "[" .. GetLevelTag(quest_id, info, false, false) .. title .. "(" .. quest_id .. ")]|r|h");
+								-- else
+								-- 	activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
+								-- end
 							end
 							-- ChatEdit_InsertLink("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
 							return;
@@ -1006,8 +1053,12 @@ end
 		__eventHandler:RegEvent("MODIFIER_STATE_CHANGED");
 		--
 		CreateDBIcon();
+		CreateWorldMapPinSwitch();
 		CreateQuestLogFrameButton();
 		InitMessageFactory();
+		--
+		__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
+		__ns.map_ToggleMinimapPin(SET.show_minimappin);
 		--
 		_F_SafeCall(__ns._checkConflicts);
 	end

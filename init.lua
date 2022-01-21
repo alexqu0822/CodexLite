@@ -700,24 +700,24 @@ local SET = nil;
 		end
 		if __ns.__toc >= 20000 and __ns.__toc < 30000 then
 			local data = {
-				[1438] = { 1457, },
-				[1457] = { 1438, },
+				[1438] = { 1457, },	--	泰达希尔
+				[1457] = { 1438, },	--	达纳苏斯
 				--
-				[1944] = { 1946, 1952, },
-				[1946] = { 1944, 1949, 1951, 1952, 1955, },
-				[1948] = { 1952, },
-				[1949] = { 1946, 1953, },
-				[1951] = { 1946, 1952, 1955, },
-				[1952] = { 1944, 1946, 1948, 1951, 1955, },
-				[1953] = { 1949, },
-				[1955] = { 1946, 1951, 1952, },
-				--
-				[1947] = { 1943, },
-				[1950] = { 1943, },
-				[1943] = { 1947, },
-				[1941] = { 1942, 1954, },
-				[1942] = { 1941, },
-				[1954] = { 1941, },
+				[1944] = { 1946, 1951, 1952, },				--	地狱火半岛
+				[1946] = { 1944, 1949, 1951, 1952, 1955, },	--	赞加沼泽
+				[1948] = { 1952, },							--	影月谷
+				[1949] = { 1946, 1953, },					--	刀锋山
+				[1951] = { 1944, 1946, 1952, 1955, },		--	纳格兰
+				[1952] = { 1944, 1946, 1948, 1951, 1955, },	--	泰罗卡森林
+				[1953] = { 1949, },							--	虚空风暴
+				[1955] = { 1946, 1951, 1952, },				--	沙塔斯城
+						--
+				[1947] = { 1943, },	--	埃索达
+				[1950] = { 1943, },	--	秘血岛
+				[1943] = { 1947, },	--	秘蓝岛
+				[1941] = { 1942, 1954, },	--	永歌森林
+				[1942] = { 1941, },	--	幽魂之地
+				[1954] = { 1941, },	--	银月城
 			};
 			for map, list in next, data do
 				local meta = mapMeta[map];
@@ -895,16 +895,21 @@ local SET = nil;
 		local index = 1;
 		while index <= num_coords do
 			local coord = coords[index];
-			local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
-			-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
-			-- coord[5] = x;
-			-- coord[6] = y;
-			-- coord[7] = instance;
-			if x ~= nil and y ~= nil and instance ~= nil then
-				local wcoord = { x, y, instance, coord[4], };
-				wcoords[index] = wcoord;
-				coord[5] = wcoord;
-				index = index + 1;
+			if coord[1] >= 0 or coord[2] >= 0 then
+				local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
+				-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
+				-- coord[5] = x;
+				-- coord[6] = y;
+				-- coord[7] = instance;
+				if x ~= nil and y ~= nil and instance ~= nil then
+					local wcoord = { x, y, instance, coord[4], };
+					wcoords[index] = wcoord;
+					coord[5] = wcoord;
+					index = index + 1;
+				else
+					tremove(coords, index);
+					num_coords = num_coords - 1;
+				end
 			else
 				tremove(coords, index);
 				num_coords = num_coords - 1;
