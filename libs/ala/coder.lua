@@ -5,7 +5,7 @@
 local __version = 8;
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
-local __ala_meta__ = __ala_meta__;
+local __ala_meta__ = _G.__ala_meta__;
 local __coder = __ala_meta__.__coder;
 if __coder ~= nil and __coder.__minor >= __version then
 	return;
@@ -292,7 +292,7 @@ end
 local function _LF_Create_Wrap(tip)
 	_Wrap = CreateFrame('FRAME', nil, tip);
 	-- _Wrap:SetAllPoints();
-	_LF_Reanchor_Wrap(tip, tip:GetBackdrop());
+	_LF_Reanchor_Wrap(tip, tip.GetBackdrop ~= nil and tip:GetBackdrop() or nil);
 	_Wrap:SetAlpha(1.0);
 	_Wrap:Hide();
 	_Wrap:SetFrameLevel(9999);
@@ -370,7 +370,9 @@ _DelayAgent:SetScript(
 			GameTooltip:HookScript("OnTooltipSetUnit", _LF_Hook_OnTooltipSetUnit);
 			if _showWrap then
 				_LF_Create_Wrap(GameTooltip);
-				hooksecurefunc(GameTooltip, "SetBackdrop", _LF_Reanchor_Wrap);
+				if GameTooltip.SetBackdrop ~= nil then
+					hooksecurefunc(GameTooltip, "SetBackdrop", _LF_Reanchor_Wrap);
+				end
 			end
 		end
 	end

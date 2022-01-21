@@ -5,6 +5,7 @@
 local __version = 8;
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
+local __ala_meta__ = _G.__ala_meta__;
 local __emulib = __ala_meta__.__emulib;
 if __emulib ~= nil and __emulib.__minor >= __version then
 	return;

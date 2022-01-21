@@ -5,6 +5,7 @@
 local __version = 5;
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
+local __ala_meta__ = _G.__ala_meta__;
 local __instlib = __ala_meta__.__instlib
 if __instlib ~= nil and __instlib.__minor >= __version then
 	return;

@@ -3,7 +3,7 @@
 --]]--
 
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
-local __ala_meta__ = __ala_meta__;
+local __ala_meta__ = _G.__ala_meta__;
 
 local _;
 
@@ -35,3 +35,4 @@ __ala_meta__.__SYNC = {
 __ala_meta__.__SYNCREALTIME = name ~= nil;
 __ala_meta__.__SYNCONLOGIN = false;
 __ala_meta__.__SYNCONLOGOUT = false;
+
