@@ -3,10 +3,10 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
-
-_G.__ala_meta__ = _G.__ala_meta__ or {  };
+local _G = _G;
 local __ala_meta__ = _G.__ala_meta__;
+
+local __addon, __ns = ...;
 __ala_meta__.quest = __ns;
 
 local __core = {  };
@@ -77,7 +77,6 @@ __ns.NewTimer = C_Timer.NewTimer;
 	end
 -->
 
-local _G = _G;
 local _ = nil;
 --------------------------------------------------
 
@@ -492,6 +491,7 @@ local SET = nil;
 	local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition;
 	--
 	local WORLD_MAP_ID = C_Map.GetFallbackWorldMapID() or 947;		--	947
+	local MapTypeDungeon = Enum.UIMapType.Dungeon;
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
 	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
 	if __ns.__toc < 20000 then
@@ -606,7 +606,7 @@ local SET = nil;
 			local meta = mapMeta[map];
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
-				if data ~= nil then
+				if data ~= nil and data.mapType ~= MapTypeDungeon then
 					--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
 					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
 					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
