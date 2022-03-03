@@ -13,7 +13,7 @@ local _ = nil;
 -->		variables
 	local hooksecurefunc = hooksecurefunc;
 	local next = next;
-	local tremove = table.remove;
+	local tremove, wipe = table.remove, table.wipe;
 	local _radius_sin, _radius_cos = math.cos, math.sin;
 	local GetCVar = GetCVar;
 	local GetTime = GetTime;

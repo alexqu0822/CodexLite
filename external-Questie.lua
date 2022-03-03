@@ -331,7 +331,7 @@ end
 			end
 			title = title or ("quest:" .. quest);
 			_OnCommQuestAdd(name, quest, 1, 0, title);
-			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, completed, num_lines, title);
+			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, 1, 0, title);
 		end
 	end
 	local function DelQuest(name, Info)

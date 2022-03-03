@@ -12,6 +12,7 @@ local _ = nil;
 
 -->		variables
 	local type = type;
+	local select = select;
 	local next = next;
 	local strsplit, strmatch, gsub, format = string.split, string.match, string.gsub, string.format;
 	local tonumber = tonumber;
@@ -29,6 +30,7 @@ local _ = nil;
 	local ChatEdit_GetActiveWindow = ChatEdit_GetActiveWindow;
 	local ChatEdit_InsertLink = ChatEdit_InsertLink;
 	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
+	local UIParent = UIParent;
 	local GameTooltip = GameTooltip;
 	local GameTooltipTextLeft1 = GameTooltipTextLeft1;
 	local ItemRefTooltip = ItemRefTooltip;
@@ -81,9 +83,9 @@ local _ = nil;
 	local _log_ = __ns._log_;
 
 	local TIP_IMG_S_NORMAL = TIP_IMG_LIST[IMG_INDEX.IMG_S_NORMAL];
-	local IMG_TAG_CPL = "\124T" .. __core.IMG_PATH .. "TAG_CPL" .. ":0\124t";
-	local IMG_TAG_PRG = "\124T" .. __core.IMG_PATH .. "TAG_PRG" .. ":0\124t";
-	local IMG_TAG_UNCPL = "\124T" .. __core.IMG_PATH .. "TAG_UNCPL" .. ":0\124t";
+	local IMG_TAG_CPL = "|T" .. __core.IMG_PATH .. "TAG_CPL" .. ":0|t";
+	local IMG_TAG_PRG = "|T" .. __core.IMG_PATH .. "TAG_PRG" .. ":0|t";
+	local IMG_TAG_UNCPL = "|T" .. __core.IMG_PATH .. "TAG_UNCPL" .. ":0|t";
 
 	local SET = nil;
 -->
@@ -105,36 +107,36 @@ end
 				end
 				if colored ~= false then
 					if lvl >= SET.quest_lvl_red then
-						lvl_str = lvl_str .. "\124cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+						lvl_str = lvl_str .. "|cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					elseif lvl >= SET.quest_lvl_orange then
-						lvl_str = lvl_str .. "\124cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+						lvl_str = lvl_str .. "|cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					elseif lvl >= SET.quest_lvl_yellow then
-						lvl_str = lvl_str .. "\124cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+						lvl_str = lvl_str .. "|cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					elseif lvl >= SET.quest_lvl_green then
-						lvl_str = lvl_str .. "\124cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+						lvl_str = lvl_str .. "|cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					else
-						lvl_str = lvl_str .. "\124cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "\124r";
+						lvl_str = lvl_str .. "|cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					end
 					if modifier then
 						lvl_str = lvl_str .. "/";
 						local diff = min - __ns.__player_level;
 						if diff > 0 then
 							if diff > 1 then
-								lvl_str = lvl_str .. "\124cffff3f3f" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cffff3f3f" .. min .. "|r";
 							else
-								lvl_str = lvl_str .. "\124cffff0f0f" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cffff0f0f" .. min .. "|r";
 							end
 						else
 							if min >= SET.quest_lvl_red then
-								lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r";
 							elseif min >= SET.quest_lvl_orange then
-								lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r";
 							elseif min >= SET.quest_lvl_yellow then
-								lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r";
 							elseif min >= SET.quest_lvl_green then
-								lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r";
 							else
-								lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r";
+								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r";
 							end
 						end
 					end
@@ -183,7 +185,7 @@ end
 			else
 				local color = RAID_CLASS_COLORS[class];
 				local coord = CLASS_ICON_TCOORDS[class];
-				return format(" > \124TInterface\\TargetingFrame\\UI-Classes-Circles:0:0:0:0:256:256:%d:%d:%d:%d\124t \124cff%.2x%.2x%.2x%s\124r",
+				return format(" > |TInterface\\TargetingFrame\\UI-Classes-Circles:0:0:0:0:256:256:%d:%d:%d:%d|t |cff%.2x%.2x%.2x%s|r",
 							coord[1] * 255, coord[2] * 255, coord[3] * 255, coord[4] * 255,
 							color.r * 255, color.g * 255, color.b * 255, name
 						);
@@ -209,32 +211,32 @@ end
 					local info = __db_quest[quest];
 					local color = IMG_LIST[GetQuestStartTexture(info)];
 					--[[
-						local lvl_str = "\124cff000000**\124r[ ";
+						local lvl_str = "|cff000000**|r[ ";
 							local lvl = info.lvl;
 							local min = info.min;
 							lvl_str = lvl_str .. __UILOC.TIP_QUEST_LVL;
 							if lvl >= SET.quest_lvl_red then
-								lvl_str = lvl_str .. "\124cffff0000" .. lvl .. "\124r ";
+								lvl_str = lvl_str .. "|cffff0000" .. lvl .. "|r ";
 							elseif lvl >= SET.quest_lvl_orange then
-								lvl_str = lvl_str .. "\124cffff7f7f" .. lvl .. "\124r ";
+								lvl_str = lvl_str .. "|cffff7f7f" .. lvl .. "|r ";
 							elseif lvl >= SET.quest_lvl_yellow then
-								lvl_str = lvl_str .. "\124cffffff00" .. lvl .. "\124r ";
+								lvl_str = lvl_str .. "|cffffff00" .. lvl .. "|r ";
 							elseif lvl >= SET.quest_lvl_green then
-								lvl_str = lvl_str .. "\124cff7fbf3f" .. lvl .. "\124r ";
+								lvl_str = lvl_str .. "|cff7fbf3f" .. lvl .. "|r ";
 							else
-								lvl_str = lvl_str .. "\124cff7f7f7f" .. lvl .. "\124r ";
+								lvl_str = lvl_str .. "|cff7f7f7f" .. lvl .. "|r ";
 							end
 							lvl_str = lvl_str .. __UILOC.TIP_QUEST_MIN;
 							if min >= SET.quest_lvl_red then
-								lvl_str = lvl_str .. "\124cffff0000" .. min .. "\124r ]\124cff000000**\124r";
+								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r ]|cff000000**|r";
 							elseif min >= SET.quest_lvl_orange then
-								lvl_str = lvl_str .. "\124cffff7f7f" .. min .. "\124r ]\124cff000000**\124r";
+								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r ]|cff000000**|r";
 							elseif min >= SET.quest_lvl_yellow then
-								lvl_str = lvl_str .. "\124cffffff00" .. min .. "\124r ]\124cff000000**\124r";
+								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r ]|cff000000**|r";
 							elseif min >= SET.quest_lvl_green then
-								lvl_str = lvl_str .. "\124cff7fbf3f" .. min .. "\124r ]\124cff000000**\124r";
+								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r ]|cff000000**|r";
 							else
-								lvl_str = lvl_str .. "\124cff7f7f7f" .. min .. "\124r ]\124cff000000**\124r";
+								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r ]|cff000000**|r";
 							end
 						if meta ~= nil then
 							if line == 'start' then
@@ -244,7 +246,7 @@ end
 									local loc = __loc_quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
-											tip:AddLine("\124cff000000**\124r" .. text, 1.0, 0.75, 0.0);
+											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
 										end
 									end
 								end
@@ -260,7 +262,7 @@ end
 									local loc = __loc_quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
-											tip:AddLine("\124cff000000**\124r" .. text, 1.0, 0.75, 0.0);
+											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
 										end
 									end
 								end
@@ -270,7 +272,7 @@ end
 								for index = 1, #meta do
 									local meta_line = meta[index];
 									if meta_line[2] == 'event' or meta_line[2] == 'log' then
-										tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+										tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 									end
 								end
 							else
@@ -280,9 +282,9 @@ end
 									local meta_line = meta[line];
 									if meta_line ~= nil then
 										if meta_line[5] then
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 										else
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 										end
 									end
 								else
@@ -290,9 +292,9 @@ end
 									local meta_line = meta[line];
 									if meta_line ~= nil then
 										if meta_line[5] then
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 										else
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 										end
 									end
 								end
@@ -303,7 +305,7 @@ end
 								tip:AddLine(TIP_IMG_S_NORMAL .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 								if modifier and loc[3] then
 									for _, text in next, loc[3] do
-										tip:AddLine("\124cff000000**\124r" .. text, 1.0, 0.75, 0.0);
+										tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
 									end
 								end
 							else
@@ -341,7 +343,7 @@ end
 									local loc = __loc_quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
-											tip:AddLine("\124cff000000**\124r" .. text, 1.0, 0.75, 0.0);
+											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
 										end
 									end
 								end
@@ -349,7 +351,11 @@ end
 								for index = 1, #meta do
 									local meta_line = meta[index];
 									if meta_line[2] == 'event' or meta_line[2] == 'log' then
-										tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+										if meta_line[5] then
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
+										else
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
+										end
 									end
 								end
 							else
@@ -357,9 +363,9 @@ end
 									local meta_line = meta[line];
 									if meta_line ~= nil then
 										if meta_line[5] then
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 										else
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 										end
 									end
 								else
@@ -367,9 +373,9 @@ end
 									local meta_line = meta[line];
 									if meta_line ~= nil then
 										if meta_line[5] then
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 										else
-											tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+											tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 										end
 									end
 								end
@@ -385,7 +391,7 @@ end
 							end
 							if modifier and loc[3] then
 								for _, text in next, loc[3] do
-									tip:AddLine("\124cff000000**\124r" .. text, 1.0, 0.75, 0.0);
+									tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
 								end
 							end
 						else
@@ -460,9 +466,9 @@ end
 										local meta_line = meta[index];
 										if meta_line[2] == 'item' and meta_line[3] == id then
 											if meta_line[5] then
-												tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+												tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 											else
-												tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+												tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 											end
 											break;
 										end
@@ -526,9 +532,9 @@ end
 												local meta_line = meta[index];
 												if meta_line[2] == 'item' and meta_line[3] == id then
 													if meta_line[5] then
-														tip:AddLine("\124cff000000**\124r" .. meta_line[4], 0.5, 1.0, 0.0);
+														tip:AddLine("|cff000000**|r" .. meta_line[4], 0.5, 1.0, 0.0);
 													else
-														tip:AddLine("\124cff000000**\124r" .. meta_line[4], 1.0, 0.5, 0.0);
+														tip:AddLine("|cff000000**|r" .. meta_line[4], 1.0, 0.5, 0.0);
 													end
 													break;
 												end
@@ -548,12 +554,10 @@ end
 		local GameTooltipTextLeft1Text = nil;
 		local updateTimer = 0.0;
 		local function GameTooltipOnUpdate(self, elasped)
-			if SET.objective_tooltip_info then
+			if SET.objective_tooltip_info and self:GetOwner() == UIParent then
 				if updateTimer <= 0.0 then
 					updateTimer = 0.1;
-					local uname, unit = self:GetUnit();
-					local iname, link = self:GetItem();
-					if uname == nil and unit == nil and iname == nil and link == nil then
+					if self:GetUnit() == nil and self:GetItem() == nil then
 						local text = GameTooltipTextLeft1:GetText();
 						if text ~= nil and text ~= GameTooltipTextLeft1Text then
 							GameTooltipTextLeft1Text = text;

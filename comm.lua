@@ -89,7 +89,7 @@ end
 	-->		function predef
 		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
-		local AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
+		local AddSpawn, DelSpawn, AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
 		local AddLine, DelLine;
 		local MessageTicker, ScheduleMessage;
@@ -289,6 +289,34 @@ end
 		end
 	-->
 	-->		send quest data
+		function AddSpawn(name, quest, line, spawn, show_coords, showFriend)
+			if spawn.U ~= nil then
+				for unit, _ in next, spawn.U do
+					local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+					AddUnit(name, quest, line, unit, show_coords, large_pin, showFriend);
+				end
+			end
+			if spawn.O ~= nil then
+				for object, _ in next, spawn.O do
+					local large_pin = __db_large_pin:Check(quest, 'object', object);
+					AddObject(name, quest, line, object, show_coords, large_pin);
+				end
+			end
+		end
+		function DelSpawn(name, quest, line, spawn, total_del)
+			if spawn.U ~= nil then
+				for unit, _ in next, spawn.U do
+					local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+					DelUnit(name, quest, line, unit, total_del, large_pin);
+				end
+			end
+			if spawn.O ~= nil then
+				for object, _ in next, spawn.O do
+					local large_pin = __db_large_pin:Check(quest, 'object', object);
+					DelObject(name, quest, line, object, total_del, large_pin);
+				end
+			end
+		end
 		function AddUnit(name, quest, line, uid, show_coords, large_pin, showFriend)
 			local info = __db_unit[uid];
 			if info ~= nil then
@@ -319,18 +347,7 @@ end
 				end
 				local spawn = info.spawn;
 				if spawn ~= nil then
-					if spawn.U ~= nil then
-						for unit, _ in next, spawn.U do
-							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
-							AddUnit(name, quest, line, unit, show_coords, large_pin, showFriend);
-						end
-					end
-					if spawn.O ~= nil then
-						for object, _ in next, spawn.O do
-							local large_pin = __db_large_pin:Check(quest, 'object', object);
-							AddObject(quest, line, object, show_coords, large_pin);
-						end
-					end
+					AddSpawn(name, quest, line, spawn, show_coords, showFriend);
 				end
 			end
 		end
@@ -344,18 +361,7 @@ end
 				end
 				local spawn = info.spawn;
 				if spawn ~= nil then
-					if spawn.U ~= nil then
-						for unit, _ in next, spawn.U do
-							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
-							DelUnit(name, quest, line, unit, total_del, large_pin);
-						end
-					end
-					if spawn.O ~= nil then
-						for object, _ in next, spawn.O do
-							local large_pin = __db_large_pin:Check(quest, 'object', object);
-							DelObject(quest, line, object, total_del, large_pin);
-						end
-					end
+					DelSpawn(name, quest, line, spawn, total_del);
 				end
 			end
 		end
@@ -369,18 +375,7 @@ end
 				end
 				local spawn = info.spawn;
 				if spawn ~= nil then
-					if spawn.U ~= nil then
-						for unit, _ in next, spawn.U do
-							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
-							AddUnit(name, quest, line, unit, show_coords, large_pin, showFriend);
-						end
-					end
-					if spawn.O ~= nil then
-						for object, _ in next, spawn.O do
-							local large_pin = __db_large_pin:Check(quest, 'object', object);
-							AddObject(quest, line, object, show_coords, large_pin);
-						end
-					end
+					AddSpawn(name, quest, line, spawn, show_coords);
 				end
 			end
 			local name = __loc_object[oid];
@@ -398,18 +393,7 @@ end
 				end
 				local spawn = info.spawn;
 				if spawn ~= nil then
-					if spawn.U ~= nil then
-						for unit, _ in next, spawn.U do
-							local large_pin = __db_large_pin:Check(quest, 'unit', unit);
-							DelUnit(name, quest, line, unit, total_del, large_pin);
-						end
-					end
-					if spawn.O ~= nil then
-						for object, _ in next, spawn.O do
-							local large_pin = __db_large_pin:Check(quest, 'object', object);
-							DelObject(quest, line, object, total_del, large_pin);
-						end
-					end
+					DelSpawn(name, quest, line, spawn, total_del);
 				end
 			end
 		end
@@ -518,49 +502,42 @@ end
 			end
 		end
 		function AddEvent(name, quest)
-			local info = __db_quest[quest];
-			if info ~= nil then
-				local obj = info.obj;
-				if obj ~= nil then
-					local E = obj.E;
-					if E ~= nil then
-						local coords = E.coords;
-						if coords == nil then
-							coords = {  };
-							for index = 1, #E do
-								local event = __db_event[E[index]];
-								if event ~= nil then
-									local cs = event.coords;
-									if cs ~= nil and cs[1] ~= nil then
-										for j = 1, #cs do
-											coords[#coords + 1] = cs[j];
-										end
-									end
-								end
-							end
-							E.coords = coords;
-							PreloadCoords(E);
-						end
-						if coords ~= nil and coords[1] ~= nil then
-							AddLargeNodes(name, 'event', quest, quest, 'event', nil);
+			if __db_quest[quest] ~= nil then
+			local obj = __db_quest[quest].obj;
+			if obj ~= nil and obj.E ~= nil then
+				local events = obj.E;
+				for index = 1, #events do
+					local event = events[index];
+					local info = __db_event[event];
+					if info ~= nil then
+						PreloadCoords(info);
+						AddLargeNodes(name, 'event', event, quest, 'event', nil);
+						local spawn = info.spawn;
+						if spawn ~= nil then
+							AddSpawn(name, quest, 'event', spawn, false);
 						end
 					end
 				end
 			end
+			end
 		end
-		function DelEvent(name, quest)
-			local info = __db_quest[quest];
-			if info ~= nil then
-				local obj = info.obj;
-				if obj ~= nil then
-					local E = obj.E;
-					if E ~= nil then
-						local coords = E.coords;
-						if coords ~= nil and coords[1] ~= nil then
-							DelLargeNodes(name, 'event', quest, quest, 'event');
+		function DelEvent(name, quest, total_del)
+			if __db_quest[quest] ~= nil then
+			local obj = __db_quest[quest].obj;
+			if obj ~= nil and obj.E ~= nil then
+				local events = obj.E;
+				for index = 1, #events do
+					local event = events[index];
+					local info = __db_event[event];
+					if info ~= nil then
+						DelLargeNodes(name, 'event', event, quest, 'event', total_del);
+						local spawn = info.spawn;
+						if spawn ~= nil then
+							DelSpawn(name, quest, 'event', spawn, total_del);
 						end
 					end
 				end
+			end
 			end
 		end
 		--
@@ -663,6 +640,8 @@ end
 				DelObject(name, _quest, _line, _id, total_del, large_pin);
 				return true, _id, large_pin;
 			elseif _type == 'event' or _type == 'log' then
+				DelEvent(name, _quest, total_del);
+				return true, 'event', true;
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
@@ -1044,6 +1023,7 @@ end
 			__ns.PushDelQuest = noop;
 			__ns.PushAddLine = noop;
 			__ns.PushFlushBuffer = noop;
+			wipe(GROUP_MEMBERS);
 		end
 		function EnableComm()
 			is_comm_enabled = true;
@@ -1175,7 +1155,7 @@ end
 			__eventHandler:RegEvent("GROUP_JOINED");
 			__eventHandler:RegEvent("GROUP_LEFT");
 			__eventHandler:RegEvent("UNIT_CONNECTION");
-			if IsInGroup(LE_PARTY_CATEGORY_HOME) and not IsInRaid(LE_PARTY_CATEGORY_HOME) then
+			if IsInGroup(LE_PARTY_CATEGORY_HOME) and not IsInRaid(LE_PARTY_CATEGORY_HOME) and not UnitInBattleground('player') then
 				EnableComm();
 				__eventHandler:run_on_next_tick(UpdateGroupMembers);
 				_log_("comm.init.ingroup");
