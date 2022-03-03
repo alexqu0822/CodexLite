@@ -3,10 +3,10 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
-
-_G.__ala_meta__ = _G.__ala_meta__ or {  };
+local _G = _G;
 local __ala_meta__ = _G.__ala_meta__;
+
+local __addon, __ns = ...;
 __ala_meta__.quest = __ns;
 
 local __core = {  };
@@ -22,6 +22,8 @@ __ns.NewTimer = C_Timer.NewTimer;
 
 -->		Dev
 	local setfenv = setfenv;
+	local rawset = rawset;
+	local next = next;
 	local _GlobalRef = {  };
 	local _GlobalAssign = {  };
 	function __ns:BuildEnv(category)
@@ -77,7 +79,6 @@ __ns.NewTimer = C_Timer.NewTimer;
 	end
 -->
 
-local _G = _G;
 local _ = nil;
 --------------------------------------------------
 
@@ -266,52 +267,67 @@ local SET = nil;
 
 -->		Restricted Implementation
 	local _F_SafeCall = __core._F_SafeCall;
+	local _LT_CorePrint_Method_Env = {
+		select = select,
+		tostring = tostring,
+		format = format,
+		table_concat = table_concat,
+		__DefaultMessageFrame = _G.DEFAULT_CHAT_FRAME,
+	};
 	local _LT_CorePrint_Method = setmetatable(
 		{
-			[0] = function()
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r nil");
-			end,
-			['*'] = function(...)
-				local _nargs = select('#', ...);
-				local _argsv = { ... };
-				for _index = _nargs, 1, -1 do
-					if _argsv[_index] ~= nil then
-						_nargs = _index;
-						break;
+			[0] = setfenv(
+				function()
+					__DefaultMessageFrame:AddMessage("|cff00ff00>|r nil");
+				end,
+				_LT_CorePrint_Method_Env
+			),
+			["*"] = setfenv(
+				function(...)
+					local _nargs = select("#", ...);
+					local _argsv = { ... };
+					for _index = _nargs, 1, -1 do
+						if _argsv[_index] ~= nil then
+							_nargs = _index;
+							break;
+						end
 					end
-				end
-				for _index = 1, _nargs do
-					_argsv[_index] = tostring(_argsv[_index]);
-				end
-				DEFAULT_CHAT_FRAME:AddMessage("\124cff00ff00>\124r " .. table_concat(_argsv, " "));
-			end,	
+					for _index = 1, _nargs do
+						_argsv[_index] = tostring(_argsv[_index]);
+					end
+					__DefaultMessageFrame:AddMessage("|cff00ff00>|r " .. table_concat(_argsv, " "));
+				end,
+				_LT_CorePrint_Method_Env
+			),
 		},
 		{
-			__index = function(t, nargs)
+			__index = function(tbl, nargs)
 				if nargs > 0 and nargs < 8 then
-					local _head = "local tostring = tostring;\nreturn function(arg1";
-					local _body = ") DEFAULT_CHAT_FRAME:AddMessage(\"\124cff00ff00>\124r \" .. tostring(arg1)";
-					local _tail = "); end";
+					local _head = [[local tostring = tostring;\nreturn function(arg1]];
+					local _body = [[) __DefaultMessageFrame:AddMessage("|cff00ff00>|r " .. tostring(arg1)]];
+					local _tail = [[); end]];
 					for _index = 2, nargs do
-						_head = _head .. ", arg" .. _index;
-						_body = _body .. " .. \" \" .. tostring(arg" .. _index .. ")";
+						_head = _head .. [[, arg]] .. _index;
+						_body = _body .. [[ .. " " .. tostring(arg]] .. _index .. [[)]];
 					end
 					local _func0, _err = loadstring(_head .. _body .. _tail);
 					if _func0 == nil then
-						local _func = t['*'];
-						t[nargs] = _func;
+						local _func = tbl["*"];
+						tbl[nargs] = _func;
 						return _func;
 					else
 						local _, _func = _F_SafeCall(_func0);
 						if _func == nil then
-							_func = t['*'];
+							_func = tbl["*"];
+						else
+							setfenv(_func, _LT_CorePrint_Method_Env);
 						end
-						t[nargs] = _func;
+						tbl[nargs] = _func;
 						return _func;
 					end
 				else
-					local _func = t['*'];
-					t[nargs] = _func;
+					local _func = tbl["*"];
+					tbl[nargs] = _func;
 					return _func;
 				end
 			end,
@@ -492,6 +508,7 @@ local SET = nil;
 	local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition;
 	--
 	local WORLD_MAP_ID = C_Map.GetFallbackWorldMapID() or 947;		--	947
+	local MapTypeDungeon = Enum.UIMapType.Dungeon;
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
 	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
 	if __ns.__toc < 20000 then
@@ -606,7 +623,7 @@ local SET = nil;
 			local meta = mapMeta[map];
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
-				if data ~= nil then
+				if data ~= nil and data.mapType ~= MapTypeDungeon then
 					--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
 					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
 					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
@@ -1019,9 +1036,9 @@ local SET = nil;
 	local TIP_IMG_LIST = {  };
 	for index, info in next, IMG_LIST do
 		if (info[2] ~= nil and info[3] ~= nil and info[4] ~= nil) and (info[2] ~= 1.0 or info[3] ~= 1.0 or info[4] ~= 1.0) then
-			TIP_IMG_LIST[index] = format("\124T%s:0:0:0:0:1:1:0:1:0:1:%d:%d:%d\124t", info[1], info[2] * 255, info[3] * 255, info[4] * 255);
+			TIP_IMG_LIST[index] = format("|T%s:0:0:0:0:1:1:0:1:0:1:%d:%d:%d|t", info[1], info[2] * 255, info[3] * 255, info[4] * 255);
 		else
-			TIP_IMG_LIST[index] = format("\124T%s:0\124t", info[1]);
+			TIP_IMG_LIST[index] = format("|T%s:0|t", info[1]);
 		end
 	end
 	local function GetQuestStartTexture(info)
@@ -1110,7 +1127,7 @@ local SET = nil;
 	local date = date;
 	local function _log_(...)
 		if __ns.__is_dev then
-			_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), ...);
+			_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), ...);
 		end
 	end
 	__ns._log_ = _log_;
@@ -1159,12 +1176,12 @@ local SET = nil;
 			local cost = __ns._F_devDebugProfileTick(tag);
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
-				_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), tag, cost, ex1, ex2, ex3);
+				_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, cost, ex1, ex2, ex3);
 			end
 		end
 	end
 	function __ns.__opt_log(tag, ...)
-		_F_CorePrint(date('\124cff00ff00%H:%M:%S\124r cl'), tag, ...);
+		_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, ...);
 	end
 -->
 

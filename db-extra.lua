@@ -145,6 +145,11 @@ function MarkItem(quest, item)
 					MarkRefloot(quest, ref);
 				end
 			end
+			if info.V ~= nil then
+				for unit, _ in next, info.V do
+					MarkUnit(quest, unit);
+				end
+			end
 		end
 	-- end
 	MarkItemRelation(quest, item);
