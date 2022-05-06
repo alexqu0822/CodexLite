@@ -1106,5 +1106,6 @@ __ns.L.object = {
   [181598] = "Gêiser Silitista",
   [181605] = "Ciranda da Fita",
   [182106] = "Estandarte da Torre",
-  [-1] = "Entry",
+  [-101001] = "Entry",
+  [-101002] = "Entry",
 };

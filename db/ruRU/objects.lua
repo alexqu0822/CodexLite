@@ -9034,7 +9034,6 @@ __ns.L.object = {
   [211067] = "Саркофаг",
   [211068] = "Тотем огня",
   [211084] = "Mephistroph\'s HellFire",
-  [-1] = "Entry",
   [-100010] = "TEMP Machine Shop",
   [-100011] = "Ближайшие корни",
   [-100012] = "TEMP Stone of Outer Binding",
@@ -9116,4 +9115,6 @@ __ns.L.object = {
   [-100153] = "TEMP Entrance to Onyxia\'s Lair",
   [-100500] = "In the memory of BalakinUser",
   [-100601] = "Второй тайник",
+  [-101001] = "Entry",
+  [-101002] = "Entry",
 };

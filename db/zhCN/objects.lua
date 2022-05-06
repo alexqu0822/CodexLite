@@ -8988,7 +8988,6 @@ __ns.L.object = {
   [211065] = "墓碑",
   [211067] = "Sarcophag",
   [211068] = "火焰图腾",
-  [-1] = "入口",
   [211084] = "Mephistroph\'s HellFire",
   [-100010] = "TEMP Machine Shop",
   [-100011] = "TEMP Nearby Tubers",
@@ -9071,4 +9070,6 @@ __ns.L.object = {
   [-100153] = "TEMP Entrance to Onyxia\'s Lair",
   [-100500] = "Event Vael",
   [-100601] = "Door",
+  [-101001] = "入口",
+  [-101002] = "入口",
 };
