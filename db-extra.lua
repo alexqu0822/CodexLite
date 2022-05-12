@@ -203,6 +203,27 @@ function MarkRefloot(quest, ref)
 end
 function MarkEvent(quest, event)
 	HashEvent[event] = 1;
+		local info = __db_event[event];
+		if info ~= nil then
+			local spawn = info.spawn;
+			if spawn ~= nil then
+				if spawn.U ~= nil then
+					for unit, _ in next, spawn.U do
+						MarkUnit(quest, unit);
+					end
+				end
+				if spawn.O ~= nil then
+					for object, _ in next, spawn.O do
+						MarkObject(quest, object);
+					end
+				end
+				if spawn.I ~= nil then
+					for item, _ in next, spawn.I do
+						MarkItem(quest, item);
+					end
+				end
+			end
+		end
 end
 local function load_extra_db()
 	for quest, info in next, __db_quest do
