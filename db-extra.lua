@@ -317,6 +317,35 @@ local function load_extra_db()
 					end
 				end
 			end
+			local _extra = info['extra'];
+			if _extra ~= nil then
+				if _extra.U ~= nil then
+					for unit in next, _extra.U do
+						MarkUnit(quest, unit);
+					end
+				end
+				if _extra.I ~= nil then
+					for item in next, _extra.I do
+						MarkItem(quest, item);
+					end
+				end
+				if _extra.IR ~= nil then
+					for item in next, _extra.IR do
+						-- HashItem[item] = 1;
+						MarkItemRelation(quest, item);
+					end
+				end
+				if _extra.O ~= nil then
+					for object in next, _extra.O do
+						MarkObject(quest, object);
+					end
+				end
+				if _extra.E ~= nil then
+					for event in next, _extra.E do
+						MarkEvent(quest, event);
+					end
+				end
+			end
 		end
 		-->		proc db
 		for which, hash in next, Hash do

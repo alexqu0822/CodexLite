@@ -7683,6 +7683,21 @@ local large_pin = {
 			[24991] = 1,
 		},
 	},
+	[11532] = {
+		["unit"] = {
+			[25059] = 1,
+		},
+	},
+	[11533] = {
+		["unit"] = {
+			[25059] = 1,
+		},
+	},
+	[11538] = {
+		["unit"] = {
+			[25003] = 1,
+		},
+	},
 	[11547] = {
 		["unit"] = {
 			[25154] = 1,
@@ -49668,3 +49683,45 @@ __ns.L.object[-201001] = __ns.L.object[-201001] or (__ns.L.quest[10782] ~= nil a
 __ns.L.object[-201002] = __ns.L.object[-201002] or (__ns.L.quest[11381] ~= nil and __ns.L.quest[11381][1]) or "-201002";
 __ns.L.object[-201003] = __ns.L.object[-201003] or (__ns.L.quest[10424] ~= nil and __ns.L.quest[10424][1]) or "-201003";
 __ns.L.object[-201004] = __ns.L.object[-201004] or (__ns.L.quest[10838] ~= nil and __ns.L.quest[10838][1]) or "-201004";
+
+
+local dbextraobj = {
+	[10129] = {
+		U = {
+			[19401] = 0,
+		},
+	},
+	[10146] = {
+		U = {
+			[19409] = 0,
+		},
+	},
+	[10340] = {
+		U = {
+			[19409] = 'always',
+		},
+	},
+	[11532] = {
+		U = {
+			[25059] = 0,
+		},
+	},
+	[11533] = {
+		U = {
+			[25059] = 0,
+		},
+	},
+	[11526] = {
+		E = {
+			[-20014] = 'always',
+		},
+	},
+};
+
+local __db_quest = __db.quest;
+for quest, extra in next, dbextraobj do
+	local info = __db_quest[quest];
+	if info ~= nil then
+		info.extra = extra;
+	end
+end
