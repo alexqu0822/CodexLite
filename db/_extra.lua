@@ -6703,3 +6703,12 @@ __db.fix_horde = {
 	},
 };
 __db.waypoints = {  };
+
+if GetLocale() == "zhCN" then
+	__ns.L.delprefix = {
+		"^营救",
+		"^解放",
+	};
+else
+	__ns.L.delprefix = {  };
+end
