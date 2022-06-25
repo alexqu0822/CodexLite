@@ -1134,12 +1134,13 @@ local _F_CorePrint = __ns._F_CorePrint;
 				TEXTURE = IMG_INDEX.IMG_S_COMMING;
 			end
 		else
+			local flag = info.flag;
 			local exflag = info.exflag;
-			if exflag ~= nil and _bit_band(exflag, 1) ~= 0 then
+			if (exflag ~= nil and _bit_band(exflag, 1) ~= 0) or (flag ~= nil and _bit_band(flag, 4096) ~= 0) then
 				TEXTURE = IMG_INDEX.IMG_S_REPEATABLE;
 			else
 				local lvl = info.lvl;
-				lvl = lvl >= 0 and lvl or __ns.__player_level
+				lvl = lvl >= 0 and lvl or __ns.__player_level;
 				if lvl >= SET.quest_lvl_red then
 					TEXTURE = IMG_INDEX.IMG_S_VERY_HARD;
 				elseif lvl >= SET.quest_lvl_orange then
@@ -1149,7 +1150,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 				elseif lvl >= SET.quest_lvl_green then
 					TEXTURE = IMG_INDEX.IMG_S_EASY;
 				else
-					TEXTURE = IMG_INDEX.IMG_S_LOW_LEVEL
+					TEXTURE = IMG_INDEX.IMG_S_LOW_LEVEL;
 				end
 			end
 		end

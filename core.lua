@@ -819,8 +819,10 @@ end
 					if name == "" or name == " " then
 						return false;
 					end
-					for _, v in next, __loc_delprefix do
-						name = gsub(name, v, "");
+					if __loc_delprefix ~= nil then
+						for _, v in next, __loc_delprefix do
+							name = gsub(name, v, "");
+						end
 					end
 					local U = obj.U;
 					if U ~= nil then
@@ -862,8 +864,10 @@ end
 					if name == "" or name == " " then
 						return false;
 					end
-					for _, v in next, __loc_delprefix do
-						name = gsub(name, v, "");
+					if __loc_delprefix ~= nil then
+						for _, v in next, __loc_delprefix do
+							name = gsub(name, v, "");
+						end
 					end
 					local O = obj.O;
 					if O ~= nil then
