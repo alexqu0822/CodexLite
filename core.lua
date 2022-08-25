@@ -95,7 +95,7 @@ end
 		}
 	]]
 	local CACHE = {  };	--	如果META初始不为空（从保存变量中加载），需要根据META表初始化
-	local OBJ_LOOKUP = {  };
+	local OBJ_LOOKUP = { ["*"] = {  }, };
 	local QUESTS_COMPLETED = {  };
 	local QUESTS_CONFILCTED = {  };
 	__ns.__core_meta = META;
@@ -105,6 +105,7 @@ end
 		local GetColor3, RelColor3, GetColor3NextIndex, ResetColor3;
 		local CoreAddUUID, CoreSubUUID, CoreGetUUID, ResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
+		local AddObjectLookup;
 		local AddSpawn, DelSpawn, AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
 		local AddLine, AddLineByID, DelLine;
@@ -115,7 +116,7 @@ end
 		local CalcQuestColor;
 		--	setting
 		local SetQuestStarterShown, SetQuestEnderShown;
-		local SetLimitItemStarter;
+		local SetLimitItemStarter, SetLimitItemStarterNumCoords;
 		--	setup
 		local SetupCompleted;
 	-->
@@ -398,6 +399,21 @@ end
 			end
 		end
 	-->
+	function AddObjectLookup(oid)
+		local name = __loc_object[oid];
+		if name ~= nil then
+			OBJ_LOOKUP["*"][name] = oid;
+			local info = __db_object[oid];
+			if info ~= nil and info.coords ~= nil then
+				local coords = info.coords;
+				for i = 1, #coords do
+					local map = coords[i][3];
+					OBJ_LOOKUP[map] = OBJ_LOOKUP[map] or {  };
+					OBJ_LOOKUP[map][name] = oid;
+				end
+			end
+		end
+	end
 	-->		send quest data
 		function AddSpawn(quest, line, spawn, show_coords, showFriend)
 			if spawn.U ~= nil then
@@ -515,10 +531,7 @@ end
 					AddSpawn(quest, line, spawn, show_coords);
 				end
 			end
-			local name = __loc_object[oid];
-			if name ~= nil then
-				OBJ_LOOKUP[name] = oid;
-			end
+			AddObjectLookup(oid);
 		end
 		function DelObject(quest, line, oid, total_del, large_pin)
 			local info = __db_object[oid];
@@ -683,10 +696,7 @@ end
 							local coords = info.coords;
 							AddVariedNodes('object', oid, quest, which, coords, TEXTURE);
 						end
-						local name = __loc_object[oid];
-						if name ~= nil then
-							OBJ_LOOKUP[name] = oid;
-						end
+						AddObjectLookup(oid);
 					end
 				end
 				local U = info.U;
@@ -714,16 +724,13 @@ end
 										if info ~= nil then
 											PreloadCoords(info);
 											local wcoords = info.wcoords;
-											if wcoords == nil or #wcoords <= 5 or not SET.limit_item_starter_drop then
+											if wcoords == nil or #wcoords <= 5 or not SET.limit_item_starter_drop_num_coords then
 												AddVariedNodes('object', oid, quest, which, info.coords, TEXTURE);
 											else
 												DelVariedNodes('object', oid, quest, which);
 											end
 										end
-										local name = __loc_object[oid];
-										if name ~= nil then
-											OBJ_LOOKUP[name] = oid;
-										end
+										AddObjectLookup(oid);
 									else
 										DelVariedNodes('object', oid, quest, which);
 									end
@@ -737,7 +744,7 @@ end
 										if info ~= nil then
 											PreloadCoords(info);
 											local wcoords = info.wcoords;
-											if wcoords == nil or #wcoords <= 5 or not SET.limit_item_starter_drop then
+											if wcoords == nil or #wcoords <= 5 or not SET.limit_item_starter_drop_num_coords then
 												AddVariedNodes('unit', uid, quest, which, info.coords, TEXTURE);
 											else
 												DelVariedNodes('unit', uid, quest, which);
@@ -873,7 +880,7 @@ end
 					if O ~= nil then
 						local oid = #O == 1 and O[1] or cache[name] or FindMinLevenshteinDistance(name, __loc_object, O);
 						if oid then
-							OBJ_LOOKUP[__loc_object[oid]] = oid;
+							AddObjectLookup(oid);
 							local large_pin = __db_large_pin:Check(quest_id, 'object', oid);
 							AddObject(quest_id, index, oid, not finished, large_pin);
 							return true, oid, large_pin;
@@ -973,7 +980,7 @@ end
 			end
 			if extra.O ~= nil then
 				for oid, check in next, extra.O do
-					OBJ_LOOKUP[__loc_object[oid]] = oid;
+					AddObjectLookup(oid);
 					local large_pin = __db_large_pin:Check(quest_id, 'object', oid);
 					if check == completed or check == 'always' then
 						AddObject(quest_id, 'extra', oid, true, large_pin);
@@ -1265,6 +1272,14 @@ end
 							--
 							meta.flag = 1;
 							meta.num_lines = num_lines;
+							--
+							local start = info.start;
+							if start ~= nil and start.O ~= nil then
+								local O = start.O;
+								for i = 1, #O do
+									AddObjectLookup(O[i]);
+								end
+							end
 						else
 							_log_('Missing Quest', quest_id, title);
 						end
@@ -1512,11 +1527,15 @@ end
 		function SetLimitItemStarter(limit)
 			UpdateQuestGivers();
 		end
+		function SetLimitItemStarterNumCoords(limit)
+			UpdateQuestGivers();
+		end
 	-->
 	-->		extern method
 		__ns.SetQuestStarterShown = SetQuestStarterShown;
 		__ns.SetQuestEnderShown = SetQuestEnderShown;
 		__ns.SetLimitItemStarter = SetLimitItemStarter;
+		__ns.SetLimitItemStarterNumCoords = SetLimitItemStarterNumCoords;
 		--
 		__ns.UpdateQuests = UpdateQuests;
 		__ns.UpdateQuestGivers = UpdateQuestGivers;

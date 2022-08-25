@@ -138,6 +138,7 @@ if LOCALE == 'zhCN' then
 	UILOC.minimap_node_inset = "不显示小地图边缘上的任务图标";
 	UILOC.minimap_player_arrow_on_top = "置顶小地图玩家箭头";
 	UILOC.limit_item_starter_drop = "触发任务的物品只显示10%以上掉落率的掉落点";
+	UILOC.limit_item_starter_drop_num_coords = "触发任务的物品只显示少于等于5个位置的掉落点";
 	--	interact
 	UILOC.auto_accept = "自动接任务";
 	UILOC.auto_complete = "自动交任务";
@@ -199,6 +200,7 @@ elseif LOCALE == 'zhTW' then
 	UILOC.minimap_node_inset = "不顯示小地圖邊緣上的任務圖標";
 	UILOC.minimap_player_arrow_on_top = "置頂小地圖玩家箭頭";
 	UILOC.limit_item_starter_drop = "觸發任務的物品只顯示10%以上掉落率的掉落點";
+	UILOC.limit_item_starter_drop_num_coords = "觸發任務的物品只顯示少於等於5個位置的掉落點";
 	--	interact
 	UILOC.auto_accept = "自動接任務";
 	UILOC.auto_complete = "自動交任務";
@@ -260,6 +262,7 @@ elseif LOCALE == 'ruRU' then
 	UILOC.minimap_node_inset = "Hide pin on the border of minimap";
 	UILOC.minimap_player_arrow_on_top = "Player arrow on the top of minimap";
 	UILOC.limit_item_starter_drop = "Show items quest giver only if the drop rate is above 10%";
+	UILOC.limit_item_starter_drop_num_coords  = "Show items quest giver with no more than 5 coords";
 	--	interact
 	UILOC.auto_accept = "Авто принятие задания";
 	UILOC.auto_complete = "Автозаполнение задания";
@@ -321,6 +324,7 @@ else
 	UILOC.minimap_node_inset = "Hide pin on the border of minimap";
 	UILOC.minimap_player_arrow_on_top = "Player arrow on the top of minimap";
 	UILOC.limit_item_starter_drop = "Show items quest giver only if the drop rate is above 10%";
+	UILOC.limit_item_starter_drop_num_coords  = "Show items quest giver with no more than 5 coords";
 	--	interact
 	UILOC.auto_accept = "Quest Auto Accept";
 	UILOC.auto_complete = "Quest Auto Complete";

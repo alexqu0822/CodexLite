@@ -28535,12 +28535,12 @@ __ns.L.quest = {
     { [[将孤儿萨兰蒂亚带到时空之穴中央平台上的扎拉多姆面前。如果你到达时她不在你身边，记得召唤她。nn然后在时光守护者的军需官艾鲁尔米那儿为她购买一个玩具龙，艾鲁尔米就在入口通道底部附近。]], },
   },
   [10964] = {
-    [[Waking the Sleeper]],
+    [[唤醒沉睡者]],
     { [[Take the ward with you and travel to Moonglade, to the Stormrage Barrow Dens. Within the southernmost of the Stormrage Barrow Dens, watched over by the dreamwardens, you will find Clintar Dreamwalker.]], [[Administer the potion and watch over him while he wakes. He'll be extremely vulnerable as his spirit reunites with his body and he certainly won't recognize you. Declare yourself to him as soon as he comes around, <name>. He will need your help to gather the relics for the ceremony.]], },
     { [[Use the Ward of Waking to help Clintar Dreamwalker emerge from the Emerald Dream. When he is conscious, speak to him.]], },
   },
   [10965] = {
-    [[No Mere Dream]],
+    [[梦境危机]],
     { [[<Clintar listens as you relay Morthis' instructions, nodding, but clearly fearful.>]], [[I cannot extricate myself fully from the Emerald Dream to help you, but a fragment of my spirit will guide you in your search for the relics. Guard it well, <race>, for it is a fragile thing.]], [[The Emerald Dream itself has become an alien, dangerous place. Its grasp on me is strong, and I will not be whole until the Emerald Dream returns to normalcy. What you see around you is but an echo of the reality inside the dream!]], },
     { [[Protect Clintar Dreamwalker's Spirit while it gathers the relics of Aviana, then speak to Dreamwarden Lurosa.]], },
   },
@@ -28602,12 +28602,12 @@ __ns.L.quest = {
     { [[刀锋山巴什伊尔码头的指挥官阿米尔的影像要你进入奥金顿的法力陵墓，对静止间使用法力陵墓静止间钥匙。nn此任务必须在英雄难度的地下城中完成。]], },
   },
   [10978] = {
-    [[Return to Morthis Whisperwing]],
+    [[返回莫希斯·轻翼身边]],
     { [[Now that the relics have been recovered, you must leave this place with all haste. Clintar risked his safety and that of the dreamwardens to help you, <name>, but now he must fully devote his attention to fighting the force that has invaded the Emerald Dream.]], [[Take the relics back to Morthis Whisperwing, along with word of what you've seen here. He may be able to help us identify just what Clintar is struggling against.]], },
     { [[Bring the Relics of Aviana to Morthis Whisperwing at Cenarion Refuge in Zangarmarsh.]], },
   },
   [10979] = {
-    [[To the Evergrove]],
+    [[转至常青林]],
     { [[Are you certain you saw a raven in the barrow den?]], [[This is a troubling development. There's little we can do to help Clintar and the dreamwardens directly, but if we can learn more about what's threatening the Emerald Dream, we may be able to stop it.]], [[We've been learning about the resurgence in an ancient arakkoa cult in Blade's Edge]], },
     { [[Speak with Arthorn Windsong at the Evergrove in Blade's Edge Mountains.]], },
   },
@@ -28643,12 +28643,12 @@ __ns.L.quest = {
     { [[Speak with Watcher Elaira at the Twilight Ridge in Nagrand.]], },
   },
   [10987] = {
-    [[To Catch A Sparrowhawk]],
+    [[捕获麻鹰]],
     { [[The wild sparrowhawks of Nagrand have the keenest sight of all the predatory birds here. But, because of their size, they've been pushed out of most areas by the larger windrocs.]], [[Most of the sparrowhawks nest here, on the Twilight Ridge. If you can catch one, I'll train it to spot the pieces of your buried tablet.]], [[It's going to be difficult, though. The sparrowhawks are very skittish and will flee at your approach. I'd suggest cornering one or prowling to get close enough to cast your net.]], },
     { [[Use the Sparrowhawk Net to capture a Wild Sparrowhawk and bring it to Watcher Elaira on the Twilight Ridge.]], },
   },
   [10988] = {
-    [[The Raven Stones]],
+    [[乌鸦石]],
     { [[I've trained your sparrowhawk to respond to a specific whistle. When it hears the sound, the bird will fly to you and guide you to the location of the nearest tablet fragment. Arthorn sent word that the fragments you're looking for are buried in the Skettis area of southeastern Terokkar Forest, so the bird will wait for you there.]], [[When you've gathered all the stones, return the whistle to Arthorn and she will see to the animal's care and release.]], [[Convey my greetings to Arthorn when you see her.]], },
     { [[Gather 8 Raven Stones from Skettis and bring them to Arthorn Windsong at Evergrove in Blade's Edge Mountains.]], },
   },
@@ -28658,27 +28658,27 @@ __ns.L.quest = {
     { [[与枯瘦的莫戈多格谈一谈，他在刀锋山的鲜血之环外，卓尔特身旁的塔顶上。]], },
   },
   [10990] = {
-    [[The Eagle's Essence]],
+    [[雄鹰精华]],
     { [[The Book of the Raven tells us the raven's followers captured and bound the spirits of his rivals within stone shrines. A guardian was set to watch over each, lest the raven's enemies attempt to free them.]], [[The first of the shrines is the eagle's, found in the hills to the south of Lake Jorune and west of Stonebreaker Hold in Terokkar Forest.]], [[The tablet says that the eagle fought valiantly, but was overcome by a swarm of enemies. The armor and endurance of your bear form is well-suited to this fight.]], },
     { [[Defeat the Guardian of the Eagle and obtain the Essence of the Eagle. Use Arthorn's Sparrowhawk Whistle to call Arthorn's Sparrowhawk to relay news of your success.]], [[If you lose Arthorn's Sparrowhawk Whistle, return to Arthorn Windsong at the Evergrove for a replacement.]], },
   },
   [10991] = {
-    [[The Falcon's Essence]],
+    [[猎鹰精华]],
     { [[<The bird speaks with Arthorn's voice.>]], [[The second spirit bound by the raven's followers was the falcon.]], [[It was subdued and imprisoned close to Skettis as a reminder to the raven-priests when they held power.]], [[On the shores of Lake Ere'Noru, to the northwest of Skettis, you'll find the falcon's shrine.]], [[To overcome the falcon's guardian, you'll need to use the falcon's strengths to your advantage. Use the speed and grace of your cat form to defeat the guardian before it reaches full strength!]], },
     { [[Defeat the Guardian of the Falcon, obtain the Essence of the Falcon. Use Arthorn's Sparrowhawk Whistle to call Arthorn's Sparrowhawk to relay news of your success.]], [[If you lose Arthorn's Sparrowhawk Whistle, return to Arthorn Windsong at the Evergrove for a replacement.]], },
   },
   [10992] = {
-    [[The Hawk's Essence]],
+    [[山鹰精华]],
     { [[<Arthorn's voice addresses you.>]], [[The last, and strongest, of the spirits spoken of in the Book of the Raven is that of the hawk. It was imprisoned far from Skettis, in a shrine on a remote island southeast of Auchindoun.]], [[I believe this description best matches the island we know as Sorrow Wing Point.]], [[The tablet describes the hawk's guardian as nearly invulnerable to the bird's claws. Forsake physical attacks and call down the fury of the stars to defeat this foe. Do not repeat the hawk's mistake.]], },
     { [[Defeat the Guardian of the Hawk and bring the Essence of the Hawk to Arthorn Windsong at the Evergrove.]], },
   },
   [10993] = {
-    [[Return to Cenarion Refuge]],
+    [[返回塞纳里奥庇护所]],
     { [[Bring the essences to Morthis Whisperwing, along with word of our findings about the raven god.]], [[Morthis will know best how to use the essences and information in drawing Anzu out into the open. Make your way to him quickly, for there's no telling how long Clintar and the dreamwardens can withstand the raven's assault!]], [[<Arthorn grabs your arm before you turn to leave>.]], [[Please, <name>, tell Morthis how much of a help I've been to you. I fear he will not see my hand in this work!]], },
     { [[Bring Arthorn's Package to Morthis Whisperwing at Cenarion Refuge.]], },
   },
   [10994] = {
-    [[Chasing the Moonstone]],
+    [[寻找月亮石]],
     { [[If the essences are combined within a rare gemstone such as a Southfury moonstone, you'll be able to release them when you're prepared to challenge Anzu.]], [[The only problem is that Southfury moonstones are only found on the Azshara side of the river, on the cliffs near the river's source.]], [[Tragedy befell the last night elf party that sought the stone. Their boat is still anchored in the river near where they sighted the moonstone. Keep your eyes open and approach the site by land from the Azshara side.]], },
     { [[Bring a Southfury Moonstone to Morthis Whisperwing at the Cenarion Refuge.]], },
   },

@@ -42,7 +42,7 @@ local autostyle = __ala_meta__.autostyle;
 	local QuestLogFrame = QuestLogFrame;
 	local QuestLogListScrollFrame = QuestLogListScrollFrame;
 	local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
-	local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
+	local QuestLogDescriptionTitle = QuestLogDescriptionTitle or QuestInfoDescriptionHeader;
 	local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
 	local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
 
@@ -589,7 +589,8 @@ end
 						if text ~= nil and text ~= tip.__TextLeft1Text then
 							local reshow = false;
 							tip.__TextLeft1Text = text;
-							local oid = __obj_lookup[text];
+							local map = __core.GetPlayerZone();
+							local oid = __obj_lookup[map] ~= nil and __obj_lookup[map][text] or __obj_lookup["*"][text];
 							if oid ~= nil then
 								local uuid = __ns.CoreGetUUID('object', oid);
 								if uuid ~= nil then
@@ -997,6 +998,7 @@ end
 			if ChatFrame ~= ChatFrame2 then
 				return false, gsub(arg1, "(%[%[[0-9]+%] .- %(([0-9]+)%)%])", ChatFilterReplacer), ...;
 			end
+			return false, arg1, ...;
 		end
 		local ItemRefTooltip = ItemRefTooltip;
 		local _ItemRefTooltip_SetHyperlink = ItemRefTooltip.SetHyperlink;
@@ -1060,7 +1062,7 @@ end
 		local function HookQuestLogTitle()
 			if Num_Hooked_QuestLogTitle < QUESTS_DISPLAYED then
 				for index = Num_Hooked_QuestLogTitle + 1, QUESTS_DISPLAYED do
-					local button = _G["QuestLogTitle" .. index];
+					local button = _G["QuestLogTitle" .. index] or _G["QuestLogListScrollFrameButton" .. index];
 					local script = button:GetScript("OnClick");
 					button:SetScript("OnClick", function(self, button)
 						if IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow() then

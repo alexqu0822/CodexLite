@@ -324,6 +324,17 @@ end
 					boolean_func,
 					'tab.map',
 				},
+				limit_item_starter_drop_num_coords = {
+					'boolean',
+					function(val)
+						SET['limit_item_starter_drop_num_coords'] = val;
+						__ns.SetLimitItemStarterNumCoords();
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.map',
+				},
 			--	tab.interact
 				auto_accept = {
 					'boolean',
@@ -437,6 +448,7 @@ end
 			minimap_node_inset = true,
 			minimap_player_arrow_on_top = true,
 			limit_item_starter_drop = true,
+			limit_item_starter_drop_num_coords = false,
 		--	interact
 			auto_accept = false,
 			auto_complete = false,
@@ -468,6 +480,7 @@ end
 			"minimap_node_inset",
 			"minimap_player_arrow_on_top",
 			"limit_item_starter_drop",
+			"limit_item_starter_drop_num_coords",
 		--	interact
 			"auto_accept",
 			"auto_complete",

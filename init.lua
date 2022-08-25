@@ -541,6 +541,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		["MAGE"] = 128,
 		["WARLOCK"] = 256,
 		["DRUID"] = 1024,
+		["DEATHKNIGHT"] = 2048,
 	};
 	local classbit = {  }; for _class, _bit in next, bitclass do classbit[_bit] = _class; end
 	local _PLAYER_RACEBIT = bitrace[_PLAYER_RACEFILE];
@@ -590,7 +591,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 	local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition;
 	--
 	local WORLD_MAP_ID = C_Map.GetFallbackWorldMapID() or 947;		--	947
-	local MapTypeDungeon = Enum.UIMapType.Dungeon;
+	local MapTypeDungeon = _G.Enum.UIMapType.Dungeon;
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
 	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
 	if __ns.__toc < 20000 then
