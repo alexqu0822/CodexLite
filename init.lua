@@ -172,8 +172,6 @@ end
 
 --[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.init'); end
 
-local SET = nil;
-
 -->		SafeCall
 	local _F_ErrorHandler = geterrorhandler();
 	hooksecurefunc("seterrorhandler", function(handler)
@@ -264,6 +262,10 @@ local SET = nil;
 		TAG_MM_LARGE = '__pin_tag_mm_large',
 		TAG_MM_VARIED = '__pin_tag_mm_varied',
 	};
+	__core.quest_lvl_green = -1;
+	__core.quest_lvl_yellow = -1;
+	__core.quest_lvl_orange = -1;
+	__core.quest_lvl_red = -1;
 -->
 
 -->		Restricted Implementation
@@ -604,15 +606,31 @@ local _F_CorePrint = __ns._F_CorePrint;
 			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
 		};
+	elseif __ns.__toc < 40000 then
+		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+			[0] = { 48033.24, 32020.8, 36867.97, 14848.84 },	--	Eastern Kingdoms
+			[1] = { 47908.72, 31935.28, 8552.61, 18467.83 },	--	Kalimdor
+			[571] = { 47662.7, 31772.19, 25198.53, 11072.07 },
+		};
+	else
+		worldMapData = {  };
 	end
 	local TransformMeta = {  };
 	-->		TransformData from HBD
 		local transformData;
-		if __ns.__toc >= 20000 and __ns.__toc < 30000 then
+		if __ns.__toc < 20000 then
+			transformData = {  };
+		elseif __ns.__toc < 30000 then
 			transformData = {
 				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
 			};
+		elseif __ns.__toc < 40000 then
+			transformData = {
+				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
+				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
+				{ 609, 0, -10000, 10000, -10000, 10000, 0, 0 },
+			}
 		else
 			transformData = {
 				{ 530, 1, -6933.33, 533.33, -16000, -8000, 9916, 17600 },
@@ -798,7 +816,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		for map = 1, 2000 do
 			processMap(map);
 		end
-		if __ns.__toc >= 20000 and __ns.__toc < 30000 then
+		if __ns.__toc >= 20000 and __ns.__toc < 40000 then
 			local data = {
 				[1438] = { 1457, },	--	泰达希尔
 				[1457] = { 1438, },	--	达纳苏斯
@@ -860,6 +878,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		FillIn("continent", 1414);
 		FillIn("continent", 1415);
 		FillIn("continent", 1945);
+		FillIn("continent", 113);
 	end
 	__core.ContinentMapID = {
 		[946] = "Universe",
@@ -1048,16 +1067,14 @@ local _F_CorePrint = __ns._F_CorePrint;
 			-- 		pos = pos + 1;
 			-- 	end
 			-- end
-			-- if SET.show_in_continent then
-				local cmap = GetMapContinent(map);
+			local cmap = GetMapContinent(map);
+			if cmap ~= nil then
+				local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
 				if cmap ~= nil then
-					local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
-					if cmap ~= nil then
-						coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
-						pos = pos + 1;
-					end
+					coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
+					pos = pos + 1;
 				end
-			-- end
+			end
 		end
 	end
 	local function PreloadCoords(info)
@@ -1142,13 +1159,13 @@ local _F_CorePrint = __ns._F_CorePrint;
 			else
 				local lvl = info.lvl;
 				lvl = lvl >= 0 and lvl or __ns.__player_level;
-				if lvl >= SET.quest_lvl_red then
+				if lvl >= __core.quest_lvl_red then
 					TEXTURE = IMG_INDEX.IMG_S_VERY_HARD;
-				elseif lvl >= SET.quest_lvl_orange then
+				elseif lvl >= __core.quest_lvl_orange then
 					TEXTURE = IMG_INDEX.IMG_S_HARD;
-				elseif lvl >= SET.quest_lvl_yellow then
+				elseif lvl >= __core.quest_lvl_yellow then
 					TEXTURE = IMG_INDEX.IMG_S_NORMAL;
-				elseif lvl >= SET.quest_lvl_green then
+				elseif lvl >= __core.quest_lvl_green then
 					TEXTURE = IMG_INDEX.IMG_S_EASY;
 				else
 					TEXTURE = IMG_INDEX.IMG_S_LOW_LEVEL;
@@ -1215,6 +1232,9 @@ local _F_CorePrint = __ns._F_CorePrint;
 		end
 	end
 	__ns._log_ = _log_;
+	function __ns.CheckLocale(locale)
+		return __ns.__locale == locale;
+	end
 -->
 
 -->		performance
@@ -1253,6 +1273,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 			['module.map.OnMapChanged'] = true,
 			['module.map.OnCanvasScaleChanged'] = true,
 		['module.util'] = false,
+		['module.last'] = false,
 	};
 	__ns.__performance_start = _F_devDebugProfileStart;
 	function __ns.__performance_log_tick(tag, ex1, ex2, ex3)
@@ -1268,55 +1289,6 @@ local _F_CorePrint = __ns._F_CorePrint;
 	function __ns.__opt_log(tag, ...)
 		_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, ...);
 	end
--->
-
--->		INITIALIZE
-	local function init()
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.patch'); end
-		__ns.apply_patch();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.patch'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db'); end
-		__ns.load_extra_db();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.setting'); end
-		__ns.setting_setup();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.setting'); end
-		SET = __ns.__setting;
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.agent'); end
-		__ns.InitMapAgent();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.agent'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.map'); end
-		__ns.map_setup();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.map'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.comm'); end
-		__ns.comm_setup();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.comm'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.core'); end
-		__ns.core_setup();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.core'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.util'); end
-		__ns.util_setup();
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.util'); end
-		--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init'); end
-
-		__ns:MergeGlobal(__ns.__svar);
-		if __ala_meta__.initpublic then __ala_meta__.initpublic(); end
-	end
-	function __ns.PLAYER_ENTERING_WORLD()
-		_EventHandler:UnregEvent("PLAYER_ENTERING_WORLD");
-		__ns.After(0.1, init);
-	end
-	function __ns.LOADING_SCREEN_ENABLED()
-		_EventHandler:UnregEvent("LOADING_SCREEN_ENABLED");
-	end
-	function __ns.LOADING_SCREEN_DISABLED()
-		_EventHandler:UnregEvent("LOADING_SCREEN_DISABLED");
-		__ns.After(0.1, init);
-	end
-	-- _EventHandler:RegEvent("PLAYER_ENTERING_WORLD");
-	-- _EventHandler:RegEvent("LOADING_SCREEN_ENABLED");
-	_EventHandler:RegEvent("LOADING_SCREEN_DISABLED");
 -->
 
 --[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init'); end

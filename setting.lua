@@ -830,10 +830,6 @@ end
 		if SV.__overridedev == false then
 			__ns.__is_dev = false;
 		end
-		SET.quest_lvl_green = -1;
-		SET.quest_lvl_yellow = -1;
-		SET.quest_lvl_orange = -1;
-		SET.quest_lvl_red = -1;
 		__ns.__svar = SV;
 		__ns.__setting = SET;
 		__ns.__quest_temporarily_blocked = SV.quest_temporarily_blocked[GUID];

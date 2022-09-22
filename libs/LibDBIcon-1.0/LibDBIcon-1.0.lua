@@ -6,7 +6,7 @@
 --
 
 local DBICON10 = "LibDBIcon-1.0"
-local DBICON10_MINOR = 9000044 -- Bump on changes
+local DBICON10_MINOR = 44 -- Bump on changes
 if not LibStub then error(DBICON10 .. " requires LibStub.") end
 local ldb = LibStub("LibDataBroker-1.1", true)
 if not ldb then error(DBICON10 .. " requires LibDataBroker-1.1.") end
@@ -21,12 +21,6 @@ lib.radius = lib.radius or 5
 local next, Minimap, CreateFrame = next, Minimap, CreateFrame
 lib.tooltip = lib.tooltip or CreateFrame("GameTooltip", "LibDBIconTooltip", UIParent, "GameTooltipTemplate")
 local isDraggingButton = false
-
-local useTextureFileID = false;
-local _, _, _, toc = GetBuildInfo();
-if toc >= 80000 or toc >= 10400 and toc < 20000 then
-	useTextureFileID = true;
-end
 
 function lib:IconCallback(event, name, key, value)
 	if lib.objects[name] then
@@ -68,9 +62,7 @@ local function onEnter(self)
 
 	for _, button in next, lib.objects do
 		if button.showOnMouseover then
-			if button.fadeOut ~= nil then
-				button.fadeOut:Stop()
-			end
+			button.fadeOut:Stop()
 			button:SetAlpha(1)
 		end
 	end
@@ -91,7 +83,7 @@ local function onLeave(self)
 
 	if not isDraggingButton then
 		for _, button in next, lib.objects do
-			if button.showOnMouseover and button.fadeOut ~= nil then
+			if button.showOnMouseover then
 				button.fadeOut:Play()
 			end
 		end
@@ -143,16 +135,12 @@ do
 			x = max(-w, min(x*diagRadiusW, w))
 			y = max(-h, min(y*diagRadiusH, h))
 		end
-		button:ClearAllPoints();
 		button:SetPoint("CENTER", Minimap, "CENTER", x, y)
 	end
 end
 
 local function onClick(self, b)
 	if self.dataObject.OnClick then
-		if not InCombatLockdown() and GameMenuFrame:IsShown() then
-			HideUIPanel(GameMenuFrame);
-		end
 		self.dataObject.OnClick(self, b)
 	end
 end
@@ -194,9 +182,7 @@ do
 		lib.tooltip:Hide()
 		for _, button in next, lib.objects do
 			if button.showOnMouseover then
-				if button.fadeOut ~= nil then
-					button.fadeOut:Stop()
-				end
+				button.fadeOut:Stop()
 				button:SetAlpha(1)
 			end
 		end
@@ -210,7 +196,7 @@ local function onDragStop(self)
 	self:UnlockHighlight()
 	isDraggingButton = false
 	for _, button in next, lib.objects do
-		if button.showOnMouseover and button.fadeOut ~= nil then
+		if button.showOnMouseover then
 			button.fadeOut:Play()
 		end
 	end
@@ -242,26 +228,14 @@ local function createButton(name, object, db)
 	button:SetSize(31, 31)
 	button:RegisterForClicks("anyUp")
 	button:RegisterForDrag("LeftButton")
-	if useTextureFileID then
-		button:SetHighlightTexture(136477) --"Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight"
-	else
-		button:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
-	end
+	button:SetHighlightTexture(136477) --"Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight"
 	local overlay = button:CreateTexture(nil, "OVERLAY")
 	overlay:SetSize(53, 53)
-	if useTextureFileID then
-		overlay:SetTexture(136430) --"Interface\\Minimap\\MiniMap-TrackingBorder"
-	else
-		overlay:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
-	end
+	overlay:SetTexture(136430) --"Interface\\Minimap\\MiniMap-TrackingBorder"
 	overlay:SetPoint("TOPLEFT")
 	local background = button:CreateTexture(nil, "BACKGROUND")
 	background:SetSize(20, 20)
-	if useTextureFileID then
-		background:SetTexture(136467) --"Interface\\Minimap\\UI-Minimap-Background"
-	else
-		background:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
-	end
+	background:SetTexture(136467) --"Interface\\Minimap\\UI-Minimap-Background"
 	background:SetPoint("TOPLEFT", 7, -5)
 	local icon = button:CreateTexture(nil, "ARTWORK")
 	icon:SetSize(17, 17)
@@ -286,16 +260,14 @@ local function createButton(name, object, db)
 	button:SetScript("OnMouseDown", onMouseDown)
 	button:SetScript("OnMouseUp", onMouseUp)
 
-	if button.CreateAnimationGroup ~= nil then
-		button.fadeOut = button:CreateAnimationGroup()
-		local animOut = button.fadeOut:CreateAnimation("Alpha")
-		animOut:SetOrder(1)
-		animOut:SetDuration(0.2)
-		animOut:SetFromAlpha(1)
-		animOut:SetToAlpha(0)
-		animOut:SetStartDelay(1)
-		button.fadeOut:SetToFinalAlpha(true)
-	end
+	button.fadeOut = button:CreateAnimationGroup()
+	local animOut = button.fadeOut:CreateAnimation("Alpha")
+	animOut:SetOrder(1)
+	animOut:SetDuration(0.2)
+	animOut:SetFromAlpha(1)
+	animOut:SetToAlpha(0)
+	animOut:SetStartDelay(1)
+	button.fadeOut:SetToFinalAlpha(true)
 
 	lib.objects[name] = button
 
@@ -424,9 +396,7 @@ do
 		if isDraggingButton then return end
 		for _, button in next, lib.objects do
 			if button.showOnMouseover then
-				if button.fadeOut ~= nil then
-					button.fadeOut:Stop()
-				end
+				button.fadeOut:Stop()
 				button:SetAlpha(1)
 			end
 		end
@@ -434,7 +404,7 @@ do
 	local function OnMinimapLeave()
 		if isDraggingButton then return end
 		for _, button in next, lib.objects do
-			if button.showOnMouseover and button.fadeOut ~= nil then
+			if button.showOnMouseover then
 				button.fadeOut:Play()
 			end
 		end
@@ -447,15 +417,11 @@ do
 		if button then
 			if value then
 				button.showOnMouseover = true
-				if button.fadeOut ~= nil then
-					button.fadeOut:Stop()
-				end
+				button.fadeOut:Stop()
 				button:SetAlpha(0)
 			else
 				button.showOnMouseover = false
-				if button.fadeOut ~= nil then
-					button.fadeOut:Stop()
-				end
+				button.fadeOut:Stop()
 				button:SetAlpha(1)
 			end
 		end
@@ -496,7 +462,7 @@ for name, button in next, lib.objects do
 	button:SetScript("OnMouseDown", onMouseDown)
 	button:SetScript("OnMouseUp", onMouseUp)
 
-	if button.fadeOut == nil and button.CreateAnimationGroup ~= nil then -- Upgrade to 39
+	if not button.fadeOut then -- Upgrade to 39
 		button.fadeOut = button:CreateAnimationGroup()
 		local animOut = button.fadeOut:CreateAnimation("Alpha")
 		animOut:SetOrder(1)

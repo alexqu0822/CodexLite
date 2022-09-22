@@ -247,6 +247,10 @@ local function load_extra_db()
 			(month == limit[1] and day < limit[2]) or
 			(month == limit[3] and day > limit[4])
 		then
+			local eventquests = __db_worldevent[event];
+			for _, quest in next, eventquests do
+				blacklist_quest[quest] = true;
+			end
 		else
 			local eventquests = __db_worldevent[event];
 			for _, quest in next, eventquests do
@@ -379,6 +383,11 @@ local function load_extra_db()
 					db[id] = db[id] or info;
 				end
 			else
+				for id, _ in next, loc do
+					if hash[id] == nil then
+						loc[id] = nil;
+					end
+				end
 				for id, _ in next, hash do
 					db[id] = db[id] or info;
 					loc[id] = loc[id] or which .. ":" .. id;

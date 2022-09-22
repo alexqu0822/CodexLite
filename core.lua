@@ -1456,25 +1456,25 @@ end
 				if prev ~= font then
 					if prev == "QuestDifficulty_Trivial" then
 						if font == "QuestDifficulty_Standard" then
-							SET.quest_lvl_green = level;
+							__core.quest_lvl_green = level;
 							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_Standard" then
 						if font == "QuestDifficulty_Difficult" then
-							SET.quest_lvl_yellow = level;
+							__core.quest_lvl_yellow = level;
 							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_Difficult" then
 						if font == "QuestDifficulty_VeryDifficult" then
-							SET.quest_lvl_orange = level;
+							__core.quest_lvl_orange = level;
 							changed = changed + 1;
 						else
 						end
 					elseif prev == "QuestDifficulty_VeryDifficult" then
 						if font == "QuestDifficulty_Impossible" then
-							SET.quest_lvl_red = level;
+							__core.quest_lvl_red = level;
 							changed = changed + 1;
 							break;
 						else
@@ -1485,7 +1485,7 @@ end
 			end
 			CalcQuestColorCount = CalcQuestColorCount + 1;
 			if changed >= 4 or CalcQuestColorCount > 20 then
-				_log_('color:1', SET.quest_lvl_green, SET.quest_lvl_yellow, SET.quest_lvl_orange, SET.quest_lvl_red, 'count', CalcQuestColorCount);
+				_log_('color:1', __core.quest_lvl_green, __core.quest_lvl_yellow, __core.quest_lvl_orange, __core.quest_lvl_red, 'count', CalcQuestColorCount);
 				UpdateQuestGivers();
 			else
 				__eventHandler:run_on_next_tick(CalcQuestColor);
@@ -1571,7 +1571,7 @@ end
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(CalcQuestColor);
 			CalcQuestColorCount = 0;
-			_log_('color:0', SET.quest_lvl_green, SET.quest_lvl_yellow, SET.quest_lvl_orange, SET.quest_lvl_red);
+			_log_('color:0', __core.quest_lvl_green, __core.quest_lvl_yellow, __core.quest_lvl_orange, __core.quest_lvl_red);
 			-- __eventHandler:run_on_next_tick(UpdateQuestGivers);
 		end
 		function __ns.QUEST_LOG_UPDATE()

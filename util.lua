@@ -37,7 +37,6 @@ local autostyle = __ala_meta__.autostyle;
 	local ItemRefTooltip = ItemRefTooltip;
 	local WorldMapFrame = WorldMapFrame;
 	local ChatFrame2 = ChatFrame2;
-	local FauxScrollFrame_GetOffset = FauxScrollFrame_GetOffset;
 	local QuestFrame = QuestFrame;
 	local QuestLogFrame = QuestLogFrame;
 	local QuestLogListScrollFrame = QuestLogListScrollFrame;
@@ -134,13 +133,13 @@ end
 					lvl = min;
 				end
 				if colored ~= false then
-					if lvl >= SET.quest_lvl_red then
+					if lvl >= __core.quest_lvl_red then
 						lvl_str = lvl_str .. "|cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_orange then
+					elseif lvl >= __core.quest_lvl_orange then
 						lvl_str = lvl_str .. "|cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_yellow then
+					elseif lvl >= __core.quest_lvl_yellow then
 						lvl_str = lvl_str .. "|cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_green then
+					elseif lvl >= __core.quest_lvl_green then
 						lvl_str = lvl_str .. "|cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					else
 						lvl_str = lvl_str .. "|cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
@@ -155,13 +154,13 @@ end
 								lvl_str = lvl_str .. "|cffff0f0f" .. min .. "|r";
 							end
 						else
-							if min >= SET.quest_lvl_red then
+							if min >= __core.quest_lvl_red then
 								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r";
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= __core.quest_lvl_orange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r";
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= __core.quest_lvl_yellow then
 								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r";
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= __core.quest_lvl_green then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r";
@@ -169,13 +168,13 @@ end
 						end
 					end
 				else
-					if lvl >= SET.quest_lvl_red then
+					if lvl >= __core.quest_lvl_red then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_orange then
+					elseif lvl >= __core.quest_lvl_orange then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_yellow then
+					elseif lvl >= __core.quest_lvl_yellow then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_green then
+					elseif lvl >= __core.quest_lvl_green then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
 					else
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
@@ -190,13 +189,13 @@ end
 								lvl_str = lvl_str .. min;
 							end
 						else
-							if min >= SET.quest_lvl_red then
+							if min >= __core.quest_lvl_red then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= __core.quest_lvl_orange then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= __core.quest_lvl_yellow then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= __core.quest_lvl_green then
 								lvl_str = lvl_str .. min;
 							else
 								lvl_str = lvl_str .. min;
@@ -243,25 +242,25 @@ end
 							local lvl = info.lvl;
 							local min = info.min;
 							lvl_str = lvl_str .. __UILOC.TIP_QUEST_LVL;
-							if lvl >= SET.quest_lvl_red then
+							if lvl >= __core.quest_lvl_red then
 								lvl_str = lvl_str .. "|cffff0000" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_orange then
+							elseif lvl >= __core.quest_lvl_orange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_yellow then
+							elseif lvl >= __core.quest_lvl_yellow then
 								lvl_str = lvl_str .. "|cffffff00" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_green then
+							elseif lvl >= __core.quest_lvl_green then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. lvl .. "|r ";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. lvl .. "|r ";
 							end
 							lvl_str = lvl_str .. __UILOC.TIP_QUEST_MIN;
-							if min >= SET.quest_lvl_red then
+							if min >= __core.quest_lvl_red then
 								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= __core.quest_lvl_orange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= __core.quest_lvl_yellow then
 								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= __core.quest_lvl_green then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r ]|cff000000**|r";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r ]|cff000000**|r";
@@ -1069,7 +1068,7 @@ end
 							if self.isHeader then
 								return;
 							end
-							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID() + FauxScrollFrame_GetOffset(QuestLogListScrollFrame));
+							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID());
 							local activeWindow = ChatEdit_GetActiveWindow();
 							if activeWindow ~= nil then
 								activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
