@@ -606,7 +606,7 @@ end
 				end
 				if info.V ~= nil then
 					for vid, _ in next, info.V do
-						AddUnit(quest, line, vid, show_coords, large_pin, true);
+						AddUnit(quest, line, vid, show_coords, large_pin);
 					end
 				end
 				if info.I ~= nil then
@@ -755,6 +755,21 @@ end
 									end
 								end
 							end
+							local V = info.V;
+							if V ~= nil then
+								for uid, val in next, V do
+									local info = __db_unit[uid];
+									if info ~= nil then
+										PreloadCoords(info);
+										local wcoords = info.wcoords;
+										if wcoords == nil or #wcoords <= 5 or not SET.limit_item_starter_drop_num_coords then
+											AddVariedNodes('unit', uid, quest, which, info.coords, TEXTURE);
+										else
+											DelVariedNodes('unit', uid, quest, which);
+										end
+									end
+								end
+							end
 						end
 					end
 				end
@@ -788,6 +803,12 @@ end
 							local U = info.U;
 							if U ~= nil then
 								for uid, rate in next, U do
+									DelVariedNodes('unit', uid, quest, which);
+								end
+							end
+							local V = info.V;
+							if V ~= nil then
+								for uid, val in next, V do
 									DelVariedNodes('unit', uid, quest, which);
 								end
 							end

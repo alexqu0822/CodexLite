@@ -427,7 +427,7 @@ end
 					if GUID ~= nil then
 						-- local _, _, _id = strfind(GUID, "Creature%-0%-%d+%-%d+%-%d+%-(%d+)%-%x+");
 						local _type, _, _, _, _, _id = strsplit("-", GUID);
-						if _type == "Creature" and _id ~= nil then
+						if (_type == "Creature" or _type == "Vehicle") and _id ~= nil then
 							_id = tonumber(_id);
 							if _id ~= nil then
 								local reshow = false;

@@ -406,6 +406,81 @@ local function load_extra_db()
 		-->
 		collectgarbage('collect');
 	-->
+	-->
+		local __db_large_pin = __db.large_pin;
+		for quest, info in next, __db_quest do
+			local _obj = info['obj'];
+			if _obj ~= nil then
+				if _obj.U ~= nil then
+					for _, unit in next, _obj.U do
+						local uinfo = __db_unit[unit];
+						if uinfo ~= nil and uinfo.coords ~= nil and #uinfo.coords == 1 then
+							__db_large_pin[quest] = __db_large_pin[quest] or {  };
+							__db_large_pin[quest].unit = __db_large_pin[quest].unit or {  };
+							__db_large_pin[quest].unit[unit] = 1;
+						end
+					end
+				end
+				if _obj.O ~= nil then
+					for _, object in next, _obj.O do
+						local oinfo = __db_object[object];
+						if oinfo ~= nil and oinfo.coords ~= nil and #oinfo.coords == 1 then
+							__db_large_pin[quest] = __db_large_pin[quest] or {  };
+							__db_large_pin[quest].object = __db_large_pin[quest].object or {  };
+							__db_large_pin[quest].object[object] = 1;
+						end
+					end
+				end
+				if _obj.I ~= nil then
+					for _, item in next, _obj.I do
+						local iinfo = __db_item[item];
+						if iinfo ~= nil then
+							local num = 0;
+							local type = nil;
+							local id = nil;
+							if iinfo.U ~= nil then
+								for unit, rate in next, iinfo.U do
+									local uinfo = __db_unit[unit];
+									if uinfo ~= nil and uinfo.coords ~= nil then
+										local n = #uinfo.coords;
+										if n == 1 then
+											type = 'unit';
+											id = unit;
+										end
+										num = num +n;
+										if num > 1 then break; end
+									end
+								end
+							end
+							if num <= 1 then
+							if iinfo.O ~= nil then
+								for object, rate in next, iinfo.O do
+									local oinfo = __db_object[object];
+									if oinfo ~= nil and oinfo.coords ~= nil then
+										local n = #oinfo.coords;
+										if n == 1 then
+											type = 'object';
+											id = object;
+										end
+										num = num + n;
+										if num > 1 then break; end
+									end
+								end
+							end
+							end
+							if num == 1 then
+								__db_large_pin[quest] = __db_large_pin[quest] or {  };
+								__db_large_pin[quest].item = __db_large_pin[quest].item or {  };
+								__db_large_pin[quest].item[item] = 1;
+								__db_large_pin[quest][type] = __db_large_pin[quest][type] or {  };
+								__db_large_pin[quest][type][id] = 1;
+							end
+						end
+					end
+				end
+			end
+		end
+	-->
 	-->		item-drop
 		for iid, info in next, __db_item do
 			if info.U ~= nil then
