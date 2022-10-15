@@ -280,7 +280,7 @@ local function load_extra_db()
 	-->
 	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.faction'); end
 	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.mark'); end
-	-->		mark
+	-->		Delete Unused
 		-->		cache
 		for quest, info in next, __db_quest do
 			local _obj = info['obj'];

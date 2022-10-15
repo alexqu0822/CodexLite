@@ -596,24 +596,48 @@ local _F_CorePrint = __ns._F_CorePrint;
 	local MapTypeDungeon = _G.Enum.UIMapType.Dungeon;
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
 	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
+	local FixedMapType = nil;
 	if __ns.__toc < 20000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
 		};
+		FixedMapType = {  };
 	elseif __ns.__toc < 30000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
 		};
+		FixedMapType = {  };
 	elseif __ns.__toc < 40000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 48033.24, 32020.8, 36867.97, 14848.84 },	--	Eastern Kingdoms
 			[1] = { 47908.72, 31935.28, 8552.61, 18467.83 },	--	Kalimdor
 			[571] = { 47662.7, 31772.19, 25198.53, 11072.07 },
 		};
+		FixedMapType = {
+			[124] = 3,	--	origin:6	--	东瘟疫之地：血色领地
+			[125] = 3,	--	origin:4	--	达拉然
+			[128] = 3,	--	origin:6	--	远古海滩
+			[142] = 4,	--	origin:6	--	魔环
+			[153] = 4,	--	origin:6	--	古达克
+			[155] = 4,	--	origin:6	--	黑曜石圣殿
+			[169] = 3,	--	origin:6	--	征服之岛
+			[184] = 4,	--	origin:6	--	萨隆矿坑
+			[200] = 4,	--	origin:6	--	红玉圣殿
+			[219] = 4,	--	origin:6	--	祖尔法拉克
+			[233] = 4,	--	origin:6	--	祖尔格拉布
+			[234] = 4,	--	origin:6	--	厄运之槌
+			[247] = 4,	--	origin:6	--	安其拉废墟
+			[273] = 4,	--	origin:6	--	黑色沼泽
+			[274] = 4,	--	origin:6	--	旧希尔斯布莱德丘陵
+			[329] = 4,	--	origin:6	--	海加尔峰
+			[333] = 4,	--	origin:6	--	祖阿曼
+			[337] = 4,	--	origin:6	--	祖尔格拉布
+		};
 	else
 		worldMapData = {  };
+		FixedMapType = {  };
 	end
 	local TransformMeta = {  };
 	-->		TransformData from HBD
@@ -724,82 +748,85 @@ local _F_CorePrint = __ns._F_CorePrint;
 			local meta = mapMeta[map];
 			if meta == nil then
 				local data = C_Map_GetMapInfo(map);
-				if data ~= nil and data.mapType ~= MapTypeDungeon then
-					--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
-					local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
-					local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
-					if x00y00 ~= nil and x05y05 ~= nil then
-						local top, left = x00y00:GetXY();
-						local bottom, right = x05y05:GetXY();
-						bottom = top + (bottom - top) * 2;
-						right = left + (right - left) * 2;
-						instance, left, right, top, bottom = TransformScope(instance, left, right, top, bottom);
-						meta = { left - right, top - bottom, left, top, instance = instance,       name = data.name, mapType = data.mapType, };
-						mapMeta[map] = meta;
-					else
-						meta = { 0, 0, 0, 0,                            instance = instance or -1, name = data.name, mapType = data.mapType, };
-						mapMeta[map] = meta;
-					end
-					local pmap = data.parentMapID;
-					if pmap ~= nil then
-						local pmeta = processMap(pmap);
-						if pmeta ~= nil then
-							meta.parent = pmap;
-							local cmaps = pmeta.children;
-							if cmaps == nil then
-								cmaps = {  };
-								pmeta.children = cmaps;
-							end
-							cmaps[map] = 1;
+				if data ~= nil then
+					local mapType = FixedMapType[map] or data.mapType;
+					if mapType ~= MapTypeDungeon then
+						--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
+						local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
+						local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
+						if x00y00 ~= nil and x05y05 ~= nil then
+							local top, left = x00y00:GetXY();
+							local bottom, right = x05y05:GetXY();
+							bottom = top + (bottom - top) * 2;
+							right = left + (right - left) * 2;
+							instance, left, right, top, bottom = TransformScope(instance, left, right, top, bottom);
+							meta = { left - right, top - bottom, left, top, instance = instance,       name = data.name, mapType = mapType, };
+							mapMeta[map] = meta;
+						else
+							meta = { 0, 0, 0, 0,                            instance = instance or -1, name = data.name, mapType = mapType, };
+							mapMeta[map] = meta;
 						end
-					end
-					local children = C_Map_GetMapChildrenInfo(map);
-					if children ~= nil and children[1] ~= nil then
-						for index = 1, #children do
-							local cmap = children[index].mapID;
-							if cmap ~= nil then
-								local cmeta = processMap(cmap);
-								if cmeta ~= nil then
-									local cmaps = meta.children;
-									if cmaps == nil then
-										cmaps = {  };
-										meta.children = cmaps;
+						local pmap = data.parentMapID;
+						if pmap ~= nil then
+							local pmeta = processMap(pmap);
+							if pmeta ~= nil then
+								meta.parent = pmap;
+								local cmaps = pmeta.children;
+								if cmaps == nil then
+									cmaps = {  };
+									pmeta.children = cmaps;
+								end
+								cmaps[map] = 1;
+							end
+						end
+						local children = C_Map_GetMapChildrenInfo(map);
+						if children ~= nil and children[1] ~= nil then
+							for index = 1, #children do
+								local cmap = children[index].mapID;
+								if cmap ~= nil then
+									local cmeta = processMap(cmap);
+									if cmeta ~= nil then
+										local cmaps = meta.children;
+										if cmaps == nil then
+											cmaps = {  };
+											meta.children = cmaps;
+										end
+										cmaps[cmap] = 1;
+										cmeta.parent = map;
 									end
-									cmaps[cmap] = 1;
-									cmeta.parent = map;
 								end
 							end
 						end
-					end
-					--	process sibling maps (in the same group)
-					--	in some cases these are not discovered by GetMapChildrenInfo above
-					-->		Maybe classic doesnot use it.
-					local groupID = C_Map_GetMapGroupID(map);
-					if groupID then
-						local groupMembers = C_Map_GetMapGroupMembersInfo(groupID);
-						if groupMembers ~= nil and groupMembers[1] ~= nil then
-							for index = 1, #groupMembers do
-								local mmap = groupMembers[index].mapID;
-								if mmap ~= nil then
-									processMap(mmap);
+						--	process sibling maps (in the same group)
+						--	in some cases these are not discovered by GetMapChildrenInfo above
+						-->		Maybe classic doesnot use it.
+						local groupID = C_Map_GetMapGroupID(map);
+						if groupID then
+							local groupMembers = C_Map_GetMapGroupMembersInfo(groupID);
+							if groupMembers ~= nil and groupMembers[1] ~= nil then
+								for index = 1, #groupMembers do
+									local mmap = groupMembers[index].mapID;
+									if mmap ~= nil then
+										processMap(mmap);
+									end
 								end
 							end
 						end
-					end
-					for x = 0.00, 1.00, 0.25 do
-						for y = 0.00, 1.00, 0.25 do
-							local adata = C_Map_GetMapInfoAtPosition(map, x, y);
-							if adata ~= nil then
-								local amap = adata.mapID;
-								if amap ~= nil and amap ~= map then
-									local ameta = processMap(amap);
-									if ameta ~= nil and ameta.parent ~= map then
-										local amaps = meta.adjoined;
-										if amaps == nil then
-											amaps = { [amap] = 1, };
-											meta.adjoined = amaps;
-										else
-											amaps[amap] = 1;
+						for x = 0.00, 1.00, 0.25 do
+							for y = 0.00, 1.00, 0.25 do
+								local adata = C_Map_GetMapInfoAtPosition(map, x, y);
+								if adata ~= nil then
+									local amap = adata.mapID;
+									if amap ~= nil and amap ~= map then
+										local ameta = processMap(amap);
+										if ameta ~= nil and ameta.parent ~= map then
+											local amaps = meta.adjoined;
+											if amaps == nil then
+												amaps = { [amap] = 1, };
+												meta.adjoined = amaps;
+											else
+												amaps[amap] = 1;
+											end
 										end
 									end
 								end
@@ -829,13 +856,18 @@ local _F_CorePrint = __ns._F_CorePrint;
 				[1952] = { 1944, 1946, 1948, 1951, 1955, },	--	泰罗卡森林
 				[1953] = { 1949, },							--	虚空风暴
 				[1955] = { 1946, 1951, 1952, },				--	沙塔斯城
-						--
+				--
 				[1947] = { 1943, },	--	埃索达
 				[1950] = { 1943, },	--	秘血岛
 				[1943] = { 1947, },	--	秘蓝岛
 				[1941] = { 1942, 1954, },	--	永歌森林
 				[1942] = { 1941, },	--	幽魂之地
 				[1954] = { 1941, },	--	银月城
+				--
+				[118] = { 125, },	--	冰冠冰川
+				[120] = { 125, },	--	风暴峭壁
+				[125] = { 118, 120, 127, },	--	达拉然
+				[127] = { 125, },	--	晶歌森林
 			};
 			for map, list in next, data do
 				local meta = mapMeta[map];

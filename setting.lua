@@ -55,7 +55,7 @@ end
 	SettingUI.tab_number = 0;
 	SettingUI.tab_entries = tab_entries;
 	SettingUI.set_entries = set_entries;
-	local LineHeight = 16;
+	local LineHeight = 15;
 	local function RefreshSettingWidget(key)
 		if SettingUI:IsShown() then
 			local widget = set_entries[key];
@@ -531,7 +531,7 @@ end
 				Tab = CreateFrame('BUTTON', nil, SettingUI);
 				tab_entries[tab] = Tab;
 				local Panel = CreateFrame('FRAME', nil, SettingUI);
-				Panel:SetPoint("BOTTOMLEFT", 6, 6);
+				Panel:SetPoint("BOTTOMLEFT", 6, 32);
 				Panel:SetPoint("TOPRIGHT", -6, -64);
 				Panel:Hide();
 				Tab.Panel = Panel;
@@ -682,7 +682,7 @@ end
 				head:SetPoint("CENTER", Panel, "TOPLEFT", 32, -10 - Panel.pos * LineHeight);
 				Panel.pos = Panel.pos + 3;
 			end
-			SettingUI:SetHeight(min(max(SettingUI:GetHeight(), 10 + Panel.pos * LineHeight + 10 + 64), 1024));
+			SettingUI:SetHeight(min(max(SettingUI:GetHeight(), 64 + Panel.pos * LineHeight + 32), 1024));
 		end
 		local function ButtonDeleteOnClick(Delete)
 			local quest = __ns.__quest_permanently_bl_list[Delete:GetParent().__data_index];
@@ -781,6 +781,11 @@ end
 				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
 			end);
 			Tab_OnClick(tab_entries['tab.general'] or select(2, next(tab_entries)));
+			--
+			local Tail = SettingUI:CreateFontString(nil, "ARTWORK", "GameFontNormal");
+			Tail:SetTextColor(1.0, 1.0, 1.0, 1.0);
+			Tail:SetPoint("CENTER", SettingUI, "BOTTOM", 0, 16);
+			Tail:SetText(__UILOC.TAIL_SETTING or "by ALA. Big thx to EKK & qqyt");
 		end
 	-->
 	function __ns.setting_setup()

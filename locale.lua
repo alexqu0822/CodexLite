@@ -117,6 +117,7 @@ if LOCALE == 'zhCN' then
 	UILOC['tab.interact'] = "交互";
 	UILOC['tab.misc'] = "杂项";
 	UILOC['tab.blocked'] = "已隐藏";
+	UILOC.TAIL_SETTING = "by |cff00ff00ALA|r 文本数据来自|cff00ff00EKK|r和|cff00ff00qqyt|r";
 	--	general
 	UILOC.show_db_icon = "显示小地图设置菜单按钮";
 	UILOC.show_buttons_in_log = "显示任务日志按钮";
@@ -179,6 +180,7 @@ elseif LOCALE == 'zhTW' then
 	UILOC['tab.interact'] = "交互";
 	UILOC['tab.misc'] = "雜項";
 	UILOC['tab.blocked'] = "已隱藏";
+	UILOC.TAIL_SETTING = "by |cff00ff00ALA|r 文本數據來自|cff00ff00EKK|r和|cff00ff00qqyt|r";
 	--	general
 	UILOC.show_db_icon = "顯示小地圖設置菜單按鈕";
 	UILOC.show_buttons_in_log = "顯示任務日志按鈕";
@@ -241,6 +243,7 @@ elseif LOCALE == 'ruRU' then
 	UILOC['tab.interact'] = "Interact";
 	UILOC['tab.misc'] = "Misc";
 	UILOC['tab.blocked'] = "Blocked";
+	UILOC.TAIL_SETTING = "by |cff00ff00ALA|r. Text Data Provided by |cff00ff00EKK|r & |cff00ff00qqyt|r";
 	--	general
 	UILOC.show_db_icon = "Показать иконку на мини-карте";
 	UILOC.show_buttons_in_log = "Show buttons in questlog";
@@ -303,6 +306,7 @@ else
 	UILOC['tab.interact'] = "Interact";
 	UILOC['tab.misc'] = "Misc";
 	UILOC['tab.blocked'] = "Blocked";
+	UILOC.TAIL_SETTING = "by |cff00ff00ALA|r. Text Data Provided by |cff00ff00EKK|r & |cff00ff00qqyt|r";
 	--	general
 	UILOC.show_db_icon = "Show DBIcon around minimap";
 	UILOC.show_buttons_in_log = "Show buttons in questlog";

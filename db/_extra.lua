@@ -766,7 +766,7 @@ local blacklist_quest = {
 	[8797] = true,
 	[10500] = true,
 	[10501] = true,
-	--manual
+--manual
 	[25229] = true,
 	[12771] = true,
 	[12772] = true,
@@ -790,6 +790,7 @@ local blacklist_quest = {
 	[12788] = true,
 	[12811] = true,
 	[12812] = true,
+	[14409] = true,
 	-- [13932] = true,
 	[12651] = true,	--	索拉查盆地 赫米特·奈辛瓦里 湖边着陆场
 	[13317] = true,	--	冰冠冰川 高级指挥官加斯汀·巴雷特 ----
@@ -797,7 +798,7 @@ local blacklist_quest = {
 	[13633] = true,
 	[13667] = true,
 	[24442] = true,
-	--日常
+	--银色比武场日常
 	[13682] = true,
 	[13789] = true,
 	[13790] = true,
@@ -810,9 +811,25 @@ local blacklist_quest = {
 	[14105] = true,
 	[14107] = true,
 	[14108] = true,
+	--团队副本周常
+	[24579] = true,
+	[24580] = true,
+	[24581] = true,
+	[24582] = true,
+	[24583] = true,
+	[24584] = true,
+	[24585] = true,
+	[24586] = true,
+	[24587] = true,
+	[24588] = true,
+	[24589] = true,
+	[24590] = true,
+	--	--	冰冠堡垒的任务
+	[24510] = true,
 	--	--	红玉圣殿的任务
-	[26034] = true,
+	[26012] = true,
 	[26013] = true,
+	[26034] = true,
 	--
 };
 __db.blacklist_quest = blacklist_quest;
@@ -99064,9 +99081,12 @@ for k, v in next, large_pin do
 	end
 end
 
-large_pin[9955].unit = { [18423] = 1, };
-
 __ns.L = __ns.LDB[__ns.__locale];
+for id, v in next, __ns.L.quest do
+	if v[3] ~= nil then
+		v[2] = nil;
+	end
+end
 __ns.L.object[-200001] = __ns.L.object[-200001] or (__ns.L.quest[10782] ~= nil and __ns.L.quest[10782][1]) or "-200001";
 __ns.L.object[-200002] = __ns.L.object[-200002] or (__ns.L.quest[11381] ~= nil and __ns.L.quest[11381][1]) or "-200002";
 __ns.L.object[-200003] = __ns.L.object[-200003] or (__ns.L.quest[10424] ~= nil and __ns.L.quest[10424][1]) or "-200003";

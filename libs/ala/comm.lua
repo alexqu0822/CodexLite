@@ -2,7 +2,7 @@
 	ALA@163UI
 --]]--
 
-local __version = 10;
+local __version = 221013.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -289,7 +289,7 @@ local __serializer = __ala_meta__.__serializer;
 	};
 	local RaidHash = {  }; for key, id in next, RaidList do RaidHash[GetRealZoneText(id) or key] = id; end
 	local function INST_LOCK(channel, target)
-		local str0 = COMM_MSG_REPLY .. "~1~I";
+		local str0 = COMM_MSG_REPLY .. "~2~I";
 		local len0 = #str0;
 		local str = str0;
 		local len = len0;
@@ -298,7 +298,7 @@ local __serializer = __ala_meta__.__serializer;
 			local name, id, reset, difficulty, locked, extended, instanceIDMostSig, isRaid, maxPlayers, difficultyName, numEncounters, encounterProgress = GetSavedInstanceInfo(index);
 			if locked and isRaid then
 				local map = RaidHash[name] or name;
-				local val = map .. ":" .. id .. ":";
+				local val = map .. ":" .. (difficulty or "^") .. ":" .. id .. ":";
 				for index2 = 1, numEncounters do
 					local bossName, fileDataID, isKilled, unknown4 = GetSavedInstanceEncounterInfo(index, index2);
 					val = val .. (isKilled and "1" or "0");
