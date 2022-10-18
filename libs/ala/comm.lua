@@ -2,7 +2,7 @@
 	ALA@163UI
 --]]--
 
-local __version = 221013.0;
+local __version = 221012.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -489,11 +489,11 @@ local __serializer = __ala_meta__.__serializer;
 				return _SendFunc(PREFIX, HEADER .. "-1`-1`" .. len, channel, target);
 			end
 		end
-		_SendFunc(PREFIX, HEADER .. "0`0`", channel, target);
+		_SendFunc(PREFIX, HEADER .. "0`0`", channel, target or channel);
 		local num = ceil(len / lps);
 		HEADER = HEADER .. num .. "`";
 		for i = 1, num do
-			_SendFunc(PREFIX, HEADER .. i .. "`" .. strsub(msg, lps * (i - 1) + 1, lps * i), channel, target);
+			_SendFunc(PREFIX, HEADER .. i .. "`" .. strsub(msg, lps * (i - 1) + 1, lps * i), channel, target or channel);
 		end
 	end
 
