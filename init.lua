@@ -618,6 +618,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		FixedMapType = {
 			[124] = 3,	--	origin:6	--	东瘟疫之地：血色领地
 			[125] = 3,	--	origin:4	--	达拉然
+			[126] = 3,	--	origin:4	--	达拉然下水道
 			[128] = 3,	--	origin:6	--	远古海滩
 			[142] = 4,	--	origin:6	--	魔环
 			[153] = 4,	--	origin:6	--	古达克
@@ -844,7 +845,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 			processMap(map);
 		end
 		if __ns.__toc >= 20000 and __ns.__toc < 40000 then
-			local data = {
+			local adjoined_fix = {
 				[1438] = { 1457, },	--	泰达希尔
 				[1457] = { 1438, },	--	达纳苏斯
 				--
@@ -868,8 +869,9 @@ local _F_CorePrint = __ns._F_CorePrint;
 				[120] = { 125, },	--	风暴峭壁
 				[125] = { 118, 120, 127, },	--	达拉然
 				[127] = { 125, },	--	晶歌森林
+				[126] = { 118, 125, 127, },	--	达拉然下水道	--	只在其他地图显示下水道任务，不在下水道显示其他地图
 			};
-			for map, list in next, data do
+			for map, list in next, adjoined_fix do
 				local meta = mapMeta[map];
 				if meta ~= nil then
 					local amaps = meta.adjoined;
