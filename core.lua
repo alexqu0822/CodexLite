@@ -983,7 +983,7 @@ end
 				for uid, check in next, extra.U do
 					local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
 					if check == completed or check == 'always' then
-						AddUnit(quest_id, 'extra', uid, true, large_pin, true);
+						AddUnit(quest_id, 'extra', uid, true, large_pin);
 					else
 						DelUnit(quest_id, 'extra', uid, false, large_pin);
 					end

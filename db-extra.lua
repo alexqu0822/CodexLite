@@ -406,6 +406,45 @@ local function load_extra_db()
 		-->
 		collectgarbage('collect');
 	-->
+	-->		item-drop
+		for iid, info in next, __db_item do
+			if info.U ~= nil then
+				local throttle = false;
+				local U = info.U;
+				local O = info.O;
+				if O ~= nil then
+					for oid, r in next, O do
+						if r >= 25 then
+							throttle = true;
+							break;
+						end
+					end
+				end
+				if not throttle then
+					for uid, r in next, U do
+						if r >= 25 then
+							throttle = true;
+							break;
+						end
+					end
+				end
+				if throttle then
+					for uid, r in next, U do
+						if r <= 2 then
+							U[uid] = nil;
+						end
+					end
+					if O ~= nil then
+						for oid, r in next, O do
+							if r <= 2 then
+								O[oid] = nil;
+							end
+						end
+					end
+				end
+			end
+		end
+	-->
 	-->
 		local __db_large_pin = __db.large_pin;
 		for quest, info in next, __db_quest do
@@ -440,6 +479,23 @@ local function load_extra_db()
 							local id = nil;
 							if iinfo.U ~= nil then
 								for unit, rate in next, iinfo.U do
+									if rate >= 1 then
+										local uinfo = __db_unit[unit];
+										if uinfo ~= nil and uinfo.coords ~= nil then
+											local n = #uinfo.coords;
+											if n == 1 then
+												type = 'unit';
+												id = unit;
+											end
+											num = num +n;
+											if num > 1 then break; end
+										end
+									end
+								end
+							end
+							if num <= 1 then
+							if iinfo.V ~= nil then
+								for unit, _ in next, iinfo.V do
 									local uinfo = __db_unit[unit];
 									if uinfo ~= nil and uinfo.coords ~= nil then
 										local n = #uinfo.coords;
@@ -447,23 +503,26 @@ local function load_extra_db()
 											type = 'unit';
 											id = unit;
 										end
-										num = num +n;
+										num = num + n;
 										if num > 1 then break; end
 									end
 								end
 							end
+							end
 							if num <= 1 then
 							if iinfo.O ~= nil then
 								for object, rate in next, iinfo.O do
-									local oinfo = __db_object[object];
-									if oinfo ~= nil and oinfo.coords ~= nil then
-										local n = #oinfo.coords;
-										if n == 1 then
-											type = 'object';
-											id = object;
+									if rate >= 1 then
+										local oinfo = __db_object[object];
+										if oinfo ~= nil and oinfo.coords ~= nil then
+											local n = #oinfo.coords;
+											if n == 1 then
+												type = 'object';
+												id = object;
+											end
+											num = num + n;
+											if num > 1 then break; end
 										end
-										num = num + n;
-										if num > 1 then break; end
 									end
 								end
 							end
@@ -474,45 +533,6 @@ local function load_extra_db()
 								__db_large_pin[quest].item[item] = 1;
 								__db_large_pin[quest][type] = __db_large_pin[quest][type] or {  };
 								__db_large_pin[quest][type][id] = 1;
-							end
-						end
-					end
-				end
-			end
-		end
-	-->
-	-->		item-drop
-		for iid, info in next, __db_item do
-			if info.U ~= nil then
-				local throttle = false;
-				local U = info.U;
-				local O = info.O;
-				if O ~= nil then
-					for oid, r in next, O do
-						if r >= 25 then
-							throttle = true;
-							break;
-						end
-					end
-				end
-				if not throttle then
-					for uid, r in next, U do
-						if r >= 25 then
-							throttle = true;
-							break;
-						end
-					end
-				end
-				if throttle then
-					for uid, r in next, U do
-						if r <= 2 then
-							U[uid] = nil;
-						end
-					end
-					if O ~= nil then
-						for oid, r in next, O do
-							if r <= 2 then
-								O[oid] = nil;
 							end
 						end
 					end

@@ -24,7 +24,7 @@ local blacklist_quest = {
 	[960] = true, -- Duplicate of 961
 	[9378] = true, -- Naxxramas quest which doesn't seem to be in the game
 	[1318] = true, -- Duplicate of 7703 and not in the game
-	[7704] = true, -- Not in the game
+	-- [7704] = true, -- Not in the game
 	[7668] = true, -- Not in the game (yet) Replaced with 8258 in Ph 4-- #1805
 	[636] = true, -- Not in the game - #1900
 	[6066] = true, -- Not in the game - #1957
@@ -837,6 +837,7 @@ local blacklist_quest = {
 	[11440] = true,
 	[11450] = true,
 	[12135] = true,
+	[11360] = true,
 };
 __db.blacklist_quest = blacklist_quest;
 
@@ -44560,6 +44561,11 @@ __db.fix = {
 				{ 64.54, 69.73, 1453, 0, },
 			},
 		},
+		[190108] = {
+			["coords"] = {
+				{ 75.9, 52.2, 1423, 0, },
+			},
+		},
 		[190571] = {
 			["coords"] = {
 			},
@@ -86428,7 +86434,7 @@ __db.waypoints = {
 			{ 36.49, 7.68, 117, 0, },
 		},
 	},
-	[24040] = {
+	--[[[24040] = {
 		{
 			{ 60.78, 61.56, 117, 0, },
 			{ 60.78, 61.56, 117, 0, },
@@ -86440,7 +86446,7 @@ __db.waypoints = {
 			{ 60.84, 61.58, 117, 0, },
 			{ 60.84, 61.58, 117, 0, },
 		},
-	},
+	},]]
 	[24048] = {
 		{
 			{ 32.09, 34.42, 117, 0, },
@@ -96075,6 +96081,8 @@ if GetLocale() == "zhCN" then
 	__ns.L.delprefix = {
 		"^营救",
 		"^解放",
+		"^摧毁",
+		"^已消灭",
 	};
 else
 end
@@ -96595,7 +96603,7 @@ __db.worldevent = {
 		11242,
 		11356,
 		11357,
-		11360,
+		-- 11360,
 		-- 11361,
 		11392,
 		11401,
