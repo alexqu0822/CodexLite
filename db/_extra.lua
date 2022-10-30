@@ -95999,7 +95999,6 @@ for uid, v in next, __db.waypoints do
 end
 
 
-local MAX = -1;
 for k, v in next, large_pin do
 	if type(v) == 'table' then
 		if v.unit then
@@ -96009,7 +96008,6 @@ for k, v in next, large_pin do
 				end
 			end
 		end
-		MAX = max(MAX, k);
 	end
 end
 
@@ -96019,73 +96017,7 @@ for id, v in next, __ns.L.quest do
 		v[2] = nil;
 	end
 end
-__ns.L.object[-200001] = __ns.L.object[-200001] or (__ns.L.quest[10782] ~= nil and __ns.L.quest[10782][1]) or "-200001";
-__ns.L.object[-200002] = __ns.L.object[-200002] or (__ns.L.quest[11381] ~= nil and __ns.L.quest[11381][1]) or "-200002";
-__ns.L.object[-200003] = __ns.L.object[-200003] or (__ns.L.quest[10424] ~= nil and __ns.L.quest[10424][1]) or "-200003";
-__ns.L.object[-200004] = __ns.L.object[-200004] or (__ns.L.quest[10838] ~= nil and __ns.L.quest[10838][1]) or "-200004";
-__ns.L.object[-200005] = __ns.L.object[-200005] or (__ns.L.quest[10204] ~= nil and __ns.L.quest[10204][1]) or "-200005";
 
-
-local dbextraobj = {
-	[9418] = {
-		U = {
-			[17085] = 1,
-		},
-	},
-	[10129] = {
-		U = {
-			[19401] = 0,
-		},
-	},
-	[10146] = {
-		U = {
-			[19409] = 0,
-		},
-	},
-	[10340] = {
-		U = {
-			[19409] = 'always',
-		},
-	},
-	[11532] = {
-		U = {
-			[25059] = 0,
-		},
-	},
-	[11533] = {
-		U = {
-			[25059] = 0,
-		},
-	},
-	[11526] = {
-		E = {
-			[-20014] = 'always',
-		},
-	},
-	[11544] = {
-		["O"] = {
-			[187111] = 0,
-		}
-	},
-};
-
-local __db_quest = __db.quest;
-for quest, extra in next, dbextraobj do
-	local info = __db_quest[quest];
-	if info ~= nil then
-		info.extra = extra;
-	end
-end
-
-if GetLocale() == "zhCN" then
-	__ns.L.delprefix = {
-		"^营救",
-		"^解放",
-		"^摧毁",
-		"^已消灭",
-	};
-else
-end
 
 __db.worldevent = {
 	["Lunar Festival"] = {

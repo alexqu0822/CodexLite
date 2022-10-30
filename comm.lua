@@ -602,45 +602,35 @@ end
 			if _type == 'monster' then
 				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
 				AddUnit(name, quest_id, _line, _id, not finished, large_pin, nil);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'item' then
 				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
 				AddItem(name, quest_id, _line, _id, not finished, large_pin);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'object' then
 				local large_pin = __db_large_pin:Check(quest_id, 'object', _id);
 				AddObject(name, quest_id, _line, _id, not finished, large_pin);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'event' or _type == 'log' then
-				local info = __db_quest[quest_id];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					for i = 1, #events do
-						local event = events[i];
-						AddEvent(name, quest_id, _line, event, false, true);
-					end
-				end
-				return true, 'event', true;
+				AddEvent(name, quest_id, _line, _id, not finished, true);
+				return true;
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
 				_log_('comm_objective_type', quest_id, finished, _type);
 			end
-			return true;
+			return nil;
 		end
 		function DelLine(name, quest_id, _line, _type, _id, total_del)
 			if _type == 'monster' then
 				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
 				DelUnit(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'item' then
 				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
 				DelItem(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'object' then
 				local large_pin = __db_large_pin:Check(quest_id, 'object', _id);
 				DelObject(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'event' or _type == 'log' then
 				local info = __db_quest[quest_id];
 				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
@@ -650,13 +640,11 @@ end
 						DelEvent(name, quest_id, _line, event, total_del, true);
 					end
 				end
-				return true, 'event', true;
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
 				_log_('comm_objective_type', quest_id, _type, _id);
 			end
-			return true;
 		end
 		function AddExtra(name, quest_id, extra, text, completed)
 			if extra.U ~= nil then
@@ -813,20 +801,7 @@ end
 			PushMessage(ADDON_MSG_HEAD_PUSHQUEST_V2 .. "\001" .. _quest .. "\001-1\001" .. _completed);
 		end
 		function PushAddLine(_quest, _line, _finished, _type, _id, _text)
-			if _type == 'event' or _type == 'log' then
-				local info = __db_quest[_quest];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					if events ~= nil then
-						for i = 1, #events do
-							local _id = events[i];
-							PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001event\001" .. _id .. "\001" .. _text);
-						end
-					end
-				end
-			else
-				PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001" .. _type .. "\001" .. _id .. "\001" .. _text);
-			end
+			PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001" .. _type .. "\001" .. _id .. "\001" .. _text);
 		end
 		function PushFlushBuffer()
 			local mem = _CommBuffer["*"];
