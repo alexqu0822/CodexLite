@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("koKR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("koKR") then
 	return;
 end
-__ns.LDB.koKR.object = {
+__private.LDB.koKR.object = {
 	[4] = "화톳불",
 	[31] = "오래된 사자상",
 	[32] = "가라앉은 상자",

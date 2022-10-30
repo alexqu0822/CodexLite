@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("esMX") then
+local __addon, __private = ...;
+if not __private.CheckLocale("esMX") then
 	return;
 end
-__ns.LDB.esMX.object = {
+__private.LDB.esMX.object = {
 	[4] = "Daño de fogata",
 	[31] = "Estatua de león antigua",
 	[32] = "Cofre sumergido",

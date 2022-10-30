@@ -1,4 +1,4 @@
-local __addon, __ns = ...;
+local __addon, __private = ...;
 --[[
 	quest = {
 		@start = { @U = { id... }, @O = { id... }, @I = { id... }, },
@@ -20,7 +20,7 @@ local __addon, __ns = ...;
 		@exflag = bitmask,		--	bitmask: 1 = Repeatable, 2 = Needs event, 4 = Monthly reset (req. 1). See https://github.com/cmangos/issues/wiki/Quest_template#specialflags
 	};
 --]]
-__ns.db.quest = {
+__private.db.quest = {
 	[1] = {
 		["lvl"] = 4,
 		["min"] = 1,

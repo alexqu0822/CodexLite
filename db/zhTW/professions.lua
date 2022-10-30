@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("zhTW") then
+local __addon, __private = ...;
+if not __private.CheckLocale("zhTW") then
 	return;
 end
-__ns.LDB.zhTW.profession = {
+__private.LDB.zhTW.profession = {
 	[6] = "冰霜",
 	[8] = "火焰",
 	[26] = "武器",

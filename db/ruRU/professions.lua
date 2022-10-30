@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ruRU") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ruRU") then
 	return;
 end
-__ns.LDB.ruRU.profession = {
+__private.LDB.ruRU.profession = {
 	[6] = "Лед",
 	[8] = "Огонь",
 	[26] = "Оружие",

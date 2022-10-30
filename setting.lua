@@ -3,12 +3,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.setting'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.setting'); end
 
 -->		variables
 	local setmetatable = setmetatable;
@@ -25,31 +25,31 @@ local _ = nil;
 	local UISpecialFrames = UISpecialFrames;
 	local SlashCmdList = SlashCmdList;
 
-	local __db = __ns.db;
+	local __db = __private.db;
 	local __db_quest = __db.quest;
-	local __loc = __ns.L;
+	local __loc = __private.L;
 	local __loc_quest = __loc.quest;
-	local __UILOC = __ns.UILOC;
+	local __UILOC = __private.UILOC;
 
-	local __core = __ns.core;
+	local __core = __private.core;
 	local _F_SafeCall = __core._F_SafeCall;
 	local __eventHandler = __core.__eventHandler;
 	local IMG_LIST = __core.IMG_LIST;
 	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 
 	local IMG_CLOSE = __core.IMG_PATH .. "close";
 	local _font, _fontsize = SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 
 	local SET = nil;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("setting");
+if __private.__is_dev then
+	__private:BuildEnv("setting");
 end
 -->		MAIN
 	local SettingUI = CreateFrame('FRAME', "CODEX_LITE_SETTING_UI", UIParent);
-	__ns.__ui_setting = SettingUI;
+	__private.__ui_setting = SettingUI;
 	local tab_entries = { };
 	local set_entries = { };
 	SettingUI.tab_number = 0;
@@ -107,7 +107,7 @@ end
 					'boolean',
 					function(val)
 						SET['show_buttons_in_log'] = val;
-						__ns.SetQuestLogFrameButtonShown(val);
+						__private.SetQuestLogFrameButtonShown(val);
 						RefreshSettingWidget('show_buttons_in_log');
 					end,
 					nil,
@@ -129,7 +129,7 @@ end
 					'boolean',
 					function(val)
 						SET['show_in_continent'] = val;
-						__ns.SetShowPinInContinent();
+						__private.SetShowPinInContinent();
 						RefreshSettingWidget('show_in_continent');
 						return true;
 					end,
@@ -141,7 +141,7 @@ end
 					'boolean',
 					function(val)
 						SET['show_quest_starter'] = val;
-						__ns.SetQuestStarterShown();
+						__private.SetQuestStarterShown();
 						RefreshSettingWidget('show_quest_starter');
 						return true;
 					end,
@@ -153,7 +153,7 @@ end
 					'boolean',
 					function(val)
 						SET['show_quest_ender'] = val;
-						__ns.SetQuestEnderShown();
+						__private.SetQuestEnderShown();
 						RefreshSettingWidget('show_quest_ender');
 						return true;
 					end,
@@ -167,7 +167,7 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['worldmap_alpha'] = val;
-							__ns.SetWorldmapAlpha();
+							__private.SetWorldmapAlpha();
 							RefreshSettingWidget('worldmap_alpha');
 							return true;
 						end
@@ -182,7 +182,7 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['minimap_alpha'] = val;
-							__ns.SetMinimapAlpha();
+							__private.SetMinimapAlpha();
 							RefreshSettingWidget('minimap_alpha');
 							return true;
 						end
@@ -197,7 +197,7 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['pin_size'] = val;
-							__ns.SetCommonPinSize();
+							__private.SetCommonPinSize();
 							RefreshSettingWidget('pin_size');
 							return true;
 						end
@@ -212,7 +212,7 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['large_size'] = val;
-							__ns.SetLargePinSize();
+							__private.SetLargePinSize();
 							RefreshSettingWidget('large_size');
 							return true;
 						end
@@ -227,7 +227,7 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['varied_size'] = val;
-							__ns.SetVariedPinSize();
+							__private.SetVariedPinSize();
 							RefreshSettingWidget('varied_size');
 							return true;
 						end
@@ -256,12 +256,12 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['quest_lvl_lowest_ofs'] = val;
-							__ns.UpdateQuestGivers();
+							__private.UpdateQuestGivers();
 							RefreshSettingWidget('quest_lvl_lowest_ofs');
 							return true;
 						end
 					end,
-					{ -__ns.__maxLevel - 10, 0, 1, },
+					{ -__private.__maxLevel - 10, 0, 1, },
 					round_func_table[0],
 					'tab.map',
 				},
@@ -271,12 +271,12 @@ end
 						val = tonumber(val);
 						if val ~= nil then
 							SET['quest_lvl_highest_ofs'] = val;
-							__ns.UpdateQuestGivers();
+							__private.UpdateQuestGivers();
 							RefreshSettingWidget('quest_lvl_highest_ofs');
 							return true;
 						end
 					end,
-					{ 0, __ns.__maxLevel + 10, 1, },
+					{ 0, __private.__maxLevel + 10, 1, },
 					round_func_table[0],
 					'tab.map',
 				},
@@ -284,7 +284,7 @@ end
 					'list',
 					function(val)
 						SET['hide_node_modifier'] = val;
-						__ns.SetHideNodeModifier();
+						__private.SetHideNodeModifier();
 						RefreshSettingWidget('hide_node_modifier');
 					end,
 					{ "SHIFT", "CTRL", "ALT", },
@@ -295,7 +295,7 @@ end
 					'boolean',
 					function(val)
 						SET['minimap_node_inset'] = val;
-						__ns.SetMinimapNodeInset();
+						__private.SetMinimapNodeInset();
 						return true;
 					end,
 					nil,
@@ -306,7 +306,7 @@ end
 					'boolean',
 					function(val)
 						SET['minimap_player_arrow_on_top'] = val;
-						__ns.SetMinimapPlayerArrowOnTop();
+						__private.SetMinimapPlayerArrowOnTop();
 						return true;
 					end,
 					nil,
@@ -317,7 +317,7 @@ end
 					'boolean',
 					function(val)
 						SET['limit_item_starter_drop'] = val;
-						__ns.SetLimitItemStarter();
+						__private.SetLimitItemStarter();
 						return true;
 					end,
 					nil,
@@ -328,7 +328,7 @@ end
 					'boolean',
 					function(val)
 						SET['limit_item_starter_drop_num_coords'] = val;
-						__ns.SetLimitItemStarterNumCoords();
+						__private.SetLimitItemStarterNumCoords();
 						return true;
 					end,
 					nil,
@@ -360,7 +360,7 @@ end
 					'list',
 					function(val)
 						SET['quest_auto_inverse_modifier'] = val;
-						__ns.SetQuestAutoInverseModifier(val);
+						__private.SetQuestAutoInverseModifier(val);
 						RefreshSettingWidget('quest_auto_inverse_modifier');
 					end,
 					{ "SHIFT", "CTRL", "ALT", },
@@ -380,13 +380,13 @@ end
 			--	tab.misc
 		};
 		local function ResetAll()
-			__ns.core_reset();
-			__ns.map_reset();
-			__ns.UpdateQuests();
-			__ns.UpdateQuestGivers();
-			__ns.MapHideNodes();
+			__private.core_reset();
+			__private.map_reset();
+			__private.UpdateQuests();
+			__private.UpdateQuestGivers();
+			__private.MapHideNodes();
 		end
-		function __ns.Setting(key, val)
+		function __private.Setting(key, val)
 			if key == 'reset' then
 				ResetAll();
 			else
@@ -421,7 +421,7 @@ end
 			end
 		end
 	-->		extern method
-		_G.CodexLiteSetting = __ns.Setting;
+		_G.CodexLiteSetting = __private.Setting;
 		--	/run CodexLiteSetting('quest_lvl_lowest_ofs', -20)
 		--	/run CodexLiteSetting('reset')
 	-->		events and hooks
@@ -685,10 +685,10 @@ end
 			SettingUI:SetHeight(min(max(SettingUI:GetHeight(), 64 + Panel.pos * LineHeight + 32), 1024));
 		end
 		local function ButtonDeleteOnClick(Delete)
-			local quest = __ns.__quest_permanently_bl_list[Delete:GetParent().__data_index];
+			local quest = __private.__quest_permanently_bl_list[Delete:GetParent().__data_index];
 			if quest ~= nil then
-				__ns.MapPermanentlyShowQuestNodes(quest);
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				__private.MapPermanentlyShowQuestNodes(quest);
+				SettingUI.BlockedList:SetNumValue(#__private.__quest_permanently_bl_list);
 			end
 		end
 		local function funcToCreateButton(parent, index, height)
@@ -710,20 +710,20 @@ end
 		end
 		local function functToSetButton(Button, data_index)
 			Button.__data_index = data_index;
-			local quest = __ns.__quest_permanently_bl_list[data_index];
+			local quest = __private.__quest_permanently_bl_list[data_index];
 			if quest ~= nil then
-				Button.Text:SetText(__ns.GetQuestTitle(quest, true));
+				Button.Text:SetText(__private.GetQuestTitle(quest, true));
 				Button:Show();
 			else
 				Button:Hide();
 			end
 		end
-		function __ns.RefreshBlockedList()
+		function __private.RefreshBlockedList()
 			if SettingUI:IsShown() then
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				SettingUI.BlockedList:SetNumValue(#__private.__quest_permanently_bl_list);
 			end
 		end
-		function __ns.InitSettingUI()
+		function __private.InitSettingUI()
 			tinsert(UISpecialFrames, "CODEX_LITE_SETTING_UI");
 			SettingUI:SetSize(320, 360);
 			SettingUI:SetFrameStrata("DIALOG");
@@ -778,7 +778,7 @@ end
 				for key, widget in next, set_entries do
 					widget:SetVal(SET[key]);
 				end
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				SettingUI.BlockedList:SetNumValue(#__private.__quest_permanently_bl_list);
 			end);
 			Tab_OnClick(tab_entries['tab.general'] or select(2, next(tab_entries)));
 			--
@@ -788,7 +788,7 @@ end
 			Tail:SetText(__UILOC.TAIL_SETTING or "by ALA. Big thx to EKK & qqyt");
 		end
 	-->
-	function __ns.setting_setup()
+	function __private.setting_setup()
 		local GUID = __core._PLAYER_GUID;
 		local SV = _G.CodexLiteSV;
 		if SV == nil or SV.__version == nil or SV.__version < 20210529.0 then
@@ -833,14 +833,14 @@ end
 			SV.quest_permanently_bl_list[GUID] = SV.quest_permanently_bl_list[GUID] or {  };
 		end
 		if SV.__overridedev == false then
-			__ns.__is_dev = false;
+			__private.__is_dev = false;
 		end
-		__ns.__svar = SV;
-		__ns.__setting = SET;
-		__ns.__quest_temporarily_blocked = SV.quest_temporarily_blocked[GUID];
-		__ns.__quest_permanently_blocked = SV.quest_permanently_blocked[GUID];
-		__ns.__quest_permanently_bl_list = SV.quest_permanently_bl_list[GUID];
-		__ns.InitSettingUI();
+		__private.__svar = SV;
+		__private.__setting = SET;
+		__private.__quest_temporarily_blocked = SV.quest_temporarily_blocked[GUID];
+		__private.__quest_permanently_blocked = SV.quest_permanently_blocked[GUID];
+		__private.__quest_permanently_bl_list = SV.quest_permanently_bl_list[GUID];
+		__private.InitSettingUI();
 	end
 -->
 
@@ -869,9 +869,9 @@ end
 		if strfind(msg, "[A-Za-z0-9]+" ) then
 		else
 		end
-		__ns.__ui_setting:Show();
+		__private.__ui_setting:Show();
 	end
 -->
 
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.setting'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.setting'); end

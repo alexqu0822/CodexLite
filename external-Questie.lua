@@ -4,12 +4,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.external-Questie'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.external-Questie'); end
 
 -->		variables
 	local GetTime = GetTime;
@@ -27,18 +27,18 @@ local _ = nil;
 	local SendAddonMessage = SendAddonMessage or C_ChatInfo.SendAddonMessage;
 	local SendAddonMessageLogged = SendAddonMessageLogged or C_ChatInfo.SendAddonMessageLogged;
 
-	local __core = __ns.core;
-	local __loc = __ns.L;
+	local __core = __private.core;
+	local __loc = __private.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
 	local __loc_item = __loc.item;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
 
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("external-Questie");
+if __private.__is_dev then
+	__private:BuildEnv("external-Questie");
 end
 -->		MAIN
 	--
@@ -345,7 +345,7 @@ end
 	local function PullSingle(name, ver, msgVer)
 		-- local msg = '\33\10\3\7\3\118\101\114\7\5\54\46\56\46\49\7\6\109\115\103\86\101\114\37\7\5\109\115\103\73\100\43';
 		local msg = '\33\10\3\7\3' .. 'ver' .. '\7' .. strchar(strlen(ver)) .. ver .. '\7\6' .. 'msgVer' .. strchar(32 + msgVer) .. '\7\5' .. 'msgId' .. '\43';
-		__ns.ScheduleMessage("questie", msg, 'WHISPER', name);
+		__private.ScheduleMessage("questie", msg, 'WHISPER', name);
 	end
 	local function OnComm(msg, name, channel)
 		if _META[name] ~= nil then
@@ -458,7 +458,7 @@ end
 			_OnCommQuestLine = OnCommQuestLine;
 		end
 	end
-	__ns.ExternalQuestie = ExternalQuestie;
+	__private.ExternalQuestie = ExternalQuestie;
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.external-Questie'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.external-Questie'); end

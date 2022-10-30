@@ -3,28 +3,28 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.patch'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.patch'); end
 
 -->		variables
 local next = next;
 local tremove = table.remove;
 
-local __db = __ns.db;
+local __db = __private.db;
 local __db_quest = __db.quest;
 local __db_unit = __db.unit;
 local __db_item = __db.item;
 local __db_object = __db.object;
 local __db_refloot = __db.refloot;
 local __db_event = __db.event;
-local __core = __ns.core;
+local __core = __private.core;
 
-if __ns.__is_dev then
-	__ns:BuildEnv("patch");
+if __private.__is_dev then
+	__private:BuildEnv("patch");
 end
 
 -->		patch
@@ -92,6 +92,6 @@ end
 	__core.PreloadAllCoords = PreloadAllCoords;
 -->
 
-__ns.apply_patch = apply_patch;
+__private.apply_patch = apply_patch;
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.patch'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.patch'); end

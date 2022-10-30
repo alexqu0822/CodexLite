@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("zhTW") then
+local __addon, __private = ...;
+if not __private.CheckLocale("zhTW") then
 	return;
 end
-__ns.LDB.zhTW.item = {
+__private.LDB.zhTW.item = {
 	[25] = "破损的短剑",
 	[35] = "弯曲的法杖",
 	[36] = "用旧的钉锤",

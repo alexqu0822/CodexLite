@@ -3,13 +3,13 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 local autostyle = __ala_meta__.autostyle;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.util'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.util'); end
 
 -->		variables
 	local type = type;
@@ -68,7 +68,7 @@ local autostyle = __ala_meta__.autostyle;
 	local ShowQuestComplete = ShowQuestComplete;
 	local StaticPopup_Hide = StaticPopup_Hide;
 
-	local __db = __ns.db;
+	local __db = __private.db;
 	local __db_quest = __db.quest;
 	local __db_unit = __db.unit;
 	local __db_item = __db.item;
@@ -81,15 +81,15 @@ local autostyle = __ala_meta__.autostyle;
 	local __db_large_pin = __db.large_pin;
 	local __db_item_related_quest = __db.item_related_quest;
 
-	local __loc = __ns.L;
+	local __loc = __private.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
 	local __loc_item = __loc.item;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
-	local __UILOC = __ns.UILOC;
+	local __UILOC = __private.UILOC;
 
-	local __core = __ns.core;
+	local __core = __private.core;
 	local _F_SafeCall = __core._F_SafeCall;
 	local __eventHandler = __core.__eventHandler;
 	local __const = __core.__const;
@@ -98,15 +98,15 @@ local autostyle = __ala_meta__.autostyle;
 	local TIP_IMG_LIST = __core.TIP_IMG_LIST;
 	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
-	local __core_meta = __ns.__core_meta;
-	local __obj_lookup = __ns.__obj_lookup;
-	local __core_quests_completed = __ns.__core_quests_completed;
-	local __map_meta = __ns.__map_meta;
-	local __comm_meta = __ns.__comm_meta;
-	local __comm_obj_lookup = __ns.__comm_obj_lookup;
+	local __core_meta = __private.__core_meta;
+	local __obj_lookup = __private.__obj_lookup;
+	local __core_quests_completed = __private.__core_quests_completed;
+	local __map_meta = __private.__map_meta;
+	local __comm_meta = __private.__comm_meta;
+	local __comm_obj_lookup = __private.__comm_obj_lookup;
 
 	local UnitHelpFac = __core.UnitHelpFac;
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 
 	local TIP_IMG_S_NORMAL = TIP_IMG_LIST[IMG_INDEX.IMG_S_NORMAL];
 	local IMG_TAG_CPL = "|T" .. __core.IMG_PATH .. "TAG_CPL" .. ":0|t";
@@ -115,15 +115,15 @@ local autostyle = __ala_meta__.autostyle;
 
 	local SET = nil;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("util");
+if __private.__is_dev then
+	__private:BuildEnv("util");
 end
 -->		MAIN
 	local quest_auto_inverse_modifier = IsShiftKeyDown;
 	-->		methods
 		local function GetLevelTag(quest, info, modifier, colored)
 			local lvl_str = "[";
-				local tag = __ns.GetQuestTagInfo(quest);
+				local tag = __private.GetQuestTagInfo(quest);
 				if tag ~= nil then
 					tag = __UILOC.QUEST_TAG[tag];
 				end
@@ -146,7 +146,7 @@ end
 					end
 					if modifier then
 						lvl_str = lvl_str .. "/";
-						local diff = min - __ns.__player_level;
+						local diff = min - __private.__player_level;
 						if diff > 0 then
 							if diff > 1 then
 								lvl_str = lvl_str .. "|cffff3f3f" .. min .. "|r";
@@ -181,7 +181,7 @@ end
 					end
 					if modifier then
 						lvl_str = lvl_str .. "/";
-						local diff = min - __ns.__player_level;
+						local diff = min - __private.__player_level;
 						if diff > 0 then
 							if diff > 1 then
 								lvl_str = lvl_str .. min;
@@ -431,17 +431,17 @@ end
 							_id = tonumber(_id);
 							if _id ~= nil then
 								local reshow = false;
-								local uuid = __ns.CoreGetUUID('unit', _id);
+								local uuid = __private.CoreGetUUID('unit', _id);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
 									reshow = true;
 								end
-								for name, val in next, __ns.__comm_group_members do
+								for name, val in next, __private.__comm_group_members do
 									local meta_table = __comm_meta[name];
 									if meta_table ~= nil then
-										local uuid = __ns.CommGetUUID(name, 'unit', _id);
+										local uuid = __private.CommGetUUID(name, 'unit', _id);
 										if uuid ~= nil and next(uuid[4]) ~= nil then
-											local info = __ns.__comm_group_members_info[name];
+											local info = __private.__comm_group_members_info[name];
 											tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											TooltipSetQuestTip(tip, uuid, meta_table);
 											reshow = true;
@@ -533,7 +533,7 @@ end
 									end
 								end
 							end
-							for name, val in next, __ns.__comm_group_members do
+							for name, val in next, __private.__comm_group_members do
 								local meta_table = __comm_meta[name];
 								if meta_table ~= nil then
 									local first_line_of_partner = true;
@@ -542,7 +542,7 @@ end
 										if meta ~= nil then
 											if first_line_of_partner then
 												first_line_of_partner = false;
-												local info = __ns.__comm_group_members_info[name];
+												local info = __private.__comm_group_members_info[name];
 												tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											end
 											local qinfo = __db_quest[quest];
@@ -591,17 +591,17 @@ end
 							local map = __core.GetPlayerZone();
 							local oid = __obj_lookup[map] ~= nil and __obj_lookup[map][text] or __obj_lookup["*"][text];
 							if oid ~= nil then
-								local uuid = __ns.CoreGetUUID('object', oid);
+								local uuid = __private.CoreGetUUID('object', oid);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
 									reshow = true;
 								end
-								for name, val in next, __ns.__comm_group_members do
+								for name, val in next, __private.__comm_group_members do
 									local meta_table = __comm_meta[name];
 									if meta_table ~= nil then
-										local uuid = __ns.CommGetUUID(name, 'object', oid);
+										local uuid = __private.CommGetUUID(name, 'object', oid);
 										if uuid ~= nil then
-											local info = __ns.__comm_group_members_info[name];
+											local info = __private.__comm_group_members_info[name];
 											tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											TooltipSetQuestTip(tip, uuid, meta_table);
 											reshow = true;
@@ -622,14 +622,14 @@ end
 				end
 			end
 		end
-		function __ns.MODIFIER_STATE_CHANGED()
+		function __private.MODIFIER_STATE_CHANGED()
 			local focus = GetMouseFocus();
 			if focus ~= nil and focus.__PIN_TAG ~= nil then
-				__ns.Pin_OnEnter(focus);
+				__private.Pin_OnEnter(focus);
 			elseif GameTooltip:IsShown() then
 			end
 		end
-		function __ns.TooltipSetInfo(tip, type, id)
+		function __private.TooltipSetInfo(tip, type, id)
 			if type == 'event' then
 				tip:AddLine(__UILOC.TIP_WAYPOINT, 0.0, 1.0, 0.0);
 			elseif type == 'extra' then
@@ -693,23 +693,23 @@ end
 					end
 				end
 			end
-			local uuid = __ns.CoreGetUUID(type, id);
+			local uuid = __private.CoreGetUUID(type, id);
 			if uuid ~= nil then
 				TooltipSetQuestTip(tip, uuid);
 			end
-			for name, val in next, __ns.__comm_group_members do
+			for name, val in next, __private.__comm_group_members do
 				local meta_table = __comm_meta[name];
 				if meta_table ~= nil then
-					local uuid = __ns.CommGetUUID(name, type, id);
+					local uuid = __private.CommGetUUID(name, type, id);
 					if uuid ~= nil and next(uuid[4]) ~= nil then
-						local info = __ns.__comm_group_members_info[name];
+						local info = __private.__comm_group_members_info[name];
 						tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 						TooltipSetQuestTip(tip, uuid, meta_table);
 					end
 				end
 			end
 		end
-		function __ns.button_info_OnEnter(self)
+		function __private.button_info_OnEnter(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local info_lines = self.info_lines;
 			if info_lines then
@@ -719,7 +719,7 @@ end
 			end
 			GameTooltip:Show();
 		end
-		function __ns.OnLeave(self)
+		function __private.OnLeave(self)
 			if GameTooltip:IsOwned(self) then
 				GameTooltip:Hide();
 			end
@@ -738,7 +738,7 @@ end
 			-- ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
 		end
 		local function drop_handler_toggle(_, quest)
-			__ns.MapPermanentlyToggleQuestNodes(quest);
+			__private.MapPermanentlyToggleQuestNodes(quest);
 		end
 		local function GetQuestTitle(quest, modifier)
 			local info = __db_quest[quest];
@@ -747,7 +747,7 @@ end
 			local loc = __loc_quest[quest];
 			return lvl_str .. "|c" .. color[5] .. (loc ~= nil and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
 		end
-		function __ns.NodeOnModifiedClick(node, uuid)
+		function __private.NodeOnModifiedClick(node, uuid)
 			local refs = uuid[4];
 			if ChatEdit_GetActiveWindow() then
 				local ele = {  };
@@ -767,7 +767,7 @@ end
 						local data = { handler = drop_handler_toggle, elements = ele, };
 						for quest, val in next, refs do
 							if val["start"] ~= nil then
-								if __ns.__quest_permanently_blocked[quest] then
+								if __private.__quest_permanently_blocked[quest] then
 									ele[#ele + 1] = {
 										text = __UILOC.pin_menu_show_quest .. GetQuestTitle(quest, true);
 										para = { quest, },
@@ -787,7 +787,7 @@ end
 			end
 		end
 	-->		Auto Accept and Turnin
-		function __ns.GOSSIP_SHOW()
+		function __private.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_complete ~= modstate then
 				for i = 1, GetNumGossipActiveQuests() do
@@ -814,7 +814,7 @@ end
 			-- 	end
 			-- end
 		end
-		function __ns.QUEST_GREETING()
+		function __private.QUEST_GREETING()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_complete ~= modstate then
 				for i = 1, GetNumActiveQuests() do
@@ -833,14 +833,14 @@ end
 				end
 			end
 		end
-		function __ns.QUEST_DETAIL()
+		function __private.QUEST_DETAIL()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_accept ~= modstate then
 				AcceptQuest();
 				QuestFrame:Hide();
 			end
 		end
-		function __ns.QUEST_PROGRESS()
+		function __private.QUEST_PROGRESS()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_complete ~= modstate then
 				if IsQuestCompletable() then
@@ -848,7 +848,7 @@ end
 				end
 			end
 		end
-		function __ns.QUEST_COMPLETE()
+		function __private.QUEST_COMPLETE()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_complete ~= modstate then
 				local _NumChoices = GetNumQuestChoices();
@@ -857,14 +857,14 @@ end
 				end
 			end
 		end
-		function __ns.QUEST_ACCEPT_CONFIRM()
+		function __private.QUEST_ACCEPT_CONFIRM()
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_accept ~= modstate then
 				ConfirmAcceptQuest() ;
 				StaticPopup_Hide("QUEST_ACCEPT");
 			end
 		end
-		function __ns.QUEST_AUTOCOMPLETE(id)
+		function __private.QUEST_AUTOCOMPLETE(id)
 			local modstate = not quest_auto_inverse_modifier();
 			if not SET.auto_complete ~= modstate then
 				local index = GetQuestLogIndexByID(id);
@@ -895,14 +895,14 @@ end
 							icon = [[interface\icons\inv_misc_book_09]],
 							OnClick = function(self, button)
 								if button == "LeftButton" then
-									if __ns.__ui_setting:IsShown() then
-										__ns.__ui_setting:Hide();
+									if __private.__ui_setting:IsShown() then
+										__private.__ui_setting:Hide();
 									else
-										__ns.__ui_setting:Show();
+										__private.__ui_setting:Show();
 									end
 								else
 									SET.show_minimappin = not SET.show_minimappin;
-									__ns.map_ToggleMinimapPin(SET.show_minimappin);
+									__private.map_ToggleMinimapPin(SET.show_minimappin);
 									D:SetShown(not SET.show_minimappin);
 								end
 							end,
@@ -912,7 +912,7 @@ end
 								tt:Show();
 							end,
 						},
-						__ns.__svar.minimap
+						__private.__svar.minimap
 					);
 					LDI:Show(__addon);
 					if SET.show_db_icon then
@@ -939,14 +939,14 @@ end
 			Switch:RegisterForClicks("AnyUp");
 			Switch:SetScript("OnClick", function(self, button)
 				if button == "LeftButton" then
-					if __ns.__ui_setting:IsShown() then
-						__ns.__ui_setting:Hide();
+					if __private.__ui_setting:IsShown() then
+						__private.__ui_setting:Hide();
 					else
-						__ns.__ui_setting:Show();
+						__private.__ui_setting:Show();
 					end
 				else
 					SET.show_worldmappin = not SET.show_worldmappin;
-					__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
+					__private.map_ToggleWorldMapPin(SET.show_worldmappin);
 					Switch.D:SetShown(not SET.show_worldmappin);
 				end
 			end);
@@ -1121,26 +1121,26 @@ end
 			_ShowQuest:SetSize(85, 21);
 			_ShowQuest:SetPoint("TOPLEFT", QuestLogDescriptionTitle, "TOPLEFT", 0, 0);
 			_ShowQuest:SetScript("OnClick", function()
-				__ns.MapTemporarilyShowQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+				__private.MapTemporarilyShowQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
 			end);
 			_ShowQuest:SetText(__UILOC.show_quest);
 			local _HideQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_HideQuest:SetSize(85, 21);
 			_HideQuest:SetPoint("LEFT", _ShowQuest, "RIGHT", 0, 0);
 			_HideQuest:SetScript("OnClick", function()
-				__ns.MapTemporarilyHideQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+				__private.MapTemporarilyHideQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
 			end);
 			_HideQuest:SetText(__UILOC.hide_quest);
 			local _ResetButton = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_ResetButton:SetSize(85, 21);
 			_ResetButton:SetPoint("LEFT", _HideQuest, "RIGHT", 0, 0);
 			_ResetButton:SetScript("OnClick", function()
-				__ns.MapResetTemporarilyQuestNodesFilter();
+				__private.MapResetTemporarilyQuestNodesFilter();
 			end);
 			_ResetButton:SetText(__UILOC.reset_filter);
-			__ns._ShowQuest = _ShowQuest;
-			__ns._HideQuest = _HideQuest;
-			__ns._ResetQuest = _ResetButton;
+			__private._ShowQuest = _ShowQuest;
+			__private._HideQuest = _HideQuest;
+			__private._ResetQuest = _ResetButton;
 			QuestLogDescriptionTitle.__defHeight = QuestLogDescriptionTitle:GetHeight();
 			if SET.show_buttons_in_log then
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
@@ -1163,24 +1163,24 @@ end
 			if shown then
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
 				QuestLogDescriptionTitle:SetJustifyV("BOTTOM");
-				__ns._ShowQuest:Show();
-				__ns._HideQuest:Show();
-				__ns._ResetQuest:Show();
+				__private._ShowQuest:Show();
+				__private._HideQuest:Show();
+				__private._ResetQuest:Show();
 			else
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight);
-				__ns._ShowQuest:Hide();
-				__ns._HideQuest:Hide();
-				__ns._ResetQuest:Hide();
+				__private._ShowQuest:Hide();
+				__private._HideQuest:Hide();
+				__private._ResetQuest:Hide();
 			end
 		end
 	-->
 	-->		extern
-		__ns.GetQuestTitle = GetQuestTitle;
-		__ns.SetQuestAutoInverseModifier = SetQuestAutoInverseModifier;
-		__ns.SetQuestLogFrameButtonShown = SetQuestLogFrameButtonShown;
+		__private.GetQuestTitle = GetQuestTitle;
+		__private.SetQuestAutoInverseModifier = SetQuestAutoInverseModifier;
+		__private.SetQuestLogFrameButtonShown = SetQuestLogFrameButtonShown;
 	-->
-	function __ns.util_setup()
-		SET = __ns.__setting;
+	function __private.util_setup()
+		SET = __private.__setting;
 		GameTooltip:HookScript("OnTooltipSetUnit", OnTooltipSetUnit);
 		GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
 		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
@@ -1208,20 +1208,20 @@ end
 		CreateQuestLogFrameButton();
 		InitMessageFactory();
 		--
-		__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
-		__ns.map_ToggleMinimapPin(SET.show_minimappin);
+		__private.map_ToggleWorldMapPin(SET.show_worldmappin);
+		__private.map_ToggleMinimapPin(SET.show_minimappin);
 		SetQuestAutoInverseModifier(SET.quest_auto_inverse_modifier);
 		--
-		_F_SafeCall(__ns._checkConflicts);
+		_F_SafeCall(__private._checkConflicts);
 	end
 -->
 
 -->		CONFLICTS
-	function __ns._checkConflicts()
+	function __private._checkConflicts()
 		if SET ~= nil and SET._checkedConflicts then
 			return;
 		end
-		__ns.After(4.0, function()
+		__private.After(4.0, function()
 			local _conflicts = false;
 			if GetAddOnEnableState(__core._PLAYER_NAME, "Questie") > 0 then
 				_conflicts = true;
@@ -1255,4 +1255,4 @@ end
 	end
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.util'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.util'); end

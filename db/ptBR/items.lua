@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ptBR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ptBR") then
 	return;
 end
-__ns.LDB.ptBR.item = {
+__private.LDB.ptBR.item = {
 	[25] = "Worn Shortsword",
 	[35] = "Bent Staff",
 	[36] = "Worn Mace",

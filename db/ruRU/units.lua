@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ruRU") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ruRU") then
 	return;
 end
-__ns.LDB.ruRU.unit = {
+__private.LDB.ruRU.unit = {
 	[1] = "Waypoint (Only GM can see it)",
 	[3] = "Плотояд",
 	[6] = "Кобольд-вредитель",

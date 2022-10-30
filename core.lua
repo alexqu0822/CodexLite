@@ -3,12 +3,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.core'); end
 
 -->		variables
 	local select = select;
@@ -32,7 +32,7 @@ local _ = nil;
 	local GetNumSkillLines = GetNumSkillLines;
 	local GetSkillLineInfo = GetSkillLineInfo;
 
-	local __db = __ns.db;
+	local __db = __private.db;
 	local __db_quest = __db.quest;
 	local __db_unit = __db.unit;
 	local __db_item = __db.item;
@@ -45,14 +45,14 @@ local _ = nil;
 	local __db_large_pin = __db.large_pin;
 	local __db_chain_prev_quest = __db.chain_prev_quest;
 
-	local __loc = __ns.L;
+	local __loc = __private.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
 	local __loc_item = __loc.item;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
 
-	local __core = __ns.core;
+	local __core = __private.core;
 	local _F_SafeCall = __core._F_SafeCall;
 	local __eventHandler = __core.__eventHandler;
 	local __const = __core.__const;
@@ -61,14 +61,14 @@ local _ = nil;
 	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
 	local UnitHelpFac = __core.UnitHelpFac;
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 
 	local SET = nil;
 
-	__ns.__player_level = UnitLevel('player');
+	__private.__player_level = UnitLevel('player');
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("core");
+if __private.__is_dev then
+	__private:BuildEnv("core");
 end
 -->		MAIN
 	local META = {  };
@@ -92,9 +92,9 @@ end
 	local OBJ_LOOKUP = { ["*"] = {  }, };
 	local QUESTS_COMPLETED = {  };
 	local QUESTS_CONFILCTED = {  };
-	__ns.__core_meta = META;
-	__ns.__obj_lookup = OBJ_LOOKUP;
-	__ns.__core_quests_completed = QUESTS_COMPLETED;
+	__private.__core_meta = META;
+	__private.__obj_lookup = OBJ_LOOKUP;
+	__private.__core_quests_completed = QUESTS_COMPLETED;
 	-->		function predef
 		local GetColor3, RelColor3, GetColor3NextIndex, ResetColor3;
 		local CoreAddUUID, CoreSubUUID, CoreGetUUID, ResetUUID;
@@ -195,9 +195,9 @@ end
 				COLOR3[color3] = 0;
 			end
 		end
-		__ns.GetColor3 = GetColor3;
-		__ns.RelColor3 = RelColor3;
-		__ns.GetColor3NextIndex = GetColor3NextIndex;
+		__private.GetColor3 = GetColor3;
+		__private.RelColor3 = RelColor3;
+		__private.GetColor3NextIndex = GetColor3NextIndex;
 	-->
 	-->		--	uuid:{ 1type, 2id, 3color3(run-time), 4{ [quest] = { [line] = TEXTURE, }, }, 5TEXTURE, 6MANUAL_CHANGED_COLOR, }
 	-->		--	TEXTURE = 0 for invalid value	--	TEXTURE = -9999 for large pin	--	TEXTURE = -9998 for normal pin
@@ -281,14 +281,14 @@ end
 			wipe(UUID.quest);
 			wipe(UUID.unit);
 		end
-		__ns.CoreAddUUID = CoreAddUUID;
-		__ns.CoreSubUUID = CoreSubUUID;
-		__ns.CoreGetUUID = CoreGetUUID;
+		__private.CoreAddUUID = CoreAddUUID;
+		__private.CoreSubUUID = CoreSubUUID;
+		__private.CoreGetUUID = CoreGetUUID;
 
-		if __ns.__is_dev then
-			__ns.CORE_UUID = UUID;
+		if __private.__is_dev then
+			__private.CORE_UUID = UUID;
 		end	-->
-	-- __ns.__core_uuid = UUID;
+	-- __private.__core_uuid = UUID;
 	-->		send data to ui
 		local COMMON_UUID_FLAG = {  };
 		local LARGE_UUID_FLAG = {  };
@@ -309,7 +309,7 @@ end
 			local uuid = CoreAddUUID(_T, _id, _quest, _line, -9998);
 			if COMMON_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddCommonNodes(uuid, coords_table);
+					__private.MapAddCommonNodes(uuid, coords_table);
 				end
 				COMMON_UUID_FLAG[uuid] = coords_table;
 			end
@@ -328,10 +328,10 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelCommonNodes(uuid);
+				__private.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
 			elseif del == false then
-				__ns.MapUpdCommonNodes(uuid);
+				__private.MapUpdCommonNodes(uuid);
 			end
 		end
 		--	large_objective pin
@@ -339,7 +339,7 @@ end
 			local uuid = CoreAddUUID(_T, _id, _quest, _line, -9999);
 			if LARGE_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddLargeNodes(uuid, coords_table);
+					__private.MapAddLargeNodes(uuid, coords_table);
 				end
 				LARGE_UUID_FLAG[uuid] = coords_table;
 			end
@@ -358,10 +358,10 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelLargeNodes(uuid);
+				__private.MapDelLargeNodes(uuid);
 				LARGE_UUID_FLAG[uuid] = nil;
 			elseif del == false then
-				__ns.MapUpdLargeNodes(uuid);
+				__private.MapUpdLargeNodes(uuid);
 			end
 		end
 		--	varied_objective pin
@@ -370,7 +370,7 @@ end
 			local TEXTURE = GetVariedNodeTexture(uuid[4]);
 			if uuid[5] ~= TEXTURE then
 				uuid[5] = TEXTURE;
-				__ns.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
+				__private.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
 				VARIED_UUID_FLAG[uuid] = coords_table;
 			end
 		end
@@ -379,7 +379,7 @@ end
 			if del == true then
 				uuid[5] = nil;
 				if VARIED_UUID_FLAG[uuid] ~= nil then
-					__ns.MapDelVariedNodes(uuid);
+					__private.MapDelVariedNodes(uuid);
 					VARIED_UUID_FLAG[uuid] = nil;
 				end
 			elseif del == false then
@@ -387,7 +387,7 @@ end
 				if uuid[5] ~= TEXTURE then
 					uuid[5] = TEXTURE;
 					if VARIED_UUID_FLAG[uuid] ~= nil then
-						__ns.MapAddVariedNodes(uuid, nil, true);
+						__private.MapAddVariedNodes(uuid, nil, true);
 					end
 				end
 			end
@@ -1033,7 +1033,7 @@ end
 		function DelConfilct(quest_id)
 		end
 		function UpdateQuests()
-			--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
+			--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.core.|cffff0000UpdateQuests|r'); end
 			local _, num = GetNumQuestLogEntries();
 			local quest_changed = false;
 			local need_re_draw = false;
@@ -1061,7 +1061,7 @@ end
 								DelQuestStart(quest_id, info);
 								quest_changed = true;
 							end
-							__ns.PushAddQuest(quest_id, completed, title, num_lines);
+							__private.PushAddQuest(quest_id, completed, title, num_lines);
 							--
 							-- local details = GetQuestObjectives(quest_id);
 							-- local detail = details[line];
@@ -1123,7 +1123,7 @@ end
 												end
 											end
 											if push_line and objective_id ~= nil then
-												__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
+												__private.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
 											end
 										else
 										end
@@ -1198,7 +1198,7 @@ end
 											end
 											--	objective_type:		'item', 'object', 'monster', 'reputation', 'log', 'event', 'player', 'progressbar'
 											if push_line and objective_id ~= nil then
-												__ns.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
+												__private.PushAddLine(quest_id, line, finished, objective_type, objective_id, description);
 											end
 										else
 										end
@@ -1282,28 +1282,28 @@ end
 					META[quest_id] = nil;
 					quest_changed = true;
 					need_re_draw = true;
-					__ns.PushDelQuest(quest_id, meta.completed);
+					__private.PushDelQuest(quest_id, meta.completed);
 				else
 					AddConfilct(quest_id);
 				end
 			end
 			if quest_changed then
-				__eventHandler:run_on_next_tick(__ns.UpdateQuestGivers);
+				__eventHandler:run_on_next_tick(__private.UpdateQuestGivers);
 			end
 			if need_re_draw then
-				__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
+				__eventHandler:run_on_next_tick(__private.MapDrawNodes);
 			end
-			__ns.PushFlushBuffer();
-			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
+			__private.PushFlushBuffer();
+			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.core.|cffff0000UpdateQuests|r'); end
 		end
 	-->
 	-->		avl quest giver
 		local QUEST_WATCH_REP = {  };
 		local QUEST_WATCH_SKILL = {  };
 		function UpdateQuestGivers()
-			--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart("module.core.UpdateQuestGivers"); end
-			local lowest = __ns.__player_level + SET.quest_lvl_lowest_ofs;
-			local highest = __ns.__player_level + SET.quest_lvl_highest_ofs;
+			--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart("module.core.UpdateQuestGivers"); end
+			local lowest = __private.__player_level + SET.quest_lvl_lowest_ofs;
+			local highest = __private.__player_level + SET.quest_lvl_highest_ofs;
 			for _, quest_id in next, __db_avl_quest_list do
 				local info = __db_quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
@@ -1405,8 +1405,8 @@ end
 					DelQuestStart(quest_id, info);
 				end
 			end
-			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
-			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core.UpdateQuestGivers'); end
+			__eventHandler:run_on_next_tick(__private.MapDrawNodes);
+			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.core.UpdateQuestGivers'); end
 		end
 	-->
 	-->		misc
@@ -1469,7 +1469,7 @@ end
 					end
 				end
 			end
-			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
+			__eventHandler:run_on_next_tick(__private.MapDrawNodes);
 		end
 		function SetQuestEnderShown(shown)
 			for quest_id, meta in next, META do
@@ -1486,7 +1486,7 @@ end
 					end
 				end
 			end
-			__eventHandler:run_on_next_tick(__ns.MapDrawNodes);
+			__eventHandler:run_on_next_tick(__private.MapDrawNodes);
 		end
 		function SetLimitItemStarter(limit)
 			UpdateQuestGivers();
@@ -1496,24 +1496,24 @@ end
 		end
 	-->
 	-->		extern method
-		__ns.SetQuestStarterShown = SetQuestStarterShown;
-		__ns.SetQuestEnderShown = SetQuestEnderShown;
-		__ns.SetLimitItemStarter = SetLimitItemStarter;
-		__ns.SetLimitItemStarterNumCoords = SetLimitItemStarterNumCoords;
+		__private.SetQuestStarterShown = SetQuestStarterShown;
+		__private.SetQuestEnderShown = SetQuestEnderShown;
+		__private.SetLimitItemStarter = SetLimitItemStarter;
+		__private.SetLimitItemStarterNumCoords = SetLimitItemStarterNumCoords;
 		--
-		__ns.UpdateQuests = UpdateQuests;
-		__ns.UpdateQuestGivers = UpdateQuestGivers;
-		__ns.AddObject = AddObject;
-		__ns.DelObject = DelObject;
-		__ns.AddUnit = AddUnit;
-		__ns.DelUnit = DelUnit;
-		__ns.AddRefloot = AddRefloot;
-		__ns.DelRefloot = DelRefloot;
-		__ns.AddItem = AddItem;
-		__ns.DelItem = DelItem;
-		__ns.AddEvent = AddEvent;
-		__ns.DelEvent = DelEvent;
-		function __ns.core_reset()
+		__private.UpdateQuests = UpdateQuests;
+		__private.UpdateQuestGivers = UpdateQuestGivers;
+		__private.AddObject = AddObject;
+		__private.DelObject = DelObject;
+		__private.AddUnit = AddUnit;
+		__private.DelUnit = DelUnit;
+		__private.AddRefloot = AddRefloot;
+		__private.DelRefloot = DelRefloot;
+		__private.AddItem = AddItem;
+		__private.DelItem = DelItem;
+		__private.AddEvent = AddEvent;
+		__private.DelEvent = DelEvent;
+		function __private.core_reset()
 			wipe(META);
 			wipe(CACHE);
 			ResetColor3();
@@ -1526,27 +1526,27 @@ end
 	-->
 	-->		events and hooks
 		--
-		function __ns.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
+		function __private.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
 		end
-		function __ns.PLAYER_LEVEL_UP(level)
+		function __private.PLAYER_LEVEL_UP(level)
 			_log_('PLAYER_LEVEL_UP', level);
 			local cur_level = level;
-			__ns.__player_level = cur_level;
+			__private.__player_level = cur_level;
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(CalcQuestColor);
 			CalcQuestColorCount = 0;
 			_log_('color:0', __core.quest_lvl_green, __core.quest_lvl_yellow, __core.quest_lvl_orange, __core.quest_lvl_red);
 			-- __eventHandler:run_on_next_tick(UpdateQuestGivers);
 		end
-		function __ns.QUEST_LOG_UPDATE()
+		function __private.QUEST_LOG_UPDATE()
 			_log_('QUEST_LOG_UPDATE');
 			__eventHandler:run_on_next_tick(UpdateQuests);
 		end
-		function __ns.UNIT_QUEST_LOG_CHANGED(unit, ...)
+		function __private.UNIT_QUEST_LOG_CHANGED(unit, ...)
 			_log_('UNIT_QUEST_LOG_CHANGED', unit, ...);
 			__eventHandler:run_on_next_tick(UpdateQuests);
 		end
-		function __ns.QUEST_ACCEPTED(index, quest_id)
+		function __private.QUEST_ACCEPTED(index, quest_id)
 			_log_('QUEST_ACCEPTED', index, quest_id);
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
@@ -1556,16 +1556,16 @@ end
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
 		end
-		function __ns.QUEST_TURNED_IN(quest_id, xp, money)
+		function __private.QUEST_TURNED_IN(quest_id, xp, money)
 			_log_('QUEST_TURNED_IN', quest_id, xp, money);
 			QUESTS_COMPLETED[quest_id] = true;
 			QUEST_TURNED_IN();
-			-- __ns.After(0.5, QUEST_TURNED_IN);
-			__ns.After(1.0, QUEST_TURNED_IN);
-			-- __ns.After(1.5, QUEST_TURNED_IN);
-			-- __ns.After(2.0, QUEST_TURNED_IN);
-			-- __ns.After(2.5, QUEST_TURNED_IN);
-			-- __ns.After(3.0, QUEST_TURNED_IN);
+			-- __private.After(0.5, QUEST_TURNED_IN);
+			__private.After(1.0, QUEST_TURNED_IN);
+			-- __private.After(1.5, QUEST_TURNED_IN);
+			-- __private.After(2.0, QUEST_TURNED_IN);
+			-- __private.After(2.5, QUEST_TURNED_IN);
+			-- __private.After(3.0, QUEST_TURNED_IN);
 			local info = __db_quest[quest_id];
 			if info ~= nil then
 				DelQuestEnd(quest_id, info);
@@ -1592,7 +1592,7 @@ end
 				end
 			end
 		end
-		function __ns.QUEST_REMOVED(quest_id)
+		function __private.QUEST_REMOVED(quest_id)
 			_log_('QUEST_REMOVED', quest_id);
 			__eventHandler:run_on_next_tick(UpdateQuests);
 			__eventHandler:run_on_next_tick(UpdateQuestGivers);
@@ -1619,8 +1619,8 @@ end
 		-- 	end
 		-- end
 	end
-	function __ns.core_setup()
-		SET = __ns.__setting;
+	function __private.core_setup()
+		SET = __private.__setting;
 		SetupCompleted();
 		-- __eventHandler:RegEvent("ADDON_LOADED");
 		-- __eventHandler:RegEvent("PLAYER_ENTERING_WORLD");
@@ -1675,4 +1675,4 @@ end
 		-->		NAME_PLATE_UNIT_REMOVED	
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.core'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.core'); end

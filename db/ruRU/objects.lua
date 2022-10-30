@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ruRU") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ruRU") then
 	return;
 end
-__ns.LDB.ruRU.object = {
+__private.LDB.ruRU.object = {
 	[4] = "Урон от огня",
 	[31] = "Статуя старого льва",
 	[32] = "Затонувший сундук",

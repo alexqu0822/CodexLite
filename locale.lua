@@ -3,18 +3,18 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.locale'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.locale'); end
 
 local setmetatable, rawset = setmetatable, rawset;
 local LOCALE = GetLocale();
 
-if __ns.__is_dev then
-	__ns:BuildEnv("locale");
+if __private.__is_dev then
+	__private:BuildEnv("locale");
 end
 
 local UILOC = setmetatable(
@@ -35,7 +35,7 @@ local UILOC = setmetatable(
 		end,
 	}
 );
-__ns.UILOC = UILOC;
+__private.UILOC = UILOC;
 
 
 local LOC_PATTERN_LIST = {
@@ -346,4 +346,4 @@ else
 	UILOC.CODEX_LITE_CONFLICTS = "Disable ClassicCodex and Questie, then reload UI?";
 end
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.locale'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.locale'); end

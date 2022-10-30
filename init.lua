@@ -6,20 +6,20 @@
 local _G = _G;
 local __ala_meta__ = _G.__ala_meta__;
 
-local __addon, __ns = ...;
-__ala_meta__.quest = __ns;
+local __addon, __private = ...;
+__ala_meta__.quest = __private;
 
 local __core = {  };
-__ns.core = __core;
-__ns.____bn_tag = select(2, BNGetInfo());
-__ns.__is_dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
-__ns.__toc = select(4, GetBuildInfo());
-__ns.__expansion = GetExpansionLevel();
-__ns.__maxLevel = GetMaxLevelForExpansionLevel(__ns.__expansion);
-__ns.__locale = GetLocale();
-__ns.After = C_Timer.After;
-__ns.NewTicker = C_Timer.NewTicker;
-__ns.NewTimer = C_Timer.NewTimer;
+__private.core = __core;
+__private.____bn_tag = select(2, BNGetInfo());
+__private.__is_dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
+__private.__toc = select(4, GetBuildInfo());
+__private.__expansion = GetExpansionLevel();
+__private.__maxLevel = GetMaxLevelForExpansionLevel(__private.__expansion);
+__private.__locale = GetLocale();
+__private.After = C_Timer.After;
+__private.NewTicker = C_Timer.NewTicker;
+__private.NewTimer = C_Timer.NewTimer;
 
 -->		Dev
 	local setfenv = setfenv;
@@ -27,7 +27,7 @@ __ns.NewTimer = C_Timer.NewTimer;
 	local next = next;
 	local _GlobalRef = {  };
 	local _GlobalAssign = {  };
-	function __ns:BuildEnv(category)
+	function __private:BuildEnv(category)
 		local _G = _G;
 		_GlobalRef[category] = _GlobalRef[category] or {  };
 		_GlobalAssign[category] = _GlobalAssign[category] or {  };
@@ -48,7 +48,7 @@ __ns.NewTimer = C_Timer.NewTimer;
 			}
 		));
 	end
-	function __ns:MergeGlobal(DB)
+	function __private:MergeGlobal(DB)
 		local _Ref = DB._GlobalRef;
 		if _Ref ~= nil then
 			for category, db in next, _Ref do
@@ -119,8 +119,8 @@ local _ = nil;
 	__core._PLAYER_FACTIONGROUP = _PLAYER_FACTIONGROUP;
 -->
 
-if __ns.__is_dev then
-	__ns:BuildEnv("init");
+if __private.__is_dev then
+	__private:BuildEnv("init");
 end
 
 -->		Time
@@ -146,8 +146,8 @@ end
 			return _val;
 		end
 	end
-	__ns._F_devDebugProfileStart = _F_devDebugProfileStart;
-	__ns._F_devDebugProfileTick = _F_devDebugProfileTick;
+	__private._F_devDebugProfileStart = _F_devDebugProfileStart;
+	__private._F_devDebugProfileTick = _F_devDebugProfileTick;
 	local _LN_devTheLastDebugProfilePoint = _debugprofilestop();
 	function _G.debugprofilestart()
 		_LN_devTheLastDebugProfilePoint = _debugprofilestop();
@@ -164,13 +164,13 @@ end
 		_G.GetTimePreciseSec = GetTimePreciseSec;
 	end
 	local _LN_devBaseTime = GetTimePreciseSec();
-	function __ns._F_devGetPreciseTime()
+	function __private._F_devGetPreciseTime()
 		local _now = GetTimePreciseSec() - _LN_devBaseTime + 0.00005;
 		return _now - _now % 0.0001;
 	end
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.init'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.init'); end
 
 -->		SafeCall
 	local _F_ErrorHandler = geterrorhandler();
@@ -189,16 +189,16 @@ end
 	end
 	-->		Simple Event Dispatcher
 		local function OnEvent(self, event, ...)
-			return __ns[event](...);
+			return __private[event](...);
 		end
 		function _EventHandler:FireEvent(event, ...)
-			local func = __ns[event];
+			local func = __private[event];
 			if func then
 				return func(...);
 			end
 		end
 		function _EventHandler:RegEvent(event, func)
-			__ns[event] = func or __ns[event] or _noop_;
+			__private[event] = func or __private[event] or _noop_;
 			self:RegisterEvent(event);
 			self:SetScript("OnEvent", OnEvent);
 		end
@@ -345,9 +345,9 @@ end
 			_func(...);
 		end
 	end
-	__ns._F_CorePrint = _F_CorePrint;
+	__private._F_CorePrint = _F_CorePrint;
 -->
-local _F_CorePrint = __ns._F_CorePrint;
+local _F_CorePrint = __private._F_CorePrint;
 
 -->		bit-data
 	local bitrace = {
@@ -428,19 +428,19 @@ local _F_CorePrint = __ns._F_CorePrint;
 	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
 	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
 	local FixedMapType = nil;
-	if __ns.__toc < 20000 then
+	if __private.__toc < 20000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
 		};
 		FixedMapType = {  };
-	elseif __ns.__toc < 30000 then
+	elseif __private.__toc < 30000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
 		};
 		FixedMapType = {  };
-	elseif __ns.__toc < 40000 then
+	elseif __private.__toc < 40000 then
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 48033.24, 32020.8, 36867.97, 14848.84 },	--	Eastern Kingdoms
 			[1] = { 47908.72, 31935.28, 8552.61, 18467.83 },	--	Kalimdor
@@ -474,14 +474,14 @@ local _F_CorePrint = __ns._F_CorePrint;
 	local TransformMeta = {  };
 	-->		TransformData from HBD
 		local transformData;
-		if __ns.__toc < 20000 then
+		if __private.__toc < 20000 then
 			transformData = {  };
-		elseif __ns.__toc < 30000 then
+		elseif __private.__toc < 30000 then
 			transformData = {
 				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
 			};
-		elseif __ns.__toc < 40000 then
+		elseif __private.__toc < 40000 then
 			transformData = {
 				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
@@ -557,7 +557,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		return instance, left, right, top, bottom;
 	end
 	local __player_map_id = C_Map_GetBestMapForUnit('player');
-	function __ns.InitMapAgent()
+	function __private.InitMapAgent()
 		local mapHandler = CreateFrame('FRAME');
 		mapHandler:SetScript("OnEvent", function(self, event)
 			local map = C_Map_GetBestMapForUnit('player');
@@ -675,7 +675,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		for map = 1, 2000 do
 			processMap(map);
 		end
-		if __ns.__toc >= 20000 and __ns.__toc < 40000 then
+		if __private.__toc >= 20000 and __private.__toc < 40000 then
 			local adjoined_fix = {
 				[1438] = { 1457, },	--	泰达希尔
 				[1457] = { 1438, },	--	达纳苏斯
@@ -1009,7 +1009,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 	local function GetQuestStartTexture(info)
 		local TEXTURE = IMG_INDEX.IMG_S_NORMAL;
 		local min = info.min;
-		local diff = min < 0 and 0 or (min - __ns.__player_level);
+		local diff = min < 0 and 0 or (min - __private.__player_level);
 		if diff > 0 then
 			if diff > 1 then
 				TEXTURE = IMG_INDEX.IMG_S_HIGH_LEVEL;
@@ -1023,7 +1023,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 				TEXTURE = IMG_INDEX.IMG_S_REPEATABLE;
 			else
 				local lvl = info.lvl;
-				lvl = lvl >= 0 and lvl or __ns.__player_level;
+				lvl = lvl >= 0 and lvl or __private.__player_level;
 				if lvl >= __core.quest_lvl_red then
 					TEXTURE = IMG_INDEX.IMG_S_VERY_HARD;
 				elseif lvl >= __core.quest_lvl_orange then
@@ -1070,7 +1070,7 @@ local _F_CorePrint = __ns._F_CorePrint;
 		[8407] = 41,
 		[8408] = 41,
 	};
-	function __ns.GetQuestTagInfo(quest)
+	function __private.GetQuestTagInfo(quest)
 		local tag = QuestTagCache[quest];
 		if tag == nil then
 			tag = GetQuestTagInfo(quest);
@@ -1092,13 +1092,13 @@ local _F_CorePrint = __ns._F_CorePrint;
 	__core.UnitHelpFac = UnitHelpFac;
 	local date = date;
 	local function _log_(...)
-		if __ns.__is_dev then
+		if __private.__is_dev then
 			_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), ...);
 		end
 	end
-	__ns._log_ = _log_;
-	function __ns.CheckLocale(locale)
-		return __ns.__locale == locale;
+	__private._log_ = _log_;
+	function __private.CheckLocale(locale)
+		return __private.__locale == locale;
 	end
 -->
 
@@ -1140,20 +1140,20 @@ local _F_CorePrint = __ns._F_CorePrint;
 		['module.util'] = false,
 		['module.last'] = false,
 	};
-	__ns.__performance_start = _F_devDebugProfileStart;
-	function __ns.__performance_log_tick(tag, ex1, ex2, ex3)
+	__private.__performance_start = _F_devDebugProfileStart;
+	function __private.__performance_log_tick(tag, ex1, ex2, ex3)
 		local val = __PERFORMANCE_LOG_TAGS[tag];
 		if val ~= nil then
-			local cost = __ns._F_devDebugProfileTick(tag);
+			local cost = __private._F_devDebugProfileTick(tag);
 			if val == false or cost >= 10.0 then
 				cost = cost - cost % 0.0001;
 				_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, cost, ex1, ex2, ex3);
 			end
 		end
 	end
-	function __ns.__opt_log(tag, ...)
+	function __private.__opt_log(tag, ...)
 		_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, ...);
 	end
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.init'); end

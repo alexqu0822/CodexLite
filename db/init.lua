@@ -1,6 +1,6 @@
-local __addon, __ns = ...;
-__ns.db = {  };
-__ns.LDB = {
+local __addon, __private = ...;
+__private.db = {  };
+__private.LDB = {
     deDE = {  },
     enUS = {  },
     esES = {  },

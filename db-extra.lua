@@ -3,12 +3,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.db-extra'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.db-extra'); end
 
 -->		variables
 local collectgarbage = collectgarbage;
@@ -17,7 +17,7 @@ local next = next;
 local tremove = table.remove;
 local strfind = string.find;
 
-local __db = __ns.db;
+local __db = __private.db;
 local __db_quest = __db.quest;
 local __db_unit = __db.unit;
 local __db_item = __db.item;
@@ -25,9 +25,9 @@ local __db_object = __db.object;
 local __db_refloot = __db.refloot;
 local __db_event = __db.event;
 
-local __loc = __ns.L;
+local __loc = __private.L;
 
-local __core = __ns.core;
+local __core = __private.core;
 local __bit_check_race = __core.__bit_check_race;
 local __bit_check_class = __core.__bit_check_class;
 local __bit_check_race_class = __core.__bit_check_race_class;
@@ -35,7 +35,7 @@ local __bit_check_race_class = __core.__bit_check_race_class;
 local blacklist_quest = __db.blacklist_quest;
 local blacklist_item = __db.blacklist_item;
 
-local _F_CorePrint = __ns._F_CorePrint;
+local _F_CorePrint = __private._F_CorePrint;
 
 local chain_prev_quest = {  };
 __db.chain_prev_quest = chain_prev_quest;
@@ -48,8 +48,8 @@ local avl_quest_hash = {  };
 __db.avl_quest_list = avl_quest_list;
 __db.avl_quest_hash = avl_quest_hash;
 
-if __ns.__is_dev then
-	__ns:BuildEnv("db-extra");
+if __private.__is_dev then
+	__private:BuildEnv("db-extra");
 end
 
 local function check(tbl, key, str)
@@ -258,7 +258,7 @@ local function load_extra_db()
 			end
 		end
 	end
-	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.faction'); end
+	--[=[dev]=]	if __private.__is_dev then __private.__performance_start('module.init.init.extra_db.faction'); end
 	-->		faction quest list
 		local key = __core._PLAYER_FACTIONGROUP == "Alliance" and "facA" or "facH";
 		local str = __core._PLAYER_FACTIONGROUP == "Alliance" and "A" or "H";
@@ -278,8 +278,8 @@ local function load_extra_db()
 			end
 		end
 	-->
-	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.faction'); end
-	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_start('module.init.init.extra_db.mark'); end
+	--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.init.init.extra_db.faction'); end
+	--[=[dev]=]	if __private.__is_dev then __private.__performance_start('module.init.init.extra_db.mark'); end
 	-->		Delete Unused
 		-->		cache
 		for quest, info in next, __db_quest do
@@ -540,7 +540,7 @@ local function load_extra_db()
 			end
 		end
 	-->
-	--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.init.init.extra_db.mark'); end
+	--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.init.init.extra_db.mark'); end
 end
 
 
@@ -677,11 +677,11 @@ local function VerifyData()
 end
 
 
-__ns.load_extra_db = function()
-	if __ns.__is_dev then
+__private.load_extra_db = function()
+	if __private.__is_dev then
 		VerifyData();
 	end
 	load_extra_db();
 end
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.db-extra'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.db-extra'); end

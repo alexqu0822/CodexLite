@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("enUS") then
+local __addon, __private = ...;
+if not __private.CheckLocale("enUS") then
 	return;
 end
-__ns.LDB.enUS.profession = {
+__private.LDB.enUS.profession = {
 	[6] = "Frost",
 	[8] = "Fire",
 	[26] = "Arms",

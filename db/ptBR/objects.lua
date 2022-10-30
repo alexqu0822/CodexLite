@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ptBR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ptBR") then
 	return;
 end
-__ns.LDB.ptBR.object = {
+__private.LDB.ptBR.object = {
 	[4] = "Bonfire Damage",
 	[31] = "Estátua de Leão Antiga",
 	[32] = "Baú Afundado",

@@ -1,11 +1,11 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ptBR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ptBR") then
 	return;
 end
 --  name  <nome>
 --  race  <Raça>
 --  class <class>
-__ns.LDB.ptBR.quest = {
+__private.LDB.ptBR.quest = {
 	[1] = {
 		[[The "Chow" Quest (123)aa]],
 		{ [[$Tpunk;!  Kill Kobold Vermin, 2 of em. NEW TEST AGAIN]], },

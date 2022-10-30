@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("frFR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("frFR") then
 	return;
 end
-__ns.LDB.frFR.object = {
+__private.LDB.frFR.object = {
 	[4] = "Dégâts Feu de joie",
 	[31] = "Statue du vieux lion",
 	[32] = "Coffre englouti",

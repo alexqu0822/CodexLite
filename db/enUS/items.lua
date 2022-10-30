@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("enUS") then
+local __addon, __private = ...;
+if not __private.CheckLocale("enUS") then
 	return;
 end
-__ns.LDB.enUS.item = {
+__private.LDB.enUS.item = {
 	[25] = "Worn Shortsword",
 	[35] = "Bent Staff",
 	[36] = "Worn Mace",

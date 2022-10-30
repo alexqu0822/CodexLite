@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("ruRU") then
+local __addon, __private = ...;
+if not __private.CheckLocale("ruRU") then
 	return;
 end
-__ns.LDB.ruRU.item = {
+__private.LDB.ruRU.item = {
 	[25] = "Иссеченный короткий меч",
 	[35] = "Гнутый посох",
 	[36] = "Иссеченная палица",

@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("deDE") then
+local __addon, __private = ...;
+if not __private.CheckLocale("deDE") then
 	return;
 end
-__ns.LDB.deDE.item = {
+__private.LDB.deDE.item = {
 	[25] = "Abgenutztes Kurzschwert",
 	[35] = "Gebogener Stab",
 	[36] = "Abgenutzter Streitkolben",

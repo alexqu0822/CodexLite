@@ -1,11 +1,11 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("deDE") then
+local __addon, __private = ...;
+if not __private.CheckLocale("deDE") then
 	return;
 end
 --  name  <name>
 --  race  <völker>
 --  class <klasse>
-__ns.LDB.deDE.quest = {
+__private.LDB.deDE.quest = {
 	[1] = {
 		[[Kanrethads Quest]],
 		{ [[$Tpunk;!  Kill Kobold Vermin, 2 of em. NEW TEST AGAIN]], },

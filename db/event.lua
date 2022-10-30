@@ -1,5 +1,5 @@
-local __addon, __ns = ...;
-__ns.db.event = {
+local __addon, __private = ...;
+__private.db.event = {
 	[45] = {
 		["coords"] = {
 			{ 84.8, 30.3, 1420, },

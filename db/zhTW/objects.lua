@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("zhTW") then
+local __addon, __private = ...;
+if not __private.CheckLocale("zhTW") then
 	return;
 end
-__ns.LDB.zhTW.object = {
+__private.LDB.zhTW.object = {
 	[4] = "营火伤害",
 	[31] = "老舊獅子雕像",
 	[32] = "沉沒的箱子",

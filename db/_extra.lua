@@ -1,12 +1,12 @@
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
-if __ns.__is_dev then
-	__ns:BuildEnv("db._extra");
+if __private.__is_dev then
+	__private:BuildEnv("db._extra");
 end
 local _G = _G;
 local _ = nil;
 --------------------------------------------------
-local __db = __ns.db;
+local __db = __private.db;
 
 --	Use Questie BL
 local blacklist_quest = {
@@ -96714,8 +96714,8 @@ for id, val in next, QuestIR do
 end
 
 
-__ns.L = __ns.LDB[__ns.__locale];
-for id, v in next, __ns.L.quest do
+__private.L = __private.LDB[__private.__locale];
+for id, v in next, __private.L.quest do
 	if v[3] ~= nil then
 		v[2] = nil;
 	end

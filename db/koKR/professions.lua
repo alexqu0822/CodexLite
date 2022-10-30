@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("koKR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("koKR") then
 	return;
 end
-__ns.LDB.koKR.profession = {
+__private.LDB.koKR.profession = {
 	[6] = "냉기",
 	[8] = "화염",
 	[26] = "무기",

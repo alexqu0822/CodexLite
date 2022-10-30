@@ -3,12 +3,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map'); end
 
 -->		variables
 	local hooksecurefunc = hooksecurefunc;
@@ -27,7 +27,7 @@ local _ = nil;
 	local Minimap = Minimap;
 	local GameTooltip = GameTooltip;
 
-	local __db = __ns.db;
+	local __db = __private.db;
 	local __db_quest = __db.quest;
 	local __db_unit = __db.unit;
 	local __db_item = __db.item;
@@ -35,15 +35,15 @@ local _ = nil;
 	local __db_refloot = __db.refloot;
 	local __db_event = __db.event;
 
-	local __loc = __ns.L;
+	local __loc = __private.L;
 	local __loc_quest = __loc.quest;
 	local __loc_unit = __loc.unit;
 	local __loc_item = __loc.item;
 	local __loc_object = __loc.object;
 	local __loc_profession = __loc.profession;
-	local __UILOC = __ns.UILOC;
+	local __UILOC = __private.UILOC;
 
-	local __core = __ns.core;
+	local __core = __private.core;
 	local _F_SafeCall = __core._F_SafeCall;
 	local __eventHandler = __core.__eventHandler;
 	local __const = __core.__const;
@@ -53,9 +53,9 @@ local _ = nil;
 	local ContinentMapID = __core.ContinentMapID;
 	local GetUnitPosition = __core.GetUnitPosition;
 
-	local __core_meta = __ns.__core_meta;
+	local __core_meta = __private.__core_meta;
 
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
 	local wm_wrap = CreateFrame('FRAME', nil, mapCanvas);
@@ -81,22 +81,22 @@ local _ = nil;
 
 	local SET = nil;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("map");
+if __private.__is_dev then
+	__private:BuildEnv("map");
 end
 -->		MAIN
 	-->		--	count
 		local __popt = { 0, 0, 0, 0, };
 		local function __opt_prompt()
-			__ns.__opt_log('map.opt', __popt[1], __popt[2], __popt[3], __popt[4]);
+			__private.__opt_log('map.opt', __popt[1], __popt[2], __popt[3], __popt[4]);
 		end
 		function __popt:count(index, count)
 			__popt[index] = __popt[index] + count;
-			if __ns.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if __private.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
 		end
 		function __popt:reset(index)
 			__popt[index] = 0;
-			if __ns.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if __private.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
 		end
 		function __popt:echo(index)
 			return __popt[index];
@@ -113,7 +113,7 @@ end
 	local MM_COMMON_PINS = {  };			-->		[map] = { coord = pin, }
 	local MM_LARGE_PINS = {  };				-->		[map] = { coord = pin, }
 	local MM_VARIED_PINS = {  };			-->		[map] = { coord = pin, }
-	__ns.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
+	__private.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
 	local QUEST_TEMPORARILY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BL_LIST = {  };
@@ -148,7 +148,7 @@ end
 			local uuid = self.uuid;
 			local _type = uuid[1];
 			local _id = uuid[2];
-			__ns.TooltipSetInfo(GameTooltip, _type, _id);
+			__private.TooltipSetInfo(GameTooltip, _type, _id);
 			GameTooltip:Show();
 		end
 		local TomTom = nil;
@@ -173,12 +173,12 @@ end
 					end
 				end
 				if hide_node_modifier() then
-					if __ns.NodeOnModifiedClick(self, uuid) then
+					if __private.NodeOnModifiedClick(self, uuid) then
 						return;
 					end
 				end
-				__ns.RelColor3(uuid[3]);
-				uuid[3], uuid[6] = __ns.GetColor3NextIndex(uuid[6]);
+				__private.RelColor3(uuid[3]);
+				uuid[3], uuid[6] = __private.GetColor3NextIndex(uuid[6]);
 				WorldMap_ChangeCommonLargeNodesMapUUID(wm_map, uuid);
 				Minimap_ChangeCommonLargeNodesMapUUID(mm_map, uuid);
 			end
@@ -190,7 +190,7 @@ end
 			if pin == nil then
 				pin = CreateFrame('FRAME', nil, wm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", __ns.OnLeave);
+				pin:SetScript("OnLeave", __private.OnLeave);
 				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 				pin.Release = Release;
@@ -669,7 +669,7 @@ end
 			if pin == nil then
 				pin = CreateFrame('FRAME', nil, mm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", __ns.OnLeave);
+				pin:SetScript("OnLeave", __private.OnLeave);
 				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
@@ -909,7 +909,7 @@ end
 			end
 		end
 		function Minimap_ShowNodesMapQuest(map, quest)
-			__ns._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
+			__private._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
 			local num_changed = 0;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
@@ -1039,9 +1039,9 @@ end
 			if num_changed ~= 0 then
 				__popt:count(4, num_changed);
 			end
-			local cost = __ns._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
+			local cost = __private._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
 			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
 		end
 		function Minimap_HideNodesQuest(quest)
 			local num_pins = 0;
@@ -1069,7 +1069,7 @@ end
 			__popt:count(4, num_pins);
 		end
 		function Minimap_DrawNodesMap(map)
-			__ns._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
+			__private._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
 			local mm_check_range = SET.minimap_node_inset and mm_hsize * 0.9 or mm_hsize;
 			local num_changed = 0;
 			local meta = META_COMMON[map];
@@ -1200,9 +1200,9 @@ end
 			if num_changed ~= 0 then
 				__popt:count(4, num_changed);
 			end
-			local cost = __ns._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
+			local cost = __private._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
 			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
 		end
 		function Minimap_HideNodes()
 			local num_pins = 0;
@@ -1271,11 +1271,11 @@ end
 			end
 			mm_arrow:Hide();
 		end
-		function __ns.MINIMAP_UPDATE_ZOOM()
+		function __private.MINIMAP_UPDATE_ZOOM()
 			-- __eventHandler:run_on_next_tick(Minimap_DrawNodes);
 			-- _log_('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
 		end
-		function __ns.CVAR_UPDATE()
+		function __private.CVAR_UPDATE()
 			local is_rotate = GetCVar("rotateMinimap") == "1";
 			if mm_is_rotate ~= is_rotate then
 				mm_is_rotate = is_rotate;
@@ -1438,7 +1438,7 @@ end
 				end
 				WorldMap_ShowNodesQuest(wm_map, quest);
 				Minimap_ShowNodesMapQuest(mm_map, quest);
-				__ns.RefreshBlockedList();
+				__private.RefreshBlockedList();
 			end
 		end
 		function MapPermanentlyHideQuestNodes(quest)
@@ -1447,7 +1447,7 @@ end
 				QUEST_PERMANENTLY_BL_LIST[#QUEST_PERMANENTLY_BL_LIST + 1] = quest;
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
-				__ns.RefreshBlockedList();
+				__private.RefreshBlockedList();
 			end
 		end
 		function MapPermanentlyToggleQuestNodes(quest)
@@ -1467,7 +1467,7 @@ end
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
 			end
-			__ns.RefreshBlockedList();
+			__private.RefreshBlockedList();
 		end
 		--
 		function MapDrawNodes()
@@ -1562,37 +1562,37 @@ end
 	-->
 	-->		--	extern method
 		--
-		__ns.SetShowPinInContinent = SetShowPinInContinent;
-		__ns.SetWorldmapAlpha = SetWorldmapAlpha;
-		__ns.SetMinimapAlpha = SetMinimapAlpha;
-		__ns.SetCommonPinSize = SetCommonPinSize;
-		__ns.SetLargePinSize = SetLargePinSize;
-		__ns.SetVariedPinSize = SetVariedPinSize;
-		__ns.SetHideNodeModifier = SetHideNodeModifier;
-		__ns.SetMinimapNodeInset = SetMinimapNodeInset;
-		__ns.SetMinimapPlayerArrowOnTop = SetMinimapPlayerArrowOnTop;
+		__private.SetShowPinInContinent = SetShowPinInContinent;
+		__private.SetWorldmapAlpha = SetWorldmapAlpha;
+		__private.SetMinimapAlpha = SetMinimapAlpha;
+		__private.SetCommonPinSize = SetCommonPinSize;
+		__private.SetLargePinSize = SetLargePinSize;
+		__private.SetVariedPinSize = SetVariedPinSize;
+		__private.SetHideNodeModifier = SetHideNodeModifier;
+		__private.SetMinimapNodeInset = SetMinimapNodeInset;
+		__private.SetMinimapPlayerArrowOnTop = SetMinimapPlayerArrowOnTop;
 		--
-		__ns.MapAddCommonNodes = MapAddCommonNodes;
-		__ns.MapDelCommonNodes = MapDelCommonNodes;
-		__ns.MapUpdCommonNodes = MapUpdCommonNodes;
-		__ns.MapAddLargeNodes = MapAddLargeNodes;
-		__ns.MapDelLargeNodes = MapDelLargeNodes;
-		__ns.MapUpdLargeNodes = MapUpdLargeNodes;
-		__ns.MapAddVariedNodes = MapAddVariedNodes;
-		__ns.MapDelVariedNodes = MapDelVariedNodes;
-		__ns.MapUpdVariedNodes = MapUpdVariedNodes;
-		__ns.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
-		__ns.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
-		__ns.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
-		__ns.MapPermanentlyShowQuestNodes = MapPermanentlyShowQuestNodes;
-		__ns.MapPermanentlyHideQuestNodes = MapPermanentlyHideQuestNodes;
-		__ns.MapPermanentlyToggleQuestNodes = MapPermanentlyToggleQuestNodes;
+		__private.MapAddCommonNodes = MapAddCommonNodes;
+		__private.MapDelCommonNodes = MapDelCommonNodes;
+		__private.MapUpdCommonNodes = MapUpdCommonNodes;
+		__private.MapAddLargeNodes = MapAddLargeNodes;
+		__private.MapDelLargeNodes = MapDelLargeNodes;
+		__private.MapUpdLargeNodes = MapUpdLargeNodes;
+		__private.MapAddVariedNodes = MapAddVariedNodes;
+		__private.MapDelVariedNodes = MapDelVariedNodes;
+		__private.MapUpdVariedNodes = MapUpdVariedNodes;
+		__private.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
+		__private.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
+		__private.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
+		__private.MapPermanentlyShowQuestNodes = MapPermanentlyShowQuestNodes;
+		__private.MapPermanentlyHideQuestNodes = MapPermanentlyHideQuestNodes;
+		__private.MapPermanentlyToggleQuestNodes = MapPermanentlyToggleQuestNodes;
 		--
-		__ns.MapDrawNodes = MapDrawNodes;
-		__ns.MapHideNodes = MapHideNodes;
-		__ns.Pin_OnEnter = Pin_OnEnter;
+		__private.MapDrawNodes = MapDrawNodes;
+		__private.MapHideNodes = MapHideNodes;
+		__private.Pin_OnEnter = Pin_OnEnter;
 		--
-		function __ns.map_reset()
+		function __private.map_reset()
 			wipe(META_COMMON);
 			wipe(META_LARGE);
 			wipe(META_VARIED);
@@ -1602,10 +1602,10 @@ end
 			wipe(MM_VARIED_PINS);
 			ResetMMPin();
 		end
-		function __ns.map_ToggleWorldMapPin(shown)
+		function __private.map_ToggleWorldMapPin(shown)
 			wm_wrap:SetShown(shown ~= false);
 		end
-		function __ns.map_ToggleMinimapPin(shown)
+		function __private.map_ToggleMinimapPin(shown)
 			mm_wrap:SetShown(shown ~= false);
 		end
 	-->
@@ -1627,19 +1627,19 @@ end
 			function mapCallback:OnMapChanged()
 				--  Optionally override in your mixin, called when map ID changes
 				-- self:RefreshAllData();
-				--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
+				--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
 				local uiMapID = WorldMapFrame:GetMapID();
 				if uiMapID ~= wm_map then
 					WorldMap_HideNodesMap(wm_map);
 					wm_map = uiMapID;
 					WorldMap_DrawNodesMap(uiMapID);
 				end
-				--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
+				--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
 			end
 			function mapCallback:OnCanvasScaleChanged()
 				local scale = mapCanvas:GetScale();
 				if map_canvas_scale ~= scale then
-					--[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
+					--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
 					map_canvas_scale = scale;
 					local pin_scale_max = SET.pin_scale_max;
 					--
@@ -1658,23 +1658,23 @@ end
 						wm_varied_size = wm_varied_size * pin_scale_max / scale;
 					end
 					IterateWorldMapPinSetSize();
-					--[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
+					--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
 				end
 			end
 			function mapCallback:OnCanvasSizeChanged()
 			end
 		-->
-		function __ns.__PLAYER_ZONE_CHANGED(map)
+		function __private.__PLAYER_ZONE_CHANGED(map)
 			mm_map = map;
 			Minimap_HideNodes();
 			Minimap_DrawNodesMap(map);
 		end
 	-->
-	function __ns.map_setup()
-		SET = __ns.__setting;
-		QUEST_TEMPORARILY_BLOCKED = __ns.__quest_temporarily_blocked;
-		QUEST_PERMANENTLY_BLOCKED = __ns.__quest_permanently_blocked;
-		QUEST_PERMANENTLY_BL_LIST = __ns.__quest_permanently_bl_list;
+	function __private.map_setup()
+		SET = __private.__setting;
+		QUEST_TEMPORARILY_BLOCKED = __private.__quest_temporarily_blocked;
+		QUEST_PERMANENTLY_BLOCKED = __private.__quest_permanently_blocked;
+		QUEST_PERMANENTLY_BL_LIST = __private.__quest_permanently_bl_list;
 		-- local HBD = LibStub("HereBeDragons-2.0");
 		-- local mapData = HBD.mapData;
 		-- --	{ width, height, left, top, instance = instance, name = name, mapType = mapType, parent = parent }
@@ -1691,9 +1691,9 @@ end
 		-- 		break;
 		-- 	end
 		-- end
-		-- __ns.HDB = HDB;
-		-- __ns.mapData = mapData;
-		-- function __ns.GetWorldCoordinatesFromZone(zone, x, y)
+		-- __private.HDB = HDB;
+		-- __private.mapData = mapData;
+		-- function __private.GetWorldCoordinatesFromZone(zone, x, y)
 		-- 	local data = mapData[zone];
 		-- 	if data then
 		-- 		x, y = data[3] - data[1] * x, data[4] - data[2] * y;
@@ -1731,4 +1731,4 @@ end
 -->		dev
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.map'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map'); end

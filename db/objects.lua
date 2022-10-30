@@ -1,4 +1,4 @@
-local __addon, __ns = ...;
+local __addon, __private = ...;
 --[[
 	object = {
 		@spawn = { U, O, I, },
@@ -6,7 +6,7 @@ local __addon, __ns = ...;
 		@fac = string,
 	};
 --]]
-__ns.db.object = {
+__private.db.object = {
 	[31] = {
 		["coords"] = {
 			{ 84.5, 46.8, 1433, 2, },

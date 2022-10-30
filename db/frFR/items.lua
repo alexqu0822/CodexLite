@@ -1,8 +1,8 @@
-local __addon, __ns = ...;
-if not __ns.CheckLocale("frFR") then
+local __addon, __private = ...;
+if not __private.CheckLocale("frFR") then
 	return;
 end
-__ns.LDB.frFR.item = {
+__private.LDB.frFR.item = {
 	[25] = "Epée courte usée",
 	[35] = "Bâton tordu",
 	[36] = "Masse détériorée",

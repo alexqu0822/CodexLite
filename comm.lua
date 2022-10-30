@@ -3,12 +3,12 @@
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.comm'); end
+--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.comm'); end
 
 -->		variables
 	local GetTime = GetTime;
@@ -34,7 +34,7 @@ local _ = nil;
 	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
 	local LE_PARTY_CATEGORY_HOME = LE_PARTY_CATEGORY_HOME;
 
-	local __db = __ns.db;
+	local __db = __private.db;
 	local __db_quest = __db.quest;
 	local __db_unit = __db.unit;
 	local __db_item = __db.item;
@@ -47,9 +47,9 @@ local _ = nil;
 	local __db_large_pin = __db.large_pin;
 	local __db_chain_prev_quest = __db.chain_prev_quest;
 
-	local __loc_object = __ns.L.object;
+	local __loc_object = __private.L.object;
 
-	local __core = __ns.core;
+	local __core = __private.core;
 	local _F_SafeCall = __core._F_SafeCall;
 	local __eventHandler = __core.__eventHandler;
 	local __const = __core.__const;
@@ -57,16 +57,16 @@ local _ = nil;
 	local IMG_INDEX = __core.IMG_INDEX;
 	local GetQuestStartTexture = __core.GetQuestStartTexture;
 
-	local __core_meta = __ns.__core_meta;
+	local __core_meta = __private.__core_meta;
 
 	local UnitHelpFac = __core.UnitHelpFac;
-	local _log_ = __ns._log_;
+	local _log_ = __private._log_;
 
 	local SET = nil;
 
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("comm");
+if __private.__is_dev then
+	__private:BuildEnv("comm");
 end
 -->		MAIN
 	local ADDON_PREFIX = "CDXLT";
@@ -79,12 +79,12 @@ end
 	local ADDON_MSG_HEAD_ONLINE_V2 = "O";
 	local META = {  };	--	[quest_id] = { [flag:whether_nodes_added], [completed], [num_lines], [line(1, 2, 3, ...)] = { shown, objective_type, objective_id, description, finished, is_large_pin, progress, required, }, }
 	local OBJ_LOOKUP = {  };
-	__ns.__comm_meta = META;
-	__ns.__comm_obj_lookup = OBJ_LOOKUP;
+	__private.__comm_meta = META;
+	__private.__comm_obj_lookup = OBJ_LOOKUP;
 	local GROUP_MEMBERS = {  };
-	__ns.__comm_group_members = GROUP_MEMBERS;
+	__private.__comm_group_members = GROUP_MEMBERS;
 	local GROUP_MEMBERS_INFO = {  };
-	__ns.__comm_group_members_info = GROUP_MEMBERS_INFO;
+	__private.__comm_group_members_info = GROUP_MEMBERS_INFO;
 	local _Inited = {  };
 	-->		function predef
 		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
@@ -185,11 +185,11 @@ end
 		function ResetUUID()
 			wipe(_UUID);
 		end
-		__ns.CommAddUUID = CommAddUUID;
-		__ns.CommSubUUID = CommSubUUID;
-		__ns.CommGetUUID = CommGetUUID;
-		if __ns.__is_dev then
-			__ns.COMM_UUID = _UUID;
+		__private.CommAddUUID = CommAddUUID;
+		__private.CommSubUUID = CommSubUUID;
+		__private.CommGetUUID = CommGetUUID;
+		if __private.__is_dev then
+			__private.COMM_UUID = _UUID;
 		end
 	-->
 	-->		send data to ui
@@ -212,7 +212,7 @@ end
 			local uuid = CommAddUUID(name, _T, _id, _quest, _line, -9998);
 			if COMMON_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddCommonNodes(uuid, coords_table);
+					__private.MapAddCommonNodes(uuid, coords_table);
 				end
 				COMMON_UUID_FLAG[uuid] = true;
 			end
@@ -231,7 +231,7 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelCommonNodes(uuid);
+				__private.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
 			end
 		end
@@ -240,7 +240,7 @@ end
 			local uuid = CommAddUUID(name, _T, _id, _quest, _line, -9999);
 			if LARGE_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddLargeNodes(uuid, coords_table);
+					__private.MapAddLargeNodes(uuid, coords_table);
 				end
 				LARGE_UUID_FLAG[uuid] = true;
 			end
@@ -259,7 +259,7 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelLargeNodes(uuid);
+				__private.MapDelLargeNodes(uuid);
 				LARGE_UUID_FLAG[uuid] = nil;
 			end
 		end
@@ -269,7 +269,7 @@ end
 			local TEXTURE = GetVariedNodeTexture(uuid[4]);
 			if uuid[5] ~= TEXTURE then
 				uuid[5] = TEXTURE;
-				__ns.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
+				__private.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
 				VARIED_UUID_FLAG[uuid] = true;
 			end
 		end
@@ -278,7 +278,7 @@ end
 			if del == true then
 				uuid[5] = nil;
 				if VARIED_UUID_FLAG[uuid] ~= nil then
-					__ns.MapDelVariedNodes(uuid);
+					__private.MapDelVariedNodes(uuid);
 					VARIED_UUID_FLAG[uuid] = nil;
 				end
 			elseif del == false then
@@ -286,7 +286,7 @@ end
 				if uuid[5] ~= TEXTURE then
 					uuid[5] = TEXTURE;
 					if VARIED_UUID_FLAG[uuid] ~= nil then
-						__ns.MapAddVariedNodes(uuid, nil, true);
+						__private.MapAddVariedNodes(uuid, nil, true);
 					end
 				end
 			end
@@ -724,7 +724,7 @@ end
 			MessageTop = MessageTop - 1;
 			if MessageBuffer[1] ~= nil then
 				SchedulerRunning = true;
-				__ns.After(0.02, MessageTicker);
+				__private.After(0.02, MessageTicker);
 			else
 				SchedulerRunning = false;
 			end
@@ -736,7 +736,7 @@ end
 			MessageBuffer[MessageTop] = { prefix, msg, channel, target, };
 			if not SchedulerRunning then
 				SchedulerRunning = true;
-				__ns.After(0.02, MessageTicker);
+				__private.After(0.02, MessageTicker);
 			end
 		end
 		-->		Message Filter
@@ -764,7 +764,7 @@ end
 			end
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", F_Filter);
 		-->
-		__ns.ScheduleMessage = ScheduleMessage;
+		__private.ScheduleMessage = ScheduleMessage;
 	-->
 	-->		comm
 		--
@@ -1082,25 +1082,25 @@ end
 		end
 		local function OnCommQuestie(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			-- _log_('|cff00ff7fOnCommQuestie|r', msg, name);
-			__ns.ExternalQuestie._OnComm(msg, name, channel);
+			__private.ExternalQuestie._OnComm(msg, name, channel);
 		end
 	-->		control
 		function DisableComm()
 			is_comm_enabled = false;
 			wipe(META);
 			ResetUUID();
-			__ns.PushAddQuest = noop;
-			__ns.PushDelQuest = noop;
-			__ns.PushAddLine = noop;
-			__ns.PushFlushBuffer = noop;
+			__private.PushAddQuest = noop;
+			__private.PushDelQuest = noop;
+			__private.PushAddLine = noop;
+			__private.PushFlushBuffer = noop;
 			wipe(GROUP_MEMBERS);
 		end
 		function EnableComm()
 			is_comm_enabled = true;
-			__ns.PushAddQuest = PushAddQuest;
-			__ns.PushDelQuest = PushDelQuest;
-			__ns.PushAddLine = PushAddLine;
-			__ns.PushFlushBuffer = PushFlushBuffer;
+			__private.PushAddQuest = PushAddQuest;
+			__private.PushDelQuest = PushDelQuest;
+			__private.PushAddLine = PushAddLine;
+			__private.PushFlushBuffer = PushFlushBuffer;
 		end
 	-->		group cache
 		local PartyUnitsList = { 'party1', 'party2', 'party3', 'party4', };
@@ -1124,7 +1124,7 @@ end
 								--	Add
 								META[name] = {  };
 								PullSingle(name, true);
-								__ns.ExternalQuestie._PullSingle(name);
+								__private.ExternalQuestie._PullSingle(name);
 								PushSingle(name);
 							end
 							_GROUP_MEMBERS[name] = true;
@@ -1134,7 +1134,7 @@ end
 								CommDelUUID(name);
 								META[name] = nil;
 								_Inited[name] = nil;
-								__ns.ExternalQuestie._DelUnit(name);
+								__private.ExternalQuestie._DelUnit(name);
 							end
 							_GROUP_MEMBERS[name] = false;
 						end
@@ -1147,11 +1147,11 @@ end
 						CommDelUUID(name);
 						META[name] = nil;
 						_Inited[name] = nil;
-						__ns.ExternalQuestie._DelUnit(name);
+						__private.ExternalQuestie._DelUnit(name);
 					end
 				end
 				GROUP_MEMBERS = _GROUP_MEMBERS;
-				__ns.__comm_group_members = _GROUP_MEMBERS;
+				__private.__comm_group_members = _GROUP_MEMBERS;
 			end
 		end
 	-->		events and hooks
@@ -1159,7 +1159,7 @@ end
 		--			[completed]	-1 = failed, 0 = uncompleted, 1 = completed
 		--			[action]	-1 = sub, 1 = add
 		-->		LINE ^questId^finished ^line^type^id^text
-		function __ns.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
+		function __private.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			if prefix == ADDON_PREFIX_V2 then
 				local name = Ambiguate(sender, 'none');
 				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
@@ -1177,7 +1177,7 @@ end
 				end
 			end
 		end
-		function __ns.GROUP_ROSTER_UPDATE()
+		function __private.GROUP_ROSTER_UPDATE()
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1186,7 +1186,7 @@ end
 				__eventHandler:run_on_next_tick(UpdateGroupMembers);
 			end
 		end
-		function __ns.GROUP_FORMED(category, partyGUID)
+		function __private.GROUP_FORMED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1194,7 +1194,7 @@ end
 				EnableComm();
 			end
 		end
-		function __ns.GROUP_JOINED(category, partyGUID)
+		function __private.GROUP_JOINED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1203,18 +1203,18 @@ end
 				__eventHandler:run_on_next_tick(UpdateGroupMembers);
 			end
 		end
-		function __ns.GROUP_LEFT(category, partyGUID)
+		function __private.GROUP_LEFT(category, partyGUID)
 			_log_('|cff00ff7fGROUP_LEFT|r', category, partyGUID);
 			DisableComm();
 		end
-		function __ns.UNIT_CONNECTION(unit, isConnected)
+		function __private.UNIT_CONNECTION(unit, isConnected)
 			if is_comm_enabled then
 				UpdateGroupMembers();
 			end
 		end
 	-->
-	function __ns.comm_setup()
-		SET = __ns.__setting;
+	function __private.comm_setup()
+		SET = __private.__setting;
 		DisableComm();
 		local r1, r2 = RegisterAddonMessagePrefix(ADDON_PREFIX_V1), RegisterAddonMessagePrefix(ADDON_PREFIX_V2);
 		if r1 or r2 then
@@ -1231,8 +1231,8 @@ end
 				_log_("comm.init.ingroup");
 			end
 		end
-		__ns.ExternalQuestie._Init(_Inited, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
+		__private.ExternalQuestie._Init(_Inited, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
 	end
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.comm'); end
+--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.comm'); end
