@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("koKR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "koKR" then
 	return;
 end
-__private.LDB.koKR.item = {
+CT.l10nDB.koKR.item = {
 	[25] = "낡은 쇼트소드",
 	[35] = "구부러진 지팡이",
 	[36] = "낡은 철퇴",

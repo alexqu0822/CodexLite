@@ -1,15 +1,20 @@
 local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
-if __private.__is_dev then
-	__private:BuildEnv("db._extra");
-end
+local date = date;
+local type = type;
+local next = next;
 local _G = _G;
-local _ = nil;
+
+MT.BuildEnv("db._extra");
 --------------------------------------------------
-local __db = __private.db;
+local DataAgent = DT.DB;
 
 --	Use Questie BL
-local blacklist_quest = {
+DataAgent.blacklist_quest = {
 	[7462] = true, -- Duplicate of 7877. See #1583
 	[5663] = true, -- Touch of Weakness of Dark Cleric Beryl - Fixing #730
 	[5658] = true, -- Touch of Weakness of Father Lankester -- See #1603
@@ -839,9 +844,8 @@ local blacklist_quest = {
 	[12135] = true,
 	[11360] = true,
 };
-__db.blacklist_quest = blacklist_quest;
 
-local blacklist_item = {
+DataAgent.blacklist_item = {
 	[765] = true, -- silverleaf
 	[774] = true, -- malachite
 	[785] = true, -- mageroyal
@@ -1037,7 +1041,6 @@ local blacklist_item = {
 	[21877] = true,	-- 灵纹布
 	[21840] = true,	-- 灵纹布卷
 };
-__db.blacklist_item = blacklist_item;
 
 local large_pin = {
 	[2] = {
@@ -6085,11 +6088,6 @@ local large_pin = {
 			[183808] = 1,
 		},
 	},
-	[10204] = {
-		["object"] = {
-			[-200005] = 1,
-		},
-	},
 	[10205] = {
 		["unit"] = {
 			[19641] = 1,
@@ -7470,7 +7468,7 @@ for quest, val in next, large_black do
 		end
 	end
 end
-__db.large_pin = large_pin;
+DataAgent.large_pin = large_pin;
 function large_pin:Check(_quest, _type, _id)
 	local info = self[_quest];
 	if info ~= nil then
@@ -7482,7 +7480,7 @@ function large_pin:Check(_quest, _type, _id)
 	return false;
 end
 
-__db.fix = {
+DataAgent.fix = {
 	quest = {
 	--bcc
 		[5] = {
@@ -44577,7 +44575,7 @@ __db.fix = {
 		},
 	},
 };
-__db.fix_alliance = {
+DataAgent.fix_alliance = {
 	unit = {
 	--	bcc
 		[13778] = {
@@ -44591,7 +44589,7 @@ __db.fix_alliance = {
 	--	wotlk
 	},
 };
-__db.fix_horde = {
+DataAgent.fix_horde = {
 	unit = {
 	--	bcc
 		[13778] = {
@@ -44605,7 +44603,7 @@ __db.fix_horde = {
 	--	wotlk
 	},
 };
-__db.waypoints = {
+DataAgent.waypoints = {
 --	bcc
 	[391] = {
 		{
@@ -95992,9 +95990,9 @@ __db.waypoints = {
 	},
 	--	wotlk
 };
-for uid, v in next, __db.waypoints do
+for uid, v in next, DataAgent.waypoints do
 	if v[1] == nil then
-		__db.waypoints[uid] = nil;
+		DataAgent.waypoints[uid] = nil;
 	end
 end
 
@@ -96003,7 +96001,7 @@ for k, v in next, large_pin do
 	if type(v) == 'table' then
 		if v.unit then
 			for k2, v2 in next, v.unit do
-				if __db.waypoints[k2] then
+				if DataAgent.waypoints[k2] then
 					v.unit[k2] = nil;
 				end
 			end
@@ -96702,27 +96700,29 @@ local QuestIR = {
 };
 for id, val in next, QuestIR do
 	if val == "_" then
-		local info = __db.quest[id];
+		local info = DataAgent.quest[id];
 		if info ~= nil and info.obj ~= nil then
 			local obj = info.obj;
 			if obj.I ~= nil and obj.IR == nil then
 				obj.IR = obj.I;
 				obj.I = nil;
+			elseif obj.IR ~= nil then
+				print("IR", id);
 			end
 		end
 	end
 end
 
 
-__private.L = __private.LDB[__private.__locale];
-for id, v in next, __private.L.quest do
+CT.l10n = CT.l10nDB[CT.LOCALE];
+for id, v in next, CT.l10n.quest do
 	if v[3] ~= nil then
 		v[2] = nil;
 	end
 end
 
 
-__db.worldevent = {
+DataAgent.worldevent = {
 	["Lunar Festival"] = {
 		8619,
 		8635,
@@ -97526,7 +97526,7 @@ __db.worldevent = {
 		12817,
 	},
 };
-__db.worldeventperiod = {
+DataAgent.worldeventperiod = {
 	["Lunar Festival"] = {
 		-- ["*" ] = { 2, 1, 2, 2, },
 		[2021] = { 1, 30, 2, 19, },

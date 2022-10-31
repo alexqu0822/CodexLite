@@ -1,11 +1,13 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("enUS") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "enUS" then
 	return;
 end
 --  <name>
 --  <class>
 --  <race>
-__private.LDB.enUS.quest = {
+CT.l10nDB.enUS.quest = {
 	[1] = {
 		[[The "Chow" Quest (123)aa]],
 		{ [[$Tpunk;!  Kill Kobold Vermin, 2 of em. NEW TEST AGAIN]], },

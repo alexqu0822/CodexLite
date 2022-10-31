@@ -5,11 +5,14 @@
 --]]--
 ----------------------------------------------------------------------------------------------------
 local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
 local _G = _G;
 local _ = nil;
 ----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.external-Questie'); end
 
 -->		variables
 	local GetTime = GetTime;
@@ -27,19 +30,11 @@ local _ = nil;
 	local SendAddonMessage = SendAddonMessage or C_ChatInfo.SendAddonMessage;
 	local SendAddonMessageLogged = SendAddonMessageLogged or C_ChatInfo.SendAddonMessageLogged;
 
-	local __core = __private.core;
-	local __loc = __private.L;
-	local __loc_quest = __loc.quest;
-	local __loc_unit = __loc.unit;
-	local __loc_item = __loc.item;
-	local __loc_object = __loc.object;
-	local __loc_profession = __loc.profession;
-
-	local _log_ = __private._log_;
 -->
-if __private.__is_dev then
-	__private:BuildEnv("external-Questie");
-end
+	local l10n = CT.l10n;
+
+-->
+MT.BuildEnv("external-Questie");
 -->		MAIN
 	--
 	local ExternalQuestie = {  };
@@ -279,9 +274,9 @@ end
 		e = 'event',
 	};
 	local LocList = {
-		m = __loc_unit,
-		i = __loc_item,
-		o = __loc_object,
+		m = l10n.unit,
+		i = l10n.item,
+		o = l10n.object,
 		e = setmetatable({  }, { __index = function() return "event"; end, }),
 	};
 	local _Inited, _META, _OnCommInit, _OnCommQuestAdd, _OnCommQuestDel, _OnCommQuestLine;
@@ -301,13 +296,13 @@ end
 					completed = 0;
 				end
 			end
-			local title = __loc_quest[quest];
+			local title = l10n.quest[quest];
 			if title ~= nil then
 				title = title[1];
 			end
 			title = title or ("quest:" .. quest);
 			_OnCommQuestAdd(name, quest, completed, num_lines, title);
-			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, completed, num_lines, title);
+			MT.Debug('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, completed, num_lines, title);
 			for line = 1, num_lines do
 				local obj = objectives[line];
 				local type = obj.typ;
@@ -325,27 +320,27 @@ end
 					text = text .. COLON .. cur .. "/" .. req;
 				end
 				_OnCommQuestLine(name, quest, line, TypeList[type], id, text, cur == nil or req == nil or cur >= req);
-				-- _log_('|cff00ff7fQ-Q|r|cff00ffffLine|r', name, quest, line, TypeList[type], id, cur == nil or req == nil or cur >= req, text);
+				-- MT.Debug('|cff00ff7fQ-Q|r|cff00ffffLine|r', name, quest, line, TypeList[type], id, cur == nil or req == nil or cur >= req, text);
 			end
 		else
-			local title = __loc_quest[quest];
+			local title = l10n.quest[quest];
 			if title ~= nil then
 				title = title[1];
 			end
 			title = title or ("quest:" .. quest);
 			_OnCommQuestAdd(name, quest, 1, 0, title);
-			_log_('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, 1, 0, title);
+			MT.Debug('|cff00ff7fQ-Q|r|cff00ff00Add|r', name, quest, 1, 0, title);
 		end
 	end
 	local function DelQuest(name, Info)
 		-- print("DelQuest", Info.id);
 		_OnCommQuestDel(name, Info.id);
-		_log_('|cff00ff7fQ-Q|r|cffff0000Del|r', name, Info.id);
+		MT.Debug('|cff00ff7fQ-Q|r|cffff0000Del|r', name, Info.id);
 	end
 	local function PullSingle(name, ver, msgVer)
 		-- local msg = '\33\10\3\7\3\118\101\114\7\5\54\46\56\46\49\7\6\109\115\103\86\101\114\37\7\5\109\115\103\73\100\43';
 		local msg = '\33\10\3\7\3' .. 'ver' .. '\7' .. strchar(strlen(ver)) .. ver .. '\7\6' .. 'msgVer' .. strchar(32 + msgVer) .. '\7\5' .. 'msgId' .. '\43';
-		__private.ScheduleMessage("questie", msg, 'WHISPER', name);
+		MT.ScheduleMessage("questie", msg, 'WHISPER', name);
 	end
 	local function OnComm(msg, name, channel)
 		if _META[name] ~= nil then
@@ -360,7 +355,7 @@ end
 				ExternalQuestie.__prev = buffer;
 				local val = _ReadTable(buffer, 1);
 				if val ~= nil then
-					-- _log_('|cff00ff7fOnCommQuestie|r', val, name);
+					-- MT.Debug('|cff00ff7fOnCommQuestie|r', val, name);
 					val = val[1];
 					if val ~= nil then
 						local msgId = val.msgId;
@@ -458,7 +453,6 @@ end
 			_OnCommQuestLine = OnCommQuestLine;
 		end
 	end
-	__private.ExternalQuestie = ExternalQuestie;
+	VT.ExternalQuestie = ExternalQuestie;
 -->
 
---[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.external-Questie'); end

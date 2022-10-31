@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("koKR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "koKR" then
 	return;
 end
-__private.LDB.koKR.unit = {
+CT.l10nDB.koKR.unit = {
 	[1] = "Waypoint (Only GM can see it)",
 	[3] = "굶주린 시체",
 	[6] = "코볼트 졸개",

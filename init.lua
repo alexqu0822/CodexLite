@@ -2,53 +2,69 @@
 	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
-----------------------------------------------------------------------------------------------------
-local _G = _G;
-local __ala_meta__ = _G.__ala_meta__;
-
 local __addon, __private = ...;
-__ala_meta__.quest = __private;
+local MT = {  }; __private.MT = MT;		--	method
+local CT = {  }; __private.CT = CT;		--	constant
+local VT = {  }; __private.VT = VT;		--	variables
+local DT = {  }; __private.DT = DT;		--	data
 
-local __core = {  };
-__private.core = __core;
-__private.____bn_tag = select(2, BNGetInfo());
-__private.__is_dev = select(2, GetAddOnInfo("!!!!!DebugMe")) ~= nil;
-__private.__toc = select(4, GetBuildInfo());
-__private.__expansion = GetExpansionLevel();
-__private.__maxLevel = GetMaxLevelForExpansionLevel(__private.__expansion);
-__private.__locale = GetLocale();
-__private.After = C_Timer.After;
-__private.NewTicker = C_Timer.NewTicker;
-__private.NewTimer = C_Timer.NewTimer;
+-->		upvalue
+	local setfenv = setfenv;
+	local loadstring, pcall, xpcall = loadstring, pcall, xpcall;
+	local geterrorhandler = geterrorhandler;
+	local date = date;
+	local type = type;
+	local tostring = tostring;
+	local select = select;
+	local setmetatable = setmetatable;
+	local rawset, rawget = rawset, rawget;
+	local next = next;
+	local unpack = unpack;
+	local tconcat = table.concat;
+	local format = string.format;
+	local band = bit.band;
+	local ipairs = ipairs;
+	local tremove = table.remove;
+	local UnitLevel = UnitLevel;
+	local IsLoggedIn = IsLoggedIn;
+	local UnitPosition = UnitPosition;
+	local C_Map = C_Map;
+	local CreateVector2D = CreateVector2D;
+	local CreateFrame = CreateFrame;
+	local _G = _G;
+
+-->
+	local __ala_meta__ = _G.__ala_meta__;
+	__ala_meta__.quest = __private;
+	VT.__autostyle = __ala_meta__.autostyle;
+	VT.__menulib = __ala_meta__.__menulib;
+	VT.__scrolllib = _G.alaScrollList;
 
 -->		Dev
-	local setfenv = setfenv;
-	local rawset = rawset;
-	local next = next;
 	local _GlobalRef = {  };
 	local _GlobalAssign = {  };
-	function __private:BuildEnv(category)
+	function MT.BuildEnv(category)
 		local _G = _G;
-		_GlobalRef[category] = _GlobalRef[category] or {  };
-		_GlobalAssign[category] = _GlobalAssign[category] or {  };
-		local Ref = _GlobalRef[category];
-		local Assign = _GlobalAssign[category];
+		local Ref = _GlobalRef[category] or {  };
+		local Assign = _GlobalAssign[category] or {  };
 		setfenv(2, setmetatable(
 			{  },
 			{
 				__index = function(tbl, key, val)
 					Ref[key] = (Ref[key] or 0) + 1;
+					_GlobalRef[category] = Ref;
 					return _G[key];
 				end,
 				__newindex = function(tbl, key, value)
 					rawset(tbl, key, value);
 					Assign[key] = (Assign[key] or 0) + 1;
+					_GlobalAssign[category] = Assign;
 					return value;
 				end,
 			}
 		));
 	end
-	function __private:MergeGlobal(DB)
+	function MT.MergeGlobal(DB)
 		local _Ref = DB._GlobalRef;
 		if _Ref ~= nil then
 			for category, db in next, _Ref do
@@ -78,279 +94,26 @@ __private.NewTimer = C_Timer.NewTimer;
 		end
 		DB._GlobalAssign = _GlobalAssign;
 	end
--->
 
-local _ = nil;
---------------------------------------------------
+-->		constant
+	CT.BNTAG = select(2, BNGetInfo());
+	CT.PATCHVERSION, CT.BUILDNUMBER, CT.BUILDDATE, CT.TOC = GetBuildInfo();
+	CT.MAXLEVEL = GetMaxLevelForExpansionLevel(GetExpansionLevel());
+	CT.LOCALE = GetLocale();
+	CT.SELFGUID = UnitGUID('player');
+	CT.SELFNAME = UnitName('player');
+	CT.SELFRACE, CT.SELFRACEFILE, CT.SELFRACEID = UnitRace('player');
+	CT.SELFCLASS = UnitClassBase('player');
+	CT.SELFFACTION = UnitFactionGroup('player');
+	CT.TAG_DEFAULT = '__pin_tag_default';
+	CT.TAG_WM_COMMON = '__pin_tag_wm_common';
+	CT.TAG_WM_LARGE = '__pin_tag_wm_large';
+	CT.TAG_WM_VARIED = '__pin_tag_wm_varied';
+	CT.TAG_MM_COMMON = '__pin_tag_mm_common';
+	CT.TAG_MM_LARGE = '__pin_tag_mm_large';
+	CT.TAG_MM_VARIED = '__pin_tag_mm_varied';
 
--->		upvalue
-	local xpcall = xpcall;
-	local debugprofilestart, debugprofilestop = debugprofilestart, debugprofilestop;
-	local geterrorhandler = geterrorhandler;
-	local hooksecurefunc = hooksecurefunc;
-	local date = date;
-	local GetTimePreciseSec = GetTimePreciseSec;
-	local next, ipairs = next, ipairs;
-	local select = select;
-	local setmetatable = setmetatable;
-	local tremove, table_concat = table.remove, table.concat;
-	local strbyte, strmatch, format, gsub = string.byte, string.match, string.format, string.gsub;
-	local min = math.min;
-	local _bit_band = bit.band;
-	local loadstring = loadstring;
-	local tostring = tostring;
-	local CreateFrame = CreateFrame;
-	local GetQuestTagInfo = GetQuestTagInfo;
-	local UnitPosition = UnitPosition;
-	local C_Map = C_Map;
-	local CreateVector2D = CreateVector2D;
-
-	local _PLAYER_GUID = UnitGUID('player');
-	local _PLAYER_NAME = UnitName('player');
-	local _PLAYER_RACE, _PLAYER_RACEFILE, _PLAYER_RACEID = UnitRace('player');
-	local _PLAYER_CLASS = UnitClassBase('player');
-	local _PLAYER_FACTIONGROUP = UnitFactionGroup('player');
-	__core._PLAYER_GUID = _PLAYER_GUID;
-	__core._PLAYER_NAME = _PLAYER_NAME;
-	__core._PLAYER_RACE = _PLAYER_RACE;
-	__core._PLAYER_RACEFILE = _PLAYER_RACEFILE;
-	__core._PLAYER_RACEID = _PLAYER_RACEID;
-	__core._PLAYER_CLASS = _PLAYER_CLASS;
-	__core._PLAYER_FACTIONGROUP = _PLAYER_FACTIONGROUP;
--->
-
-if __private.__is_dev then
-	__private:BuildEnv("init");
-end
-
--->		Time
-	local _debugprofilestart, _debugprofilestop = debugprofilestart, debugprofilestop;
-	local TheFuckingAccurateTime = _G.AccurateTime;
-	--	Fuck the fucking idiot's code. I think his head is full of bullshit.
-	if TheFuckingAccurateTime ~= nil then
-		_debugprofilestart = TheFuckingAccurateTime._debugprofilestart or _debugprofilestart;
-		_debugprofilestop = TheFuckingAccurateTime._debugprofilestop or _debugprofilestop;
-	end
-	--
-	local _LT_devDebugProfilePoint = {
-		["*"] = 0,
-	};
-	local function _F_devDebugProfileStart(key)
-		_LT_devDebugProfilePoint[key] = _debugprofilestop();
-	end
-	local function _F_devDebugProfileTick(key)
-		local _val = _LT_devDebugProfilePoint[key];
-		if _val ~= nil then
-			_val = _debugprofilestop() - _val;
-			_val = _val - _val % 0.0001;
-			return _val;
-		end
-	end
-	__private._F_devDebugProfileStart = _F_devDebugProfileStart;
-	__private._F_devDebugProfileTick = _F_devDebugProfileTick;
-	local _LN_devTheLastDebugProfilePoint = _debugprofilestop();
-	function _G.debugprofilestart()
-		_LN_devTheLastDebugProfilePoint = _debugprofilestop();
-	end
-	function _G.debugprofilestop()
-		return _debugprofilestop() - _LN_devTheLastDebugProfilePoint;
-	end
-	-->		Time
-	if GetTimePreciseSec == nil then
-		_F_devDebugProfileStart("_sys._1core.time.alternative");
-		GetTimePreciseSec = function()
-			return _F_devDebugProfileTick("_sys._1core.time.alternative");
-		end
-		_G.GetTimePreciseSec = GetTimePreciseSec;
-	end
-	local _LN_devBaseTime = GetTimePreciseSec();
-	function __private._F_devGetPreciseTime()
-		local _now = GetTimePreciseSec() - _LN_devBaseTime + 0.00005;
-		return _now - _now % 0.0001;
-	end
--->
-
---[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.init'); end
-
--->		SafeCall
-	local _F_ErrorHandler = geterrorhandler();
-	hooksecurefunc("seterrorhandler", function(handler)
-		_F_ErrorHandler = handler;
-	end);
-	function __core._F_SafeCall(func, ...)
-		return xpcall(func, _F_ErrorHandler, ...);
-	end
--->
-
--->		EventHandler
-	local _EventHandler = CreateFrame('FRAME');
-	__core.__eventHandler = _EventHandler;
-	local function _noop_()
-	end
-	-->		Simple Event Dispatcher
-		local function OnEvent(self, event, ...)
-			return __private[event](...);
-		end
-		function _EventHandler:FireEvent(event, ...)
-			local func = __private[event];
-			if func then
-				return func(...);
-			end
-		end
-		function _EventHandler:RegEvent(event, func)
-			__private[event] = func or __private[event] or _noop_;
-			self:RegisterEvent(event);
-			self:SetScript("OnEvent", OnEvent);
-		end
-		function _EventHandler:UnregEvent(event)
-			self:UnregisterEvent(event);
-		end
-	-->		run_on_next_tick	--	execute 0.2s ~ 0.3s later
-		local run_on_next_tick_func_1 = {  };
-		local run_on_next_tick_func_2 = {  };
-		local run_on_next_tick_hash_1 = {  };
-		local run_on_next_tick_hash_2 = {  };
-		local timer = 0.0;
-		--	run in sequence of 'insert'
-		local function run_on_next_tick_handler(self, elasped)
-			timer = timer + elasped;
-			if timer >= 0.15 then
-				timer = 0.0;
-				local func = tremove(run_on_next_tick_func_2, 1);
-				while func ~= nil do
-					if run_on_next_tick_hash_2[func] ~= nil then
-						func();
-						-- run_on_next_tick_hash_2[func] = nil;
-					end
-					func = tremove(run_on_next_tick_func_2, 1);
-				end
-				if run_on_next_tick_func_1[1] == nil then
-					_EventHandler:SetScript("OnUpdate", nil);
-					run_on_next_tick_hash_1 = {  };
-					run_on_next_tick_hash_2 = {  };
-				else
-					run_on_next_tick_func_1, run_on_next_tick_func_2 = run_on_next_tick_func_2, run_on_next_tick_func_1;
-					-- run_on_next_tick_hash_1, run_on_next_tick_hash_2 = run_on_next_tick_hash_2, run_on_next_tick_hash_1;
-					run_on_next_tick_hash_2 = run_on_next_tick_hash_1;
-					run_on_next_tick_hash_1 = {  };
-				end
-			end
-		end
-		function _EventHandler:run_on_next_tick(func)
-			if run_on_next_tick_hash_1[func] ~= nil then
-				return false;
-			end
-			-- if run_on_next_tick_hash_2[func] ~= nil then
-			-- 	return false;
-			-- end
-			local index = #run_on_next_tick_func_1 + 1;
-			run_on_next_tick_func_1[index] = func;
-			run_on_next_tick_hash_1[func] = index;
-			self:SetScript("OnUpdate", run_on_next_tick_handler);
-			return true;
-		end
-	-->
--->
-
--->		Const
-	__core.__const = {
-		TAG_DEFAULT = '__pin_tag_default',
-		TAG_WM_COMMON = '__pin_tag_wm_common',
-		TAG_WM_LARGE = '__pin_tag_wm_large',
-		TAG_WM_VARIED = '__pin_tag_wm_varied',
-		TAG_MM_COMMON = '__pin_tag_mm_common',
-		TAG_MM_LARGE = '__pin_tag_mm_large',
-		TAG_MM_VARIED = '__pin_tag_mm_varied',
-	};
-	__core.quest_lvl_green = -1;
-	__core.quest_lvl_yellow = -1;
-	__core.quest_lvl_orange = -1;
-	__core.quest_lvl_red = -1;
--->
-
--->		Restricted Implementation
-	local _F_SafeCall = __core._F_SafeCall;
-	local _LT_CorePrint_Method_Env = {
-		select = select,
-		tostring = tostring,
-		format = format,
-		table_concat = table_concat,
-		__DefaultMessageFrame = _G.DEFAULT_CHAT_FRAME,
-	};
-	local _LT_CorePrint_Method = setmetatable(
-		{
-			[0] = setfenv(
-				function()
-					__DefaultMessageFrame:AddMessage("|cff00ff00>|r nil");
-				end,
-				_LT_CorePrint_Method_Env
-			),
-			["*"] = setfenv(
-				function(...)
-					local _nargs = select("#", ...);
-					local _argsv = { ... };
-					for _index = _nargs, 1, -1 do
-						if _argsv[_index] ~= nil then
-							_nargs = _index;
-							break;
-						end
-					end
-					for _index = 1, _nargs do
-						_argsv[_index] = tostring(_argsv[_index]);
-					end
-					__DefaultMessageFrame:AddMessage("|cff00ff00>|r " .. table_concat(_argsv, " "));
-				end,
-				_LT_CorePrint_Method_Env
-			),
-		},
-		{
-			__index = function(tbl, nargs)
-				if nargs > 0 and nargs < 8 then
-					local _head = [[local tostring = tostring;\nreturn function(arg1]];
-					local _body = [[) __DefaultMessageFrame:AddMessage("|cff00ff00>|r " .. tostring(arg1)]];
-					local _tail = [[); end]];
-					for _index = 2, nargs do
-						_head = _head .. [[, arg]] .. _index;
-						_body = _body .. [[ .. " " .. tostring(arg]] .. _index .. [[)]];
-					end
-					local _func0, _err = loadstring(_head .. _body .. _tail);
-					if _func0 == nil then
-						local _func = tbl["*"];
-						tbl[nargs] = _func;
-						return _func;
-					else
-						local _, _func = _F_SafeCall(_func0);
-						if _func == nil then
-							_func = tbl["*"];
-						else
-							setfenv(_func, _LT_CorePrint_Method_Env);
-						end
-						tbl[nargs] = _func;
-						return _func;
-					end
-				else
-					local _func = tbl["*"];
-					tbl[nargs] = _func;
-					return _func;
-				end
-			end,
-		}
-	);
-	for _index = 1, 8 do
-		local _func = _LT_CorePrint_Method[_index];
-	end
-	local function _F_CorePrint(...)
-		local _func = _LT_CorePrint_Method[select('#', ...)];
-		if _func ~= nil then
-			_func(...);
-		end
-	end
-	__private._F_CorePrint = _F_CorePrint;
--->
-local _F_CorePrint = __private._F_CorePrint;
-
--->		bit-data
-	local bitrace = {
+	CT.BIT2RACE = {
 		["Human"] = 1,
 		["Orc"] = 2,
 		["Dwarf"] = 4,
@@ -363,8 +126,8 @@ local _F_CorePrint = __private._F_CorePrint;
 		["BloodElf"] = 512,
 		["Draenei"] = 1024,
 	};
-	local racebit = {  }; for _race, _bit in next, bitrace do racebit[_bit] = _race; end
-	local bitclass = {
+	CT.RACE2BIT = {  }; for _race, _bit in next, CT.BIT2RACE do CT.RACE2BIT[_bit] = _race; end
+	CT.BIT2CLASS = {
 		["WARRIOR"] = 1,
 		["PALADIN"] = 2,
 		["HUNTER"] = 4,
@@ -376,595 +139,12 @@ local _F_CorePrint = __private._F_CorePrint;
 		["DRUID"] = 1024,
 		["DEATHKNIGHT"] = 2048,
 	};
-	local classbit = {  }; for _class, _bit in next, bitclass do classbit[_bit] = _class; end
-	local _PLAYER_RACEBIT = bitrace[_PLAYER_RACEFILE];
-	local _PLAYER_CLASSBIT = bitclass[_PLAYER_CLASS];
-	local function bit_check(_b1, _b2)
-		return _bit_band(_b1, _b2) ~= 0;
-	end
-	local function bit_check_race(_b)
-		return _bit_band(_b, _PLAYER_RACEBIT) ~= 0;
-	end
-	local function bit_check_class(_b)
-		return _bit_band(_b, _PLAYER_CLASSBIT) ~= 0;
-	end
-	local function bit_check_race_class(_b1, _b2)
-		return _bit_band(_b1, _PLAYER_RACEBIT) ~= 0 and _bit_band(_b2, _PLAYER_CLASSBIT) ~= 0;
-	end
-	__core.__bitrace = bitrace;
-	__core.__racebit = racebit;
-	__core.__bitclass = bitclass;
-	__core.__classbit = classbit;
-	__core._PLAYER_RACEBIT = _PLAYER_RACEBIT;
-	__core._PLAYER_CLASSBIT = _PLAYER_CLASSBIT;
-	__core.__bit_check = bit_check;
-	__core.__bit_check_race = bit_check_race;
-	__core.__bit_check_class = bit_check_class;
-	__core.__bit_check_race_class = bit_check_race_class;
--->
+	CT.CLASS2BIT = {  }; for _class, _bit in next, CT.BIT2CLASS do CT.CLASS2BIT[_bit] = _class; end
+	CT.SELFRACEBIT = CT.BIT2RACE[CT.SELFRACEFILE];
+	CT.SELFCLASSBIT = CT.BIT2CLASS[CT.SELFCLASS];
 
--->		Map			--	坐标系转换方法，参考自HandyNotes	--	C_Map效率非常低，可能因为构建太多Mixin(CreateVector2D)
-	--
-	--[[
-		mapType
-			0 = COSMIS
-			1 = WORLD
-			2 = CONTINENT
-			3 = ZONE
-			4 = DUNGEON
-			5 = MICRO
-			6 = ORPHAN
-	]]
-	local C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit;
-	local C_Map_GetWorldPosFromMapPos = C_Map.GetWorldPosFromMapPos;
-	local C_Map_GetMapChildrenInfo = C_Map.GetMapChildrenInfo;
-	local C_Map_GetMapGroupID = C_Map.GetMapGroupID;
-	local C_Map_GetMapGroupMembersInfo = C_Map.GetMapGroupMembersInfo;
-	local C_Map_GetMapInfo = C_Map.GetMapInfo;
-	local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition;
-	--
-	local WORLD_MAP_ID = C_Map.GetFallbackWorldMapID() or 947;		--	947
-	local MapTypeDungeon = _G.Enum.UIMapType.Dungeon;
-	local mapMeta = {  };		--	[map] = { 1width, 2height, 3left, 4top, [instance], [name], [mapType], [parent], [children], [adjoined], }
-	local worldMapData = nil;		--	[instance] = { 1width, 2height, 3left, 4top, }
-	local FixedMapType = nil;
-	if __private.__toc < 20000 then
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
-			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
-			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
-		};
-		FixedMapType = {  };
-	elseif __private.__toc < 30000 then
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
-			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
-			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
-		};
-		FixedMapType = {  };
-	elseif __private.__toc < 40000 then
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
-			[0] = { 48033.24, 32020.8, 36867.97, 14848.84 },	--	Eastern Kingdoms
-			[1] = { 47908.72, 31935.28, 8552.61, 18467.83 },	--	Kalimdor
-			[571] = { 47662.7, 31772.19, 25198.53, 11072.07 },
-		};
-		FixedMapType = {
-			[124] = 3,	--	origin:6	--	东瘟疫之地：血色领地
-			[125] = 3,	--	origin:4	--	达拉然
-			[126] = 3,	--	origin:4	--	达拉然下水道
-			[128] = 3,	--	origin:6	--	远古海滩
-			[142] = 4,	--	origin:6	--	魔环
-			[153] = 4,	--	origin:6	--	古达克
-			[155] = 4,	--	origin:6	--	黑曜石圣殿
-			[169] = 3,	--	origin:6	--	征服之岛
-			[184] = 4,	--	origin:6	--	萨隆矿坑
-			[200] = 4,	--	origin:6	--	红玉圣殿
-			[219] = 4,	--	origin:6	--	祖尔法拉克
-			[233] = 4,	--	origin:6	--	祖尔格拉布
-			[234] = 4,	--	origin:6	--	厄运之槌
-			[247] = 4,	--	origin:6	--	安其拉废墟
-			[273] = 4,	--	origin:6	--	黑色沼泽
-			[274] = 4,	--	origin:6	--	旧希尔斯布莱德丘陵
-			[329] = 4,	--	origin:6	--	海加尔峰
-			[333] = 4,	--	origin:6	--	祖阿曼
-			[337] = 4,	--	origin:6	--	祖尔格拉布
-		};
-	else
-		worldMapData = {  };
-		FixedMapType = {  };
-	end
-	local TransformMeta = {  };
-	-->		TransformData from HBD
-		local transformData;
-		if __private.__toc < 20000 then
-			transformData = {  };
-		elseif __private.__toc < 30000 then
-			transformData = {
-				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
-				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
-			};
-		elseif __private.__toc < 40000 then
-			transformData = {
-				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
-				{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
-				{ 609, 0, -10000, 10000, -10000, 10000, 0, 0 },
-			}
-		else
-			transformData = {
-				{ 530, 1, -6933.33, 533.33, -16000, -8000, 9916, 17600 },
-				{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2400 },
-				{ 732, 0, -3200, 533.3, -533.3, 2666.7, -611.8, 3904.3 },
-				{ 1064, 870, 5391, 8148, 3518, 7655, -2134.2, -2286.6 },
-				{ 1208, 1116, -2666, -2133, -2133, -1600, 10210.7, 2411.4 },
-				{ 1460, 1220, -1066.7, 2133.3, 0, 3200, -2333.9, 966.7 },
-				{ 1599, 1, 4800, 5866.7, -4266.7, -3200, -490.6, -0.4 },
-				{ 1609, 571, 6400, 8533.3, -1600, 533.3, 512.8, 545.3 },
-			};
-		end
-		for _, transform in next, transformData do
-			local instance = transform[1];
-			local meta = TransformMeta[instance]
-			if TransformMeta[instance] == nil then
-				meta = {
-					{
-						newInstanceID = transform[2],
-						minY = transform[3],
-						maxY = transform[4],
-						minX = transform[5],
-						maxX = transform[6],
-						offsetY = transform[7],
-						offsetX = transform[8],
-					},
-				};
-				TransformMeta[instance] = meta;
-			else
-				meta[#meta + 1] = {
-					newInstanceID = transform[2],
-					minY = transform[3],
-					maxY = transform[4],
-					minX = transform[5],
-					maxX = transform[6],
-					offsetY = transform[7],
-					offsetX = transform[8],
-				};
-			end
-		end
-	-->
-	local function TransformCoord(instance, x, y)
-		if TransformMeta[instance] then
-			for _, data in ipairs(TransformMeta[instance]) do
-				if x <= data.maxX and x >= data.minX and y <= data.maxY and y >= data.minY then
-					instance = data.newInstanceID;
-					x = x + data.offsetX;
-					y = y + data.offsetY;
-					break;
-				end
-			end
-		end
-		return instance, x, y;
-	end
-	local function TransformScope(instance, left, right, top, bottom)
-		if TransformMeta[instance] then
-			for _, data in ipairs(TransformMeta[instance]) do
-				if left <= data.maxX and right >= data.minX and top <= data.maxY and bottom >= data.minY then
-					instance = data.newInstanceID;
-					left   = left   + data.offsetX;
-					right  = right  + data.offsetX;
-					top    = top    + data.offsetY;
-					bottom = bottom + data.offsetY;
-					break;
-				end
-			end
-		end
-		return instance, left, right, top, bottom;
-	end
-	local __player_map_id = C_Map_GetBestMapForUnit('player');
-	function __private.InitMapAgent()
-		local mapHandler = CreateFrame('FRAME');
-		mapHandler:SetScript("OnEvent", function(self, event)
-			local map = C_Map_GetBestMapForUnit('player');
-			if __player_map_id ~= map then
-				__player_map_id = map;
-				_EventHandler:FireEvent("__PLAYER_ZONE_CHANGED", map);
-			end
-		end);
-		mapHandler:UnregisterAllEvents();
-		mapHandler:RegisterEvent("ZONE_CHANGED_NEW_AREA");
-		mapHandler:RegisterEvent("ZONE_CHANGED");
-		mapHandler:RegisterEvent("ZONE_CHANGED_INDOORS");
-		mapHandler:RegisterEvent("NEW_WMO_CHUNK");
-		mapHandler:RegisterEvent("PLAYER_ENTERING_WORLD");
-		--	地图坐标系【右手系，右下为0】(x, y, z) >> 地图坐标系【左手系,左上为0】(-y, -x, z)
-		local vector0000 = CreateVector2D(0, 0);
-		local vector0505 = CreateVector2D(0.5, 0.5);
-		local processMap = nil;
-		processMap = function(map)
-			local meta = mapMeta[map];
-			if meta == nil then
-				local data = C_Map_GetMapInfo(map);
-				if data ~= nil then
-					local mapType = FixedMapType[map] or data.mapType;
-					if mapType ~= MapTypeDungeon then
-						--	get two positions from the map, we use 0/0 and 0.5/0.5 to avoid issues on some maps where 1/1 is translated inaccurately
-						local instance, x00y00 = C_Map_GetWorldPosFromMapPos(map, vector0000);
-						local _, x05y05 = C_Map_GetWorldPosFromMapPos(map, vector0505);
-						if x00y00 ~= nil and x05y05 ~= nil then
-							local top, left = x00y00:GetXY();
-							local bottom, right = x05y05:GetXY();
-							bottom = top + (bottom - top) * 2;
-							right = left + (right - left) * 2;
-							instance, left, right, top, bottom = TransformScope(instance, left, right, top, bottom);
-							meta = { left - right, top - bottom, left, top, instance = instance,       name = data.name, mapType = mapType, };
-							mapMeta[map] = meta;
-						else
-							meta = { 0, 0, 0, 0,                            instance = instance or -1, name = data.name, mapType = mapType, };
-							mapMeta[map] = meta;
-						end
-						local pmap = data.parentMapID;
-						if pmap ~= nil then
-							local pmeta = processMap(pmap);
-							if pmeta ~= nil then
-								meta.parent = pmap;
-								local cmaps = pmeta.children;
-								if cmaps == nil then
-									cmaps = {  };
-									pmeta.children = cmaps;
-								end
-								cmaps[map] = 1;
-							end
-						end
-						local children = C_Map_GetMapChildrenInfo(map);
-						if children ~= nil and children[1] ~= nil then
-							for index = 1, #children do
-								local cmap = children[index].mapID;
-								if cmap ~= nil then
-									local cmeta = processMap(cmap);
-									if cmeta ~= nil then
-										local cmaps = meta.children;
-										if cmaps == nil then
-											cmaps = {  };
-											meta.children = cmaps;
-										end
-										cmaps[cmap] = 1;
-										cmeta.parent = map;
-									end
-								end
-							end
-						end
-						--	process sibling maps (in the same group)
-						--	in some cases these are not discovered by GetMapChildrenInfo above
-						-->		Maybe classic doesnot use it.
-						local groupID = C_Map_GetMapGroupID(map);
-						if groupID then
-							local groupMembers = C_Map_GetMapGroupMembersInfo(groupID);
-							if groupMembers ~= nil and groupMembers[1] ~= nil then
-								for index = 1, #groupMembers do
-									local mmap = groupMembers[index].mapID;
-									if mmap ~= nil then
-										processMap(mmap);
-									end
-								end
-							end
-						end
-						for x = 0.00, 1.00, 0.25 do
-							for y = 0.00, 1.00, 0.25 do
-								local adata = C_Map_GetMapInfoAtPosition(map, x, y);
-								if adata ~= nil then
-									local amap = adata.mapID;
-									if amap ~= nil and amap ~= map then
-										local ameta = processMap(amap);
-										if ameta ~= nil and ameta.parent ~= map then
-											local amaps = meta.adjoined;
-											if amaps == nil then
-												amaps = { [amap] = 1, };
-												meta.adjoined = amaps;
-											else
-												amaps[amap] = 1;
-											end
-										end
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-			return meta;
-		end
-		--	find all maps in well known structures
-		processMap(WORLD_MAP_ID);
-		--	try to fill in holes in the map list
-		for map = 1, 2000 do
-			processMap(map);
-		end
-		if __private.__toc >= 20000 and __private.__toc < 40000 then
-			local adjoined_fix = {
-				[1438] = { 1457, },	--	泰达希尔
-				[1457] = { 1438, },	--	达纳苏斯
-				--
-				[1944] = { 1946, 1951, 1952, },				--	地狱火半岛
-				[1946] = { 1944, 1949, 1951, 1952, 1955, },	--	赞加沼泽
-				[1948] = { 1952, },							--	影月谷
-				[1949] = { 1946, 1953, },					--	刀锋山
-				[1951] = { 1944, 1946, 1952, 1955, },		--	纳格兰
-				[1952] = { 1944, 1946, 1948, 1951, 1955, },	--	泰罗卡森林
-				[1953] = { 1949, },							--	虚空风暴
-				[1955] = { 1946, 1951, 1952, },				--	沙塔斯城
-				--
-				[1947] = { 1943, },	--	埃索达
-				[1950] = { 1943, },	--	秘血岛
-				[1943] = { 1947, },	--	秘蓝岛
-				[1941] = { 1942, 1954, },	--	永歌森林
-				[1942] = { 1941, },	--	幽魂之地
-				[1954] = { 1941, },	--	银月城
-				--
-				[118] = { 125, },	--	冰冠冰川
-				[120] = { 125, },	--	风暴峭壁
-				[125] = { 118, 120, 127, },	--	达拉然
-				[127] = { 125, },	--	晶歌森林
-				[126] = { 118, 125, 127, },	--	达拉然下水道	--	只在其他地图显示下水道任务，不在下水道显示其他地图
-			};
-			for map, list in next, adjoined_fix do
-				local meta = mapMeta[map];
-				if meta ~= nil then
-					local amaps = meta.adjoined;
-					for _, val in next, list do
-						if mapMeta[val] ~= nil then
-							if amaps == nil then
-								amaps = { [val] = 1, };
-								meta.adjoined = amaps;
-							else
-								amaps[val] = 1;
-							end
-						end
-					end
-				end
-			end
-		end
-		--	fill in continent and planet
-		local function FillInChildren(which, map, children)
-			for cmap, _ in next, children do
-				local cmeta = mapMeta[cmap];
-				if cmeta ~= nil then
-					cmeta[which] = map;
-					if cmeta.children ~= nil then
-						FillInChildren(which, map, cmeta.children)
-					end
-				end
-			end
-		end
-		local function FillIn(which, map)
-			local meta = mapMeta[map];
-			if meta ~= nil and meta.children ~= nil then
-				FillInChildren(which, map, meta.children);
-			end
-		end
-		FillIn("universe", 946);
-		FillIn("planet", 947);
-		FillIn("planet", 1945);
-		FillIn("continent", 1414);
-		FillIn("continent", 1415);
-		FillIn("continent", 1945);
-		FillIn("continent", 113);
-	end
-	__core.ContinentMapID = {
-		[946] = "Universe",
-		[947] = "Azeroth",
-		[1414] = "Kalimdor",
-		[1415] = "Eastern Kingdoms",
-		[1945] = "Outland",
-	};
-	--	return map, x, y
-	local function GetUnitPosition(unit)
-		local y, x, _z, map = UnitPosition(unit);
-		return TransformCoord(map, x, y);
-		-- return map, y, x;
-	end
-	--	return map, x, y	-->	bound to [0.0, 1.0]
-	local function GetZonePositionFromWorldPosition(map, x, y)
-		local data = mapMeta[map];
-		if data ~= nil and data[2] ~= 0 then
-			x, y = (data[3] - x) / data[1], (data[4] - y) / data[2];
-			if x <= 1.0 and x >= 0.0 and y <= 1.0 and y >= 0.0 then
-				return map, x, y;
-			end
-		end
-		return nil, nil, nil;
-	end
-	--	return instance, x[0.0, 1.0], y[0.0, 1.0]
-	local function GetWorldPositionFromZonePosition(map, x, y)
-		local data = mapMeta[map];
-		if data ~= nil then
-			x, y = data[3] - data[1] * x, data[4] - data[2] * y;
-			return data.instance, x, y;
-		end
-		return nil, nil, nil;
-	end
-	--	return instance, x, y
-	local function GetWorldPositionFromAzerothWorldMapPosition(instance, x, y)
-		local data = worldMapData[instance]
-		if data ~= nil then
-			x, y = data[3] - data[1] * x, data[4] - data[2] * y;
-			return instance, x, y;
-		end
-		return nil, nil, nil;
-	end
-	--	return instance, x, y
-	local function GetAzerothWorldMapPositionFromWorldPosition(instance, x, y)
-		local data = worldMapData[instance]
-		if data ~= nil then
-			x, y = (data[3] - x) / data[1], (data[4] - y) / data[2];
-			if x <= 1.0 and x >= 0.0 and y <= 1.0 and y >= 0.0 then
-				return instance, x, y;
-			end
-		end
-		return nil, nil, nil;
-	end
-
-	--	return map, x, y
-	local function GetUnitZonePosition(unit)
-		-- local y, x, _z, map = UnitPosition(unit);
-		local map, x, y = GetUnitPosition(unit);
-		if x ~= nil and y ~= nil then
-			return GetZonePositionFromWorldPosition(C_Map_GetBestMapForUnit(unit), x, y);
-		end
-	end
-	local function GetPlayerZone()
-		return __player_map_id;
-	end
-	--	return map, x, y
-	local function GetPlayerZonePosition()
-		-- local y, x, _z, map = UnitPosition('player');
-		local map, x, y = GetUnitPosition('player');
-		if x ~= nil and y ~= nil then
-			return GetZonePositionFromWorldPosition(__player_map_id, x, y);
-		end
-	end
-
-	local function GetAllMapMetas()
-		return mapMeta;
-	end
-	local function GetMapMeta(map)
-		return mapMeta[map];
-	end
-	local function GetMapParent(map)
-		local meta = mapMeta[map];
-		if meta ~= nil then
-			return meta.parent;
-		end
-	end
-	local function GetMapAdjoined(map)
-		local meta = mapMeta[map];
-		if meta ~= nil then
-			return meta.adjoined;
-		end
-	end
-	local function GetMapChildren(map)
-		local meta = mapMeta[map];
-		if meta ~= nil then
-			return meta.children;
-		end
-	end
-	local function GetMapContinent(map)
-		local meta = mapMeta[map];
-		if meta ~= nil then
-			return meta.continent;
-		end
-	end
-
-	__core.GetUnitPosition = GetUnitPosition;
-	__core.GetZonePositionFromWorldPosition = GetZonePositionFromWorldPosition;
-	__core.GetWorldPositionFromZonePosition = GetWorldPositionFromZonePosition;
-	__core.GetWorldPositionFromAzerothWorldMapPosition = GetWorldPositionFromAzerothWorldMapPosition;
-	__core.GetAzerothWorldMapPositionFromWorldPosition = GetAzerothWorldMapPositionFromWorldPosition;
-	__core.GetUnitZonePosition = GetUnitZonePosition;
-	__core.GetPlayerZone = GetPlayerZone;
-	__core.GetPlayerZonePosition = GetPlayerZonePosition;
-	---/run ac=__ala_meta__.quest.core
-	---/print ac.GetWorldPositionFromZonePosition(ac.GetPlayerZonePosition())
-	---/print UnitPosition('player')
-	---/print ac.GetPlayerZonePosition()
-	---/print LibStub("HereBeDragons-2.0"):GetPlayerZonePosition()
-	---/print C_Map.GetWorldPosFromMapPos(1416, CreateVector2D(0.184, 0.88))
-	---/print ac.GetWorldPositionFromZonePosition(1416, 0.184, 0.88)
-	---/print ac.GetZonePositionFromWorldPosition(1416,select(2,ac.GetWorldPositionFromZonePosition(1416, 0.184, 0.88)))
-
-	__core.GetAllMapMetas = GetAllMapMetas;
-	__core.GetMapMeta = GetMapMeta;
-	__core.GetMapParent = GetMapParent;
-	__core.GetMapAdjoined = GetMapAdjoined;
-	__core.GetMapChildren = GetMapChildren;
-	__core.GetMapContinent = GetMapContinent;
-	--
-	local function PreloadCoordsFunc(coords, wcoords)
-		local num_coords = #coords;
-		local index = 1;
-		while index <= num_coords do
-			local coord = coords[index];
-			if coord[1] >= 0 or coord[2] >= 0 then
-				local instance, x, y = GetWorldPositionFromZonePosition(coord[3], coord[1] * 0.01, coord[2] * 0.01);
-				-- local instance, v = C_Map.GetWorldPosFromMapPos(coord[3], CreateVector2D(coord[1], coord[2]));	--	VERY SLOW, 90ms vs 1200ms
-				-- coord[5] = x;
-				-- coord[6] = y;
-				-- coord[7] = instance;
-				if x ~= nil and y ~= nil and instance ~= nil then
-					local wcoord = { x, y, instance, coord[4], };
-					wcoords[index] = wcoord;
-					coord[5] = wcoord;
-					index = index + 1;
-				else
-					tremove(coords, index);
-					num_coords = num_coords - 1;
-				end
-			else
-				tremove(coords, index);
-				num_coords = num_coords - 1;
-			end
-		end
-		local pos = num_coords + 1;
-		for index = 1, num_coords do
-			local coord = coords[index];
-			local wcoord = wcoords[index];
-			local map = coord[3];
-			local amaps = GetMapAdjoined(map);
-			if amaps ~= nil then
-				for amap, _ in next, amaps do
-					local amap, x, y = GetZonePositionFromWorldPosition(amap, wcoord[1], wcoord[2]);
-					if amap ~= nil then
-						coords[pos] = { x * 100.0, y * 100.0, amap, coord[4], wcoord, };
-						pos = pos + 1;
-					end
-				end
-			end
-			local cmaps = GetMapChildren(map);
-			if cmaps ~= nil then
-				for cmap, _ in next, cmaps do
-					local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
-					if cmap ~= nil then
-						coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
-						pos = pos + 1;
-					end
-				end
-			end
-			-- local pmap = GetMapParent(map);
-			-- if pmap ~= nil then
-			-- 	local pmap, x, y = GetZonePositionFromWorldPosition(pmap, wcoord[1], wcoord[2]);
-			-- 	if pmap ~= nil then
-			-- 		coords[pos] = { x * 100.0, y * 100.0, pmap, coord[4], wcoord, };
-			-- 		pos = pos + 1;
-			-- 	end
-			-- end
-			local cmap = GetMapContinent(map);
-			if cmap ~= nil then
-				local cmap, x, y = GetZonePositionFromWorldPosition(cmap, wcoord[1], wcoord[2]);
-				if cmap ~= nil then
-					coords[pos] = { x * 100.0, y * 100.0, cmap, coord[4], wcoord, };
-					pos = pos + 1;
-				end
-			end
-		end
-	end
-	local function PreloadCoords(info)
-		local coords = info.coords;
-		local wcoords = info.wcoords;
-		if coords ~= nil and wcoords == nil then
-			wcoords = {  };
-			info.wcoords = wcoords;
-			PreloadCoordsFunc(coords, wcoords);
-		end
-		local waypoints = info.waypoints;
-		local wwaypoints = info.wwaypoints;
-		if waypoints ~= nil and wwaypoints == nil then
-			wwaypoints = {  };
-			info.wwaypoints = wwaypoints;
-			PreloadCoordsFunc(waypoints, wwaypoints);
-		end
-	end
-	__core.PreloadCoords = PreloadCoords;
--->
-
--->		Texture
-	local IMG_PATH = "Interface\\AddOns\\CodexLite\\img\\";
-
-	local IMG_INDEX = {
+	CT.IMG_PATH = "Interface\\AddOns\\CodexLite\\img\\";
+	CT.IMG_INDEX = {
 		IMG_DEF = 1,
 		IMG_S_HIGH_LEVEL = 2,
 		IMG_S_COMMING = 3,
@@ -977,183 +157,464 @@ local _F_CorePrint = __private._F_CorePrint;
 		IMG_S_NORMAL = 10,
 		IMG_E_COMPLETED = 11,
 	};
-	local IMG_PATH_PIN = IMG_PATH .. "PIN";
-	local IMG_PATH_AVL = IMG_PATH .. "AVL";
-	local IMG_PATH_CPL = IMG_PATH .. "CPL";
-	local IMG_LIST = {
-		[IMG_INDEX.IMG_DEF] 			= { IMG_PATH_PIN,  nil,  nil,  nil, "ffffffff", 0, 0, },
-		[IMG_INDEX.IMG_S_HIGH_LEVEL] 	= { IMG_PATH_AVL, 1.00, 0.10, 0.10, "ffffffff", 1, 1, },
-		[IMG_INDEX.IMG_S_COMMING] 		= { IMG_PATH_AVL, 1.00, 0.25, 0.25, "ffffffff", 2, 2, },
-		[IMG_INDEX.IMG_S_LOW_LEVEL] 	= { IMG_PATH_AVL, 0.65, 0.65, 0.65, "ffffffff", 3, 3, },
-		[IMG_INDEX.IMG_S_REPEATABLE] 	= { IMG_PATH_AVL, 0.25, 0.50, 0.75, "ffffffff", 4, 4, },
-		[IMG_INDEX.IMG_E_UNCOMPLETED] 	= { IMG_PATH_CPL, 0.65, 0.65, 0.65, "ffffffff", 5, 5, },
-		[IMG_INDEX.IMG_S_VERY_HARD]		= { IMG_PATH_AVL, 1.00, 0.25, 0.00, "ffffffff", 6, 6, },
-		[IMG_INDEX.IMG_S_EASY] 			= { IMG_PATH_AVL, 0.25, 0.75, 0.25, "ffffffff", 7, 7, },
-		[IMG_INDEX.IMG_S_HARD] 			= { IMG_PATH_AVL, 1.00, 0.60, 0.00, "ffffffff", 8, 8, },
-		[IMG_INDEX.IMG_S_NORMAL] 		= { IMG_PATH_AVL, 1.00, 1.00, 0.00, "ffffffff", 9, 9, },
-		[IMG_INDEX.IMG_E_COMPLETED] 	= { IMG_PATH_CPL, 1.00, 0.90, 0.00, "ffffffff", 10, 10, },
+	CT.IMG_PATH_PIN = CT.IMG_PATH .. "PIN";
+	CT.IMG_PATH_AVL = CT.IMG_PATH .. "AVL";
+	CT.IMG_PATH_CPL = CT.IMG_PATH .. "CPL";
+	CT.IMG_LIST = {
+		[CT.IMG_INDEX.IMG_DEF] 			= { CT.IMG_PATH_PIN,  nil,  nil,  nil, "ffffffff", 0, 0, },
+		[CT.IMG_INDEX.IMG_S_HIGH_LEVEL] 	= { CT.IMG_PATH_AVL, 1.00, 0.10, 0.10, "ffffffff", 1, 1, },
+		[CT.IMG_INDEX.IMG_S_COMMING] 		= { CT.IMG_PATH_AVL, 1.00, 0.25, 0.25, "ffffffff", 2, 2, },
+		[CT.IMG_INDEX.IMG_S_LOW_LEVEL] 	= { CT.IMG_PATH_AVL, 0.65, 0.65, 0.65, "ffffffff", 3, 3, },
+		[CT.IMG_INDEX.IMG_S_REPEATABLE] 	= { CT.IMG_PATH_AVL, 0.25, 0.50, 0.75, "ffffffff", 4, 4, },
+		[CT.IMG_INDEX.IMG_E_UNCOMPLETED] 	= { CT.IMG_PATH_CPL, 0.65, 0.65, 0.65, "ffffffff", 5, 5, },
+		[CT.IMG_INDEX.IMG_S_VERY_HARD]		= { CT.IMG_PATH_AVL, 1.00, 0.25, 0.00, "ffffffff", 6, 6, },
+		[CT.IMG_INDEX.IMG_S_EASY] 			= { CT.IMG_PATH_AVL, 0.25, 0.75, 0.25, "ffffffff", 7, 7, },
+		[CT.IMG_INDEX.IMG_S_HARD] 			= { CT.IMG_PATH_AVL, 1.00, 0.60, 0.00, "ffffffff", 8, 8, },
+		[CT.IMG_INDEX.IMG_S_NORMAL] 		= { CT.IMG_PATH_AVL, 1.00, 1.00, 0.00, "ffffffff", 9, 9, },
+		[CT.IMG_INDEX.IMG_E_COMPLETED] 	= { CT.IMG_PATH_CPL, 1.00, 0.90, 0.00, "ffffffff", 10, 10, },
 	};
-	for _, texture in next, IMG_LIST do
+	for _, texture in next, CT.IMG_LIST do
 		if texture[2] ~= nil and texture[3] ~= nil and texture[4] ~= nil then
 			texture[5] = format("ff%.2x%.2x%.2x", texture[2] * 255, texture[3] * 255, texture[4] * 255);
 		end
 	end
-	local TIP_IMG_LIST = {  };
-	for index, info in next, IMG_LIST do
+	CT.TIP_IMG_LIST = {  };
+	for index, info in next, CT.IMG_LIST do
 		if (info[2] ~= nil and info[3] ~= nil and info[4] ~= nil) and (info[2] ~= 1.0 or info[3] ~= 1.0 or info[4] ~= 1.0) then
-			TIP_IMG_LIST[index] = format("|T%s:0:0:0:0:1:1:0:1:0:1:%d:%d:%d|t", info[1], info[2] * 255, info[3] * 255, info[4] * 255);
+			CT.TIP_IMG_LIST[index] = format("|T%s:0:0:0:0:1:1:0:1:0:1:%d:%d:%d|t", info[1], info[2] * 255, info[3] * 255, info[4] * 255);
 		else
-			TIP_IMG_LIST[index] = format("|T%s:0|t", info[1]);
+			CT.TIP_IMG_LIST[index] = format("|T%s:0|t", info[1]);
 		end
 	end
-	local function GetQuestStartTexture(info)
-		local TEXTURE = IMG_INDEX.IMG_S_NORMAL;
+
+	CT.l10nDB = setmetatable(
+		{
+			--	Prevent to destroy /tinspect
+			GetParent = false,
+			SetShown = false,
+			GetDebugName = false,
+			IsObjectType = false,
+			GetChildren = false,
+			GetRegions = false,
+		},
+		{
+			__index = function(tbl, key)
+				local T = {
+					ui = setmetatable(
+						{
+							--	Prevent to destroy /tinspect
+							GetParent = false,
+							SetShown = false,
+							GetDebugName = false,
+							IsObjectType = false,
+							GetChildren = false,
+							GetRegions = false,
+						},
+						{
+							__newindex = function(tbl, key, val)
+								if val == true then
+									rawset(tbl, key, key);
+								else
+									rawset(tbl, key, val);
+								end
+							end,
+							__index = function(tbl, key)
+								return key;
+							end,
+							__call = function(tbl, key)
+								return rawget(tbl, key) or key;
+							end,
+						}
+					),
+				};
+				tbl[key] = T;
+				return T;
+			end,
+		}
+	);
+
+-->		control
+	VT.__is_dev = CT.BNTAG == 'alex#516722';
+
+-->
+MT.BuildEnv('Init');
+-->		predef
+	MT.GetUnifiedTime = _G.GetTimePreciseSec;
+	MT.After = _G.C_Timer.After;
+	-->		Print
+	local PrintMethod_Env = {
+		GetUnifiedTime = MT.GetUnifiedTime,
+		date = _G.date,
+		select = _G.select,
+		tostring = _G.tostring,
+		tconcat = _G.table.concat,
+		MessageFrame = _G.DEFAULT_CHAT_FRAME,
+		PrintedMessage = {  },
+	};
+	local PrintMethod = setmetatable(
+		{
+			--	Prevent to destroy /tinspect
+			GetParent = false,
+			SetShown = false,
+			GetDebugName = false,
+			IsObjectType = false,
+			GetChildren = false,
+			GetRegions = false,
+			--
+			["*"] = setfenv(
+				function(MinInt, ...)
+					local argsv = { ... };
+					for index = 1, select("#", ...) do
+						argsv[index] = tostring(argsv[index]);
+					end
+					local msg = tconcat(argsv, " ");
+					if MinInt == nil then
+						MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg);
+						PrintedMessage[msg] = GetUnifiedTime();
+					else
+						if MinInt == true then MinInt = 0.1; end
+						local prev = PrintedMessage[msg];
+						local curr = GetUnifiedTime();
+						if prev == nil or curr - prev > MinInt then
+							PrintedMessage[msg] = curr;
+							MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg);
+						end
+					end
+					return msg;
+				end,
+				PrintMethod_Env
+			),
+			[0] = setfenv(
+				function(MinInt)
+					if MinInt == nil then
+						MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r nil"));
+						PrintedMessage["nil"] = GetUnifiedTime();
+					else
+						if MinInt == true then MinInt = 0.1; end
+						local prev = PrintedMessage["nil"];
+						local curr = GetUnifiedTime();
+						if prev == nil or curr - prev > MinInt then
+							PrintedMessage["nil"] = curr;
+							MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r nil"));
+						end
+					end
+					return "nil";
+				end,
+				PrintMethod_Env
+			),
+		},
+		{
+			__index = function(tbl, nargs)
+				if nargs > 0 and nargs < 8 then
+					local head = [[return function(MinInt, arg1]];
+					local body =                             [[) ]]
+							  .. [[  local msg = tostring(arg1)]];
+					local tail =                             [[ ]]
+							  .. [[  if MinInt == nil then ]]
+							  .. [[    MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg) ]]
+							  .. [[    PrintedMessage[msg] = GetUnifiedTime() ]]
+							  .. [[  else ]]
+							  .. [[    if MinInt == true then MinInt = 0.1 end ]]
+							  .. [[    local prev = PrintedMessage[msg] ]]
+							  .. [[    local curr = GetUnifiedTime() ]]
+							  .. [[    if prev == nil or curr - prev > MinInt then ]]
+							  .. [[      PrintedMessage[msg] = curr ]]
+							  .. [[      MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg) ]]
+							  .. [[    end ]]
+							  .. [[  end ]]
+							  .. [[  return msg ]]
+							  .. [[end ]];
+					for index = 2, nargs do
+						head = head .. [[, arg]] .. index;
+						body = body .. [[ .. " " .. tostring(arg]] .. index .. [[)]];
+					end
+					local Func0, err = loadstring(head .. body .. tail);
+					if Func0 == nil then
+						local Func = tbl["*"];
+						tbl[nargs] = Func;
+						return Func;
+					else
+						local _, Func = pcall(Func0);
+						if Func == nil then
+							Func = tbl["*"];
+						else
+							setfenv(Func, PrintMethod_Env);
+						end
+						tbl[nargs] = Func;
+						return Func;
+					end
+				else
+					local Func = tbl["*"];
+					tbl[nargs] = Func;
+					return Func;
+				end
+			end,
+		}
+	);
+	for index = 1, 8 do
+		local Func = PrintMethod[index];
+	end
+	function MT.Print(...)
+		local Func = PrintMethod[select("#", ...)];
+		if Func ~= nil then
+			return Func(nil, ...);
+		end
+	end
+	function MT.PrintThrottle(MinInt, ...)
+		local Func = PrintMethod[select("#", ...)];
+		if Func ~= nil then
+			return Func(MinInt, ...);
+		end
+	end
+	function MT.SetDefaultMessageFrame(Frame)
+		if Frame ~= nil then
+			PrintMethod_Env.MessageFrame = Frame;
+		end
+	end
+	MT.SetDefaultMessageFrame(_G.DEFAULT_CHAT_FRAME);
+	-->
+	function MT.Error(...)
+		return MT.Print("|cffff0000**|r", ...);
+	end;
+	function MT.ErrorFormat(...)
+		return MT.Error(format(...));
+	end
+	function MT.DebugDev(...)
+		return MT.Print("|cffffff00**|r", ...);
+	end;
+	function MT.DebugRelease(...)
+	end;
+
+	local _TimerPrivate = {  };		--	[callback] = { periodic, int, running, halting, limit, };
+	function MT._TimerStart(callback, int, limit)
+		if callback ~= nil and type(callback) == 'function' then
+			local P = _TimerPrivate[callback];
+			if P == nil then
+				P = {
+					[1] = function()	--	periodic
+						if P[4] then
+							P[3] = false;
+						elseif P[5] == nil then
+							MT.After(P[2], P[1]);
+							callback();
+						elseif P[5] > 1 then
+							P[5] = P[5] - 1;
+							MT.After(P[2], P[1]);
+							callback();
+						elseif P[5] > 0 then
+							P[3] = false;
+							callback();
+						else
+							P[3] = false;
+						end
+					end,
+					[2] = int or 1.0,	--	int
+					[3] = true,			--	isrunning
+					[4] = false,		--	ishalting
+					[5] = limit,
+				};
+				_TimerPrivate[callback] = P;
+				return MT.After(P[2], P[1]);
+			elseif not P[3] then
+				P[2] = int or 1.0;
+				P[3] = true;
+				P[4] = false;
+				P[5] = limit;
+				return MT.After(P[2], P[1]);
+			else
+				P[2] = int or P[2];
+				P[4] = false;
+				P[5] = limit;
+			end
+		end
+	end
+	function MT._TimerHalt(callback)
+		local P = _TimerPrivate[callback];
+		if P ~= nil and P[3] then
+			P[4] = true;
+		end
+	end
+
+	function MT.CheckSelfRace(_b)
+		return band(_b, CT.SELFRACEBIT) ~= 0;
+	end
+	function MT.CheckSelfClass(_b)
+		return band(_b, CT.SELFCLASSBIT) ~= 0;
+	end
+
+	function MT.GetQuestStartTexture(info)
+		local TEXTURE = CT.IMG_INDEX.IMG_S_NORMAL;
 		local min = info.min;
-		local diff = min < 0 and 0 or (min - __private.__player_level);
+		local diff = min < 0 and 0 or (min - VT.PlayerLevel);
 		if diff > 0 then
 			if diff > 1 then
-				TEXTURE = IMG_INDEX.IMG_S_HIGH_LEVEL;
+				TEXTURE = CT.IMG_INDEX.IMG_S_HIGH_LEVEL;
 			else
-				TEXTURE = IMG_INDEX.IMG_S_COMMING;
+				TEXTURE = CT.IMG_INDEX.IMG_S_COMMING;
 			end
 		else
 			local flag = info.flag;
 			local exflag = info.exflag;
-			if (exflag ~= nil and _bit_band(exflag, 1) ~= 0) or (flag ~= nil and _bit_band(flag, 4096) ~= 0) then
-				TEXTURE = IMG_INDEX.IMG_S_REPEATABLE;
+			if (exflag ~= nil and band(exflag, 1) ~= 0) or (flag ~= nil and band(flag, 4096) ~= 0) then
+				TEXTURE = CT.IMG_INDEX.IMG_S_REPEATABLE;
 			else
 				local lvl = info.lvl;
-				lvl = lvl >= 0 and lvl or __private.__player_level;
-				if lvl >= __core.quest_lvl_red then
-					TEXTURE = IMG_INDEX.IMG_S_VERY_HARD;
-				elseif lvl >= __core.quest_lvl_orange then
-					TEXTURE = IMG_INDEX.IMG_S_HARD;
-				elseif lvl >= __core.quest_lvl_yellow then
-					TEXTURE = IMG_INDEX.IMG_S_NORMAL;
-				elseif lvl >= __core.quest_lvl_green then
-					TEXTURE = IMG_INDEX.IMG_S_EASY;
+				lvl = lvl >= 0 and lvl or VT.PlayerLevel;
+				if lvl >= VT.QuestLvRed then
+					TEXTURE = CT.IMG_INDEX.IMG_S_VERY_HARD;
+				elseif lvl >= VT.QuestLvOrange then
+					TEXTURE = CT.IMG_INDEX.IMG_S_HARD;
+				elseif lvl >= VT.QuestLvYellow then
+					TEXTURE = CT.IMG_INDEX.IMG_S_NORMAL;
+				elseif lvl >= VT.QuestLvGreen then
+					TEXTURE = CT.IMG_INDEX.IMG_S_EASY;
 				else
-					TEXTURE = IMG_INDEX.IMG_S_LOW_LEVEL;
+					TEXTURE = CT.IMG_INDEX.IMG_S_LOW_LEVEL;
 				end
 			end
 		end
 		return TEXTURE;
 	end
-	__core.IMG_INDEX = IMG_INDEX;
-	__core.IMG_PATH = IMG_PATH;
-	__core.IMG_PATH_PIN = IMG_PATH_PIN;
-	__core.IMG_LIST = IMG_LIST;
-	__core.TIP_IMG_LIST = TIP_IMG_LIST;
-	__core.GetQuestStartTexture = GetQuestStartTexture;
--->
 
--->		Quest
-	local QuestTagCache = {
-		[373] = 81,
-		[4146] = 81,
-		[5342] = 0,
-		[5344] = 0,
-		[6846] = 41,
-		[6901] = 41,
-		[7001] = 41,
-		[7027] = 41,
-		[7161] = 41,
-		[7162] = 41,
-		[7841] = 0,
-		[7842] = 0,
-		[7843] = 0,
-		[8122] = 41,
-		[8386] = 41,
-		[8404] = 41,
-		[8405] = 41,
-		[8406] = 41,
-		[8407] = 41,
-		[8408] = 41,
-	};
-	function __private.GetQuestTagInfo(quest)
-		local tag = QuestTagCache[quest];
-		if tag == nil then
-			tag = GetQuestTagInfo(quest);
-			if tag ~= nil then
-				QuestTagCache[quest] = tag;
-			end
-		end
-		return tag;
-	end
 -->
-
--->		Misc
-	local UnitHelpFac = { AH = 1, };
-	if _PLAYER_FACTIONGROUP == "Alliance" then
-		UnitHelpFac.A = 1;
+	VT.PlayerLevel = UnitLevel('player');
+	VT.QuestLvGreen = -1;
+	VT.QuestLvYellow = -1;
+	VT.QuestLvOrange = -1;
+	VT.QuestLvRed = -1;
+	VT.IsUnitFacFriend = { AH = 1, };
+	if CT.SELFFACTION == "Alliance" then
+		VT.IsUnitFacFriend.A = 1;
 	else
-		UnitHelpFac.H = 1;
+		VT.IsUnitFacFriend.H = 1;
 	end
-	__core.UnitHelpFac = UnitHelpFac;
-	local date = date;
-	local function _log_(...)
-		if __private.__is_dev then
-			_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), ...);
+	DT.DB = {  };
+	
+-->		Main
+	local __beforeinit = {  };
+	local __oninit = {  };
+	local __afterinit = {  };
+	local __onlogin = {  };
+	local __onquit = {  };
+	function MT.RegisterBeforeInit(key, method)
+		if type(key) == 'string' and type(method) == 'function' then
+			__beforeinit[#__beforeinit + 1] = key;
+			__beforeinit[key] = method;
 		end
 	end
-	__private._log_ = _log_;
-	function __private.CheckLocale(locale)
-		return __private.__locale == locale;
+	function MT.RegisterOnInit(key, method)
+		if type(key) == 'string' and type(method) == 'function' then
+			__oninit[#__oninit + 1] = key;
+			__oninit[key] = method;
+		end
 	end
--->
+	function MT.CallOnInit(key)
+		local method = __oninit[key];
+		if method ~= nil then
+			return method();
+		end
+	end
+	function MT.RegisterAfterInit(key, method)
+		if type(key) == 'string' and type(method) == 'function' then
+			__afterinit[#__afterinit + 1] = key;
+			__afterinit[key] = method;
+		end
+	end
+	function MT.RegisterOnLogin(key, method)
+		if type(key) == 'string' and type(method) == 'function' then
+			__onlogin[#__onlogin + 1] = key;
+			__onlogin[key] = method;
+		end
+	end
+	function MT.RegisterOnQuit(key, method)
+		if type(key) == 'string' and type(method) == 'function' then
+			__onquit[#__onquit + 1] = key;
+			__onquit[key] = method;
+		end
+	end
 
--->		performance
-	local __PERFORMANCE_LOG_TAGS = {	--	[tag] = check_bigger_than_10.0
-		[''] = false,
-		['*'] = false,
-		['#'] = false,
-		['@'] = false,
-		['$'] = false,
-		['^'] = false,
-		[':'] = false,
-		['-'] = false,
-		['+'] = false,
-		--
-		['module.init'] = false,
-			['module.init.init'] = true,
-				['module.init.init.patch'] = true,
-				['module.init.init.extra_db'] = true,
-					['module.init.init.extra_db.faction'] = true,
-					['module.init.init.extra_db.item2quest'] = true,
-					['module.init.init.extra_db.del_unused'] = true,
-				['module.init.init.setting'] = true,
-				['module.init.init.core'] = true,
-				['module.init.init.agent'] = true,
-				['module.init.init.map'] = true,
-				['module.init.init.comm'] = true,
-				['module.init.init.util'] = true,
-		['module.db-extra'] = false,
-		['module.patch'] = false,
-		['module.core'] = false,
-			['module.core.UpdateQuests'] = false,
-			['module.core.|cffff0000UpdateQuests|r'] = false,
-			['module.core.UpdateQuestGivers'] = true,
-		['module.map'] = false,
-			['module.map.Minimap_DrawNodesMap'] = true,
-			['module.map.OnMapChanged'] = true,
-			['module.map.OnCanvasScaleChanged'] = true,
-		['module.util'] = false,
-		['module.last'] = false,
-	};
-	__private.__performance_start = _F_devDebugProfileStart;
-	function __private.__performance_log_tick(tag, ex1, ex2, ex3)
-		local val = __PERFORMANCE_LOG_TAGS[tag];
-		if val ~= nil then
-			local cost = __private._F_devDebugProfileTick(tag);
-			if val == false or cost >= 10.0 then
-				cost = cost - cost % 0.0001;
-				_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, cost, ex1, ex2, ex3);
+	MT.GetUnifiedTime();		--	initialized after call once
+	local Driver = CreateFrame('FRAME');
+	Driver:RegisterEvent("ADDON_LOADED");
+	Driver:RegisterEvent("PLAYER_LOGOUT");
+	Driver:RegisterEvent("PLAYER_LOGIN");
+	Driver:SetScript("OnEvent", function(Driver, event, addon)
+		if event == "ADDON_LOADED" then
+			if addon == __addon then
+				Driver:UnregisterEvent("ADDON_LOADED");
+				VT.__is_loggedin = IsLoggedIn();
+				--
+				for index = 1, #__beforeinit do
+					local key = __beforeinit[index];
+					local method = __beforeinit[key];
+					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+				end
+				for index = 1, #__oninit do
+					local key = __oninit[index];
+					local method = __oninit[key];
+					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					--[==[local success, message = pcall(method);
+					if not success then
+						MT.ErrorHandler(message or (__addon .. " INIT SCRIPT [[" .. key .. "]] ERROR."));
+					end]==]
+				end
+				for index = 1, #__afterinit do
+					local key = __afterinit[index];
+					local method = __afterinit[key];
+					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+				end
+				if VT.__is_loggedin then
+					return Driver:GetScript("OnEvent")(Driver, "PLAYER_LOGIN");
+				end
+			end
+		elseif event == "PLAYER_LOGIN" then
+			Driver:UnregisterEvent("PLAYER_LOGIN");
+			VT.__is_loggedin = true;
+			for index = 1, #__onlogin do
+				local key = __onlogin[index];
+				local method = __onlogin[key];
+				xpcall(method, MT.ErrorHandler, true);
+			end
+		elseif event == "PLAYER_LOGOUT" then
+			for index = 1, #__onquit do
+				local key = __onquit[index];
+				local method = __onquit[key];
+				xpcall(method, MT.ErrorHandler);
 			end
 		end
+	end);
+
+	VT.__is_loggedin = IsLoggedIn();
+
+	if VT.__is_dev then
+		MT.Debug = MT.DebugDev;
+	else
+		MT.Debug = MT.DebugRelease;
 	end
-	function __private.__opt_log(tag, ...)
-		_F_CorePrint(date('|cff00ff00%H:%M:%S|r cl'), tag, ...);
-	end
+
 -->
 
---[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.init'); end
+-->		EventHandler
+	local EventAgent = CreateFrame('FRAME');
+	VT.EventAgent = EventAgent;
+	local function OnEvent(self, event, ...)
+		return __private[event](...);
+	end
+	function EventAgent:RegEvent(event, func)
+		func = func or __private[event];
+		if func ~= nil then
+			__private[event] = func;
+			self:RegisterEvent(event);
+			self:SetScript("OnEvent", OnEvent);
+		end
+	end
+	function EventAgent:UnregEvent(event)
+		self:UnregisterEvent(event);
+	end
+	function MT.FireEvent(event, ...)
+		local func = __private[event];
+		if func then
+			return func(...);
+		end
+	end
+-->

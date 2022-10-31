@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("koKR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "koKR" then
 	return;
 end
-__private.LDB.koKR.profession = {
+CT.l10nDB.koKR.profession = {
 	[6] = "냉기",
 	[8] = "화염",
 	[26] = "무기",

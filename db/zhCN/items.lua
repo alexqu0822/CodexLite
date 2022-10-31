@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("zhCN") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "zhCN" then
 	return;
 end
-__private.LDB.zhCN.item = {
+CT.l10nDB.zhCN.item = {
 	[25] = "破损的短剑",
 	[35] = "弯曲的法杖",
 	[36] = "用旧的钉锤",

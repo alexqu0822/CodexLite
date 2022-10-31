@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("zhCN") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "zhCN" then
 	return;
 end
-__private.LDB.zhCN.unit = {
+CT.l10nDB.zhCN.unit = {
 	[1] = "Waypoint (Only GM can see it)",
 	[3] = "食腐者",
 	[6] = "狗头人歹徒",

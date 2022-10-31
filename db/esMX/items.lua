@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("esMX") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "esMX" then
 	return;
 end
-__private.LDB.esMX.item = {
+CT.l10nDB.esMX.item = {
 	[25] = "Espada corta desgastada",
 	[35] = "Bastón doblado",
 	[36] = "Maza desgastada",

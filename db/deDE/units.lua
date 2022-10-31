@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("deDE") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "deDE" then
 	return;
 end
-__private.LDB.deDE.unit = {
+CT.l10nDB.deDE.unit = {
 	[1] = "Waypoint (Only GM can see it)",
 	[3] = "Fleischfresser",
 	[6] = "Koboldgezücht",

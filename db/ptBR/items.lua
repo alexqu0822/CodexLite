@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("ptBR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "ptBR" then
 	return;
 end
-__private.LDB.ptBR.item = {
+CT.l10nDB.ptBR.item = {
 	[25] = "Worn Shortsword",
 	[35] = "Bent Staff",
 	[36] = "Worn Mace",

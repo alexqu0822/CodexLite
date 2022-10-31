@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("frFR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "frFR" then
 	return;
 end
-__private.LDB.frFR.profession = {
+CT.l10nDB.frFR.profession = {
 	[6] = "Givre",
 	[8] = "Feu",
 	[26] = "Armes",

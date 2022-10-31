@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("zhTW") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "zhTW" then
 	return;
 end
-__private.LDB.zhTW.quest = {
+CT.l10nDB.zhTW.quest = {
 	[1] = {
 		[[The "Chow" Quest (123)aa]],
 		{ [[$Tpunk;!  Kill Kobold Vermin, 2 of em. NEW TEST AGAIN]], },

@@ -1,11 +1,13 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("esMX") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "esMX" then
 	return;
 end
 --  name  <nombre>
 --  race  <raza>
 --  class <clase>
-__private.LDB.esMX.quest = {
+CT.l10nDB.esMX.quest = {
 	[1] = {
 		[[Misión de Kanrethad]],
 		{ [[$Tpunk;!  Kill Kobold Vermin, 2 of em. NEW TEST AGAIN]], },

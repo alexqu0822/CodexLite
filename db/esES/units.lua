@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("esES") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "esES" then
 	return;
 end
-__private.LDB.esES.unit = {
+CT.l10nDB.esES.unit = {
 	[1] = "Waypoint (Only GM can see it)",
 	[3] = "Comecarnes",
 	[6] = "Alimaña kóbold",

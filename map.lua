@@ -2,15 +2,13 @@
 	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
-----------------------------------------------------------------------------------------------------
 local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
-local _G = _G;
-local _ = nil;
-----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map'); end
-
--->		variables
+-->		upvalue
 	local hooksecurefunc = hooksecurefunc;
 	local next = next;
 	local tremove, wipe = table.remove, table.wipe;
@@ -26,36 +24,16 @@ local _ = nil;
 	local CreateFromMixins, MapCanvasDataProviderMixin = CreateFromMixins, MapCanvasDataProviderMixin;
 	local Minimap = Minimap;
 	local GameTooltip = GameTooltip;
+	local _G = _G;
 
-	local __db = __private.db;
-	local __db_quest = __db.quest;
-	local __db_unit = __db.unit;
-	local __db_item = __db.item;
-	local __db_object = __db.object;
-	local __db_refloot = __db.refloot;
-	local __db_event = __db.event;
+-->
+	local DataAgent = DT.DB;
+	local l10n = CT.l10n;
 
-	local __loc = __private.L;
-	local __loc_quest = __loc.quest;
-	local __loc_unit = __loc.unit;
-	local __loc_item = __loc.item;
-	local __loc_object = __loc.object;
-	local __loc_profession = __loc.profession;
-	local __UILOC = __private.UILOC;
+	local EventDriver = VT.EventAgent;
 
-	local __core = __private.core;
-	local _F_SafeCall = __core._F_SafeCall;
-	local __eventHandler = __core.__eventHandler;
-	local __const = __core.__const;
-	local IMG_INDEX = __core.IMG_INDEX;
-	local IMG_PATH_PIN = __core.IMG_PATH_PIN;
-	local IMG_LIST = __core.IMG_LIST;
-	local ContinentMapID = __core.ContinentMapID;
-	local GetUnitPosition = __core.GetUnitPosition;
+	local __main_meta = VT.MAIN_META;
 
-	local __core_meta = __private.__core_meta;
-
-	local _log_ = __private._log_;
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
 	local wm_wrap = CreateFrame('FRAME', nil, mapCanvas);
@@ -71,7 +49,7 @@ local _ = nil;
 		mm_wrap:SetFrameLevel(base);
 		CommonPinFrameLevel = base;
 		LargePinFrameLevel = base + 1;
-		for index, texture in next, IMG_LIST do
+		for index, texture in next, CT.IMG_LIST do
 			texture[7] = base + texture[6];
 		end
 	end
@@ -79,24 +57,21 @@ local _ = nil;
 	hooksecurefunc(pinFrameLevelsManager, "AddFrameLevel", ReCalcFrameLevel);
 	ReCalcFrameLevel(pinFrameLevelsManager);
 
-	local SET = nil;
 -->
-if __private.__is_dev then
-	__private:BuildEnv("map");
-end
--->		MAIN
+MT.BuildEnv("map");
+-->		MAP
 	-->		--	count
 		local __popt = { 0, 0, 0, 0, };
 		local function __opt_prompt()
-			__private.__opt_log('map.opt', __popt[1], __popt[2], __popt[3], __popt[4]);
+			MT.Debug('map.opt', __popt[1], __popt[2], __popt[3], __popt[4]);
 		end
 		function __popt:count(index, count)
 			__popt[index] = __popt[index] + count;
-			if __private.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if VT.__is_dev then MT._TimerStart(__opt_prompt, 0.2, 1); end
 		end
 		function __popt:reset(index)
 			__popt[index] = 0;
-			if __private.__is_dev then __eventHandler:run_on_next_tick(__opt_prompt); end
+			if VT.__is_dev then MT._TimerStart(__opt_prompt, 0.2, 1); end
 		end
 		function __popt:echo(index)
 			return __popt[index];
@@ -105,15 +80,16 @@ end
 	local wm_map = WorldMapFrame:GetMapID();
 	local mm_map = C_Map.GetBestMapForUnit('player');
 	local map_canvas_scale = mapCanvas:GetScale();
-	local wm_pin_size, wm_large_size, wm_varied_size = nil, nil, nil;
-	local hide_node_modifier = IsShiftKeyDown;
+	local wm_normal_size, wm_large_size, wm_varied_size = nil, nil, nil;
+	local mm_normal_size, mm_large_size, mm_varied_size = nil, nil, nil;
+	local node_menu_modifier = IsShiftKeyDown;
 	local META_COMMON = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local META_LARGE = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local META_VARIED = {  };				-->		[map] =	{ [uuid] = { 1{ coord }, 2{ pin }, 3nil, 4nil, }, }
 	local MM_COMMON_PINS = {  };			-->		[map] = { coord = pin, }
 	local MM_LARGE_PINS = {  };				-->		[map] = { coord = pin, }
 	local MM_VARIED_PINS = {  };			-->		[map] = { coord = pin, }
-	__private.__map_meta = { META_COMMON, META_LARGE, META_VARIED, };
+	VT.MAP_META = { META_COMMON, META_LARGE, META_VARIED, };
 	local QUEST_TEMPORARILY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BLOCKED = {  };
 	local QUEST_PERMANENTLY_BL_LIST = {  };
@@ -137,10 +113,12 @@ end
 		local MapPermanentlyShowQuestNodes, MapPermanentlyHideQuestNodes, MapPermanentlyToggleQuestNodes;
 		local MapHideNodes, MapDrawNodes;
 		--	setting
-		local SetShowPinInContinent;
-		local SetWorldmapAlpha, SetMinimapAlpha;
-		local SetCommonPinSize, SetLargePinSize, SetVariedPinSize;
-		local SetHideNodeModifier, SetMinimapNodeInset, SetMinimapPlayerArrowOnTop;
+		local SetShowPinInContinent, SetNodeMenuModifier;
+		local SetWorldmapAlpha;
+		local SetWorldmapCommonPinSize, SetWorldmapLargePinSize, SetWorldmapVariedPinSize;
+		local SetMinimapAlpha;
+		local SetMinimapCommonPinSize, SetMinimapLargePinSize, SetMinimapVariedPinSize;
+		local SetMinimapNodeInset, SetMinimapPlayerArrowOnTop;
 	-->
 	-->		--	Pin Handler
 		function Pin_OnEnter(self)
@@ -148,7 +126,7 @@ end
 			local uuid = self.uuid;
 			local _type = uuid[1];
 			local _id = uuid[2];
-			__private.TooltipSetInfo(GameTooltip, _type, _id);
+			MT.TooltipSetInfo(GameTooltip, _type, _id);
 			GameTooltip:Show();
 		end
 		local TomTom = nil;
@@ -161,7 +139,7 @@ end
 					if coord ~= nil and TomTom ~= nil then
 						local _type = uuid[1];
 						local _id = uuid[2];
-						local _loc = __loc[_type];
+						local _loc = l10n[_type];
 						local uid = TomTom:AddWaypoint(coord[3], coord[1] * 0.01, coord[2] * 0.01, {
 							title = _loc ~= nil and _loc[_id] or (_type .. ":" .. _id),
 							persistent = false,
@@ -172,13 +150,13 @@ end
 						return TomTom:SetCrazyArrow(uid, TomTom.profile.arrow.arrival, uid.title or "TomTom waypoint");
 					end
 				end
-				if hide_node_modifier() then
-					if __private.NodeOnModifiedClick(self, uuid) then
+				if node_menu_modifier() then
+					if MT.NodeOnModifiedClick(self, uuid) then
 						return;
 					end
 				end
-				__private.RelColor3(uuid[3]);
-				uuid[3], uuid[6] = __private.GetColor3NextIndex(uuid[6]);
+				MT.RelColor3(uuid[3]);
+				uuid[3], uuid[6] = MT.GetColor3NextIndex(uuid[6]);
 				WorldMap_ChangeCommonLargeNodesMapUUID(wm_map, uuid);
 				Minimap_ChangeCommonLargeNodesMapUUID(mm_map, uuid);
 			end
@@ -190,14 +168,14 @@ end
 			if pin == nil then
 				pin = CreateFrame('FRAME', nil, wm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", __private.OnLeave);
+				pin:SetScript("OnLeave", MT.OnLeave);
 				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin:SetFrameLevel(frameLevel or CommonPinFrameLevel);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
 				local icon = pin:CreateTexture(nil, "ARTWORK");
 				icon:SetAllPoints();
-				icon:SetTexture(IMG_PATH_PIN);
+				icon:SetTexture(CT.IMG_PATH_PIN);
 				pin.icon = icon;
 			else
 				pool_unused[pin] = nil;
@@ -215,7 +193,7 @@ end
 			pin:Hide();
 		end
 		function AddWorldMapCommonPin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, wm_pin_size, RelWorldMapCommonPin, CommonPinFrameLevel);
+			local pin = NewWorldMapPin(CT.TAG_WM_COMMON, pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, wm_normal_size, RelWorldMapCommonPin, CommonPinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -235,7 +213,7 @@ end
 			pin:Hide();
 		end
 		function AddWorldMapLargePin(x, y, color3)
-			local pin = NewWorldMapPin(__const.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, wm_large_size, RelWorldMapLargePin, LargePinFrameLevel);
+			local pin = NewWorldMapPin(CT.TAG_WM_LARGE, pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, wm_large_size, RelWorldMapLargePin, LargePinFrameLevel);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
 			--	>>	MapCanvasMixin:ApplyPinPosition(pin, x, y) mainly implemented below
@@ -255,8 +233,8 @@ end
 			pin:Hide();
 		end
 		function AddWorldMapVariedPin(x, y, color3, TEXTURE)
-			local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
-			local pin = NewWorldMapPin(__const.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, wm_varied_size, RelWorldMapVariedPin, texture[7]);
+			local texture = CT.IMG_LIST[TEXTURE] or CT.IMG_LIST[CT.IMG_INDEX.IMG_DEF];
+			local pin = NewWorldMapPin(CT.TAG_WM_VARIED, pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, wm_varied_size, RelWorldMapVariedPin, texture[7]);
 			pin:SetFrameLevel(texture[7]);
 			--		MapCanvasPinMixin:SetPosition(x, y)
 			--	>>	MapCanvasMixin:SetPinPosition(pin, x, y)
@@ -277,7 +255,7 @@ end
 		--
 		function IterateWorldMapPinSetSize()
 			for pin, _ in next, pool_worldmap_common_pin_inuse do
-				pin:SetSize(wm_pin_size, wm_pin_size);
+				pin:SetSize(wm_normal_size, wm_normal_size);
 			end
 			for pin, _ in next, pool_worldmap_large_pin_inuse do
 				pin:SetSize(wm_large_size, wm_large_size);
@@ -304,7 +282,7 @@ end
 	-->
 	local function UUIDCheckState(uuid, val)
 		for quest, refs in next, uuid[4] do
-			local meta = __core_meta[quest];
+			local meta = __main_meta[quest];
 			if meta ~= nil and QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				for line, texture in next, refs do
 					if line == 'extra' then
@@ -419,7 +397,7 @@ end
 					local pins = data[2];
 					for index = 1, #pins do
 						local pin = pins[index];
-						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
+						local texture = CT.IMG_LIST[TEXTURE] or CT.IMG_LIST[CT.IMG_INDEX.IMG_DEF];
 						pin.icon:SetTexture(texture[1]);
 						pin.icon:SetVertexColor(texture[2], texture[3], texture[4]);
 						pin:SetFrameLevel(texture[7]);
@@ -547,7 +525,7 @@ end
 			end
 		end
 		function WorldMap_DrawNodesMap(map)
-			if not SET.show_in_continent and ContinentMapID[map] ~= nil then
+			if not VT.SETTING.show_in_continent and CT.ContinentMapID[map] ~= nil then
 				return;
 			end
 			local meta = META_COMMON[map];
@@ -669,13 +647,13 @@ end
 			if pin == nil then
 				pin = CreateFrame('FRAME', nil, mm_wrap);
 				pin:SetScript("OnEnter", Pin_OnEnter);
-				pin:SetScript("OnLeave", __private.OnLeave);
+				pin:SetScript("OnLeave", MT.OnLeave);
 				pin:SetScript("OnMouseUp", Pin_OnClick);
 				pin.Release = Release;
 				pin.__PIN_TAG = __PIN_TAG;
 				local icon = pin:CreateTexture(nil, "ARTWORK");
 				icon:SetAllPoints();
-				icon:SetTexture(IMG_PATH_PIN);
+				icon:SetTexture(CT.IMG_PATH_PIN);
 				pin.icon = icon;
 			else
 				pool_unused[pin] = nil;
@@ -755,7 +733,7 @@ end
 			local mm_rotate_cos = mm_rotate ~= nil and _radius_cos(mm_rotate) or nil;
 			local mm_check_func = mm_check_func_table[mm_shape];
 			local mm_force_update = false;
-			local mm_player_map, mm_player_x, mm_player_y = GetUnitPosition('player');
+			local mm_player_map, mm_player_x, mm_player_y = MT.GetUnitPosition('player');
 			if mm_player_y == nil then mm_player_y = 0.0; end
 			if mm_player_x == nil then mm_player_x = 0.0; end
 			local mm_dynamic_update_interval = 0.05;
@@ -897,7 +875,7 @@ end
 					local coords = data[1];
 					for index = 1, #coords do
 						local coord = coords[index];
-						local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
+						local texture = CT.IMG_LIST[TEXTURE] or CT.IMG_LIST[CT.IMG_INDEX.IMG_DEF];
 						local pin = MM_VARIED_PINS[coord];
 						if pin ~= nil then
 							pin.icon:SetTexture(texture[1]);
@@ -909,7 +887,7 @@ end
 			end
 		end
 		function Minimap_ShowNodesMapQuest(map, quest)
-			__private._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
+			local Tick = MT.GetUnifiedTime();
 			local num_changed = 0;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
@@ -925,11 +903,11 @@ end
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_COMMON_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
+									pin = AddMinimapPin(CT.TAG_MM_COMMON, CT.IMG_PATH_PIN, color3[1], color3[2], color3[3], mm_normal_size, CommonPinFrameLevel);
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetTexture(CT.IMG_PATH_PIN);
 									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
@@ -966,11 +944,11 @@ end
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_LARGE_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
+									pin = AddMinimapPin(CT.TAG_MM_LARGE, CT.IMG_PATH_PIN, color3[1], color3[2], color3[3], mm_large_size, LargePinFrameLevel);
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetTexture(CT.IMG_PATH_PIN);
 									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
@@ -1007,9 +985,9 @@ end
 							local dy = val[2] - mm_player_y;
 							if dx > -mm_hsize and dx < mm_hsize and dy > -mm_hsize and dy < mm_hsize and (mm_check_func == nil or mm_check_func(dx, dy, mm_hsize)) then
 								local pin = MM_VARIED_PINS[coord];
-								local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
+								local texture = CT.IMG_LIST[TEXTURE] or CT.IMG_LIST[CT.IMG_INDEX.IMG_DEF];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.pin_size, texture[7]);
+									pin = AddMinimapPin(CT.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], mm_varied_size, texture[7]);
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -1039,9 +1017,7 @@ end
 			if num_changed ~= 0 then
 				__popt:count(4, num_changed);
 			end
-			local cost = __private._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
-			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			mm_dynamic_update_interval = (MT.GetUnifiedTime() - Tick) * 0.2;
 		end
 		function Minimap_HideNodesQuest(quest)
 			local num_pins = 0;
@@ -1069,8 +1045,8 @@ end
 			__popt:count(4, num_pins);
 		end
 		function Minimap_DrawNodesMap(map)
-			__private._F_devDebugProfileStart('module.map.Minimap_DrawNodesMap');
-			local mm_check_range = SET.minimap_node_inset and mm_hsize * 0.9 or mm_hsize;
+			local Tick = MT.GetUnifiedTime();
+			local mm_check_range = VT.SETTING.minimap_node_inset and mm_hsize * 0.9 or mm_hsize;
 			local num_changed = 0;
 			local meta = META_COMMON[map];
 			if meta ~= nil then
@@ -1086,11 +1062,11 @@ end
 							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 								local pin = MM_COMMON_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_COMMON, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.pin_size, CommonPinFrameLevel);
+									pin = AddMinimapPin(CT.TAG_MM_COMMON, CT.IMG_PATH_PIN, color3[1], color3[2], color3[3], mm_normal_size, CommonPinFrameLevel);
 									MM_COMMON_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetTexture(CT.IMG_PATH_PIN);
 									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
@@ -1127,11 +1103,11 @@ end
 							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 								local pin = MM_LARGE_PINS[coord];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_LARGE, IMG_PATH_PIN, color3[1], color3[2], color3[3], SET.large_size, LargePinFrameLevel);
+									pin = AddMinimapPin(CT.TAG_MM_LARGE, CT.IMG_PATH_PIN, color3[1], color3[2], color3[3], mm_large_size, LargePinFrameLevel);
 									MM_LARGE_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
-									pin.icon:SetTexture(IMG_PATH_PIN);
+									pin.icon:SetTexture(CT.IMG_PATH_PIN);
 									pin.icon:SetVertexColor(color3[1], color3[2], color3[3]);
 								end
 								pin:ClearAllPoints();
@@ -1168,9 +1144,9 @@ end
 							local dy = val[2] - mm_player_y;
 							if dx > -mm_check_range and dx < mm_check_range and dy > -mm_check_range and dy < mm_check_range and (mm_check_func == nil or mm_check_func(dx, dy, mm_check_range)) then
 								local pin = MM_VARIED_PINS[coord];
-								local texture = IMG_LIST[TEXTURE] or IMG_LIST[IMG_INDEX.IMG_DEF];
+								local texture = CT.IMG_LIST[TEXTURE] or CT.IMG_LIST[CT.IMG_INDEX.IMG_DEF];
 								if pin == nil then
-									pin = AddMinimapPin(__const.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], SET.varied_size, texture[7]);
+									pin = AddMinimapPin(CT.TAG_MM_VARIED, texture[1], texture[2] or color3[1], texture[3] or color3[2], texture[4] or color3[3], mm_varied_size, texture[7]);
 									MM_VARIED_PINS[coord] = pin;
 									num_changed = num_changed + 1;
 								else
@@ -1200,9 +1176,7 @@ end
 			if num_changed ~= 0 then
 				__popt:count(4, num_changed);
 			end
-			local cost = __private._F_devDebugProfileTick('module.map.Minimap_DrawNodesMap');
-			mm_dynamic_update_interval = cost * 0.2;
-			--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.Minimap_DrawNodesMap', mm_dynamic_update_interval); end
+			mm_dynamic_update_interval = (MT.GetUnifiedTime() - Tick) * 0.2;
 		end
 		function Minimap_HideNodes()
 			local num_pins = 0;
@@ -1249,7 +1223,7 @@ end
 						end
 						local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
 						Minimap:SetZoom(zoom);
-						local map, x, y = GetUnitPosition('player');
+						local map, x, y = MT.GetUnitPosition('player');
 						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or (mm_is_rotate and facing ~= mm_rotate)) then
 							mm_player_x = x;
 							mm_player_y = y;
@@ -1272,8 +1246,8 @@ end
 			mm_arrow:Hide();
 		end
 		function __private.MINIMAP_UPDATE_ZOOM()
-			-- __eventHandler:run_on_next_tick(Minimap_DrawNodes);
-			-- _log_('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
+			-- MT._TimerStart(Minimap_DrawNodes, 0.2, 1);
+			-- MT.Debug('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
 		end
 		function __private.CVAR_UPDATE()
 			local is_rotate = GetCVar("rotateMinimap") == "1";
@@ -1438,7 +1412,7 @@ end
 				end
 				WorldMap_ShowNodesQuest(wm_map, quest);
 				Minimap_ShowNodesMapQuest(mm_map, quest);
-				__private.RefreshBlockedList();
+				MT.RefreshBlockedList();
 			end
 		end
 		function MapPermanentlyHideQuestNodes(quest)
@@ -1447,7 +1421,7 @@ end
 				QUEST_PERMANENTLY_BL_LIST[#QUEST_PERMANENTLY_BL_LIST + 1] = quest;
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
-				__private.RefreshBlockedList();
+				MT.RefreshBlockedList();
 			end
 		end
 		function MapPermanentlyToggleQuestNodes(quest)
@@ -1467,7 +1441,7 @@ end
 				WorldMap_HideNodesQuest(wm_map, quest);
 				Minimap_HideNodesQuest(quest);
 			end
-			__private.RefreshBlockedList();
+			MT.RefreshBlockedList();
 		end
 		--
 		function MapDrawNodes()
@@ -1483,73 +1457,82 @@ end
 	-->		--	setting
 		--	set pin
 		function SetShowPinInContinent()
-			if ContinentMapID[wm_map] ~= nil then
-				if SET.show_in_continent then
+			if CT.ContinentMapID[wm_map] ~= nil then
+				if VT.SETTING.show_in_continent then
 					WorldMap_DrawNodesMap(wm_map);
 				else
 					WorldMap_HideNodesMap(wm_map);
 				end
 			end
 		end
-		function SetWorldmapAlpha()
-			wm_wrap:SetAlpha(SET.worldmap_alpha);
-		end
-		function SetMinimapAlpha()
-			mm_wrap:SetAlpha(SET.minimap_alpha);
-		end
-		function SetCommonPinSize()
-			--	pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused, MM_COMMON_PINS
-			wm_pin_size = SET.pin_size;
-			for _, pin in next, MM_COMMON_PINS do
-				pin:SetSize(wm_pin_size, wm_pin_size);
+		function SetNodeMenuModifier()
+			local modifier = VT.SETTING.node_menu_modifier;
+			if modifier == "SHIFT" then
+				node_menu_modifier = IsShiftKeyDown;
+			elseif modifier == "CTRL" then
+				node_menu_modifier = IsControlKeyDown;
+			elseif modifier == "ALT" then
+				node_menu_modifier = IsAltKeyDown;
 			end
+		end
+		function SetWorldmapAlpha()
+			wm_wrap:SetAlpha(VT.SETTING.worldmap_alpha);
+		end
+		function SetWorldmapCommonPinSize()
+			--	pool_worldmap_common_pin_inuse, pool_worldmap_common_pin_unused
+			wm_normal_size = VT.SETTING.worldmap_normal_size;
 			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				wm_pin_size = wm_pin_size * pin_scale_max / scale;
+			local worldmap_pin_scale_max = VT.SETTING.worldmap_pin_scale_max;
+			if scale > worldmap_pin_scale_max then
+				wm_normal_size = wm_normal_size * worldmap_pin_scale_max / scale;
 			end
 			for pin, _ in next, pool_worldmap_common_pin_inuse do
-				pin:SetSize(wm_pin_size, wm_pin_size);
+				pin:SetSize(wm_normal_size, wm_normal_size);
 			end
 		end
-		function SetLargePinSize()
-			--	pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused, MM_LARGE_PINS
-			wm_large_size = SET.large_size;
-			for _, pin in next, MM_LARGE_PINS do
-				pin:SetSize(wm_large_size, wm_large_size);
-			end
+		function SetWorldmapLargePinSize()
+			--	pool_worldmap_large_pin_inuse, pool_worldmap_large_pin_unused
+			wm_large_size = VT.SETTING.worldmap_large_size;
 			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				wm_large_size = wm_large_size * pin_scale_max / scale;
+			local worldmap_pin_scale_max = VT.SETTING.worldmap_pin_scale_max;
+			if scale > worldmap_pin_scale_max then
+				wm_large_size = wm_large_size * worldmap_pin_scale_max / scale;
 			end
 			for pin, _ in next, pool_worldmap_large_pin_inuse do
 				pin:SetSize(wm_large_size, wm_large_size);
 			end
 		end
-		function SetVariedPinSize()
-			--	pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused, MM_VARIED_PINS
-			wm_varied_size = SET.varied_size;
-			for _, pin in next, MM_VARIED_PINS do
-				pin:SetSize(wm_varied_size, wm_varied_size);
-			end
+		function SetWorldmapVariedPinSize()
+			--	pool_worldmap_varied_pin_inuse, pool_worldmap_varied_pin_unused
+			wm_varied_size = VT.SETTING.worldmap_varied_size;
 			local scale = map_canvas_scale;
-			local pin_scale_max = SET.pin_scale_max;
-			if scale > pin_scale_max then
-				wm_varied_size = wm_varied_size * pin_scale_max / scale;
+			local worldmap_pin_scale_max = VT.SETTING.worldmap_pin_scale_max;
+			if scale > worldmap_pin_scale_max then
+				wm_varied_size = wm_varied_size * worldmap_pin_scale_max / scale;
 			end
 			for pin, _ in next, pool_worldmap_varied_pin_inuse do
 				pin:SetSize(wm_varied_size, wm_varied_size);
 			end
 		end
-		function SetHideNodeModifier()
-			local modifier = SET.hide_node_modifier;
-			if modifier == "SHIFT" then
-				hide_node_modifier = IsShiftKeyDown;
-			elseif modifier == "CTRL" then
-				hide_node_modifier = IsControlKeyDown;
-			elseif modifier == "ALT" then
-				hide_node_modifier = IsAltKeyDown;
+		function SetMinimapAlpha()
+			mm_wrap:SetAlpha(VT.SETTING.minimap_alpha);
+		end
+		function SetMinimapCommonPinSize()
+			mm_normal_size = VT.SETTING.minimap_normal_size;
+			for _, pin in next, MM_COMMON_PINS do
+				pin:SetSize(mm_normal_size, mm_normal_size);
+			end
+		end
+		function SetMinimapLargePinSize()
+			mm_large_size = VT.SETTING.minimap_large_size;
+			for _, pin in next, MM_LARGE_PINS do
+				pin:SetSize(mm_large_size, mm_large_size);
+			end
+		end
+		function SetMinimapVariedPinSize()
+			mm_varied_size = VT.SETTING.minimap_varied_size;
+			for _, pin in next, MM_VARIED_PINS do
+				pin:SetSize(mm_varied_size, mm_varied_size);
 			end
 		end
 		function SetMinimapNodeInset()
@@ -1557,42 +1540,45 @@ end
 			Minimap_DrawNodesMap(mm_map);
 		end
 		function SetMinimapPlayerArrowOnTop()
-			mm_arrow_wrap:SetShown(SET.minimap_player_arrow_on_top);
+			mm_arrow_wrap:SetShown(VT.SETTING.minimap_player_arrow_on_top);
 		end
 	-->
 	-->		--	extern method
 		--
-		__private.SetShowPinInContinent = SetShowPinInContinent;
-		__private.SetWorldmapAlpha = SetWorldmapAlpha;
-		__private.SetMinimapAlpha = SetMinimapAlpha;
-		__private.SetCommonPinSize = SetCommonPinSize;
-		__private.SetLargePinSize = SetLargePinSize;
-		__private.SetVariedPinSize = SetVariedPinSize;
-		__private.SetHideNodeModifier = SetHideNodeModifier;
-		__private.SetMinimapNodeInset = SetMinimapNodeInset;
-		__private.SetMinimapPlayerArrowOnTop = SetMinimapPlayerArrowOnTop;
+		MT.SetShowPinInContinent = SetShowPinInContinent;
+		MT.SetNodeMenuModifier = SetNodeMenuModifier;
+		MT.SetWorldmapAlpha = SetWorldmapAlpha;
+		MT.SetWorldmapCommonPinSize = SetWorldmapCommonPinSize;
+		MT.SetWorldmapLargePinSize = SetWorldmapLargePinSize;
+		MT.SetWorldmapVariedPinSize = SetWorldmapVariedPinSize;
+		MT.SetMinimapAlpha = SetMinimapAlpha;
+		MT.SetMinimapCommonPinSize = SetMinimapCommonPinSize;
+		MT.SetMinimapLargePinSize = SetMinimapLargePinSize;
+		MT.SetMinimapVariedPinSize = SetMinimapVariedPinSize;
+		MT.SetMinimapNodeInset = SetMinimapNodeInset;
+		MT.SetMinimapPlayerArrowOnTop = SetMinimapPlayerArrowOnTop;
 		--
-		__private.MapAddCommonNodes = MapAddCommonNodes;
-		__private.MapDelCommonNodes = MapDelCommonNodes;
-		__private.MapUpdCommonNodes = MapUpdCommonNodes;
-		__private.MapAddLargeNodes = MapAddLargeNodes;
-		__private.MapDelLargeNodes = MapDelLargeNodes;
-		__private.MapUpdLargeNodes = MapUpdLargeNodes;
-		__private.MapAddVariedNodes = MapAddVariedNodes;
-		__private.MapDelVariedNodes = MapDelVariedNodes;
-		__private.MapUpdVariedNodes = MapUpdVariedNodes;
-		__private.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
-		__private.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
-		__private.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
-		__private.MapPermanentlyShowQuestNodes = MapPermanentlyShowQuestNodes;
-		__private.MapPermanentlyHideQuestNodes = MapPermanentlyHideQuestNodes;
-		__private.MapPermanentlyToggleQuestNodes = MapPermanentlyToggleQuestNodes;
+		MT.MapAddCommonNodes = MapAddCommonNodes;
+		MT.MapDelCommonNodes = MapDelCommonNodes;
+		MT.MapUpdCommonNodes = MapUpdCommonNodes;
+		MT.MapAddLargeNodes = MapAddLargeNodes;
+		MT.MapDelLargeNodes = MapDelLargeNodes;
+		MT.MapUpdLargeNodes = MapUpdLargeNodes;
+		MT.MapAddVariedNodes = MapAddVariedNodes;
+		MT.MapDelVariedNodes = MapDelVariedNodes;
+		MT.MapUpdVariedNodes = MapUpdVariedNodes;
+		MT.MapTemporarilyShowQuestNodes = MapTemporarilyShowQuestNodes;
+		MT.MapTemporarilyHideQuestNodes = MapTemporarilyHideQuestNodes;
+		MT.MapResetTemporarilyQuestNodesFilter = MapResetTemporarilyQuestNodesFilter;
+		MT.MapPermanentlyShowQuestNodes = MapPermanentlyShowQuestNodes;
+		MT.MapPermanentlyHideQuestNodes = MapPermanentlyHideQuestNodes;
+		MT.MapPermanentlyToggleQuestNodes = MapPermanentlyToggleQuestNodes;
 		--
-		__private.MapDrawNodes = MapDrawNodes;
-		__private.MapHideNodes = MapHideNodes;
-		__private.Pin_OnEnter = Pin_OnEnter;
+		MT.MapDrawNodes = MapDrawNodes;
+		MT.MapHideNodes = MapHideNodes;
+		MT.Pin_OnEnter = Pin_OnEnter;
 		--
-		function __private.map_reset()
+		function MT.ResetMap()
 			wipe(META_COMMON);
 			wipe(META_LARGE);
 			wipe(META_VARIED);
@@ -1602,10 +1588,10 @@ end
 			wipe(MM_VARIED_PINS);
 			ResetMMPin();
 		end
-		function __private.map_ToggleWorldMapPin(shown)
+		function MT.MapToggleWorldMapPin(shown)
 			wm_wrap:SetShown(shown ~= false);
 		end
-		function __private.map_ToggleMinimapPin(shown)
+		function MT.MapToggleMinimapPin(shown)
 			mm_wrap:SetShown(shown ~= false);
 		end
 	-->
@@ -1627,38 +1613,34 @@ end
 			function mapCallback:OnMapChanged()
 				--  Optionally override in your mixin, called when map ID changes
 				-- self:RefreshAllData();
-				--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map.mapCallback:OnMapChanged'); end
 				local uiMapID = WorldMapFrame:GetMapID();
 				if uiMapID ~= wm_map then
 					WorldMap_HideNodesMap(wm_map);
 					wm_map = uiMapID;
 					WorldMap_DrawNodesMap(uiMapID);
 				end
-				--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.mapCallback:OnMapChanged'); end
 			end
 			function mapCallback:OnCanvasScaleChanged()
 				local scale = mapCanvas:GetScale();
 				if map_canvas_scale ~= scale then
-					--[=[dev]=]	if __private.__is_dev then __private._F_devDebugProfileStart('module.map.mapCallback:OnCanvasScaleChanged'); end
 					map_canvas_scale = scale;
-					local pin_scale_max = SET.pin_scale_max;
+					local worldmap_pin_scale_max = VT.SETTING.worldmap_pin_scale_max;
 					--
-					wm_pin_size = SET.pin_size;
-					if scale > pin_scale_max then
-						wm_pin_size = wm_pin_size * pin_scale_max / scale;
+					wm_normal_size = VT.SETTING.worldmap_normal_size;
+					if scale > worldmap_pin_scale_max then
+						wm_normal_size = wm_normal_size * worldmap_pin_scale_max / scale;
 					end
 					--
-					wm_large_size = SET.large_size;
-					if scale > pin_scale_max then
-						wm_large_size = wm_large_size * pin_scale_max / scale;
+					wm_large_size = VT.SETTING.worldmap_large_size;
+					if scale > worldmap_pin_scale_max then
+						wm_large_size = wm_large_size * worldmap_pin_scale_max / scale;
 					end
 					--
-					wm_varied_size = SET.varied_size;
-					if scale > pin_scale_max then
-						wm_varied_size = wm_varied_size * pin_scale_max / scale;
+					wm_varied_size = VT.SETTING.worldmap_varied_size;
+					if scale > worldmap_pin_scale_max then
+						wm_varied_size = wm_varied_size * worldmap_pin_scale_max / scale;
 					end
 					IterateWorldMapPinSetSize();
-					--[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map.mapCallback:OnCanvasScaleChanged'); end
 				end
 			end
 			function mapCallback:OnCanvasSizeChanged()
@@ -1670,11 +1652,10 @@ end
 			Minimap_DrawNodesMap(map);
 		end
 	-->
-	function __private.map_setup()
-		SET = __private.__setting;
-		QUEST_TEMPORARILY_BLOCKED = __private.__quest_temporarily_blocked;
-		QUEST_PERMANENTLY_BLOCKED = __private.__quest_permanently_blocked;
-		QUEST_PERMANENTLY_BL_LIST = __private.__quest_permanently_bl_list;
+	MT.RegisterOnLogin("map", function(LoggedIn)
+		QUEST_TEMPORARILY_BLOCKED = VT.QUEST_TEMPORARILY_BLOCKED;
+		QUEST_PERMANENTLY_BLOCKED = VT.QUEST_PREMANENTLY_BLOCKED;
+		QUEST_PERMANENTLY_BL_LIST = VT.QUEST_PREMANENTLY_BL_LIST;
 		-- local HBD = LibStub("HereBeDragons-2.0");
 		-- local mapData = HBD.mapData;
 		-- --	{ width, height, left, top, instance = instance, name = name, mapType = mapType, parent = parent }
@@ -1687,13 +1668,13 @@ end
 		-- 			end
 		-- 		end
 		-- 		mapData = newData;
-		-- 		_log_("rehash map");
+		-- 		MT.Debug("rehash map");
 		-- 		break;
 		-- 	end
 		-- end
-		-- __private.HDB = HDB;
-		-- __private.mapData = mapData;
-		-- function __private.GetWorldCoordinatesFromZone(zone, x, y)
+		-- VT.HDB = HDB;
+		-- VT.mapData = mapData;
+		-- function MT.GetWorldCoordinatesFromZone(zone, x, y)
 		-- 	local data = mapData[zone];
 		-- 	if data then
 		-- 		x, y = data[3] - data[1] * x, data[4] - data[2] * y;
@@ -1703,32 +1684,35 @@ end
 		WorldMapFrame:AddDataProvider(mapCallback);
 		wm_map = -1;
 		mapCallback:OnMapChanged();
-		__eventHandler:RegEvent("MINIMAP_UPDATE_ZOOM");
-		__eventHandler:RegEvent("CVAR_UPDATE");
+		EventDriver:RegEvent("MINIMAP_UPDATE_ZOOM");
+		EventDriver:RegEvent("CVAR_UPDATE");
 		mm_is_rotate = GetCVar("rotateMinimap") == "1";
 		Minimap:HookScript("OnUpdate", Minimap_OnUpdate);
 		--
 		SetWorldmapAlpha();
 		SetMinimapAlpha();
-		local pin_scale_max = SET.pin_scale_max;
-		wm_pin_size = SET.pin_size;
-		if map_canvas_scale > pin_scale_max then
-			wm_pin_size = wm_pin_size * pin_scale_max / map_canvas_scale;
+		local worldmap_pin_scale_max = VT.SETTING.worldmap_pin_scale_max;
+		wm_normal_size = VT.SETTING.worldmap_normal_size;
+		if map_canvas_scale > worldmap_pin_scale_max then
+			wm_normal_size = wm_normal_size * worldmap_pin_scale_max / map_canvas_scale;
 		end
-		wm_large_size = SET.large_size;
-		if map_canvas_scale > pin_scale_max then
-			wm_large_size = wm_large_size * pin_scale_max / map_canvas_scale;
+		wm_large_size = VT.SETTING.worldmap_large_size;
+		if map_canvas_scale > worldmap_pin_scale_max then
+			wm_large_size = wm_large_size * worldmap_pin_scale_max / map_canvas_scale;
 		end
-		wm_varied_size = SET.varied_size;
-		if map_canvas_scale > pin_scale_max then
-			wm_varied_size = wm_varied_size * pin_scale_max / map_canvas_scale;
+		wm_varied_size = VT.SETTING.worldmap_varied_size;
+		if map_canvas_scale > worldmap_pin_scale_max then
+			wm_varied_size = wm_varied_size * worldmap_pin_scale_max / map_canvas_scale;
 		end
-		SetHideNodeModifier();
+		mm_normal_size = VT.SETTING.minimap_normal_size;
+		mm_large_size = VT.SETTING.minimap_large_size;
+		mm_varied_size = VT.SETTING.minimap_varied_size;
+		SetNodeMenuModifier();
 		SetMinimapPlayerArrowOnTop();
-	end
+	end);
+
 -->
 
 -->		dev
 -->
 
---[=[dev]=]	if __private.__is_dev then __private.__performance_log_tick('module.map'); end

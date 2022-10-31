@@ -1,8 +1,10 @@
 local __addon, __private = ...;
-if not __private.CheckLocale("frFR") then
+local CT = __private.CT;
+
+if CT.LOCALE ~= "frFR" then
 	return;
 end
-__private.LDB.frFR.item = {
+CT.l10nDB.frFR.item = {
 	[25] = "Epée courte usée",
 	[35] = "Bâton tordu",
 	[36] = "Masse détériorée",
