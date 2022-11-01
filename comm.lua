@@ -35,10 +35,11 @@ local DT = __private.DT;
 
 -->
 	local DataAgent = DT.DB;
+	local l10n = CT.l10n;
 
-	local EventDriver = VT.EventAgent;
+	local EventAgent = VT.EventAgent;
 
-	local __main_meta = VT.MAIN_META;
+	local __MAIN_META = VT.MAIN_META;
 
 -->
 MT.BuildEnv("comm");
@@ -61,7 +62,7 @@ MT.BuildEnv("comm");
 	VT.COMM_GROUP_MEMBERS_INFO = GROUP_MEMBERS_INFO;
 	local _Inited = {  };
 	-->		function predef
-		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
+		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, CommResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddSpawn, DelSpawn, AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
@@ -156,7 +157,7 @@ MT.BuildEnv("comm");
 				return UUID[_T][_id];
 			end
 		end
-		function ResetUUID()
+		function CommResetUUID()
 			wipe(_UUID);
 		end
 		MT.CommAddUUID = CommAddUUID;
@@ -438,9 +439,8 @@ MT.BuildEnv("comm");
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						AddItem(name, quest, line2, iid2, show_coords, large_pin);
+						AddItem(name, quest, line, iid2, show_coords, large_pin);
 					end
 				end
 			end
@@ -472,7 +472,6 @@ MT.BuildEnv("comm");
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
 						DelItem(name, quest, line, iid2, total_del, large_pin);
 					end
@@ -606,14 +605,7 @@ MT.BuildEnv("comm");
 				local large_pin = DataAgent.large_pin:Check(quest_id, 'object', _id);
 				DelObject(name, quest_id, _line, _id, total_del, large_pin);
 			elseif _type == 'event' or _type == 'log' then
-				local info = DataAgent.quest[quest_id];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					for i = 1, #events do
-						local event = events[i];
-						DelEvent(name, quest_id, _line, event, total_del, true);
-					end
-				end
+				DelEvent(name, quest_id, _line, _id, total_del, true);
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
@@ -830,7 +822,7 @@ MT.BuildEnv("comm");
 		function PushSingle(name, immediate)
 			MT.Debug('comm.|cffff0000PushSingle|r', name);
 			PushResetSingle(name);
-			for quest, meta in next, __main_meta do
+			for quest, meta in next, __MAIN_META do
 				PushAddQuestSingle(name, quest, meta.completed, meta.title, meta.num_lines);
 				for line = 1, #meta do
 					local meta_line = meta[line];
@@ -950,10 +942,10 @@ MT.BuildEnv("comm");
 						local _act = tonumber(_2);			--	1 = add, -1 = del
 						if _act == -1 then
 							OnCommQuestDel(name, _quest);
-							MT.Debug('|cff00ff7fV1-Quest|r|cffff0000Del|r', name, _quest, _1);
+							MT.Debug('|cff00ff7fV1-Q|r|cffff0000Del|r', name, _quest, _1);
 						elseif _act == 1 then
 							OnCommQuestAdd(name, _quest, tonumber(_1), tonumber(_3), _4);
-							MT.Debug('|cff00ff7fV1-Quest|r|cff00ff00Add|r', name, _quest, _1, _3, _4);
+							MT.Debug('|cff00ff7fV1-Q|r|cff00ff00Add|r', name, _quest, _1, _3, _4);
 						else
 							MT.Debug('|cff00ff7fV1|r |cffff0000Invalid act|r', name, _act, msg);
 						end
@@ -963,7 +955,7 @@ MT.BuildEnv("comm");
 						local meta = META[name][_quest];
 						if meta ~= nil then
 							OnCommQuestLine(name, _quest, tonumber(_2) or _2, _3, tonumber(_4), _5, _1 == "1");
-							MT.Debug('|cff00ff7fV1-Quest|r|cff00ffffLine|r', name, _quest, _2, _3, _4, _1, _5);
+							MT.Debug('|cff00ff7fV1-Q|r|cff00ffffLine|r', name, _quest, _2, _3, _4, _1, _5);
 						end
 					else
 						MT.Debug('|cff00ff7fV2|r |cffff0000Invalid head|r', name, _head, msg);
@@ -977,9 +969,9 @@ MT.BuildEnv("comm");
 			elseif control_code == "_rst__" then
 				OnCommInit(name);
 				_Inited[name] = GetTime();
-				MT.Debug('|cff00ff7fV1-Quest|r|cffff7f00Reset|r', name);
+				MT.Debug('|cff00ff7fV1-Q|r|cffff7f00Reset|r', name);
 			elseif control_code == "_conn_" then
-				MT.Debug('|cff00ff7fV1-Quest|r|cff00ff7fOnline|r', name);
+				MT.Debug('|cff00ff7fV1-Q|r|cff00ff7fOnline|r', name);
 			end
 		end
 		local _NextPushSingle = {  };
@@ -1062,7 +1054,7 @@ MT.BuildEnv("comm");
 		function DisableComm()
 			is_comm_enabled = false;
 			wipe(META);
-			ResetUUID();
+			CommResetUUID();
 			MT.PushAddQuest = noop;
 			MT.PushDelQuest = noop;
 			MT.PushAddLine = noop;
@@ -1133,7 +1125,7 @@ MT.BuildEnv("comm");
 		--			[completed]	-1 = failed, 0 = uncompleted, 1 = completed
 		--			[action]	-1 = sub, 1 = add
 		-->		LINE ^questId^finished ^line^type^id^text
-		function __private.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
+		function EventAgent.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			if prefix == ADDON_PREFIX_V2 then
 				local name = Ambiguate(sender, 'none');
 				if name ~= CT.SELFNAME and GROUP_MEMBERS[name] ~= nil then
@@ -1151,7 +1143,7 @@ MT.BuildEnv("comm");
 				end
 			end
 		end
-		function __private.GROUP_ROSTER_UPDATE()
+		function EventAgent.GROUP_ROSTER_UPDATE()
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1160,7 +1152,7 @@ MT.BuildEnv("comm");
 				MT._TimerStart(UpdateGroupMembers, 0.2, 1);
 			end
 		end
-		function __private.GROUP_FORMED(category, partyGUID)
+		function EventAgent.GROUP_FORMED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1168,7 +1160,7 @@ MT.BuildEnv("comm");
 				EnableComm();
 			end
 		end
-		function __private.GROUP_JOINED(category, partyGUID)
+		function EventAgent.GROUP_JOINED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
@@ -1177,11 +1169,11 @@ MT.BuildEnv("comm");
 				MT._TimerStart(UpdateGroupMembers, 0.2, 1);
 			end
 		end
-		function __private.GROUP_LEFT(category, partyGUID)
+		function EventAgent.GROUP_LEFT(category, partyGUID)
 			MT.Debug('|cff00ff7fGROUP_LEFT|r', category, partyGUID);
 			DisableComm();
 		end
-		function __private.UNIT_CONNECTION(unit, isConnected)
+		function EventAgent.UNIT_CONNECTION(unit, isConnected)
 			if is_comm_enabled then
 				UpdateGroupMembers();
 			end
@@ -1191,13 +1183,13 @@ MT.BuildEnv("comm");
 		DisableComm();
 		local r1, r2 = RegisterAddonMessagePrefix(ADDON_PREFIX_V1), RegisterAddonMessagePrefix(ADDON_PREFIX_V2);
 		if r1 or r2 then
-			EventDriver:RegEvent("CHAT_MSG_ADDON");
-			-- EventDriver:RegEvent("CHAT_MSG_ADDON_LOGGED");
-			EventDriver:RegEvent("GROUP_ROSTER_UPDATE");
-			-- EventDriver:RegEvent("GROUP_FORMED");
-			EventDriver:RegEvent("GROUP_JOINED");
-			EventDriver:RegEvent("GROUP_LEFT");
-			EventDriver:RegEvent("UNIT_CONNECTION");
+			EventAgent:RegEvent("CHAT_MSG_ADDON");
+			-- EventAgent:RegEvent("CHAT_MSG_ADDON_LOGGED");
+			EventAgent:RegEvent("GROUP_ROSTER_UPDATE");
+			-- EventAgent:RegEvent("GROUP_FORMED");
+			EventAgent:RegEvent("GROUP_JOINED");
+			EventAgent:RegEvent("GROUP_LEFT");
+			EventAgent:RegEvent("UNIT_CONNECTION");
 			if IsInGroup(LE_PARTY_CATEGORY_HOME) and not IsInRaid(LE_PARTY_CATEGORY_HOME) and not UnitInBattleground('player') then
 				EnableComm();
 				MT._TimerStart(UpdateGroupMembers, 0.2, 1);

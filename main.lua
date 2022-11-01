@@ -35,7 +35,7 @@ local DT = __private.DT;
 	local DataAgent = DT.DB;
 	local l10n = CT.l10n;
 
-	local EventDriver = VT.EventAgent;
+	local EventAgent = VT.EventAgent;
 
 -->
 MT.BuildEnv("main");
@@ -65,7 +65,7 @@ MT.BuildEnv("main");
 	VT.MAIN_QUESTS_COMPLETED = QUESTS_COMPLETED;
 	-->		function predef
 		local GetColor3, RelColor3, GetColor3NextIndex, ResetColor3;
-		local CoreAddUUID, CoreSubUUID, CoreGetUUID, ResetUUID;
+		local CoreAddUUID, CoreSubUUID, CoreGetUUID, CoreResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddObjectLookup;
 		local AddSpawn, DelSpawn, AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
@@ -242,7 +242,7 @@ MT.BuildEnv("main");
 		function CoreGetUUID(_T, _id)
 			return UUID[_T][_id];
 		end
-		function ResetUUID()
+		function CoreResetUUID()
 			wipe(UUID.event);
 			wipe(UUID.item);
 			wipe(UUID.object);
@@ -572,7 +572,6 @@ MT.BuildEnv("main");
 					end
 				end
 				if info.I ~= nil then
-					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
 						local large_pin = DataAgent.large_pin:Check(quest, 'item', iid2);
 						AddItem(quest, line, iid2, show_coords, large_pin);
@@ -607,7 +606,6 @@ MT.BuildEnv("main");
 					end
 				end
 				if info.I ~= nil then
-					-- local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
 						local large_pin = DataAgent.large_pin:Check(quest, 'item', iid2);
 						DelItem(quest, line, iid2, total_del, large_pin);
@@ -1434,7 +1432,7 @@ MT.BuildEnv("main");
 		function MT.ResetCore()
 			wipe(META);
 			ResetColor3();
-			ResetUUID();
+			CoreResetUUID();
 			wipe(COMMON_UUID_FLAG);
 			wipe(LARGE_UUID_FLAG);
 			wipe(VARIED_UUID_FLAG);
@@ -1443,9 +1441,9 @@ MT.BuildEnv("main");
 	-->
 	-->		events and hooks
 		--
-		function __private.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
+		function EventAgent.PLAYER_LEVEL_CHANGED(oldLevel, newLevel)
 		end
-		function __private.PLAYER_LEVEL_UP(level)
+		function EventAgent.PLAYER_LEVEL_UP(level)
 			MT.Debug('PLAYER_LEVEL_UP', level);
 			local cur_level = level;
 			VT.PlayerLevel = cur_level;
@@ -1455,15 +1453,15 @@ MT.BuildEnv("main");
 			MT.Debug('color:0', VT.QuestLvGreen, VT.QuestLvYellow, VT.QuestLvOrange, VT.QuestLvRed);
 			-- MT._TimerStart(UpdateQuestGivers, 0.2, 1);
 		end
-		function __private.QUEST_LOG_UPDATE()
+		function EventAgent.QUEST_LOG_UPDATE()
 			MT.Debug('QUEST_LOG_UPDATE');
 			MT._TimerStart(UpdateQuests, 0.2, 1);
 		end
-		function __private.UNIT_QUEST_LOG_CHANGED(unit, ...)
+		function EventAgent.UNIT_QUEST_LOG_CHANGED(unit, ...)
 			MT.Debug('UNIT_QUEST_LOG_CHANGED', unit, ...);
 			MT._TimerStart(UpdateQuests, 0.2, 1);
 		end
-		function __private.QUEST_ACCEPTED(index, quest_id)
+		function EventAgent.QUEST_ACCEPTED(index, quest_id)
 			MT.Debug('QUEST_ACCEPTED', index, quest_id);
 			MT._TimerStart(UpdateQuests, 0.2, 1);
 			MT._TimerStart(UpdateQuestGivers, 0.2, 1);
@@ -1473,7 +1471,7 @@ MT.BuildEnv("main");
 			MT._TimerStart(UpdateQuests, 0.2, 1);
 			MT._TimerStart(UpdateQuestGivers, 0.2, 1);
 		end
-		function __private.QUEST_TURNED_IN(quest_id, xp, money)
+		function EventAgent.QUEST_TURNED_IN(quest_id, xp, money)
 			MT.Debug('QUEST_TURNED_IN', quest_id, xp, money);
 			QUESTS_COMPLETED[quest_id] = true;
 			QUEST_TURNED_IN();
@@ -1509,7 +1507,7 @@ MT.BuildEnv("main");
 				end
 			end
 		end
-		function __private.QUEST_REMOVED(quest_id)
+		function EventAgent.QUEST_REMOVED(quest_id)
 			MT.Debug('QUEST_REMOVED', quest_id);
 			MT._TimerStart(UpdateQuests, 0.2, 1);
 			MT._TimerStart(UpdateQuestGivers, 0.2, 1);
@@ -1538,29 +1536,29 @@ MT.BuildEnv("main");
 	end
 	MT.RegisterOnLogin("main", function(LoggedIn)
 		SetupCompleted();
-		-- EventDriver:RegEvent("ADDON_LOADED");
-		-- EventDriver:RegEvent("PLAYER_ENTERING_WORLD");
-		-- EventDriver:RegEvent("SKILL_LINES_CHANGED");
+		-- EventAgent:RegEvent("ADDON_LOADED");
+		-- EventAgent:RegEvent("PLAYER_ENTERING_WORLD");
+		-- EventAgent:RegEvent("SKILL_LINES_CHANGED");
 
-		-- EventDriver:RegEvent("QUEST_FINISHED");
-		-- EventDriver:RegEvent("QUEST_REMOVED");
+		-- EventAgent:RegEvent("QUEST_FINISHED");
+		-- EventAgent:RegEvent("QUEST_REMOVED");
 		--
-		-- EventDriver:RegEvent("QUEST_WATCH_UPDATE");
+		-- EventAgent:RegEvent("QUEST_WATCH_UPDATE");
 		--
-		-- EventDriver:RegEvent("QUEST_AUTOCOMPLETE");	--	quest_id
-		-- EventDriver:RegEvent("QUEST_LOG_CRITERIA_UPDATE");	--	inexistant
+		-- EventAgent:RegEvent("QUEST_AUTOCOMPLETE");	--	quest_id
+		-- EventAgent:RegEvent("QUEST_LOG_CRITERIA_UPDATE");	--	inexistant
 				--	quest_id, specificTreeID, description, numFulfilled, numRequired	
 		--
-		EventDriver:RegEvent("PLAYER_LEVEL_UP");
+		EventAgent:RegEvent("PLAYER_LEVEL_UP");
 		--
-		EventDriver:RegEvent("QUEST_LOG_UPDATE");
-		-- EventDriver:RegEvent("UNIT_QUEST_LOG_CHANGED");
-		EventDriver:RegEvent("QUEST_ACCEPTED");			--	questIndex, questId
-		EventDriver:RegEvent("QUEST_TURNED_IN");			--	quest_id, xpReward, moneyReward
-		EventDriver:RegEvent("QUEST_REMOVED");			--	quest_id, wasReplayQuest
+		EventAgent:RegEvent("QUEST_LOG_UPDATE");
+		-- EventAgent:RegEvent("UNIT_QUEST_LOG_CHANGED");
+		EventAgent:RegEvent("QUEST_ACCEPTED");			--	questIndex, questId
+		EventAgent:RegEvent("QUEST_TURNED_IN");			--	quest_id, xpReward, moneyReward
+		EventAgent:RegEvent("QUEST_REMOVED");			--	quest_id, wasReplayQuest
 		--
-		EventDriver:RegEvent("NAME_PLATE_UNIT_ADDED");
-		EventDriver:RegEvent("NAME_PLATE_UNIT_REMOVED");
+		EventAgent:RegEvent("NAME_PLATE_UNIT_ADDED");
+		EventAgent:RegEvent("NAME_PLATE_UNIT_REMOVED");
 		--
 		MT._TimerStart(UpdateQuests, 0.2, 1);
 		MT._TimerStart(CalcQuestColor, 0.2, 1);

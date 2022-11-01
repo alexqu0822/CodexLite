@@ -28,8 +28,6 @@ local DT = __private.DT;
 	local DataAgent = DT.DB;
 	local l10n = CT.l10n;
 
-	local EventDriver = VT.EventAgent;
-
 	local IMG_CLOSE = CT.IMG_PATH .. "close";
 	local _font, _fontsize = SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 
@@ -939,5 +937,3 @@ MT.BuildEnv("setting");
 		VT.SettingUI:Show();
 	end
 -->
-
-

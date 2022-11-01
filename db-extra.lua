@@ -214,7 +214,7 @@ MT.BuildEnv("db-extra");
 	end
 
 	local function VerifyData()
-		MT.Print("|cffff7f00Start|r |cffff0000VerifyData|r");
+		MT.Debug("|cffff7f00Start|r |cffff0000VerifyData|r");
 		local vitem, vobject, vunit, vrefloot;
 		local VI, VO, VU, VR = {  }, {  }, {  }, {  };
 		function vitem(t, k, id, hu, hi, ho, path)
@@ -342,7 +342,7 @@ MT.BuildEnv("db-extra");
 		for object, info in next, DataAgent.object do
 			vobject('object', object, object, {  }, {  }, {  }, "");
 		end
-		MT.Print("|cff00ff00Finish|r |cffff0000VerifyData|r");
+		MT.Debug("|cff00ff00Finish|r |cffff0000VerifyData|r");
 	end
 
 	MT.RegisterOnLogin("db-extra", function(LoggedIn)
@@ -355,11 +355,9 @@ MT.BuildEnv("db-extra");
 				chain_prev_quest[_next] = quest;
 			end
 		end
-		local __db_worldevent = DataAgent.worldevent;
-		local __db_worldeventperiod = DataAgent.worldeventperiod;
 		local today = date("*t");
 		local year, month, day, wday = today.year, today.month, today.day, today.wday;
-		for event, limits in next, __db_worldeventperiod do
+		for event, limits in next, DataAgent.worldeventperiod do
 			local limit = limits[year] or limits["*"];
 			if limit == nil or
 				(limit[1] <= limit[3] and (month < limit[1] or month > limit[3])) or
@@ -367,12 +365,12 @@ MT.BuildEnv("db-extra");
 				(month == limit[1] and day < limit[2]) or
 				(month == limit[3] and day > limit[4])
 			then
-				local eventquests = __db_worldevent[event];
+				local eventquests = DataAgent.worldevent[event];
 				for _, quest in next, eventquests do
 					DataAgent.blacklist_quest[quest] = true;
 				end
 			else
-				local eventquests = __db_worldevent[event];
+				local eventquests = DataAgent.worldevent[event];
 				for _, quest in next, eventquests do
 					DataAgent.blacklist_quest[quest] = nil;
 				end

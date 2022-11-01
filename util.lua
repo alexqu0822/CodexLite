@@ -73,13 +73,12 @@ local DT = __private.DT;
 	local DataAgent = DT.DB;
 	local l10n = CT.l10n;
 
-	local EventDriver = VT.EventAgent;
+	local EventAgent = VT.EventAgent;
 
-	local __main_meta = VT.MAIN_META;
-	local __main_obj_lookup = VT.MAIN_OBJ_LOOKUP;
-	local __main_quests_completed = VT.MAIN_QUESTS_COMPLETED;
-	local __comm_meta = VT.COMM_META;
-	local __comm_obj_lookup = VT.COMM_OBJ_LOOKUP;
+	local __MAIN_META = VT.MAIN_META;
+	local __MAIN_OBJ_LOOKUP = VT.MAIN_OBJ_LOOKUP;
+	local __MAIN_QUESTS_COMPLETED = VT.MAIN_QUESTS_COMPLETED;
+	local __COMM_META = VT.COMM_META;
 
 	local TIP_IMG_S_NORMAL = CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_S_NORMAL];
 	local IMG_TAG_CPL = "|T" .. CT.IMG_PATH .. "TAG_CPL" .. ":0|t";
@@ -202,7 +201,7 @@ MT.BuildEnv("util");
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
 			if next(refs) ~= nil then
-				META = META or __main_meta;
+				META = META or __MAIN_META;
 				for quest, ref in next, refs do
 					local meta = META[quest];
 					local info = DataAgent.quest[quest];
@@ -407,7 +406,7 @@ MT.BuildEnv("util");
 									reshow = true;
 								end
 								for name, val in next, VT.COMM_GROUP_MEMBERS do
-									local meta_table = __comm_meta[name];
+									local meta_table = __COMM_META[name];
 									if meta_table ~= nil then
 										local uuid = MT.CommGetUUID(name, 'unit', _id);
 										if uuid ~= nil and next(uuid[4]) ~= nil then
@@ -439,7 +438,7 @@ MT.BuildEnv("util");
 							local reshow = false;
 							local modifier = IsShiftKeyDown();
 							for _, quest in next, QUESTS do
-								local meta = __main_meta[quest];
+								local meta = __MAIN_META[quest];
 								if meta ~= nil then
 									local qinfo = DataAgent.quest[quest];
 									local color = CT.IMG_LIST[MT.GetQuestStartTexture(qinfo)];
@@ -473,27 +472,27 @@ MT.BuildEnv("util");
 							end
 							if modifier then
 								for _, quest in next, QUESTS do
-									if __main_meta[quest] == nil and DataAgent.avl_quest_hash[quest] ~= nil then
+									if __MAIN_META[quest] == nil and DataAgent.avl_quest_hash[quest] ~= nil then
 										local qinfo = DataAgent.quest[quest];
 										local color = CT.IMG_LIST[MT.GetQuestStartTexture(qinfo)];
 										local lvl_str = GetLevelTag(quest, qinfo, true);
 										local loc = l10n.quest[quest];
 										if loc ~= nil then
 											if VT.SETTING.show_id_in_tooltip then
-												if __main_quests_completed[quest] ~= nil then
+												if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 												else
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 												end
 											else
-												if __main_quests_completed[quest] ~= nil then
+												if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1], color[2], color[3], color[4]);
 												else
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1], color[2], color[3], color[4]);
 												end
 											end
 										else
-											if __main_quests_completed[quest] ~= nil then
+											if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
 											else
 												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
@@ -504,7 +503,7 @@ MT.BuildEnv("util");
 								end
 							end
 							for name, val in next, VT.COMM_GROUP_MEMBERS do
-								local meta_table = __comm_meta[name];
+								local meta_table = __COMM_META[name];
 								if meta_table ~= nil then
 									local first_line_of_partner = true;
 									for _, quest in next, QUESTS do
@@ -559,7 +558,7 @@ MT.BuildEnv("util");
 							local reshow = false;
 							tip.__TextLeft1Text = text;
 							local map = MT.GetPlayerZone();
-							local oid = __main_obj_lookup[map] ~= nil and __main_obj_lookup[map][text] or __main_obj_lookup["*"][text];
+							local oid = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
 							if oid ~= nil then
 								local uuid = MT.CoreGetUUID('object', oid);
 								if uuid ~= nil then
@@ -567,7 +566,7 @@ MT.BuildEnv("util");
 									reshow = true;
 								end
 								for name, val in next, VT.COMM_GROUP_MEMBERS do
-									local meta_table = __comm_meta[name];
+									local meta_table = __COMM_META[name];
 									if meta_table ~= nil then
 										local uuid = MT.CommGetUUID(name, 'object', oid);
 										if uuid ~= nil then
@@ -579,9 +578,6 @@ MT.BuildEnv("util");
 									end
 								end
 							end
-							local oid = __comm_obj_lookup[text];
-							if oid ~= nil then
-							end
 							if reshow then
 								tip:Show();
 							end
@@ -592,7 +588,7 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function __private.MODIFIER_STATE_CHANGED()
+		function EventAgent.MODIFIER_STATE_CHANGED()
 			local focus = GetMouseFocus();
 			if focus ~= nil and focus.__PIN_TAG ~= nil then
 				MT.Pin_OnEnter(focus);
@@ -668,7 +664,7 @@ MT.BuildEnv("util");
 				TooltipSetQuestTip(tip, uuid);
 			end
 			for name, val in next, VT.COMM_GROUP_MEMBERS do
-				local meta_table = __comm_meta[name];
+				local meta_table = __COMM_META[name];
 				if meta_table ~= nil then
 					local uuid = MT.CommGetUUID(name, type, id);
 					if uuid ~= nil and next(uuid[4]) ~= nil then
@@ -758,7 +754,7 @@ MT.BuildEnv("util");
 			end
 		end
 	-->		Auto Accept and Turnin
-		function __private.GOSSIP_SHOW()
+		function EventAgent.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
 				for i = 1, GetNumGossipActiveQuests() do
@@ -785,7 +781,7 @@ MT.BuildEnv("util");
 			-- 	end
 			-- end
 		end
-		function __private.QUEST_GREETING()
+		function EventAgent.QUEST_GREETING()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
 				for i = 1, GetNumActiveQuests() do
@@ -804,14 +800,14 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function __private.QUEST_DETAIL()
+		function EventAgent.QUEST_DETAIL()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_accept ~= modstate then
 				AcceptQuest();
 				QuestFrame:Hide();
 			end
 		end
-		function __private.QUEST_PROGRESS()
+		function EventAgent.QUEST_PROGRESS()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
 				if IsQuestCompletable() then
@@ -819,7 +815,7 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function __private.QUEST_COMPLETE()
+		function EventAgent.QUEST_COMPLETE()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
 				local _NumChoices = GetNumQuestChoices();
@@ -828,14 +824,14 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function __private.QUEST_ACCEPT_CONFIRM()
+		function EventAgent.QUEST_ACCEPT_CONFIRM()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_accept ~= modstate then
 				ConfirmAcceptQuest() ;
 				StaticPopup_Hide("QUEST_ACCEPT");
 			end
 		end
-		function __private.QUEST_AUTOCOMPLETE(id)
+		function EventAgent.QUEST_AUTOCOMPLETE(id)
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
 				local index = GetQuestLogIndexByID(id);
@@ -975,7 +971,7 @@ MT.BuildEnv("util");
 			if id ~= nil then
 				id = tonumber(id);
 				if id ~= nil then
-					local meta = __main_meta[id];
+					local meta = __MAIN_META[id];
 					local info = DataAgent.quest[id];
 					if meta ~= nil then
 						ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
@@ -1008,7 +1004,7 @@ MT.BuildEnv("util");
 							ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
 							local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 							ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "|r");
-							if __main_quests_completed[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
+							if __MAIN_QUESTS_COMPLETED[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
 								ItemRefTooltip:AddLine(l10n.ui.COMPLETED, 0.0, 1.0, 0.0);
 							end
 							local lines = loc[3];
@@ -1159,15 +1155,15 @@ MT.BuildEnv("util");
 			updateTimer = 0.0;
 		end);
 		GameTooltip:HookScript("OnUpdate", TooltipOnUpdate);
-		EventDriver:RegEvent("MODIFIER_STATE_CHANGED");
+		EventAgent:RegEvent("MODIFIER_STATE_CHANGED");
 		--
-		EventDriver:RegEvent("GOSSIP_SHOW");
-		EventDriver:RegEvent("QUEST_GREETING");
-		EventDriver:RegEvent("QUEST_DETAIL");
-		EventDriver:RegEvent("QUEST_PROGRESS");
-		EventDriver:RegEvent("QUEST_COMPLETE");
-		EventDriver:RegEvent("QUEST_ACCEPT_CONFIRM");
-		EventDriver:RegEvent("QUEST_AUTOCOMPLETE");
+		EventAgent:RegEvent("GOSSIP_SHOW");
+		EventAgent:RegEvent("QUEST_GREETING");
+		EventAgent:RegEvent("QUEST_DETAIL");
+		EventAgent:RegEvent("QUEST_PROGRESS");
+		EventAgent:RegEvent("QUEST_COMPLETE");
+		EventAgent:RegEvent("QUEST_ACCEPT_CONFIRM");
+		EventAgent:RegEvent("QUEST_AUTOCOMPLETE");
 		--
 		CreateDBIcon();
 		CreateWorldMapPinSwitch();

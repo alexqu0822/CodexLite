@@ -12,7 +12,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	local setfenv = setfenv;
 	local loadstring, pcall, xpcall = loadstring, pcall, xpcall;
 	local geterrorhandler = geterrorhandler;
-	local date = date;
+	local print, date = print, date;
 	local type = type;
 	local tostring = tostring;
 	local select = select;
@@ -105,6 +105,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	CT.SELFRACE, CT.SELFRACEFILE, CT.SELFRACEID = UnitRace('player');
 	CT.SELFCLASS = UnitClassBase('player');
 	CT.SELFFACTION = UnitFactionGroup('player');
+
 	CT.TAG_DEFAULT = '__pin_tag_default';
 	CT.TAG_WM_COMMON = '__pin_tag_wm_common';
 	CT.TAG_WM_LARGE = '__pin_tag_wm_large';
@@ -241,149 +242,19 @@ MT.BuildEnv('Init');
 -->		predef
 	MT.GetUnifiedTime = _G.GetTimePreciseSec;
 	MT.After = _G.C_Timer.After;
-	-->		Print
-	local PrintMethod_Env = {
-		GetUnifiedTime = MT.GetUnifiedTime,
-		date = _G.date,
-		select = _G.select,
-		tostring = _G.tostring,
-		tconcat = _G.table.concat,
-		MessageFrame = _G.DEFAULT_CHAT_FRAME,
-		PrintedMessage = {  },
-	};
-	local PrintMethod = setmetatable(
-		{
-			--	Prevent to destroy /tinspect
-			GetParent = false,
-			SetShown = false,
-			GetDebugName = false,
-			IsObjectType = false,
-			GetChildren = false,
-			GetRegions = false,
-			--
-			["*"] = setfenv(
-				function(MinInt, ...)
-					local argsv = { ... };
-					for index = 1, select("#", ...) do
-						argsv[index] = tostring(argsv[index]);
-					end
-					local msg = tconcat(argsv, " ");
-					if MinInt == nil then
-						MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg);
-						PrintedMessage[msg] = GetUnifiedTime();
-					else
-						if MinInt == true then MinInt = 0.1; end
-						local prev = PrintedMessage[msg];
-						local curr = GetUnifiedTime();
-						if prev == nil or curr - prev > MinInt then
-							PrintedMessage[msg] = curr;
-							MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg);
-						end
-					end
-					return msg;
-				end,
-				PrintMethod_Env
-			),
-			[0] = setfenv(
-				function(MinInt)
-					if MinInt == nil then
-						MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r nil"));
-						PrintedMessage["nil"] = GetUnifiedTime();
-					else
-						if MinInt == true then MinInt = 0.1; end
-						local prev = PrintedMessage["nil"];
-						local curr = GetUnifiedTime();
-						if prev == nil or curr - prev > MinInt then
-							PrintedMessage["nil"] = curr;
-							MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r nil"));
-						end
-					end
-					return "nil";
-				end,
-				PrintMethod_Env
-			),
-		},
-		{
-			__index = function(tbl, nargs)
-				if nargs > 0 and nargs < 8 then
-					local head = [[return function(MinInt, arg1]];
-					local body =                             [[) ]]
-							  .. [[  local msg = tostring(arg1)]];
-					local tail =                             [[ ]]
-							  .. [[  if MinInt == nil then ]]
-							  .. [[    MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg) ]]
-							  .. [[    PrintedMessage[msg] = GetUnifiedTime() ]]
-							  .. [[  else ]]
-							  .. [[    if MinInt == true then MinInt = 0.1 end ]]
-							  .. [[    local prev = PrintedMessage[msg] ]]
-							  .. [[    local curr = GetUnifiedTime() ]]
-							  .. [[    if prev == nil or curr - prev > MinInt then ]]
-							  .. [[      PrintedMessage[msg] = curr ]]
-							  .. [[      MessageFrame:AddMessage(date("|cffff7f00>|r |cff00ff00%H:%M:%S|r ") .. msg) ]]
-							  .. [[    end ]]
-							  .. [[  end ]]
-							  .. [[  return msg ]]
-							  .. [[end ]];
-					for index = 2, nargs do
-						head = head .. [[, arg]] .. index;
-						body = body .. [[ .. " " .. tostring(arg]] .. index .. [[)]];
-					end
-					local Func0, err = loadstring(head .. body .. tail);
-					if Func0 == nil then
-						local Func = tbl["*"];
-						tbl[nargs] = Func;
-						return Func;
-					else
-						local _, Func = pcall(Func0);
-						if Func == nil then
-							Func = tbl["*"];
-						else
-							setfenv(Func, PrintMethod_Env);
-						end
-						tbl[nargs] = Func;
-						return Func;
-					end
-				else
-					local Func = tbl["*"];
-					tbl[nargs] = Func;
-					return Func;
-				end
-			end,
-		}
-	);
-	for index = 1, 8 do
-		local Func = PrintMethod[index];
-	end
-	function MT.Print(...)
-		local Func = PrintMethod[select("#", ...)];
-		if Func ~= nil then
-			return Func(nil, ...);
-		end
-	end
-	function MT.PrintThrottle(MinInt, ...)
-		local Func = PrintMethod[select("#", ...)];
-		if Func ~= nil then
-			return Func(MinInt, ...);
-		end
-	end
-	function MT.SetDefaultMessageFrame(Frame)
-		if Frame ~= nil then
-			PrintMethod_Env.MessageFrame = Frame;
-		end
-	end
-	MT.SetDefaultMessageFrame(_G.DEFAULT_CHAT_FRAME);
-	-->
+	
+	MT.Print = print;
 	function MT.Error(...)
-		return MT.Print("|cffff0000**|r", ...);
-	end;
-	function MT.ErrorFormat(...)
-		return MT.Error(format(...));
+		return MT.Print(date('|cff00ff00%H:%M:%S|r'), ...);
 	end
 	function MT.DebugDev(...)
-		return MT.Print("|cffffff00**|r", ...);
-	end;
+		return MT.Print(date('|cff00ff00%H:%M:%S|r'), ...);
+	end
 	function MT.DebugRelease(...)
-	end;
+	end
+	function MT.Notice(...)
+		MT.Print(date('|cffff0000%H:%M:%S|r'), ...);
+	end
 
 	local _TimerPrivate = {  };		--	[callback] = { periodic, int, running, halting, limit, };
 	function MT._TimerStart(callback, int, limit)
@@ -598,12 +469,12 @@ MT.BuildEnv('Init');
 	local EventAgent = CreateFrame('FRAME');
 	VT.EventAgent = EventAgent;
 	local function OnEvent(self, event, ...)
-		return __private[event](...);
+		return EventAgent[event](...);
 	end
 	function EventAgent:RegEvent(event, func)
-		func = func or __private[event];
+		func = func or EventAgent[event];
 		if func ~= nil then
-			__private[event] = func;
+			EventAgent[event] = func;
 			self:RegisterEvent(event);
 			self:SetScript("OnEvent", OnEvent);
 		end
@@ -612,8 +483,8 @@ MT.BuildEnv('Init');
 		self:UnregisterEvent(event);
 	end
 	function MT.FireEvent(event, ...)
-		local func = __private[event];
-		if func then
+		local func = EventAgent[event];
+		if func ~= nil then
 			return func(...);
 		end
 	end

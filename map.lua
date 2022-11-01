@@ -30,9 +30,9 @@ local DT = __private.DT;
 	local DataAgent = DT.DB;
 	local l10n = CT.l10n;
 
-	local EventDriver = VT.EventAgent;
+	local EventAgent = VT.EventAgent;
 
-	local __main_meta = VT.MAIN_META;
+	local __MAIN_META = VT.MAIN_META;
 
 
 	-- local pinFrameLevel = WorldMapFrame:GetPinFrameLevelsManager():GetValidFrameLevel("PIN_FRAME_LEVEL_AREA_POI");
@@ -282,7 +282,7 @@ MT.BuildEnv("map");
 	-->
 	local function UUIDCheckState(uuid, val)
 		for quest, refs in next, uuid[4] do
-			local meta = __main_meta[quest];
+			local meta = __MAIN_META[quest];
 			if meta ~= nil and QUEST_TEMPORARILY_BLOCKED[quest] ~= true and QUEST_PERMANENTLY_BLOCKED[quest] ~= true then
 				for line, texture in next, refs do
 					if line == 'extra' then
@@ -1245,11 +1245,11 @@ MT.BuildEnv("map");
 			end
 			mm_arrow:Hide();
 		end
-		function __private.MINIMAP_UPDATE_ZOOM()
+		function EventAgent.MINIMAP_UPDATE_ZOOM()
 			-- MT._TimerStart(Minimap_DrawNodes, 0.2, 1);
 			-- MT.Debug('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
 		end
-		function __private.CVAR_UPDATE()
+		function EventAgent.CVAR_UPDATE()
 			local is_rotate = GetCVar("rotateMinimap") == "1";
 			if mm_is_rotate ~= is_rotate then
 				mm_is_rotate = is_rotate;
@@ -1646,7 +1646,7 @@ MT.BuildEnv("map");
 			function mapCallback:OnCanvasSizeChanged()
 			end
 		-->
-		function __private.__PLAYER_ZONE_CHANGED(map)
+		function EventAgent.__PLAYER_ZONE_CHANGED(map)
 			mm_map = map;
 			Minimap_HideNodes();
 			Minimap_DrawNodesMap(map);
@@ -1684,8 +1684,8 @@ MT.BuildEnv("map");
 		WorldMapFrame:AddDataProvider(mapCallback);
 		wm_map = -1;
 		mapCallback:OnMapChanged();
-		EventDriver:RegEvent("MINIMAP_UPDATE_ZOOM");
-		EventDriver:RegEvent("CVAR_UPDATE");
+		EventAgent:RegEvent("MINIMAP_UPDATE_ZOOM");
+		EventAgent:RegEvent("CVAR_UPDATE");
 		mm_is_rotate = GetCVar("rotateMinimap") == "1";
 		Minimap:HookScript("OnUpdate", Minimap_OnUpdate);
 		--
@@ -1712,7 +1712,3 @@ MT.BuildEnv("map");
 	end);
 
 -->
-
--->		dev
--->
-
