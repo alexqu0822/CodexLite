@@ -62,14 +62,14 @@ MT.BuildEnv('MapAgent');
 	local transformData = nil;	--	from HBD
 	local worldMapData = nil;	--	[instance] = { 1width, 2height, 3left, 4top, }
 	local FixedMapType = nil;
-	if CT.TOC < 20000 then
+	if CT.TOCVERSION < 20000 then
 		transformData = {  };
 		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
 		};
 		FixedMapType = {  };
-	elseif CT.TOC < 30000 then
+	elseif CT.TOCVERSION < 30000 then
 		transformData = {
 			{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 			{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
@@ -79,7 +79,7 @@ MT.BuildEnv('MapAgent');
 			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
 		};
 		FixedMapType = {  };
-	elseif CT.TOC < 40000 then
+	elseif CT.TOCVERSION < 40000 then
 		transformData = {
 			{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 			{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
@@ -484,7 +484,7 @@ MT.BuildEnv('MapAgent');
 		for map = 1, 2000 do
 			processMap(map);
 		end
-		if CT.TOC >= 20000 and CT.TOC < 40000 then
+		if CT.TOCVERSION >= 20000 and CT.TOCVERSION < 40000 then
 			local adjoined_fix = {
 				[1438] = { 1457, },	--	泰达希尔
 				[1457] = { 1438, },	--	达纳苏斯

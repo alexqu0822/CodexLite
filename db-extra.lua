@@ -346,6 +346,55 @@ MT.BuildEnv("db-extra");
 	end
 
 	MT.RegisterOnLogin("db-extra", function(LoggedIn)
+	-->		patch
+		local function patchDB(fix)
+			for key, patch in next, fix do
+				local db = DataAgent[key];
+				if db ~= nil then
+					for id, val in next, patch do
+						local t = db[id];
+						if t ~= nil then
+							for k, v in next, val do
+								if v == "_NIL" then
+									t[k] = nil;
+								else
+									t[k] = v;
+								end
+							end
+						else
+							db[id] = val;
+						end
+					end
+				end
+			end
+		end
+		patchDB(DataAgent.fix);
+		if CT.SELFFACTION == "Alliance" then
+			patchDB(DataAgent.fix_alliance);
+		else
+			patchDB(DataAgent.fix_horde);
+		end
+		if DataAgent.override ~= nil then
+			for key, patch in next, DataAgent.override do
+				local db = DataAgent[key];
+				if db ~= nil then
+					for id, val in next, patch do
+						db[id] = val;
+					end
+				end
+			end
+		end
+		for id, val in next, DataAgent.waypoints do
+			local waypoints = {  };
+			for _, tbl in next, val do
+				for _, p in next, tbl do
+					waypoints[#waypoints + 1] = p;
+				end
+			end
+			DataAgent.unit[id] = DataAgent.unit[id] or {  };
+			DataAgent.unit[id].waypoints = waypoints;
+		end
+	-->		Misc
 		if VT.__is_dev then
 			VerifyData();
 		end
@@ -571,14 +620,14 @@ MT.BuildEnv("db-extra");
 				end
 			end
 		-->
-		-->
+		-->		Large Pin
 			for quest, info in next, DataAgent.quest do
 				local _obj = info['obj'];
 				if _obj ~= nil then
 					if _obj.U ~= nil then
 						for _, unit in next, _obj.U do
 							local uinfo = DataAgent.unit[unit];
-							if uinfo ~= nil and uinfo.coords ~= nil and #uinfo.coords == 1 then
+							if uinfo ~= nil and uinfo.waypoints == nil and uinfo.coords ~= nil and #uinfo.coords == 1 then
 								DataAgent.large_pin[quest] = DataAgent.large_pin[quest] or {  };
 								DataAgent.large_pin[quest].unit = DataAgent.large_pin[quest].unit or {  };
 								DataAgent.large_pin[quest].unit[unit] = 1;
@@ -665,54 +714,6 @@ MT.BuildEnv("db-extra");
 				end
 			end
 		-->
-	-->		patch
-		local function patchDB(fix)
-			for key, patch in next, fix do
-				local db = DataAgent[key];
-				if db ~= nil then
-					for id, val in next, patch do
-						local t = db[id];
-						if t ~= nil then
-							for k, v in next, val do
-								if v == "_NIL" then
-									t[k] = nil;
-								else
-									t[k] = v;
-								end
-							end
-						else
-							db[id] = val;
-						end
-					end
-				end
-			end
-		end
-		patchDB(DataAgent.fix);
-		if CT.SELFFACTION == "Alliance" then
-			patchDB(DataAgent.fix_alliance);
-		else
-			patchDB(DataAgent.fix_horde);
-		end
-		if DataAgent.override ~= nil then
-			for key, patch in next, DataAgent.override do
-				local db = DataAgent[key];
-				if db ~= nil then
-					for id, val in next, patch do
-						db[id] = val;
-					end
-				end
-			end
-		end
-		for id, val in next, DataAgent.waypoints do
-			local waypoints = {  };
-			for _, tbl in next, val do
-				for _, p in next, tbl do
-					waypoints[#waypoints + 1] = p;
-				end
-			end
-			DataAgent.unit[id] = DataAgent.unit[id] or {  };
-			DataAgent.unit[id].waypoints = waypoints;
-		end
 
 	end);
 

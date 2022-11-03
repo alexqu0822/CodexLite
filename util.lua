@@ -81,9 +81,9 @@ local DT = __private.DT;
 	local __COMM_META = VT.COMM_META;
 
 	local TIP_IMG_S_NORMAL = CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_S_NORMAL];
-	local IMG_TAG_CPL = "|T" .. CT.IMG_PATH .. "TAG_CPL" .. ":0|t";
-	local IMG_TAG_PRG = "|T" .. CT.IMG_PATH .. "TAG_PRG" .. ":0|t";
-	local IMG_TAG_UNCPL = "|T" .. CT.IMG_PATH .. "TAG_UNCPL" .. ":0|t";
+	local IMG_TAG_CPL = "|T" .. CT.TEXTUREPATH .. "TAG_CPL" .. ":0|t";
+	local IMG_TAG_PRG = "|T" .. CT.TEXTUREPATH .. "TAG_PRG" .. ":0|t";
+	local IMG_TAG_UNCPL = "|T" .. CT.TEXTUREPATH .. "TAG_UNCPL" .. ":0|t";
 
 -->
 MT.BuildEnv("util");
@@ -569,7 +569,7 @@ MT.BuildEnv("util");
 									local meta_table = __COMM_META[name];
 									if meta_table ~= nil then
 										local uuid = MT.CommGetUUID(name, 'object', oid);
-										if uuid ~= nil then
+										if uuid ~= nil and next(uuid[4]) ~= nil then
 											local info = VT.COMM_GROUP_MEMBERS_INFO[name];
 											tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											TooltipSetQuestTip(tip, uuid, meta_table);
@@ -891,7 +891,7 @@ MT.BuildEnv("util");
 					if Icon ~= nil then
 						D = Icon:CreateTexture(nil, "OVERLAY");
 						D:SetAllPoints(Icon.icon);
-						D:SetTexture(CT.IMG_PATH .. "close");
+						D:SetTexture(CT.TEXTUREPATH .. "close");
 						D:SetShown(not VT.SETTING.show_minimappin);
 					end
 				end
@@ -920,7 +920,7 @@ MT.BuildEnv("util");
 			local D = Switch:CreateTexture(nil, "OVERLAY");
 			D:SetSize(20, 20);
 			D:SetPoint("CENTER");
-			D:SetTexture(CT.IMG_PATH .. "close");
+			D:SetTexture(CT.TEXTUREPATH .. "close");
 			D:SetShown(not VT.SETTING.show_worldmappin);
 			Switch.D = D;
 			VT.__autostyle:AddReskinObject(Switch);

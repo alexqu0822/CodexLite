@@ -96714,14 +96714,39 @@ for id, val in next, QuestIR do
 end
 
 
+-->		l10n
 CT.l10n = CT.l10nDB[CT.LOCALE];
+
 for id, v in next, CT.l10n.quest do
 	if v[3] ~= nil then
 		v[2] = nil;
 	end
 end
+--[[
+	-x01000		入口
+	-x02000		钓鱼
+	-x03000
+--]]
+local ATLAS_DDL_TYPE_ENTRANCE = _G.ATLAS_DDL_TYPE_ENTRANCE;
+local PROFESSIONS_FISHING = _G.PROFESSIONS_FISHING;
+for start = -102000, -1000000, -102000 do
+	for id = start - 1000, start - 1999, -1 do
+		if DataAgent.object[id] ~= nil then
+			CT.l10n.object[id] = ATLAS_DDL_TYPE_ENTRANCE;
+		else
+			break;
+		end
+	end
+	for id = start - 2000, start - 2999, -1 do
+		if DataAgent.object[id] ~= nil then
+			CT.l10n.object[id] = PROFESSIONS_FISHING;
+		else
+			break;
+		end
+	end
+end
 
-
+-->		WorldEvent
 DataAgent.worldevent = {
 	["Lunar Festival"] = {
 		8619,

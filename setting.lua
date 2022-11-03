@@ -28,7 +28,7 @@ local DT = __private.DT;
 	local DataAgent = DT.DB;
 	local l10n = CT.l10n;
 
-	local IMG_CLOSE = CT.IMG_PATH .. "close";
+	local IMG_CLOSE = CT.TEXTUREPATH .. "close";
 	local _font, _fontsize = SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 
 -->

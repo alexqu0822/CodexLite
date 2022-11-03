@@ -13871,14 +13871,22 @@ CT.l10nDB.esES.object = {
 	[211067] = "Sarcophag",
 	[211068] = "Tótem de fuego",
 	[211084] = "Mephistroph's HellFire",
-	[-100000] = "Fish",
-	[-100001] = "Fish",
-	[-100002] = "Fish",
-	[-100003] = "Fish",
-	[-101000] = "Entry",
-	[-101001] = "Entry",
+--
+	[-200006] = "Open the Survival Kit",
+	[-200007] = "Equip a Weapon",
+	[-200008] = "Open the Survival Kit",
+	[-200009] = "Equip a Weapon",
+	[-200010] = "Train a Spell at your class trainer",
+	[-200011] = "Train a Spell at your class trainer",
+	[-200012] = "Spend a Talent Point",
+	[-200013] = "Spend a Talent Point",
+	[-200014] = "Open the Survival Kit",
+	[-200015] = "Equip a Weapon",
+	[-200016] = "Train a Spell at your class trainer",
+	[-200017] = "Spend a Talent Point",
+--	wotlk
 
-	--	万圣节
+--	万圣节
 	[189303] = "Cubo de caramelos",
 	[190034] = "Cubo de caramelos",
 	[190035] = "Cubo de caramelos",

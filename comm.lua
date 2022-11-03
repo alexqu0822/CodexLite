@@ -281,6 +281,12 @@ MT.BuildEnv("comm");
 					AddObject(name, quest, line, object, show_coords, large_pin);
 				end
 			end
+			if spawn.I ~= nil then
+				for item, num in next, spawn.I do
+					local large_pin = DataAgent.large_pin:Check(quest, 'item', item);
+					AddItem(name, quest, line, item, show_coords, large_pin);
+				end
+			end
 		end
 		function DelSpawn(name, quest, line, spawn, total_del)
 			if spawn.U ~= nil then
@@ -293,6 +299,12 @@ MT.BuildEnv("comm");
 				for object, _ in next, spawn.O do
 					local large_pin = DataAgent.large_pin:Check(quest, 'object', object);
 					DelObject(name, quest, line, object, total_del, large_pin);
+				end
+			end
+			if spawn.I ~= nil then
+				for item, num in next, spawn.I do
+					local large_pin = DataAgent.large_pin:Check(quest, 'item', item);
+					DelItem(name, quest, line, item, total_del, large_pin);
 				end
 			end
 		end

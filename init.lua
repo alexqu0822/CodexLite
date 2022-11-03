@@ -36,6 +36,7 @@ local DT = {  }; __private.DT = DT;		--	data
 -->
 	local __ala_meta__ = _G.__ala_meta__;
 	__ala_meta__.quest = __private;
+	VT.__super = __ala_meta__;
 	VT.__autostyle = __ala_meta__.autostyle;
 	VT.__menulib = __ala_meta__.__menulib;
 	VT.__scrolllib = _G.alaScrollList;
@@ -97,7 +98,7 @@ local DT = {  }; __private.DT = DT;		--	data
 
 -->		constant
 	CT.BNTAG = select(2, BNGetInfo());
-	CT.PATCHVERSION, CT.BUILDNUMBER, CT.BUILDDATE, CT.TOC = GetBuildInfo();
+	CT.CLIENTVERSION, CT.BUILDNUMBER, CT.BUILDDATE, CT.TOCVERSION = GetBuildInfo();
 	CT.MAXLEVEL = GetMaxLevelForExpansionLevel(GetExpansionLevel());
 	CT.LOCALE = GetLocale();
 	CT.SELFGUID = UnitGUID('player');
@@ -144,7 +145,8 @@ local DT = {  }; __private.DT = DT;		--	data
 	CT.SELFRACEBIT = CT.BIT2RACE[CT.SELFRACEFILE];
 	CT.SELFCLASSBIT = CT.BIT2CLASS[CT.SELFCLASS];
 
-	CT.IMG_PATH = "Interface\\AddOns\\CodexLite\\img\\";
+	CT.MEDIAPATH =  [[Interface\AddOns\]] .. __addon .. [[\Media\]];
+	CT.TEXTUREPATH =  CT.MEDIAPATH .. [[Textures\]];
 	CT.IMG_INDEX = {
 		IMG_DEF = 1,
 		IMG_S_HIGH_LEVEL = 2,
@@ -158,9 +160,9 @@ local DT = {  }; __private.DT = DT;		--	data
 		IMG_S_NORMAL = 10,
 		IMG_E_COMPLETED = 11,
 	};
-	CT.IMG_PATH_PIN = CT.IMG_PATH .. "PIN";
-	CT.IMG_PATH_AVL = CT.IMG_PATH .. "AVL";
-	CT.IMG_PATH_CPL = CT.IMG_PATH .. "CPL";
+	CT.IMG_PATH_PIN = CT.TEXTUREPATH .. "PIN";
+	CT.IMG_PATH_AVL = CT.TEXTUREPATH .. "AVL";
+	CT.IMG_PATH_CPL = CT.TEXTUREPATH .. "CPL";
 	CT.IMG_LIST = {
 		[CT.IMG_INDEX.IMG_DEF] 			= { CT.IMG_PATH_PIN,  nil,  nil,  nil, "ffffffff", 0, 0, },
 		[CT.IMG_INDEX.IMG_S_HIGH_LEVEL] 	= { CT.IMG_PATH_AVL, 1.00, 0.10, 0.10, "ffffffff", 1, 1, },

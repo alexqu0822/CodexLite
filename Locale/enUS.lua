@@ -11,6 +11,7 @@ if CT.LOCALE ~= "enUS" and uil10n.LOCALE ~= nil then
 end
 uil10n.LOCALE = "enUS";
 
+
 uil10n.LOC_PATTERN = {
 	name = "<name>",
 	race = "<race>",

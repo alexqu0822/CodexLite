@@ -12,7 +12,7 @@
 ## Author: |cff00ff00ALA|r @ |cffff0000163UI|r Text Data Provided by|cff00ff00EKK|r & |cff00ff00qqyt|r
 ## Author-zhCN: |cff00ff00ALA|r @ |cffff0000网易有爱|r  游戏文本数据来自|cff00ff00EKK|r与|cff00ff00qqyt|r
 ## Author-zhTW: |cff00ff00ALA|r @ |cffff0000网易有爱|r  游戲文本數據來自|cff00ff00EKK|r与|cff00ff00qqyt|r
-## Version: 304b.221031-2
+## Version: 304r.221101
 ## GitHub: https://github.com/alexqu0822/CodexLite
 
 load.xml
