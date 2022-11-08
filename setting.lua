@@ -78,10 +78,11 @@ MT.BuildEnv("setting");
 					'boolean',
 					function(val)
 						VT.SETTING['show_db_icon'] = val;
+						local LDI = _G.LibStub("LibDBIcon-1.0", true);
 						if val then
-							LibStub("LibDBIcon-1.0", true):Show(__addon);
+							LDI:Show(__addon);
 						else
-							LibStub("LibDBIcon-1.0", true):Hide(__addon);
+							LDI:Hide(__addon);
 						end
 						RefreshSettingWidget('show_db_icon');
 					end,

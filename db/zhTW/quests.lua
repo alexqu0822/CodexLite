@@ -39277,6 +39277,11 @@ CT.l10nDB.zhTW.quest = {
 		nil,
 		{ "那金之淵裡的『排除者』齊力克斯交付給你一個任務，要你擊敗阿茲歐-奈幽的阿努巴拉克。然後將阿努巴拉克的裂殼帶回給齊力克斯。", },
 	},
+	[13168] = {
+		"Parting Gifts",
+		nil,
+		{ "Keritose Bloodblade at the Shadow Vault wants you to use an Eye of Dominion to take control of a captured Eidolon Watcher.", },
+	},
 	[13173] = {
 		"騷動之中",
 	},
@@ -40172,6 +40177,56 @@ CT.l10nDB.zhTW.quest = {
 		"一觸即發",
 		nil,
 		{ "找出你到底掉到了什麼地方。", },
+	},
+	[13394] = {
+		"Do Your Worst",
+		nil,
+		{ "Use the Refurbished Demolisher to destroy 150 Decomposed Ghouls, 20 Frostskull Mages and 2 Bone Giants in the Valley of Lost Hope. Speak to Matthias Lehner at the First Legion Forward Camp when you've completed this task.", },
+	},
+	[13395] = {
+		"Army of the Damned",
+		nil,
+		{ "Matthias Lehner at the First Legion Forward Camp wants you to raise an army of 100 Ghoulish Minions.", },
+	},
+	[13396] = {
+		"Futility",
+		nil,
+		{ "Return to Thassarian aboard the Skybreaker.", },
+	},
+	[13397] = {
+		"Sindragosa's Fall",
+		nil,
+		{ "Thassarian aboard the Skybreaker wants you to slay 5 Wyrm Reanimators, 8 Cultist Corrupters and 3 Vrykul Necrolords at Sindragosa's Fall.", },
+	},
+	[13398] = {
+		"Where Dragons Fell",
+		nil,
+		{ "Matthias Lehner at Sindragosa's Fall wants you to obtain 6 Whelp Bone Dusts.", },
+	},
+	[13399] = {
+		"Time for Answers",
+		nil,
+		{ "Speak to Matthias Lehner at the Court of Bones.", },
+	},
+	[13400] = {
+		"The Hunter and the Prince",
+		nil,
+		{ "Matthias Lehner in the Court of Bones wants you to look for a Bloodstained Stone and complete the Prince's Destiny.", },
+	},
+	[13401] = {
+		"Knowledge is a Terrible Burden",
+		nil,
+		{ "Report back to Thassarian aboard the Skybreaker.", },
+	},
+	[13402] = {
+		"Tirion's Help",
+		nil,
+		{ "Speak to Highlord Tirion Fordring at the Crusader's Pinnacle.", },
+	},
+	[13403] = {
+		"Tirion's Gambit",
+		nil,
+		{ "Tirion Fordring, at the Crusader's Pinnacle, wants you to obtain and wear a Cultist Acolyte's Hood and meet him at the entrance of the Cathedral of Darkness, northwest of Icecrown Citadel.", },
 	},
 	[13404] = {
 		"靜電震擊小組:轟炸地",

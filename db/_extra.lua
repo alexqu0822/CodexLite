@@ -798,6 +798,7 @@ DataAgent.blacklist_quest = {
 	[14409] = true,
 	-- [13932] = true,
 	[12651] = true,	--	索拉查盆地 赫米特·奈辛瓦里 湖边着陆场
+	[13381] = true,	--	13380的副本？
 	[13317] = true,	--	冰冠冰川 高级指挥官加斯汀·巴雷特 ----
 	--	--	银色比武场的任务
 	[13633] = true,
@@ -7384,6 +7385,17 @@ local large_pin = {
 			[25154] = 1,
 			[25156] = 1,
 			[25157] = 1,
+		},
+	},
+--	wotlk
+	[13321] = {
+		["object"] = {
+			[193788] = 1,
+		},
+	},
+	[13342] = {
+		["object"] = {
+			[193939] = 1,
 		},
 	},
 };
@@ -96729,7 +96741,7 @@ end
 --]]
 local ATLAS_DDL_TYPE_ENTRANCE = _G.ATLAS_DDL_TYPE_ENTRANCE;
 local PROFESSIONS_FISHING = _G.PROFESSIONS_FISHING;
-for start = -102000, -1000000, -102000 do
+for start = -100000, -1000000, -100000 do
 	for id = start - 1000, start - 1999, -1 do
 		if DataAgent.object[id] ~= nil then
 			CT.l10n.object[id] = ATLAS_DDL_TYPE_ENTRANCE;
@@ -97547,6 +97559,7 @@ DataAgent.worldevent = {
 		9310,
 		9341,
 		9343,
+		12616,
 		12816,
 		12817,
 	},
@@ -97597,7 +97610,8 @@ DataAgent.worldeventperiod = {
 		["*"] = (
 			function()
 				local t = date("*t");
-				if t.day - t.wday < 7 then
+				local v = t.day - t.wday;
+				if v >= 0 and v < 7 then
 					return { 1, 1, 12, 31, };
 				else
 					return { 1, 31, 1, 1, };
