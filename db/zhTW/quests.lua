@@ -39462,6 +39462,11 @@ CT.l10nDB.zhTW.quest = {
 		nil,
 		{ "英靈殿的蓋爾維孚向你挑戰，要你擊敗薩杜瓦爾親王。\n\n若你成功，跟在英靈殿南緣俯瞰的『殘酷』吉雍納交談。", },
 	},
+	[13221] = {
+		"I'm Not Dead Yet!",
+		nil,
+		{ "Escort Father Kamaros to safety and then report to Absalan the Pious aboard the Skybreaker.", },
+	},
 	[13222] = {
 		"護衛攻城行動",
 		nil,
