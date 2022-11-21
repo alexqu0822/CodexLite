@@ -10,6 +10,7 @@ local __addon, __private = ...;
 		@parent = quest_id,		--	avl when parent is active.
 		@preSingle = { quest_id... },
 		@preGroup = { quest_id... },
+		@preWeak = quest_id,	--	completed or accepted
 		@lvl = int,
 		@min = int,
 		@race = bitmask,
@@ -99591,7 +99592,7 @@ __private.DT.DB.quest = {
 		},
 		["obj"] = {
 			["E"] = { -30054, },
-			["IR"] = { 40946, 34127, },
+			["IR"] = { 40946, },
 		},
 		["preSingle"] = { 11469, },
 		["lvl"] = -1,
@@ -115139,6 +115140,13 @@ __private.DT.DB.quest = {
 			["U"] = { -30059, },
 			["IR"] = { 39693, 39689, 39694, },
 		},
+		["extra"] = {
+			["I"] = {
+				[39689] = 0,
+				[39693] = 0,
+				[39694] = 0,
+			},
+		},
 		["excl"] = { 12705, 12762, },
 		["preSingle"] = { 12695, },
 		["lvl"] = 78,
@@ -119457,7 +119465,7 @@ __private.DT.DB.quest = {
 			["U"] = { 30562, },
 		},
 		["next"] = 13072,
-		["preSingle"] = { 13157, },
+		["preWeak"] = 13157,
 		["lvl"] = 80,
 		["min"] = 77,
 		["flag"] = 128,
@@ -119826,7 +119834,6 @@ __private.DT.DB.quest = {
 		["lvl"] = 80,
 		["min"] = 77,
 		["flag"] = 136,
-		["exflag"] = 1,
 	},
 	[13093] = {
 		["start"] = {
@@ -120225,7 +120232,7 @@ __private.DT.DB.quest = {
 		["obj"] = {
 			["O"] = { 192858, },
 		},
-		["preSingle"] = { 12896, 12897, },
+		["preSingle"] = { 13106, },
 		["lvl"] = 80,
 		["min"] = 77,
 		["flag"] = 136,
@@ -120336,7 +120343,7 @@ __private.DT.DB.quest = {
 			["U"] = { 30829, 30830, 30831, },
 			["IR"] = { 43206, },
 		},
-		["preSingle"] = { 13110, 13118, 13122, },
+		["preGroup"] = { 13118, 13122, },
 		["lvl"] = 79,
 		["min"] = 77,
 		["flag"] = 128,
@@ -120505,7 +120512,7 @@ __private.DT.DB.quest = {
 			["I"] = { 43259, },
 			["IR"] = { 43259, },
 		},
-		["preSingle"] = { 13119, },
+		["preWeak"] = 13134,
 		["lvl"] = 80,
 		["min"] = 77,
 		["flag"] = 128,

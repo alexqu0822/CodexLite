@@ -1225,93 +1225,97 @@ MT.BuildEnv("main");
 				local info = DataAgent.quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
 					local acceptable = info.lvl < 0 or (info.lvl >= lowest and info.min <= highest);
-					if acceptable then
+					if acceptable then		--	parent
 						local parent = info.parent;
 						if parent ~= nil then
-							if META[parent] ~= nil then
-								acceptable = true;
-							else
+							if META[parent] == nil then
 								acceptable = false;
 							end
-						else
-							acceptable = true;
 						end
-						if acceptable then
-							local _next = info.next;
-							if _next ~= nil then
-								if META[_next] ~= nil or QUESTS_COMPLETED[_next] then
-									acceptable = false;
-								end
+					if acceptable then		--	next
+						local _next = info.next;
+						if _next ~= nil then
+							if META[_next] ~= nil or QUESTS_COMPLETED[_next] then
+								acceptable = false;
 							end
-							if acceptable then
-								local preSingle = info.preSingle;
-								if preSingle ~= nil then
-									acceptable = false;
-									for index2 = 1, #preSingle do
-										local id = preSingle[index2];
-										if QUESTS_COMPLETED[id] then
-											acceptable = true;
-											break;
-										end
-									end
-								end
-								if acceptable then
-									local excl = info.excl;
-									if excl ~= nil then
-										for index2 = 1, #excl do
-											local id = excl[index2];
-											if META[id] ~= nil or QUESTS_COMPLETED[id] ~= nil then
-												acceptable = false;
-												break;
-											end
-										end
-									end
-									if acceptable then
-										local preGroup = info.preGroup;
-										if preGroup ~= nil then
-											for index2 = 1, #preGroup do
-												local id = preGroup[index2];
-												if QUESTS_COMPLETED[id] == nil then
-													acceptable = false;
-													break;
-												end
-											end
-										end
-										if acceptable then
-											local acceptable_rep = true;
-											local rep = info.rep;
-											if rep ~= nil and rep[1] ~= nil then
-												for index2 = 1, #rep do
-													local r = rep[index2];
-													local _, _, standing_rank, _, _, val = GetFactionInfoByID(r[1]);
-													if val < r[2] or val > r[3] then
-														acceptable_rep = false;
-														break;
-													end
-												end
-												QUEST_WATCH_REP[quest_id] = { acceptable_rep, rep, };
-											end
-											local acceptable_skill = true;
-											local skill = info.skill;
-											if skill ~= nil then
-												acceptable_skill = false;
-												local _name = l10n.profession[skill[1]];
-												for index2 = 1, GetNumSkillLines() do
-													local name, _, _, rank = GetSkillLineInfo(index2);
-													if name == _name then
-														if rank >= skill[2] then
-															acceptable_skill = true;
-														end
-													end
-												end
-												QUEST_WATCH_SKILL[quest_id] = { acceptable_skill, skill, };
-											end
-											acceptable = acceptable_rep and acceptable_skill;
-										end
-									end
+						end
+					if acceptable then		--	preSingle
+						local preSingle = info.preSingle;
+						if preSingle ~= nil then
+							acceptable = false;
+							for index2 = 1, #preSingle do
+								local id = preSingle[index2];
+								if QUESTS_COMPLETED[id] then
+									acceptable = true;
+									break;
 								end
 							end
 						end
+					if acceptable then		--	preWeak
+						local preWeak = info.preWeak;
+						if preWeak ~= nil then
+							if META[id] == nil and QUESTS_COMPLETED[id] == nil then
+								acceptable = false;
+							end
+						end
+					if acceptable then		--	excl
+						local excl = info.excl;
+						if excl ~= nil then
+							for index2 = 1, #excl do
+								local id = excl[index2];
+								if META[id] ~= nil or QUESTS_COMPLETED[id] ~= nil then
+									acceptable = false;
+									break;
+								end
+							end
+						end
+					if acceptable then		--	preGroup
+						local preGroup = info.preGroup;
+						if preGroup ~= nil then
+							for index2 = 1, #preGroup do
+								local id = preGroup[index2];
+								if QUESTS_COMPLETED[id] == nil then
+									acceptable = false;
+									break;
+								end
+							end
+						end
+					if acceptable then		--	rep & skill
+						local acceptable_rep = true;
+						local rep = info.rep;
+						if rep ~= nil and rep[1] ~= nil then
+							for index2 = 1, #rep do
+								local r = rep[index2];
+								local _, _, standing_rank, _, _, val = GetFactionInfoByID(r[1]);
+								if val < r[2] or val > r[3] then
+									acceptable_rep = false;
+									break;
+								end
+							end
+							QUEST_WATCH_REP[quest_id] = { acceptable_rep, rep, };
+						end
+						local acceptable_skill = true;
+						local skill = info.skill;
+						if skill ~= nil then
+							acceptable_skill = false;
+							local _name = l10n.profession[skill[1]];
+							for index2 = 1, GetNumSkillLines() do
+								local name, _, _, rank = GetSkillLineInfo(index2);
+								if name == _name then
+									if rank >= skill[2] then
+										acceptable_skill = true;
+									end
+								end
+							end
+							QUEST_WATCH_SKILL[quest_id] = { acceptable_skill, skill, };
+						end
+						acceptable = acceptable_rep and acceptable_skill;
+					end
+					end
+					end
+					end
+					end
+					end
 					end
 					if acceptable and VT.SETTING.show_quest_starter then
 						AddQuestStart(quest_id, info);
