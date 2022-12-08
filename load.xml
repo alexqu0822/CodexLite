@@ -6,12 +6,15 @@
     <Include file = "template.xml"/>
 -->
     <include file = "libs\libs.xml" />
-    <include file = "db\db.xml" />
+
     <script file = "init.lua" />
+
+    <include file = "db\db.xml" />
+    <include file = "Locale\Locale.xml" />
+
+    <script file = "MapAgent.lua" />
     <script file = "db-extra.lua" />
-    <script file = "patch.lua" />
-    <script file = "locale.lua" />
-    <script file = "core.lua" />
+    <script file = "main.lua" />
     <script file = "map.lua" />
     <script file = "comm.lua" />
     <script file = "util.lua" />

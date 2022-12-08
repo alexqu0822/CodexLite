@@ -1,5 +1,6 @@
-local __addon, __ns = ...;
-__ns.db.refloot = {
+local __addon, __private = ...;
+
+__private.DT.DB.refloot = {
 	[5759] = {
 		["U"] = {
 			[1853] = 1,

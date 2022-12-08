@@ -43,13 +43,6 @@ else
 	__ala_meta__.MAX_LEVEL = GetMaxLevelForExpansionLevel(GetExpansionLevel()) or 60;
 	__ala_meta__.BUILD = "UNKNOWN";
 end
--- if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
--- 	__ala_meta__.MAX_LEVEL = 60;
--- elseif WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC then
--- 	__ala_meta__.MAX_LEVEL = 70;
--- else
--- 	__ala_meta__.MAX_LEVEL = GetMaxLevelForExpansionLevel(GetExpansionLevel()) or 60;
--- end
 __ala_meta__.SELFBNTAG = select(2, BNGetInfo());
 __ala_meta__.SELFGUID = UnitGUID('player');
 __ala_meta__.SELFNAME = UnitName('player');
@@ -158,7 +151,7 @@ local function dev()
 		__ala_meta__.uireimp._SetSimpleBackdrop(DisplayPanel, 0, 1, 0.0, 0.0, 0.0, 0.9, 1.0, 1.0, 1.0, 0.25);
 		do		--	Edit
 			local Edit = CreateFrame('EDITBOX', nil, DisplayPanel);
-			Edit:SetFont(Font, FontSize);
+			Edit:SetFont(Font, FontSize, "");
 			Edit:SetAutoFocus(false);
 			Edit:SetMultiLine(true);
 			Edit:SetPoint("BOTTOMLEFT");
@@ -258,15 +251,15 @@ local function dev()
 			Num = Num + 1;
 			local L = DisplayPanel:CreateFontString(nil, "ARTWORK");
 			L:SetPoint("TOPLEFT", 8, 8 - 20 * Num);
-			L:SetFont(Font, FontSize);
+			L:SetFont(Font, FontSize, "");
 			L:SetTextColor(1.0, 1.0, 1.0);
 			local M = DisplayPanel:CreateFontString(nil, "ARTWORK");
 			M:SetPoint("TOP", 0, 8 - 20 * Num);
-			M:SetFont(Font, FontSize);
+			M:SetFont(Font, FontSize, "");
 			M:SetTextColor(1.0, 1.0, 1.0);
 			local R = DisplayPanel:CreateFontString(nil, "ARTWORK");
 			R:SetPoint("TOPRIGHT", -8, 8 - 20 * Num);
-			R:SetFont(Font, FontSize);
+			R:SetFont(Font, FontSize, "");
 			R:SetTextColor(1.0, 1.0, 1.0);
 			local Line = { L, M, R, };
 			Lines[Num] = Line;

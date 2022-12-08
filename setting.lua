@@ -2,15 +2,13 @@
 	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
-----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
-local _G = _G;
-local _ = nil;
-----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.setting'); end
-
--->		variables
+-->		upvalue
 	local setmetatable = setmetatable;
 	local type = type;
 	local select = select;
@@ -24,43 +22,31 @@ local _ = nil;
 	local UIParent = UIParent;
 	local UISpecialFrames = UISpecialFrames;
 	local SlashCmdList = SlashCmdList;
+	local _G = _G;
 
-	local __db = __ns.db;
-	local __db_quest = __db.quest;
-	local __loc = __ns.L;
-	local __loc_quest = __loc.quest;
-	local __UILOC = __ns.UILOC;
+-->
+	local DataAgent = DT.DB;
+	local l10n = CT.l10n;
 
-	local __core = __ns.core;
-	local _F_SafeCall = __core._F_SafeCall;
-	local __eventHandler = __core.__eventHandler;
-	local IMG_LIST = __core.IMG_LIST;
-	local GetQuestStartTexture = __core.GetQuestStartTexture;
-
-	local _log_ = __ns._log_;
-
-	local IMG_CLOSE = __core.IMG_PATH .. "close";
+	local IMG_CLOSE = CT.TEXTUREPATH .. "close";
 	local _font, _fontsize = SystemFont_Shadow_Med1:GetFont(), min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 
-	local SET = nil;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("setting");
-end
+MT.BuildEnv("setting");
 -->		MAIN
 	local SettingUI = CreateFrame('FRAME', "CODEX_LITE_SETTING_UI", UIParent);
-	__ns.__ui_setting = SettingUI;
+	VT.SettingUI = SettingUI;
 	local tab_entries = { };
 	local set_entries = { };
 	SettingUI.tab_number = 0;
 	SettingUI.tab_entries = tab_entries;
 	SettingUI.set_entries = set_entries;
-	local LineHeight = 16;
+	local LineHeight = 15;
 	local function RefreshSettingWidget(key)
 		if SettingUI:IsShown() then
 			local widget = set_entries[key];
 			if widget ~= nil then
-				widget:SetVal(SET[key]);
+				widget:SetVal(VT.SETTING[key]);
 			end
 		end
 	end
@@ -91,11 +77,12 @@ end
 				show_db_icon = {
 					'boolean',
 					function(val)
-						SET['show_db_icon'] = val;
+						VT.SETTING['show_db_icon'] = val;
+						local LDI = _G.LibStub("LibDBIcon-1.0", true);
 						if val then
-							LibStub("LibDBIcon-1.0", true):Show(__addon);
+							LDI:Show(__addon);
 						else
-							LibStub("LibDBIcon-1.0", true):Hide(__addon);
+							LDI:Hide(__addon);
 						end
 						RefreshSettingWidget('show_db_icon');
 					end,
@@ -106,8 +93,8 @@ end
 				show_buttons_in_log = {
 					'boolean',
 					function(val)
-						SET['show_buttons_in_log'] = val;
-						__ns.SetQuestLogFrameButtonShown(val);
+						VT.SETTING['show_buttons_in_log'] = val;
+						MT.SetQuestLogFrameButtonShown(val);
 						RefreshSettingWidget('show_buttons_in_log');
 					end,
 					nil,
@@ -117,229 +104,279 @@ end
 				show_id_in_tooltip = {
 					'boolean',
 					function(val)
-						SET['show_id_in_tooltip'] = val;
+						VT.SETTING['show_id_in_tooltip'] = val;
 						RefreshSettingWidget('show_id_in_tooltip');
 					end,
 					nil,
 					boolean_func,
 					'tab.general',
 				},
-			--	tab.map
-				show_in_continent = {
-					'boolean',
-					function(val)
-						SET['show_in_continent'] = val;
-						__ns.SetShowPinInContinent();
-						RefreshSettingWidget('show_in_continent');
-						return true;
-					end,
-					nil,
-					boolean_func,
-					'tab.map',
-				},
 				show_quest_starter = {
 					'boolean',
 					function(val)
-						SET['show_quest_starter'] = val;
-						__ns.SetQuestStarterShown();
+						VT.SETTING['show_quest_starter'] = val;
+						MT.SetQuestStarterShown();
 						RefreshSettingWidget('show_quest_starter');
 						return true;
 					end,
 					nil,
 					boolean_func,
-					'tab.map',
+					'tab.general',
 				},
 				show_quest_ender = {
 					'boolean',
 					function(val)
-						SET['show_quest_ender'] = val;
-						__ns.SetQuestEnderShown();
+						VT.SETTING['show_quest_ender'] = val;
+						MT.SetQuestEnderShown();
 						RefreshSettingWidget('show_quest_ender');
 						return true;
 					end,
 					nil,
 					boolean_func,
-					'tab.map',
-				},
-				worldmap_alpha = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['worldmap_alpha'] = val;
-							__ns.SetWorldmapAlpha();
-							RefreshSettingWidget('worldmap_alpha');
-							return true;
-						end
-					end,
-					{ 0.0, 1.0, 0.05, },
-					round_func_table[2],
-					'tab.map',
-				},
-				minimap_alpha = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['minimap_alpha'] = val;
-							__ns.SetMinimapAlpha();
-							RefreshSettingWidget('minimap_alpha');
-							return true;
-						end
-					end,
-					{ 0.0, 1.0, 0.05, },
-					round_func_table[2],
-					'tab.map',
-				},
-				pin_size = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['pin_size'] = val;
-							__ns.SetCommonPinSize();
-							RefreshSettingWidget('pin_size');
-							return true;
-						end
-					end,
-					{ 8, 32, 1, },
-					round_func_table[0],
-					'tab.map',
-				},
-				large_size = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['large_size'] = val;
-							__ns.SetLargePinSize();
-							RefreshSettingWidget('large_size');
-							return true;
-						end
-					end,
-					{ 8, 64, 1, },
-					round_func_table[0],
-					'tab.map',
-				},
-				varied_size = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['varied_size'] = val;
-							__ns.SetVariedPinSize();
-							RefreshSettingWidget('varied_size');
-							return true;
-						end
-					end,
-					{ 8, 32, 1, },
-					round_func_table[0],
-					'tab.map',
-				},
-				pin_scale_max = {
-					'number',
-					function(val)
-						val = tonumber(val);
-						if val ~= nil then
-							SET['pin_scale_max'] = val;
-							RefreshSettingWidget('pin_scale_max');
-							return true;
-						end
-					end,
-					{ 1.0, 2.0, 0.05, },
-					round_func_table[2],
-					'tab.map',
+					'tab.general',
 				},
 				quest_lvl_lowest_ofs = {
 					'number',
 					function(val)
 						val = tonumber(val);
 						if val ~= nil then
-							SET['quest_lvl_lowest_ofs'] = val;
-							__ns.UpdateQuestGivers();
+							VT.SETTING['quest_lvl_lowest_ofs'] = val;
+							MT.UpdateQuestGivers();
 							RefreshSettingWidget('quest_lvl_lowest_ofs');
 							return true;
 						end
 					end,
-					{ -__ns.__maxLevel - 10, 0, 1, },
+					{ -CT.MAXLEVEL - 10, 0, 1, },
 					round_func_table[0],
-					'tab.map',
+					'tab.general',
 				},
 				quest_lvl_highest_ofs = {
 					'number',
 					function(val)
 						val = tonumber(val);
 						if val ~= nil then
-							SET['quest_lvl_highest_ofs'] = val;
-							__ns.UpdateQuestGivers();
+							VT.SETTING['quest_lvl_highest_ofs'] = val;
+							MT.UpdateQuestGivers();
 							RefreshSettingWidget('quest_lvl_highest_ofs');
 							return true;
 						end
 					end,
-					{ 0, __ns.__maxLevel + 10, 1, },
+					{ 0, CT.MAXLEVEL + 10, 1, },
 					round_func_table[0],
-					'tab.map',
-				},
-				hide_node_modifier = {
-					'list',
-					function(val)
-						SET['hide_node_modifier'] = val;
-						__ns.SetHideNodeModifier();
-						RefreshSettingWidget('hide_node_modifier');
-					end,
-					{ "SHIFT", "CTRL", "ALT", },
-					nil,
-					'tab.map',
-				},
-				minimap_node_inset = {
-					'boolean',
-					function(val)
-						SET['minimap_node_inset'] = val;
-						__ns.SetMinimapNodeInset();
-						return true;
-					end,
-					nil,
-					boolean_func,
-					'tab.map',
-				},
-				minimap_player_arrow_on_top = {
-					'boolean',
-					function(val)
-						SET['minimap_player_arrow_on_top'] = val;
-						__ns.SetMinimapPlayerArrowOnTop();
-						return true;
-					end,
-					nil,
-					boolean_func,
-					'tab.map',
+					'tab.general',
 				},
 				limit_item_starter_drop = {
 					'boolean',
 					function(val)
-						SET['limit_item_starter_drop'] = val;
-						__ns.SetLimitItemStarter();
+						VT.SETTING['limit_item_starter_drop'] = val;
+						MT.SetLimitItemStarter();
 						return true;
 					end,
 					nil,
 					boolean_func,
-					'tab.map',
+					'tab.general',
 				},
 				limit_item_starter_drop_num_coords = {
 					'boolean',
 					function(val)
-						SET['limit_item_starter_drop_num_coords'] = val;
-						__ns.SetLimitItemStarterNumCoords();
+						VT.SETTING['limit_item_starter_drop_num_coords'] = val;
+						MT.SetLimitItemStarterNumCoords();
 						return true;
 					end,
 					nil,
 					boolean_func,
-					'tab.map',
+					'tab.general',
+				},
+				node_menu_modifier = {
+					'list',
+					function(val)
+						VT.SETTING['node_menu_modifier'] = val;
+						MT.SetNodeMenuModifier();
+						RefreshSettingWidget('node_menu_modifier');
+					end,
+					{ "SHIFT", "CTRL", "ALT", },
+					nil,
+					'tab.general',
+				},
+			--	tab.map
+			--	tab.worldmap
+				worldmap_alpha = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['worldmap_alpha'] = val;
+							MT.SetWorldmapAlpha();
+							RefreshSettingWidget('worldmap_alpha');
+							return true;
+						end
+					end,
+					{ 0.0, 1.0, 0.05, },
+					round_func_table[2],
+					'tab.worldmap',
+				},
+				worldmap_normal_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['worldmap_normal_size'] = val;
+							MT.SetWorldmapCommonPinSize();
+							RefreshSettingWidget('worldmap_normal_size');
+							return true;
+						end
+					end,
+					{ 8, 32, 1, },
+					round_func_table[0],
+					'tab.worldmap',
+				},
+				worldmap_large_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['worldmap_large_size'] = val;
+							MT.SetWorldmapLargePinSize();
+							RefreshSettingWidget('worldmap_large_size');
+							return true;
+						end
+					end,
+					{ 8, 64, 1, },
+					round_func_table[0],
+					'tab.worldmap',
+				},
+				worldmap_varied_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['worldmap_varied_size'] = val;
+							MT.SetWorldmapVariedPinSize();
+							RefreshSettingWidget('worldmap_varied_size');
+							return true;
+						end
+					end,
+					{ 8, 32, 1, },
+					round_func_table[0],
+					'tab.worldmap',
+				},
+				worldmap_pin_scale_max = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['worldmap_pin_scale_max'] = val;
+							MT.SetWorldmapCommonPinSize();
+							MT.SetWorldmapLargePinSize();
+							MT.SetWorldmapVariedPinSize();
+							RefreshSettingWidget('worldmap_pin_scale_max');
+							return true;
+						end
+					end,
+					{ 1.0, 2.0, 0.05, },
+					round_func_table[2],
+					'tab.worldmap',
+				},
+				show_in_continent = {
+					'boolean',
+					function(val)
+						VT.SETTING['show_in_continent'] = val;
+						MT.SetShowPinInContinent();
+						RefreshSettingWidget('show_in_continent');
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.worldmap',
+				},
+			--	tab.minimap
+				minimap_alpha = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['minimap_alpha'] = val;
+							MT.SetMinimapAlpha();
+							RefreshSettingWidget('minimap_alpha');
+							return true;
+						end
+					end,
+					{ 0.0, 1.0, 0.05, },
+					round_func_table[2],
+					'tab.minimap',
+				},
+				minimap_normal_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['minimap_normal_size'] = val;
+							MT.SetMinimapCommonPinSize();
+							RefreshSettingWidget('minimap_normal_size');
+							return true;
+						end
+					end,
+					{ 8, 32, 1, },
+					round_func_table[0],
+					'tab.minimap',
+				},
+				minimap_large_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['minimap_large_size'] = val;
+							MT.SetMinimapLargePinSize();
+							RefreshSettingWidget('minimap_large_size');
+							return true;
+						end
+					end,
+					{ 8, 64, 1, },
+					round_func_table[0],
+					'tab.minimap',
+				},
+				minimap_varied_size = {
+					'number',
+					function(val)
+						val = tonumber(val);
+						if val ~= nil then
+							VT.SETTING['minimap_varied_size'] = val;
+							MT.SetMinimapVariedPinSize();
+							RefreshSettingWidget('minimap_varied_size');
+							return true;
+						end
+					end,
+					{ 8, 32, 1, },
+					round_func_table[0],
+					'tab.minimap',
+				},
+				minimap_node_inset = {
+					'boolean',
+					function(val)
+						VT.SETTING['minimap_node_inset'] = val;
+						MT.SetMinimapNodeInset();
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.minimap',
+				},
+				minimap_player_arrow_on_top = {
+					'boolean',
+					function(val)
+						VT.SETTING['minimap_player_arrow_on_top'] = val;
+						MT.SetMinimapPlayerArrowOnTop();
+						return true;
+					end,
+					nil,
+					boolean_func,
+					'tab.minimap',
 				},
 			--	tab.interact
 				auto_accept = {
 					'boolean',
 					function(val)
-						SET['auto_accept'] = val;
+						VT.SETTING['auto_accept'] = val;
 						RefreshSettingWidget('auto_accept');
 					end,
 					nil,
@@ -349,7 +386,7 @@ end
 				auto_complete = {
 					'boolean',
 					function(val)
-						SET['auto_complete'] = val;
+						VT.SETTING['auto_complete'] = val;
 						RefreshSettingWidget('auto_complete');
 					end,
 					nil,
@@ -359,8 +396,8 @@ end
 				quest_auto_inverse_modifier = {
 					'list',
 					function(val)
-						SET['quest_auto_inverse_modifier'] = val;
-						__ns.SetQuestAutoInverseModifier(val);
+						VT.SETTING['quest_auto_inverse_modifier'] = val;
+						MT.SetQuestAutoInverseModifier(val);
 						RefreshSettingWidget('quest_auto_inverse_modifier');
 					end,
 					{ "SHIFT", "CTRL", "ALT", },
@@ -370,7 +407,7 @@ end
 				objective_tooltip_info = {
 					'boolean',
 					function(val)
-						SET['objective_tooltip_info'] = val;
+						VT.SETTING['objective_tooltip_info'] = val;
 						RefreshSettingWidget('objective_tooltip_info');
 					end,
 					nil,
@@ -380,13 +417,13 @@ end
 			--	tab.misc
 		};
 		local function ResetAll()
-			__ns.core_reset();
-			__ns.map_reset();
-			__ns.UpdateQuests();
-			__ns.UpdateQuestGivers();
-			__ns.MapHideNodes();
+			MT.ResetCore();
+			MT.ResetMap();
+			MT.UpdateQuests();
+			MT.UpdateQuestGivers();
+			MT.MapHideNodes();
 		end
-		function __ns.Setting(key, val)
+		function MT.SetSetting(key, val)
 			if key == 'reset' then
 				ResetAll();
 			else
@@ -403,7 +440,7 @@ end
 							val = meta[4](val);
 						end
 						if meta[2](val) then
-							print("SET", key, val);
+							print("VT.SETTING", key, val);
 							local widget = set_entries[key];
 							if widget ~= nil then
 								widget:SetVal(val);
@@ -414,14 +451,14 @@ end
 							val = meta[4](val);
 						end
 						if meta[2](val) then
-							print("SET", key, val);
+							print("VT.SETTING", key, val);
 						end
 					end
 				end
 			end
 		end
 	-->		extern method
-		_G.CodexLiteSetting = __ns.Setting;
+		_G.CodexLiteSetting = MT.SetSetting;
 		--	/run CodexLiteSetting('quest_lvl_lowest_ofs', -20)
 		--	/run CodexLiteSetting('reset')
 	-->		events and hooks
@@ -431,24 +468,29 @@ end
 			show_db_icon = true,
 			show_buttons_in_log = true,
 			show_id_in_tooltip = true,
-		--	map
-			show_in_continent = false,
 			show_quest_starter = true,
 			show_quest_ender = true,
-			min_rate = 1.0,
-			worldmap_alpha = 1.0,
-			minimap_alpha = 1.0,
-			pin_size = 15,
-			large_size = 24,
-			varied_size = 20,
-			pin_scale_max = 1.25,
 			quest_lvl_lowest_ofs = -6,		--	>=
 			quest_lvl_highest_ofs = 1,		--	<=
-			hide_node_modifier = "SHIFT",
-			minimap_node_inset = true,
-			minimap_player_arrow_on_top = true,
 			limit_item_starter_drop = true,
 			limit_item_starter_drop_num_coords = false,
+			node_menu_modifier = "SHIFT",
+		--	map
+			min_rate = 1.0,
+		--	worldmap
+			worldmap_alpha = 1.0,
+			worldmap_normal_size = 15,
+			worldmap_large_size = 24,
+			worldmap_varied_size = 20,
+			worldmap_pin_scale_max = 1.25,
+			show_in_continent = false,
+		--	minimap
+			minimap_alpha = 1.0,
+			minimap_normal_size = 15,
+			minimap_large_size = 24,
+			minimap_varied_size = 20,
+			minimap_node_inset = true,
+			minimap_player_arrow_on_top = true,
 		--	interact
 			auto_accept = false,
 			auto_complete = false,
@@ -463,24 +505,29 @@ end
 			"show_db_icon",
 			"show_buttons_in_log",
 			"show_id_in_tooltip",
-		--	map
-			"show_in_continent",
 			"show_quest_starter",
 			"show_quest_ender",
-			-- "min_rate",
-			"worldmap_alpha",
-			"minimap_alpha",
-			"pin_size",
-			"large_size",
-			"varied_size",
-			"pin_scale_max",
 			"quest_lvl_lowest_ofs",
 			"quest_lvl_highest_ofs",
-			"hide_node_modifier",
-			"minimap_node_inset",
-			"minimap_player_arrow_on_top",
 			"limit_item_starter_drop",
 			"limit_item_starter_drop_num_coords",
+			"node_menu_modifier",
+		--	map
+			-- "min_rate",
+		--	worldmap
+			"worldmap_alpha",
+			"worldmap_normal_size",
+			"worldmap_large_size",
+			"worldmap_varied_size",
+			"worldmap_pin_scale_max",
+			"show_in_continent",
+		--	minimap
+			"minimap_alpha",
+			"minimap_normal_size",
+			"minimap_large_size",
+			"minimap_varied_size",
+			"minimap_node_inset",
+			"minimap_player_arrow_on_top",
 		--	interact
 			"auto_accept",
 			"auto_complete",
@@ -531,7 +578,7 @@ end
 				Tab = CreateFrame('BUTTON', nil, SettingUI);
 				tab_entries[tab] = Tab;
 				local Panel = CreateFrame('FRAME', nil, SettingUI);
-				Panel:SetPoint("BOTTOMLEFT", 6, 6);
+				Panel:SetPoint("BOTTOMLEFT", 6, 32);
 				Panel:SetPoint("TOPRIGHT", -6, -64);
 				Panel:Hide();
 				Tab.Panel = Panel;
@@ -563,7 +610,7 @@ end
 				--
 				Tab:SetScript("OnClick", Tab_OnClick);
 				Panel.pos = 0;
-				Tab.Text:SetText(__UILOC[tab] or tab);
+				Tab.Text:SetText(l10n.ui[tab] or tab);
 			end
 			return Tab, Tab.Panel;
 		end
@@ -576,7 +623,7 @@ end
 				head:SetSize(24, 24);
 				local label = Panel:CreateFontString(nil, "ARTWORK");
 				label:SetFont(_font, _fontsize, "NORMAL");
-				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+				label:SetText(gsub(l10n.ui[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
 				local slider = CreateFrame('SLIDER', nil, Panel, "OptionsSliderTemplate");
 				slider:SetWidth(240);
@@ -636,7 +683,7 @@ end
 				end
 				local label = Panel:CreateFontString(nil, "ARTWORK");
 				label:SetFont(_font, _fontsize, "NORMAL");
-				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+				label:SetText(gsub(l10n.ui[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", check, "RIGHT", 2, 0);
 				set_entries[key] = check;
 				check:SetPoint("CENTER", Panel, "TOPLEFT", 32, -10 - Panel.pos * LineHeight);
@@ -646,7 +693,7 @@ end
 				head:SetSize(24, 24);
 				local label = Panel:CreateFontString(nil, "ARTWORK");
 				label:SetFont(_font, _fontsize, "NORMAL");
-				label:SetText(gsub(__UILOC[key], "%%[a-z]", ""));
+				label:SetText(gsub(l10n.ui[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
 				local list = {  };
 				local vals = meta[3];
@@ -682,13 +729,13 @@ end
 				head:SetPoint("CENTER", Panel, "TOPLEFT", 32, -10 - Panel.pos * LineHeight);
 				Panel.pos = Panel.pos + 3;
 			end
-			SettingUI:SetHeight(min(max(SettingUI:GetHeight(), 10 + Panel.pos * LineHeight + 10 + 64), 1024));
+			SettingUI:SetHeight(min(max(SettingUI:GetHeight(), 64 + Panel.pos * LineHeight + 32), 1024));
 		end
 		local function ButtonDeleteOnClick(Delete)
-			local quest = __ns.__quest_permanently_bl_list[Delete:GetParent().__data_index];
+			local quest = VT.QUEST_PREMANENTLY_BL_LIST[Delete:GetParent().__data_index];
 			if quest ~= nil then
-				__ns.MapPermanentlyShowQuestNodes(quest);
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				MT.MapPermanentlyShowQuestNodes(quest);
+				SettingUI.BlockedList:SetNumValue(#VT.QUEST_PREMANENTLY_BL_LIST);
 			end
 		end
 		local function funcToCreateButton(parent, index, height)
@@ -710,20 +757,20 @@ end
 		end
 		local function functToSetButton(Button, data_index)
 			Button.__data_index = data_index;
-			local quest = __ns.__quest_permanently_bl_list[data_index];
+			local quest = VT.QUEST_PREMANENTLY_BL_LIST[data_index];
 			if quest ~= nil then
-				Button.Text:SetText(__ns.GetQuestTitle(quest, true));
+				Button.Text:SetText(MT.GetQuestTitle(quest, true));
 				Button:Show();
 			else
 				Button:Hide();
 			end
 		end
-		function __ns.RefreshBlockedList()
+		function MT.RefreshBlockedList()
 			if SettingUI:IsShown() then
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				SettingUI.BlockedList:SetNumValue(#VT.QUEST_PREMANENTLY_BL_LIST);
 			end
 		end
-		function __ns.InitSettingUI()
+		function MT.InitSettingUI()
 			tinsert(UISpecialFrames, "CODEX_LITE_SETTING_UI");
 			SettingUI:SetSize(320, 360);
 			SettingUI:SetFrameStrata("DIALOG");
@@ -746,7 +793,7 @@ end
 			--
 			local Title = SettingUI:CreateFontString(nil, "ARTWORK", "GameFontNormal");
 			Title:SetPoint("CENTER", SettingUI, "TOP", 0, -16);
-			Title:SetText(__UILOC.TAG_SETTING or __addon);
+			Title:SetText(l10n.ui.TAG_SETTING or __addon);
 			--
 			local close = CreateFrame('BUTTON', nil, SettingUI);
 			close:SetSize(16, 16);
@@ -769,22 +816,27 @@ end
 				AddSetting(key);
 			end
 			local Tab, Panel = AddTab('tab.blocked');
-			Panel.Scr = ALASCR(Panel, Panel:GetWidth(), Panel:GetHeight(), LineHeight, funcToCreateButton, functToSetButton);
+			Panel.Scr = VT.__scrolllib.CreateScrollFrame(Panel, Panel:GetWidth(), Panel:GetHeight(), LineHeight, funcToCreateButton, functToSetButton);
 			Panel.Scr:SetPoint("CENTER");
 			Panel.Scr:SetMouseClickEnabled(false);
 			SettingUI.BlockedList = Panel.Scr;
 			--
 			SettingUI:SetScript("OnShow", function()
 				for key, widget in next, set_entries do
-					widget:SetVal(SET[key]);
+					widget:SetVal(VT.SETTING[key]);
 				end
-				SettingUI.BlockedList:SetNumValue(#__ns.__quest_permanently_bl_list);
+				SettingUI.BlockedList:SetNumValue(#VT.QUEST_PREMANENTLY_BL_LIST);
 			end);
 			Tab_OnClick(tab_entries['tab.general'] or select(2, next(tab_entries)));
+			--
+			local Tail = SettingUI:CreateFontString(nil, "ARTWORK", "GameFontNormal");
+			Tail:SetTextColor(1.0, 1.0, 1.0, 1.0);
+			Tail:SetPoint("CENTER", SettingUI, "BOTTOM", 0, 16);
+			Tail:SetText(l10n.ui.TAIL_SETTING or "by ALA. Big thx to EKK & qqyt");
 		end
 	-->
-	function __ns.setting_setup()
-		local GUID = __core._PLAYER_GUID;
+	MT.RegisterOnInit("setting", function(LoggedIn)
+		local GUID = CT.SELFGUID;
 		local SV = _G.CodexLiteSV;
 		if SV == nil or SV.__version == nil or SV.__version < 20210529.0 then
 			SV = {
@@ -804,7 +856,6 @@ end
 				__version = 20210612.0,
 			};
 			_G.CodexLiteSV = SV;
-			SET = SV.setting;
 		else
 			if SV.__version < 20210610.0 then
 				SV.__version = 20210610.0;
@@ -817,10 +868,29 @@ end
 				SV.quest_permanently_bl_list = {  };
 				SV.setting.objective_tooltip_info = SV.setting.tip_info;
 			end
-			SET = SV.setting;
+			if SV.__version < 20221031.0 then
+				SV.__version = 20221031.0;
+				SV.setting.node_menu_modifier = SV.setting.hide_node_modifier;
+				SV.setting.worldmap_pin_scale_max = SV.setting.pin_scale_max;
+				SV.setting.worldmap_normal_size = SV.setting.pin_size;
+				SV.setting.worldmap_large_size = SV.setting.large_size;
+				SV.setting.worldmap_varied_size = SV.setting.varied_size;
+				SV.setting.minimap_normal_size = SV.setting.pin_size;
+				SV.setting.minimap_large_size = SV.setting.large_size;
+				SV.setting.minimap_varied_size = SV.setting.varied_size;
+				--
+				SV.setting.hide_node_modifier = nil;
+				SV.setting.pin_scale_max = nil;
+				SV.setting.pin_size = nil;
+				SV.setting.large_size = nil;
+				SV.setting.varied_size = nil;
+				SV.setting.pin_size = nil;
+				SV.setting.large_size = nil;
+				SV.setting.varied_size = nil;
+			end
 			for key, val in next, def do
-				if SET[key] == nil then
-					SET[key] = val;
+				if SV.setting[key] == nil then
+					SV.setting[key] = val;
 				end
 			end
 			SV.quest_temporarily_blocked[GUID] = SV.quest_temporarily_blocked[GUID] or {  };
@@ -828,19 +898,16 @@ end
 			SV.quest_permanently_bl_list[GUID] = SV.quest_permanently_bl_list[GUID] or {  };
 		end
 		if SV.__overridedev == false then
-			__ns.__is_dev = false;
+			VT.__is_dev = false;
 		end
-		SET.quest_lvl_green = -1;
-		SET.quest_lvl_yellow = -1;
-		SET.quest_lvl_orange = -1;
-		SET.quest_lvl_red = -1;
-		__ns.__svar = SV;
-		__ns.__setting = SET;
-		__ns.__quest_temporarily_blocked = SV.quest_temporarily_blocked[GUID];
-		__ns.__quest_permanently_blocked = SV.quest_permanently_blocked[GUID];
-		__ns.__quest_permanently_bl_list = SV.quest_permanently_bl_list[GUID];
-		__ns.InitSettingUI();
-	end
+		VT.SVAR = SV;
+		VT.SETTING = SV.setting;
+		VT.QUEST_TEMPORARILY_BLOCKED = SV.quest_temporarily_blocked[GUID];
+		VT.QUEST_PREMANENTLY_BLOCKED = SV.quest_permanently_blocked[GUID];
+		VT.QUEST_PREMANENTLY_BL_LIST = SV.quest_permanently_bl_list[GUID];
+		MT.InitSettingUI();
+		MT.MergeGlobal(VT.SVAR);
+	end);
 -->
 
 -->		SLASH
@@ -868,9 +935,6 @@ end
 		if strfind(msg, "[A-Za-z0-9]+" ) then
 		else
 		end
-		__ns.__ui_setting:Show();
+		VT.SettingUI:Show();
 	end
 -->
-
-
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.setting'); end
