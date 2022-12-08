@@ -980,8 +980,8 @@ MT.BuildEnv("main");
 								META[quest_id] = meta;
 								DelQuestStart(quest_id, info);
 								quest_changed = true;
+								MT.PushAddQuest(quest_id, completed, title, num_lines);
 							end
-							MT.PushAddQuest(quest_id, completed, title, num_lines);
 							--
 							-- local details = GetQuestObjectives(quest_id);
 							-- local detail = details[line];
@@ -1176,7 +1176,7 @@ MT.BuildEnv("main");
 					end
 				end
 			end
-			QUESTS_CONFILCTED = {  };
+			-- QUESTS_CONFILCTED = {  };
 			for quest_id, meta in next, META do
 				if meta.flag == -1 then
 					local info = DataAgent.quest[quest_id];
@@ -1202,11 +1202,15 @@ MT.BuildEnv("main");
 					quest_changed = true;
 					need_re_draw = true;
 					MT.PushDelQuest(quest_id, meta.completed);
-				else
-					AddConfilct(quest_id);
+				-- else
+					-- AddConfilct(quest_id);
 				end
 			end
 			if quest_changed then
+				QUESTS_CONFILCTED = {  };
+				for quest_id, meta in next, META do
+					AddConfilct(quest_id);
+				end
 				MT._TimerStart(UpdateQuestGivers, 0.2, 1);
 			end
 			if need_re_draw then

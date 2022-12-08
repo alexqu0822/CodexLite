@@ -11,6 +11,7 @@ local DT = __private.DT;
 -->		upvalue
 	local collectgarbage = collectgarbage;
 	local date = date;
+	local setmetatable = setmetatable;
 	local next = next;
 	local strfind = string.find;
 	local _G = _G;
@@ -549,10 +550,12 @@ MT.BuildEnv("db-extra");
 			-- VT.ObjectMissLocale = M;
 			-- CodexLiteSV.ObjectMissLocale=__ala_meta__.quest.VT.ObjectMissLocale
 			-->
+			local i18n = CT.i18n;
 			for which, hash in next, Hash do
 				local info = EmptyInfo[which];
 				local db = DataAgent[which];
 				local loc = l10n[which];
+				local def = i18n and i18n[which] or {  };
 				if loc == nil then
 					for id, _ in next, hash do
 						db[id] = db[id] or info;
@@ -565,7 +568,24 @@ MT.BuildEnv("db-extra");
 					end
 					for id, _ in next, hash do
 						db[id] = db[id] or info;
-						loc[id] = loc[id] or which .. ":" .. id;
+					end
+					if which == "quest" then
+						for id, _ in next, hash do
+							local v = loc[id];
+							if v == nil then
+								v = {  };
+								loc[id] = v;
+							end
+							local d = def[id];
+							v[1] = v[1] or d[1] or "quest:" .. id;
+							v[3] = v[3] or d[3];
+							-- def[id] = nil;
+						end
+					else
+						for id, _ in next, hash do
+							loc[id] = loc[id] or def[id] or which .. ":" .. id;
+							-- def[id] = nil;
+						end
 					end
 				end
 				for id, _ in next, db do
@@ -573,13 +593,15 @@ MT.BuildEnv("db-extra");
 						db[id] = nil;
 					end
 				end
+				setmetatable(def, { __mode = "kv", });
 			end
+			setmetatable(i18n, { __mode = "kv", });
 			-->
 			MarkUnit, MarkItem, MarkObject, MarkRefloot, MarkEvent = nil;
 			HashUnit, HashItem, HashObject, HashRefloot, HashEvent = nil;
 			Hash = nil;
 			-->
-			collectgarbage('collect');
+			CT.i18n = nil;
 		-->
 		-->		item-drop
 			for iid, info in next, DataAgent.item do
@@ -714,7 +736,9 @@ MT.BuildEnv("db-extra");
 				end
 			end
 		-->
-
+	-->		Locale
+	-->
+		collectgarbage('collect');
 	end);
 
 -->

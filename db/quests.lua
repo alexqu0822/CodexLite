@@ -129350,6 +129350,7 @@ __private.DT.DB.quest = {
 		["next"] = 14024,
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 1101,
 		["flag"] = 8,
 	},
 	[14024] = {
@@ -129367,6 +129368,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14023, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 1101,
 		["flag"] = 8,
 	},
 	[14028] = {
@@ -129401,6 +129403,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14028, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 1101,
 		["flag"] = 8,
 	},
 	[14032] = {
@@ -129426,6 +129429,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14030, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 1101,
 		["flag"] = 8,
 	},
 	[14035] = {
@@ -129442,6 +129446,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14033, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 1101,
 		["flag"] = 8,
 	},
 	[14036] = {
@@ -129488,6 +129493,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14037, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 690,
 		["flag"] = 8,
 	},
 	[14041] = {
@@ -129523,6 +129529,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14041, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 690,
 		["flag"] = 8,
 	},
 	[14044] = {
@@ -129539,6 +129546,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14043, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 690,
 		["flag"] = 8,
 	},
 	[14047] = {
@@ -129555,6 +129563,7 @@ __private.DT.DB.quest = {
 		["preSingle"] = { 14044, },
 		["lvl"] = -1,
 		["min"] = 1,
+		["race"] = 690,
 		["flag"] = 8,
 	},
 	[14048] = {

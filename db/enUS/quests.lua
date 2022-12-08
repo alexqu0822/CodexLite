@@ -2,7 +2,7 @@ local __addon, __private = ...;
 local CT = __private.CT;
 
 if CT.LOCALE ~= "enUS" then
-	return;
+	-- return;
 end
 --  <name>
 --  <class>

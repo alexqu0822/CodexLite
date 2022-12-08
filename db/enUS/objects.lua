@@ -2,7 +2,7 @@ local __addon, __private = ...;
 local CT = __private.CT;
 
 if CT.LOCALE ~= "enUS" then
-	return;
+	-- return;
 end
 CT.l10nDB.enUS.object = {
 	[4] = "Bonfire Damage",
