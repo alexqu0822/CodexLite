@@ -1,8 +1,10 @@
-local __addon, __ns = ...;
-if GetLocale() ~= "esMX" then
-  return;
+local __addon, __private = ...;
+local CT = __private.CT;
+
+if CT.LOCALE ~= "esMX" then
+	return;
 end
-__ns.L.item = {
+CT.l10nDB.esMX.item = {
 	[25] = "Espada corta desgastada",
 	[35] = "Bastón doblado",
 	[36] = "Maza desgastada",

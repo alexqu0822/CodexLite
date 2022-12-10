@@ -2,16 +2,14 @@
 	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
-----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
-
-local _G = _G;
-local _ = nil;
-local autostyle = __ala_meta__.autostyle;
-----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.util'); end
+local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
 -->		variables
+	local pcall = pcall;
 	local type = type;
 	local select = select;
 	local next = next;
@@ -22,29 +20,13 @@ local autostyle = __ala_meta__.autostyle;
 	local UnitIsPlayer = UnitIsPlayer;
 	local GetFactionInfoByID = GetFactionInfoByID;
 	local IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown = IsShiftKeyDown, IsControlKeyDown, IsAltKeyDown;
+	local GetQuestTagInfo = GetQuestTagInfo;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetQuestLogSelection = GetQuestLogSelection;
 	local GetItemCount = GetItemCount;
 	local GetMouseFocus = GetMouseFocus;
 	local IsModifiedClick = IsModifiedClick;
 	local Ambiguate = Ambiguate;
-	local CreateFrame = CreateFrame;
-	local ChatEdit_GetActiveWindow = ChatEdit_GetActiveWindow;
-	local ChatEdit_InsertLink = ChatEdit_InsertLink;
-	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
-	local UIParent = UIParent;
-	local GameTooltip = GameTooltip;
-	local ItemRefTooltip = ItemRefTooltip;
-	local WorldMapFrame = WorldMapFrame;
-	local ChatFrame2 = ChatFrame2;
-	local FauxScrollFrame_GetOffset = FauxScrollFrame_GetOffset;
-	local QuestFrame = QuestFrame;
-	local QuestLogFrame = QuestLogFrame;
-	local QuestLogListScrollFrame = QuestLogListScrollFrame;
-	local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
-	local QuestLogDescriptionTitle = QuestLogDescriptionTitle;
-	local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
-	local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
 
 	local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
 	local GetGossipActiveQuests = GetGossipActiveQuests;
@@ -69,64 +51,50 @@ local autostyle = __ala_meta__.autostyle;
 	local ShowQuestComplete = ShowQuestComplete;
 	local StaticPopup_Hide = StaticPopup_Hide;
 
-	local __db = __ns.db;
-	local __db_quest = __db.quest;
-	local __db_unit = __db.unit;
-	local __db_item = __db.item;
-	local __db_object = __db.object;
-	local __db_refloot = __db.refloot;
-	local __db_event = __db.event;
-	local __db_level_quest_list = __db.level_quest_list;
-	local __db_avl_quest_hash = __db.avl_quest_hash;
-	local __db_blacklist_item = __db.blacklist_item;
-	local __db_large_pin = __db.large_pin;
-	local __db_item_related_quest = __db.item_related_quest;
+	local CreateFrame = CreateFrame;
+	local ChatEdit_GetActiveWindow = ChatEdit_GetActiveWindow;
+	local ChatEdit_InsertLink = ChatEdit_InsertLink;
+	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
+	local UIParent = UIParent;
+	local GameTooltip = GameTooltip;
+	local ItemRefTooltip = ItemRefTooltip;
+	local WorldMapFrame = WorldMapFrame;
+	local ChatFrame2 = ChatFrame2;
+	local QuestFrame = QuestFrame;
+	local QuestLogFrame = QuestLogFrame;
+	local QuestLogListScrollFrame = QuestLogListScrollFrame;
+	local QuestLogDetailScrollChildFrame = QuestLogDetailScrollChildFrame;
+	local QuestLogDescriptionTitle = QuestLogDescriptionTitle or QuestInfoDescriptionHeader;
+	local RAID_CLASS_COLORS = RAID_CLASS_COLORS;
+	local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS;
+	local _G = _G;
 
-	local __loc = __ns.L;
-	local __loc_quest = __loc.quest;
-	local __loc_unit = __loc.unit;
-	local __loc_item = __loc.item;
-	local __loc_object = __loc.object;
-	local __loc_profession = __loc.profession;
-	local __UILOC = __ns.UILOC;
-
-	local __core = __ns.core;
-	local _F_SafeCall = __core._F_SafeCall;
-	local __eventHandler = __core.__eventHandler;
-	local __const = __core.__const;
-	local IMG_INDEX = __core.IMG_INDEX;
-	local IMG_LIST = __core.IMG_LIST;
-	local TIP_IMG_LIST = __core.TIP_IMG_LIST;
-	local GetQuestStartTexture = __core.GetQuestStartTexture;
-
-	local __core_meta = __ns.__core_meta;
-	local __obj_lookup = __ns.__obj_lookup;
-	local __core_quests_completed = __ns.__core_quests_completed;
-	local __map_meta = __ns.__map_meta;
-	local __comm_meta = __ns.__comm_meta;
-	local __comm_obj_lookup = __ns.__comm_obj_lookup;
-
-	local UnitHelpFac = __core.UnitHelpFac;
-	local _log_ = __ns._log_;
-
-	local TIP_IMG_S_NORMAL = TIP_IMG_LIST[IMG_INDEX.IMG_S_NORMAL];
-	local IMG_TAG_CPL = "|T" .. __core.IMG_PATH .. "TAG_CPL" .. ":0|t";
-	local IMG_TAG_PRG = "|T" .. __core.IMG_PATH .. "TAG_PRG" .. ":0|t";
-	local IMG_TAG_UNCPL = "|T" .. __core.IMG_PATH .. "TAG_UNCPL" .. ":0|t";
-
-	local SET = nil;
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("util");
-end
--->		MAIN
+	local DataAgent = DT.DB;
+	local l10n = CT.l10n;
+
+	local EventAgent = VT.EventAgent;
+
+	local __MAIN_META = VT.MAIN_META;
+	local __MAIN_OBJ_LOOKUP = VT.MAIN_OBJ_LOOKUP;
+	local __MAIN_QUESTS_COMPLETED = VT.MAIN_QUESTS_COMPLETED;
+	local __COMM_META = VT.COMM_META;
+
+	local TIP_IMG_S_NORMAL = CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_S_NORMAL];
+	local IMG_TAG_CPL = "|T" .. CT.TEXTUREPATH .. "TAG_CPL" .. ":0|t";
+	local IMG_TAG_PRG = "|T" .. CT.TEXTUREPATH .. "TAG_PRG" .. ":0|t";
+	local IMG_TAG_UNCPL = "|T" .. CT.TEXTUREPATH .. "TAG_UNCPL" .. ":0|t";
+
+-->
+MT.BuildEnv("util");
+-->		UTIL
 	local quest_auto_inverse_modifier = IsShiftKeyDown;
 	-->		methods
 		local function GetLevelTag(quest, info, modifier, colored)
 			local lvl_str = "[";
-				local tag = __ns.GetQuestTagInfo(quest);
+				local tag = GetQuestTagInfo(quest);
 				if tag ~= nil then
-					tag = __UILOC.QUEST_TAG[tag];
+					tag = l10n.ui.QUEST_TAG[tag];
 				end
 				local min = info.min;
 				local lvl = info.lvl;
@@ -134,20 +102,20 @@ end
 					lvl = min;
 				end
 				if colored ~= false then
-					if lvl >= SET.quest_lvl_red then
+					if lvl >= VT.QuestLvRed then
 						lvl_str = lvl_str .. "|cffff0000" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_orange then
+					elseif lvl >= VT.QuestLvOrange then
 						lvl_str = lvl_str .. "|cffff7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_yellow then
+					elseif lvl >= VT.QuestLvYellow then
 						lvl_str = lvl_str .. "|cffffff00" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
-					elseif lvl >= SET.quest_lvl_green then
+					elseif lvl >= VT.QuestLvGreen then
 						lvl_str = lvl_str .. "|cff7fbf3f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					else
 						lvl_str = lvl_str .. "|cff7f7f7f" .. (tag ~= nil and (lvl .. tag) or lvl) .. "|r";
 					end
 					if modifier then
 						lvl_str = lvl_str .. "/";
-						local diff = min - __ns.__player_level;
+						local diff = min - VT.PlayerLevel;
 						if diff > 0 then
 							if diff > 1 then
 								lvl_str = lvl_str .. "|cffff3f3f" .. min .. "|r";
@@ -155,13 +123,13 @@ end
 								lvl_str = lvl_str .. "|cffff0f0f" .. min .. "|r";
 							end
 						else
-							if min >= SET.quest_lvl_red then
+							if min >= VT.QuestLvRed then
 								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r";
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= VT.QuestLvOrange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r";
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= VT.QuestLvYellow then
 								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r";
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= VT.QuestLvGreen then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r";
@@ -169,20 +137,20 @@ end
 						end
 					end
 				else
-					if lvl >= SET.quest_lvl_red then
+					if lvl >= VT.QuestLvRed then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_orange then
+					elseif lvl >= VT.QuestLvOrange then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_yellow then
+					elseif lvl >= VT.QuestLvYellow then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
-					elseif lvl >= SET.quest_lvl_green then
+					elseif lvl >= VT.QuestLvGreen then
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
 					else
 						lvl_str = lvl_str .. (tag ~= nil and (lvl .. tag) or lvl);
 					end
 					if modifier then
 						lvl_str = lvl_str .. "/";
-						local diff = min - __ns.__player_level;
+						local diff = min - VT.PlayerLevel;
 						if diff > 0 then
 							if diff > 1 then
 								lvl_str = lvl_str .. min;
@@ -190,13 +158,13 @@ end
 								lvl_str = lvl_str .. min;
 							end
 						else
-							if min >= SET.quest_lvl_red then
+							if min >= VT.QuestLvRed then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= VT.QuestLvOrange then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= VT.QuestLvYellow then
 								lvl_str = lvl_str .. min;
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= VT.QuestLvGreen then
 								lvl_str = lvl_str .. min;
 							else
 								lvl_str = lvl_str .. min;
@@ -233,35 +201,35 @@ end
 			local modifier = IsShiftKeyDown();
 			local refs = uuid[4];
 			if next(refs) ~= nil then
-				META = META or __core_meta;
+				META = META or __MAIN_META;
 				for quest, ref in next, refs do
 					local meta = META[quest];
-					local info = __db_quest[quest];
-					local color = IMG_LIST[GetQuestStartTexture(info)];
+					local info = DataAgent.quest[quest];
+					local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 					--[[
 						local lvl_str = "|cff000000**|r[ ";
 							local lvl = info.lvl;
 							local min = info.min;
-							lvl_str = lvl_str .. __UILOC.TIP_QUEST_LVL;
-							if lvl >= SET.quest_lvl_red then
+							lvl_str = lvl_str .. l10n.ui.TIP_QUEST_LVL;
+							if lvl >= VT.QuestLvRed then
 								lvl_str = lvl_str .. "|cffff0000" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_orange then
+							elseif lvl >= VT.QuestLvOrange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_yellow then
+							elseif lvl >= VT.QuestLvYellow then
 								lvl_str = lvl_str .. "|cffffff00" .. lvl .. "|r ";
-							elseif lvl >= SET.quest_lvl_green then
+							elseif lvl >= VT.QuestLvGreen then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. lvl .. "|r ";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. lvl .. "|r ";
 							end
-							lvl_str = lvl_str .. __UILOC.TIP_QUEST_MIN;
-							if min >= SET.quest_lvl_red then
+							lvl_str = lvl_str .. l10n.ui.TIP_QUEST_MIN;
+							if min >= VT.QuestLvRed then
 								lvl_str = lvl_str .. "|cffff0000" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_orange then
+							elseif min >= VT.QuestLvOrange then
 								lvl_str = lvl_str .. "|cffff7f7f" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_yellow then
+							elseif min >= VT.QuestLvYellow then
 								lvl_str = lvl_str .. "|cffffff00" .. min .. "|r ]|cff000000**|r";
-							elseif min >= SET.quest_lvl_green then
+							elseif min >= VT.QuestLvGreen then
 								lvl_str = lvl_str .. "|cff7fbf3f" .. min .. "|r ]|cff000000**|r";
 							else
 								lvl_str = lvl_str .. "|cff7f7f7f" .. min .. "|r ]|cff000000**|r";
@@ -271,7 +239,7 @@ end
 								tip:AddLine(TIP_IMG_S_NORMAL .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
 								tip:AddLine(lvl_str, 1.0, 1.0, 1.0);
 								if modifier then
-									local loc = __loc_quest[quest];
+									local loc = l10n.quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
 											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
@@ -280,14 +248,14 @@ end
 								end
 							elseif line == 'end' then
 								if meta.completed == 1 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
 									tip:AddLine(lvl_str, 1.0, 1.0, 1.0);
 								elseif meta.completed == 0 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
 									tip:AddLine(lvl_str, 1.0, 1.0, 1.0);
 								end
 								if modifier then
-									local loc = __loc_quest[quest];
+									local loc = l10n.quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
 											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
@@ -328,7 +296,7 @@ end
 								end
 							end
 						else
-							local loc = __loc_quest[quest];
+							local loc = l10n.quest[quest];
 							if loc ~= nil then
 								tip:AddLine(TIP_IMG_S_NORMAL .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 								if modifier and loc[3] then
@@ -344,12 +312,12 @@ end
 					--]]
 					local lvl_str = GetLevelTag(quest, info, modifier);
 					if meta ~= nil then
-						if SET.show_id_in_tooltip then
+						if VT.SETTING.show_id_in_tooltip then
 							if ref['end'] then
 								if meta.completed == 1 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. lvl_str .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] .. lvl_str .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
 								elseif meta.completed == 0 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
 								end
 							else
 								tip:AddLine(TIP_IMG_S_NORMAL .. lvl_str .. meta.title .. "(" .. quest .. ")", color[2], color[3], color[4]);
@@ -357,9 +325,9 @@ end
 						else
 							if ref['end'] then
 								if meta.completed == 1 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. lvl_str .. meta.title, color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] .. lvl_str .. meta.title, color[2], color[3], color[4]);
 								elseif meta.completed == 0 then
-									tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, color[2], color[3], color[4]);
+									tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, color[2], color[3], color[4]);
 								end
 							else
 								tip:AddLine(TIP_IMG_S_NORMAL .. lvl_str .. meta.title, color[2], color[3], color[4]);
@@ -368,7 +336,7 @@ end
 						for line, _ in next, ref do
 							if line == 'start' or line == 'end' then
 								if modifier then
-									local loc = __loc_quest[quest];
+									local loc = l10n.quest[quest];
 									if loc ~= nil and loc[3] ~= nil then
 										for _, text in next, loc[3] do
 											tip:AddLine("|cff000000**|r" .. text, 1.0, 0.75, 0.0);
@@ -400,9 +368,9 @@ end
 							end
 						end
 					else
-						local loc = __loc_quest[quest];
+						local loc = l10n.quest[quest];
 						if loc ~= nil and loc[1] ~= nil then
-							if SET.show_id_in_tooltip then
+							if VT.SETTING.show_id_in_tooltip then
 								tip:AddLine(TIP_IMG_S_NORMAL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 							else
 								tip:AddLine(TIP_IMG_S_NORMAL .. lvl_str .. loc[1], color[2], color[3], color[4]);
@@ -421,28 +389,28 @@ end
 		end
 		local function OnTooltipSetUnit(tip)
 			tip.__TextLeft1Text = nil;
-			if SET.objective_tooltip_info then
+			if VT.SETTING.objective_tooltip_info then
 				local _, unit = tip:GetUnit();
 				if unit and not UnitIsPlayer(unit) then
 					local GUID = UnitGUID(unit);
 					if GUID ~= nil then
 						-- local _, _, _id = strfind(GUID, "Creature%-0%-%d+%-%d+%-%d+%-(%d+)%-%x+");
 						local _type, _, _, _, _, _id = strsplit("-", GUID);
-						if _type == "Creature" and _id ~= nil then
+						if (_type == "Creature" or _type == "Vehicle") and _id ~= nil then
 							_id = tonumber(_id);
 							if _id ~= nil then
 								local reshow = false;
-								local uuid = __ns.CoreGetUUID('unit', _id);
+								local uuid = MT.CoreGetUUID('unit', _id);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
 									reshow = true;
 								end
-								for name, val in next, __ns.__comm_group_members do
-									local meta_table = __comm_meta[name];
+								for name, val in next, VT.COMM_GROUP_MEMBERS do
+									local meta_table = __COMM_META[name];
 									if meta_table ~= nil then
-										local uuid = __ns.CommGetUUID(name, 'unit', _id);
+										local uuid = MT.CommGetUUID(name, 'unit', _id);
 										if uuid ~= nil and next(uuid[4]) ~= nil then
-											local info = __ns.__comm_group_members_info[name];
+											local info = VT.COMM_GROUP_MEMBERS_INFO[name];
 											tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											TooltipSetQuestTip(tip, uuid, meta_table);
 											reshow = true;
@@ -460,32 +428,32 @@ end
 		end
 		local function OnTooltipSetItem(tip)
 			tip.__TextLeft1Text = nil;
-			if SET.objective_tooltip_info then
+			if VT.SETTING.objective_tooltip_info then
 				local name, link = tip:GetItem();
 				if link ~= nil then
 					local id = GetItemInfoInstant(link);
 					if id ~= nil then
-						local QUESTS = __db_item_related_quest[id];
+						local QUESTS = DataAgent.item_related_quest[id];
 						if QUESTS ~= nil and QUESTS[1] ~= nil then
 							local reshow = false;
 							local modifier = IsShiftKeyDown();
 							for _, quest in next, QUESTS do
-								local meta = __core_meta[quest];
+								local meta = __MAIN_META[quest];
 								if meta ~= nil then
-									local qinfo = __db_quest[quest];
-									local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+									local qinfo = DataAgent.quest[quest];
+									local color = CT.IMG_LIST[MT.GetQuestStartTexture(qinfo)];
 									local lvl_str = GetLevelTag(quest, qinfo, modifier);
 									if modifier then
 										if meta.completed == 1 then
-											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										elseif meta.completed == 0 then
-											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. IMG_TAG_PRG .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										end
 									else
 										if meta.completed == 1 then
-											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										elseif meta.completed == 0 then
-											tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+											tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 										end
 									end
 									for index = 1, #meta do
@@ -504,27 +472,27 @@ end
 							end
 							if modifier then
 								for _, quest in next, QUESTS do
-									if __core_meta[quest] == nil and __db_avl_quest_hash[quest] ~= nil then
-										local qinfo = __db_quest[quest];
-										local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+									if __MAIN_META[quest] == nil and DataAgent.avl_quest_hash[quest] ~= nil then
+										local qinfo = DataAgent.quest[quest];
+										local color = CT.IMG_LIST[MT.GetQuestStartTexture(qinfo)];
 										local lvl_str = GetLevelTag(quest, qinfo, true);
-										local loc = __loc_quest[quest];
+										local loc = l10n.quest[quest];
 										if loc ~= nil then
-											if SET.show_id_in_tooltip then
-												if __core_quests_completed[quest] ~= nil then
+											if VT.SETTING.show_id_in_tooltip then
+												if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 												else
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1] .. "(" .. quest .. ")", color[2], color[3], color[4]);
 												end
 											else
-												if __core_quests_completed[quest] ~= nil then
+												if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. loc[1], color[2], color[3], color[4]);
 												else
 													tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. loc[1], color[2], color[3], color[4]);
 												end
 											end
 										else
-											if __core_quests_completed[quest] ~= nil then
+											if __MAIN_QUESTS_COMPLETED[quest] ~= nil then
 												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_CPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
 											else
 												tip:AddLine(TIP_IMG_S_NORMAL .. IMG_TAG_UNCPL .. lvl_str .. "quest:" .. quest, color[2], color[3], color[4]);
@@ -534,8 +502,8 @@ end
 									end
 								end
 							end
-							for name, val in next, __ns.__comm_group_members do
-								local meta_table = __comm_meta[name];
+							for name, val in next, VT.COMM_GROUP_MEMBERS do
+								local meta_table = __COMM_META[name];
 								if meta_table ~= nil then
 									local first_line_of_partner = true;
 									for _, quest in next, QUESTS do
@@ -543,16 +511,16 @@ end
 										if meta ~= nil then
 											if first_line_of_partner then
 												first_line_of_partner = false;
-												local info = __ns.__comm_group_members_info[name];
+												local info = VT.COMM_GROUP_MEMBERS_INFO[name];
 												tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											end
-											local qinfo = __db_quest[quest];
-											local color = IMG_LIST[GetQuestStartTexture(qinfo)];
+											local qinfo = DataAgent.quest[quest];
+											local color = CT.IMG_LIST[MT.GetQuestStartTexture(qinfo)];
 											local lvl_str = GetLevelTag(quest, qinfo, modifier);
 											if meta.completed == 1 then
-												tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
+												tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_COMPLETED] ..  lvl_str .. meta.title, 1.0, 0.9, 0.0);
 											elseif meta.completed == 0 then
-												tip:AddLine(TIP_IMG_LIST[IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
+												tip:AddLine(CT.TIP_IMG_LIST[CT.IMG_INDEX.IMG_E_UNCOMPLETED] .. lvl_str .. meta.title, 1.0, 0.9, 0.0);
 											end
 											for index = 1, #meta do
 												local meta_line = meta[index];
@@ -580,7 +548,7 @@ end
 		--	object
 		local updateTimer = 0.0;
 		local function TooltipOnUpdate(tip, elasped)
-			if SET.objective_tooltip_info and tip:GetOwner() == UIParent then
+			if VT.SETTING.objective_tooltip_info and tip:GetOwner() == UIParent then
 				if updateTimer <= 0.0 then
 					updateTimer = 0.1;
 					if tip:GetUnit() == nil and tip:GetItem() == nil then
@@ -589,28 +557,26 @@ end
 						if text ~= nil and text ~= tip.__TextLeft1Text then
 							local reshow = false;
 							tip.__TextLeft1Text = text;
-							local oid = __obj_lookup[text];
+							local map = MT.GetPlayerZone();
+							local oid = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
 							if oid ~= nil then
-								local uuid = __ns.CoreGetUUID('object', oid);
+								local uuid = MT.CoreGetUUID('object', oid);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
 									reshow = true;
 								end
-								for name, val in next, __ns.__comm_group_members do
-									local meta_table = __comm_meta[name];
+								for name, val in next, VT.COMM_GROUP_MEMBERS do
+									local meta_table = __COMM_META[name];
 									if meta_table ~= nil then
-										local uuid = __ns.CommGetUUID(name, 'object', oid);
-										if uuid ~= nil then
-											local info = __ns.__comm_group_members_info[name];
+										local uuid = MT.CommGetUUID(name, 'object', oid);
+										if uuid ~= nil and next(uuid[4]) ~= nil then
+											local info = VT.COMM_GROUP_MEMBERS_INFO[name];
 											tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 											TooltipSetQuestTip(tip, uuid, meta_table);
 											reshow = true;
 										end
 									end
 								end
-							end
-							local oid = __comm_obj_lookup[text];
-							if oid ~= nil then
 							end
 							if reshow then
 								tip:Show();
@@ -622,25 +588,25 @@ end
 				end
 			end
 		end
-		function __ns.MODIFIER_STATE_CHANGED()
+		function EventAgent.MODIFIER_STATE_CHANGED()
 			local focus = GetMouseFocus();
 			if focus ~= nil and focus.__PIN_TAG ~= nil then
-				__ns.Pin_OnEnter(focus);
+				MT.Pin_OnEnter(focus);
 			elseif GameTooltip:IsShown() then
 			end
 		end
-		function __ns.TooltipSetInfo(tip, type, id)
+		function MT.TooltipSetInfo(tip, type, id)
 			if type == 'event' then
-				tip:AddLine(__UILOC.TIP_WAYPOINT, 0.0, 1.0, 0.0);
+				tip:AddLine(l10n.ui.TIP_WAYPOINT, 0.0, 1.0, 0.0);
 			elseif type == 'extra' then
 			else
-				local _loc = __loc[type];
+				local _loc = l10n[type];
 				if _loc ~= nil then
-					if SET.show_id_in_tooltip then
+					if VT.SETTING.show_id_in_tooltip then
 						if type == 'unit' then
-							local info = __db_unit[id];
+							local info = DataAgent.unit[id];
 							if info ~= nil then
-								if UnitHelpFac[info.fac] then
+								if VT.IsUnitFacFriend[info.fac] then
 									tip:AddLine(_loc[id] .. "(" .. id .. ")", 0.0, 1.0, 0.0);
 								else
 									local facId = info.facId;
@@ -665,9 +631,9 @@ end
 						end
 					else
 						if type == 'unit' then
-							local info = __db_unit[id];
+							local info = DataAgent.unit[id];
 							if info ~= nil then
-								if UnitHelpFac[info.fac] then
+								if VT.IsUnitFacFriend[info.fac] then
 									tip:AddLine(_loc[id], 0.0, 1.0, 0.0);
 								else
 									local facId = info.facId;
@@ -693,23 +659,23 @@ end
 					end
 				end
 			end
-			local uuid = __ns.CoreGetUUID(type, id);
+			local uuid = MT.CoreGetUUID(type, id);
 			if uuid ~= nil then
 				TooltipSetQuestTip(tip, uuid);
 			end
-			for name, val in next, __ns.__comm_group_members do
-				local meta_table = __comm_meta[name];
+			for name, val in next, VT.COMM_GROUP_MEMBERS do
+				local meta_table = __COMM_META[name];
 				if meta_table ~= nil then
-					local uuid = __ns.CommGetUUID(name, type, id);
+					local uuid = MT.CommGetUUID(name, type, id);
 					if uuid ~= nil and next(uuid[4]) ~= nil then
-						local info = __ns.__comm_group_members_info[name];
+						local info = VT.COMM_GROUP_MEMBERS_INFO[name];
 						tip:AddLine(GetPlayerTag(name, info ~= nil and info[4]));
 						TooltipSetQuestTip(tip, uuid, meta_table);
 					end
 				end
 			end
 		end
-		function __ns.button_info_OnEnter(self)
+		function MT.button_info_OnEnter(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local info_lines = self.info_lines;
 			if info_lines then
@@ -719,14 +685,14 @@ end
 			end
 			GameTooltip:Show();
 		end
-		function __ns.OnLeave(self)
+		function MT.OnLeave(self)
 			if GameTooltip:IsOwned(self) then
 				GameTooltip:Hide();
 			end
 		end
-		local function drop_handler_send(_, quest)
-			local info = __db_quest[quest];
-			local loc = __loc_quest[quest];
+		local function drop_handler_send(_, _, quest)
+			local info = DataAgent.quest[quest];
+			local loc = l10n.quest[quest];
 			local lvl = info.lvl;
 			if lvl <= 0 then
 				lvl = info.min;
@@ -737,59 +703,60 @@ end
 			end
 			-- ChatEdit_InsertLink("[[" .. lvl .. "] " .. (loc ~= nil and loc[1] or "Quest: " .. quest) .. " (" .. quest .. ")]");
 		end
-		local function drop_handler_toggle(_, quest)
-			__ns.MapPermanentlyToggleQuestNodes(quest);
+		local function drop_handler_toggle(_, _, quest)
+			MT.MapPermanentlyToggleQuestNodes(quest);
 		end
 		local function GetQuestTitle(quest, modifier)
-			local info = __db_quest[quest];
-			local color = IMG_LIST[GetQuestStartTexture(info)];
+			local info = DataAgent.quest[quest];
+			local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 			local lvl_str = GetLevelTag(quest, info, modifier);
-			local loc = __loc_quest[quest];
+			local loc = l10n.quest[quest];
 			return lvl_str .. "|c" .. color[5] .. (loc ~= nil and (loc[1] .. "(" .. quest .. ")") or "quest: " .. quest) .. "|r";
 		end
-		function __ns.NodeOnModifiedClick(node, uuid)
+		function MT.NodeOnModifiedClick(node, uuid)
 			local refs = uuid[4];
 			if ChatEdit_GetActiveWindow() then
-				local ele = {  };
-				local data = { handler = drop_handler_send, elements = ele, };
+				local data = { handler = drop_handler_send, num = 0, };
 				for quest, val in next, refs do
-					ele[#ele + 1] = {
-						text = __UILOC.pin_menu_send_quest .. GetQuestTitle(quest, true);
-						para = { quest, },
+					data.num = data.num + 1;
+					data[data.num] = {
+						text = l10n.ui.pin_menu_send_quest .. GetQuestTitle(quest, true);
+						param = quest,
 					};
 				end
-				ALADROP(node, "BOTTOMLEFT", data);
+				VT.__menulib.ShowMenu(node, "BOTTOMLEFT", data);
 				return true;
 			else
 				for quest, val in next, refs do
 					if val["start"] ~= nil then
-						local ele = {  };
-						local data = { handler = drop_handler_toggle, elements = ele, };
+						local data = { handler = drop_handler_toggle, num = 0, };
 						for quest, val in next, refs do
 							if val["start"] ~= nil then
-								if __ns.__quest_permanently_blocked[quest] then
-									ele[#ele + 1] = {
-										text = __UILOC.pin_menu_show_quest .. GetQuestTitle(quest, true);
-										para = { quest, },
+								if VT.QUEST_PREMANENTLY_BLOCKED[quest] then
+									data.num = data.num + 1;
+									data[data.num] = {
+										text = l10n.ui.pin_menu_show_quest .. GetQuestTitle(quest, true);
+										param = quest,
 									};
 								else
-									ele[#ele + 1] = {
-										text = __UILOC.pin_menu_hide_quest .. GetQuestTitle(quest, true);
-										para = { quest, },
+									data.num = data.num + 1;
+									data[data.num] = {
+										text = l10n.ui.pin_menu_hide_quest .. GetQuestTitle(quest, true);
+										param = quest,
 									};
 								end
 							end
 						end
-						ALADROP(node, "BOTTOMLEFT", data);
+						VT.__menulib.ShowMenu(node, "BOTTOMLEFT", data);
 						return true;
 					end
 				end
 			end
 		end
 	-->		Auto Accept and Turnin
-		function __ns.GOSSIP_SHOW()
+		function EventAgent.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_complete ~= modstate then
+			if not VT.SETTING.auto_complete ~= modstate then
 				for i = 1, GetNumGossipActiveQuests() do
 					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetGossipActiveQuests());
 					if title and isComplete then
@@ -797,7 +764,7 @@ end
 					end
 				end
 			end
-			if not SET.auto_accept ~= modstate then
+			if not VT.SETTING.auto_accept ~= modstate then
 				for i = 1, GetNumGossipAvailableQuests() do
 					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetGossipAvailableQuests());
 					if title then
@@ -805,7 +772,7 @@ end
 					end
 				end
 			end
-			-- if SET.auto_accept then
+			-- if VT.SETTING.auto_accept then
 			-- 	for i = 1, GetNumAvailableQuests() do
 			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetGossipAvailableQuests(i);
 			-- 		if title then
@@ -814,9 +781,9 @@ end
 			-- 	end
 			-- end
 		end
-		function __ns.QUEST_GREETING()
+		function EventAgent.QUEST_GREETING()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_complete ~= modstate then
+			if not VT.SETTING.auto_complete ~= modstate then
 				for i = 1, GetNumActiveQuests() do
 					local title, isComplete = GetActiveTitle(i);
 					if title and isComplete then
@@ -824,7 +791,7 @@ end
 					end
 				end
 			end
-			if not SET.auto_accept ~= modstate then
+			if not VT.SETTING.auto_accept ~= modstate then
 				for i = 1, GetNumAvailableQuests() do
 					local title, isComplete = GetAvailableTitle(i);
 					if title then
@@ -833,40 +800,40 @@ end
 				end
 			end
 		end
-		function __ns.QUEST_DETAIL()
+		function EventAgent.QUEST_DETAIL()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_accept ~= modstate then
+			if not VT.SETTING.auto_accept ~= modstate then
 				AcceptQuest();
 				QuestFrame:Hide();
 			end
 		end
-		function __ns.QUEST_PROGRESS()
+		function EventAgent.QUEST_PROGRESS()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_complete ~= modstate then
+			if not VT.SETTING.auto_complete ~= modstate then
 				if IsQuestCompletable() then
 					CompleteQuest();
 				end
 			end
 		end
-		function __ns.QUEST_COMPLETE()
+		function EventAgent.QUEST_COMPLETE()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_complete ~= modstate then
+			if not VT.SETTING.auto_complete ~= modstate then
 				local _NumChoices = GetNumQuestChoices();
 				if _NumChoices <= 1 then
 					GetQuestReward(_NumChoices);
 				end
 			end
 		end
-		function __ns.QUEST_ACCEPT_CONFIRM()
+		function EventAgent.QUEST_ACCEPT_CONFIRM()
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_accept ~= modstate then
+			if not VT.SETTING.auto_accept ~= modstate then
 				ConfirmAcceptQuest() ;
 				StaticPopup_Hide("QUEST_ACCEPT");
 			end
 		end
-		function __ns.QUEST_AUTOCOMPLETE(id)
+		function EventAgent.QUEST_AUTOCOMPLETE(id)
 			local modstate = not quest_auto_inverse_modifier();
-			if not SET.auto_complete ~= modstate then
+			if not VT.SETTING.auto_complete ~= modstate then
 				local index = GetQuestLogIndexByID(id);
 				if GetQuestLogIsAutoComplete(index) then
 					ShowQuestComplete(index);
@@ -895,15 +862,15 @@ end
 							icon = [[interface\icons\inv_misc_book_09]],
 							OnClick = function(self, button)
 								if button == "LeftButton" then
-									if __ns.__ui_setting:IsShown() then
-										__ns.__ui_setting:Hide();
+									if VT.SettingUI:IsShown() then
+										VT.SettingUI:Hide();
 									else
-										__ns.__ui_setting:Show();
+										VT.SettingUI:Show();
 									end
 								else
-									SET.show_minimappin = not SET.show_minimappin;
-									__ns.map_ToggleMinimapPin(SET.show_minimappin);
-									D:SetShown(not SET.show_minimappin);
+									VT.SETTING.show_minimappin = not VT.SETTING.show_minimappin;
+									MT.MapToggleMinimapPin(VT.SETTING.show_minimappin);
+									D:SetShown(not VT.SETTING.show_minimappin);
 								end
 							end,
 							text = "CodexLite",
@@ -912,10 +879,10 @@ end
 								tt:Show();
 							end,
 						},
-						__ns.__svar.minimap
+						VT.SVAR.minimap
 					);
 					LDI:Show(__addon);
-					if SET.show_db_icon then
+					if VT.SETTING.show_db_icon then
 						LDI:Show(__addon);
 					else
 						LDI:Hide(__addon);
@@ -924,8 +891,8 @@ end
 					if Icon ~= nil then
 						D = Icon:CreateTexture(nil, "OVERLAY");
 						D:SetAllPoints(Icon.icon);
-						D:SetTexture(__core.IMG_PATH .. "close");
-						D:SetShown(not SET.show_minimappin);
+						D:SetTexture(CT.TEXTUREPATH .. "close");
+						D:SetShown(not VT.SETTING.show_minimappin);
 					end
 				end
 			end
@@ -939,26 +906,24 @@ end
 			Switch:RegisterForClicks("AnyUp");
 			Switch:SetScript("OnClick", function(self, button)
 				if button == "LeftButton" then
-					if __ns.__ui_setting:IsShown() then
-						__ns.__ui_setting:Hide();
+					if VT.SettingUI:IsShown() then
+						VT.SettingUI:Hide();
 					else
-						__ns.__ui_setting:Show();
+						VT.SettingUI:Show();
 					end
 				else
-					SET.show_worldmappin = not SET.show_worldmappin;
-					__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
-					Switch.D:SetShown(not SET.show_worldmappin);
+					VT.SETTING.show_worldmappin = not VT.SETTING.show_worldmappin;
+					MT.MapToggleWorldMapPin(VT.SETTING.show_worldmappin);
+					Switch.D:SetShown(not VT.SETTING.show_worldmappin);
 				end
 			end);
 			local D = Switch:CreateTexture(nil, "OVERLAY");
 			D:SetSize(20, 20);
 			D:SetPoint("CENTER");
-			D:SetTexture(__core.IMG_PATH .. "close");
-			D:SetShown(not SET.show_worldmappin);
+			D:SetTexture(CT.TEXTUREPATH .. "close");
+			D:SetShown(not VT.SETTING.show_worldmappin);
 			Switch.D = D;
-			if autostyle ~= nil then
-				autostyle:AddReskinObject(Switch);
-			end
+			VT.__autostyle:AddReskinObject(Switch);
 		end
 	-->
 	-->		Chat
@@ -985,10 +950,10 @@ end
 		end
 		local function ChatFilterReplacer(body, id)
 			local quest = tonumber(id);
-			local info = __db_quest[quest];
-			local loc = __loc_quest[quest];
+			local info = DataAgent.quest[quest];
+			local loc = l10n.quest[quest];
 			if info ~= nil and loc ~= nil then
-				local color = IMG_LIST[GetQuestStartTexture(info)];
+				local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 				return "|Hcdxl:" .. id .. "|h|c" .. color[5] .. "[" .. GetLevelTag(quest, info, false, false) .. (loc ~= nil and loc[1] .. "(" .. id .. ")" or "Quest: " .. id) .. "]|r|h";
 			end
 			return body;
@@ -997,6 +962,7 @@ end
 			if ChatFrame ~= ChatFrame2 then
 				return false, gsub(arg1, "(%[%[[0-9]+%] .- %(([0-9]+)%)%])", ChatFilterReplacer), ...;
 			end
+			return false, arg1, ...;
 		end
 		local ItemRefTooltip = ItemRefTooltip;
 		local _ItemRefTooltip_SetHyperlink = ItemRefTooltip.SetHyperlink;
@@ -1005,16 +971,16 @@ end
 			if id ~= nil then
 				id = tonumber(id);
 				if id ~= nil then
-					local meta = __core_meta[id];
-					local info = __db_quest[id];
+					local meta = __MAIN_META[id];
+					local info = DataAgent.quest[id];
 					if meta ~= nil then
 						ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
-						local color = IMG_LIST[GetQuestStartTexture(info)];
+						local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 						ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. meta.title .. "|r");
 						if meta.completed == 1 then
-							ItemRefTooltip:AddLine(__UILOC.IN_PROGRESS .. " (" .. __UILOC.COMPLETED .. ")", 0.0, 1.0, 0.0);
+							ItemRefTooltip:AddLine(l10n.ui.IN_PROGRESS .. " (" .. l10n.ui.COMPLETED .. ")", 0.0, 1.0, 0.0);
 						else
-							ItemRefTooltip:AddLine(__UILOC.IN_PROGRESS, 0.75, 1.0, 0.0);
+							ItemRefTooltip:AddLine(l10n.ui.IN_PROGRESS, 0.75, 1.0, 0.0);
 						end
 						ItemRefTooltip:AddLine(" ");
 						ItemRefTooltip:AddLine(meta.sdesc, 1.0, 1.0, 1.0, true);
@@ -1033,13 +999,13 @@ end
 						ItemRefTooltip:Show();
 						return;
 					else
-						local loc = __loc_quest[id];
+						local loc = l10n.quest[id];
 						if info ~= nil and loc ~= nil then
 							ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE");
-							local color = IMG_LIST[GetQuestStartTexture(info)];
+							local color = CT.IMG_LIST[MT.GetQuestStartTexture(info)];
 							ItemRefTooltip:SetText("|c" .. color[5] .. GetLevelTag(id, info, true) .. (loc ~= nil and loc[1] or "Quest: " .. id) .. "|r");
-							if __core_quests_completed[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
-								ItemRefTooltip:AddLine(__UILOC.COMPLETED, 0.0, 1.0, 0.0);
+							if __MAIN_QUESTS_COMPLETED[id] then		--	1 = completed, -1 = excl completed, -2 = next completed
+								ItemRefTooltip:AddLine(l10n.ui.COMPLETED, 0.0, 1.0, 0.0);
 							end
 							local lines = loc[3];
 							if lines ~= nil then
@@ -1058,22 +1024,22 @@ end
 		end
 		local Num_Hooked_QuestLogTitle = 0;
 		local function HookQuestLogTitle()
-			if Num_Hooked_QuestLogTitle < QUESTS_DISPLAYED then
-				for index = Num_Hooked_QuestLogTitle + 1, QUESTS_DISPLAYED do
-					local button = _G["QuestLogTitle" .. index];
+			if Num_Hooked_QuestLogTitle < _G.QUESTS_DISPLAYED then
+				for index = Num_Hooked_QuestLogTitle + 1, _G.QUESTS_DISPLAYED do
+					local button = _G["QuestLogTitle" .. index] or _G["QuestLogListScrollFrameButton" .. index];
 					local script = button:GetScript("OnClick");
 					button:SetScript("OnClick", function(self, button)
 						if IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow() then
 							if self.isHeader then
 								return;
 							end
-							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID() + FauxScrollFrame_GetOffset(QuestLogListScrollFrame));
+							local title, level, group, header, collapsed, completed, frequency, quest_id = GetQuestLogTitle(self:GetID());
 							local activeWindow = ChatEdit_GetActiveWindow();
 							if activeWindow ~= nil then
 								activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
-								-- local info = __db_quest[quest_id];
+								-- local info = DataAgent.quest[quest_id];
 								-- if info ~= nil then
-								-- 	activeWindow:Insert("|Hcdxl:" .. quest_id .. "|h|c" .. IMG_LIST[GetQuestStartTexture(info)][5] .. "[" .. GetLevelTag(quest_id, info, false, false) .. title .. "(" .. quest_id .. ")]|r|h");
+								-- 	activeWindow:Insert("|Hcdxl:" .. quest_id .. "|h|c" .. CT.IMG_LIST[MT.GetQuestStartTexture(info)][5] .. "[" .. GetLevelTag(quest_id, info, false, false) .. title .. "(" .. quest_id .. ")]|r|h");
 								-- else
 								-- 	activeWindow:Insert("[[" .. level .. "] " .. title .. " (" .. quest_id .. ")]");
 								-- end
@@ -1120,28 +1086,28 @@ end
 			_ShowQuest:SetSize(85, 21);
 			_ShowQuest:SetPoint("TOPLEFT", QuestLogDescriptionTitle, "TOPLEFT", 0, 0);
 			_ShowQuest:SetScript("OnClick", function()
-				__ns.MapTemporarilyShowQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+				MT.MapTemporarilyShowQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
 			end);
-			_ShowQuest:SetText(__UILOC.show_quest);
+			_ShowQuest:SetText(l10n.ui.show_quest);
 			local _HideQuest = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_HideQuest:SetSize(85, 21);
 			_HideQuest:SetPoint("LEFT", _ShowQuest, "RIGHT", 0, 0);
 			_HideQuest:SetScript("OnClick", function()
-				__ns.MapTemporarilyHideQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
+				MT.MapTemporarilyHideQuestNodes(select(8, GetQuestLogTitle(GetQuestLogSelection())));
 			end);
-			_HideQuest:SetText(__UILOC.hide_quest);
+			_HideQuest:SetText(l10n.ui.hide_quest);
 			local _ResetButton = CreateFrame('BUTTON', nil, QuestLogDetailScrollChildFrame, "UIPanelButtonTemplate");
 			_ResetButton:SetSize(85, 21);
 			_ResetButton:SetPoint("LEFT", _HideQuest, "RIGHT", 0, 0);
 			_ResetButton:SetScript("OnClick", function()
-				__ns.MapResetTemporarilyQuestNodesFilter();
+				MT.MapResetTemporarilyQuestNodesFilter();
 			end);
-			_ResetButton:SetText(__UILOC.reset_filter);
-			__ns._ShowQuest = _ShowQuest;
-			__ns._HideQuest = _HideQuest;
-			__ns._ResetQuest = _ResetButton;
+			_ResetButton:SetText(l10n.ui.reset_filter);
+			VT.QuestLogFrame_ShowQuestButton = _ShowQuest;
+			VT.QuestLogFrame_HideQuestButton = _HideQuest;
+			VT.QuestLogFrame_ResetQuestButton = _ResetButton;
 			QuestLogDescriptionTitle.__defHeight = QuestLogDescriptionTitle:GetHeight();
-			if SET.show_buttons_in_log then
+			if VT.SETTING.show_buttons_in_log then
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
 				QuestLogDescriptionTitle:SetJustifyV("BOTTOM");
 				_ShowQuest:Show();
@@ -1152,34 +1118,31 @@ end
 				_HideQuest:Hide();
 				_ResetButton:Hide();
 			end
-			if autostyle ~= nil then
-				autostyle:AddReskinObject(_ShowQuest);
-				autostyle:AddReskinObject(_HideQuest);
-				autostyle:AddReskinObject(_ResetButton);
-			end
+			VT.__autostyle:AddReskinObject(_ShowQuest);
+			VT.__autostyle:AddReskinObject(_HideQuest);
+			VT.__autostyle:AddReskinObject(_ResetButton);
 		end
 		local function SetQuestLogFrameButtonShown(shown)
 			if shown then
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight + 30);
 				QuestLogDescriptionTitle:SetJustifyV("BOTTOM");
-				__ns._ShowQuest:Show();
-				__ns._HideQuest:Show();
-				__ns._ResetQuest:Show();
+				VT.QuestLogFrame_ShowQuestButton:Show();
+				VT.QuestLogFrame_HideQuestButton:Show();
+				VT.QuestLogFrame_ResetQuestButton:Show();
 			else
 				QuestLogDescriptionTitle:SetHeight(QuestLogDescriptionTitle.__defHeight);
-				__ns._ShowQuest:Hide();
-				__ns._HideQuest:Hide();
-				__ns._ResetQuest:Hide();
+				VT.QuestLogFrame_ShowQuestButton:Hide();
+				VT.QuestLogFrame_HideQuestButton:Hide();
+				VT.QuestLogFrame_ResetQuestButton:Hide();
 			end
 		end
 	-->
 	-->		extern
-		__ns.GetQuestTitle = GetQuestTitle;
-		__ns.SetQuestAutoInverseModifier = SetQuestAutoInverseModifier;
-		__ns.SetQuestLogFrameButtonShown = SetQuestLogFrameButtonShown;
+		MT.GetQuestTitle = GetQuestTitle;
+		MT.SetQuestAutoInverseModifier = SetQuestAutoInverseModifier;
+		MT.SetQuestLogFrameButtonShown = SetQuestLogFrameButtonShown;
 	-->
-	function __ns.util_setup()
-		SET = __ns.__setting;
+	MT.RegisterOnLogin("util", function(LoggedIn)
 		GameTooltip:HookScript("OnTooltipSetUnit", OnTooltipSetUnit);
 		GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
 		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem);
@@ -1192,66 +1155,24 @@ end
 			updateTimer = 0.0;
 		end);
 		GameTooltip:HookScript("OnUpdate", TooltipOnUpdate);
-		__eventHandler:RegEvent("MODIFIER_STATE_CHANGED");
+		EventAgent:RegEvent("MODIFIER_STATE_CHANGED");
 		--
-		__eventHandler:RegEvent("GOSSIP_SHOW");
-		__eventHandler:RegEvent("QUEST_GREETING");
-		__eventHandler:RegEvent("QUEST_DETAIL");
-		__eventHandler:RegEvent("QUEST_PROGRESS");
-		__eventHandler:RegEvent("QUEST_COMPLETE");
-		__eventHandler:RegEvent("QUEST_ACCEPT_CONFIRM");
-		__eventHandler:RegEvent("QUEST_AUTOCOMPLETE");
+		EventAgent:RegEvent("GOSSIP_SHOW");
+		EventAgent:RegEvent("QUEST_GREETING");
+		EventAgent:RegEvent("QUEST_DETAIL");
+		EventAgent:RegEvent("QUEST_PROGRESS");
+		EventAgent:RegEvent("QUEST_COMPLETE");
+		EventAgent:RegEvent("QUEST_ACCEPT_CONFIRM");
+		EventAgent:RegEvent("QUEST_AUTOCOMPLETE");
 		--
 		CreateDBIcon();
 		CreateWorldMapPinSwitch();
 		CreateQuestLogFrameButton();
 		InitMessageFactory();
 		--
-		__ns.map_ToggleWorldMapPin(SET.show_worldmappin);
-		__ns.map_ToggleMinimapPin(SET.show_minimappin);
-		SetQuestAutoInverseModifier(SET.quest_auto_inverse_modifier);
-		--
-		_F_SafeCall(__ns._checkConflicts);
-	end
--->
+		MT.MapToggleWorldMapPin(VT.SETTING.show_worldmappin);
+		MT.MapToggleMinimapPin(VT.SETTING.show_minimappin);
+		SetQuestAutoInverseModifier(VT.SETTING.quest_auto_inverse_modifier);
+	end);
 
--->		CONFLICTS
-	function __ns._checkConflicts()
-		if SET ~= nil and SET._checkedConflicts then
-			return;
-		end
-		__ns.After(4.0, function()
-			local _conflicts = false;
-			if GetAddOnEnableState(__core._PLAYER_NAME, "Questie") > 0 then
-				_conflicts = true;
-			end
-			if GetAddOnEnableState(__core._PLAYER_NAME, "ClassicCodex") > 0 then
-				_conflicts = true;
-			end
-			if _conflicts then
-				StaticPopupDialogs['CODEX_LITE_CONFLICTS'] = {
-					preferredIndex = 3,
-					text = __UILOC["CODEX_LITE_CONFLICTS"],
-					button1 = YES,
-					button2 = NO,
-					OnAccept = function(self, data)
-						DisableAddOn("Questie");
-						DisableAddOn("ClassicCodex");
-						SaveAddOns();
-						ReloadUI();
-					end,
-					hideOnEscape = 1,
-					timeout = 0,
-					exclusive = 1,
-					whileDead = 1,
-				};
-					StaticPopup_Show("CODEX_LITE_CONFLICTS");
-			end
-			if SET ~= nil then
-				SET._checkedConflicts = true;
-			end
-		end);
-	end
 -->
-
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.util'); end

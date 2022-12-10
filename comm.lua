@@ -2,15 +2,13 @@
 	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
-----------------------------------------------------------------------------------------------------
-local __addon, __ns = ...;
+local __addon, __private = ...;
+local MT = __private.MT;
+local CT = __private.CT;
+local VT = __private.VT;
+local DT = __private.DT;
 
-local _G = _G;
-local _ = nil;
-----------------------------------------------------------------------------------------------------
---[=[dev]=]	if __ns.__is_dev then __ns._F_devDebugProfileStart('module.comm'); end
-
--->		variables
+-->		upvalue
 	local GetTime = GetTime;
 	local next = next;
 	local tonumber = tonumber;
@@ -33,42 +31,19 @@ local _ = nil;
 	local UnitIsConnected = UnitIsConnected;
 	local ChatFrame_AddMessageEventFilter = ChatFrame_AddMessageEventFilter;
 	local LE_PARTY_CATEGORY_HOME = LE_PARTY_CATEGORY_HOME;
-
-	local __db = __ns.db;
-	local __db_quest = __db.quest;
-	local __db_unit = __db.unit;
-	local __db_item = __db.item;
-	local __db_object = __db.object;
-	local __db_refloot = __db.refloot;
-	local __db_event = __db.event;
-	local __db_avl_quest_list = __db.avl_quest_list;
-	local __db_avl_quest_hash = __db.avl_quest_hash;
-	local __db_blacklist_item = __db.blacklist_item;
-	local __db_large_pin = __db.large_pin;
-	local __db_chain_prev_quest = __db.chain_prev_quest;
-
-	local __loc_object = __ns.L.object;
-
-	local __core = __ns.core;
-	local _F_SafeCall = __core._F_SafeCall;
-	local __eventHandler = __core.__eventHandler;
-	local __const = __core.__const;
-	local PreloadCoords = __core.PreloadCoords;
-	local IMG_INDEX = __core.IMG_INDEX;
-	local GetQuestStartTexture = __core.GetQuestStartTexture;
-
-	local __core_meta = __ns.__core_meta;
-
-	local UnitHelpFac = __core.UnitHelpFac;
-	local _log_ = __ns._log_;
-
-	local SET = nil;
+	local _G = _G;
 
 -->
-if __ns.__is_dev then
-	__ns:BuildEnv("comm");
-end
--->		MAIN
+	local DataAgent = DT.DB;
+	local l10n = CT.l10n;
+
+	local EventAgent = VT.EventAgent;
+
+	local __MAIN_META = VT.MAIN_META;
+
+-->
+MT.BuildEnv("comm");
+-->		COMM
 	local ADDON_PREFIX = "CDXLT";
 	local ADDON_PREFIX_V1 = ADDON_PREFIX .. "1";
 	local ADDON_PREFIX_V2 = ADDON_PREFIX .. "2";
@@ -79,15 +54,15 @@ end
 	local ADDON_MSG_HEAD_ONLINE_V2 = "O";
 	local META = {  };	--	[quest_id] = { [flag:whether_nodes_added], [completed], [num_lines], [line(1, 2, 3, ...)] = { shown, objective_type, objective_id, description, finished, is_large_pin, progress, required, }, }
 	local OBJ_LOOKUP = {  };
-	__ns.__comm_meta = META;
-	__ns.__comm_obj_lookup = OBJ_LOOKUP;
 	local GROUP_MEMBERS = {  };
-	__ns.__comm_group_members = GROUP_MEMBERS;
 	local GROUP_MEMBERS_INFO = {  };
-	__ns.__comm_group_members_info = GROUP_MEMBERS_INFO;
+	VT.COMM_META = META;
+	VT.COMM_OBJ_LOOKUP = OBJ_LOOKUP;
+	VT.COMM_GROUP_MEMBERS = GROUP_MEMBERS;
+	VT.COMM_GROUP_MEMBERS_INFO = GROUP_MEMBERS_INFO;
 	local _Inited = {  };
 	-->		function predef
-		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, ResetUUID;
+		local CommDelUUID, CommAddUUID, CommSubUUID, CommGetUUID, CommResetUUID;
 		local GetVariedNodeTexture, AddCommonNodes, DelCommonNodes, AddLargeNodes, DelLargeNodes, AddVariedNodes, DelVariedNodes;
 		local AddSpawn, DelSpawn, AddUnit, DelUnit, AddObject, DelObject, AddRefloot, DelRefloot, AddItem, DelItem, AddEvent, DelEvent;
 		local AddQuester_VariedTexture, DelQuester_VariedTexture, AddQuestStart, DelQuestStart, AddQuestEnd, DelQuestEnd;
@@ -182,14 +157,14 @@ end
 				return UUID[_T][_id];
 			end
 		end
-		function ResetUUID()
+		function CommResetUUID()
 			wipe(_UUID);
 		end
-		__ns.CommAddUUID = CommAddUUID;
-		__ns.CommSubUUID = CommSubUUID;
-		__ns.CommGetUUID = CommGetUUID;
-		if __ns.__is_dev then
-			__ns.COMM_UUID = _UUID;
+		MT.CommAddUUID = CommAddUUID;
+		MT.CommSubUUID = CommSubUUID;
+		MT.CommGetUUID = CommGetUUID;
+		if VT.__is_dev then
+			VT.COMM_UUID = _UUID;
 		end
 	-->
 	-->		send data to ui
@@ -212,7 +187,7 @@ end
 			local uuid = CommAddUUID(name, _T, _id, _quest, _line, -9998);
 			if COMMON_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddCommonNodes(uuid, coords_table);
+					MT.MapAddCommonNodes(uuid, coords_table);
 				end
 				COMMON_UUID_FLAG[uuid] = true;
 			end
@@ -231,7 +206,7 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelCommonNodes(uuid);
+				MT.MapDelCommonNodes(uuid);
 				COMMON_UUID_FLAG[uuid] = nil;
 			end
 		end
@@ -240,7 +215,7 @@ end
 			local uuid = CommAddUUID(name, _T, _id, _quest, _line, -9999);
 			if LARGE_UUID_FLAG[uuid] == nil then
 				if coords_table ~= nil then
-					__ns.MapAddLargeNodes(uuid, coords_table);
+					MT.MapAddLargeNodes(uuid, coords_table);
 				end
 				LARGE_UUID_FLAG[uuid] = true;
 			end
@@ -259,7 +234,7 @@ end
 				end
 			end
 			if del == true then
-				__ns.MapDelLargeNodes(uuid);
+				MT.MapDelLargeNodes(uuid);
 				LARGE_UUID_FLAG[uuid] = nil;
 			end
 		end
@@ -269,7 +244,7 @@ end
 			local TEXTURE = GetVariedNodeTexture(uuid[4]);
 			if uuid[5] ~= TEXTURE then
 				uuid[5] = TEXTURE;
-				__ns.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
+				MT.MapAddVariedNodes(uuid, coords_table, VARIED_UUID_FLAG[uuid]);
 				VARIED_UUID_FLAG[uuid] = true;
 			end
 		end
@@ -278,7 +253,7 @@ end
 			if del == true then
 				uuid[5] = nil;
 				if VARIED_UUID_FLAG[uuid] ~= nil then
-					__ns.MapDelVariedNodes(uuid);
+					MT.MapDelVariedNodes(uuid);
 					VARIED_UUID_FLAG[uuid] = nil;
 				end
 			elseif del == false then
@@ -286,7 +261,7 @@ end
 				if uuid[5] ~= TEXTURE then
 					uuid[5] = TEXTURE;
 					if VARIED_UUID_FLAG[uuid] ~= nil then
-						__ns.MapAddVariedNodes(uuid, nil, true);
+						MT.MapAddVariedNodes(uuid, nil, true);
 					end
 				end
 			end
@@ -296,33 +271,45 @@ end
 		function AddSpawn(name, quest, line, spawn, show_coords, showFriend)
 			if spawn.U ~= nil then
 				for unit, _ in next, spawn.U do
-					local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+					local large_pin = DataAgent.large_pin:Check(quest, 'unit', unit);
 					AddUnit(name, quest, line, unit, show_coords, large_pin, showFriend);
 				end
 			end
 			if spawn.O ~= nil then
 				for object, _ in next, spawn.O do
-					local large_pin = __db_large_pin:Check(quest, 'object', object);
+					local large_pin = DataAgent.large_pin:Check(quest, 'object', object);
 					AddObject(name, quest, line, object, show_coords, large_pin);
+				end
+			end
+			if spawn.I ~= nil then
+				for item, num in next, spawn.I do
+					local large_pin = DataAgent.large_pin:Check(quest, 'item', item);
+					AddItem(name, quest, line, item, show_coords, large_pin);
 				end
 			end
 		end
 		function DelSpawn(name, quest, line, spawn, total_del)
 			if spawn.U ~= nil then
 				for unit, _ in next, spawn.U do
-					local large_pin = __db_large_pin:Check(quest, 'unit', unit);
+					local large_pin = DataAgent.large_pin:Check(quest, 'unit', unit);
 					DelUnit(name, quest, line, unit, total_del, large_pin);
 				end
 			end
 			if spawn.O ~= nil then
 				for object, _ in next, spawn.O do
-					local large_pin = __db_large_pin:Check(quest, 'object', object);
+					local large_pin = DataAgent.large_pin:Check(quest, 'object', object);
 					DelObject(name, quest, line, object, total_del, large_pin);
+				end
+			end
+			if spawn.I ~= nil then
+				for item, num in next, spawn.I do
+					local large_pin = DataAgent.large_pin:Check(quest, 'item', item);
+					DelItem(name, quest, line, item, total_del, large_pin);
 				end
 			end
 		end
 		function AddUnit(name, quest, line, uid, show_coords, large_pin, showFriend)
-			local info = __db_unit[uid];
+			local info = DataAgent.unit[uid];
 			if info ~= nil then
 				if showFriend ~= nil then
 					local isFriend = nil;
@@ -338,7 +325,7 @@ end
 							isFriend = false;
 						end
 					else
-						isFriend = UnitHelpFac[info.fac];
+						isFriend = VT.IsUnitFacFriend[info.fac];
 					end
 					if not showFriend ~= not isFriend then
 						return;
@@ -356,7 +343,7 @@ end
 			end
 		end
 		function DelUnit(name, quest, line, uid, total_del, large_pin)
-			local info = __db_unit[uid];
+			local info = DataAgent.unit[uid];
 			if info ~= nil then
 				if large_pin then
 					DelLargeNodes(name, 'unit', uid, quest, line, total_del);
@@ -370,7 +357,7 @@ end
 			end
 		end
 		function AddObject(name, quest, line, oid, show_coords, large_pin)
-			local info = __db_object[oid];
+			local info = DataAgent.object[oid];
 			if info ~= nil then
 				if large_pin then
 					AddLargeNodes(name, 'object', oid, quest, line, nil);
@@ -382,13 +369,13 @@ end
 					AddSpawn(name, quest, line, spawn, show_coords);
 				end
 			end
-			local name = __loc_object[oid];
+			local name = l10n.object[oid];
 			if name ~= nil then
 				OBJ_LOOKUP[name] = oid;
 			end
 		end
 		function DelObject(name, quest, line, oid, total_del, large_pin)
-			local info = __db_object[oid];
+			local info = DataAgent.object[oid];
 			if info ~= nil then
 				if large_pin then
 					DelLargeNodes(name, 'object', oid, quest, line, total_del);
@@ -402,7 +389,7 @@ end
 			end
 		end
 		function AddRefloot(name, quest, line, rid, show_coords, large_pin)
-			local info = __db_refloot[rid];
+			local info = DataAgent.refloot[rid];
 			if info ~= nil then
 				if info.U ~= nil then
 					for uid, _ in next, info.U do
@@ -417,7 +404,7 @@ end
 			end
 		end
 		function DelRefloot(name, quest, line, rid, total_del, large_pin)
-			local info = __db_refloot[rid];
+			local info = DataAgent.refloot[rid];
 			if info ~= nil then
 				if info.U ~= nil then
 					for uid, _ in next, info.U do
@@ -432,28 +419,28 @@ end
 			end
 		end
 		function AddItem(name, quest, line, iid, show_coords, large_pin)
-			if __db_blacklist_item[iid] ~= nil then
+			if DataAgent.blacklist_item[iid] ~= nil then
 				return;
 			end
-			local info = __db_item[iid];
+			local info = DataAgent.item[iid];
 			if info ~= nil then
 				if info.U ~= nil then
 					for uid, rate in next, info.U do
-						if rate >= SET.min_rate then
+						if rate >= VT.SETTING.min_rate then
 							AddUnit(name, quest, line, uid, show_coords, large_pin, nil);
 						end
 					end
 				end
 				if info.O ~= nil then
 					for oid, rate in next, info.O do
-						if rate >= SET.min_rate then
+						if rate >= VT.SETTING.min_rate then
 							AddObject(name, quest, line, oid, show_coords, large_pin);
 						end
 					end
 				end
 				if info.R ~= nil then
 					for rid, rate in next, info.R do
-						if rate >= SET.min_rate then
+						if rate >= VT.SETTING.min_rate then
 							AddRefloot(name, quest, line, rid, show_coords, large_pin);
 						end
 					end
@@ -464,18 +451,17 @@ end
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
-						AddItem(name, quest, line2, iid2, show_coords, large_pin);
+						AddItem(name, quest, line, iid2, show_coords, large_pin);
 					end
 				end
 			end
 		end
 		function DelItem(name, quest, line, iid, total_del, large_pin)
-			if __db_blacklist_item[iid] ~= nil then
+			if DataAgent.blacklist_item[iid] ~= nil then
 				return;
 			end
-			local info = __db_item[iid];
+			local info = DataAgent.item[iid];
 			if info ~= nil then
 				if info.U ~= nil then
 					for uid, rate in next, info.U do
@@ -498,7 +484,6 @@ end
 					end
 				end
 				if info.I ~= nil then
-					local line2 = line > 0 and -line or line;
 					for iid2, _ in next, info.I do
 						DelItem(name, quest, line, iid2, total_del, large_pin);
 					end
@@ -506,9 +491,9 @@ end
 			end
 		end
 		function AddEvent(name, quest, line, eid, show_coords, large_pin)
-			local info = __db_event[eid];
+			local info = DataAgent.event[eid];
 			if info ~= nil then
-				PreloadCoords(info);
+				MT.PreloadCoords(info);
 				if large_pin then
 					AddLargeNodes(name, 'event', eid, quest, line, nil);
 				else
@@ -521,7 +506,7 @@ end
 			end
 		end
 		function DelEvent(name, quest, line, eid, total_del, large_pin)
-			local info = __db_event[eid];
+			local info = DataAgent.event[eid];
 			if info ~= nil then
 				if large_pin then
 					DelLargeNodes(name, 'event', eid, quest, line, total_del);
@@ -541,11 +526,11 @@ end
 				if O ~= nil then
 					for index = 1, #O do
 						local oid = O[index];
-						local info = __db_object[oid];
+						local info = DataAgent.object[oid];
 						if info ~= nil then
 							AddVariedNodes(name, 'object', oid, quest, which, nil, TEXTURE);
 						end
-						local name = __loc_object[oid];
+						local name = l10n.object[oid];
 						if name ~= nil then
 							OBJ_LOOKUP[name] = oid;
 						end
@@ -555,7 +540,7 @@ end
 				if U ~= nil then
 					for index = 1, #U do
 						local uid = U[index];
-						local info = __db_unit[uid];
+						local info = DataAgent.unit[uid];
 						if info ~= nil then
 							AddVariedNodes(name, 'unit', uid, quest, which, nil, TEXTURE);
 						end
@@ -580,7 +565,7 @@ end
 			end
 		end
 		function AddQuestStart(name, quest, info, TEXTURE)
-			AddQuester_VariedTexture(name, quest, info.start, 'start', TEXTURE or GetQuestStartTexture(info));
+			AddQuester_VariedTexture(name, quest, info.start, 'start', TEXTURE or MT.GetQuestStartTexture(info));
 		end
 		function DelQuestStart(name, quest, info)
 			DelQuester_VariedTexture(name, quest, info.start, 'start');
@@ -595,73 +580,54 @@ end
 	-->		line	-1 = Quest Giver	-2 = Quest Completer	0 = event
 		function AddLine(name, quest_id, _line, _type, _id, finished)
 			-- if finished then
-			-- 	_log_('AddLine-T_T', name, _type, _id);
+			-- 	MT.Debug('AddLine-T_T', name, _type, _id);
 			-- else
-			-- 	_log_('AddLine-T_F', name, _type, _id);
+			-- 	MT.Debug('AddLine-T_F', name, _type, _id);
 			-- end
 			if _type == 'monster' then
-				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', _id);
 				AddUnit(name, quest_id, _line, _id, not finished, large_pin, nil);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'item' then
-				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'item', _id);
 				AddItem(name, quest_id, _line, _id, not finished, large_pin);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'object' then
-				local large_pin = __db_large_pin:Check(quest_id, 'object', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'object', _id);
 				AddObject(name, quest_id, _line, _id, not finished, large_pin);
-				return true, _id, large_pin;
+				return large_pin;
 			elseif _type == 'event' or _type == 'log' then
-				local info = __db_quest[quest_id];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					for i = 1, #events do
-						local event = events[i];
-						AddEvent(name, quest_id, _line, event, false, true);
-					end
-				end
-				return true, 'event', true;
+				AddEvent(name, quest_id, _line, _id, not finished, true);
+				return true;
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
-				_log_('comm_objective_type', quest_id, finished, _type);
+				MT.Debug('comm_objective_type', quest_id, finished, _type);
 			end
-			return true;
+			return nil;
 		end
 		function DelLine(name, quest_id, _line, _type, _id, total_del)
 			if _type == 'monster' then
-				local large_pin = __db_large_pin:Check(quest_id, 'unit', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', _id);
 				DelUnit(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'item' then
-				local large_pin = __db_large_pin:Check(quest_id, 'item', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'item', _id);
 				DelItem(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'object' then
-				local large_pin = __db_large_pin:Check(quest_id, 'object', _id);
+				local large_pin = DataAgent.large_pin:Check(quest_id, 'object', _id);
 				DelObject(name, quest_id, _line, _id, total_del, large_pin);
-				return true, _id, large_pin;
 			elseif _type == 'event' or _type == 'log' then
-				local info = __db_quest[quest_id];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					for i = 1, #events do
-						local event = events[i];
-						DelEvent(name, quest_id, _line, event, total_del, true);
-					end
-				end
-				return true, 'event', true;
+				DelEvent(name, quest_id, _line, _id, total_del, true);
 			elseif _type == 'reputation' then
 			elseif _type == 'player' or _type == 'progressbar' then
 			else
-				_log_('comm_objective_type', quest_id, _type, _id);
+				MT.Debug('comm_objective_type', quest_id, _type, _id);
 			end
-			return true;
 		end
 		function AddExtra(name, quest_id, extra, text, completed)
 			if extra.U ~= nil then
 				for uid, check in next, extra.U do
-					local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', uid);
 					if check == completed or check == 'always' then
 						AddUnit(name, quest_id, 'extra', uid, true, large_pin, true);
 					else
@@ -671,7 +637,7 @@ end
 			end
 			if extra.I ~= nil then
 				for iid, check in next, extra.I do
-					local large_pin = __db_large_pin:Check(quest_id, 'unit', iid);
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', iid);
 					if check == completed or check == 'always' then
 						AddItem(name, quest_id, 'extra', iid, true, large_pin);
 					else
@@ -681,8 +647,8 @@ end
 			end
 			if extra.O ~= nil then
 				for oid, check in next, extra.O do
-					OBJ_LOOKUP[__loc_object[oid]] = oid;
-					local large_pin = __db_large_pin:Check(quest_id, 'object', oid);
+					OBJ_LOOKUP[l10n.object[oid]] = oid;
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'object', oid);
 					if check == completed or check == 'always' then
 						AddObject(name, quest_id, 'extra', oid, true, large_pin);
 					else
@@ -703,19 +669,19 @@ end
 		function DelExtra(name, quest_id, extra)
 			if extra.U ~= nil then
 				for uid, check in next, extra.U do
-					local large_pin = __db_large_pin:Check(quest_id, 'unit', uid);
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', uid);
 					DelUnit(name, quest_id, 'extra', uid, true, large_pin);
 				end
 			end
 			if extra.I ~= nil then
 				for iid, check in next, extra.I do
-					local large_pin = __db_large_pin:Check(quest_id, 'unit', iid);
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'unit', iid);
 					DelItem(name, quest_id, 'extra', iid, true, large_pin);
 				end
 			end
 			if extra.O ~= nil then
 				for oid, check in next, extra.O do
-					local large_pin = __db_large_pin:Check(quest_id, 'object', oid);
+					local large_pin = DataAgent.large_pin:Check(quest_id, 'object', oid);
 					DelObject(name, quest_id, 'extra', oid, true, large_pin);
 				end
 			end
@@ -736,7 +702,7 @@ end
 			MessageTop = MessageTop - 1;
 			if MessageBuffer[1] ~= nil then
 				SchedulerRunning = true;
-				__ns.After(0.02, MessageTicker);
+				MT.After(0.02, MessageTicker);
 			else
 				SchedulerRunning = false;
 			end
@@ -748,7 +714,7 @@ end
 			MessageBuffer[MessageTop] = { prefix, msg, channel, target, };
 			if not SchedulerRunning then
 				SchedulerRunning = true;
-				__ns.After(0.02, MessageTicker);
+				MT.After(0.02, MessageTicker);
 			end
 		end
 		-->		Message Filter
@@ -776,7 +742,7 @@ end
 			end
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", F_Filter);
 		-->
-		__ns.ScheduleMessage = ScheduleMessage;
+		MT.ScheduleMessage = ScheduleMessage;
 	-->
 	-->		comm
 		--
@@ -813,20 +779,7 @@ end
 			PushMessage(ADDON_MSG_HEAD_PUSHQUEST_V2 .. "\001" .. _quest .. "\001-1\001" .. _completed);
 		end
 		function PushAddLine(_quest, _line, _finished, _type, _id, _text)
-			if _type == 'event' or _type == 'log' then
-				local info = __db_quest[_quest];
-				if info ~= nil and info.obj ~= nil and info.obj.E ~= nil then
-					local events = info.obj.E;
-					if events ~= nil then
-						for i = 1, #events do
-							local _id = events[i];
-							PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001event\001" .. _id .. "\001" .. _text);
-						end
-					end
-				end
-			else
-				PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001" .. _type .. "\001" .. _id .. "\001" .. _text);
-			end
+			PushMessage(ADDON_MSG_HEAD_PUSHLINE_V2 .. "\001" .. _quest .. (_finished and "\0011\001" or "\0010\001") .. _line .. "\001" .. _type .. "\001" .. _id .. "\001" .. _text);
 		end
 		function PushFlushBuffer()
 			local mem = _CommBuffer["*"];
@@ -879,9 +832,9 @@ end
 		end
 		--
 		function PushSingle(name, immediate)
-			_log_('comm.|cffff0000PushSingle|r', name);
+			MT.Debug('comm.|cffff0000PushSingle|r', name);
 			PushResetSingle(name);
-			for quest, meta in next, __core_meta do
+			for quest, meta in next, __MAIN_META do
 				PushAddQuestSingle(name, quest, meta.completed, meta.title, meta.num_lines);
 				for line = 1, #meta do
 					local meta_line = meta[line];
@@ -895,7 +848,7 @@ end
 			end
 		end
 		function PullSingle(name, immediate)
-			_log_('comm.|cffff0000PullSingle|r', name);
+			MT.Debug('comm.|cffff0000PullSingle|r', name);
 			if immediate then
 				ScheduleMessage(ADDON_PREFIX_V2, ADDON_MSG_HEAD_PULL_V2, "WHISPER", name);
 			else
@@ -903,7 +856,7 @@ end
 			end
 		end
 		function BroadcastOnline()
-			_log_('comm.|cffff0000BroadcastOnline|r');
+			MT.Debug('comm.|cffff0000BroadcastOnline|r');
 			for name, val in next, GROUP_MEMBERS do
 				ScheduleMessage(ADDON_PREFIX_V2, ADDON_MSG_HEAD_ONLINE_V2, "WHISPER", name);
 			end
@@ -921,7 +874,7 @@ end
 							DelLine(name, quest, index, meta_line[2], meta_line[3], true);
 						end
 					end
-					local info = __db_quest[quest];
+					local info = DataAgent.quest[quest];
 					if info ~= nil then
 						-- DelQuestStart(name, quest, info);
 						DelQuestEnd(name, quest, info);
@@ -939,10 +892,10 @@ end
 				meta.completed = completed;
 				meta.title = title;
 			end
-			local info = __db_quest[quest];
+			local info = DataAgent.quest[quest];
 			if info ~= nil then
 				-- AddQuestStart(name, quest, info);
-				AddQuestEnd(name, quest, info, completed == 1 and IMG_INDEX.IMG_E_COMPLETED or IMG_INDEX.IMG_E_UNCOMPLETED);
+				AddQuestEnd(name, quest, info, completed == 1 and CT.IMG_INDEX.IMG_E_COMPLETED or CT.IMG_INDEX.IMG_E_UNCOMPLETED);
 				if info.extra ~= nil then
 					AddExtra(name, quest, info.extra, title, completed);
 				end
@@ -959,7 +912,7 @@ end
 						DelLine(name, quest, index, meta_line[2], meta_line[3], true);
 					end
 				end
-				local info = __db_quest[quest];
+				local info = DataAgent.quest[quest];
 				if info ~= nil then
 					-- DelQuestStart(name, quest, info);
 					DelQuestEnd(name, quest, info);
@@ -982,14 +935,14 @@ end
 					meta_line[4] = text;
 					meta_line[5] = finished;
 				end
-				if type == 'object' and __loc_object[id] ~= nil then
-					OBJ_LOOKUP[__loc_object[id]] = id;
+				if type == 'object' and l10n.object[id] ~= nil then
+					OBJ_LOOKUP[l10n.object[id]] = id;
 				end
 				AddLine(name, quest, line, type, id, finished);
 			end
 		end
 		local function OnCommCodexLiteV1(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
-			_log_('|cff00ff7fOnCommCodexLiteV1|r', msg, name);
+			MT.Debug('|cff00ff7fOnCommCodexLiteV1|r', msg, name);
 			local control_code = strsub(msg, 1, 6);
 			if control_code == "_push_" then
 				if META[name] ~= nil then
@@ -1001,12 +954,12 @@ end
 						local _act = tonumber(_2);			--	1 = add, -1 = del
 						if _act == -1 then
 							OnCommQuestDel(name, _quest);
-							_log_('|cff00ff7fV1-Quest|r|cffff0000Del|r', name, _quest, _1);
+							MT.Debug('|cff00ff7fV1-Q|r|cffff0000Del|r', name, _quest, _1);
 						elseif _act == 1 then
 							OnCommQuestAdd(name, _quest, tonumber(_1), tonumber(_3), _4);
-							_log_('|cff00ff7fV1-Quest|r|cff00ff00Add|r', name, _quest, _1, _3, _4);
+							MT.Debug('|cff00ff7fV1-Q|r|cff00ff00Add|r', name, _quest, _1, _3, _4);
 						else
-							_log_('|cff00ff7fV1|r |cffff0000Invalid act|r', name, _act, msg);
+							MT.Debug('|cff00ff7fV1|r |cffff0000Invalid act|r', name, _act, msg);
 						end
 					elseif _head == "LINE" then
 						--	_1 : finished		_2 : _line		_3 : _type			_4 : _id		_5 : _text
@@ -1014,10 +967,10 @@ end
 						local meta = META[name][_quest];
 						if meta ~= nil then
 							OnCommQuestLine(name, _quest, tonumber(_2) or _2, _3, tonumber(_4), _5, _1 == "1");
-							_log_('|cff00ff7fV1-Quest|r|cff00ffffLine|r', name, _quest, _2, _3, _4, _1, _5);
+							MT.Debug('|cff00ff7fV1-Q|r|cff00ffffLine|r', name, _quest, _2, _3, _4, _1, _5);
 						end
 					else
-						_log_('|cff00ff7fV2|r |cffff0000Invalid head|r', name, _head, msg);
+						MT.Debug('|cff00ff7fV2|r |cffff0000Invalid head|r', name, _head, msg);
 					end
 				end
 			elseif control_code == "_pull_" then
@@ -1028,9 +981,9 @@ end
 			elseif control_code == "_rst__" then
 				OnCommInit(name);
 				_Inited[name] = GetTime();
-				_log_('|cff00ff7fV1-Quest|r|cffff7f00Reset|r', name);
+				MT.Debug('|cff00ff7fV1-Q|r|cffff7f00Reset|r', name);
 			elseif control_code == "_conn_" then
-				_log_('|cff00ff7fV1-Quest|r|cff00ff7fOnline|r', name);
+				MT.Debug('|cff00ff7fV1-Q|r|cff00ff7fOnline|r', name);
 			end
 		end
 		local _NextPushSingle = {  };
@@ -1051,7 +1004,7 @@ end
 							local _num_lines = tonumber(_SEQ[_pos + 3]);
 							local _title = _SEQ[_pos + 4];
 							OnCommQuestAdd(name, _quest, _completed, _num_lines, _title);
-							_log_('|cff00ff7fV2-Q|r|cff00ff00Add|r', name, _quest, _completed, _num_lines, _title);
+							MT.Debug('|cff00ff7fV2-Q|r|cff00ff00Add|r', name, _quest, _completed, _num_lines, _title);
 						end
 						_pos = _pos + 5;
 					elseif _act == "-1" then
@@ -1059,11 +1012,11 @@ end
 							local _quest = tonumber(_SEQ[_pos]);
 							local _completed = tonumber(_SEQ[_pos + 2]);
 							OnCommQuestDel(name, _quest);
-							_log_('|cff00ff7fV2-Q|r|cffff0000Del|r', name, _quest, _completed);
+							MT.Debug('|cff00ff7fV2-Q|r|cffff0000Del|r', name, _quest, _completed);
 						end
 						_pos = _pos + 3;
 					else
-						_log_('|cff00ff7fV2|r |cffff0000Invalid act|r', name, _head, _pos, _act, msg);
+						MT.Debug('|cff00ff7fV2|r |cffff0000Invalid act|r', name, _head, _pos, _act, msg);
 						break;
 					end
 				elseif _head == ADDON_MSG_HEAD_PUSHLINE_V2 then
@@ -1079,7 +1032,7 @@ end
 							local _id = _SEQ[_pos + 3];
 							local _text = _SEQ[_pos + 4];
 							OnCommQuestLine(name, _quest, tonumber(_line) or _line, _type, tonumber(_id) or _id, _text, _finished);
-							-- _log_('|cff00ff7fV2-Q|r|cff00ffffLine|r', name, _quest, _line, _type, _id, _finished, _text);
+							-- MT.Debug('|cff00ff7fV2-Q|r|cff00ffffLine|r', name, _quest, _line, _type, _id, _finished, _text);
 						end
 					end
 					_pos = _pos + 5;
@@ -1096,36 +1049,36 @@ end
 				elseif _head == ADDON_MSG_HEAD_RESET_V2 then
 					OnCommInit(name);
 					_Inited[name] = GetTime();
-					_log_('|cff00ff7fV2-Q|r|cffff7f00Reset|r', name);
+					MT.Debug('|cff00ff7fV2-Q|r|cffff7f00Reset|r', name);
 				elseif _head == ADDON_MSG_HEAD_ONLINE_V2 then
-					_log_('|cff00ff7fV2-Q|r|cff00ff7fOnline|r', name);
+					MT.Debug('|cff00ff7fV2-Q|r|cff00ff7fOnline|r', name);
 				else
-					_log_('|cff00ff7fV2|r |cffff0000Invalid head|r', name, _pos - 1, _head, msg, strlen(msg));
+					MT.Debug('|cff00ff7fV2|r |cffff0000Invalid head|r', name, _pos - 1, _head, msg, strlen(msg));
 					break;
 				end
 			end
 		end
 		local function OnCommQuestie(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
-			-- _log_('|cff00ff7fOnCommQuestie|r', msg, name);
-			__ns.ExternalQuestie._OnComm(msg, name, channel);
+			-- MT.Debug('|cff00ff7fOnCommQuestie|r', msg, name);
+			VT.ExternalQuestie._OnComm(msg, name, channel);
 		end
 	-->		control
 		function DisableComm()
 			is_comm_enabled = false;
 			wipe(META);
-			ResetUUID();
-			__ns.PushAddQuest = noop;
-			__ns.PushDelQuest = noop;
-			__ns.PushAddLine = noop;
-			__ns.PushFlushBuffer = noop;
+			CommResetUUID();
+			MT.PushAddQuest = noop;
+			MT.PushDelQuest = noop;
+			MT.PushAddLine = noop;
+			MT.PushFlushBuffer = noop;
 			wipe(GROUP_MEMBERS);
 		end
 		function EnableComm()
 			is_comm_enabled = true;
-			__ns.PushAddQuest = PushAddQuest;
-			__ns.PushDelQuest = PushDelQuest;
-			__ns.PushAddLine = PushAddLine;
-			__ns.PushFlushBuffer = PushFlushBuffer;
+			MT.PushAddQuest = PushAddQuest;
+			MT.PushDelQuest = PushDelQuest;
+			MT.PushAddLine = PushAddLine;
+			MT.PushFlushBuffer = PushFlushBuffer;
 		end
 	-->		group cache
 		local PartyUnitsList = { 'party1', 'party2', 'party3', 'party4', };
@@ -1137,7 +1090,7 @@ end
 					if UnitExists(unit) then
 						local name, realm = UnitName(unit);
 						if name == nil or name == "" then
-							__eventHandler:run_on_next_tick(UpdateGroupMembers);
+							MT._TimerStart(UpdateGroupMembers, 0.2, 1);
 							return;
 						end
 						if realm ~= nil and realm ~= "" then
@@ -1149,7 +1102,7 @@ end
 								--	Add
 								META[name] = {  };
 								PullSingle(name, true);
-								__ns.ExternalQuestie._PullSingle(name);
+								VT.ExternalQuestie._PullSingle(name);
 								PushSingle(name);
 							end
 							_GROUP_MEMBERS[name] = true;
@@ -1159,7 +1112,7 @@ end
 								CommDelUUID(name);
 								META[name] = nil;
 								_Inited[name] = nil;
-								__ns.ExternalQuestie._DelUnit(name);
+								VT.ExternalQuestie._DelUnit(name);
 							end
 							_GROUP_MEMBERS[name] = false;
 						end
@@ -1172,11 +1125,11 @@ end
 						CommDelUUID(name);
 						META[name] = nil;
 						_Inited[name] = nil;
-						__ns.ExternalQuestie._DelUnit(name);
+						VT.ExternalQuestie._DelUnit(name);
 					end
 				end
 				GROUP_MEMBERS = _GROUP_MEMBERS;
-				__ns.__comm_group_members = _GROUP_MEMBERS;
+				VT.COMM_GROUP_MEMBERS = _GROUP_MEMBERS;
 			end
 		end
 	-->		events and hooks
@@ -1184,80 +1137,79 @@ end
 		--			[completed]	-1 = failed, 0 = uncompleted, 1 = completed
 		--			[action]	-1 = sub, 1 = add
 		-->		LINE ^questId^finished ^line^type^id^text
-		function __ns.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
+		function EventAgent.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 			if prefix == ADDON_PREFIX_V2 then
 				local name = Ambiguate(sender, 'none');
-				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
+				if name ~= CT.SELFNAME and GROUP_MEMBERS[name] ~= nil then
 					OnCommCodexLiteV2(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID);
 				end
 			elseif prefix == ADDON_PREFIX_V1 then
 				local name = Ambiguate(sender, 'none');
-				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
+				if name ~= CT.SELFNAME and GROUP_MEMBERS[name] ~= nil then
 					OnCommCodexLiteV1(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID);
 				end
 			elseif prefix == "questie" then
 				local name = Ambiguate(sender, 'none');
-				if name ~= __core._PLAYER_NAME and GROUP_MEMBERS[name] ~= nil then
+				if name ~= CT.SELFNAME and GROUP_MEMBERS[name] ~= nil then
 					OnCommQuestie(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID);
 				end
 			end
 		end
-		function __ns.GROUP_ROSTER_UPDATE()
+		function EventAgent.GROUP_ROSTER_UPDATE()
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
-				_log_('|cff00ff7fGROUP_ROSTER_UPDATE|r');
+				MT.Debug('|cff00ff7fGROUP_ROSTER_UPDATE|r');
 				EnableComm();
-				__eventHandler:run_on_next_tick(UpdateGroupMembers);
+				MT._TimerStart(UpdateGroupMembers, 0.2, 1);
 			end
 		end
-		function __ns.GROUP_FORMED(category, partyGUID)
+		function EventAgent.GROUP_FORMED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
-				_log_('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
+				MT.Debug('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
 				EnableComm();
 			end
 		end
-		function __ns.GROUP_JOINED(category, partyGUID)
+		function EventAgent.GROUP_JOINED(category, partyGUID)
 			if IsInRaid(LE_PARTY_CATEGORY_HOME) or UnitInBattleground('player') then
 				DisableComm();
 			else
-				_log_('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
+				MT.Debug('|cff00ff7fGROUP_JOINED|r', category, partyGUID);
 				EnableComm();
-				__eventHandler:run_on_next_tick(UpdateGroupMembers);
+				MT._TimerStart(UpdateGroupMembers, 0.2, 1);
 			end
 		end
-		function __ns.GROUP_LEFT(category, partyGUID)
-			_log_('|cff00ff7fGROUP_LEFT|r', category, partyGUID);
+		function EventAgent.GROUP_LEFT(category, partyGUID)
+			MT.Debug('|cff00ff7fGROUP_LEFT|r', category, partyGUID);
 			DisableComm();
 		end
-		function __ns.UNIT_CONNECTION(unit, isConnected)
+		function EventAgent.UNIT_CONNECTION(unit, isConnected)
 			if is_comm_enabled then
 				UpdateGroupMembers();
 			end
 		end
 	-->
-	function __ns.comm_setup()
-		SET = __ns.__setting;
+	MT.RegisterOnLogin("comm", function(LoggedIn)
 		DisableComm();
 		local r1, r2 = RegisterAddonMessagePrefix(ADDON_PREFIX_V1), RegisterAddonMessagePrefix(ADDON_PREFIX_V2);
 		if r1 or r2 then
-			__eventHandler:RegEvent("CHAT_MSG_ADDON");
-			-- __eventHandler:RegEvent("CHAT_MSG_ADDON_LOGGED");
-			__eventHandler:RegEvent("GROUP_ROSTER_UPDATE");
-			-- __eventHandler:RegEvent("GROUP_FORMED");
-			__eventHandler:RegEvent("GROUP_JOINED");
-			__eventHandler:RegEvent("GROUP_LEFT");
-			__eventHandler:RegEvent("UNIT_CONNECTION");
+			EventAgent:RegEvent("CHAT_MSG_ADDON");
+			-- EventAgent:RegEvent("CHAT_MSG_ADDON_LOGGED");
+			EventAgent:RegEvent("GROUP_ROSTER_UPDATE");
+			-- EventAgent:RegEvent("GROUP_FORMED");
+			EventAgent:RegEvent("GROUP_JOINED");
+			EventAgent:RegEvent("GROUP_LEFT");
+			EventAgent:RegEvent("UNIT_CONNECTION");
 			if IsInGroup(LE_PARTY_CATEGORY_HOME) and not IsInRaid(LE_PARTY_CATEGORY_HOME) and not UnitInBattleground('player') then
 				EnableComm();
-				__eventHandler:run_on_next_tick(UpdateGroupMembers);
-				_log_("comm.init.ingroup");
+				MT._TimerStart(UpdateGroupMembers, 0.2, 1);
+				MT.Debug("comm.init.ingroup");
 			end
 		end
-		__ns.ExternalQuestie._Init(_Inited, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
-	end
+		VT.ExternalQuestie._Init(_Inited, META, OnCommInit, OnCommQuestAdd, OnCommQuestDel, OnCommQuestLine);
+	end);
+
 -->
 
---[=[dev]=]	if __ns.__is_dev then __ns.__performance_log_tick('module.comm'); end
