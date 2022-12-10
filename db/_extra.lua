@@ -2817,6 +2817,11 @@ local large_pin = {
 			[8463] = 1,
 		},
 	},
+	[2624] = {
+		["object"] = {
+			[2576] = 1,
+		},
+	},
 	[2746] = {
 		["item"] = {
 			[8683] = 1,
@@ -6710,5 +6715,4 @@ if GetLocale() == "zhCN" then
 		"^解放",
 	};
 else
-	__ns.L.delprefix = {  };
 end
