@@ -13952,10 +13952,4 @@ CT.l10nDB.ruRU.object = {
 	[211067] = "Sarcophag",
 	[211068] = "Тотем огня",
 	[211084] = "Mephistroph's HellFire",
-	[-100000] = "Fish",
-	[-100001] = "Fish",
-	[-100002] = "Fish",
-	[-100003] = "Fish",
-	[-101000] = "Entry",
-	[-101001] = "Entry",
 };
