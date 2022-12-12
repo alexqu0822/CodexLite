@@ -578,7 +578,8 @@ MT.BuildEnv("db-extra");
 							end
 							local d = def[id];
 							v[1] = v[1] or d[1] or "quest:" .. id;
-							v[3] = v[3] or d[3];
+							v[2] = nil;
+							v[3] = v[3] or v[2] or d[3] or d[2];
 							-- def[id] = nil;
 						end
 					else
@@ -593,9 +594,13 @@ MT.BuildEnv("db-extra");
 						db[id] = nil;
 					end
 				end
-				setmetatable(def, { __mode = "kv", });
+				if loc ~= def then
+					setmetatable(def, { __mode = "kv", });
+				end
 			end
-			setmetatable(i18n, { __mode = "kv", });
+			if l10n ~= i18n then
+				setmetatable(i18n, { __mode = "kv", });
+			end
 			-->
 			MarkUnit, MarkItem, MarkObject, MarkRefloot, MarkEvent = nil;
 			HashUnit, HashItem, HashObject, HashRefloot, HashEvent = nil;
