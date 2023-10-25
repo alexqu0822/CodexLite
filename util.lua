@@ -28,18 +28,14 @@ local DT = __private.DT;
 	local IsModifiedClick = IsModifiedClick;
 	local Ambiguate = Ambiguate;
 
-	local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
-	local GetGossipActiveQuests = GetGossipActiveQuests;
-	local SelectGossipActiveQuest = SelectGossipActiveQuest;
-	local GetNumGossipAvailableQuests = GetNumGossipAvailableQuests;
-	local GetGossipAvailableQuests = GetGossipAvailableQuests;
-	local SelectGossipAvailableQuest = SelectGossipAvailableQuest;
-	local GetNumActiveQuests = GetNumActiveQuests;
+	local GetNumActiveQuests = C_GossipInfo.GetNumActiveQuests;
+	local GetActiveQuests = C_GossipInfo.GetActiveQuests;
+	local SelectActiveQuest = C_GossipInfo.SelectActiveQuest;
+	local GetNumAvailableQuests = C_GossipInfo.GetNumAvailableQuests;
+	local GetAvailableQuests = C_GossipInfo.GetAvailableQuests;
+	local SelectAvailableQuest = C_GossipInfo.SelectAvailableQuest;
 	local GetActiveTitle = GetActiveTitle;
-	local SelectActiveQuest = SelectActiveQuest;
-	local GetNumAvailableQuests = GetNumAvailableQuests;
 	local GetAvailableTitle = GetAvailableTitle;
-	local SelectAvailableQuest = SelectAvailableQuest;
 	local AcceptQuest = AcceptQuest;
 	local IsQuestCompletable = IsQuestCompletable;
 	local CompleteQuest = CompleteQuest;
@@ -757,24 +753,24 @@ MT.BuildEnv("util");
 		function EventAgent.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
-				for i = 1, GetNumGossipActiveQuests() do
-					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetGossipActiveQuests());
+				for i = 1, GetNumActiveQuests() do
+					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetActiveQuests());
 					if title and isComplete then
-						return SelectGossipActiveQuest(i);
+						return SelectActiveQuest(i);
 					end
 				end
 			end
 			if not VT.SETTING.auto_accept ~= modstate then
-				for i = 1, GetNumGossipAvailableQuests() do
-					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetGossipAvailableQuests());
+				for i = 1, GetNumAvailableQuests() do
+					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetAvailableQuests());
 					if title then
-						return SelectGossipAvailableQuest(i);
+						return SelectAvailableQuest(i);
 					end
 				end
 			end
 			-- if VT.SETTING.auto_accept then
 			-- 	for i = 1, GetNumAvailableQuests() do
-			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetGossipAvailableQuests(i);
+			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetAvailableQuests(i);
 			-- 		if title then
 			-- 			return SelectAvailableQuest(i);
 			-- 		end
