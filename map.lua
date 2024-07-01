@@ -1217,10 +1217,12 @@ MT.BuildEnv("map");
 								mm_force_update = true;
 							end
 						end
+						local zoom = Minimap:GetZoom();
 						local map, x, y = MT.GetUnitPosition('player');
-						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or (mm_is_rotate and facing ~= mm_rotate)) then
+						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or (mm_is_rotate and facing ~= mm_rotate)) then
 							mm_player_x = x;
 							mm_player_y = y;
+							mm_zoom = zoom;
 							mm_rotate = facing;
 							mm_rotate_sin = _radius_sin(facing);
 							mm_rotate_cos = _radius_cos(facing);
