@@ -371,7 +371,12 @@ MT.BuildEnv("main");
 				for i = 1, #coords do
 					local map = coords[i][3];
 					OBJ_LOOKUP[map] = OBJ_LOOKUP[map] or {  };
-					OBJ_LOOKUP[map][name] = oid;
+					local to = OBJ_LOOKUP[map][name];
+					if to == nil then
+						OBJ_LOOKUP[map][name] = { oid };
+					else
+						to[#to + 1] = oid;
+					end
 				end
 			end
 		end
