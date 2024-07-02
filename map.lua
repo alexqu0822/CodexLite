@@ -1247,10 +1247,9 @@ MT.BuildEnv("map");
 			local ozoom = GetCVar("minimapZoom");
 			local izoom = GetCVar("minimapInsideZoom");
 			if ozoom == izoom then
-				local pzoom = zoom;
 				Minimap:SetZoom(zoom < 2 and zoom + 1 or zoom - 1);
-				indoor = ozoom + 0 == zoom and "outdoor" or "indoor";
-				Minimap:SetZoom(pzoom);
+				indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
+				Minimap:SetZoom(zoom);
 			else
 				indoor = ozoom + 0 == zoom and "outdoor" or "indoor";
 			end
