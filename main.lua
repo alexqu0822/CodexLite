@@ -364,7 +364,12 @@ MT.BuildEnv("main");
 	function AddObjectLookup(oid)
 		local name = l10n.object[oid];
 		if name ~= nil then
-			OBJ_LOOKUP["*"][name] = oid;
+			local to = OBJ_LOOKUP["*"][name];
+			if to == nil then
+				OBJ_LOOKUP["*"][name] = { oid };
+			else
+				to[#to + 1] = oid;
+			end
 			local info = DataAgent.object[oid];
 			if info ~= nil and info.coords ~= nil then
 				local coords = info.coords;
