@@ -30908,7 +30908,7 @@ CT.l10nDB.esMX.quest = {
 	[462] = {
 		"<UNUSED>",
 		nil,
-		{ "Kill Maruk Wyrmscale\n\nReport to Valstag Ironjaw in Menethil Harbor.", },
+		{ "Kill Maruk Wyrmscale", "Report to Valstag Ironjaw in Menethil Harbor.", },
 	},
 	[490] = {
 		"<UNUSED>",
@@ -31141,7 +31141,7 @@ CT.l10nDB.esMX.quest = {
 	[5053] = {
 		"<UNUSED>",
 		nil,
-		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.\n\nHave a nice day.", },
+		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.", "Have a nice day.", },
 	},
 	[5205] = {
 		"<UNUSED>",
@@ -31213,7 +31213,7 @@ CT.l10nDB.esMX.quest = {
 	[7702] = {
 		"¡Mátalos de sueño!",
 		nil,
-		{ "Los dormitorios de los Hierro Negro están en La Fosa de la Escoria de La Caldera, en La Garganta de Fuego. \n\nRoba 20 almohadas y ve a ver a Evonis Fumollín.", },
+		{ "Los dormitorios de los Hierro Negro están en La Fosa de la Escoria de La Caldera, en La Garganta de Fuego. ", "Roba 20 almohadas y ve a ver a Evonis Fumollín.", },
 	},
 	[7704] = {
 		"¡Mira el tamaño de esto!",
@@ -31724,7 +31724,7 @@ CT.l10nDB.esMX.quest = {
 	[11252] = {
 		"¡A Utgarde!",
 		nil,
-		{ "El defensor Mordun te ha encargado la ejecución de Ingvar el Desvalijador que reside en las profundidades de Utgarde.\n\nLlévale su cabeza al Vicealmirante Keller.", },
+		{ "El defensor Mordun te ha encargado la ejecución de Ingvar el Desvalijador que reside en las profundidades de Utgarde.", "Llévale su cabeza al Vicealmirante Keller.", },
 	},
 	[11253] = {
 		"Sigue la pista del enemigo",
@@ -31904,7 +31904,7 @@ CT.l10nDB.esMX.quest = {
 	[11288] = {
 		"La luz brillante",
 		nil,
-		{ "Ares el Juramentado en las Catacumbas de Utgarde quiere que recuperes el artefacto sacro.\n\nEsta es una misión contrarreloj.", },
+		{ "Ares el Juramentado en las Catacumbas de Utgarde quiere que recuperes el artefacto sacro.", "Esta es una misión contrarreloj.", },
 	},
 	[11289] = {
 		"Guiado por el honor",
@@ -31954,7 +31954,7 @@ CT.l10nDB.esMX.quest = {
 	[11300] = {
 		"Una derrota asombrosa en el Círculo",
 		nil,
-		{ "Derrota a los gladiadores en el Círculo del Juicio y enfréntate a Oluf el Violento. Vence a Oluf y recupera la clave antigua.\n\nDevuelve la clave antigua a Glorenfeld en la entrada a las catacumbas de Utgarde.", },
+		{ "Derrota a los gladiadores en el Círculo del Juicio y enfréntate a Oluf el Violento. Vence a Oluf y recupera la clave antigua.", "Devuelve la clave antigua a Glorenfeld en la entrada a las catacumbas de Utgarde.", },
 	},
 	[11301] = {
 		"¡Cerebros! ¡Cerebros! ¡Cerebros!",
@@ -31984,7 +31984,7 @@ CT.l10nDB.esMX.quest = {
 	[11306] = {
 		"Calentar y remover",
 		nil,
-		{ "Llena el frasco de boticario vacío con el contenido de la caldera de sangre vrykul y luego mezcla el contenido del frasco de sangre vrykul con las muestras de peste de Harris cercanas hasta que obtengas un brebaje equilibrado.\n\nPreséntate ante el jefe pesteador Harris cuando hayas completado esta tarea.", },
+		{ "Llena el frasco de boticario vacío con el contenido de la caldera de sangre vrykul y luego mezcla el contenido del frasco de sangre vrykul con las muestras de peste de Harris cercanas hasta que obtengas un brebaje equilibrado.", "Preséntate ante el jefe pesteador Harris cuando hayas completado esta tarea.", },
 	},
 	[11307] = {
 		"Ensayo de campo",
@@ -32059,7 +32059,7 @@ CT.l10nDB.esMX.quest = {
 	[11323] = {
 		"En el pellejo de un huargo",
 		nil,
-		{ "El sabio Caminaniebla te ha pedido que encuentres y ayudes a Ulkang en El Bosque Hendido.\n\nSi por algún motivo pierdes el disfraz de huargo, vuelve a ver al sabio Caminaniebla para que te dé otro.", },
+		{ "El sabio Caminaniebla te ha pedido que encuentres y ayudes a Ulkang en El Bosque Hendido.", "Si por algún motivo pierdes el disfraz de huargo, vuelve a ver al sabio Caminaniebla para que te dé otro.", },
 	},
 	[11324] = {
 		"Huargo alfa",
@@ -32069,7 +32069,7 @@ CT.l10nDB.esMX.quest = {
 	[11325] = {
 		"En el pellejo de un huargo",
 		nil,
-		{ "La vigía Hojaluna te ha pedido que encuentres y ayudes a Ulkang en El Bosque Hendido.\n\nSi por algún motivo pierdes el disfraz de huargo, vuelve a ver a la vigía Hojaluna para que te dé otro.", },
+		{ "La vigía Hojaluna te ha pedido que encuentres y ayudes a Ulkang en El Bosque Hendido.", "Si por algún motivo pierdes el disfraz de huargo, vuelve a ver a la vigía Hojaluna para que te dé otro.", },
 	},
 	[11326] = {
 		"Huargo alfa",
@@ -32194,12 +32194,12 @@ CT.l10nDB.esMX.quest = {
 	[11390] = {
 		"¡Tengo una máquina voladora!",
 		nil,
-		{ "El arqueólogo jefe de Las Puertas de Acero quiere que transportes 3 sacos de reliquias desde el fondo de la excavación y los lleves hasta la plataforma que se encuentra en el flanco norte o sur de Las Puertas de Acero.\n\nPara ello, utiliza el gancho de la máquina voladora.\n\nVuelve a informarle cuando hayas terminado.", },
+		{ "El arqueólogo jefe de Las Puertas de Acero quiere que transportes 3 sacos de reliquias desde el fondo de la excavación y los lleves hasta la plataforma que se encuentra en el flanco norte o sur de Las Puertas de Acero.", "Para ello, utiliza el gancho de la máquina voladora.", "Vuelve a informarle cuando hayas terminado.", },
 	},
 	[11391] = {
 		"Patrulla Las Puertas de Acero",
 		nil,
-		{ "Ahora eres el mejor piloto de Las Puertas de Acero, así que el arqueólogo jefe de Las Puertas de Acero quiere que patrulles alrededor de la excavación y repelas cualquier tipo de ataque.\n\nVuelve a informarle cuando hayas terminado de patrullar.", },
+		{ "Ahora eres el mejor piloto de Las Puertas de Acero, así que el arqueólogo jefe de Las Puertas de Acero quiere que patrulles alrededor de la excavación y repelas cualquier tipo de ataque.", "Vuelve a informarle cuando hayas terminado de patrullar.", },
 	},
 	[11393] = {
 		"¿Dónde está el expedicionario Jaren?",
@@ -32259,22 +32259,22 @@ CT.l10nDB.esMX.quest = {
 	[11414] = {
 		"Hermanos traicioneros",
 		nil,
-		{ "Ulkang te ha pedido que mates a los huargos traidores Bjomolf y Varg. Cuando termines, vuelve a verlo con tu disfraz puesto a El Bosque Hendido.\n\nSi por alguna razón pierdes el disfraz de huargo, vuelve a ver a la vigía Hojaluna para que te dé otro.", },
+		{ "Ulkang te ha pedido que mates a los huargos traidores Bjomolf y Varg. Cuando termines, vuelve a verlo con tu disfraz puesto a El Bosque Hendido.", "Si por alguna razón pierdes el disfraz de huargo, vuelve a ver a la vigía Hojaluna para que te dé otro.", },
 	},
 	[11415] = {
 		"Hermanos traicioneros",
 		nil,
-		{ "Ulkang te ha pedido que mates a los huargos traidores Bjomolf y Varg. Cuando termines, vuelve a verlo con tu disfraz puesto a El Bosque Hendido.\n\nSi por alguna razón pierdes el disfraz de huargo, vuelve a ver al sabio Caminaniebla para que te dé otro.", },
+		{ "Ulkang te ha pedido que mates a los huargos traidores Bjomolf y Varg. Cuando termines, vuelve a verlo con tu disfraz puesto a El Bosque Hendido.", "Si por alguna razón pierdes el disfraz de huargo, vuelve a ver al sabio Caminaniebla para que te dé otro.", },
 	},
 	[11416] = {
 		"Los ojos del Águila",
 		nil,
-		{ "Ulkang te ha pedido que consigas los ojos del Águila. Vuelve a verle disfrazado a El Bosque Hendido cuando los tengas.\n\nSi pierdes el disfraz de huargo, vuelve junto a la vigía Hojaluna para que te dé otro.", },
+		{ "Ulkang te ha pedido que consigas los ojos del Águila. Vuelve a verle disfrazado a El Bosque Hendido cuando los tengas.", "Si pierdes el disfraz de huargo, vuelve junto a la vigía Hojaluna para que te dé otro.", },
 	},
 	[11417] = {
 		"Los ojos del Águila",
 		nil,
-		{ "Ulkang te ha pedido que consigas los ojos del Águila. Vuelve a verle disfrazado a El Bosque Hendido cuando los tengas.\n\nSi pierdes el disfraz de huargo, vuelve junto al sabio Caminaniebla para que te dé otro.", },
+		{ "Ulkang te ha pedido que consigas los ojos del Águila. Vuelve a verle disfrazado a El Bosque Hendido cuando los tengas.", "Si pierdes el disfraz de huargo, vuelve junto al sabio Caminaniebla para que te dé otro.", },
 	},
 	[11418] = {
 		"Lo llamamos \"Pluma de Acero\"",
@@ -32289,7 +32289,7 @@ CT.l10nDB.esMX.quest = {
 	[11421] = {
 		"Estos llegan hasta el 11...",
 		nil,
-		{ "El teniente Martillo de Hielo en el Fiordo Aquilonal quiere que acabes con la casa comunal Desuelladragones, la caseta del muelle Desuelladragones, el almacén Desuelladragones y con 8 defensores Desuelladragones.\n\nCuando hayas completado esta tarea, devuélvele el mecanismo de control de arpón.", },
+		{ "El teniente Martillo de Hielo en el Fiordo Aquilonal quiere que acabes con la casa comunal Desuelladragones, la caseta del muelle Desuelladragones, el almacén Desuelladragones y con 8 defensores Desuelladragones.", "Cuando hayas completado esta tarea, devuélvele el mecanismo de control de arpón.", },
 	},
 	[11422] = {
 		"El tridente del hijo",
@@ -32324,7 +32324,7 @@ CT.l10nDB.esMX.quest = {
 	[11429] = {
 		"Déjalo y ondéalo",
 		nil,
-		{ "El teniente Martillo de Hielo en el Fiordo Aquilonal quiere que coloques el estandarte de la Alianza en Baleheim y que lo defiendas de sus atacantes.\n\nSi sobrevives, regresa junto al teniente Martillo de Hielo con el estandarte de la Alianza.", },
+		{ "El teniente Martillo de Hielo en el Fiordo Aquilonal quiere que coloques el estandarte de la Alianza en Baleheim y que lo defiendas de sus atacantes.", "Si sobrevives, regresa junto al teniente Martillo de Hielo con el estandarte de la Alianza.", },
 	},
 	[11430] = {
 		"Maestro arponero Yavus",
@@ -32447,7 +32447,7 @@ CT.l10nDB.esMX.quest = {
 	[11465] = {
 		"La caravana saqueada",
 		nil,
-		{ "Hidalgo en la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses el falcón de roca adiestrado para recuperar 5 pavos de fiordo.\n\nRegresa a ver a Hidalgo con la jaula cuando hayas completado esta tarea.", },
+		{ "Hidalgo en la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses el falcón de roca adiestrado para recuperar 5 pavos de fiordo.", "Regresa a ver a Hidalgo con la jaula cuando hayas completado esta tarea.", },
 	},
 	[11466] = {
 		"A Jack le gusta su bebida",
@@ -32462,7 +32462,7 @@ CT.l10nDB.esMX.quest = {
 	[11468] = {
 		"Falcón contra halcón",
 		nil,
-		{ "Hidalgo, en la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que uses a tu falcón de roca adiestrado para capturar 10 halcones de fiordo.\n\nCuando hayas terminado, vuelve a ver a Hidalgo.|n", },
+		{ "Hidalgo, en la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que uses a tu falcón de roca adiestrado para capturar 10 halcones de fiordo.", "Cuando hayas terminado, vuelve a ver a Hidalgo.|n", },
 	},
 	[11469] = {
 		"Jabón",
@@ -32472,7 +32472,7 @@ CT.l10nDB.esMX.quest = {
 	[11470] = {
 		"No hay honor entre los pájaros",
 		nil,
-		{ "Hidalgo en la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses tu falcón de roca adiestrado para capturar 8 huevos de halcón de fiordo.\n\nRegresa junto a Hidalgo con la jaula cuando hayas completado esta tarea.", },
+		{ "Hidalgo en la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses tu falcón de roca adiestrado para capturar 8 huevos de halcón de fiordo.", "Regresa junto a Hidalgo con la jaula cuando hayas completado esta tarea.", },
 	},
 	[11471] = {
 		"Se acabó lo que se daba",
@@ -32537,27 +32537,27 @@ CT.l10nDB.esMX.quest = {
 	[11485] = {
 		"Ensamblajes Runaférrea y tú: salto con cohete",
 		nil,
-		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de salto con cohete de ensamblaje Runaférrea sobre el tallado Runaférrea de Walt.\n\nRetira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
+		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de salto con cohete de ensamblaje Runaférrea sobre el tallado Runaférrea de Walt.", "Retira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
 	},
 	[11489] = {
 		"Ensamblajes Runaférrea y tú: recopilación de datos",
 		nil,
-		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de recopilación de datos del ensamblaje Runaférrea mientras permaneces junto a la reliquia de enano férreo.\n\nRetira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
+		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de recopilación de datos del ensamblaje Runaférrea mientras permaneces junto a la reliquia de enano férreo.", "Retira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
 	},
 	[11491] = {
 		"Ensamblajes Runaférrea y tú: el engaño",
 		nil,
-		{ "Walt de la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que utilices la facultad de engaño del ensamblaje Runaférrea con Lebronski tras haber caminado sobre su alfombra.\n\nRetira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.|n", },
+		{ "Walt de la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que utilices la facultad de engaño del ensamblaje Runaférrea con Lebronski tras haber caminado sobre su alfombra.", "Retira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.|n", },
 	},
 	[11494] = {
 		"Reliquias imbuidas de relámpagos",
 		nil,
-		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de recopilación de datos de ensamblaje Runaférrea para recoger 15 muestras de datos Runaférrea.\n\nRetira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
+		{ "Walt de la Avanzada de la Liga de Expedicionarios en el Fiordo Aquilonal quiere que uses la facultad de recopilación de datos de ensamblaje Runaférrea para recoger 15 muestras de datos Runaférrea.", "Retira tu ensamblaje desde la ventana de mascotas cuando hayas completado la misión.", },
 	},
 	[11495] = {
 		"El delicado sonido del trueno",
 		nil,
-		{ "Walt de la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que uses el ensamblaje Runaférrea para explorar la atronadora cueva en la Excavación de Baelgun.\n\nRetira a tu ensamblaje desde la ventana de mascotas una vez que hayas completado la misión.", },
+		{ "Walt de la Avanzada de la Liga de Expedicionarios, en el Fiordo Aquilonal, quiere que uses el ensamblaje Runaférrea para explorar la atronadora cueva en la Excavación de Baelgun.", "Retira a tu ensamblaje desde la ventana de mascotas una vez que hayas completado la misión.", },
 	},
 	[11501] = {
 		"Noticias del este",
@@ -32672,7 +32672,7 @@ CT.l10nDB.esMX.quest = {
 	[11568] = {
 		"Volver a descansar en paz",
 		nil,
-		{ "Usa el fardo de artefactos vrykul en los túmulos funerarios de Colina Escudo para devolver el corazón congelado de Isuldof, el escudo de los Aesirites, el bastón de la Furia de la Tormenta y la antigua armadura de los Kvaldir.\n\nVuelve con Orfus de Komawa en El Antiguo Elevador si lo consigues.", },
+		{ "Usa el fardo de artefactos vrykul en los túmulos funerarios de Colina Escudo para devolver el corazón congelado de Isuldof, el escudo de los Aesirites, el bastón de la Furia de la Tormenta y la antigua armadura de los Kvaldir.", "Vuelve con Orfus de Komawa en El Antiguo Elevador si lo consigues.", },
 	},
 	[11569] = {
 		"El maestro de llaves Urmgrgl",
@@ -32757,7 +32757,7 @@ CT.l10nDB.esMX.quest = {
 	[11592] = {
 		"¡Atacamos!",
 		nil,
-		{ "Ayuda al enviado Pezuña Orgullosa y a sus asaltantes Grito de Guerra a sobrevivir al ataque en la Caravana de Quijacero y a acabar con el espíritu del comandante en jefe Quijacero.\n\nSi lo consigues, informa al señor supremo Bor'gorok en la Avanzada Bor'gorok.", },
+		{ "Ayuda al enviado Pezuña Orgullosa y a sus asaltantes Grito de Guerra a sobrevivir al ataque en la Caravana de Quijacero y a acabar con el espíritu del comandante en jefe Quijacero.", "Si lo consigues, informa al señor supremo Bor'gorok en la Avanzada Bor'gorok.", },
 	},
 	[11593] = {
 		"Homenaje a los difuntos",
@@ -32952,7 +32952,7 @@ CT.l10nDB.esMX.quest = {
 	[11631] = {
 		"Una visión de aire",
 		nil,
-		{ "Usa el primordial de Imperean para realizar un ritual en el tótem de Colmillo Gruñente en la Avanzada Bor'gorok y consigue información sobre el clarividente Caminante Siniestro.\n\nDespués, habla con la médium Colmillo Gruñente.", },
+		{ "Usa el primordial de Imperean para realizar un ritual en el tótem de Colmillo Gruñente en la Avanzada Bor'gorok y consigue información sobre el clarividente Caminante Siniestro.", "Después, habla con la médium Colmillo Gruñente.", },
 	},
 	[11632] = {
 		"Lo que nos trae el frío...",
@@ -32982,7 +32982,7 @@ CT.l10nDB.esMX.quest = {
 	[11637] = {
 		"Kajanishu",
 		nil,
-		{ "Recupera el fetiche de Kajanishu y úsalo sobre los restos del clarividente Caminante Siniestro.\n\nTendrás que darle el fetiche al espíritu del clarividente Caminante Siniestro, dentro de Magmoth.", },
+		{ "Recupera el fetiche de Kajanishu y úsalo sobre los restos del clarividente Caminante Siniestro.", "Tendrás que darle el fetiche al espíritu del clarividente Caminante Siniestro, dentro de Magmoth.", },
 	},
 	[11638] = {
 		"Devuelve mis restos",
@@ -33057,7 +33057,7 @@ CT.l10nDB.esMX.quest = {
 	[11652] = {
 		"Las Llanuras de Nasam",
 		nil,
-		{ "Usa el tanque de asedio de la Horda para matar a 100 soldados de la Plaga y rescatar a 3 soldados Grito de Guerra heridos en las Llanuras de Nasam. También tienes que revelar la identidad del líder del asalto de la Plaga.\n\nInforma a Garrosh Grito Infernal en el Bastión Grito de Guerra si tienes éxito.", },
+		{ "Usa el tanque de asedio de la Horda para matar a 100 soldados de la Plaga y rescatar a 3 soldados Grito de Guerra heridos en las Llanuras de Nasam. También tienes que revelar la identidad del líder del asalto de la Plaga.", "Informa a Garrosh Grito Infernal en el Bastión Grito de Guerra si tienes éxito.", },
 	},
 	[11653] = {
 		"¡Ja!... ¡Ya no eres tan grande!",
@@ -33282,7 +33282,7 @@ CT.l10nDB.esMX.quest = {
 	[11705] = {
 		"Una empresa insensata",
 		nil,
-		{ "Ayuda a Getry a derrotar a Varidus el Desollador en las Granjas Grito de Guerra.\n\nInforma a Garrosh Grito Infernal si tienes éxito.|n", },
+		{ "Ayuda a Getry a derrotar a Varidus el Desollador en las Granjas Grito de Guerra.", "Informa a Garrosh Grito Infernal si tienes éxito.|n", },
 	},
 	[11706] = {
 		"El derrumbamiento",
@@ -33312,7 +33312,7 @@ CT.l10nDB.esMX.quest = {
 	[11711] = {
 		"Entrega de cobardes... en menos de 30 minutos, o será gratis",
 		nil,
-		{ "Lleva al desertor de la Alianza hasta el cruce al este del Bastión Grito de Guerra y dispara tu pistola de bengalas Grito de Guerra para mandar una señal a la Alianza.\n\nInforma al explorador Tungok cuando hayas llevado al desertor de la Alianza a su destino con éxito.", },
+		{ "Lleva al desertor de la Alianza hasta el cruce al este del Bastión Grito de Guerra y dispara tu pistola de bengalas Grito de Guerra para mandar una señal a la Alianza.", "Informa al explorador Tungok cuando hayas llevado al desertor de la Alianza a su destino con éxito.", },
 	},
 	[11712] = {
 		"Remaldeciente",
@@ -33407,7 +33407,7 @@ CT.l10nDB.esMX.quest = {
 	[11730] = {
 		"Maestro y servidor",
 		nil,
-		{ "Usa el destornillador ultrasónico para reprogramar 15 robots y después vuelve a ver a Ingeniosa Piñonflojo a la Pista de Aterrizaje de Palanqueta.\n\nAsegúrate de despojar al robot muerto antes de reprogramarlo.", },
+		{ "Usa el destornillador ultrasónico para reprogramar 15 robots y después vuelve a ver a Ingeniosa Piñonflojo a la Pista de Aterrizaje de Palanqueta.", "Asegúrate de despojar al robot muerto antes de reprogramarlo.", },
 	},
 	[11733] = {
 		"Atravesando la falla",
@@ -33585,7 +33585,7 @@ CT.l10nDB.esMX.quest = {
 	[11896] = {
 		"Débiles ante el relámpago",
 		nil,
-		{ "Mientras estén debilitados por el Poder de la tormenta, destruye a 15 unidades robóticas, exceptuando a los mecagnomos, en la gran área de pozas que rodean la Estación de Bombeo de Palanqueta.\n\nDespués, vuelve junto al sabio Tierra y Cielo en el Poblado Taunka'le.", },
+		{ "Mientras estén debilitados por el Poder de la tormenta, destruye a 15 unidades robóticas, exceptuando a los mecagnomos, en la gran área de pozas que rodean la Estación de Bombeo de Palanqueta.", "Después, vuelve junto al sabio Tierra y Cielo en el Poblado Taunka'le.", },
 	},
 	[11897] = {
 		"Obstruye los sumideros",
@@ -33773,7 +33773,7 @@ CT.l10nDB.esMX.quest = {
 	[11946] = {
 		"Keristrasza",
 		nil,
-		{ "Keristrasza quiere que hables con ella cuando estés preparado para enfrentarte a Malygos.\n\nSi pierdes tu prisión Arcana aumentada, habla con Raelorasz en el Escudo de Transito.", },
+		{ "Keristrasza quiere que hables con ella cuando estés preparado para enfrentarte a Malygos.", "Si pierdes tu prisión Arcana aumentada, habla con Raelorasz en el Escudo de Transito.", },
 	},
 	[11949] = {
 		"¡No sin luchar!",
@@ -33788,7 +33788,7 @@ CT.l10nDB.esMX.quest = {
 	[11951] = {
 		"Caer en el anzuelo",
 		nil,
-		{ "Keristrasza te ha pedido que reúnas 10 fragmentos de maná cristalizado que se encuentran por Gelidar.\n\nSi pierdes tu prisión Arcana aumentada, habla con Raelorasz en el Escudo de Tránsito.", },
+		{ "Keristrasza te ha pedido que reúnas 10 fragmentos de maná cristalizado que se encuentran por Gelidar.", "Si pierdes tu prisión Arcana aumentada, habla con Raelorasz en el Escudo de Tránsito.", },
 	},
 	[11956] = {
 		"Encuentra la filacteria",
@@ -33888,7 +33888,7 @@ CT.l10nDB.esMX.quest = {
 	[11983] = {
 		"El juramento de sangre de la Horda",
 		nil,
-		{ "Habla con los taunka en el Campo de Refugiados de Viento Oeste y haz que 5 de ellos juren lealtad a la Horda.\n\nDevuelve el juramento de sangre de la Horda a la emisaria Pezuña Brillante cuando hayas completado esta tarea.", },
+		{ "Habla con los taunka en el Campo de Refugiados de Viento Oeste y haz que 5 de ellos juren lealtad a la Horda.", "Devuelve el juramento de sangre de la Horda a la emisaria Pezuña Brillante cuando hayas completado esta tarea.", },
 	},
 	[11984] = {
 		"Llenar las jaulas",
@@ -33996,7 +33996,7 @@ CT.l10nDB.esMX.quest = {
 	[12007] = {
 		"Es necesario hacer sacrificios",
 		nil,
-		{ "Drakuru quiere que le traigas el ojo de los profetas a su blandón de Drakuru en Zeb'Halak.\n\nTendrás que recoger mojo de Zim'Bo para usar el elixir de Drakuru allí.", },
+		{ "Drakuru quiere que le traigas el ojo de los profetas a su blandón de Drakuru en Zeb'Halak.", "Tendrás que recoger mojo de Zim'Bo para usar el elixir de Drakuru allí.", },
 	},
 	[12008] = {
 		"El Martillo de Agmar",
@@ -34101,12 +34101,12 @@ CT.l10nDB.esMX.quest = {
 	[12032] = {
 		"Conversando con las profundidades",
 		nil,
-		{ "Reza ante La Perla de las Profundidades y haz todo lo que te indique la diosa marina Oacha'noa.\n\nSi sobrevives al penoso calvario, vuelve a ver a Toalu'u el Místico en el Puerto Moa'ki.", },
+		{ "Reza ante La Perla de las Profundidades y haz todo lo que te indique la diosa marina Oacha'noa.", "Si sobrevives al penoso calvario, vuelve a ver a Toalu'u el Místico en el Puerto Moa'ki.", },
 	},
 	[12033] = {
 		"Un mensaje desde el Oeste",
 		nil,
-		{ "Lee la carta de Colmillosauro y después destrúyela.\n\nHabla con el mensajero Torvus cuando hayas terminado esta tarea.", },
+		{ "Lee la carta de Colmillosauro y después destrúyela.", "Habla con el mensajero Torvus cuando hayas terminado esta tarea.", },
 	},
 	[12034] = {
 		"La victoria se acerca...",
@@ -34191,7 +34191,7 @@ CT.l10nDB.esMX.quest = {
 	[12050] = {
 		"¡Más madera!",
 		nil,
-		{ "Utiliza el dispositivo de control de la trituradora de Xink para llamar a una trituradora una vez que llegues a los nidales de las arpías al norte. Reúne 50 montones de madera de los árboles de la zona y luego vuelve junto a Xink en el Puesto Boquilla Oxidada.\n\nSi pierdes el dispositivo de control de la trituradora de Xink, habla con Xink en el Puesto Boquilla Oxidada para que te dé uno nuevo.", },
+		{ "Utiliza el dispositivo de control de la trituradora de Xink para llamar a una trituradora una vez que llegues a los nidales de las arpías al norte. Reúne 50 montones de madera de los árboles de la zona y luego vuelve junto a Xink en el Puesto Boquilla Oxidada.", "Si pierdes el dispositivo de control de la trituradora de Xink, habla con Xink en el Puesto Boquilla Oxidada para que te dé uno nuevo.", },
 	},
 	[12051] = {
 		"Machacar algunas plumas",
@@ -34201,12 +34201,12 @@ CT.l10nDB.esMX.quest = {
 	[12052] = {
 		"¡Toma arpía!",
 		nil,
-		{ "Mata a la maestra del Viento Helado y a 15 arpías Viento Helado en las montañas al noroeste del Puesto Boquilla Oxidada. Vuelve con Narf cuando hayas completado esta tarea.\n\nSi necesitas el dispositivo de control de la trituradora de Xink, habla con Xink en el Puesto Boquilla Oxidada.", },
+		{ "Mata a la maestra del Viento Helado y a 15 arpías Viento Helado en las montañas al noroeste del Puesto Boquilla Oxidada. Vuelve con Narf cuando hayas completado esta tarea.", "Si necesitas el dispositivo de control de la trituradora de Xink, habla con Xink en el Puesto Boquilla Oxidada.", },
 	},
 	[12053] = {
 		"El poder de la Horda",
 		nil,
-		{ "El capataz primero Juktok en Martillo de Agmar en el Cementerio de Dragones quiere que utilices el confalón de batalla Grito de Guerra en el Poblado Bruma de Hielo y lo defiendas de sus atacantes.\n\nDevuelve el confalón de batalla Grito de Guerra cuando hayas terminado.", },
+		{ "El capataz primero Juktok en Martillo de Agmar en el Cementerio de Dragones quiere que utilices el confalón de batalla Grito de Guerra en el Poblado Bruma de Hielo y lo defiendas de sus atacantes.", "Devuelve el confalón de batalla Grito de Guerra cuando hayas terminado.", },
 	},
 	[12054] = {
 		"Descifrar el diario",
@@ -34241,12 +34241,12 @@ CT.l10nDB.esMX.quest = {
 	[12060] = {
 		"Proyecciones y planos",
 		nil,
-		{ "Acércate y observa la proyección en la cumbre de la Aguja de Flujo que hay flotando sobre los Jardines Reposo Lunar.\n\nLuego vuelve hasta la imagen de la archimaga Modera en Reposo Estelar con la información.", },
+		{ "Acércate y observa la proyección en la cumbre de la Aguja de Flujo que hay flotando sobre los Jardines Reposo Lunar.", "Luego vuelve hasta la imagen de la archimaga Modera en Reposo Estelar con la información.", },
 	},
 	[12061] = {
 		"Proyecciones y planos",
 		nil,
-		{ "Acércate y observa la proyección en la cumbre de la Aguja de Flujo que hay flotando sobre los Jardines Reposo Lunar.\n\nLuego vuelve hasta la imagen del archimago Aethas Atracasol en Martillo de Agmar con la información.", },
+		{ "Acércate y observa la proyección en la cumbre de la Aguja de Flujo que hay flotando sobre los Jardines Reposo Lunar.", "Luego vuelve hasta la imagen del archimago Aethas Atracasol en Martillo de Agmar con la información.", },
 	},
 	[12063] = {
 		"Fuerza de Bruma de Hielo",
@@ -34261,12 +34261,12 @@ CT.l10nDB.esMX.quest = {
 	[12065] = {
 		"El foco de la playa",
 		nil,
-		{ "Consigue el anillo de control de foco de línea Ley y úsalo para conseguir información del foco de línea Ley en la Orilla Resplandeciente.\n\nLuego, vuelve con la imagen de la archimaga Modera en Reposo Estelar.", },
+		{ "Consigue el anillo de control de foco de línea Ley y úsalo para conseguir información del foco de línea Ley en la Orilla Resplandeciente.", "Luego, vuelve con la imagen de la archimaga Modera en Reposo Estelar.", },
 	},
 	[12066] = {
 		"El foco de la playa",
 		nil,
-		{ "Consigue el anillo de control de foco de línea Ley y úsalo para conseguir información del foco de línea Ley en la Orilla Resplandeciente.\n\nLuego, vuelve con la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
+		{ "Consigue el anillo de control de foco de línea Ley y úsalo para conseguir información del foco de línea Ley en la Orilla Resplandeciente.", "Luego, vuelve con la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
 	},
 	[12067] = {
 		"Una carta para casa",
@@ -34281,7 +34281,7 @@ CT.l10nDB.esMX.quest = {
 	[12069] = {
 		"El regreso del Gran Jefe",
 		nil,
-		{ "Libera al gran jefe Bruma de Hielo utilizando la llave de la prisión Anub'ar y ayúdale a derrotar al infrarrey Anub'et'kan.\n\nRecupera un fragmento del caparazón de Anub'et'kan y devuélveselo al señor supremo Agmar en Martillo de Agmar en el Cementerio de Dragones.", },
+		{ "Libera al gran jefe Bruma de Hielo utilizando la llave de la prisión Anub'ar y ayúdale a derrotar al infrarrey Anub'et'kan.", "Recupera un fragmento del caparazón de Anub'et'kan y devuélveselo al señor supremo Agmar en Martillo de Agmar en el Cementerio de Dragones.", },
 	},
 	[12070] = {
 		"Alentando a las tropas",
@@ -34296,7 +34296,7 @@ CT.l10nDB.esMX.quest = {
 	[12072] = {
 		"¡Malditas bestias de añublo!",
 		nil,
-		{ "Usa la pistola de bengalas de Valnok para llamar a un jinete de guerra Kor'kron en el Poblado Bruma de Hielo. Monta sobre el jinete de guerra Kor'kron y úsalo para matar a 25 bestias de añublo Anub'ar.\n\nSi completas esta misión, vuelve junto a Valnok Furia del Viento en el Martillo de Agmar.", },
+		{ "Usa la pistola de bengalas de Valnok para llamar a un jinete de guerra Kor'kron en el Poblado Bruma de Hielo. Monta sobre el jinete de guerra Kor'kron y úsalo para matar a 25 bestias de añublo Anub'ar.", "Si completas esta misión, vuelve junto a Valnok Furia del Viento en el Martillo de Agmar.", },
 	},
 	[12073] = {
 		"Golpear el hierro",
@@ -34326,7 +34326,7 @@ CT.l10nDB.esMX.quest = {
 	[12078] = {
 		"Retador de gusanos",
 		nil,
-		{ "Entra en las cavernas del Vicio de Cristal y captura a 3 engendros jormungar dentro de cajones robustos. ¡No te olvides de recoger los cajones cuando los engendros jormungar estén bien atrapados dentro!\n\nLlévale los engendros jormungar a Zort en el Vicio de Cristal.", },
+		{ "Entra en las cavernas del Vicio de Cristal y captura a 3 engendros jormungar dentro de cajones robustos. ¡No te olvides de recoger los cajones cuando los engendros jormungar estén bien atrapados dentro!", "Llévale los engendros jormungar a Zort en el Vicio de Cristal.", },
 	},
 	[12079] = {
 		"Territorio preferido",
@@ -34336,7 +34336,7 @@ CT.l10nDB.esMX.quest = {
 	[12080] = {
 		"Un gusano muy grande",
 		nil,
-		{ "Entra en la Caverna Corazón de Hielo y mata a Cascabore. Si aún está en tu posesión, asegúrate de usar el elixir protector de Zort para protegerte de la flema corrosiva de jormungar. \n\nVuelve a ver a Ko'char el Irrompible en el Vicio de Cristal cuando hayas completado la tarea.", },
+		{ "Entra en la Caverna Corazón de Hielo y mata a Cascabore. Si aún está en tu posesión, asegúrate de usar el elixir protector de Zort para protegerte de la flema corrosiva de jormungar. ", "Vuelve a ver a Ko'char el Irrompible en el Vicio de Cristal cuando hayas completado la tarea.", },
 	},
 	[12081] = {
 		"Gavrock",
@@ -34351,12 +34351,12 @@ CT.l10nDB.esMX.quest = {
 	[12083] = {
 		"En lo alto del bosque",
 		nil,
-		{ "Consigue el amuleto de control de foco de línea Ley del Bosque Lothalor.\n\nDespués, vuelve con la imagen de la archimaga Modera en Reposo Estelar.", },
+		{ "Consigue el amuleto de control de foco de línea Ley del Bosque Lothalor.", "Después, vuelve con la imagen de la archimaga Modera en Reposo Estelar.", },
 	},
 	[12084] = {
 		"En lo alto del bosque",
 		nil,
-		{ "Consigue el amuleto de control de foco de línea Ley y úsalo para obtener información sobre el foco de línea Ley en el Bosque Lothalor.\n\nDespués, vuelve con la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
+		{ "Consigue el amuleto de control de foco de línea Ley y úsalo para obtener información sobre el foco de línea Ley en el Bosque Lothalor.", "Después, vuelve con la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
 	},
 	[12085] = {
 		"Una carta para casa",
@@ -34421,7 +34421,7 @@ CT.l10nDB.esMX.quest = {
 	[12097] = {
 		"Sarathstra, Plaga del norte",
 		nil,
-		{ "Habla con Rokhan para atraer a la vermis de escarcha Sarathstra.\n\nMata a Sarathstra y lleva el corazón congelado de Sarathstra al capitán Gort en Martillo de Agmar.", },
+		{ "Habla con Rokhan para atraer a la vermis de escarcha Sarathstra.", "Mata a Sarathstra y lleva el corazón congelado de Sarathstra al capitán Gort en Martillo de Agmar.", },
 	},
 	[12098] = {
 		"Busca por el Poblado Indu'le",
@@ -34466,7 +34466,7 @@ CT.l10nDB.esMX.quest = {
 	[12107] = {
 		"El final de la línea",
 		nil,
-		{ "Utiliza el talismán de control de foco de línea Ley para obtener información del foco de línea Ley bajo el Lago Indu'le. Después, dirígete al este hasta el Santuario de Dragones Azur cerca del sur central del Cementerio de Dragones y observa lo que está ocurriendo desde el extremo oeste.\n\nLuego, vuelve junto a la imagen de la archimaga Modera en Reposo Estelar.", },
+		{ "Utiliza el talismán de control de foco de línea Ley para obtener información del foco de línea Ley bajo el Lago Indu'le. Después, dirígete al este hasta el Santuario de Dragones Azur cerca del sur central del Cementerio de Dragones y observa lo que está ocurriendo desde el extremo oeste.", "Luego, vuelve junto a la imagen de la archimaga Modera en Reposo Estelar.", },
 	},
 	[12108] = {
 		"DEPRECATED",
@@ -34481,7 +34481,7 @@ CT.l10nDB.esMX.quest = {
 	[12110] = {
 		"El final de la línea",
 		nil,
-		{ "Utiliza el talismán de control de foco de línea Ley para obtener información del foco de línea Ley bajo el Lago Indu'le. Después, dirígete al este hasta el Santuario de Dragones Azur cerca del sur central del Cementerio de Dragones y observa lo que está ocurriendo desde el extremo oeste.\n\nLuego, vuelve junto a la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
+		{ "Utiliza el talismán de control de foco de línea Ley para obtener información del foco de línea Ley bajo el Lago Indu'le. Después, dirígete al este hasta el Santuario de Dragones Azur cerca del sur central del Cementerio de Dragones y observa lo que está ocurriendo desde el extremo oeste.", "Luego, vuelve junto a la imagen del archimago Aethas Atracasol en Martillo de Agmar.", },
 	},
 	[12111] = {
 		"Donde vagan las cosas salvajes",
@@ -34591,7 +34591,7 @@ CT.l10nDB.esMX.quest = {
 	[12132] = {
 		"El poder para destruir",
 		nil,
-		{ "Koltira Tejemuerte en Martillo de Agmar en el Cementerio de Dragones quiere que entres en el mundo de las sombras y derrotes a 6 torturadores enigmáticos.\n\nHabla con Koltira Tejemuerte si necesitas volver a entrar en el mundo de las sombras.", },
+		{ "Koltira Tejemuerte en Martillo de Agmar en el Cementerio de Dragones quiere que entres en el mundo de las sombras y derrotes a 6 torturadores enigmáticos.", "Habla con Koltira Tejemuerte si necesitas volver a entrar en el mundo de las sombras.", },
 	},
 	[12133] = {
 		"Aplasta la calabaza",
@@ -34616,7 +34616,7 @@ CT.l10nDB.esMX.quest = {
 	[12137] = {
 		"Relá'hatee, coleega",
 		nil,
-		{ "Gan'jo quiere que recojas la nieve de sueño eterno de su cofre en las Ruinas de Drakil'jin.\n\nDeberás usar la nieve sobre los antiguos espíritus Drakkari allí y llevar sus partículas de espíritus Drakkari a Kraz en Campamento de Harkor.", },
+		{ "Gan'jo quiere que recojas la nieve de sueño eterno de su cofre en las Ruinas de Drakil'jin.", "Deberás usar la nieve sobre los antiguos espíritus Drakkari allí y llevar sus partículas de espíritus Drakkari a Kraz en Campamento de Harkor.", },
 	},
 	[12138] = {
 		"... O quizás no",
@@ -34631,7 +34631,7 @@ CT.l10nDB.esMX.quest = {
 	[12140] = {
 		"¡Viva Roanauk!",
 		nil,
-		{ "Busca a Roanauk Bruma de Hielo en Martillo de Agmar e iníciale como miembro y líder de las fuerzas de la Horda.\n\nVuelve junto al señor supremo Agmar con el juramento de sangre de la Horda cuando completes esta misión.|n", },
+		{ "Busca a Roanauk Bruma de Hielo en Martillo de Agmar e iníciale como miembro y líder de las fuerzas de la Horda.", "Vuelve junto al señor supremo Agmar con el juramento de sangre de la Horda cuando completes esta misión.|n", },
 	},
 	[12141] = {
 		"Una misión diplomática",
@@ -34676,7 +34676,7 @@ CT.l10nDB.esMX.quest = {
 	[12149] = {
 		"Un poderoso magnatauro",
 		nil,
-		{ "Da caza y muerte a Sangría, Trizahielo y a Dracogor al este de Reposo del Dragón.\n\nSangría se encuentra en el rincón sureste del Baldío del Dragón, al norte del Santuario de Dragones Esmeralda. Trizahielo patrulla el extremo norte de El Espejo del Alba. Dracogor vaga por la parte inferior de los acantilados al oeste del Santuario de Dragones Bronce.\n\nVuelve junto a Aurastrasza en Reposo del Dragón cuando hayas matado a los magnatauros.", },
+		{ "Da caza y muerte a Sangría, Trizahielo y a Dracogor al este de Reposo del Dragón.", "Sangría se encuentra en el rincón sureste del Baldío del Dragón, al norte del Santuario de Dragones Esmeralda. Trizahielo patrulla el extremo norte de El Espejo del Alba. Dracogor vaga por la parte inferior de los acantilados al oeste del Santuario de Dragones Bronce.", "Vuelve junto a Aurastrasza en Reposo del Dragón cuando hayas matado a los magnatauros.", },
 	},
 	[12150] = {
 		"Un maestro de runas solitario",
@@ -35110,7 +35110,7 @@ CT.l10nDB.esMX.quest = {
 	[12243] = {
 		"Fuego sobre las aguas",
 		nil,
-		{ "La boticaria Vicky Levine en Rencor Venenoso te ha pedido que uses el agua de fuego de la boticaria para prender fuego a las velas del Locura del Pecador.\n\nMientras los marineros de cubierta estén ocupados intentando apagar el fuego, dirígete a la cubierta inferior y recupera las rutas del capitán Shely, en posesión del capitán.", },
+		{ "La boticaria Vicky Levine en Rencor Venenoso te ha pedido que uses el agua de fuego de la boticaria para prender fuego a las velas del Locura del Pecador.", "Mientras los marineros de cubierta estén ocupados intentando apagar el fuego, dirígete a la cubierta inferior y recupera las rutas del capitán Shely, en posesión del capitán.", },
 	},
 	[12244] = {
 		"Reparación de trituradoras",
@@ -35120,7 +35120,7 @@ CT.l10nDB.esMX.quest = {
 	[12245] = {
 		"Ninguna piedad con los cautivos",
 		nil,
-		{ "La maestra de espías Lamento te ha pedido que mates al guardia de la Muerte Schneider, al escribano jefe Kinnedius, al ingeniero Burke y al canciller Amai.\n\nCuando hayas cumplido esta tarea, informa de tu éxito al sumo ejecutor Wroth en Rencor Venenoso.", },
+		{ "La maestra de espías Lamento te ha pedido que mates al guardia de la Muerte Schneider, al escribano jefe Kinnedius, al ingeniero Burke y al canciller Amai.", "Cuando hayas cumplido esta tarea, informa de tu éxito al sumo ejecutor Wroth en Rencor Venenoso.", },
 	},
 	[12246] = {
 		"Una posible relación",
@@ -35260,7 +35260,7 @@ CT.l10nDB.esMX.quest = {
 	[12273] = {
 		"La acusación",
 		nil,
-		{ "El sumo ejecutor Wroth en Rencor Venenoso te ha encargado la tarea de usar la vara de coacción con el comandante Jordan, el cañonero mayor Zierhut, el herrero Buenhombre y el maestro de establos Mercer.\n\nCuando hayas usado la vara con ellos, mátalos para coaccionarlos a hacer de sus últimas palabras una acusación contra El Embate Escarlata.", },
+		{ "El sumo ejecutor Wroth en Rencor Venenoso te ha encargado la tarea de usar la vara de coacción con el comandante Jordan, el cañonero mayor Zierhut, el herrero Buenhombre y el maestro de establos Mercer.", "Cuando hayas usado la vara con ellos, mátalos para coaccionarlos a hacer de sus últimas palabras una acusación contra El Embate Escarlata.", },
 	},
 	[12274] = {
 		"Caída en desgracia",
@@ -35795,7 +35795,7 @@ CT.l10nDB.esMX.quest = {
 	[12416] = {
 		"Una batalla acalorada",
 		nil,
-		{ "Ayuda al capitán Iskandar en la resistencia en los cañones ayudando a matar a 12 agresores necrófagos gélidos, 8 agresores geists gélidos y 1 agresor abominación gélida.\n\nVuelve junto a Ceristrasz cuando hayas terminado esta tarea.", },
+		{ "Ayuda al capitán Iskandar en la resistencia en los cañones ayudando a matar a 12 agresores necrófagos gélidos, 8 agresores geists gélidos y 1 agresor abominación gélida.", "Vuelve junto a Ceristrasz cuando hayas terminado esta tarea.", },
 	},
 	[12417] = {
 		"Regresa a la tierra",
@@ -35873,7 +35873,7 @@ CT.l10nDB.esMX.quest = {
 	[12432] = {
 		"Cabalgando sobre el cohete rojo",
 		nil,
-		{ "El general Gorlok en el faro de Bahía Ventura quiere que destruyas el barco de leña de la Alianza.\n\nEl general Gorlok solo estará presente en el faro cuando la Horda lo tenga en su posesión.", },
+		{ "El general Gorlok en el faro de Bahía Ventura quiere que destruyas el barco de leña de la Alianza.", "El general Gorlok solo estará presente en el faro cuando la Horda lo tenga en su posesión.", },
 	},
 	[12433] = {
 		"Buscando disolvente",
@@ -35896,7 +35896,7 @@ CT.l10nDB.esMX.quest = {
 	[12437] = {
 		"Cabalgando sobre el cohete rojo",
 		nil,
-		{ "El comandante Howser en el faro de Bahía Ventura quiere que destruyas el envío de madera de la Horda.\n\nEl comandante Howser solo estará presente en el faro cuando la Alianza esté en su posesión.", },
+		{ "El comandante Howser en el faro de Bahía Ventura quiere que destruyas el envío de madera de la Horda.", "El comandante Howser solo estará presente en el faro cuando la Alianza esté en su posesión.", },
 	},
 	[12438] = {
 		"Se busca: Kreug Rompejuramentos",
@@ -35944,7 +35944,7 @@ CT.l10nDB.esMX.quest = {
 	[12448] = {
 		"Una batalla acalorada",
 		nil,
-		{ "Ayuda al capitán Drayzen en la resistencia en los cañones ayudando a matar a 12 agresores necrófagos gélidos, 8 agresores geists gélidos y 1 agresor abominación gélida.\n\nVuelve junto a Vargastrasz cuando hayas terminado esta tarea.", },
+		{ "Ayuda al capitán Drayzen en la resistencia en los cañones ayudando a matar a 12 agresores necrófagos gélidos, 8 agresores geists gélidos y 1 agresor abominación gélida.", "Vuelve junto a Vargastrasz cuando hayas terminado esta tarea.", },
 	},
 	[12449] = {
 		"Regresa a la tierra",
@@ -36054,7 +36054,7 @@ CT.l10nDB.esMX.quest = {
 	[12470] = {
 		"El misterio del Infinito",
 		nil,
-		{ "Cromi en lo alto del Templo del Reposo del Dragón te pide que vayas hasta el santuario de Dragones Bronce. En cuanto estés dentro, sitúa el reloj de arena de eternidad en el suelo.\n\nProtégelo todo lo que dure y devuélvelo a Cromi con cualquier información que hayas obtenido.", },
+		{ "Cromi en lo alto del Templo del Reposo del Dragón te pide que vayas hasta el santuario de Dragones Bronce. En cuanto estés dentro, sitúa el reloj de arena de eternidad en el suelo.", "Protégelo todo lo que dure y devuélvelo a Cromi con cualquier información que hayas obtenido.", },
 	},
 	[12471] = {
 		"La crueldad de los Kvaldir",
@@ -36189,7 +36189,7 @@ CT.l10nDB.esMX.quest = {
 	[12501] = {
 		"Patrulla trol",
 		nil,
-		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.\n\nEl capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
+		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.", "El capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
 	},
 	[12502] = {
 		"Patrulla trol: Estandartes en alto",
@@ -36319,32 +36319,32 @@ CT.l10nDB.esMX.quest = {
 	[12529] = {
 		"El esclavo del cazador de monos",
 		nil,
-		{ "Mata a 8 batidores Callonudillos y 6 destreros Callonudillos para el alto chamán Rakjak de la Colina Corazón Frenético. \n\nSi pierdes los grilletes de Goregek, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Mata a 8 batidores Callonudillos y 6 destreros Callonudillos para el alto chamán Rakjak de la Colina Corazón Frenético. ", "Si pierdes los grilletes de Goregek, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12530] = {
 		"Atormentar a los badanudillos",
 		nil,
-		{ "Goregek te ha dado un atizador de badanudillos para hacer que la matriarca Callonudillo salga de su escondite. Mata a la matriarca Callonudillo e informa sobre su muerte al alto chamán Rajak en la Colina Corazón Frenético.\n\nSi pierdes los grilletes de Goregek, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Goregek te ha dado un atizador de badanudillos para hacer que la matriarca Callonudillo salga de su escondite. Mata a la matriarca Callonudillo e informa sobre su muerte al alto chamán Rajak en la Colina Corazón Frenético.", "Si pierdes los grilletes de Goregek, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12531] = {
 		"La amenaza subterránea",
 		nil,
-		{ "Encuentra a Serfex bajo las arenas del río sur, mátalo y tráele su garra al alto chamán Rakjak en la Colina Corazón Frenético.\n\nSi pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Encuentra a Serfex bajo las arenas del río sur, mátalo y tráele su garra al alto chamán Rakjak en la Colina Corazón Frenético.", "Si pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12532] = {
 		"¡Se dieron a la fuga!",
 		nil,
-		{ "Atrapa 12 pollos fugitivos para el anciano Harkek.\n\nSi pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Atrapa 12 pollos fugitivos para el anciano Harkek.", "Si pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12533] = {
 		"El aprendiz de cazador de avispas",
 		nil,
-		{ "Mata 6 avispas del Enjambre Zafiro y 9 zánganos del Enjambre Zafiro para el alto chamán Rakjak en la Colina Corazón Frenético.\n\nSi pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Mata 6 avispas del Enjambre Zafiro y 9 zánganos del Enjambre Zafiro para el alto chamán Rakjak en la Colina Corazón Frenético.", "Si pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12534] = {
 		"La reina Zafiro",
 		nil,
-		{ "Llévale el aguijonero de la reina Zafiro al alto chamán Rakjak en la Colina Corazón Frenético.\n\nSi pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Llévale el aguijonero de la reina Zafiro al alto chamán Rakjak en la Colina Corazón Frenético.", "Si pierdes la tiza desgastada de Dajik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12535] = {
 		"Malicia en la creación",
@@ -36354,17 +36354,17 @@ CT.l10nDB.esMX.quest = {
 	[12536] = {
 		"Un viaje complicado",
 		nil,
-		{ "Viaja sobre el crocolisco cautivo hasta el Refugio Susurraneblina y habla con Zepik para recibir instrucciones.\n\nSi pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Viaja sobre el crocolisco cautivo hasta el Refugio Susurraneblina y habla con Zepik para recibir instrucciones.", "Si pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12537] = {
 		"El rayo golpea dos veces sin duda",
 		nil,
-		{ "Zepik quiere que rompas las marañas de cristal Trecho Celestial delante del Santuario Climático Susurraneblina.\n\nSi pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Zepik quiere que rompas las marañas de cristal Trecho Celestial delante del Santuario Climático Susurraneblina.", "Si pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12538] = {
 		"La bruma no está escuchando",
 		nil,
-		{ "Zepik quiere que mates a 12 górlocs Susurraneblina.\n\nSi pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
+		{ "Zepik quiere que mates a 12 górlocs Susurraneblina.", "Si pierdes el cuerno de caza de Zepik, habla con el anciano Harkek en la Colina Corazón Frenético.", },
 	},
 	[12539] = {
 		"A pata",
@@ -36379,7 +36379,7 @@ CT.l10nDB.esMX.quest = {
 	[12541] = {
 		"Patrulla trol: el aprendiz de alquimista",
 		nil,
-		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.\n\nCuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
+		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.", "Cuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
 	},
 	[12542] = {
 		"La Llamada de la Cruzada",
@@ -36404,7 +36404,7 @@ CT.l10nDB.esMX.quest = {
 	[12546] = {
 		"Reclamación",
 		nil,
-		{ "Ve a la Avalancha en la Cuenca de Sholazar y usa la runa omega para desplegar al Etimidiano. Úsalo para matar a 200 esbirros de la Plaga, a Bythius el Formador de carne, a Urgreth de Las Mil Tumbas y a Iragélida.\n\nHabla con el avatar de Freya en la Cuenca de Sholazar cuando hayas terminado la misión.", },
+		{ "Ve a la Avalancha en la Cuenca de Sholazar y usa la runa omega para desplegar al Etimidiano. Úsalo para matar a 200 esbirros de la Plaga, a Bythius el Formador de carne, a Urgreth de Las Mil Tumbas y a Iragélida.", "Habla con el avatar de Freya en la Cuenca de Sholazar cuando hayas terminado la misión.", },
 	},
 	[12547] = {
 		"La activación de la runa",
@@ -36489,7 +36489,7 @@ CT.l10nDB.esMX.quest = {
 	[12563] = {
 		"Patrulla trol",
 		nil,
-		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.\n\nEl capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
+		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.", "El capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
 	},
 	[12565] = {
 		"La bendición de Zim'Abwa",
@@ -36517,32 +36517,32 @@ CT.l10nDB.esMX.quest = {
 	[12571] = {
 		"Haz que se vaya la serpiente mala",
 		nil,
-		{ "El sumo Oráculo Soo-pinstán en el Canope de Hablalluvia quiere que mates a Venopunta y a 10 cobras emperador.\n\nSi pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "El sumo Oráculo Soo-pinstán en el Canope de Hablalluvia quiere que mates a Venopunta y a 10 cobras emperador.", "Si pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12572] = {
 		"A los dioses les gustan las cosas brillantes",
 		nil,
-		{ "Recoge 6 de los tesoros que Lafoo encuentre y llévaselos al sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.\n\nSi pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Recoge 6 de los tesoros que Lafoo encuentre y llévaselos al sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", "Si pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12573] = {
 		"Hacer las paces",
 		nil,
-		{ "El sumo Oráculo Soo-pinstán en el Canope de Hablalluvia quiere que le hagas una oferta de paz al chamán Vekjik y vuelvas con su respuesta.\n\nSi pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "El sumo Oráculo Soo-pinstán en el Canope de Hablalluvia quiere que le hagas una oferta de paz al chamán Vekjik y vuelvas con su respuesta.", "Si pierdes la bolsa de bichos de Lafoo, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12574] = {
 		"¿Ya has vuelto?",
 		nil,
-		{ "Ve al Refugio Susurraneblina y habla con el clamaneblina Soo-papo.\n\nSi pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Ve al Refugio Susurraneblina y habla con el clamaneblina Soo-papo.", "Si pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12575] = {
 		"El tesoro Susurraneblina perdido",
 		nil,
-		{ "Mata al señor de la guerra Tartek y recupera el tesoro Susurraneblina para el clamaneblina Soo-papo en el Refugio Susurraneblina.\n\nSi pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Mata al señor de la guerra Tartek y recupera el tesoro Susurraneblina para el clamaneblina Soo-papo en el Refugio Susurraneblina.", "Si pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12576] = {
 		"A la fuerza",
 		nil,
-		{ "Mata a 8 arponeros Corazón Frenético y a 6 carroñeros Corazón Frenético para el clamaneblina Soo-papo en el Refugio Susurraneblina.\n\nSi pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Mata a 8 arponeros Corazón Frenético y a 6 carroñeros Corazón Frenético para el clamaneblina Soo-papo en el Refugio Susurraneblina.", "Si pierdes el cristal favorito de Jaloot, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12577] = {
 		"¡Hora de volver a casa!",
@@ -36552,22 +36552,22 @@ CT.l10nDB.esMX.quest = {
 	[12578] = {
 		"El górloc enfadado",
 		nil,
-		{ "Ve al Poblado Caminamoho y habla con Moodle cuando llegues.\n\nSi pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Ve al Poblado Caminamoho y habla con Moodle cuando llegues.", "Si pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12579] = {
 		"Sangrevida del santuario Caminamoho",
 		nil,
-		{ "Moodle quiere que recojas 10 fragmentos de sangrevida, pero no te acerques a la cueva que hay dentro del propio pilar.\n\nSi pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Moodle quiere que recojas 10 fragmentos de sangrevida, pero no te acerques a la cueva que hay dentro del propio pilar.", "Si pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12580] = {
 		"El salvador de los Caminamoho",
 		nil,
-		{ "Moodle quiere que rescates a 6 de las víctimas Caminamoho en el Poblado Caminamoho, aunque algunas quizás ya no estén vivas.\n\nSi pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
+		{ "Moodle quiere que rescates a 6 de las víctimas Caminamoho en el Poblado Caminamoho, aunque algunas quizás ya no estén vivas.", "Si pierdes la bola antiestrés de Moodle, habla con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia.", },
 	},
 	[12581] = {
 		"La carga de un héroe",
 		nil,
-		{ "Mata a Artruis el Inhumano.\n\nAunque se recomienda buscar la ayuda de otros compañeros, Moodle no podrá acompañarte en esta misión.", },
+		{ "Mata a Artruis el Inhumano.", "Aunque se recomienda buscar la ayuda de otros compañeros, Moodle no podrá acompañarte en esta misión.", },
 	},
 	[12582] = {
 		"Campeón Corazón Frenético",
@@ -36590,7 +36590,7 @@ CT.l10nDB.esMX.quest = {
 	[12587] = {
 		"Patrulla trol",
 		nil,
-		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.\n\nEl capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
+		{ "El comandante Kunz de El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, cumplas las órdenes de sus capitanes y vuelvas para informarle.", "El capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, el capitán Grondel está apostado en Drak'Agal y el alquimista Finklestein está apostado en Heb'Valok.", },
 	},
 	[12588] = {
 		"Patrulla trol: ¿Quieres cavar?",
@@ -36633,7 +36633,7 @@ CT.l10nDB.esMX.quest = {
 	[12596] = {
 		"Patrulla trol",
 		nil,
-		{ "El comandante Kunz en El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, sigas las instrucciones de sus líderes y vuelvas a informarle.\n\nEl capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, al sureste de aquí.\n\nEl capitán Grondel está apostado en Drak'Agal, al este.\n\nEl alquimista Finklestein está apostado en Heb'Valok, al norte.", },
+		{ "El comandante Kunz en El Confín Argenta quiere que visites los cuatro puestos de la Cruzada Argenta, sigas las instrucciones de sus líderes y vuelvas a informarle.", "El capitán Brandon y el capitán Rupert están apostados en Drak'Sotra, al sureste de aquí.", "El capitán Grondel está apostado en Drak'Agal, al este.", "El alquimista Finklestein está apostado en Heb'Valok, al norte.", },
 	},
 	[12597] = {
 		"Algo para el dolor",
@@ -36653,12 +36653,12 @@ CT.l10nDB.esMX.quest = {
 	[12601] = {
 		"El aprendiz de alquimista",
 		nil,
-		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.\n\nCuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
+		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.", "Cuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
 	},
 	[12602] = {
 		"El aprendiz de alquimista",
 		nil,
-		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.\n\nCuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
+		{ "El alquimista Finklestein en Heb'Valok quiere que lo ayudes en la creación de un suero de la verdad.", "Cuando estés listo para empezar, habla con él y sigue sus instrucciones.", },
 	},
 	[12603] = {
 		"Afilar tus garras",
@@ -36739,7 +36739,7 @@ CT.l10nDB.esMX.quest = {
 	[12619] = {
 		"La hojarruna blasonada",
 		nil,
-		{ "Encuentra una espada desgastada por la batalla en los expositores de armas de El Bastión de Ébano y úsala en una forja de runas para crear una espada de hojarruna.\n\nDevuelve la espada de hojarruna al instructor Razuvious en El Bastión de Ébano.", },
+		{ "Encuentra una espada desgastada por la batalla en los expositores de armas de El Bastión de Ébano y úsala en una forja de runas para crear una espada de hojarruna.", "Devuelve la espada de hojarruna al instructor Razuvious en El Bastión de Ébano.", },
 	},
 	[12620] = {
 		"La cólera de la guardiana de vida",
@@ -36789,7 +36789,7 @@ CT.l10nDB.esMX.quest = {
 	[12630] = {
 		"Patadas a Nass para muestras",
 		nil,
-		{ "Stefan en el Puesto de Vigilancia de Ébano quiere que uses a Nass para recoger 10 muestras de pelo de trols marchitos.\n\nSi pierdes a Nass, vuelve con Stefan para recuperarlo.", },
+		{ "Stefan en el Puesto de Vigilancia de Ébano quiere que uses a Nass para recoger 10 muestras de pelo de trols marchitos.", "Si pierdes a Nass, vuelve con Stefan para recuperarlo.", },
 	},
 	[12631] = {
 		"Una especie de invitación…",
@@ -36844,7 +36844,7 @@ CT.l10nDB.esMX.quest = {
 	[12641] = {
 		"La muerte viene de arriba",
 		nil,
-		{ "El Rey Exánime te ordena que uses el ojo de Acherus para analizar el Bastión Escarlata, la Forja de Nuevo Avalon, el Concejo de Nuevo Avalon y la Capilla de la Llama Carmesí.\n\nControla el ojo de Acherus usando el mecanismo de control del ojo de Acherus.", },
+		{ "El Rey Exánime te ordena que uses el ojo de Acherus para analizar el Bastión Escarlata, la Forja de Nuevo Avalon, el Concejo de Nuevo Avalon y la Capilla de la Llama Carmesí.", "Controla el ojo de Acherus usando el mecanismo de control del ojo de Acherus.", },
 	},
 	[12642] = {
 		"El espíritu de Rhunok",
@@ -36874,17 +36874,17 @@ CT.l10nDB.esMX.quest = {
 	[12647] = {
 		"Acabar con el sufrimiento",
 		nil,
-		{ "El espíritu de Rhunok te ha pedido que uses el incienso de torturador para despertar su cuerpo. Luego debes matar a Rhunok con el poder que te ha imbuido su espíritu.\n\nSi por alguna razón pierdes el aura de mojo de Rhunok, puedes volver con el espíritu de Rhunok para que te la vuelva a poner.", },
+		{ "El espíritu de Rhunok te ha pedido que uses el incienso de torturador para despertar su cuerpo. Luego debes matar a Rhunok con el poder que te ha imbuido su espíritu.", "Si por alguna razón pierdes el aura de mojo de Rhunok, puedes volver con el espíritu de Rhunok para que te la vuelva a poner.", },
 	},
 	[12648] = {
 		"Vestirse humildemente",
 		nil,
-		{ "Stefan del Puesto de Vigilancia de Ébano quiere que uses la gargantilla embrujada para disfrazarte como la Plaga.\n\nMientras estés en forma de la Plaga, tienes que comprar un plasma amargo de Cartilaginoso. \n\nSi pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
+		{ "Stefan del Puesto de Vigilancia de Ébano quiere que uses la gargantilla embrujada para disfrazarte como la Plaga.", "Mientras estés en forma de la Plaga, tienes que comprar un plasma amargo de Cartilaginoso. ", "Si pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
 	},
 	[12649] = {
 		"¡Vestirse para la ocasión!",
 		nil,
-		{ "Stefan del Puesto de Vigilancia de Ébano quiere que uses la gargantilla embrujada para disfrazarte como la Plaga.\n\nMientras estés en forma de la Plaga, tienes que comprar un plasma amargo de Cartilaginoso. \n\nSi pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
+		{ "Stefan del Puesto de Vigilancia de Ébano quiere que uses la gargantilla embrujada para disfrazarte como la Plaga.", "Mientras estés en forma de la Plaga, tienes que comprar un plasma amargo de Cartilaginoso. ", "Si pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
 	},
 	[12650] = {
 		"Saqueo propio",
@@ -36922,7 +36922,7 @@ CT.l10nDB.esMX.quest = {
 	[12657] = {
 		"El poder de la Plaga",
 		nil,
-		{ "El Rey Exánime quiere que lleves sus órdenes al alto señor Darion Mograine en El Bastión de Ébano.\n\nUsa el teletransportador resplandeciente que hay detrás del Rey Exánime para llegar hasta el alto señor Darion Mograine en la Sala de Mando.", },
+		{ "El Rey Exánime quiere que lleves sus órdenes al alto señor Darion Mograine en El Bastión de Ébano.", "Usa el teletransportador resplandeciente que hay detrás del Rey Exánime para llegar hasta el alto señor Darion Mograine en la Sala de Mando.", },
 	},
 	[12658] = {
 		"Mi mascota roc",
@@ -36932,7 +36932,7 @@ CT.l10nDB.esMX.quest = {
 	[12659] = {
 		"¡Cabelleras!",
 		nil,
-		{ "El arrancacabelleras Ahunae en Zim'Torga quiere que utilices el puñal de Ahunae para arrancar la cabellera a 10 trols de Heb'Drakkar.\n\nEl arrancacabelleras te recuerda que primero tienes que despojarlos.", },
+		{ "El arrancacabelleras Ahunae en Zim'Torga quiere que utilices el puñal de Ahunae para arrancar la cabellera a 10 trols de Heb'Drakkar.", "El arrancacabelleras te recuerda que primero tienes que despojarlos.", },
 	},
 	[12660] = {
 		"Armas de destrucción",
@@ -36942,7 +36942,7 @@ CT.l10nDB.esMX.quest = {
 	[12661] = {
 		"Infiltrarse en Voltarus",
 		nil,
-		{ "Stefan quiere que utilices la gargantilla embrujada para entrar en Voltarus y hacer lo que te pida el líder de la Plaga.\n\nSi pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de la Avanzada de Ébano para conseguir otra.", },
+		{ "Stefan quiere que utilices la gargantilla embrujada para entrar en Voltarus y hacer lo que te pida el líder de la Plaga.", "Si pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de la Avanzada de Ébano para conseguir otra.", },
 	},
 	[12662] = {
 		"Abate a Heb'Jin",
@@ -36957,7 +36957,7 @@ CT.l10nDB.esMX.quest = {
 	[12665] = {
 		"Noto una alteración",
 		nil,
-		{ "Har'koa te ha pedido que averigües qué le ha pasado a Quetz'lun. Habla con ella para que te deje a una de sus crías y puedas ir sigilosamente al Altar de Quetz'lun.\n\nVuelve con ella al Altar de Har'koa cuando lo hayas hecho.", },
+		{ "Har'koa te ha pedido que averigües qué le ha pasado a Quetz'lun. Habla con ella para que te deje a una de sus crías y puedas ir sigilosamente al Altar de Quetz'lun.", "Vuelve con ella al Altar de Har'koa cuando lo hayas hecho.", },
 	},
 	[12666] = {
 		"Preparaciones para el inframundo",
@@ -36972,12 +36972,12 @@ CT.l10nDB.esMX.quest = {
 	[12668] = {
 		"Cimientos de venganza",
 		nil,
-		{ "El espíritu de Quetz'lun te ha encargado la exterminación de 12 trols, veneradores de Quetz'lun o rabiosos vipéridos, cerca de sus fuentes de almas.\n\nSolo cuando hayas cumplido con esto volverás con ella al Altar de Quetz'lun.", },
+		{ "El espíritu de Quetz'lun te ha encargado la exterminación de 12 trols, veneradores de Quetz'lun o rabiosos vipéridos, cerca de sus fuentes de almas.", "Solo cuando hayas cumplido con esto volverás con ella al Altar de Quetz'lun.", },
 	},
 	[12669] = {
 		"Por ahora todo mal",
 		nil,
-		{ "Stefan en el Puesto de Vigilancia de Ébano quiere que vuelvas con Drakuru y completes cualquier tarea que tenga para ti.\n\nMientras estés en el Relicario de Dolor, utiliza el aditivo diluido en 5 calderas de añublo.\n\nSi pierdes tu gargantilla embrujada, vuelve con Stefan del Puesto de Vigilancia de Ébano para conseguir otra.", },
+		{ "Stefan en el Puesto de Vigilancia de Ébano quiere que vuelvas con Drakuru y completes cualquier tarea que tenga para ti.", "Mientras estés en el Relicario de Dolor, utiliza el aditivo diluido en 5 calderas de añublo.", "Si pierdes tu gargantilla embrujada, vuelve con Stefan del Puesto de Vigilancia de Ébano para conseguir otra.", },
 	},
 	[12670] = {
 		"La cosecha Escarlata",
@@ -37012,12 +37012,12 @@ CT.l10nDB.esMX.quest = {
 	[12676] = {
 		"Sabotaje",
 		nil,
-		{ "Stefan del Puesto de Vigilancia de Ébano quiere que realices otra tarea para Drakuru.\n\nAdemás, tienes que poner 5 cargas explosivas en los carros de la Plaga en el Relicario de Dolor.\n\nSi pierdes tu gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
+		{ "Stefan del Puesto de Vigilancia de Ébano quiere que realices otra tarea para Drakuru.", "Además, tienes que poner 5 cargas explosivas en los carros de la Plaga en el Relicario de Dolor.", "Si pierdes tu gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
 	},
 	[12677] = {
 		"Materiales arriesgados",
 		nil,
-		{ "Stefan del Puesto de Vigilancia de Ébano quiere que vayas a Voltarus y completes cualquier tarea que Drakuru tenga para ti. Mientras estés ahí, tienes que robar 5 cristales de añublo recolectados.\n\nSi pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
+		{ "Stefan del Puesto de Vigilancia de Ébano quiere que vayas a Voltarus y completes cualquier tarea que Drakuru tenga para ti. Mientras estés ahí, tienes que robar 5 cristales de añublo recolectados.", "Si pierdes la gargantilla embrujada, vuelve con Stefan en el Puesto de Vigilancia de Ébano para conseguir otra.", },
 	},
 	[12678] = {
 		"Cuando llegue el caos, deja que el sufrimiento tome las riendas",
@@ -37065,7 +37065,7 @@ CT.l10nDB.esMX.quest = {
 	[12687] = {
 		"En el Reino de las Sombras",
 		nil,
-		{ "Salanar el Jinete, en la Brecha de la Muerte, te desafía a matar al jinete oscuro de Acherus y tomar su destrero de la muerte de Acherus.\n\nSi lo consigues, lleva el destrero de la muerte de Acherus a la Brecha de la Muerte y usa la Llamada del jinete para invocar a Salanar.", },
+		{ "Salanar el Jinete, en la Brecha de la Muerte, te desafía a matar al jinete oscuro de Acherus y tomar su destrero de la muerte de Acherus.", "Si lo consigues, lleva el destrero de la muerte de Acherus a la Brecha de la Muerte y usa la Llamada del jinete para invocar a Salanar.", },
 	},
 	[12688] = {
 		"Ingeniería de un desastre",
@@ -37078,7 +37078,7 @@ CT.l10nDB.esMX.quest = {
 	[12690] = {
 		"Combustible para el fuego",
 		nil,
-		{ "Drakuru en Voltarus quiere que uses el cetro de mando en abominaciones hinchadas y que hagas uso de sus talentos en la Brecha Gélida para matar a 60 trituracráneos Drakkari y que captures a 3 cabecillas Drakkari.\n\nLos cabecillas aparecerán cuando hayas matado suficientes trituracráneos.", },
+		{ "Drakuru en Voltarus quiere que uses el cetro de mando en abominaciones hinchadas y que hagas uso de sus talentos en la Brecha Gélida para matar a 60 trituracráneos Drakkari y que captures a 3 cabecillas Drakkari.", "Los cabecillas aparecerán cuando hayas matado suficientes trituracráneos.", },
 	},
 	[12691] = {
 		"Una arca estropeada por el tiempo",
@@ -37138,7 +37138,7 @@ CT.l10nDB.esMX.quest = {
 	[12704] = {
 		"Apaciguar la Gran Piedra de Lluvia",
 		nil,
-		{ "El sumo Oráculo Soo-pinstán, del Canope de Hablalluvia, quiere que elijas un compañero para excavar y conseguir 6 tesoros lustrosos.\n\nAsegúrate de hablar con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia para conseguir la ayuda de uno de tus anteriores compañeros.", },
+		{ "El sumo Oráculo Soo-pinstán, del Canope de Hablalluvia, quiere que elijas un compañero para excavar y conseguir 6 tesoros lustrosos.", "Asegúrate de hablar con el sumo Oráculo Soo-pinstán en el Canope de Hablalluvia para conseguir la ayuda de uno de tus anteriores compañeros.", },
 	},
 	[12705] = {
 		"Voluntad de los titanes",
@@ -37181,7 +37181,7 @@ CT.l10nDB.esMX.quest = {
 	[12713] = {
 		"Traición",
 		nil,
-		{ "Stefan del Puesto de Vigilancia de Ébano quiere que derrotes a Drakuru.\n\nSi pierdes la gargantilla embrujada, vuelve con Stefan del Puesto de Vigilancia de Ébano para obtener otra.", },
+		{ "Stefan del Puesto de Vigilancia de Ébano quiere que derrotes a Drakuru.", "Si pierdes la gargantilla embrujada, vuelve con Stefan del Puesto de Vigilancia de Ébano para obtener otra.", },
 	},
 	[12714] = {
 		"La voluntad del Rey Exánime",
@@ -37214,7 +37214,7 @@ CT.l10nDB.esMX.quest = {
 	[12720] = {
 		"Cómo ganar amigos e influenciar a los enemigos",
 		nil,
-		{ "El príncipe Keleseth de la Cripta de los Recuerdos te ha ordenado que descubras la verdad sobre el \"Alba Carmesí\".\n\nSaca los persuasores de Keleseth de la caja ornamentada con joyas y úsalos para \"persuadir\" a la Cruzada Escarlata para que hable.", },
+		{ "El príncipe Keleseth de la Cripta de los Recuerdos te ha ordenado que descubras la verdad sobre el \"Alba Carmesí\".\nSaca los persuasores de Keleseth de la caja ornamentada con joyas y úsalos para \"persuadir\" a la Cruzada Escarlata para que hable.", },
 	},
 	[12721] = {
 		"Arrasando",
@@ -37274,7 +37274,7 @@ CT.l10nDB.esMX.quest = {
 	[12733] = {
 		"Desafío de la Muerte",
 		nil,
-		{ "Olrun la Clamabatallas te ha ordenado que ganes 5 duelos contra otros caballeros de la Muerte.\n\nDeberías luchar contra caballeros de la Muerte iniciados o jugadores.", },
+		{ "Olrun la Clamabatallas te ha ordenado que ganes 5 duelos contra otros caballeros de la Muerte.", "Deberías luchar contra caballeros de la Muerte iniciados o jugadores.", },
 	},
 	[12734] = {
 		"Rejek: Primeras manchas de sangre",
@@ -37414,7 +37414,7 @@ CT.l10nDB.esMX.quest = {
 	[12763] = {
 		"Cambio de prioridades",
 		nil,
-		{ "El explorador Vor'takh quiere que vayas a Zul'Drak y que informes a la sargento Riannah en la Brecha de la Luz.\n\nMakki Vendaval de Invierno en el Campamento Onequah te ofrecerá medio de transporte.", },
+		{ "El explorador Vor'takh quiere que vayas a Zul'Drak y que informes a la sargento Riannah en la Brecha de la Luz.", "Makki Vendaval de Invierno en el Campamento Onequah te ofrecerá medio de transporte.", },
 	},
 	[12766] = {
 		"Habla con tu embajadora",
@@ -37439,7 +37439,7 @@ CT.l10nDB.esMX.quest = {
 	[12770] = {
 		"Redistribuir los recursos",
 		nil,
-		{ "Gryan Mantorrecio quiere que te presentes ante la sargento Riannah en la Brecha de la Luz en Zul'Drak.\n\nPuedes hablar con Samuel Libroclaro para que te proporcione un transporte a la Brecha de la Luz.", },
+		{ "Gryan Mantorrecio quiere que te presentes ante la sargento Riannah en la Brecha de la Luz en Zul'Drak.", "Puedes hablar con Samuel Libroclaro para que te proporcione un transporte a la Brecha de la Luz.", },
 	},
 	[12778] = {
 		"El apocalipsis escarlata",
@@ -37449,7 +37449,7 @@ CT.l10nDB.esMX.quest = {
 	[12779] = {
 		"Un final para todas las cosas…",
 		nil,
-		{ "El Rey Exánime te ha ordenado que acabes con la Cruzada Escarlata.\n\nUsa el cuerno de Razaescarcha para llamar al vencedor Razaescarcha, matar a 150 soldados Escarlata y aniquilar a 10 balistas Escarlatas. ¡Evita proyectiles del contrario saliendo de su línea de tiro!", },
+		{ "El Rey Exánime te ha ordenado que acabes con la Cruzada Escarlata.", "Usa el cuerno de Razaescarcha para llamar al vencedor Razaescarcha, matar a 150 soldados Escarlata y aniquilar a 10 balistas Escarlatas. ¡Evita proyectiles del contrario saliendo de su línea de tiro!", },
 	},
 	[12780] = {
 		"DEPRICATED>>Enemy of Our Enemy",
@@ -37484,7 +37484,7 @@ CT.l10nDB.esMX.quest = {
 	[12793] = {
 		"Humo en el horizonte",
 		nil,
-		{ "Khufu de Zim'Torga quiere que viajes a la Brecha de la Luz y que te presentes ante la sargento Riannah.\n\nMaaka te proporcionará un transporte.", },
+		{ "Khufu de Zim'Torga quiere que viajes a la Brecha de la Luz y que te presentes ante la sargento Riannah.", "Maaka te proporcionará un transporte.", },
 	},
 	[12794] = {
 		"El reino mágico de Dalaran",
@@ -37524,12 +37524,12 @@ CT.l10nDB.esMX.quest = {
 	[12801] = {
 		"La luz del alba",
 		nil,
-		{ "Derrota las fuerzas de El Alba Argenta y descubre la luz de alba.\n\nInforma al alto señor Darion Mograine si sobrevives.", },
+		{ "Derrota las fuerzas de El Alba Argenta y descubre la luz de alba.", "Informa al alto señor Darion Mograine si sobrevives.", },
 	},
 	[12802] = {
 		"Mi corazón está en tus manos",
 		nil,
-		{ "Drakuru quiere que le lleves el corazón de los ancestros al Pasaje de Drak'atal.\n\nTendrás que conseguir 5 mojos de desesperación para usar allí el elixir.", },
+		{ "Drakuru quiere que le lleves el corazón de los ancestros al Pasaje de Drak'atal.", "Tendrás que conseguir 5 mojos de desesperación para usar allí el elixir.", },
 	},
 	[12803] = {
 		"Fuerza de la naturaleza",
@@ -37709,7 +37709,7 @@ CT.l10nDB.esMX.quest = {
 	[12842] = {
 		"Forja de runas: preparativos para la batalla",
 		nil,
-		{ "El instructor Razuvious en El Bastión de Ébano te ha ordenado que uses tu forja de runas para blasonar tu hoja de alma rúnica con una runa [de tu elección].\n\nPuedes cambiar libremente el grabado de tu arma en cualquier momento mientras estés cerca de una forja de runas.", },
+		{ "El instructor Razuvious en El Bastión de Ébano te ha ordenado que uses tu forja de runas para blasonar tu hoja de alma rúnica con una runa [de tu elección].", "Puedes cambiar libremente el grabado de tu arma en cualquier momento mientras estés cerca de una forja de runas.", },
 	},
 	[12843] = {
 		"¡Se llevaron a nuestros hombres!",
@@ -37734,7 +37734,7 @@ CT.l10nDB.esMX.quest = {
 	[12848] = {
 		"El hambre sin fin",
 		nil,
-		{ "El instructor Razuvious en El Bastión de Ébano te ha ordenado que liberes a un iniciado indigno y que ¡lo mates a sangre fría!\n\n¡Es tu vida o la suya!", },
+		{ "El instructor Razuvious en El Bastión de Ébano te ha ordenado que liberes a un iniciado indigno y que ¡lo mates a sangre fría!", "¡Es tu vida o la suya!", },
 	},
 	[12849] = {
 		"El poder de la sangre, la escarcha y lo profano",
@@ -38063,7 +38063,7 @@ CT.l10nDB.esMX.quest = {
 	[12915] = {
 		"Enmiendas",
 		nil,
-		{ "Thorim en el Templo de las Tormentas quiere que mates a Fjorn y a 5 gigantes de hierro Tronaforjado en el Yunque de Fjorn, al este de Dun Niffelem.\n\nUsando el talismán de tierra de Thorim invocarás a sus terráneos para que luchen a tu lado. El talismán requiere una roca de granito; se encuentran cerca del Yunque de Fjorn.", },
+		{ "Thorim en el Templo de las Tormentas quiere que mates a Fjorn y a 5 gigantes de hierro Tronaforjado en el Yunque de Fjorn, al este de Dun Niffelem.", "Usando el talismán de tierra de Thorim invocarás a sus terráneos para que luchen a tu lado. El talismán requiere una roca de granito; se encuentran cerca del Yunque de Fjorn.", },
 	},
 	[12916] = {
 		"Nuestra única esperanza",
@@ -38083,12 +38083,12 @@ CT.l10nDB.esMX.quest = {
 	[12919] = {
 		"La venganza del Rey de la Tormenta",
 		nil,
-		{ "Habla con Gymer para empezar.\n\nCon Gymer como montura, destruye a 100 de la Plaga y mata a Algar el Elegido, a Thrym y al príncipe Navarius. Informa al cruzado MacKellar en el Puesto de Avanzada de los Cruzados si tienes éxito.", },
+		{ "Habla con Gymer para empezar.", "Con Gymer como montura, destruye a 100 de la Plaga y mata a Algar el Elegido, a Thrym y al príncipe Navarius. Informa al cruzado MacKellar en el Puesto de Avanzada de los Cruzados si tienes éxito.", },
 	},
 	[12920] = {
 		"Alcanzar a Brann",
 		nil,
-		{ "Usa el comunicador de Brann para contactar con Brann Barbabronce y habla con él, y luego habla con Boktar Furia Sangrienta en el lugar del accidente de Grom'arsh.\n\nSi pierdes el comunicador de Brann, habla con Moteha Natoviento en el lugar del accidente de Grom'arsh.", },
+		{ "Usa el comunicador de Brann para contactar con Brann Barbabronce y habla con él, y luego habla con Boktar Furia Sangrienta en el lugar del accidente de Grom'arsh.", "Si pierdes el comunicador de Brann, habla con Moteha Natoviento en el lugar del accidente de Grom'arsh.", },
 	},
 	[12921] = {
 		"Un cambio de escenario",
@@ -38259,32 +38259,32 @@ CT.l10nDB.esMX.quest = {
 	[12958] = {
 		"Envío: amuleto de jade de sangre",
 		nil,
-		{ "Reúne un amuleto vrykul, un jade oscuro y una sangrita para hacer un amuleto de jade de sangre, y llévaselo a Timothy Jones en Dalaran.\n\nPodrás encontrar amuletos vrykul en cualquier vrykul de Rasganorte.", },
+		{ "Reúne un amuleto vrykul, un jade oscuro y una sangrita para hacer un amuleto de jade de sangre, y llévaselo a Timothy Jones en Dalaran.", "Podrás encontrar amuletos vrykul en cualquier vrykul de Rasganorte.", },
 	},
 	[12959] = {
 		"Envío: figurilla de marfil resplandeciente",
 		nil,
-		{ "Reúne un trozo de marfil de Rasganorte, una calcedonia y un cristal de Sombras para crear una figurilla de marfil resplandeciente, y llévasela a Timothy Jones en Dalaran.\n\nPodrás encontrar marfil de Rasganorte en cualquier colmipala o mamut de Rasganorte.", },
+		{ "Reúne un trozo de marfil de Rasganorte, una calcedonia y un cristal de Sombras para crear una figurilla de marfil resplandeciente, y llévasela a Timothy Jones en Dalaran.", "Podrás encontrar marfil de Rasganorte en cualquier colmipala o mamut de Rasganorte.", },
 	},
 	[12960] = {
 		"Envío: broche de sol maligno",
 		nil,
-		{ "Reúne un broche de enano de hierro, un citrino enorme y un cristal de sol para hacer un broche de sol maligno, y llévaselo a Timothy Jones en Dalaran.\n\nPodrás encontrar broches de enano de hierro en cualquier enano férreo de Rasganorte.", },
+		{ "Reúne un broche de enano de hierro, un citrino enorme y un cristal de sol para hacer un broche de sol maligno, y llévaselo a Timothy Jones en Dalaran.", "Podrás encontrar broches de enano de hierro en cualquier enano férreo de Rasganorte.", },
 	},
 	[12961] = {
 		"Envío: figurilla de hueso intrincada",
 		nil,
-		{ "Reúne un hueso de protodraco, un cristal de sol y un jade oscuro para hacer una figurilla de hueso intrincada, y llévasela a Timothy Jones en Dalaran.\n\nPodrás conseguir huesos de protodraco de cualquier protodraco de Rasganorte.", },
+		{ "Reúne un hueso de protodraco, un cristal de sol y un jade oscuro para hacer una figurilla de hueso intrincada, y llévasela a Timothy Jones en Dalaran.", "Podrás conseguir huesos de protodraco de cualquier protodraco de Rasganorte.", },
 	},
 	[12962] = {
 		"Envío: reliquia de armadura brillante",
 		nil,
-		{ "Reúne un fragmento de armadura elemental, una sangrita y un citrino enorme para hacer una reliquia de armadura brillante, y llévasela a Timothy Jones en Dalaran.\n\nPodrás encontrar fragmentos de armadura elemental en cualquier aparecido de Rasganorte.", },
+		{ "Reúne un fragmento de armadura elemental, una sangrita y un citrino enorme para hacer una reliquia de armadura brillante, y llévasela a Timothy Jones en Dalaran.", "Podrás encontrar fragmentos de armadura elemental en cualquier aparecido de Rasganorte.", },
 	},
 	[12963] = {
 		"Envío: bibelot de sol cambiante",
 		nil,
-		{ "Reúne un bibelot de la Plaga, un cristal de sol y un cristal de Sombras para hacer un bibelot de sol cambiante, y llévaselo a Timothy Jones en Dalaran.\n\nPodrás encontrar bibelots de la Plaga en cualquier Plaga de Rasganorte.", },
+		{ "Reúne un bibelot de la Plaga, un cristal de sol y un cristal de Sombras para hacer un bibelot de sol cambiante, y llévaselo a Timothy Jones en Dalaran.", "Podrás encontrar bibelots de la Plaga en cualquier Plaga de Rasganorte.", },
 	},
 	[12964] = {
 		"La mena oscura",
@@ -38439,7 +38439,7 @@ CT.l10nDB.esMX.quest = {
 	[12994] = {
 		"Cazador de espías",
 		nil,
-		{ "Debes derrotar a 3 espías Tronaforjado en el Valle de los Viejos Inviernos.\n\nUsa el colmillo de huargo etéreo sobre el cadáver de huargo caído para invocar a un huargo de escarcha etéreo que descubrirá a los enemigos ocultos. Debes volver junto a la madre del cubil huargo de escarcha en Dun Niffelem cuando hayas acabado con los espías del valle.", },
+		{ "Debes derrotar a 3 espías Tronaforjado en el Valle de los Viejos Inviernos.", "Usa el colmillo de huargo etéreo sobre el cadáver de huargo caído para invocar a un huargo de escarcha etéreo que descubrirá a los enemigos ocultos. Debes volver junto a la madre del cubil huargo de escarcha en Dun Niffelem cuando hayas acabado con los espías del valle.", },
 	},
 	[12995] = {
 		"Dejar nuestra huella",
@@ -38499,7 +38499,7 @@ CT.l10nDB.esMX.quest = {
 	[13006] = {
 		"Una limpieza viscosa",
 		nil,
-		{ "Debes entrar en la Caverna Hibernal al oeste de Dun Niffelem y recoger 5 unidades de aceite viscoso de los aceites viscosos que hay allí.\n\nDespués debes volver a Dun Niffelem y aplicar el aceite sobre el yelmo de Hodir.", },
+		{ "Debes entrar en la Caverna Hibernal al oeste de Dun Niffelem y recoger 5 unidades de aceite viscoso de los aceites viscosos que hay allí.", "Después debes volver a Dun Niffelem y aplicar el aceite sobre el yelmo de Hodir.", },
 	},
 	[13007] = {
 		"El coloso de hierro",
@@ -38635,12 +38635,12 @@ CT.l10nDB.esMX.quest = {
 	[13042] = {
 		"En las profundidades de las Cámaras Subterráneas",
 		nil,
-		{ "La Bruja Osaria en la cueva del poblado Njorndar te ha pedido que saques a golpes del aprendiz Osterkilgr información referente a los planes del Dr. Terrible.\n\nDespués debes matar al aprendiz.", },
+		{ "La Bruja Osaria en la cueva del poblado Njorndar te ha pedido que saques a golpes del aprendiz Osterkilgr información referente a los planes del Dr. Terrible.", "Después debes matar al aprendiz.", },
 	},
 	[13043] = {
 		"La suma es mayor que las partes",
 		nil,
-		{ "Monta y controla a Nergeld. Defiéndelo de los moradores de la Cámara de los Horrores hasta que el Dr. Terrible aparezca.\n\nUsa a Nergeld para matar al doctor y después habla con la Bruja Osaria en el poblado Njorndar.", },
+		{ "Monta y controla a Nergeld. Defiéndelo de los moradores de la Cámara de los Horrores hasta que el Dr. Terrible aparezca.", "Usa a Nergeld para matar al doctor y después habla con la Bruja Osaria en el poblado Njorndar.", },
 	},
 	[13044] = {
 		"Si hay supervivientes...",
@@ -38655,7 +38655,7 @@ CT.l10nDB.esMX.quest = {
 	[13046] = {
 		"Alimentar a Arngrim",
 		nil,
-		{ "Debes alimentar a Arngrim con 5 jormungar incorpóreos. Después, vuelve con la imagen congelada de Arngrim en Dun Niffelem.\n\nDebes ir al Valle de los Viejos Inviernos y usar el diente de Arngrim con los jormungar vagabundos que hay allí. Una vez que sean incorpóreos, deberás luchar contra ellos hasta que queden debilitados.", },
+		{ "Debes alimentar a Arngrim con 5 jormungar incorpóreos. Después, vuelve con la imagen congelada de Arngrim en Dun Niffelem.", "Debes ir al Valle de los Viejos Inviernos y usar el diente de Arngrim con los jormungar vagabundos que hay allí. Una vez que sean incorpóreos, deberás luchar contra ellos hasta que queden debilitados.", },
 	},
 	[13047] = {
 		"La venganza",
@@ -38774,7 +38774,7 @@ CT.l10nDB.esMX.quest = {
 	[13071] = {
 		"¡A Vil gustar fuego!",
 		nil,
-		{ "Vil en La Cámara de las Sombras quiere que robes un protodraco Njorndar y lo uses para incendiar 8 edificios vrykul en la región de Jotunheim.\n\nNo se puede prender fuego a la Fortaleza de Balargarde.", },
+		{ "Vil en La Cámara de las Sombras quiere que robes un protodraco Njorndar y lo uses para incendiar 8 edificios vrykul en la región de Jotunheim.", "No se puede prender fuego a la Fortaleza de Balargarde.", },
 	},
 	[13072] = {
 		"Aún queda un héroe",
@@ -38789,7 +38789,7 @@ CT.l10nDB.esMX.quest = {
 	[13074] = {
 		"Esperanza dentro de la pesadilla esmeralda",
 		nil,
-		{ "El guardián Remulos en Claro de la Luna te ha mostrado cómo entrar en el Sueño Esmeralda y recuperar 3 bellotas esmeralda.\n\nSal de los límites del Santuario de Remulos para volver a Azeroth.", },
+		{ "El guardián Remulos en Claro de la Luna te ha mostrado cómo entrar en el Sueño Esmeralda y recuperar 3 bellotas esmeralda.", "Sal de los límites del Santuario de Remulos para volver a Azeroth.", },
 	},
 	[13075] = {
 		"El favor de Remulos",
@@ -38849,7 +38849,7 @@ CT.l10nDB.esMX.quest = {
 	[13086] = {
 		"La última línea de defensa",
 		nil,
-		{ "Usa un cañón Argenta para destruir a 100 atacantes de la Plaga. Debes matar también a 3 destructores Razaescarcha.\n\nSi lo logras, habla con el Maestro de asedio Fezzik.", },
+		{ "Usa un cañón Argenta para destruir a 100 atacantes de la Plaga. Debes matar también a 3 destructores Razaescarcha.", "Si lo logras, habla con el Maestro de asedio Fezzik.", },
 	},
 	[13087] = {
 		"Cocina norteña",
@@ -38874,7 +38874,7 @@ CT.l10nDB.esMX.quest = {
 	[13091] = {
 		"El arte de ser un terror de agua",
 		nil,
-		{ "La Bruja Osaria en el poblado Njorndar quiere que poseas a un terror de agua y lo uses para matar a 10 vrykuls en la región de Jotunheim.\n\nLos vrykuls adecuados son los vigías del sueño de Jotunheim, los guerreros de Jotunheim, los magi de agua Mjordin, las hermanas de armas Njorndar y los vargul de Valhalas.", },
+		{ "La Bruja Osaria en el poblado Njorndar quiere que poseas a un terror de agua y lo uses para matar a 10 vrykuls en la región de Jotunheim.", "Los vrykuls adecuados son los vigías del sueño de Jotunheim, los guerreros de Jotunheim, los magi de agua Mjordin, las hermanas de armas Njorndar y los vargul de Valhalas.", },
 	},
 	[13092] = {
 		"Leyendo los huesos",
@@ -38927,12 +38927,12 @@ CT.l10nDB.esMX.quest = {
 	[13102] = {
 		"Estofado de cloaca",
 		nil,
-		{ "Cocina 4 zanahorias Canto de Cristal del Bosque Canto de Cristal con 4 carnes frías en la olla.\n\nDespués llévale el estofado de verduras a Ajay Verde, el tabernero de las cloacas de Dalaran", },
+		{ "Cocina 4 zanahorias Canto de Cristal del Bosque Canto de Cristal con 4 carnes frías en la olla.", "Después llévale el estofado de verduras a Ajay Verde, el tabernero de las cloacas de Dalaran", },
 	},
 	[13103] = {
 		"Queso para Frunceoro",
 		nil,
-		{ "Combina la bandeja de queso vacía con el queso Limburger de Dalaran viejo de la quesería \"Una Copa Más\" y con 6 copas de vino medio llenas de las mesas de Dalaran.\n\nLleva la bandeja de queso y vino a Ranid Frunceoro en los curtidores en el Mercado de Magos.", },
+		{ "Combina la bandeja de queso vacía con el queso Limburger de Dalaran viejo de la quesería \"Una Copa Más\" y con 6 copas de vino medio llenas de las mesas de Dalaran.\nLleva la bandeja de queso y vino a Ranid Frunceoro en los curtidores en el Mercado de Magos.", },
 	},
 	[13104] = {
 		"Una vez más en la brecha, héroe",
@@ -38952,7 +38952,7 @@ CT.l10nDB.esMX.quest = {
 	[13107] = {
 		"¡Perritos con mostaza!",
 		nil,
-		{ "Llena la cesta de picnic con 4 perritos de rinoceronte que cocines con tu habilidad de cocina y con 4 mostaza silvestre que encontrarás en las zonas verdes de Dalaran.\n\nLlévale la cesta de picnic al archimago Pentarus en el Alto de Krasus, en Dalaran.", },
+		{ "Llena la cesta de picnic con 4 perritos de rinoceronte que cocines con tu habilidad de cocina y con 4 mostaza silvestre que encontrarás en las zonas verdes de Dalaran.", "Llévale la cesta de picnic al archimago Pentarus en el Alto de Krasus, en Dalaran.", },
 	},
 	[13108] = {
 		"¡Lo que haga falta!",
@@ -38987,17 +38987,17 @@ CT.l10nDB.esMX.quest = {
 	[13114] = {
 		"Estofado de cloaca",
 		nil,
-		{ "Cocina 4 zanahorias Canto de Cristal del Bosque Canto de Cristal con 4 carnes frías en la olla.\n\nDespués llévale el estofado de verduras a Ajay Verde, el tabernero de las cloacas de Dalaran", },
+		{ "Cocina 4 zanahorias Canto de Cristal del Bosque Canto de Cristal con 4 carnes frías en la olla.", "Después llévale el estofado de verduras a Ajay Verde, el tabernero de las cloacas de Dalaran", },
 	},
 	[13115] = {
 		"Queso para Frunceoro",
 		nil,
-		{ "Combina la bandeja de queso vacía con el queso Limburger de Dalaran viejo de la quesería \"Una Copa Más\" y con 6 copas de vino medio llenas de las mesas de Dalaran.\n\nLleva la bandeja de queso y vino a Ranid Frunceoro en los curtidores en el Mercado de Magos.", },
+		{ "Combina la bandeja de queso vacía con el queso Limburger de Dalaran viejo de la quesería \"Una Copa Más\" y con 6 copas de vino medio llenas de las mesas de Dalaran.\nLleva la bandeja de queso y vino a Ranid Frunceoro en los curtidores en el Mercado de Magos.", },
 	},
 	[13116] = {
 		"¡Perritos con mostaza!",
 		nil,
-		{ "Llena la cesta de picnic con 4 perritos de rinoceronte que cocines con tu habilidad de cocina y con 4 mostaza silvestre que encuentres en las zonas verdes de Dalaran.\n\nLlévale la cesta de picnic al archimago Pentarus en el Alto de Krasus, en Dalaran.", },
+		{ "Llena la cesta de picnic con 4 perritos de rinoceronte que cocines con tu habilidad de cocina y con 4 mostaza silvestre que encuentres en las zonas verdes de Dalaran.", "Llévale la cesta de picnic al archimago Pentarus en el Alto de Krasus, en Dalaran.", },
 	},
 	[13117] = {
 		"¿De dónde vienen?",
@@ -39239,7 +39239,7 @@ CT.l10nDB.esMX.quest = {
 	[13190] = {
 		"Todo a su tiempo",
 		nil,
-		{ "Kilix el Desenmarañador en El Foso de Narjun quiere que consigas un cadáver de vigía Ahn’kahar y que lo pongas dentro del blandón de Ahn’kahet en Ahn’kahet.\n\nSolo se puede completar esta misión como dificultad heroica.", },
+		{ "Kilix el Desenmarañador en El Foso de Narjun quiere que consigas un cadáver de vigía Ahn’kahar y que lo pongas dentro del blandón de Ahn’kahet en Ahn’kahet.", "Solo se puede completar esta misión como dificultad heroica.", },
 	},
 	[13191] = {
 		"Combustible para los demoledores",
@@ -39317,42 +39317,42 @@ CT.l10nDB.esMX.quest = {
 	[13214] = {
 		"Batalla en Valhalas: héroes caídos",
 		nil,
-		{ "Geirrvif en Valhalas los ha desafiado a derrotar en un solo combate a los seis héroes caídos: Eldreth, Geness Media Alma, Jhadras, Masud, Rith y Tala.\n\nSi lo logran, hablen con Gjonner el Desalmado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas los ha desafiado a derrotar en un solo combate a los seis héroes caídos: Eldreth, Geness Media Alma, Jhadras, Masud, Rith y Tala.", "Si lo logran, hablen con Gjonner el Desalmado en la parte sur de Valhalas.", },
 	},
 	[13215] = {
 		"Batalla en Valhalas: Khit'rix el Maestro Lóbrego",
 		nil,
-		{ "Geirrvif en Valhalas te ha retado a que derrotes a Khit'rix el Maestro Lóbrego.\n\nSi lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas te ha retado a que derrotes a Khit'rix el Maestro Lóbrego.", "Si lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
 	},
 	[13216] = {
 		"Batalla en Valhalas: el retorno de Sigrid Hielonato",
 		nil,
-		{ "Geirrvif en Valhalas te ha retado a que derrotes a Sigrid Hielonato.\n\nSi lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas te ha retado a que derrotes a Sigrid Hielonato.", "Si lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
 	},
 	[13217] = {
 		"Batalla en Valhalas: ¡masacre!",
 		nil,
-		{ "Geirrvif en Valhalas te ha retado a que derrotes a Carnicería.\n\nSi lo consigues, habla con Gjonner el Despiadado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas te ha retado a que derrotes a Carnicería.", "Si lo consigues, habla con Gjonner el Despiadado en la parte sur de Valhalas.", },
 	},
 	[13218] = {
 		"Batalla en Valhalas: señor feudal \"Arremetida mortal\"",
 		nil,
-		{ "Geirrvif en Valhalas te ha retado a que derrotes al señor feudal Banahogg, la \"Arremetida mortal\".\n\nSi lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas te ha retado a que derrotes al señor feudal Banahogg, la \"Arremetida mortal\".\nSi lo consigues, habla con Gjonner el Desalmado en la parte sur de Valhalas.", },
 	},
 	[13219] = {
 		"Batalla en Valhalas: desafío final",
 		nil,
-		{ "Geirrvif en Valhalas te ha retado a que derrotes al príncipe Sandoval.\n\nSi lo consigues, habla con Gjonner el Despiadado en la parte sur de Valhalas.", },
+		{ "Geirrvif en Valhalas te ha retado a que derrotes al príncipe Sandoval.", "Si lo consigues, habla con Gjonner el Despiadado en la parte sur de Valhalas.", },
 	},
 	[13222] = {
 		"Defender el asedio",
 		nil,
-		{ "El demoledor jefe Legoso en Conquista del Invierno quiere que pilotes o que protejas un aparato de asedio mientras destruye tres estructuras.\n\nLos jugadores con rango de soldado o superior pueden construir sus aparatos de asedio en los talleres goblin.", },
+		{ "El demoledor jefe Legoso en Conquista del Invierno quiere que pilotes o que protejas un aparato de asedio mientras destruye tres estructuras.", "Los jugadores con rango de soldado o superior pueden construir sus aparatos de asedio en los talleres goblin.", },
 	},
 	[13223] = {
 		"Defender el asedio",
 		nil,
-		{ "El teniente Murp en Conquista del Invierno quiere que defiendas o que dirijas un vehículo de asedio mientras destrozan tres estructuras de la Alianza.\n\nLos jugadores de la Horda con rango pueden fabricar los dispositivos de asedio en los talleres de los goblins.", },
+		{ "El teniente Murp en Conquista del Invierno quiere que defiendas o que dirijas un vehículo de asedio mientras destrozan tres estructuras de la Alianza.", "Los jugadores de la Horda con rango pueden fabricar los dispositivos de asedio en los talleres de los goblins.", },
 	},
 	[13224] = {
 		"El Martillo de Orgrim",
@@ -39417,7 +39417,7 @@ CT.l10nDB.esMX.quest = {
 	[13239] = {
 		"Volatilidad",
 		nil,
-		{ "El ingeniero jefe Garrabronce quiere que utilices el aceite volátil de Garrabronce en El Frente Roto para atraer a 3 garfacielo Razaescarcha.\n\nPara utilizar el aceite, tienes que agrupar una pila de huesos, un casco abandonado y una armadura abandonada del campo de batalla allí.", },
+		{ "El ingeniero jefe Garrabronce quiere que utilices el aceite volátil de Garrabronce en El Frente Roto para atraer a 3 garfacielo Razaescarcha.", "Para utilizar el aceite, tienes que agrupar una pila de huesos, un casco abandonado y una armadura abandonada del campo de batalla allí.", },
 	},
 	[13240] = {
 		"¡Tiemporeja ve ensamblajes de centrifugadora en tu futuro!",
@@ -39447,22 +39447,22 @@ CT.l10nDB.esMX.quest = {
 	[13245] = {
 		"Prueba de defunción: Ingvar el Desvalijador",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que regreses con el hacha del Desvalijador.\n\nEsta misión solo se puede completar en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que regreses con el hacha del Desvalijador.", "Esta misión solo se puede completar en dificultad heroica.", },
 	},
 	[13246] = {
 		"Prueba de defunción: Keristrasza",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que regreses con el corazón roto de Keristrasza.\n\nEsta misión solo se puede completar en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que regreses con el corazón roto de Keristrasza.", "Esta misión solo se puede completar en dificultad heroica.", },
 	},
 	[13247] = {
 		"Prueba de defunción: Guardián-Ley Eregos",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que regreses con un sintonizador de línea Ley.\n\nEsta misión solo se puede completar en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que regreses con un sintonizador de línea Ley.", "Esta misión solo se puede completar en dificultad heroica.", },
 	},
 	[13248] = {
 		"Prueba de defunción: Rey Ymiron",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el Guardapelo de la reina fallecida.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el Guardapelo de la reina fallecida.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13249] = {
 		"Prueba de defunción: El profeta Tharon'ja",
@@ -39472,37 +39472,37 @@ CT.l10nDB.esMX.quest = {
 	[13250] = {
 		"Prueba de defunción: Gal'darah",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves los restos de mojo de Akali.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves los restos de mojo de Akali.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13251] = {
 		"Prueba de defunción: Mal'Ganis",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el artefacto del mundo de los Nathrezim.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el artefacto del mundo de los Nathrezim.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13252] = {
 		"Prueba de defunción: Sjonnir el Afilador",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el disco de la maldición de la carne.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el disco de la maldición de la carne.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13253] = {
 		"Prueba de defunción: Loken",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el anillo de rubí celestial.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el anillo de rubí celestial.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13254] = {
 		"Prueba de defunción: Anub'arak",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves la vana corona de Anub'arak.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves la vana corona de Anub'arak.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13255] = {
 		"Prueba de defunción: Heraldo Volazj",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el cerebro marchito del ignoto.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves el cerebro marchito del ignoto.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13256] = {
 		"Prueba de defunción: Cianigosa",
 		nil,
-		{ "El archimago Lan'dalock de Dalaran quiere que le lleves la cabeza de Cianigosa.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock de Dalaran quiere que le lleves la cabeza de Cianigosa.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[13257] = {
 		"Heraldo de guerra",
@@ -39527,7 +39527,7 @@ CT.l10nDB.esMX.quest = {
 	[13261] = {
 		"Volatilidad",
 		nil,
-		{ "El ingeniero jefe Garrabronce quiere que utilices el aceite volátil de Garrabronce en El Frente Roto para atraer a 3 garfacielo Razaescarcha.\n\nPara utilizar el aceite, tienes que agrupar una pila de huesos, un casco abandonado y una armadura abandonada del campo de batalla allí.", },
+		{ "El ingeniero jefe Garrabronce quiere que utilices el aceite volátil de Garrabronce en El Frente Roto para atraer a 3 garfacielo Razaescarcha.", "Para utilizar el aceite, tienes que agrupar una pila de huesos, un casco abandonado y una armadura abandonada del campo de batalla allí.", },
 	},
 	[13262] = {
 		"¡Enciéndelo!",
@@ -39555,7 +39555,7 @@ CT.l10nDB.esMX.quest = {
 	[13267] = {
 		"La batalla por Entrañas",
 		nil,
-		{ "Ayuda a Thrall y a Sylvanas a recuperar Entrañas para la Horda.\n\nInforma a Thrall si tienes éxito.", },
+		{ "Ayuda a Thrall y a Sylvanas a recuperar Entrañas para la Horda.", "Informa a Thrall si tienes éxito.", },
 	},
 	[13268] = {
 		"Rebuscar tela",
@@ -39647,12 +39647,12 @@ CT.l10nDB.esMX.quest = {
 	[13291] = {
 		"Tecnología prestada",
 		nil,
-		{ "El ingeniero jefe Aprietatuercas en El Rompecielos quiere que utilices la solución de contrabando en El Frente Roto.\n\nPara utilizar la solución es necesario un yelmo abandonado, una armadura abandonada, y un montón de huesos. Todos ellos se encuentran en El Frente Roto.", },
+		{ "El ingeniero jefe Aprietatuercas en El Rompecielos quiere que utilices la solución de contrabando en El Frente Roto.", "Para utilizar la solución es necesario un yelmo abandonado, una armadura abandonada, y un montón de huesos. Todos ellos se encuentran en El Frente Roto.", },
 	},
 	[13292] = {
 		"La solución solución",
 		nil,
-		{ "El ingeniero jefe Aprietatuercas en El Rompecielos quiere que utilices la solución de contrabando en El Frente Roto.\n\nPara utilizar la solución es necesario un yelmo abandonado, una armadura abandonada, y un montón de huesos. Todos ellos se encuentran en El Frente Roto.", },
+		{ "El ingeniero jefe Aprietatuercas en El Rompecielos quiere que utilices la solución de contrabando en El Frente Roto.", "Para utilizar la solución es necesario un yelmo abandonado, una armadura abandonada, y un montón de huesos. Todos ellos se encuentran en El Frente Roto.", },
 	},
 	[13293] = {
 		"¡Llega a Ymirheim!",
@@ -39677,7 +39677,7 @@ CT.l10nDB.esMX.quest = {
 	[13297] = {
 		"Neutralizar la peste",
 		nil,
-		{ "Thassarian a bordo de El Rompecielos quiere que uses el líquido de espina pustulosa en una caldera de añublo en Mord'rethar.\n\nPuedes obtener líquido de espina pustulosa usando una espina gigante que recojas de un horror pustuloso.", },
+		{ "Thassarian a bordo de El Rompecielos quiere que uses el líquido de espina pustulosa en una caldera de añublo en Mord'rethar.", "Puedes obtener líquido de espina pustulosa usando una espina gigante que recojas de un horror pustuloso.", },
 	},
 	[13298] = {
 		"Coprous el Profanado",
@@ -39868,7 +39868,7 @@ CT.l10nDB.esMX.quest = {
 	[13343] = {
 		"El misterio del Infinito, Vuelta atrás",
 		nil,
-		{ "Cromi en la cima del Templo del Reposo del Dragón, te ha pedido que viajes otra vez al Santuario de Dragones Bronce.\n\nUna vez dentro, coloca el reloj de arena de eternidad en el suelo y ayuda a tu Yo pasado a protegerlo de las fuerzas del Vuelo Infinito.", },
+		{ "Cromi en la cima del Templo del Reposo del Dragón, te ha pedido que viajes otra vez al Santuario de Dragones Bronce.", "Una vez dentro, coloca el reloj de arena de eternidad en el suelo y ayuda a tu Yo pasado a protegerlo de las fuerzas del Vuelo Infinito.", },
 	},
 	[13344] = {
 		"Espía como puedas",
@@ -40033,12 +40033,12 @@ CT.l10nDB.esMX.quest = {
 	[13384] = {
 		"Juicio en El Ojo de la Eternidad",
 		nil,
-		{ "Krasus, en la cima del Templo del Reposo del Dragón en el Cementerio de Dragones, quiere que vuelvas con el Corazón de magia.\n\nEsta misión es la versión para el modo dificultad normal para 10 personas de El Ojo de la Eternidad.", },
+		{ "Krasus, en la cima del Templo del Reposo del Dragón en el Cementerio de Dragones, quiere que vuelvas con el Corazón de magia.", "Esta misión es la versión para el modo dificultad normal para 10 personas de El Ojo de la Eternidad.", },
 	},
 	[13385] = {
 		"Heroico: Juicio en El Ojo de la Eternidad",
 		nil,
-		{ "Krasus, en la cima del Templo del Reposo del Dragón en el Cementerio de Dragones, quiere que vuelvas con el Corazón de magia.\n\nEsta misión es el modo dificultad heroico para 25 personas de El Ojo de la Eternidad.", },
+		{ "Krasus, en la cima del Templo del Reposo del Dragón en el Cementerio de Dragones, quiere que vuelvas con el Corazón de magia.", "Esta misión es el modo dificultad heroico para 25 personas de El Ojo de la Eternidad.", },
 	},
 	[13386] = {
 		"Explotar una entrada",
@@ -40587,7 +40587,7 @@ CT.l10nDB.esMX.quest = {
 	[13952] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de humana alegre en el cementerio de Ventormenta.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de humana alegre en el cementerio de Ventormenta.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[13966] = {
 		"Un obsequio del Festival de Invierno",
@@ -40773,62 +40773,62 @@ CT.l10nDB.esMX.quest = {
 	[14166] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de Dalaran alegre en el cementerio de Dalaran.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de Dalaran alegre en el cementerio de Dalaran.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14167] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de enano alegre en el cementerio de Forjaz.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de enano alegre en el cementerio de Forjaz.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14168] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de gnomo alegre en el cementerio de Forjaz.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de gnomo alegre en el cementerio de Forjaz.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14169] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de draenei alegre en el cementerio de El Exodar.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de draenei alegre en el cementerio de El Exodar.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14170] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de elfo de la noche alegre en el cementerio de Darnassus.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de elfo de la noche alegre en el cementerio de Darnassus.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14171] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de elfa de sangre alegre en el cementerio de la Ciudad de Lunargenta.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de elfa de sangre alegre en el cementerio de la Ciudad de Lunargenta.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14172] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de Aldor alegre en el cementerio de Shattrath.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de Aldor alegre en el cementerio de Shattrath.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14173] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de Arúspice alegre en el cementerio de Shattrath.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de Arúspice alegre en el cementerio de Shattrath.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14174] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de Renegado alegre en el cementerio de Entrañas.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de Renegado alegre en el cementerio de Entrañas.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14175] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de orco alegre en el cementerio de Orgrimmar.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de orco alegre en el cementerio de Orgrimmar.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14176] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de tauren alegre en el cementerio de Cima del Trueno.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de tauren alegre en el cementerio de Cima del Trueno.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14177] = {
 		"Los muertos agradecidos",
 		nil,
-		{ "Consigue pan de muerto y dáselo al espíritu de trol alegre en el cementerio de Orgrimmar.\n\nUsa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
+		{ "Consigue pan de muerto y dáselo al espíritu de trol alegre en el cementerio de Orgrimmar.", "Usa una flor de muerto naranja para ver al espíritu que sin ella sería invisible.", },
 	},
 	[14178] = {
 		"Llamamiento a las armas: Cuenca de Arathi",
@@ -40863,7 +40863,7 @@ CT.l10nDB.esMX.quest = {
 	[14199] = {
 		"Prueba de defunción: El Caballero Negro",
 		nil,
-		{ "El archimago Lan'dalock en Dalaran quiere que le lleves un fragmento de alma del Caballero Negro.\n\nEsta misión solo puede realizarse en dificultad heroica.", },
+		{ "El archimago Lan'dalock en Dalaran quiere que le lleves un fragmento de alma del Caballero Negro.", "Esta misión solo puede realizarse en dificultad heroica.", },
 	},
 	[14203] = {
 		"Receta con marcas de agua",
@@ -40878,7 +40878,7 @@ CT.l10nDB.esMX.quest = {
 	[14350] = {
 		"El mensajero carmesí",
 		nil,
-		{ "Vuelve a las Tierras de la Peste del Este y encuentra al mensajero carmesí. Mata al mensajero y recupera la Orden del Gran Cruzado.\n\nLleva el documento a Nathanos Clamañublo y espera sus instrucciones.", },
+		{ "Vuelve a las Tierras de la Peste del Este y encuentra al mensajero carmesí. Mata al mensajero y recupera la Orden del Gran Cruzado.", "Lleva el documento a Nathanos Clamañublo y espera sus instrucciones.", },
 	},
 	[14351] = {
 		"La batalla de Trabalomas",
@@ -40928,7 +40928,7 @@ CT.l10nDB.esMX.quest = {
 	[14436] = {
 		"Una excavación de los enanos",
 		nil,
-		{ "Consigue 5 picos de prospector.\n\nRompe los picos de prospector en una forja para crear herramientas rotas.\n\nLlévale 5 herramientas rotas a Ahmo Tronacuerno a Poblado Pezuña de Sangre.", },
+		{ "Consigue 5 picos de prospector.", "Rompe los picos de prospector en una forja para crear herramientas rotas.", "Llévale 5 herramientas rotas a Ahmo Tronacuerno a Poblado Pezuña de Sangre.", },
 	},
 	[14437] = {
 		"Los ritos de la Madre Tierra",

@@ -1,6 +1,6 @@
 --[[--
 	Read communication of Questie
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA /网易有爱, http://wowui.w.163.com/163ui/
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 ----------------------------------------------------------------------------------------------------

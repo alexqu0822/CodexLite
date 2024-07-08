@@ -30905,7 +30905,7 @@ CT.l10nDB.ptBR.quest = {
 	[462] = {
 		"<UNUSED>",
 		nil,
-		{ "Kill Maruk Wyrmscale\n\nReport to Valstag Ironjaw in Menethil Harbor.", },
+		{ "Kill Maruk Wyrmscale", "Report to Valstag Ironjaw in Menethil Harbor.", },
 	},
 	[490] = {
 		"<UNUSED>",
@@ -31138,7 +31138,7 @@ CT.l10nDB.ptBR.quest = {
 	[5053] = {
 		"<UNUSED>",
 		nil,
-		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.\n\nHave a nice day.", },
+		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.", "Have a nice day.", },
 	},
 	[5205] = {
 		"<UNUSED>",
@@ -31210,7 +31210,7 @@ CT.l10nDB.ptBR.quest = {
 	[7702] = {
 		"Mate-os de sono",
 		nil,
-		{ "Lá no fundo do Fosso de Lava do Caldeirão, você vai encontrar os dormitórios dos anões Ferro Negro.\n\nVá até lá e roube 20 Travesseiros de Ferro Negro. Fale novamente com Evonice Fumarenta na Garganta Abrasadora quando tiver terminado a tarefa.", },
+		{ "Lá no fundo do Fosso de Lava do Caldeirão, você vai encontrar os dormitórios dos anões Ferro Negro.", "Vá até lá e roube 20 Travesseiros de Ferro Negro. Fale novamente com Evonice Fumarenta na Garganta Abrasadora quando tiver terminado a tarefa.", },
 	},
 	[7704] = {
 		"Olha o tamanho disso!",
@@ -31721,7 +31721,7 @@ CT.l10nDB.ptBR.quest = {
 	[11252] = {
 		"Para Utgarde!",
 		nil,
-		{ "O Defensor Mordun incumbiu você de executar Ingvar, o Ladravaz, que mora em Utgarde.\n\nEm seguida, entregue a cabeça de Ingvar para o Vice-almirante Castro.", },
+		{ "O Defensor Mordun incumbiu você de executar Ingvar, o Ladravaz, que mora em Utgarde.", "Em seguida, entregue a cabeça de Ingvar para o Vice-almirante Castro.", },
 	},
 	[11253] = {
 		"Farejar o inimigo",
@@ -31901,7 +31901,7 @@ CT.l10nDB.ptBR.quest = {
 	[11288] = {
 		"A luz rutilante",
 		nil,
-		{ "Ares, o Juramentado, das Catacumbas de Utgarde, quer que você recupere o Artefato Sagrado.\n\nEsta é uma missão com tempo de conclusão limitado.", },
+		{ "Ares, o Juramentado, das Catacumbas de Utgarde, quer que você recupere o Artefato Sagrado.", "Esta é uma missão com tempo de conclusão limitado.", },
 	},
 	[11289] = {
 		"Guiado pela honra",
@@ -31951,7 +31951,7 @@ CT.l10nDB.ptBR.quest = {
 	[11300] = {
 		"Derrota arrasadora no ringue",
 		nil,
-		{ "Derrote os gladiadores no Ringue do Julgamento para enfrentar Oluf, o Violento. Derrote-o e recupere o Código Perdido.\n\nLeve o Código Perdido para Glorenfeld, na entrada das Catacumbas de Utgarde.", },
+		{ "Derrote os gladiadores no Ringue do Julgamento para enfrentar Oluf, o Violento. Derrote-o e recupere o Código Perdido.", "Leve o Código Perdido para Glorenfeld, na entrada das Catacumbas de Utgarde.", },
 	},
 	[11301] = {
 		"Miolos! Miolos! Miolos!",
@@ -31981,7 +31981,7 @@ CT.l10nDB.ptBR.quest = {
 	[11306] = {
 		"Misture e aqueça",
 		nil,
-		{ "Encha o Frasco Vazio do Boticário no Caldeirão de Sangue de Vraikal e depois misture o Frasco de Sangue de Vraikal às Amostras de Peste do Espargosa próximas até obter uma Concocção Equilibrada.\n\nFale novamente com o Pestífero-chefe Espargosa ao terminar a tarefa.", },
+		{ "Encha o Frasco Vazio do Boticário no Caldeirão de Sangue de Vraikal e depois misture o Frasco de Sangue de Vraikal às Amostras de Peste do Espargosa próximas até obter uma Concocção Equilibrada.", "Fale novamente com o Pestífero-chefe Espargosa ao terminar a tarefa.", },
 	},
 	[11307] = {
 		"Teste de campo",
@@ -32056,7 +32056,7 @@ CT.l10nDB.ptBR.quest = {
 	[11323] = {
 		"Em pele de worg",
 		nil,
-		{ "O Sábio Andanévoa pediu para você procurar e ajudar Ulfang, no Bosque Fendido.\n\nSe o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
+		{ "O Sábio Andanévoa pediu para você procurar e ajudar Ulfang, no Bosque Fendido.", "Se o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
 	},
 	[11324] = {
 		"Worg alfa",
@@ -32066,7 +32066,7 @@ CT.l10nDB.ptBR.quest = {
 	[11325] = {
 		"Em pele de worg",
 		nil,
-		{ "A Guardiã Folha-da-lua pediu para você procurar e ajudar Ulfang, no Bosque Fendido.\n\nSe o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
+		{ "A Guardiã Folha-da-lua pediu para você procurar e ajudar Ulfang, no Bosque Fendido.", "Se o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
 	},
 	[11326] = {
 		"Worg alfa",
@@ -32191,12 +32191,12 @@ CT.l10nDB.ptBR.quest = {
 	[11390] = {
 		"Eu tenho uma máquina voadora!",
 		nil,
-		{ "O Arqueólogo-chefe do Portão de Aço quer que você leve 3 Sacos de Relíquias do fundo do sítio para a plataforma do lado sul ou do lado norte do Portão de Aço.\n\nPara tanto, use o gancho de escalada na máquina voadora.\n\nApresente-se ao Arqueólogo-chefe quando tiver terminado.", },
+		{ "O Arqueólogo-chefe do Portão de Aço quer que você leve 3 Sacos de Relíquias do fundo do sítio para a plataforma do lado sul ou do lado norte do Portão de Aço.", "Para tanto, use o gancho de escalada na máquina voadora.", "Apresente-se ao Arqueólogo-chefe quando tiver terminado.", },
 	},
 	[11391] = {
 		"Patrulha do Portão de Aço",
 		nil,
-		{ "Como agora você é um ás da aviação do Portão de Aço, o Arqueólogo-chefe do Portão de Aço quer que você patrulhe o sítio de escavação e neutralize qualquer ameaça.\n\nApresente-se a ele novamente ao final da patrulha.", },
+		{ "Como agora você é um ás da aviação do Portão de Aço, o Arqueólogo-chefe do Portão de Aço quer que você patrulhe o sítio de escavação e neutralize qualquer ameaça.", "Apresente-se a ele novamente ao final da patrulha.", },
 	},
 	[11393] = {
 		"Volte, Arlindo Orlandon, volte!",
@@ -32256,22 +32256,22 @@ CT.l10nDB.ptBR.quest = {
 	[11414] = {
 		"Traidores de irmãos",
 		nil,
-		{ "Ulfang pediu que você matasse Bjomolf e Varg, os worgs traidores. Em seguida, volte a ele, no Bosque Fendido, ainda usando o disfarce.\n\nSe o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
+		{ "Ulfang pediu que você matasse Bjomolf e Varg, os worgs traidores. Em seguida, volte a ele, no Bosque Fendido, ainda usando o disfarce.", "Se o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
 	},
 	[11415] = {
 		"Traidores de irmãos",
 		nil,
-		{ "Ulfang pediu que você matasse Bjomolf e Varg, os worgs traidores. Em seguida, fale novamente com ele, no Bosque Fendido, ainda usando o disfarce.\n\nSe o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
+		{ "Ulfang pediu que você matasse Bjomolf e Varg, os worgs traidores. Em seguida, fale novamente com ele, no Bosque Fendido, ainda usando o disfarce.", "Se o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
 	},
 	[11416] = {
 		"Olhos da águia",
 		nil,
-		{ "Ulfang quer que você pegue os Olhos da Águia. Em seguida, volte a ele, no Bosque Fendido, ainda usando o disfarce.\n\nSe o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
+		{ "Ulfang quer que você pegue os Olhos da Águia. Em seguida, volte a ele, no Bosque Fendido, ainda usando o disfarce.", "Se o disfarce desaparecer, peça outro para a Guardiã Folha-da-lua.", },
 	},
 	[11417] = {
 		"Olhos da águia",
 		nil,
-		{ "Ulfang quer que você pegue os Olhos da Águia. Em seguida, fale novamente com ele, no Bosque Fendido, ainda usando o disfarce.\n\nSe o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
+		{ "Ulfang quer que você pegue os Olhos da Águia. Em seguida, fale novamente com ele, no Bosque Fendido, ainda usando o disfarce.", "Se o Disfarce de Worg desaparecer, peça outro para o Sábio Andanévoa.", },
 	},
 	[11418] = {
 		"O chamam Pena-de-aço",
@@ -32286,7 +32286,7 @@ CT.l10nDB.ptBR.quest = {
 	[11421] = {
 		"Vai até onze...",
 		nil,
-		{ "O Tenente Malhogélido, do Fiorde Uivante, quer que você destrua a Casa Comunal Esfola-dragão, o Galpão das Docas Esfola-dragão, o Armazém Esfola-dragão e 8 Defensores Esfola-dragão.\n\nDevolva o Mecanismo de Controle de Arpões ao terminar a tarefa.", },
+		{ "O Tenente Malhogélido, do Fiorde Uivante, quer que você destrua a Casa Comunal Esfola-dragão, o Galpão das Docas Esfola-dragão, o Armazém Esfola-dragão e 8 Defensores Esfola-dragão.", "Devolva o Mecanismo de Controle de Arpões ao terminar a tarefa.", },
 	},
 	[11422] = {
 		"O tridente do filho",
@@ -32321,7 +32321,7 @@ CT.l10nDB.ptBR.quest = {
 	[11429] = {
 		"Ajoelhou, tem que rezar!",
 		nil,
-		{ "O Tenente Malhogélido, do Fiorde Uivante, quer que você finque o Estandarte da Aliança em Baleheim e então o defenda contra os atacantes.\n\nFale novamente com o Tenente Malhogélido levando o Estandarte da Aliança, caso você sobreviva.", },
+		{ "O Tenente Malhogélido, do Fiorde Uivante, quer que você finque o Estandarte da Aliança em Baleheim e então o defenda contra os atacantes.", "Fale novamente com o Tenente Malhogélido levando o Estandarte da Aliança, caso você sobreviva.", },
 	},
 	[11430] = {
 		"Mestre-arpoador Yavus",
@@ -32444,7 +32444,7 @@ CT.l10nDB.ptBR.quest = {
 	[11465] = {
 		"A caravana saqueada",
 		nil,
-		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para recolher 5 Perus do Fiorde.\n\nFale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
+		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para recolher 5 Perus do Fiorde.", "Fale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
 	},
 	[11466] = {
 		"Johnny toma todas",
@@ -32459,7 +32459,7 @@ CT.l10nDB.ptBR.quest = {
 	[11468] = {
 		"Falcão versus águia",
 		nil,
-		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para capturar 10 Águias do Fiorde.\n\nFale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
+		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para capturar 10 Águias do Fiorde.", "Fale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
 	},
 	[11469] = {
 		"Sabão milagroso",
@@ -32469,7 +32469,7 @@ CT.l10nDB.ptBR.quest = {
 	[11470] = {
 		"Entre aves não há honra",
 		nil,
-		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para roubar 8 Ovos de Águias do Fiorde.\n\nFale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
+		{ "Hidalgo, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Falcão das Rochas Adestrado para roubar 8 Ovos de Águias do Fiorde.", "Fale novamente com Hidalgo, levando a gaiola, ao terminar a tarefa.", },
 	},
 	[11471] = {
 		"Acabou a palhaçada",
@@ -32534,27 +32534,27 @@ CT.l10nDB.ptBR.quest = {
 	[11485] = {
 		"Constructos da Runa Férrea e você: salto propelido",
 		nil,
-		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Salto Propelido do Constructo da Runa Férrea no Entalhe de Runa Férrea de Walt.\n\nDispense o constructo na janela de ajudantes ao completar a missão.", },
+		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Salto Propelido do Constructo da Runa Férrea no Entalhe de Runa Férrea de Walt.", "Dispense o constructo na janela de ajudantes ao completar a missão.", },
 	},
 	[11489] = {
 		"Constructos da runa férrea e você: coleta de dados",
 		nil,
-		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use a habilidade de Coleta de Dados do Constructo da Runa Férrea enquanto estiver perto das Relíquias dos Anões de Ferro.\n\nDispense o constructo por meio da janela de ajudantes para completar a missão.", },
+		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use a habilidade de Coleta de Dados do Constructo da Runa Férrea enquanto estiver perto das Relíquias dos Anões de Ferro.", "Dispense o constructo por meio da janela de ajudantes para completar a missão.", },
 	},
 	[11491] = {
 		"Constructos da runa férrea e você: o blefe",
 		nil,
-		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Blefe do Constructo da Runa Férrea no Lebronski após caminhar sobre o tapete dele.\n\nDispense o constructo na janela de ajudantes ao completar a missão.", },
+		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Blefe do Constructo da Runa Férrea no Lebronski após caminhar sobre o tapete dele.", "Dispense o constructo na janela de ajudantes ao completar a missão.", },
 	},
 	[11494] = {
 		"Relíquias instiladas com raios",
 		nil,
-		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use a habilidade de Coleta de Dados do Constructo da Runa Férrea para recolher 15 conjuntos de Dados da Runa Férrea.\n\nDispense o constructo na janela de ajudantes ao completar a missão.", },
+		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use a habilidade de Coleta de Dados do Constructo da Runa Férrea para recolher 15 conjuntos de Dados da Runa Férrea.", "Dispense o constructo na janela de ajudantes ao completar a missão.", },
 	},
 	[11495] = {
 		"O delicado som do trovão",
 		nil,
-		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Constructo da Runa Férrea para explorar a caverna trovejante no Sítio de Escavação Baelgun.\n\nDispense o constructo na janela de ajudantes ao completar a missão.", },
+		{ "Walt, do Posto Avançado da Liga dos Exploradores, no Fiorde Uivante, quer que você use o Constructo da Runa Férrea para explorar a caverna trovejante no Sítio de Escavação Baelgun.", "Dispense o constructo na janela de ajudantes ao completar a missão.", },
 	},
 	[11501] = {
 		"Notícias do leste",
@@ -32669,7 +32669,7 @@ CT.l10nDB.ptBR.quest = {
 	[11568] = {
 		"De volta ao repouso eterno",
 		nil,
-		{ "Use o Bornal de Artefatos Vraikalen nos túmulos saqueados do Monte Égide para devolver o Coração Congelado de Isuldof, o Escudo dos Aesiritas, o Cajado da Fúria da Tempestade e a Antiga Armadura dos Kvaldir.\n\nFale novamente com Orfus de Kamagua, no Elevador Ancestral, que fica no Fiorde Uivante, caso você obtenha sucesso.", },
+		{ "Use o Bornal de Artefatos Vraikalen nos túmulos saqueados do Monte Égide para devolver o Coração Congelado de Isuldof, o Escudo dos Aesiritas, o Cajado da Fúria da Tempestade e a Antiga Armadura dos Kvaldir.", "Fale novamente com Orfus de Kamagua, no Elevador Ancestral, que fica no Fiorde Uivante, caso você obtenha sucesso.", },
 	},
 	[11569] = {
 		"Guardião da chave Urmgrgl",
@@ -32754,7 +32754,7 @@ CT.l10nDB.ptBR.quest = {
 	[11592] = {
 		"Atacamos!",
 		nil,
-		{ "Ajude o Pisaléguas Casco Honrado e seus saqueadores do Brado Guerreiro a sobreviver ao ataque contra a Caravana do Queixoduro e exterminar o espírito do Comandante-chefe Queixoduro.\n\nCaso seja bem-sucedido, apresente-se ao Lorde Supremo Bor'gorok no Posto Avançado Bor'gorok.", },
+		{ "Ajude o Pisaléguas Casco Honrado e seus saqueadores do Brado Guerreiro a sobreviver ao ataque contra a Caravana do Queixoduro e exterminar o espírito do Comandante-chefe Queixoduro.", "Caso seja bem-sucedido, apresente-se ao Lorde Supremo Bor'gorok no Posto Avançado Bor'gorok.", },
 	},
 	[11593] = {
 		"Os mortos honrados",
@@ -32949,7 +32949,7 @@ CT.l10nDB.ptBR.quest = {
 	[11631] = {
 		"Visão do ar",
 		nil,
-		{ "Use o Primevo de Imperean para realizar o ritual com o Totem de Rosnapresas no Posto Avançado Bor'gorok e, assim, obter a informação sobre o Clarividente Passo Duro.\n\nDepois, fale com a Porta-voz Espiritual Rosnapresas.", },
+		{ "Use o Primevo de Imperean para realizar o ritual com o Totem de Rosnapresas no Posto Avançado Bor'gorok e, assim, obter a informação sobre o Clarividente Passo Duro.", "Depois, fale com a Porta-voz Espiritual Rosnapresas.", },
 	},
 	[11632] = {
 		"O que os ventos frios trazem...",
@@ -32979,7 +32979,7 @@ CT.l10nDB.ptBR.quest = {
 	[11637] = {
 		"Kaganishu",
 		nil,
-		{ "Recupere o Fetiche de Kaganishu e use-o nos Restos Mortais do Clarividente Passo Duro.\n\nVocê precisará entregar o fetiche ao Espírito do Clarividente Passo Duro dentro de Magmute.", },
+		{ "Recupere o Fetiche de Kaganishu e use-o nos Restos Mortais do Clarividente Passo Duro.", "Você precisará entregar o fetiche ao Espírito do Clarividente Passo Duro dentro de Magmute.", },
 	},
 	[11638] = {
 		"Devolva meus restos mortais",
@@ -33054,7 +33054,7 @@ CT.l10nDB.ptBR.quest = {
 	[11652] = {
 		"As Planícies de Nasam",
 		nil,
-		{ "Use o Tanque de Cerco da Horda para destruir 100 Soldados do Flagelo e resgatar 3 Soldados do Brado Guerreiro Feridos nas Planícies de Nasam. Descubra também a identidade do líder do ataque do Flagelo.\n\nApresente-se a Garrosh Grito Infernal na Fortaleza Brado Grerreiro, caso tenha sucesso.", },
+		{ "Use o Tanque de Cerco da Horda para destruir 100 Soldados do Flagelo e resgatar 3 Soldados do Brado Guerreiro Feridos nas Planícies de Nasam. Descubra também a identidade do líder do ataque do Flagelo.", "Apresente-se a Garrosh Grito Infernal na Fortaleza Brado Grerreiro, caso tenha sucesso.", },
 	},
 	[11653] = {
 		"Ahh... Quem é o grandalhão agora?",
@@ -33279,7 +33279,7 @@ CT.l10nDB.ptBR.quest = {
 	[11705] = {
 		"Esforços em vão",
 		nil,
-		{ "Ajude Getry a derrotar Varidus, o Esfolador, nas Fazendas Brado Guerreiro.\n\nApresente-se a Garrosh Grito Infernal caso seja bem-sucedido.", },
+		{ "Ajude Getry a derrotar Varidus, o Esfolador, nas Fazendas Brado Guerreiro.", "Apresente-se a Garrosh Grito Infernal caso seja bem-sucedido.", },
 	},
 	[11706] = {
 		"O desmoronamento",
@@ -33309,7 +33309,7 @@ CT.l10nDB.ptBR.quest = {
 	[11711] = {
 		"Covarde em domicílio... Entrega em 30 minutos ou seu dinheiro de volta",
 		nil,
-		{ "Leve o Desertor da Aliança para a encruzilhada leste da Fortaleza Brado Guerreiro e dispare a Pistola Sinalizadora do Brado Guerreiro para sinalizar à Aliança.\n\nApresente-se ao Batedor Tungok assim que tiver entregado o Desertor da Aliança ao seu destino.", },
+		{ "Leve o Desertor da Aliança para a encruzilhada leste da Fortaleza Brado Guerreiro e dispare a Pistola Sinalizadora do Brado Guerreiro para sinalizar à Aliança.", "Apresente-se ao Batedor Tungok assim que tiver entregado o Desertor da Aliança ao seu destino.", },
 	},
 	[11712] = {
 		"Retransformar",
@@ -33404,7 +33404,7 @@ CT.l10nDB.ptBR.quest = {
 	[11730] = {
 		"Patrão e empregado",
 		nil,
-		{ "Use a Chave de Fenda Ultrassônica para reprogramar 15 robôs e então fale novamente com Abília Rodafrouxa na Pista de Pouso do Biela.\n\nNão esqueça de saquear os robôs mortos antes de reprogramá-los.", },
+		{ "Use a Chave de Fenda Ultrassônica para reprogramar 15 robôs e então fale novamente com Abília Rodafrouxa na Pista de Pouso do Biela.", "Não esqueça de saquear os robôs mortos antes de reprogramá-los.", },
 	},
 	[11733] = {
 		"Travessia da fissura",
@@ -33582,7 +33582,7 @@ CT.l10nDB.ptBR.quest = {
 	[11896] = {
 		"Suscetível à eletricidade",
 		nil,
-		{ "Destrua 15 Unidades Robóticas, exceto gnomecânicos enquanto estiverem enfraquecidos pelo poder da tormenta nos arredores dos grandes poços, na Estação Bombeadora do Biela.\n\nDepois, fale novamente com o Sábio Terra e Céu na Aldeia Taunka'le.", },
+		{ "Destrua 15 Unidades Robóticas, exceto gnomecânicos enquanto estiverem enfraquecidos pelo poder da tormenta nos arredores dos grandes poços, na Estação Bombeadora do Biela.", "Depois, fale novamente com o Sábio Terra e Céu na Aldeia Taunka'le.", },
 	},
 	[11897] = {
 		"Tampem as fossas",
@@ -33770,7 +33770,7 @@ CT.l10nDB.ptBR.quest = {
 	[11946] = {
 		"Keristrasza",
 		nil,
-		{ "Keristrasza quer que você fale com ela quando estiver pronto para confrontar Malygos.\n\nCaso perca sua Prisão Arcana Aumentada, fale com Raelorasz no Escudo de Transitus.", },
+		{ "Keristrasza quer que você fale com ela quando estiver pronto para confrontar Malygos.", "Caso perca sua Prisão Arcana Aumentada, fale com Raelorasz no Escudo de Transitus.", },
 	},
 	[11949] = {
 		"De graça, não!",
@@ -33785,7 +33785,7 @@ CT.l10nDB.ptBR.quest = {
 	[11951] = {
 		"Isca e anzol",
 		nil,
-		{ "Keristrasza pediu-lhe que consiga 10 Estilhaços de Mana Cristalizados em Gelarra.\n\nCaso perca sua Prisão Arcana Aumentada, fale com Raelorasz no Escudo de Transitus.", },
+		{ "Keristrasza pediu-lhe que consiga 10 Estilhaços de Mana Cristalizados em Gelarra.", "Caso perca sua Prisão Arcana Aumentada, fale com Raelorasz no Escudo de Transitus.", },
 	},
 	[11956] = {
 		"Encontre o filactério",
@@ -33885,7 +33885,7 @@ CT.l10nDB.ptBR.quest = {
 	[11983] = {
 		"Juramento de sangue da Horda",
 		nil,
-		{ "Fale com os taunkas no Campo de Refugiados de Zefirália e faça 5 deles jurarem aliança à Horda.\n\nDevolva o Juramento de Sangue da Horda à Emissária Casco Luminoso quando tiver completado a tarefa.", },
+		{ "Fale com os taunkas no Campo de Refugiados de Zefirália e faça 5 deles jurarem aliança à Horda.", "Devolva o Juramento de Sangue da Horda à Emissária Casco Luminoso quando tiver completado a tarefa.", },
 	},
 	[11984] = {
 		"Enchendo as jaulas",
@@ -33993,7 +33993,7 @@ CT.l10nDB.ptBR.quest = {
 	[12007] = {
 		"Se é pelo bem de todos...",
 		nil,
-		{ "Drakuru quer que você leve o Olho dos Profetas para ele no Braseiro de Drakuru em Zeb'Halak.\n\nColete o Mojo do Zim'bo para poder usar o Elixir do Drakuru lá.", },
+		{ "Drakuru quer que você leve o Olho dos Profetas para ele no Braseiro de Drakuru em Zeb'Halak.", "Colete o Mojo do Zim'bo para poder usar o Elixir do Drakuru lá.", },
 	},
 	[12008] = {
 		"O Martelo de Agmar",
@@ -34098,12 +34098,12 @@ CT.l10nDB.ptBR.quest = {
 	[12032] = {
 		"Conversando com as profundezas",
 		nil,
-		{ "Invoque Oacha'noa com a Pérola das Profundezas e faça o que a deusa do mar ordenar.\n\nSe você sobreviver à prova, fale novamente com Toalu'u, o Místico, no Porto Moa'ki.", },
+		{ "Invoque Oacha'noa com a Pérola das Profundezas e faça o que a deusa do mar ordenar.", "Se você sobreviver à prova, fale novamente com Toalu'u, o Místico, no Porto Moa'ki.", },
 	},
 	[12033] = {
 		"Mensagem do oeste",
 		nil,
-		{ "Leia a Carta de Saurfang e, depois, destrua-a.\n\nFale com o Mensageiro Torvus ao completar essa tarefa.", },
+		{ "Leia a Carta de Saurfang e, depois, destrua-a.", "Fale com o Mensageiro Torvus ao completar essa tarefa.", },
 	},
 	[12034] = {
 		"A vitória se aproxima",
@@ -34188,7 +34188,7 @@ CT.l10nDB.ptBR.quest = {
 	[12050] = {
 		"Madeeeira!",
 		nil,
-		{ "Use o Dispositivo de Controle de Retalhador do Xink para convocar um Retalhador, quando você chegar aos Ninhos das Harpias, ao Norte. Colete 50 montes de Madeira das árvores da área, e então fale novamente com Xink, no Posto Ferrugem.\n\nSe você perder o Dispositivo de Controle de Retalhador, peça outro para Xink, no Posto Ferrugem.", },
+		{ "Use o Dispositivo de Controle de Retalhador do Xink para convocar um Retalhador, quando você chegar aos Ninhos das Harpias, ao Norte. Colete 50 montes de Madeira das árvores da área, e então fale novamente com Xink, no Posto Ferrugem.", "Se você perder o Dispositivo de Controle de Retalhador, peça outro para Xink, no Posto Ferrugem.", },
 	},
 	[12051] = {
 		"Uma harpia incomoda muita gente",
@@ -34198,12 +34198,12 @@ CT.l10nDB.ptBR.quest = {
 	[12052] = {
 		"Não passarão, passarinhos!",
 		nil,
-		{ "Mate a Senhora do Vento Frio e 15 Harpias do Vento Frio nas montanhas a noroeste do Posto Ferrugem. Fale novamente com Narf quando completar a tarefa.\n\nSe precisar do Dispositivo de Controle de Retalhador, peça para Xink no Posto Ferrugem.", },
+		{ "Mate a Senhora do Vento Frio e 15 Harpias do Vento Frio nas montanhas a noroeste do Posto Ferrugem. Fale novamente com Narf quando completar a tarefa.", "Se precisar do Dispositivo de Controle de Retalhador, peça para Xink no Posto Ferrugem.", },
 	},
 	[12053] = {
 		"A força da Horda",
 		nil,
-		{ "O Primeiro-Sargento Juktok, no Martelo de Agmar, no Ermo das Serpes, quer que você finque o Estandarte de Batalha do Brado Guerreiro na Aldeia Bruma Boreal, e o defenda dos agressores.\n\nDevolva o Estandarte de Batalha do Brado Guerreiro quando terminar a missão.", },
+		{ "O Primeiro-Sargento Juktok, no Martelo de Agmar, no Ermo das Serpes, quer que você finque o Estandarte de Batalha do Brado Guerreiro na Aldeia Bruma Boreal, e o defenda dos agressores.", "Devolva o Estandarte de Batalha do Brado Guerreiro quando terminar a missão.", },
 	},
 	[12054] = {
 		"Decifrando o diário",
@@ -34238,12 +34238,12 @@ CT.l10nDB.ptBR.quest = {
 	[12060] = {
 		"Projeções e planos",
 		nil,
-		{ "Aproxime-se da Agulha de Mana flutuando acima dos Jardins Lua Serena e observe a projeção.\n\nEntão, relate o que descobrir para a Imagem da Arquimaga Modera, no Recanto das Estrelas.", },
+		{ "Aproxime-se da Agulha de Mana flutuando acima dos Jardins Lua Serena e observe a projeção.", "Então, relate o que descobrir para a Imagem da Arquimaga Modera, no Recanto das Estrelas.", },
 	},
 	[12061] = {
 		"Projeções e planos",
 		nil,
-		{ "Aproxime-se da Agulha de Mana flutuando acima dos Jardins Lua Serena e observe a projeção.\n\nEntão relate o que descobrir para a Imagem do Arquimago Aethas Fendessol, no Martelo de Agmar.", },
+		{ "Aproxime-se da Agulha de Mana flutuando acima dos Jardins Lua Serena e observe a projeção.", "Então relate o que descobrir para a Imagem do Arquimago Aethas Fendessol, no Martelo de Agmar.", },
 	},
 	[12063] = {
 		"O poder da Bruma Boreal",
@@ -34258,12 +34258,12 @@ CT.l10nDB.ptBR.quest = {
 	[12065] = {
 		"O foco na praia",
 		nil,
-		{ "Obtenha o Anel de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano na Praia Reluzente.\n\nEntão, fale novamente com a Imagem da Arquimaga Modera no Recanto das Estrelas.", },
+		{ "Obtenha o Anel de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano na Praia Reluzente.", "Então, fale novamente com a Imagem da Arquimaga Modera no Recanto das Estrelas.", },
 	},
 	[12066] = {
 		"O foco na praia",
 		nil,
-		{ "Obtenha o Anel de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano na Praia Reluzente.\n\nEntão, fale novamente com a Imagem do Arquimago Aethas Fendessol no Martelo de Agmar.", },
+		{ "Obtenha o Anel de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano na Praia Reluzente.", "Então, fale novamente com a Imagem do Arquimago Aethas Fendessol no Martelo de Agmar.", },
 	},
 	[12067] = {
 		"Uma carta para casa",
@@ -34278,7 +34278,7 @@ CT.l10nDB.ptBR.quest = {
 	[12069] = {
 		"O retorno do Chefe Supremo",
 		nil,
-		{ "Liberte o Chefe Supremo Bruma Boreal usando a Chave da Prisão Anub'ar e ajude-o a derrotar o Baixo-Rei Anub'et'kan.\n\nLeve um Fragmento da Casca de Anub'et'kan para o Lorde Supremo Agmar, no Martelo de Agmar, que fica no Ermo das Serpes.", },
+		{ "Liberte o Chefe Supremo Bruma Boreal usando a Chave da Prisão Anub'ar e ajude-o a derrotar o Baixo-Rei Anub'et'kan.", "Leve um Fragmento da Casca de Anub'et'kan para o Lorde Supremo Agmar, no Martelo de Agmar, que fica no Ermo das Serpes.", },
 	},
 	[12070] = {
 		"Incentivo às tropas",
@@ -34293,7 +34293,7 @@ CT.l10nDB.ptBR.quest = {
 	[12072] = {
 		"Pro inferno com as mangraferas!",
 		nil,
-		{ "Use a Pistola Sinalizadora de Valnok para chamar uma Mantícora de Batalha Kor'kron, na Aldeia Bruma Boreal. Monte na Mantícora de Batalha Kor'kron e use-a para matar 25 Mangraferas Anub'ar!\n\nFale novamente com Furivento Valnok, no Martelo de Agmar, ao completar a missão.", },
+		{ "Use a Pistola Sinalizadora de Valnok para chamar uma Mantícora de Batalha Kor'kron, na Aldeia Bruma Boreal. Monte na Mantícora de Batalha Kor'kron e use-a para matar 25 Mangraferas Anub'ar!", "Fale novamente com Furivento Valnok, no Martelo de Agmar, ao completar a missão.", },
 	},
 	[12073] = {
 		"Marretando o ferro",
@@ -34323,7 +34323,7 @@ CT.l10nDB.ptBR.quest = {
 	[12078] = {
 		"O encantador de vermes",
 		nil,
-		{ "Entre nas cavernas da Fenda Cristalina e capture 3 Crias de Yormungar usando os caixotes resistentes. Só pegue os caixotes de volta depois que os filhotes estiverem presos lá dentro!\n\nLeve as Crias de Yormungar de volta para Zort na Fenda Cristalina.", },
+		{ "Entre nas cavernas da Fenda Cristalina e capture 3 Crias de Yormungar usando os caixotes resistentes. Só pegue os caixotes de volta depois que os filhotes estiverem presos lá dentro!", "Leve as Crias de Yormungar de volta para Zort na Fenda Cristalina.", },
 	},
 	[12079] = {
 		"Reconquistando a caverna",
@@ -34333,7 +34333,7 @@ CT.l10nDB.ptBR.quest = {
 	[12080] = {
 		"Verme enorme",
 		nil,
-		{ "Entre na Caverna Gelocórdia e mate Cascavadora. Se você ainda tiver, use o Elixir Protetor de Zort contra a cusparada corrosiva da Yormungar.\n\nFale novamente com Ko'char, o Inquebrável, quando completar a tarefa.", },
+		{ "Entre na Caverna Gelocórdia e mate Cascavadora. Se você ainda tiver, use o Elixir Protetor de Zort contra a cusparada corrosiva da Yormungar.", "Fale novamente com Ko'char, o Inquebrável, quando completar a tarefa.", },
 	},
 	[12081] = {
 		"Gavrocha",
@@ -34348,12 +34348,12 @@ CT.l10nDB.ptBR.quest = {
 	[12083] = {
 		"No alto dos bosques",
 		nil,
-		{ "Obtenha o Amuleto de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano nos bosques de Lothalor.\n\nEntão, fale novamente com a Imagem da Arquimaga Modera no Recanto das Estrelas.", },
+		{ "Obtenha o Amuleto de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano nos bosques de Lothalor.", "Então, fale novamente com a Imagem da Arquimaga Modera no Recanto das Estrelas.", },
 	},
 	[12084] = {
 		"No alto dos bosques",
 		nil,
-		{ "Obtenha o Amuleto de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano nos bosques de Lothalor.\n\nEntão, fale novamente com a Imagem do Arquimago Aethas Fendessol no Martelo de Agmar.", },
+		{ "Obtenha o Amuleto de Controle do Foco da Linha do Meridiano e use-o para conseguir informações do Foco da Linha do Meridiano nos bosques de Lothalor.", "Então, fale novamente com a Imagem do Arquimago Aethas Fendessol no Martelo de Agmar.", },
 	},
 	[12085] = {
 		"Uma carta para casa",
@@ -34418,7 +34418,7 @@ CT.l10nDB.ptBR.quest = {
 	[12097] = {
 		"Sarathstra, Flagelo do norte",
 		nil,
-		{ "Peça para Rokhan chamar a serpe gélida Sarathstra.\n\nMate Sarathstra e entregue o Coração Gelado de Sarathstra para o Capitão Gort no Martelo de Agmar.", },
+		{ "Peça para Rokhan chamar a serpe gélida Sarathstra.", "Mate Sarathstra e entregue o Coração Gelado de Sarathstra para o Capitão Gort no Martelo de Agmar.", },
 	},
 	[12098] = {
 		"Vasculhe a Aldeia Indu'le",
@@ -34463,7 +34463,7 @@ CT.l10nDB.ptBR.quest = {
 	[12107] = {
 		"O fim da linha",
 		nil,
-		{ "Use o Talismã de Controle do Foco da Linha do Meridiano para conseguir informações do Foco da Linha do Meridiano sob o Lago Indu'le. Então, siga na direção leste para o Santuário Dragônico Lazúli, perto da parte centro-sul do Ermo das Serpes, e, do parapeito ocidental, observe o que está acontecendo lá.\n\nDepois, fale novamente com a Imagem da Arquimaga Modera, no Recanto das Estrelas.", },
+		{ "Use o Talismã de Controle do Foco da Linha do Meridiano para conseguir informações do Foco da Linha do Meridiano sob o Lago Indu'le. Então, siga na direção leste para o Santuário Dragônico Lazúli, perto da parte centro-sul do Ermo das Serpes, e, do parapeito ocidental, observe o que está acontecendo lá.", "Depois, fale novamente com a Imagem da Arquimaga Modera, no Recanto das Estrelas.", },
 	},
 	[12108] = {
 		"DEPRECATED",
@@ -34478,7 +34478,7 @@ CT.l10nDB.ptBR.quest = {
 	[12110] = {
 		"O fim da linha",
 		nil,
-		{ "Use o Talismã de Controle do Foco da Linha do Meridiano para conseguir informações do Foco da Linha do Meridiano sob o Lago Indu'le. Então, siga na direção leste para o Santuário Dragônico Lazúli, perto da parte centro-sul do Ermo das Serpes, e observe o que está acontecendo lá, do parapeito ocidental.\n\nDepois, fale novamente com a Imagem do Arquimago Aethas Fendessol, no Martelo de Agmar.", },
+		{ "Use o Talismã de Controle do Foco da Linha do Meridiano para conseguir informações do Foco da Linha do Meridiano sob o Lago Indu'le. Então, siga na direção leste para o Santuário Dragônico Lazúli, perto da parte centro-sul do Ermo das Serpes, e observe o que está acontecendo lá, do parapeito ocidental.", "Depois, fale novamente com a Imagem do Arquimago Aethas Fendessol, no Martelo de Agmar.", },
 	},
 	[12111] = {
 		"Onde moram os bichos selvagens",
@@ -34588,7 +34588,7 @@ CT.l10nDB.ptBR.quest = {
 	[12132] = {
 		"O poder de destruir",
 		nil,
-		{ "Koltirus Tecemorte, no Martelo de Agmar, que fica no Ermo das Serpes, quer que você entre no mundo das sombras e derrote 6 Atormentadores Sombrios.\n\nFale com Koltirus Tecemorte se precisar entrar novamente no reino das sombras.", },
+		{ "Koltirus Tecemorte, no Martelo de Agmar, que fica no Ermo das Serpes, quer que você entre no mundo das sombras e derrote 6 Atormentadores Sombrios.", "Fale com Koltirus Tecemorte se precisar entrar novamente no reino das sombras.", },
 	},
 	[12133] = {
 		"Esmague a abóbora",
@@ -34613,7 +34613,7 @@ CT.l10nDB.ptBR.quest = {
 	[12137] = {
 		"Fica frio, camarada",
 		nil,
-		{ "Gan'jo quer que você colete a Neve do Sono Eterno no baú nas Ruínas de Drakil'jin.\n\nVocê então deverá usar a Neve nos Antigos Espíritos Drakkari de lá e levar as Partículas Espirituais Drakkari de volta a Kraz no Acampamento do Harkor.", },
+		{ "Gan'jo quer que você colete a Neve do Sono Eterno no baú nas Ruínas de Drakil'jin.", "Você então deverá usar a Neve nos Antigos Espíritos Drakkari de lá e levar as Partículas Espirituais Drakkari de volta a Kraz no Acampamento do Harkor.", },
 	},
 	[12138] = {
 		"... Ou talvez a gente não tenha",
@@ -34628,7 +34628,7 @@ CT.l10nDB.ptBR.quest = {
 	[12140] = {
 		"Salve Roanauk!",
 		nil,
-		{ "Procure por Roanauk Bruma Boreal no Martelo de Agmar, e oficie sua iniciação como membro e líder das tropas da Horda.\n\nFale novamente com o Lorde Supremo Agmar com o Juramento de Sangue da Horda quando você completar a missão.", },
+		{ "Procure por Roanauk Bruma Boreal no Martelo de Agmar, e oficie sua iniciação como membro e líder das tropas da Horda.", "Fale novamente com o Lorde Supremo Agmar com o Juramento de Sangue da Horda quando você completar a missão.", },
 	},
 	[12141] = {
 		"Uma missão diplomática",
@@ -34673,7 +34673,7 @@ CT.l10nDB.ptBR.quest = {
 	[12149] = {
 		"O poderoso magnatauro",
 		nil,
-		{ "Cace e mate Sangrentauro, Quebra-Gelo e Gangredraco a leste do Repouso das Serpes.\n\nSangrentauro reside no canto sudeste dos Ermos Dragônicos, a norte do Santuário Dragônico Esmeralda. Quebra-Gelo patrulha o limite norte do Espelho da Aurora. Gangredraco vagueia no fundo dos penhascos a oeste do Santuário Dragônico Bronze.\n\nFale novamente com Aurastrasza no Repouso das Serpes quando os magnatauros forem abatidos.", },
+		{ "Cace e mate Sangrentauro, Quebra-Gelo e Gangredraco a leste do Repouso das Serpes.", "Sangrentauro reside no canto sudeste dos Ermos Dragônicos, a norte do Santuário Dragônico Esmeralda. Quebra-Gelo patrulha o limite norte do Espelho da Aurora. Gangredraco vagueia no fundo dos penhascos a oeste do Santuário Dragônico Bronze.", "Fale novamente com Aurastrasza no Repouso das Serpes quando os magnatauros forem abatidos.", },
 	},
 	[12150] = {
 		"O recluso mestre de runas",
@@ -35107,7 +35107,7 @@ CT.l10nDB.ptBR.quest = {
 	[12243] = {
 		"Fogo sobre as águas",
 		nil,
-		{ "A Boticária Rivadávia Levine, em Perfídia, quer que você use a Água Escaldante da Boticária para incendiar as velas do Extravagância do Pecador.\n\nEnquanto os taifeiros estiverem ocupados tentando apagar o fogo, vá para o alojamento do capitão e pegue as Cartas Náuticas do Capitão Selmo.", },
+		{ "A Boticária Rivadávia Levine, em Perfídia, quer que você use a Água Escaldante da Boticária para incendiar as velas do Extravagância do Pecador.", "Enquanto os taifeiros estiverem ocupados tentando apagar o fogo, vá para o alojamento do capitão e pegue as Cartas Náuticas do Capitão Selmo.", },
 	},
 	[12244] = {
 		"Conserte o retalhador",
@@ -35117,7 +35117,7 @@ CT.l10nDB.ptBR.quest = {
 	[12245] = {
 		"Sem piedade para com os prisioneiros",
 		nil,
-		{ "A Espiã-chefe Repine quer que você mate a Necroguarda Xavier, o Escrivão-mestre Kinnedius, o Engenheiro Braga e o Chanceler Amai.\n\nDepois de cumprir a tarefa, relate seu sucesso ao Alto-executor Iracundo em Perfídia.", },
+		{ "A Espiã-chefe Repine quer que você mate a Necroguarda Xavier, o Escrivão-mestre Kinnedius, o Engenheiro Braga e o Chanceler Amai.", "Depois de cumprir a tarefa, relate seu sucesso ao Alto-executor Iracundo em Perfídia.", },
 	},
 	[12246] = {
 		"Uma possível conexão",
@@ -35257,7 +35257,7 @@ CT.l10nDB.ptBR.quest = {
 	[12273] = {
 		"A denúncia",
 		nil,
-		{ "O Alto-executor Iracundo, em Perfídia, quer que você use o Bastão da Compulsão no Comandante Jardel, no Mestre Canhoneiro Zenão, no Ferreiro Bonhomme e no Mestre de Estábulo Mércio.\n\nDepois de aplicar o bastão neles, mate-os para que suas últimas palavras sejam uma denúncia da Ofensiva.", },
+		{ "O Alto-executor Iracundo, em Perfídia, quer que você use o Bastão da Compulsão no Comandante Jardel, no Mestre Canhoneiro Zenão, no Ferreiro Bonhomme e no Mestre de Estábulo Mércio.", "Depois de aplicar o bastão neles, mate-os para que suas últimas palavras sejam uma denúncia da Ofensiva.", },
 	},
 	[12274] = {
 		"Caindo em desgraça",
@@ -35792,7 +35792,7 @@ CT.l10nDB.ptBR.quest = {
 	[12416] = {
 		"Prova de fogo",
 		nil,
-		{ "Ajude o Capitão Iskandar a manter posição nos desfiladeiros, participando da morte de 12 Carniçais Frígidos Atacantes, 8 Geists Frígidos Atacantes e 1 Abominação Frígida Atacante.\n\nFale novamente com Ceristrasz quando tiver terminado a tarefa.", },
+		{ "Ajude o Capitão Iskandar a manter posição nos desfiladeiros, participando da morte de 12 Carniçais Frígidos Atacantes, 8 Geists Frígidos Atacantes e 1 Abominação Frígida Atacante.", "Fale novamente com Ceristrasz quando tiver terminado a tarefa.", },
 	},
 	[12417] = {
 		"À terra voltarás",
@@ -35870,7 +35870,7 @@ CT.l10nDB.ptBR.quest = {
 	[12432] = {
 		"Cavalgando o foguete vermelho",
 		nil,
-		{ "O General Gorlok, no farol da Baía dos Empreendimentos, quer que você destrua o Navio de Lenha da Aliança.\n\nO General Gorlok só estará presente no farol enquanto este for controlado pela Horda.", },
+		{ "O General Gorlok, no farol da Baía dos Empreendimentos, quer que você destrua o Navio de Lenha da Aliança.", "O General Gorlok só estará presente no farol enquanto este for controlado pela Horda.", },
 	},
 	[12433] = {
 		"Resolvendo o solvente",
@@ -35893,7 +35893,7 @@ CT.l10nDB.ptBR.quest = {
 	[12437] = {
 		"Cavalgando o foguete vermelho",
 		nil,
-		{ "O Comandante Howser, no farol da Baía dos Empreendimentos, quer que você destrua o carregamento de lenha da Horda.\n\nO Comandante Howser só estará presente no farol enquanto este for controlado pela Aliança.", },
+		{ "O Comandante Howser, no farol da Baía dos Empreendimentos, quer que você destrua o carregamento de lenha da Horda.", "O Comandante Howser só estará presente no farol enquanto este for controlado pela Aliança.", },
 	},
 	[12438] = {
 		"Procura-se: Kreug Quebrajura",
@@ -35941,7 +35941,7 @@ CT.l10nDB.ptBR.quest = {
 	[12448] = {
 		"Prova de fogo",
 		nil,
-		{ "Ajude o Capitão Drayzen a manter posição nos desfiladeiros, participando da morte de 12 Carniçais Frígidos Atacantes, 8 Geists Frígidos Atacantes e 1 Abominação Frígida Atacante.\n\nFale novamente com Vargastrasz quando tiver cumprido a tarefa.", },
+		{ "Ajude o Capitão Drayzen a manter posição nos desfiladeiros, participando da morte de 12 Carniçais Frígidos Atacantes, 8 Geists Frígidos Atacantes e 1 Abominação Frígida Atacante.", "Fale novamente com Vargastrasz quando tiver cumprido a tarefa.", },
 	},
 	[12449] = {
 		"À terra voltarás",
@@ -36051,7 +36051,7 @@ CT.l10nDB.ptBR.quest = {
 	[12470] = {
 		"O mistério do infinito",
 		nil,
-		{ "Crona, no topo do Templo do Repouso das Serpes, quer que você vá até o Santuário Dragônico Bronze. Uma vez lá dentro, posicione a Ampulheta da Eternidade no chão.\n\nProteja a ampulheta pelo tempo que for necessário, e então informe Crona de suas descobertas.", },
+		{ "Crona, no topo do Templo do Repouso das Serpes, quer que você vá até o Santuário Dragônico Bronze. Uma vez lá dentro, posicione a Ampulheta da Eternidade no chão.", "Proteja a ampulheta pelo tempo que for necessário, e então informe Crona de suas descobertas.", },
 	},
 	[12471] = {
 		"A Crueldade dos Kvaldir",
@@ -36186,7 +36186,7 @@ CT.l10nDB.ptBR.quest = {
 	[12501] = {
 		"Patrulha troll",
 		nil,
-		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e, depois, apresente-se novamente a ele.\n\nO Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
+		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e, depois, apresente-se novamente a ele.", "O Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
 	},
 	[12502] = {
 		"Patrulha troll: padrões elevados",
@@ -36316,32 +36316,32 @@ CT.l10nDB.ptBR.quest = {
 	[12529] = {
 		"O escravo do caçador de gorilas",
 		nil,
-		{ "Mate 8 Colhedores Falanjões e 6 Agressores Falanjões para o Sumo Xamã Rakjak, no Morro dos Feralma.\n\nSe perder os Grilhões de Goregek, fale com o Ancião Harkek, no Morro dos Feralma.", },
+		{ "Mate 8 Colhedores Falanjões e 6 Agressores Falanjões para o Sumo Xamã Rakjak, no Morro dos Feralma.", "Se perder os Grilhões de Goregek, fale com o Ancião Harkek, no Morro dos Feralma.", },
 	},
 	[12530] = {
 		"Atormentando os falanginhos",
 		nil,
-		{ "Goregek te deu um Cutucador de Falanginhos. Use-o para cutucar os Falanginhos e, assim, chamar a atenção da Matriarca dos Falanjões, tirando-a do esconderijo. Mate a Matriarca dos Falanjões e informe o Sumo Xamã Rakjak sobre a morte dela. Você pode encontrar Rakjak no Morro dos Feralma.\n\nSe perder os Grilhões de Goregek, fale com o Ancião Harkek no Morro dos Feralma.", },
+		{ "Goregek te deu um Cutucador de Falanginhos. Use-o para cutucar os Falanginhos e, assim, chamar a atenção da Matriarca dos Falanjões, tirando-a do esconderijo. Mate a Matriarca dos Falanjões e informe o Sumo Xamã Rakjak sobre a morte dela. Você pode encontrar Rakjak no Morro dos Feralma.", "Se perder os Grilhões de Goregek, fale com o Ancião Harkek no Morro dos Feralma.", },
 	},
 	[12531] = {
 		"A ameaça subterrânea",
 		nil,
-		{ "Encontre Serfex sob as areias do rio ao sul, mate-o e leve as garras dele para o Sumo Xamã Rakjak, no Morro dos Feralma.\n\nSe perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
+		{ "Encontre Serfex sob as areias do rio ao sul, mate-o e leve as garras dele para o Sumo Xamã Rakjak, no Morro dos Feralma.", "Se perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
 	},
 	[12532] = {
 		"A fuga das galinhas!",
 		nil,
-		{ "Capture 12 Galinhas Desgarradas para o Ancião Harkek.\n\nSe perder o Giz Usado de Dajik, fale com o Ancião Harkek, no Morro dos Feralma.", },
+		{ "Capture 12 Galinhas Desgarradas para o Ancião Harkek.", "Se perder o Giz Usado de Dajik, fale com o Ancião Harkek, no Morro dos Feralma.", },
 	},
 	[12533] = {
 		"O aprendiz do caçador de vespas",
 		nil,
-		{ "Mate 6 Vespas Safiras e 9 Zangões Safiras para o Sumo Xamã Rakjak, no Morro dos Feralma.\n\nSe perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
+		{ "Mate 6 Vespas Safiras e 9 Zangões Safiras para o Sumo Xamã Rakjak, no Morro dos Feralma.", "Se perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
 	},
 	[12534] = {
 		"A rainha safira",
 		nil,
-		{ "Traga o Aguilhão da Rainha Safira para o Sumo Xamã Rakjak, no Morro dos Feralma.\n\nSe perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
+		{ "Traga o Aguilhão da Rainha Safira para o Sumo Xamã Rakjak, no Morro dos Feralma.", "Se perder o Giz Usado de Dajik, fale com o Ancião Harkek no Morro dos Feralma.", },
 	},
 	[12535] = {
 		"Preparando os danos",
@@ -36351,17 +36351,17 @@ CT.l10nDB.ptBR.quest = {
 	[12536] = {
 		"Andar a crocolisco",
 		nil,
-		{ "Monte no crocolisco capturado e traga-o para o Refúgio Brumurmúria. A seguir, fale com Zepik para obter mais instruções.\n\nSe perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
+		{ "Monte no crocolisco capturado e traga-o para o Refúgio Brumurmúria. A seguir, fale com Zepik para obter mais instruções.", "Se perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
 	},
 	[12537] = {
 		"O raio cai duas vezes no mesmo lugar",
 		nil,
-		{ "Zepik quer que você esmague os Veios de Cristal do Pilar Beira-céu em frente ao santuário do tempo de Brumurmúria.\n\nSe perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
+		{ "Zepik quer que você esmague os Veios de Cristal do Pilar Beira-céu em frente ao santuário do tempo de Brumurmúria.", "Se perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
 	},
 	[12538] = {
 		"A névoa não está escutando",
 		nil,
-		{ "Zepik quer que você mate 12 Gorlocs Brumurmúria.\n\nSe perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
+		{ "Zepik quer que você mate 12 Gorlocs Brumurmúria.", "Se perder a Trompa de Caça de Zepik, fale com o Ancião Harkek, no Morro dos Feralma.", },
 	},
 	[12539] = {
 		"Gastando sola",
@@ -36376,7 +36376,7 @@ CT.l10nDB.ptBR.quest = {
 	[12541] = {
 		"Patrulha troll: o aprendiz do alquimista",
 		nil,
-		{ "O alquimista Bacamarte, em Heb'Valok, quer que você o ajude a criar um soro da verdade.\n\nQuando você estiver pronto para começar, fale com ele e siga as instruções.", },
+		{ "O alquimista Bacamarte, em Heb'Valok, quer que você o ajude a criar um soro da verdade.", "Quando você estiver pronto para começar, fale com ele e siga as instruções.", },
 	},
 	[12542] = {
 		"O chamado da Cruzada",
@@ -36401,7 +36401,7 @@ CT.l10nDB.ptBR.quest = {
 	[12546] = {
 		"Reivindicação",
 		nil,
-		{ "Vá ao Avalanche, na Bacia Sholazar, e use a Runa Ômega para chamar o Etimidiano. Use-o para matar 200 Lacaios do Flagelo, Bythius, o Molda-carne, Urgreth das Mil Tumbas e Escarnizus.\n\nQuando concluir a tarefa, fale com o Avatar de Freya, na Bacia Sholazar.", },
+		{ "Vá ao Avalanche, na Bacia Sholazar, e use a Runa Ômega para chamar o Etimidiano. Use-o para matar 200 Lacaios do Flagelo, Bythius, o Molda-carne, Urgreth das Mil Tumbas e Escarnizus.", "Quando concluir a tarefa, fale com o Avatar de Freya, na Bacia Sholazar.", },
 	},
 	[12547] = {
 		"A runa de ativação",
@@ -36486,7 +36486,7 @@ CT.l10nDB.ptBR.quest = {
 	[12563] = {
 		"Patrulha troll",
 		nil,
-		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e, depois, apresente-se novamente a ele.\n\nO Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
+		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e, depois, apresente-se novamente a ele.", "O Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
 	},
 	[12565] = {
 		"A bênção de Zim'Abwa",
@@ -36514,32 +36514,32 @@ CT.l10nDB.ptBR.quest = {
 	[12571] = {
 		"Faz a cobra malvada ir embora",
 		nil,
-		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você mate Venena e 10 Najas Imperatrizes.\n\nSe perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
+		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você mate Venena e 10 Najas Imperatrizes.", "Se perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
 	},
 	[12572] = {
 		"Deuses gostam de coisas brilhantes",
 		nil,
-		{ "Colete 6 tesouros desenterrados por Lafu e leve-os ao Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.\n\nSe perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
+		{ "Colete 6 tesouros desenterrados por Lafu e leve-os ao Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", "Se perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
 	},
 	[12573] = {
 		"Fazendo as pazes",
 		nil,
-		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você entregue uma proposta de paz ao Xamã Vekjik e retorne com a resposta dele.\n\nSe perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
+		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você entregue uma proposta de paz ao Xamã Vekjik e retorne com a resposta dele.", "Se perder a Sacola de Insetos do Lafu, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
 	},
 	[12574] = {
 		"Já de volta?",
 		nil,
-		{ "Vá até o Refúgio Brumurmúria e fale com o Chamabruma Soo-gan.\n\nSe perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
+		{ "Vá até o Refúgio Brumurmúria e fale com o Chamabruma Soo-gan.", "Se perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
 	},
 	[12575] = {
 		"O tesouro perdido de Brumurmúria",
 		nil,
-		{ "Mate o Senhor da Guerra Tartek e recupere o Tesouro de Brumurmúria para o Chamabruma Soo-gan, no Refúgio Brumurmúria.\n\nSe perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
+		{ "Mate o Senhor da Guerra Tartek e recupere o Tesouro de Brumurmúria para o Chamabruma Soo-gan, no Refúgio Brumurmúria.", "Se perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
 	},
 	[12576] = {
 		"Dando um basta",
 		nil,
-		{ "Mate 8 Lanceiros Feralma e 6 Catadores Feralma para o Chamabruma Soo-gan, no Refúgio Brumurmúria.\n\nSe perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
+		{ "Mate 8 Lanceiros Feralma e 6 Catadores Feralma para o Chamabruma Soo-gan, no Refúgio Brumurmúria.", "Se perder o Cristal Favorito de Jaloot, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
 	},
 	[12577] = {
 		"Hora de voltar para casa!",
@@ -36549,22 +36549,22 @@ CT.l10nDB.ptBR.quest = {
 	[12578] = {
 		"O furioso Gorloc",
 		nil,
-		{ "Vá até a Aldeia Mofâmbulo e fale com Mútli.\n\nSe perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
+		{ "Vá até a Aldeia Mofâmbulo e fale com Mútli.", "Se perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
 	},
 	[12579] = {
 		"Sangue vital do santuário Mofâmbulo",
 		nil,
-		{ "Mútli quer que você colete 10 Estilhaços de Sangue Vital, mas fique longe da caverna que fica dentro do pilar.\n\nSe perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
+		{ "Mútli quer que você colete 10 Estilhaços de Sangue Vital, mas fique longe da caverna que fica dentro do pilar.", "Se perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say nas Frondes Voz-da-chuva.", },
 	},
 	[12580] = {
 		"O salvador dos Mofâmbulos",
 		nil,
-		{ "Mútli quer que você resgate 6 Mofâmbulos Vitimados na Aldeia Mofâmbulo. No entanto, alguns deles podem não estar mais vivos para serem salvos.\n\nSe perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
+		{ "Mútli quer que você resgate 6 Mofâmbulos Vitimados na Aldeia Mofâmbulo. No entanto, alguns deles podem não estar mais vivos para serem salvos.", "Se perder a Bola de Relaxamento do Mútli, fale com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva.", },
 	},
 	[12581] = {
 		"O fardo de um herói",
 		nil,
-		{ "Mate Artruis, o Nefando.\n\nApesar de recomendarmos fortemente garantir a ajuda de amigos, Mútli não poderá acompanhá-lo nesta tarefa.", },
+		{ "Mate Artruis, o Nefando.", "Apesar de recomendarmos fortemente garantir a ajuda de amigos, Mútli não poderá acompanhá-lo nesta tarefa.", },
 	},
 	[12582] = {
 		"Campeão Feralma",
@@ -36587,7 +36587,7 @@ CT.l10nDB.ptBR.quest = {
 	[12587] = {
 		"Patrulha troll",
 		nil,
-		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e depois se apresente novamente a ele.\n\nO Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
+		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos capitães de cada um deles e depois se apresente novamente a ele.", "O Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, o Capitão Grondel está em Draz'Agal e o Alquimista Bacamarte está em Heb'Valok.", },
 	},
 	[12588] = {
 		"Patrulha troll: você sabe cavar?",
@@ -36630,7 +36630,7 @@ CT.l10nDB.ptBR.quest = {
 	[12596] = {
 		"Pa'Troll",
 		nil,
-		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos líderes de cada um e depois se apresente novamente a ele.\n\nO Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, a sudeste daqui.\n\nO Capitão Grondel está em Draz'Agal, a leste.\n\nO Alquimista Bacamarte está em Heb'Valok, ao norte.", },
+		{ "O Comandante Kunz, na Fortaleza Argêntea, quer que você vá até os quatro postos da Cruzada Argêntea, siga as ordens dos líderes de cada um e depois se apresente novamente a ele.", "O Capitão Brandão e o Capitão Ruperto estão em Drak'Sotra, a sudeste daqui.", "O Capitão Grondel está em Draz'Agal, a leste.", "O Alquimista Bacamarte está em Heb'Valok, ao norte.", },
 	},
 	[12597] = {
 		"Algo para a dor",
@@ -36650,12 +36650,12 @@ CT.l10nDB.ptBR.quest = {
 	[12601] = {
 		"The Alchemist's Apprentice",
 		nil,
-		{ "Alchemist Finklestein at Heb'valok wants you to assist him in the creation of a truth serum.\n\nWhen you are ready to begin, you are to speak to him and follow his instructions.", },
+		{ "Alchemist Finklestein at Heb'valok wants you to assist him in the creation of a truth serum.", "When you are ready to begin, you are to speak to him and follow his instructions.", },
 	},
 	[12602] = {
 		"The Alchemist's Apprentice",
 		nil,
-		{ "Alchemist Finklestein at Heb'valok wants you to assist him in the creation of a truth serum.\n\nWhen you are ready to begin, you are to speak to him and follow his instructions.", },
+		{ "Alchemist Finklestein at Heb'valok wants you to assist him in the creation of a truth serum.", "When you are ready to begin, you are to speak to him and follow his instructions.", },
 	},
 	[12603] = {
 		"Afiando as garras",
@@ -36736,7 +36736,7 @@ CT.l10nDB.ptBR.quest = {
 	[12619] = {
 		"A lâmina rúnica brasonada",
 		nil,
-		{ "Vasculhe cavaletes de armas na Fortaleza de Ébano para encontrar uma Espada Gasta pela Batalha. Em seguida, use-a em uma forja rúnica para moldar uma Espada de Lâmina Rúnica.\n\nLeve a Espada de Lâmina Rúnica ao instrutor Razúvio na Fortaleza de Ébano.", },
+		{ "Vasculhe cavaletes de armas na Fortaleza de Ébano para encontrar uma Espada Gasta pela Batalha. Em seguida, use-a em uma forja rúnica para moldar uma Espada de Lâmina Rúnica.", "Leve a Espada de Lâmina Rúnica ao instrutor Razúvio na Fortaleza de Ébano.", },
 	},
 	[12620] = {
 		"A fúria da guardiã da vida",
@@ -36786,7 +36786,7 @@ CT.l10nDB.ptBR.quest = {
 	[12630] = {
 		"Chutando Nabunda",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você use o Nabunda para coletar 10 amostras de cabelo dos Trolls Definhados.\n\nSe você perder Nabunda de vista, fale novamente com Stefan para encontrá-lo.", },
+		{ "Stefan, no Posto Ébano, quer que você use o Nabunda para coletar 10 amostras de cabelo dos Trolls Definhados.", "Se você perder Nabunda de vista, fale novamente com Stefan para encontrá-lo.", },
 	},
 	[12631] = {
 		"Uma espécie de convite...",
@@ -36841,7 +36841,7 @@ CT.l10nDB.ptBR.quest = {
 	[12641] = {
 		"A morte vem do alto",
 		nil,
-		{ "O Lich Rei ordena que você use o Olho de Áquerus para analisar o Castelo Escarlate, a Forja de Nova Avalon, a Prefeitura de Nova Avalon e a Capela da Chama Carmesim.\n\nControle o Olho de Áquerus usando o Mecanismo de Controle do Olho de Áquerus.", },
+		{ "O Lich Rei ordena que você use o Olho de Áquerus para analisar o Castelo Escarlate, a Forja de Nova Avalon, a Prefeitura de Nova Avalon e a Capela da Chama Carmesim.", "Controle o Olho de Áquerus usando o Mecanismo de Controle do Olho de Áquerus.", },
 	},
 	[12642] = {
 		"Espírito de Rhunok",
@@ -36871,17 +36871,17 @@ CT.l10nDB.ptBR.quest = {
 	[12647] = {
 		"Um fim para o sofrimento",
 		nil,
-		{ "O Espírito de Rhunok pediu para você usar o Incenso do Atormentador para despertar o corpo dele. Depois mate Rhunok com o poder que o espírito dele lhe deu.\n\nSe, por algum motivo, você perder a aura do Mojo de Rhunok, basta retornar ao Espírito de Rhunok e ele lhe dará uma nova aura.", },
+		{ "O Espírito de Rhunok pediu para você usar o Incenso do Atormentador para despertar o corpo dele. Depois mate Rhunok com o poder que o espírito dele lhe deu.", "Se, por algum motivo, você perder a aura do Mojo de Rhunok, basta retornar ao Espírito de Rhunok e ele lhe dará uma nova aura.", },
 	},
 	[12648] = {
 		"Vestido a rigor",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você use a Gargantilha Enfeitiçada para ativar o disfarce de Flagelo.\n\nEnquanto você estiver disfarçado de membro do Flagelo, compre o Plasma Amargo vendido por Cartilaginoso.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você use a Gargantilha Enfeitiçada para ativar o disfarce de Flagelo.", "Enquanto você estiver disfarçado de membro do Flagelo, compre o Plasma Amargo vendido por Cartilaginoso.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12649] = {
 		"É hora do show!",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você use a Gargantilha Enfeitiçada para ativar o disfarce do Flagelo.\n\nEnquanto você estiver disfarçado de membro do Flagelo, compre o Plasma Amargo vendido por Cartilaginoso.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você use a Gargantilha Enfeitiçada para ativar o disfarce do Flagelo.", "Enquanto você estiver disfarçado de membro do Flagelo, compre o Plasma Amargo vendido por Cartilaginoso.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12650] = {
 		"Saqueando o próprio povo",
@@ -36919,7 +36919,7 @@ CT.l10nDB.ptBR.quest = {
 	[12657] = {
 		"O poder do Flagelo",
 		nil,
-		{ "O Lich Rei quer que você entregue as ordens para o grão-lorde Dárion Mograine na Fortaleza de Ébano.\n\nUse o transportador iluminado atrás do Lich Rei para chegar ao grão-lorde Dárion Mograine, no Salão de Comando.", },
+		{ "O Lich Rei quer que você entregue as ordens para o grão-lorde Dárion Mograine na Fortaleza de Ébano.", "Use o transportador iluminado atrás do Lich Rei para chegar ao grão-lorde Dárion Mograine, no Salão de Comando.", },
 	},
 	[12658] = {
 		"Minha mascote é um galvo",
@@ -36929,7 +36929,7 @@ CT.l10nDB.ptBR.quest = {
 	[12659] = {
 		"Escalpos!",
 		nil,
-		{ "O Escalpelador Ahunae, em Zim'Torga, quer quer você use a Faca de Ahunae para cortar o escalpo de 10 trolls Heb'Drakkar.\n\nO escalpelador o lembra que você deve saqueá-los primeiro.", },
+		{ "O Escalpelador Ahunae, em Zim'Torga, quer quer você use a Faca de Ahunae para cortar o escalpo de 10 trolls Heb'Drakkar.", "O escalpelador o lembra que você deve saqueá-los primeiro.", },
 	},
 	[12660] = {
 		"Armas da destruição",
@@ -36939,7 +36939,7 @@ CT.l10nDB.ptBR.quest = {
 	[12661] = {
 		"Infiltrando-se em Voltarus",
 		nil,
-		{ "Stefan quer que você use a Gargantilha Enfeitiçada para entrar em Voltarus e fazer o que o líder do Flagelo mandar.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan quer que você use a Gargantilha Enfeitiçada para entrar em Voltarus e fazer o que o líder do Flagelo mandar.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12662] = {
 		"Derrube Heb'Jin",
@@ -36954,7 +36954,7 @@ CT.l10nDB.ptBR.quest = {
 	[12665] = {
 		"Sinto um distúrbio",
 		nil,
-		{ "Har'koa pediu para você descobrir o que aconteceu com Quetz'lun. Fale com ela para cavalgar sorrateiramente em um dos filhos dela até o Altar de Quetz'lun.\n\nDepois disso, fale com ela novamente no Altar de Har'koa.", },
+		{ "Har'koa pediu para você descobrir o que aconteceu com Quetz'lun. Fale com ela para cavalgar sorrateiramente em um dos filhos dela até o Altar de Quetz'lun.", "Depois disso, fale com ela novamente no Altar de Har'koa.", },
 	},
 	[12666] = {
 		"Preparativos para o submundo",
@@ -36969,12 +36969,12 @@ CT.l10nDB.ptBR.quest = {
 	[12668] = {
 		"Base para a vingança",
 		nil,
-		{ "O Espírito de Quetz'lun lhe conferiu a tarefa de exterminar 12 trolls, Adoradores de Quetz'luz ou Berserkers Tocados pela Serpente, perto das Fontes de Almas.\n\nFale novamente com ela no Altar de Quetz'lun somente após cumprir a tarefa.", },
+		{ "O Espírito de Quetz'lun lhe conferiu a tarefa de exterminar 12 trolls, Adoradores de Quetz'luz ou Berserkers Tocados pela Serpente, perto das Fontes de Almas.", "Fale novamente com ela no Altar de Quetz'lun somente após cumprir a tarefa.", },
 	},
 	[12669] = {
 		"Tudo péssimo até agora",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você fale novamente com Drakuru e cumpra quaisquer tarefas que ele ordenar.\n\nEnquanto estiver no Relicário da Dor, use o Aditivo de Diluição em 5 Caldeirões de Praga.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você fale novamente com Drakuru e cumpra quaisquer tarefas que ele ordenar.", "Enquanto estiver no Relicário da Dor, use o Aditivo de Diluição em 5 Caldeirões de Praga.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12670] = {
 		"Colheita escarlate",
@@ -37009,12 +37009,12 @@ CT.l10nDB.ptBR.quest = {
 	[12676] = {
 		"Sabotagem",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você cumpra outra tarefa para Drakuru.\n\nAlém disso, use 5 Cargas Explosivas em 5 Carroções do Flagelo no Relicário da Dor.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você cumpra outra tarefa para Drakuru.", "Além disso, use 5 Cargas Explosivas em 5 Carroções do Flagelo no Relicário da Dor.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12677] = {
 		"Materiais perigosos",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você vá a Voltarus e complete quaisquer tarefas que Drakuru ordenar. Enquanto você estiver lá, roube 5 Cristais da Praga Colhidos.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você vá a Voltarus e complete quaisquer tarefas que Drakuru ordenar. Enquanto você estiver lá, roube 5 Cristais da Praga Colhidos.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12678] = {
 		"Se o caos dirige, que o sofrimento segure as rédeas",
@@ -37062,7 +37062,7 @@ CT.l10nDB.ptBR.quest = {
 	[12687] = {
 		"No Reino das Sombras",
 		nil,
-		{ "Salanar, o Cavalgante, na Vanguarda da Morte, desafiou você a matar o Cavalgante Negro de Áquerus e a roubar o Corcel da Morte de Áquerus dele.\n\nSe você tiver sucesso, leve o Corcel da Morte de Áquerus para a Vanguarda da Morte e use o Chamado do Cavaleiro para evocar Salanar.", },
+		{ "Salanar, o Cavalgante, na Vanguarda da Morte, desafiou você a matar o Cavalgante Negro de Áquerus e a roubar o Corcel da Morte de Áquerus dele.", "Se você tiver sucesso, leve o Corcel da Morte de Áquerus para a Vanguarda da Morte e use o Chamado do Cavaleiro para evocar Salanar.", },
 	},
 	[12688] = {
 		"A engenharia de um desastre",
@@ -37075,7 +37075,7 @@ CT.l10nDB.ptBR.quest = {
 	[12690] = {
 		"Lenha para a fogueira",
 		nil,
-		{ "Drakuru, em Voltarus, quer que você use o Cetro do Comando nas Abominações Inchadas. Depois, use as habilidades delas no Pontal Frio para matar 60 Quebra-crânios Drakkari e atrair 3 Chefes Drakkari.\n\nOs chefes aparecerão depois que você matar um certo número de Quebra-crânios.", },
+		{ "Drakuru, em Voltarus, quer que você use o Cetro do Comando nas Abominações Inchadas. Depois, use as habilidades delas no Pontal Frio para matar 60 Quebra-crânios Drakkari e atrair 3 Chefes Drakkari.", "Os chefes aparecerão depois que você matar um certo número de Quebra-crânios.", },
 	},
 	[12691] = {
 		"O cofre envelhecido",
@@ -37135,7 +37135,7 @@ CT.l10nDB.ptBR.quest = {
 	[12704] = {
 		"Acalmando a grande pedra da chuva",
 		nil,
-		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você leve um companheiro para cavar e coletar 6 Tesouros Brilhantes.\n\nNão deixe de falar com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, sobre garantir a ajuda de um dos seus companheiros anteriores.", },
+		{ "O Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, quer que você leve um companheiro para cavar e coletar 6 Tesouros Brilhantes.", "Não deixe de falar com o Sumo Oráculo Soo-say, nas Frondes Voz-da-chuva, sobre garantir a ajuda de um dos seus companheiros anteriores.", },
 	},
 	[12705] = {
 		"Vontade dos titãs",
@@ -37178,7 +37178,7 @@ CT.l10nDB.ptBR.quest = {
 	[12713] = {
 		"Traição",
 		nil,
-		{ "Stefan, no Posto Ébano, quer que você derrote Drakuru.\n\nSe você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
+		{ "Stefan, no Posto Ébano, quer que você derrote Drakuru.", "Se você perder a Gargantilha Enfeitiçada, fale com Stefan, no Posto Ébano, para obter outra.", },
 	},
 	[12714] = {
 		"A vontade do Lich Rei",
@@ -37211,7 +37211,7 @@ CT.l10nDB.ptBR.quest = {
 	[12720] = {
 		"Como fazer amigos e influenciar inimigos",
 		nil,
-		{ "O príncipe Keleseth, na Cripta da Memória, quer que você descubra a verdade sobre a \"Aurora Escarlate\".\n\nRemova os Persuasores de Keleseth da Caixa Adornada de Joias e use-os para \"persuadir\" os membros da Cruzada Escarlate a falar.", },
+		{ "O príncipe Keleseth, na Cripta da Memória, quer que você descubra a verdade sobre a \"Aurora Escarlate\".\nRemova os Persuasores de Keleseth da Caixa Adornada de Joias e use-os para \"persuadir\" os membros da Cruzada Escarlate a falar.", },
 	},
 	[12721] = {
 		"Alvoroço",
@@ -37271,7 +37271,7 @@ CT.l10nDB.ptBR.quest = {
 	[12733] = {
 		"O Desafio da Morte",
 		nil,
-		{ "Olrun, a Voz da Batalha, quer que você vença 5 duelos contra outros cavaleiros da morte.\n\nVocê pode escolher entre lutar contra cavaleiros da morte iniciados ou jogadores.", },
+		{ "Olrun, a Voz da Batalha, quer que você vença 5 duelos contra outros cavaleiros da morte.", "Você pode escolher entre lutar contra cavaleiros da morte iniciados ou jogadores.", },
 	},
 	[12734] = {
 		"Rejek: programado para matar",
@@ -37411,7 +37411,7 @@ CT.l10nDB.ptBR.quest = {
 	[12763] = {
 		"Alteração de prioridades",
 		nil,
-		{ "O batedor Vor'takh quer que você vá até Zul'Drak e se apresente à Sargento Riannah no Campo da Luz.\n\nMakki Vento de Inverno, no Acampamento Onequah, fornecerá o transporte.", },
+		{ "O batedor Vor'takh quer que você vá até Zul'Drak e se apresente à Sargento Riannah no Campo da Luz.", "Makki Vento de Inverno, no Acampamento Onequah, fornecerá o transporte.", },
 	},
 	[12766] = {
 		"Fale com a embaixadora",
@@ -37436,7 +37436,7 @@ CT.l10nDB.ptBR.quest = {
 	[12770] = {
 		"Realocando recursos",
 		nil,
-		{ "Miguel Mantoforte quer que você se apresente à Sargento Riannah, no Campo da Luz, em Zul'Drak.\n\nFale com Samuel Calbuque para arranjar transporte para Campo da Luz.", },
+		{ "Miguel Mantoforte quer que você se apresente à Sargento Riannah, no Campo da Luz, em Zul'Drak.", "Fale com Samuel Calbuque para arranjar transporte para Campo da Luz.", },
 	},
 	[12778] = {
 		"O apocalipse escarlate",
@@ -37446,7 +37446,7 @@ CT.l10nDB.ptBR.quest = {
 	[12779] = {
 		"O fim de todas as coisas",
 		nil,
-		{ "O Lich Rei quer que você erradique a Cruzada Escarlate.\n\nUse o Chifre de Ninhálgida para convocar um Conquistador Ninhálgida e, com ele, mate 150 Soldados Escarlates e destrua 10 Balistas Escarlates. Desvie-se dos projéteis que vão em sua direção saindo da linha de fogo!", },
+		{ "O Lich Rei quer que você erradique a Cruzada Escarlate.", "Use o Chifre de Ninhálgida para convocar um Conquistador Ninhálgida e, com ele, mate 150 Soldados Escarlates e destrua 10 Balistas Escarlates. Desvie-se dos projéteis que vão em sua direção saindo da linha de fogo!", },
 	},
 	[12780] = {
 		"DEPRICATED>>Enemy of Our Enemy",
@@ -37481,7 +37481,7 @@ CT.l10nDB.ptBR.quest = {
 	[12793] = {
 		"Fumaça no horizonte",
 		nil,
-		{ "Khufu, em Zim'Torga, quer que você vá até o Campo da Luz e se apresente à Sargento Riannah.\n\nMaaka providenciará o transporte.", },
+		{ "Khufu, em Zim'Torga, quer que você vá até o Campo da Luz e se apresente à Sargento Riannah.", "Maaka providenciará o transporte.", },
 	},
 	[12794] = {
 		"O reino mágico de Dalaran",
@@ -37521,12 +37521,12 @@ CT.l10nDB.ptBR.quest = {
 	[12801] = {
 		"A luz da aurora",
 		nil,
-		{ "Vença as forças da Aurora Argêntea e descubra a Luz da Aurora.\n\nApresente-se ao Grão-lorde Dárion Mograine, se você sobreviver.", },
+		{ "Vença as forças da Aurora Argêntea e descubra a Luz da Aurora.", "Apresente-se ao Grão-lorde Dárion Mograine, se você sobreviver.", },
 	},
 	[12802] = {
 		"Com o coração na mão",
 		nil,
-		{ "Drakuru quer que você leve o Coração dos Antigos para ele na Passagem de Drak'atal.\n\nColete 5 Mojos Desesperados para poder usar o Elixir de Drakuru lá.", },
+		{ "Drakuru quer que você leve o Coração dos Antigos para ele na Passagem de Drak'atal.", "Colete 5 Mojos Desesperados para poder usar o Elixir de Drakuru lá.", },
 	},
 	[12803] = {
 		"Força da Natureza",
@@ -37706,7 +37706,7 @@ CT.l10nDB.ptBR.quest = {
 	[12842] = {
 		"Forjando runas: preparativos para a batalha",
 		nil,
-		{ "O Instrutor Razúvio, na Fortaleza de Ébano, quer que você use sua habilidade de forjar runas para gravar uma runa à escolha na sua Laminalma Rúnica.\n\nVocê pode trocar a runa da sua arma a qualquer momento, bastando para isso estar próximo a uma Forja Rúnica.", },
+		{ "O Instrutor Razúvio, na Fortaleza de Ébano, quer que você use sua habilidade de forjar runas para gravar uma runa à escolha na sua Laminalma Rúnica.", "Você pode trocar a runa da sua arma a qualquer momento, bastando para isso estar próximo a uma Forja Rúnica.", },
 	},
 	[12843] = {
 		"Levaram nossos homens!",
@@ -37731,7 +37731,7 @@ CT.l10nDB.ptBR.quest = {
 	[12848] = {
 		"A fome sem fim",
 		nil,
-		{ "O Instrutor Razúvio, na Fortaleza de Ébano, quer que você liberte um Iniciado Indigno e, então, mate-o a sangue-frio!\n\nÉ a sua vida ou a dele!", },
+		{ "O Instrutor Razúvio, na Fortaleza de Ébano, quer que você liberte um Iniciado Indigno e, então, mate-o a sangue-frio!", "É a sua vida ou a dele!", },
 	},
 	[12849] = {
 		"O poder do sangue, do gelo e do profano",
@@ -38060,7 +38060,7 @@ CT.l10nDB.ptBR.quest = {
 	[12915] = {
 		"Fazendo as pazes",
 		nil,
-		{ "Thorim, no Templo das Tempestades, quer que você mate Fjorn e 5 Gigantes Forjados em Tempestade na Bigorna de Fjorn, a leste de Dun Niffelem.\n\nO Amuleto da Terra de Thorim, quando usado, evoca os Terranos para lutar ao seu lado. O amuleto requer um Pedregulho de Granito da Bigorna de Fjorn, próxima dali.", },
+		{ "Thorim, no Templo das Tempestades, quer que você mate Fjorn e 5 Gigantes Forjados em Tempestade na Bigorna de Fjorn, a leste de Dun Niffelem.", "O Amuleto da Terra de Thorim, quando usado, evoca os Terranos para lutar ao seu lado. O amuleto requer um Pedregulho de Granito da Bigorna de Fjorn, próxima dali.", },
 	},
 	[12916] = {
 		"Nossa única esperança",
@@ -38080,12 +38080,12 @@ CT.l10nDB.ptBR.quest = {
 	[12919] = {
 		"Vingança do Rei da Tempestade",
 		nil,
-		{ "Fale com Gymer para começar.\n\nEnquanto estiver em cima de Gymer, destrua 100 lacaios do Flagelo e mate Algar, o Escolhido, Thrym e o Príncipe Navarius. Apresente-se ao Cruzado MacKellar no Campo Avançado dos Cruzados ao cumprir a missão.", },
+		{ "Fale com Gymer para começar.", "Enquanto estiver em cima de Gymer, destrua 100 lacaios do Flagelo e mate Algar, o Escolhido, Thrym e o Príncipe Navarius. Apresente-se ao Cruzado MacKellar no Campo Avançado dos Cruzados ao cumprir a missão.", },
 	},
 	[12920] = {
 		"Compreendendo Brann",
 		nil,
-		{ "Use o Comunicador de Brann para fazer contato e falar com ele. Em seguida, fale com Boktar Furissangue no Local da Queda de Grom'arsh.\n\nSe perder o Comunicador de Brann, fale com Moteha Filho do Vento no Local da Queda de Grom'arsh.", },
+		{ "Use o Comunicador de Brann para fazer contato e falar com ele. Em seguida, fale com Boktar Furissangue no Local da Queda de Grom'arsh.", "Se perder o Comunicador de Brann, fale com Moteha Filho do Vento no Local da Queda de Grom'arsh.", },
 	},
 	[12921] = {
 		"Mudança de cenário",
@@ -38256,32 +38256,32 @@ CT.l10nDB.ptBR.quest = {
 	[12958] = {
 		"Remessa: amuleto de jade sangrento",
 		nil,
-		{ "Faça um Amuleto de Jade Sangrento a partir de um Amuleto Vraikal, um Jade-escuro e uma Pedra-sangrenta e entregue-o para Falcão Joiado em Dalaran.\n\nVocê pode retirar Amuletos Vraikalen de qualquer Vraikal de Nortúndria.", },
+		{ "Faça um Amuleto de Jade Sangrento a partir de um Amuleto Vraikal, um Jade-escuro e uma Pedra-sangrenta e entregue-o para Falcão Joiado em Dalaran.", "Você pode retirar Amuletos Vraikalen de qualquer Vraikal de Nortúndria.", },
 	},
 	[12959] = {
 		"Remessa: estatueta de mármore faiscante",
 		nil,
-		{ "Faça uma Estatueta de Mármore Faiscante a partir de um Marfim do Norte, uma Calcedônia e um Cristal Sombrio e entregue-a para Falcão Joiado, em Dalaran.\n\nVocê pode retirar Marfim do Norte de qualquer Cavacorne ou Mamute de Nortúndria.", },
+		{ "Faça uma Estatueta de Mármore Faiscante a partir de um Marfim do Norte, uma Calcedônia e um Cristal Sombrio e entregue-a para Falcão Joiado, em Dalaran.", "Você pode retirar Marfim do Norte de qualquer Cavacorne ou Mamute de Nortúndria.", },
 	},
 	[12960] = {
 		"Remessa: broche solar perverso",
 		nil,
-		{ "Faça um Broche Solar Perverso a partir de um Broche do Anão de Ferro, um Citrino Grande e um Cristal do Sol e entregue-o para Falcão Joiado em Dalaran.\n\nVocê pode retirar Broches do Anão de Ferro de qualquer Anão de Ferro de Nortúndria.", },
+		{ "Faça um Broche Solar Perverso a partir de um Broche do Anão de Ferro, um Citrino Grande e um Cristal do Sol e entregue-o para Falcão Joiado em Dalaran.", "Você pode retirar Broches do Anão de Ferro de qualquer Anão de Ferro de Nortúndria.", },
 	},
 	[12961] = {
 		"Remessa: estatueta de osso intrincada",
 		nil,
-		{ "Faça uma Estatueta de Osso Intrincada a partir de um Osso de Protodragão, um Cristal do Sol e um Jade-escuro e entregue-a para Falcão Joiado, em Dalaran.\n\nVocê pode retirar o Osso de Protodragão de qualquer Protodragão de Nortúndria.", },
+		{ "Faça uma Estatueta de Osso Intrincada a partir de um Osso de Protodragão, um Cristal do Sol e um Jade-escuro e entregue-a para Falcão Joiado, em Dalaran.", "Você pode retirar o Osso de Protodragão de qualquer Protodragão de Nortúndria.", },
 	},
 	[12962] = {
 		"Remessa: relíquia de armadura brilhante",
 		nil,
-		{ "Faça uma Relíquia de Armadura Brilhante a partir de um Pedaço de Armadura Elemental, uma Pedra-sangrenta e um Citrino Grande e entregue-a para Falcão Joiado, em Dalaran.\n\nVocê pode retirar um Pedaço de Armadura Elemental de qualquer Elemental Vingativo de Nortúndria.", },
+		{ "Faça uma Relíquia de Armadura Brilhante a partir de um Pedaço de Armadura Elemental, uma Pedra-sangrenta e um Citrino Grande e entregue-a para Falcão Joiado, em Dalaran.", "Você pode retirar um Pedaço de Armadura Elemental de qualquer Elemental Vingativo de Nortúndria.", },
 	},
 	[12963] = {
 		"Remessa: antiguidade solar cambiante",
 		nil,
-		{ "Faça uma Antiguidade Solar Cambiante a partir de uma Raridade do Flagelo, um Cristal do Sol e um Cristal Sombrio e entregue-a para Falcão Joiado, em Dalaran.\n\nVocê pode retirar uma Raridade do Flagelo de qualquer membro do Flagelo em Nortúndria.", },
+		{ "Faça uma Antiguidade Solar Cambiante a partir de uma Raridade do Flagelo, um Cristal do Sol e um Cristal Sombrio e entregue-a para Falcão Joiado, em Dalaran.", "Você pode retirar uma Raridade do Flagelo de qualquer membro do Flagelo em Nortúndria.", },
 	},
 	[12964] = {
 		"Minério negro",
@@ -38436,7 +38436,7 @@ CT.l10nDB.ptBR.quest = {
 	[12994] = {
 		"Caçador de espiões",
 		nil,
-		{ "Derrote 3 Espiões Forjados em Tempestade no Vale dos Antigos Invernos.\n\nUse o Canino do Worg Etéreo no Cadáver do Worg Caído para evocar um Geloworg Etéreo, que expõe inimigos ocultos. Volte à Grande Mãe Geloworg, em Dun Niffelem, quando o vale estiver livre de espiões.", },
+		{ "Derrote 3 Espiões Forjados em Tempestade no Vale dos Antigos Invernos.", "Use o Canino do Worg Etéreo no Cadáver do Worg Caído para evocar um Geloworg Etéreo, que expõe inimigos ocultos. Volte à Grande Mãe Geloworg, em Dun Niffelem, quando o vale estiver livre de espiões.", },
 	},
 	[12995] = {
 		"Deixando nossa marca",
@@ -38496,7 +38496,7 @@ CT.l10nDB.ptBR.quest = {
 	[13006] = {
 		"Limpeza viscosa",
 		nil,
-		{ "Entre na Caverna Hibérnia a oeste de Dun Niffelem e colete 5 unidades de Óleo Viscoso ali.\n\nVolte em seguida para Dun Niffelem e aplique o óleo no Elmo de Hodir.", },
+		{ "Entre na Caverna Hibérnia a oeste de Dun Niffelem e colete 5 unidades de Óleo Viscoso ali.", "Volte em seguida para Dun Niffelem e aplique o óleo no Elmo de Hodir.", },
 	},
 	[13007] = {
 		"O colosso de ferro",
@@ -38632,12 +38632,12 @@ CT.l10nDB.ptBR.quest = {
 	[13042] = {
 		"Nas entranhas dos salões subterrâneos",
 		nil,
-		{ "A Bruxa dos Ossos, na Vila Njorndar, quer que você arranque informações à força do Aprendiz Osterkilgr a respeito do que o Dr. Terrível está armando.\n\nEm seguida, mate o aprendiz.", },
+		{ "A Bruxa dos Ossos, na Vila Njorndar, quer que você arranque informações à força do Aprendiz Osterkilgr a respeito do que o Dr. Terrível está armando.", "Em seguida, mate o aprendiz.", },
 	},
 	[13043] = {
 		"A soma das partes altera o produto",
 		nil,
-		{ "Monte em Nergeld, assumindo o controle sobre ele. Defenda-o dos habitantes do Salão dos Horrores até que o Dr. Terrível apareça.\n\nUse Nergeld para matar o doutor e, em seguida, fale novamente com a Bruxa dos Ossos, na Vila Njorndar.", },
+		{ "Monte em Nergeld, assumindo o controle sobre ele. Defenda-o dos habitantes do Salão dos Horrores até que o Dr. Terrível apareça.", "Use Nergeld para matar o doutor e, em seguida, fale novamente com a Bruxa dos Ossos, na Vila Njorndar.", },
 	},
 	[13044] = {
 		"Se houver sobreviventes...",
@@ -38652,7 +38652,7 @@ CT.l10nDB.ptBR.quest = {
 	[13046] = {
 		"Alimentando Arngrim",
 		nil,
-		{ "Alimente Arngrim com 5 Yormungares Desencarnados e volte à imagem congelada de Arngrim em Dun Niffelem.\n\nVá ao Vale dos Antigos Invernos e use o Dente de Arngrim nos Yormungares Errantes. Uma vez que eles tenham se tornado desencarnados, você deverá lutar com eles até que estejam enfraquecidos.", },
+		{ "Alimente Arngrim com 5 Yormungares Desencarnados e volte à imagem congelada de Arngrim em Dun Niffelem.", "Vá ao Vale dos Antigos Invernos e use o Dente de Arngrim nos Yormungares Errantes. Uma vez que eles tenham se tornado desencarnados, você deverá lutar com eles até que estejam enfraquecidos.", },
 	},
 	[13047] = {
 		"O Juízo",
@@ -38771,7 +38771,7 @@ CT.l10nDB.ptBR.quest = {
 	[13071] = {
 		"Torpe brincar com fogo!",
 		nil,
-		{ "O Torpe, na Abóbada das Sombras, quer que você roube um Protodraco de Njorndar e use-o para incendiar 8 prédios dos vraikalen na região de Jotunheim.\n\nA Fortaleza Balargarde, devido à sua natureza, não pode ser incendiada.", },
+		{ "O Torpe, na Abóbada das Sombras, quer que você roube um Protodraco de Njorndar e use-o para incendiar 8 prédios dos vraikalen na região de Jotunheim.", "A Fortaleza Balargarde, devido à sua natureza, não pode ser incendiada.", },
 	},
 	[13072] = {
 		"Os resquícios de um herói",
@@ -38786,7 +38786,7 @@ CT.l10nDB.ptBR.quest = {
 	[13074] = {
 		"Esperança no Pesadelo Esmeralda",
 		nil,
-		{ "O Guardião Remulos, na Clareira da Lua, instruiu você a entrar no Sonho Esmeralda e coletar 3 Bolotas Esmeralda.\n\nPara retornar a Azeroth, basta se afastar do Santuário de Remulos.", },
+		{ "O Guardião Remulos, na Clareira da Lua, instruiu você a entrar no Sonho Esmeralda e coletar 3 Bolotas Esmeralda.", "Para retornar a Azeroth, basta se afastar do Santuário de Remulos.", },
 	},
 	[13075] = {
 		"A dádiva de Remulos",
@@ -38846,7 +38846,7 @@ CT.l10nDB.ptBR.quest = {
 	[13086] = {
 		"A última linha de defesa",
 		nil,
-		{ "Use um Canhão Argênteo para destruir 100 membros do Flagelo. Além disso, mate 3 Devastadores Ninhálgida.\n\nApós cumprir sua missão, fale com o Mestre de Ataque Fezzik.", },
+		{ "Use um Canhão Argênteo para destruir 100 membros do Flagelo. Além disso, mate 3 Devastadores Ninhálgida.", "Após cumprir sua missão, fale com o Mestre de Ataque Fezzik.", },
 	},
 	[13087] = {
 		"Culinária do norte",
@@ -38871,7 +38871,7 @@ CT.l10nDB.ptBR.quest = {
 	[13091] = {
 		"A arte de ser um terror d'água",
 		nil,
-		{ "A Bruxa dos Ossos, na Vila Njorndar, quer que você controle um Terror d'Água e use-o para matar 10 vraikalen na região de Jotunheim.\n\nVocê pode matar Guarda-sonos de Jotunheim, Guerreiros de Jotunheim, Aquemagos Mjordin, Irmãs de Armas Njordar e Vargulen de Valhalas.", },
+		{ "A Bruxa dos Ossos, na Vila Njorndar, quer que você controle um Terror d'Água e use-o para matar 10 vraikalen na região de Jotunheim.", "Você pode matar Guarda-sonos de Jotunheim, Guerreiros de Jotunheim, Aquemagos Mjordin, Irmãs de Armas Njordar e Vargulen de Valhalas.", },
 	},
 	[13092] = {
 		"Lendo os ossos",
@@ -38924,12 +38924,12 @@ CT.l10nDB.ptBR.quest = {
 	[13102] = {
 		"Ensopado esgotado",
 		nil,
-		{ "Cozinhe 4 Cenouras da Floresta do Canto Cristalino e 4 porções de Carne Gelada na Panela de Ensopado.\n\nQuando o Cozido Vegetariano ficar pronto, entregue-o para o estalajadeiro dos Esgotos de Dalaran, Hilton Pestana.", },
+		{ "Cozinhe 4 Cenouras da Floresta do Canto Cristalino e 4 porções de Carne Gelada na Panela de Ensopado.", "Quando o Cozido Vegetariano ficar pronto, entregue-o para o estalajadeiro dos Esgotos de Dalaran, Hilton Pestana.", },
 	},
 	[13103] = {
 		"Queijo para Furiouro",
 		nil,
-		{ "Sirva um Roquefort de Dalaran Curado da queijaria Desce a Saideira e 6 Taças de Vinho de Dalaran Meio Cheias tiradas das mesas da cidade na Bandeja de Queijo Vazia.\n\nEntregue a Bandeja de Queijo e Vinho para Rânido Furiouro, na Loja dos Coureiros, que fica na Área Comercial Magus.", },
+		{ "Sirva um Roquefort de Dalaran Curado da queijaria Desce a Saideira e 6 Taças de Vinho de Dalaran Meio Cheias tiradas das mesas da cidade na Bandeja de Queijo Vazia.", "Entregue a Bandeja de Queijo e Vinho para Rânido Furiouro, na Loja dos Coureiros, que fica na Área Comercial Magus.", },
 	},
 	[13104] = {
 		"Mais uma vez, para a Brecha!",
@@ -38949,7 +38949,7 @@ CT.l10nDB.ptBR.quest = {
 	[13107] = {
 		"Mostardos-quentes!",
 		nil,
-		{ "Abasteça a Cesta de Piquenique Vazia com 4 Rinocerontes-quentes, preparados por você com sua perícia em culinária, e 4 Mostardas Selvagens colhidas dos gramados de Dalaran.\n\nEntregue a Cesta de Piquenique ao Arquimago Pentarus na Plataforma de Krasus, em Dalaran.", },
+		{ "Abasteça a Cesta de Piquenique Vazia com 4 Rinocerontes-quentes, preparados por você com sua perícia em culinária, e 4 Mostardas Selvagens colhidas dos gramados de Dalaran.", "Entregue a Cesta de Piquenique ao Arquimago Pentarus na Plataforma de Krasus, em Dalaran.", },
 	},
 	[13108] = {
 		"Custe o que custar!",
@@ -38984,17 +38984,17 @@ CT.l10nDB.ptBR.quest = {
 	[13114] = {
 		"Ensopado esgotado",
 		nil,
-		{ "Cozinhe 4 Cenouras do Canto Cristalino da Floresta do Canto Cristalino com 4 porções de Carne Gelada na Panela de Ensopado.\n\nQuando o Cozido Vegetariano ficar pronto, entregue-o para o estalajadeiro dos Esgotos de Dalaran, Hilton Pestana.", },
+		{ "Cozinhe 4 Cenouras do Canto Cristalino da Floresta do Canto Cristalino com 4 porções de Carne Gelada na Panela de Ensopado.", "Quando o Cozido Vegetariano ficar pronto, entregue-o para o estalajadeiro dos Esgotos de Dalaran, Hilton Pestana.", },
 	},
 	[13115] = {
 		"Queijo para Furiouro",
 		nil,
-		{ "Sirva um Roquefort de Dalaran Curado da queijaria Desce a Saideira e 6 Taças de Vinho de Dalaran Meio Cheias tiradas das mesas da cidade na Bandeja de Queijo Vazia.\n\nEntregue a Bandeja de Queijo e Vinho para Rânido Furiouro, na Loja dos Coureiros, que fica na Área Comercial Magus.", },
+		{ "Sirva um Roquefort de Dalaran Curado da queijaria Desce a Saideira e 6 Taças de Vinho de Dalaran Meio Cheias tiradas das mesas da cidade na Bandeja de Queijo Vazia.", "Entregue a Bandeja de Queijo e Vinho para Rânido Furiouro, na Loja dos Coureiros, que fica na Área Comercial Magus.", },
 	},
 	[13116] = {
 		"Mostardos-quentes!",
 		nil,
-		{ "Abasteça a Cesta de Piquenique Vazia com 4 Rinocerontes-quentes, preparados por você com sua perícia em culinária, e 4 Mostardas Selvagens colhidas dos gramados de Dalaran.\n\nEntregue a Cesta de Piquenique para o Arquimago Pentarus na Plataforma de Krasus, em Dalaran.", },
+		{ "Abasteça a Cesta de Piquenique Vazia com 4 Rinocerontes-quentes, preparados por você com sua perícia em culinária, e 4 Mostardas Selvagens colhidas dos gramados de Dalaran.", "Entregue a Cesta de Piquenique para o Arquimago Pentarus na Plataforma de Krasus, em Dalaran.", },
 	},
 	[13117] = {
 		"De onde vêm eles?",
@@ -39236,7 +39236,7 @@ CT.l10nDB.ptBR.quest = {
 	[13190] = {
 		"Tudo a seu tempo",
 		nil,
-		{ "Kilix, o Desfiador, no Fosso de Narjun, quer que você obtenha um Cadáver de Vigia Ahn'kahar e o coloque em cima do Braseiro Ahn'kahet, que fica em Ahn'kahet.\n\nEsta missão só pode ser completada no modo Heroico.", },
+		{ "Kilix, o Desfiador, no Fosso de Narjun, quer que você obtenha um Cadáver de Vigia Ahn'kahar e o coloque em cima do Braseiro Ahn'kahet, que fica em Ahn'kahet.", "Esta missão só pode ser completada no modo Heroico.", },
 	},
 	[13191] = {
 		"Abastecimento dos demolidores",
@@ -39314,42 +39314,42 @@ CT.l10nDB.ptBR.quest = {
 	[13214] = {
 		"Batalha em Valhalas: heróis caídos",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar todos os seis heróis caídos em um único combate. Os heróis são: Eldreth, Geness Meia-alma, Jhadras, Masud, Rith e Talla.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar todos os seis heróis caídos em um único combate. Os heróis são: Eldreth, Geness Meia-alma, Jhadras, Masud, Rith e Talla.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13215] = {
 		"Batalha em Valhalas: Khit'rix, o Mestre Tenebroso",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar Khit'rix, o Mestre Tenebroso.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar Khit'rix, o Mestre Tenebroso.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13216] = {
 		"Batalha em Valhalas: o retorno de Sigrid Gelonata",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar Sigrid Gelonata.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar Sigrid Gelonata.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13217] = {
 		"Batalha em Valhalas: Chacina!",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar Chacina.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar Chacina.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13218] = {
 		"Batalha em Valhalas: Thane Golpe Mortal",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar o Thane Banahogg, conhecido como Golpe Mortal.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar o Thane Banahogg, conhecido como Golpe Mortal.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13219] = {
 		"Batalha em Valhalas: o desafio final",
 		nil,
-		{ "Geirrvif, em Valhalas, desafiou você a derrotar o Príncipe Sandoval.\n\nCaso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
+		{ "Geirrvif, em Valhalas, desafiou você a derrotar o Príncipe Sandoval.", "Caso você vença, fale com Gjonner, o Impiedoso, na borda sul de Valhalas.", },
 	},
 	[13222] = {
 		"Defenda o cerco",
 		nil,
-		{ "O Demolidor Sênior Ledos em Invérnia quer que você pilote ou proteja um dispositivo de cerco enquanto ele destrói três estruturas.\n\nJogadores com patente de soldado podem construir dispositivos de cerco em Oficinas Goblin.", },
+		{ "O Demolidor Sênior Ledos em Invérnia quer que você pilote ou proteja um dispositivo de cerco enquanto ele destrói três estruturas.", "Jogadores com patente de soldado podem construir dispositivos de cerco em Oficinas Goblin.", },
 	},
 	[13223] = {
 		"Defenda o cerco",
 		nil,
-		{ "O Tenente Murp em Invérnia quer que você defenda ou pilote um veículo de cerco enquanto eles destroem três estruturas da Aliança.\n\nDispositivos de cerco podem ser construídos por jogadores ranqueados da Horda nas Oficinas Goblínicas.", },
+		{ "O Tenente Murp em Invérnia quer que você defenda ou pilote um veículo de cerco enquanto eles destroem três estruturas da Aliança.", "Dispositivos de cerco podem ser construídos por jogadores ranqueados da Horda nas Oficinas Goblínicas.", },
 	},
 	[13224] = {
 		"Martelo de Orgrim",
@@ -39414,7 +39414,7 @@ CT.l10nDB.ptBR.quest = {
 	[13239] = {
 		"Volatilidade",
 		nil,
-		{ "O Engenheiro-chefe Cobregarra quer que você use o Óleo Volátil do Cobregarra no Front Partido para atrair 3 Garraéreas Ninhálgida.\n\nPara usar o óleo, você precisa coletar uma Pilha de Ossos, um Elmo Abandonado e uma Armadura Abandonada no campo de batalha de lá.", },
+		{ "O Engenheiro-chefe Cobregarra quer que você use o Óleo Volátil do Cobregarra no Front Partido para atrair 3 Garraéreas Ninhálgida.", "Para usar o óleo, você precisa coletar uma Pilha de Ossos, um Elmo Abandonado e uma Armadura Abandonada no campo de batalha de lá.", },
 	},
 	[13240] = {
 		"Tempor vê Constructos Centrífugos em seu futuro!",
@@ -39444,62 +39444,62 @@ CT.l10nDB.ptBR.quest = {
 	[13245] = {
 		"Prova da Morte: Ingvar, o Ladravaz",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe entregue o Machado do Ladravaz.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe entregue o Machado do Ladravaz.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13246] = {
 		"Prova da Morte: Keristrasza",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Coração Partido de Keristrasza.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Coração Partido de Keristrasza.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13247] = {
 		"Prova da Morte: Guardião de Meridianos Éregos",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga um Sintonizador Meridional.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga um Sintonizador Meridional.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13248] = {
 		"Prova da Morte: Rei Ymiron",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Camafeu da Rainha Falecida.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Camafeu da Rainha Falecida.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13249] = {
 		"Prova da Morte: O Profeta Tharon'ja",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Carranca Encantada do Profeta.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Carranca Encantada do Profeta.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13250] = {
 		"Prova da Morte: Gal'darah",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga os Restos do Mojo de Akali.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga os Restos do Mojo de Akali.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13251] = {
 		"Prova da Morte: Mal'Ganis",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Artefato do Mundo dos Nathrezim.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Artefato do Mundo dos Nathrezim.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13252] = {
 		"Prova da Morte: Sionnir, o Molda-ferro",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Disco da Maldição da Carne.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Disco da Maldição da Carne.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13253] = {
 		"Prova da Morte: Loken",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Anel de Rubi Celestial.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Anel de Rubi Celestial.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13254] = {
 		"Prova da Morte: Anub'arak",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Coroa Esquecida de Anub'arak.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Coroa Esquecida de Anub'arak.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13255] = {
 		"Prova da Morte: Arauto Volazj",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Cérebro Definhado do Sem-rosto.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Cérebro Definhado do Sem-rosto.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13256] = {
 		"Prova da Morte: Cyanigosa",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Cabeça de Cyanigosa.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga a Cabeça de Cyanigosa.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[13257] = {
 		"Herald of War",
@@ -39524,7 +39524,7 @@ CT.l10nDB.ptBR.quest = {
 	[13261] = {
 		"Volatilidade",
 		nil,
-		{ "O Engenheiro-chefe Cobregarra quer que você use o Óleo Volátil do Cobregarra no Front Partido para atrair 3 Garraéreas Ninhálgida.\n\nPara usar o óleo, você precisa coletar uma Pilha de Ossos, um Elmo Abandonado e uma Armadura Abandonada no campo de batalha de lá.", },
+		{ "O Engenheiro-chefe Cobregarra quer que você use o Óleo Volátil do Cobregarra no Front Partido para atrair 3 Garraéreas Ninhálgida.", "Para usar o óleo, você precisa coletar uma Pilha de Ossos, um Elmo Abandonado e uma Armadura Abandonada no campo de batalha de lá.", },
 	},
 	[13262] = {
 		"Mande pelos ares!",
@@ -39552,7 +39552,7 @@ CT.l10nDB.ptBR.quest = {
 	[13267] = {
 		"The Battle For The Undercity",
 		nil,
-		{ "Assist Thrall and Sylvanas in retaking the Undercity for the Horde.\n\nReport to Thrall should you succeed.", },
+		{ "Assist Thrall and Sylvanas in retaking the Undercity for the Horde.", "Report to Thrall should you succeed.", },
 	},
 	[13268] = {
 		"Buscar panos",
@@ -39644,12 +39644,12 @@ CT.l10nDB.ptBR.quest = {
 	[13291] = {
 		"Tecnologia emprestada",
 		nil,
-		{ "O Engenheiro-chefe Pertaporca, a bordo do Rompe-céus, quer que você use a Solução Afanada no Front Partido.\n\nPara usar a solução, é necessário um Elmo Abandonado, uma Armadura Abandonada e uma Pilha de Ossos, todos encontrados no Front Partido.", },
+		{ "O Engenheiro-chefe Pertaporca, a bordo do Rompe-céus, quer que você use a Solução Afanada no Front Partido.", "Para usar a solução, é necessário um Elmo Abandonado, uma Armadura Abandonada e uma Pilha de Ossos, todos encontrados no Front Partido.", },
 	},
 	[13292] = {
 		"A solução da solução",
 		nil,
-		{ "O Engenheiro-chefe Pertaporca, a bordo do Rompe-céus, quer que você use a Solução Afanada no Front Partido.\n\nPara usar a solução, é necessário um Elmo Abandonado, uma Armadura Abandonada e uma Pilha de Ossos, todos encontrados no Front Partido.", },
+		{ "O Engenheiro-chefe Pertaporca, a bordo do Rompe-céus, quer que você use a Solução Afanada no Front Partido.", "Para usar a solução, é necessário um Elmo Abandonado, uma Armadura Abandonada e uma Pilha de Ossos, todos encontrados no Front Partido.", },
 	},
 	[13293] = {
 		"Vá a Ymarheim!",
@@ -39674,7 +39674,7 @@ CT.l10nDB.ptBR.quest = {
 	[13297] = {
 		"Neutralizando a peste",
 		nil,
-		{ "Thassarian, a bordo do Rompe-céus, quer que você use o Fluido Espinal Pustulento em um caldeirão pestilento em Mord'rethar.\n\nVocê pode criar o Fluido Espinal Pustulento usando uma Espinha Gigante obtida de um Horror Pustulento.", },
+		{ "Thassarian, a bordo do Rompe-céus, quer que você use o Fluido Espinal Pustulento em um caldeirão pestilento em Mord'rethar.", "Você pode criar o Fluido Espinal Pustulento usando uma Espinha Gigante obtida de um Horror Pustulento.", },
 	},
 	[13298] = {
 		"Coprous, o Escatológico",
@@ -39865,7 +39865,7 @@ CT.l10nDB.ptBR.quest = {
 	[13343] = {
 		"O mistério infinito do infinito",
 		nil,
-		{ "Crona, no topo do Templo do Repouso das Serpes, quer que você vá mais uma vez até o Santuário Dragônico Bronze.\n\nUma vez lá dentro, posicione a Ampulheta da Eternidade no chão e ajude o seu Eu Passado a proteger a ampulheta das forças da Revoada Infinita.", },
+		{ "Crona, no topo do Templo do Repouso das Serpes, quer que você vá mais uma vez até o Santuário Dragônico Bronze.", "Uma vez lá dentro, posicione a Ampulheta da Eternidade no chão e ajude o seu Eu Passado a proteger a ampulheta das forças da Revoada Infinita.", },
 	},
 	[13344] = {
 		"Outro tipo de grampo",
@@ -40030,12 +40030,12 @@ CT.l10nDB.ptBR.quest = {
 	[13384] = {
 		"Julgamento no Olho da Eternidade",
 		nil,
-		{ "Krasus, no topo do Templo do Repouso das Serpes, que fica no Ermo das Serpes, quer que você leve o Coração da Magia para ele.\n\nEssa missão é para a versão do Olho da Eternidade em modo Normal para 10 pessoas.", },
+		{ "Krasus, no topo do Templo do Repouso das Serpes, que fica no Ermo das Serpes, quer que você leve o Coração da Magia para ele.", "Essa missão é para a versão do Olho da Eternidade em modo Normal para 10 pessoas.", },
 	},
 	[13385] = {
 		"Julgamento heroico no Olho da Eternidade",
 		nil,
-		{ "Krasus, no topo do Templo do Repouso das Serpes, que fica no Ermo das Serpes, quer que você leve o Coração da Magia para ele.\n\nEssa missão é para a versão do Olho da Eternidade em modo Heroico para 25 pessoas.", },
+		{ "Krasus, no topo do Templo do Repouso das Serpes, que fica no Ermo das Serpes, quer que você leve o Coração da Magia para ele.", "Essa missão é para a versão do Olho da Eternidade em modo Heroico para 25 pessoas.", },
 	},
 	[13386] = {
 		"Uma brecha na defesa",
@@ -40584,7 +40584,7 @@ CT.l10nDB.ptBR.quest = {
 	[13952] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Humano Alegre no cemitério de Ventobravo.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Humano Alegre no cemitério de Ventobravo.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[13966] = {
 		"Um presente de Véu de Inverno",
@@ -40770,62 +40770,62 @@ CT.l10nDB.ptBR.quest = {
 	[14166] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Dalaran no cemitério de Dalaran.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Dalaran no cemitério de Dalaran.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14167] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Enânico Alegre no cemitério de Altaforja.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Enânico Alegre no cemitério de Altaforja.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14168] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Gnômico Alegre, no cemitério de Altaforja.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Gnômico Alegre, no cemitério de Altaforja.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14169] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Draenei Alegre, no cemitério da Exodar.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Draenei Alegre, no cemitério da Exodar.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14170] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Noctiélfico Alegre no cemitério de Darnassus.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Noctiélfico Alegre no cemitério de Darnassus.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14171] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Sanguinélfico Alegre no cemitério de Luaprata.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Sanguinélfico Alegre no cemitério de Luaprata.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14172] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre dos Aldor no cemitério de Shattrath.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre dos Aldor no cemitério de Shattrath.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14173] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Áugure, no cemitério de Shattrath.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Áugure, no cemitério de Shattrath.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14174] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Renegado no cemitério da Cidade Baixa.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Alegre de Renegado no cemitério da Cidade Baixa.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14175] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Órquico Alegre no cemitério de Orgrimmar.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Órquico Alegre no cemitério de Orgrimmar.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14176] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Tauren Alegre no cemitério do Penhasco do Trovão.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Tauren Alegre no cemitério do Penhasco do Trovão.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14177] = {
 		"Mortos de fome",
 		nil,
-		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Trólico Alegre no cemitério de Orgrimmar.\n\nUse um Cravo-de-defunto Laranja para enxergar o espírito.", },
+		{ "Arranje um Pão dos Mortos e entregue-o para o Espírito Trólico Alegre no cemitério de Orgrimmar.", "Use um Cravo-de-defunto Laranja para enxergar o espírito.", },
 	},
 	[14178] = {
 		"Chamado às armas: Bacia Arathi",
@@ -40860,7 +40860,7 @@ CT.l10nDB.ptBR.quest = {
 	[14199] = {
 		"Prova da Morte: O Cavaleiro Negro",
 		nil,
-		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Fragmento da Alma do Cavaleiro Negro.\n\nEsta missão só pode ser cumprida em modo Heroico.", },
+		{ "O Arquimago Lan'dalock, em Dalaran, quer que você lhe traga o Fragmento da Alma do Cavaleiro Negro.", "Esta missão só pode ser cumprida em modo Heroico.", },
 	},
 	[14203] = {
 		"Receita encharcada",
@@ -40875,7 +40875,7 @@ CT.l10nDB.ptBR.quest = {
 	[14350] = {
 		"The Crimson Courier",
 		nil,
-		{ "Return to Eastern Plaguelands and track down the Crimson Courier. Kill the Courier and recover the Grand Crusader's Command.\n\nTake the command to Nathanos Blightcaller for further instruction.", },
+		{ "Return to Eastern Plaguelands and track down the Crimson Courier. Kill the Courier and recover the Grand Crusader's Command.", "Take the command to Nathanos Blightcaller for further instruction.", },
 	},
 	[14351] = {
 		"A batalha de Eira dos Montes",
@@ -40925,7 +40925,7 @@ CT.l10nDB.ptBR.quest = {
 	[14436] = {
 		"Escavação enânica",
 		nil,
-		{ "Recolha 5 Picaretas do Prospector.\n\nEm uma forja, esmague as Picaretas do Prospector para criar Ferramentas Quebradas.\n\nLeve 5 Ferramentas Quebradas para Ahmo Chifre Troante na Aldeia Casco Sangrento.", },
+		{ "Recolha 5 Picaretas do Prospector.", "Em uma forja, esmague as Picaretas do Prospector para criar Ferramentas Quebradas.", "Leve 5 Ferramentas Quebradas para Ahmo Chifre Troante na Aldeia Casco Sangrento.", },
 	},
 	[14437] = {
 		"Rites of the Earthmother",

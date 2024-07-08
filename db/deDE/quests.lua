@@ -30907,7 +30907,7 @@ CT.l10nDB.deDE.quest = {
 	[462] = {
 		"<UNUSED>",
 		nil,
-		{ "Kill Maruk Wyrmscale\n\nReport to Valstag Ironjaw in Menethil Harbor.", },
+		{ "Kill Maruk Wyrmscale", "Report to Valstag Ironjaw in Menethil Harbor.", },
 	},
 	[490] = {
 		"<UNUSED>",
@@ -31140,7 +31140,7 @@ CT.l10nDB.deDE.quest = {
 	[5053] = {
 		"<UNUSED>",
 		nil,
-		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.\n\nHave a nice day.", },
+		{ "Test quest to see if mail is sent to your mailbox. Just hit complete, then go check your mail.", "Have a nice day.", },
 	},
 	[5205] = {
 		"<UNUSED>",
@@ -31212,7 +31212,7 @@ CT.l10nDB.deDE.quest = {
 	[7702] = {
 		"Tötet sie mit Schlafentzug",
 		nil,
-		{ "Tief in der Schlackengrube des Kessels, findet Ihr die Schlafräume der Dunkeleisenzwerge.\n\nFindet diese Schlafkammern und stibitzt 20 Dunkeleisenkissen. Kehrt dann zu Evonice Rußraucher in der sengenden Schlucht, wenn Ihr die Aufgabe erfüllt habt.", },
+		{ "Tief in der Schlackengrube des Kessels, findet Ihr die Schlafräume der Dunkeleisenzwerge.", "Findet diese Schlafkammern und stibitzt 20 Dunkeleisenkissen. Kehrt dann zu Evonice Rußraucher in der sengenden Schlucht, wenn Ihr die Aufgabe erfüllt habt.", },
 	},
 	[7704] = {
 		"Schau dir die Größe an!",
@@ -31723,7 +31723,7 @@ CT.l10nDB.deDE.quest = {
 	[11252] = {
 		"Nach Utgarde!",
 		nil,
-		{ "Verteidiger Mordun hat Euch mit der Exekution von Ingvar dem Brandschatzer, der tief in Utgarde wohnt, beauftragt.\n\nAnschließend sollt Ihr dessen Kopf zu Vizeadmiral Keller bringen.", },
+		{ "Verteidiger Mordun hat Euch mit der Exekution von Ingvar dem Brandschatzer, der tief in Utgarde wohnt, beauftragt.", "Anschließend sollt Ihr dessen Kopf zu Vizeadmiral Keller bringen.", },
 	},
 	[11253] = {
 		"Den Feind ausschnüffeln",
@@ -31903,7 +31903,7 @@ CT.l10nDB.deDE.quest = {
 	[11288] = {
 		"Das strahlende Licht",
 		nil,
-		{ "Ares der Schwurgebundene in den Katakomben von Utgarde möchte, dass Ihr das geheiligte Artefakt bergt.\n\nDiese Aufgabe ist zeitlich begrenzt.", },
+		{ "Ares der Schwurgebundene in den Katakomben von Utgarde möchte, dass Ihr das geheiligte Artefakt bergt.", "Diese Aufgabe ist zeitlich begrenzt.", },
 	},
 	[11289] = {
 		"Von Ehre geleitet",
@@ -31953,7 +31953,7 @@ CT.l10nDB.deDE.quest = {
 	[11300] = {
 		"Überwältigende Niederlage im Ring",
 		nil,
-		{ "Besiegt die Gladiatoren im Ring des Richturteils und stellt Euch Oluf dem Gewalttätigen. Besiegt Oluf und nehmt ihm die uralte Glyphe ab.\n\nBringt die uralte Glyphe zu Glorenfeld am Eingang zu den Katakomben von Utgarde.", },
+		{ "Besiegt die Gladiatoren im Ring des Richturteils und stellt Euch Oluf dem Gewalttätigen. Besiegt Oluf und nehmt ihm die uralte Glyphe ab.", "Bringt die uralte Glyphe zu Glorenfeld am Eingang zu den Katakomben von Utgarde.", },
 	},
 	[11301] = {
 		"Gehirne! Wir wollen Gehirne!",
@@ -31983,7 +31983,7 @@ CT.l10nDB.deDE.quest = {
 	[11306] = {
 		"Aufkochen und umrühren",
 		nil,
-		{ "Füllt die leere Apothekerflasche im Kessel mit Vrykulblut auf und vermischt ihren Inhalt so lange mit Harris' Seuchenproben, die sich in der Nähe befinden, bis Ihr eine ausgewogene Mixtur erhaltet.\n\nSprecht wieder mit dem obersten Seuchenfürsten Harris, sobald Ihr die Aufgabe erledigt habt.", },
+		{ "Füllt die leere Apothekerflasche im Kessel mit Vrykulblut auf und vermischt ihren Inhalt so lange mit Harris' Seuchenproben, die sich in der Nähe befinden, bis Ihr eine ausgewogene Mixtur erhaltet.", "Sprecht wieder mit dem obersten Seuchenfürsten Harris, sobald Ihr die Aufgabe erledigt habt.", },
 	},
 	[11307] = {
 		"Feldversuch",
@@ -32058,7 +32058,7 @@ CT.l10nDB.deDE.quest = {
 	[11323] = {
 		"Im Worgpelz",
 		nil,
-		{ "Der Weise Nebelläufer hat Euch gebeten, Ulfang im Bruchwald zu suchen und ihm zu helfen.\n\nKehrt zum Weisen Nebelläufer zurück, um einen Ersatz zu erhalten, solltet Ihr die Worgverkleidung verlieren.", },
+		{ "Der Weise Nebelläufer hat Euch gebeten, Ulfang im Bruchwald zu suchen und ihm zu helfen.", "Kehrt zum Weisen Nebelläufer zurück, um einen Ersatz zu erhalten, solltet Ihr die Worgverkleidung verlieren.", },
 	},
 	[11324] = {
 		"Alphaworg",
@@ -32068,7 +32068,7 @@ CT.l10nDB.deDE.quest = {
 	[11325] = {
 		"Im Worgpelz",
 		nil,
-		{ "Behüterin Mondblatt hat Euch gebeten, Ulfang im Bruchwald zu suchen und ihm zu helfen.\n\nKehrt zu Behüterin Mondblatt zurück, um einen Ersatz zu erhalten, solltet Ihr die Worgverkleidung verlieren.", },
+		{ "Behüterin Mondblatt hat Euch gebeten, Ulfang im Bruchwald zu suchen und ihm zu helfen.", "Kehrt zu Behüterin Mondblatt zurück, um einen Ersatz zu erhalten, solltet Ihr die Worgverkleidung verlieren.", },
 	},
 	[11326] = {
 		"Alphaworg",
@@ -32193,12 +32193,12 @@ CT.l10nDB.deDE.quest = {
 	[11390] = {
 		"Ich kann fliegen!",
 		nil,
-		{ "Der Chefarchäologe des Stählernen Tores möchte, dass Ihr 3 Säcke voller Relikte vom Grund der Ausgrabungsstätte zu einer der Plattformen auf der Nord- oder Südseite des Stählernen Tores befördert.\n\nBenutzt den Enterhaken der Flugmaschine für diese Aufgabe.\n\nMeldet Euch bei ihm zurück, sobald Ihr damit fertig seid.", },
+		{ "Der Chefarchäologe des Stählernen Tores möchte, dass Ihr 3 Säcke voller Relikte vom Grund der Ausgrabungsstätte zu einer der Plattformen auf der Nord- oder Südseite des Stählernen Tores befördert.", "Benutzt den Enterhaken der Flugmaschine für diese Aufgabe.", "Meldet Euch bei ihm zurück, sobald Ihr damit fertig seid.", },
 	},
 	[11391] = {
 		"Patrouille am Stählernen Tor",
 		nil,
-		{ "Für die Leute am Stählernen Tor seid Ihr jetzt ein Fliegerass, also will der Chefarchäologe des Stählernen Tores, dass Ihr über der Ausgrabungsstätte patrouilliert und alle Angreifer bekämpft.\n\nMeldet Euch wieder bei ihm zurück, wenn Ihr Eure Patrouille geflogen habt.", },
+		{ "Für die Leute am Stählernen Tor seid Ihr jetzt ein Fliegerass, also will der Chefarchäologe des Stählernen Tores, dass Ihr über der Ausgrabungsstätte patrouilliert und alle Angreifer bekämpft.", "Meldet Euch wieder bei ihm zurück, wenn Ihr Eure Patrouille geflogen habt.", },
 	},
 	[11393] = {
 		"Wo ist Forscher Jaren?",
@@ -32258,22 +32258,22 @@ CT.l10nDB.deDE.quest = {
 	[11414] = {
 		"Verrat unter den Brüdern",
 		nil,
-		{ "Ulfang im Bruchwald möchte, dass Ihr die verräterischen Worgs Bjomolf und Varg tötet. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.\n\nFalls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Behüterin Mondblatt zurückkehren.", },
+		{ "Ulfang im Bruchwald möchte, dass Ihr die verräterischen Worgs Bjomolf und Varg tötet. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.", "Falls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Behüterin Mondblatt zurückkehren.", },
 	},
 	[11415] = {
 		"Verrat unter den Brüdern",
 		nil,
-		{ "Ulfang im Bruchwald möchte, dass Ihr die verräterischen Worgs Bjomolf und Varg tötet. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.\n\nFalls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Weiser Nebelläufer zurückkehren.", },
+		{ "Ulfang im Bruchwald möchte, dass Ihr die verräterischen Worgs Bjomolf und Varg tötet. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.", "Falls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Weiser Nebelläufer zurückkehren.", },
 	},
 	[11416] = {
 		"Augen des Adlers",
 		nil,
-		{ "Ulfang im Bruchwald möchte, dass Ihr die Augen des Adlers beschafft. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.\n\nFalls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Behüterin Mondblatt zurückkehren.", },
+		{ "Ulfang im Bruchwald möchte, dass Ihr die Augen des Adlers beschafft. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.", "Falls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Behüterin Mondblatt zurückkehren.", },
 	},
 	[11417] = {
 		"Augen des Adlers",
 		nil,
-		{ "Ulfang im Bruchwald möchte, dass Ihr die Augen des Adlers beschafft. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.\n\nFalls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Weiser Nebelläufer zurückkehren.", },
+		{ "Ulfang im Bruchwald möchte, dass Ihr die Augen des Adlers beschafft. Kehrt zu ihm verkleidet zurück, sobald Ihr Eure Aufgabe erfüllt habt.", "Falls Ihr aus irgendeinem Grund die Worgverkleidung verlieren und nach Ersatz suchen solltet, müsstet Ihr zu Weiser Nebelläufer zurückkehren.", },
 	},
 	[11418] = {
 		"Wir nennen ihn Stahlfeder",
@@ -32288,7 +32288,7 @@ CT.l10nDB.deDE.quest = {
 	[11421] = {
 		"Jetzt drehen wir mal richtig auf...",
 		nil,
-		{ "Leutnant Eishammer im heulenden Fjord möchte, dass Ihr das Langhaus der Drachenschinder, das Dockhaus der Drachenschinder, das Lager der Drachenschinder und 8 Verteidiger der Drachenschinder vernichtet.\n\nBringt den Harpunenkontrollmechanismus zu ihm zurück, sobald Ihr Eure Aufgabe erledigt habt.", },
+		{ "Leutnant Eishammer im heulenden Fjord möchte, dass Ihr das Langhaus der Drachenschinder, das Dockhaus der Drachenschinder, das Lager der Drachenschinder und 8 Verteidiger der Drachenschinder vernichtet.", "Bringt den Harpunenkontrollmechanismus zu ihm zurück, sobald Ihr Eure Aufgabe erledigt habt.", },
 	},
 	[11422] = {
 		"Dreizack des Sohnes",
@@ -32323,7 +32323,7 @@ CT.l10nDB.deDE.quest = {
 	[11429] = {
 		"Aufstellen und abrocken!",
 		nil,
-		{ "Leutnant Eishammer im heulenden Fjord möchte, dass Ihr das Banner der Allianz in Quälheim aufstellt und dieses gegen Angreifer verteidigt.\n\nKehrt gemeinsam mit dem Banner zu Leutnant Eishammer zurück, falls Ihr überleben solltet.", },
+		{ "Leutnant Eishammer im heulenden Fjord möchte, dass Ihr das Banner der Allianz in Quälheim aufstellt und dieses gegen Angreifer verteidigt.", "Kehrt gemeinsam mit dem Banner zu Leutnant Eishammer zurück, falls Ihr überleben solltet.", },
 	},
 	[11430] = {
 		"Harpunenmeister Yavus",
@@ -32446,7 +32446,7 @@ CT.l10nDB.deDE.quest = {
 	[11465] = {
 		"Die geplünderte Karawane",
 		nil,
-		{ "Hidalgo im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr mithilfe des dressierten Steinfalkens 5 Fjordtruthähne einfangt.\n\nKehrt zu Hidalgo zurück, sobald Ihr Eure Aufgabe erfüllt habt, und bringt den Käfig mit.", },
+		{ "Hidalgo im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr mithilfe des dressierten Steinfalkens 5 Fjordtruthähne einfangt.", "Kehrt zu Hidalgo zurück, sobald Ihr Eure Aufgabe erfüllt habt, und bringt den Käfig mit.", },
 	},
 	[11466] = {
 		"Jack hebt gern' mal einen",
@@ -32461,7 +32461,7 @@ CT.l10nDB.deDE.quest = {
 	[11468] = {
 		"Falke gegen Habicht",
 		nil,
-		{ "Hidalgo am Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euren dressierten Steinfalken nutzt, um 10 Fjordhabichte zu erbeuten.\n\nKehrt mit dem Käfig zu Hidalgo zurück, wenn Ihr die Aufgabe Abgeschlossen habt.", },
+		{ "Hidalgo am Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euren dressierten Steinfalken nutzt, um 10 Fjordhabichte zu erbeuten.", "Kehrt mit dem Käfig zu Hidalgo zurück, wenn Ihr die Aufgabe Abgeschlossen habt.", },
 	},
 	[11469] = {
 		"Schrubbseife",
@@ -32471,7 +32471,7 @@ CT.l10nDB.deDE.quest = {
 	[11470] = {
 		"Unter dem Vogelvieh gibt es keine Ehre",
 		nil,
-		{ "Hidalgo im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr mithilfe Eures dressierten Steinfalkens 8 Eier eines Fjordhabichts sammelt.\n\nKehrt zu Hidalgo zurück, sobald Ihr Eure Aufgabe erfüllt habt, und nehmt den Käfig mit.", },
+		{ "Hidalgo im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr mithilfe Eures dressierten Steinfalkens 8 Eier eines Fjordhabichts sammelt.", "Kehrt zu Hidalgo zurück, sobald Ihr Eure Aufgabe erfüllt habt, und nehmt den Käfig mit.", },
 	},
 	[11471] = {
 		"Jetzt geht's lo-os",
@@ -32536,27 +32536,27 @@ CT.l10nDB.deDE.quest = {
 	[11485] = {
 		"Eisenrunenkonstrukte und du: Raketensprünge",
 		nil,
-		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und dessen Fähigkeit 'Raketensprung' bei Walts Eisenrunengravur ausführt.\n\nÜber das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und dessen Fähigkeit 'Raketensprung' bei Walts Eisenrunengravur ausführt.", "Über das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[11489] = {
 		"Eisenrunenkonstrukte und du: Daten sammeln",
 		nil,
-		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die Fähigkeit 'Daten sammeln' in der Nähe des Eisenzwergrelikts ausführt.\n\nÜber das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die Fähigkeit 'Daten sammeln' in der Nähe des Eisenzwergrelikts ausführt.", "Über das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[11491] = {
 		"Eisenrunenkonstrukte und du: Täuschung",
 		nil,
-		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die Fähigkeit 'Bluffen' auf Lebronski ausführt, nachdem Ihr über seinen Teppich gestiegen seid.\n\nÜber das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die Fähigkeit 'Bluffen' auf Lebronski ausführt, nachdem Ihr über seinen Teppich gestiegen seid.", "Über das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[11494] = {
 		"Blitzerfüllte Relikte",
 		nil,
-		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und mit der Fähigkeit 'Daten sammeln' 15 Lesungen von Eisenrunendaten durchführt.\n\nÜber das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und mit der Fähigkeit 'Daten sammeln' 15 Lesungen von Eisenrunendaten durchführt.", "Über das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[11495] = {
 		"Der zarte Knall des Donners",
 		nil,
-		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die donnernde Höhle in Baelguns Ausgrabungsstätte erkundet.\n\nÜber das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Walt im Außenposten der Forscherliga im heulenden Fjord möchte, dass Ihr Euch ins Eisenrunenkonstrukt setzt und die donnernde Höhle in Baelguns Ausgrabungsstätte erkundet.", "Über das Begleiterfenster, könnt Ihr das Konstrukt freigeben, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[11501] = {
 		"Neues aus dem Osten",
@@ -32671,7 +32671,7 @@ CT.l10nDB.deDE.quest = {
 	[11568] = {
 		"Wieder zur Ruhe kommen lassen",
 		nil,
-		{ "Verwendet das Bündel mit Vrykulartefakten bei den geplünderten Grabhügeln des Schildhügels und legt das gefrorene Herz Isuldofs, den Schild der Aesiriten, den Stab des Sturmfurors und die uralte Rüstung der Kvaldir wieder zurück.\n\nKehrt zu Orfus von Kamagua am Uralten Aufzug zurück, falls Ihr erfolgreich sein solltet.", },
+		{ "Verwendet das Bündel mit Vrykulartefakten bei den geplünderten Grabhügeln des Schildhügels und legt das gefrorene Herz Isuldofs, den Schild der Aesiriten, den Stab des Sturmfurors und die uralte Rüstung der Kvaldir wieder zurück.", "Kehrt zu Orfus von Kamagua am Uralten Aufzug zurück, falls Ihr erfolgreich sein solltet.", },
 	},
 	[11569] = {
 		"Schlüsselmeister Urmgrgl",
@@ -32756,7 +32756,7 @@ CT.l10nDB.deDE.quest = {
 	[11592] = {
 		"Wir schlagen zu!",
 		nil,
-		{ "Helft Fernläufer Stolzhuf und seinen Räubern des Kriegshymnenklans dabei, den Angriff auf Stahlkiefers Karawane zu überleben, und besiegt den Geist des Truppenkommandanten Stahlkiefer.\n\nMeldet Euch wieder bei Oberanführer Bor'gorok, falls Ihr erfolgreich sein solltet. Er befindet sich im Außenposten Bor'gorok.", },
+		{ "Helft Fernläufer Stolzhuf und seinen Räubern des Kriegshymnenklans dabei, den Angriff auf Stahlkiefers Karawane zu überleben, und besiegt den Geist des Truppenkommandanten Stahlkiefer.", "Meldet Euch wieder bei Oberanführer Bor'gorok, falls Ihr erfolgreich sein solltet. Er befindet sich im Außenposten Bor'gorok.", },
 	},
 	[11593] = {
 		"Die geehrten Toten",
@@ -32951,7 +32951,7 @@ CT.l10nDB.deDE.quest = {
 	[11631] = {
 		"Vision der Luft",
 		nil,
-		{ "Vollzieht mithilfe von Impereans Urluft ein Ritual bei Fletschfangs Totem im Außenposten Bor'gorok, um Informationen über Weissager Grimmläufer zu beschaffen.\n\nSprecht anschließend mit Geistredner Fletschfang.", },
+		{ "Vollzieht mithilfe von Impereans Urluft ein Ritual bei Fletschfangs Totem im Außenposten Bor'gorok, um Informationen über Weissager Grimmläufer zu beschaffen.", "Sprecht anschließend mit Geistredner Fletschfang.", },
 	},
 	[11632] = {
 		"Was der kalte Wind mit sich bringt...",
@@ -32981,7 +32981,7 @@ CT.l10nDB.deDE.quest = {
 	[11637] = {
 		"Kaganishu",
 		nil,
-		{ "Findet Kaganishus Fetisch und wendet ihn auf die Überreste von Weissager Grimmläufer an.\n\nIhr werdet nach Magmut gehen und den Fetisch Weissager Grimmläufers Geist geben müssen.", },
+		{ "Findet Kaganishus Fetisch und wendet ihn auf die Überreste von Weissager Grimmläufer an.", "Ihr werdet nach Magmut gehen und den Fetisch Weissager Grimmläufers Geist geben müssen.", },
 	},
 	[11638] = {
 		"Bringt meine Überreste zurück",
@@ -33056,7 +33056,7 @@ CT.l10nDB.deDE.quest = {
 	[11652] = {
 		"Die Ebene von Nasam",
 		nil,
-		{ "Tötet mithilfe des Belagerungspanzers der Horde 100 Soldaten der Geißel und rettet 3 verletze Soldaten des Kriegshymnenklans auf der Ebene von Nasam. Außerdem müsst Ihr herausfinden, wer der Anführer des Angriffs der Geißel ist.\n\nMeldet Euch bei Garrosh Höllschrei in der Kriegshymnenfeste, solltet Ihr Erfolg haben.", },
+		{ "Tötet mithilfe des Belagerungspanzers der Horde 100 Soldaten der Geißel und rettet 3 verletze Soldaten des Kriegshymnenklans auf der Ebene von Nasam. Außerdem müsst Ihr herausfinden, wer der Anführer des Angriffs der Geißel ist.", "Meldet Euch bei Garrosh Höllschrei in der Kriegshymnenfeste, solltet Ihr Erfolg haben.", },
 	},
 	[11653] = {
 		"Ha! ... Jetzt seid Ihr nicht mehr so groß!",
@@ -33281,7 +33281,7 @@ CT.l10nDB.deDE.quest = {
 	[11705] = {
 		"Törichtes Unterfangen",
 		nil,
-		{ "Helft Getry dabei, Varidus den Flenser bei den Höfen des Kriegshymnenklans zu besiegen.\n\nFalls Ihr erfolgreich sein solltet, erstattet Garrosh Höllschrei Bericht.", },
+		{ "Helft Getry dabei, Varidus den Flenser bei den Höfen des Kriegshymnenklans zu besiegen.", "Falls Ihr erfolgreich sein solltet, erstattet Garrosh Höllschrei Bericht.", },
 	},
 	[11706] = {
 		"Der Kollaps",
@@ -33311,7 +33311,7 @@ CT.l10nDB.deDE.quest = {
 	[11711] = {
 		"Angsthasenlieferung... unter 30 Minuten - ansonsten gratis",
 		nil,
-		{ "Bringt den Deserteur der Allianz zur Kreuzung östlich der Kriegshymnenfeste und feuert die Leuchtpistole des Kriegshymnenklans ab, um der Allianz ein Zeichen zu geben.\n\nMeldet Euch bei Späher Tungok, nachdem die Übergabe des Deserteurs der Allianz erfolgreich abgeschlossen wurde.", },
+		{ "Bringt den Deserteur der Allianz zur Kreuzung östlich der Kriegshymnenfeste und feuert die Leuchtpistole des Kriegshymnenklans ab, um der Allianz ein Zeichen zu geben.", "Meldet Euch bei Späher Tungok, nachdem die Übergabe des Deserteurs der Allianz erfolgreich abgeschlossen wurde.", },
 	},
 	[11712] = {
 		"Verflucht nochmal!",
@@ -33406,7 +33406,7 @@ CT.l10nDB.deDE.quest = {
 	[11730] = {
 		"Meister und Diener",
 		nil,
-		{ "Programmiert mithilfe des Ultraüberschallschrauber 15 Roboter um und kehrt anschließend wieder zu Pfiffi Wackelspross bei der Landebahn Kurbelzisch zurück.\n\nAchtet darauf, die kaputten Roboter zu plündern, bevor Ihr sie umprogrammiert.", },
+		{ "Programmiert mithilfe des Ultraüberschallschrauber 15 Roboter um und kehrt anschließend wieder zu Pfiffi Wackelspross bei der Landebahn Kurbelzisch zurück.", "Achtet darauf, die kaputten Roboter zu plündern, bevor Ihr sie umprogrammiert.", },
 	},
 	[11733] = {
 		"Reise zum Riss",
@@ -33584,7 +33584,7 @@ CT.l10nDB.deDE.quest = {
 	[11896] = {
 		"Eine Schwäche für Blitze",
 		nil,
-		{ "Zerstört 15 verschiedene Robotereinheiten im größeren Teichareal um die Pumpstation Kurbelzisch herum, während sie von der Macht des Sturms geschwächt sind. Ignoriert jedoch die Mechagnome.\n\nKehrt anschließend zu Weiser Erde und Himmel in Taunka'le zurück.", },
+		{ "Zerstört 15 verschiedene Robotereinheiten im größeren Teichareal um die Pumpstation Kurbelzisch herum, während sie von der Macht des Sturms geschwächt sind. Ignoriert jedoch die Mechagnome.", "Kehrt anschließend zu Weiser Erde und Himmel in Taunka'le zurück.", },
 	},
 	[11897] = {
 		"Stopft die Schlundlöcher",
@@ -33772,7 +33772,7 @@ CT.l10nDB.deDE.quest = {
 	[11946] = {
 		"Keristrasza",
 		nil,
-		{ "Keristrasza möchte, dass Ihr sie ansprecht, sobald Ihr bereit seid, Malygos entgegenzutreten.\n\nSprecht mit Raelorasz im Transitusschild, falls Ihr Euer verstärktes arkanes Gefängnis verlieren solltet.", },
+		{ "Keristrasza möchte, dass Ihr sie ansprecht, sobald Ihr bereit seid, Malygos entgegenzutreten.", "Sprecht mit Raelorasz im Transitusschild, falls Ihr Euer verstärktes arkanes Gefängnis verlieren solltet.", },
 	},
 	[11949] = {
 		"Nicht ohne einen Kampf!",
@@ -33787,7 +33787,7 @@ CT.l10nDB.deDE.quest = {
 	[11951] = {
 		"Köder und Rute",
 		nil,
-		{ "Keristrasza hat Euch gebeten, 10 kristallisierte Manasplitter in Kaltarra zu sammeln.\n\nFalls Ihr Euer verstärktes arkanes Gefängnis verliert, sprecht mit Raelorasz beim Transitusschild.", },
+		{ "Keristrasza hat Euch gebeten, 10 kristallisierte Manasplitter in Kaltarra zu sammeln.", "Falls Ihr Euer verstärktes arkanes Gefängnis verliert, sprecht mit Raelorasz beim Transitusschild.", },
 	},
 	[11956] = {
 		"Findet das Phylakterium",
@@ -33887,7 +33887,7 @@ CT.l10nDB.deDE.quest = {
 	[11983] = {
 		"Blutschwur der Horde",
 		nil,
-		{ "Sprecht mit den Taunka im Flüchtlingslager von Westwind und bringt 5 von ihnen dazu, der Horde Treue zu geloben.\n\nBringt den Blutschwur der Horde wieder zur Abgesandten Leuchthuf, sobald Ihr diese Aufgabe abgeschlossen habt.", },
+		{ "Sprecht mit den Taunka im Flüchtlingslager von Westwind und bringt 5 von ihnen dazu, der Horde Treue zu geloben.", "Bringt den Blutschwur der Horde wieder zur Abgesandten Leuchthuf, sobald Ihr diese Aufgabe abgeschlossen habt.", },
 	},
 	[11984] = {
 		"Die Käfige vollmachen",
@@ -33995,7 +33995,7 @@ CT.l10nDB.deDE.quest = {
 	[12007] = {
 		"Opfer müssen erbracht werden",
 		nil,
-		{ "Drakuru möchte, dass Ihr ihm das Auge der Propheten zum Kohlenbecken in Zeb'Halak bringt.\n\nIhr müsst Zim'bos Mojo einsammeln, um Drakurus Elixier dort benutzen zu können.", },
+		{ "Drakuru möchte, dass Ihr ihm das Auge der Propheten zum Kohlenbecken in Zeb'Halak bringt.", "Ihr müsst Zim'bos Mojo einsammeln, um Drakurus Elixier dort benutzen zu können.", },
 	},
 	[12008] = {
 		"Agmars Hammer",
@@ -34100,12 +34100,12 @@ CT.l10nDB.deDE.quest = {
 	[12032] = {
 		"Gespräche mit den Tiefen",
 		nil,
-		{ "Nehmt mithilfe der Perle der Tiefen Verbindung mit der Meeresgöttin Oacha'noa auf und tut, was sie befiehlt.\n\nKehrt zu Toalu'u dem Mystiker im Hafen Moa'ki zurück, falls Ihr die Feuerprobe bestehen solltet.", },
+		{ "Nehmt mithilfe der Perle der Tiefen Verbindung mit der Meeresgöttin Oacha'noa auf und tut, was sie befiehlt.", "Kehrt zu Toalu'u dem Mystiker im Hafen Moa'ki zurück, falls Ihr die Feuerprobe bestehen solltet.", },
 	},
 	[12033] = {
 		"Nachricht aus dem Westen",
 		nil,
-		{ "Lest den Brief von Saurfang und zerstört ihn anschließend.\n\nSprecht mit Bote Torvus, sobald Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Lest den Brief von Saurfang und zerstört ihn anschließend.", "Sprecht mit Bote Torvus, sobald Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[12034] = {
 		"Der Sieg ist nahe...",
@@ -34190,7 +34190,7 @@ CT.l10nDB.deDE.quest = {
 	[12050] = {
 		"Holz hacken",
 		nil,
-		{ "Ruft mithilfe von Xinks Schreddersteuerung einen Schredder, sobald Ihr das Nistgebiet der Harpyien im Norden erreicht habt. Sammelt 50 Bündel Nutzholz von den Bäumen in der Gegend und kehrt anschließend zu Xink im Düsenrostposten zurück.\n\nWendet Euch an Xink im Düsenrostposten, falls Ihr Xinks Schreddersteuerung verlieren solltet, um eine neue zu erhalten.", },
+		{ "Ruft mithilfe von Xinks Schreddersteuerung einen Schredder, sobald Ihr das Nistgebiet der Harpyien im Norden erreicht habt. Sammelt 50 Bündel Nutzholz von den Bäumen in der Gegend und kehrt anschließend zu Xink im Düsenrostposten zurück.", "Wendet Euch an Xink im Düsenrostposten, falls Ihr Xinks Schreddersteuerung verlieren solltet, um eine neue zu erhalten.", },
 	},
 	[12051] = {
 		"Ein paar Federn rascheln lassen",
@@ -34200,12 +34200,12 @@ CT.l10nDB.deDE.quest = {
 	[12052] = {
 		"Nimm das, Harpyie!",
 		nil,
-		{ "Tötet die Meisterin des Kaltwinds und 15 Kaltwindharpyien in den Bergen nordwestlich des Düsenrostpostens. Kehrt zu Narf zurück, sobald die Aufgabe erledigt ist.\n\nSprecht mit Xink im Düsenrostposten, falls Ihr seine Schreddersteuerung benötigen solltet.", },
+		{ "Tötet die Meisterin des Kaltwinds und 15 Kaltwindharpyien in den Bergen nordwestlich des Düsenrostpostens. Kehrt zu Narf zurück, sobald die Aufgabe erledigt ist.", "Sprecht mit Xink im Düsenrostposten, falls Ihr seine Schreddersteuerung benötigen solltet.", },
 	},
 	[12053] = {
 		"Die Macht der Horde",
 		nil,
-		{ "Schlachtrufer Juktok in Agmars Hammer in der Drachenöde möchte, dass Ihr die Schlachtstandarte des Kriegshymnenklans in Eisnebel aufstellt und sie gegen alle Angreifer verteidigt.\n\nBringt die Schlachtstandarte des Kriegshymnenklans wieder zurück, wenn Ihr die Aufgabe abgeschlossen habt.", },
+		{ "Schlachtrufer Juktok in Agmars Hammer in der Drachenöde möchte, dass Ihr die Schlachtstandarte des Kriegshymnenklans in Eisnebel aufstellt und sie gegen alle Angreifer verteidigt.", "Bringt die Schlachtstandarte des Kriegshymnenklans wieder zurück, wenn Ihr die Aufgabe abgeschlossen habt.", },
 	},
 	[12054] = {
 		"Das Tagebuch entschlüsseln",
@@ -34240,12 +34240,12 @@ CT.l10nDB.deDE.quest = {
 	[12060] = {
 		"Projektionen und Pläne",
 		nil,
-		{ "Geht zur Projektion auf der Sognadel über den Mondruhgärten, um sie zu untersuchen.\n\nKehrt anschließend mit den Informationen zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
+		{ "Geht zur Projektion auf der Sognadel über den Mondruhgärten, um sie zu untersuchen.", "Kehrt anschließend mit den Informationen zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
 	},
 	[12061] = {
 		"Projektionen und Pläne",
 		nil,
-		{ "Geht zur Projektion auf der Sognadel über den Mondruhgärten, um sie zu untersuchen.\n\nKehrt anschließend mit den Informationen zum Abbild des Erzmagiers Aethas Sonnenhäscher in Agmars Hammer zurück.", },
+		{ "Geht zur Projektion auf der Sognadel über den Mondruhgärten, um sie zu untersuchen.", "Kehrt anschließend mit den Informationen zum Abbild des Erzmagiers Aethas Sonnenhäscher in Agmars Hammer zurück.", },
 	},
 	[12063] = {
 		"Eisnebels Stärke",
@@ -34260,12 +34260,12 @@ CT.l10nDB.deDE.quest = {
 	[12065] = {
 		"Der Fokus am Strand",
 		nil,
-		{ "Beschafft Euch den Steuerungsring des Leylinienfokus und verwendet ihn, um Informationen vom Leylinienfokus am Glimmerstrand zu erhalten.\n\nKehrt anschließend zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
+		{ "Beschafft Euch den Steuerungsring des Leylinienfokus und verwendet ihn, um Informationen vom Leylinienfokus am Glimmerstrand zu erhalten.", "Kehrt anschließend zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
 	},
 	[12066] = {
 		"Der Fokus am Strand",
 		nil,
-		{ "Beschafft Euch den Steuerungsring des Leylinienfokus und verwendet ihn, um Informationen vom Leylinienfokus am Glimmerstrand zu erhalten.\n\nKehrt anschließend zum Abbild des Erzmagiers Aethas Sonnenhäscher bei Agmars Hammer zurück.", },
+		{ "Beschafft Euch den Steuerungsring des Leylinienfokus und verwendet ihn, um Informationen vom Leylinienfokus am Glimmerstrand zu erhalten.", "Kehrt anschließend zum Abbild des Erzmagiers Aethas Sonnenhäscher bei Agmars Hammer zurück.", },
 	},
 	[12067] = {
 		"Ein Brief an Zuhause",
@@ -34280,7 +34280,7 @@ CT.l10nDB.deDE.quest = {
 	[12069] = {
 		"Die Rückkehr des Oberhäuptlings",
 		nil,
-		{ "Befreit Oberanführer Eisnebel mit dem Gefängnisschlüssel von Anub'ar und helft ihm dabei, Unterkönig Anub'et'kan zu besiegen.\n\nNehmt Euch ein Bruchstück aus Anub'et'kans Panzer und bringt es zurück zu Oberanführer Agmar in Agmars Hammer in der Drachenöde.", },
+		{ "Befreit Oberanführer Eisnebel mit dem Gefängnisschlüssel von Anub'ar und helft ihm dabei, Unterkönig Anub'et'kan zu besiegen.", "Nehmt Euch ein Bruchstück aus Anub'et'kans Panzer und bringt es zurück zu Oberanführer Agmar in Agmars Hammer in der Drachenöde.", },
 	},
 	[12070] = {
 		"Neue Kraft für die Truppen",
@@ -34295,7 +34295,7 @@ CT.l10nDB.deDE.quest = {
 	[12072] = {
 		"Verdammt sollen die Seuchenbestien sein!",
 		nil,
-		{ "Geht nach Eisnebel, benutzt Valnoks Leuchtpistole, um einen Kriegsreiter der Kor'kron zu rufen, setzt auf und tötet mit seiner Hilfe 25 Seuchenbestien der Anub'ar!\n\nKehrt anschließend wieder zu Valnok Windzürner in Agmars Hammer zurück, sobald Ihr diese Mission erfüllt habt.", },
+		{ "Geht nach Eisnebel, benutzt Valnoks Leuchtpistole, um einen Kriegsreiter der Kor'kron zu rufen, setzt auf und tötet mit seiner Hilfe 25 Seuchenbestien der Anub'ar!", "Kehrt anschließend wieder zu Valnok Windzürner in Agmars Hammer zurück, sobald Ihr diese Mission erfüllt habt.", },
 	},
 	[12073] = {
 		"Das Eisen bearbeiten",
@@ -34325,7 +34325,7 @@ CT.l10nDB.deDE.quest = {
 	[12078] = {
 		"Wurmcowboy",
 		nil,
-		{ "Betretet die Höhlen in der Kristallschlucht und fangt mithilfe stabiler Kisten 3 Exemplare der Jormungarbrut. Achtet jedoch darauf, dass Ihr die Kisten einsteckt, sobald die Jormungarbrut gefangen ist!\n\nBringt sie dann zu Zort in der Kristallschlucht.", },
+		{ "Betretet die Höhlen in der Kristallschlucht und fangt mithilfe stabiler Kisten 3 Exemplare der Jormungarbrut. Achtet jedoch darauf, dass Ihr die Kisten einsteckt, sobald die Jormungarbrut gefangen ist!", "Bringt sie dann zu Zort in der Kristallschlucht.", },
 	},
 	[12079] = {
 		"Das Revier",
@@ -34335,7 +34335,7 @@ CT.l10nDB.deDE.quest = {
 	[12080] = {
 		"Mächtig großer Wurm",
 		nil,
-		{ "Betretet die Eiskernhöhlen und streckt Rüttelbohrer nieder. Benutzt Zorts schützendes Elixier, falls Ihr es noch besitzen solltet, um Euch vor dem ätzenden Speichel der Jormungar zu schützen.\n\nKehrt zu Ko'char dem Unbezwingbaren in der Kristallschlucht zurück, wenn die Aufgabe abgeschlossen ist.", },
+		{ "Betretet die Eiskernhöhlen und streckt Rüttelbohrer nieder. Benutzt Zorts schützendes Elixier, falls Ihr es noch besitzen solltet, um Euch vor dem ätzenden Speichel der Jormungar zu schützen.", "Kehrt zu Ko'char dem Unbezwingbaren in der Kristallschlucht zurück, wenn die Aufgabe abgeschlossen ist.", },
 	},
 	[12081] = {
 		"Gavrock",
@@ -34350,12 +34350,12 @@ CT.l10nDB.deDE.quest = {
 	[12083] = {
 		"Über dem Waldland",
 		nil,
-		{ "Beschafft Euch das Steuerungsamulett des Leylinienfokus und verwendet es, um Informationen vom Leylinienfokus in den Waldländern von Lothalor zu erhalten.\n\nKehrt anschließend zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
+		{ "Beschafft Euch das Steuerungsamulett des Leylinienfokus und verwendet es, um Informationen vom Leylinienfokus in den Waldländern von Lothalor zu erhalten.", "Kehrt anschließend zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
 	},
 	[12084] = {
 		"Über den Waldländern",
 		nil,
-		{ "Beschafft Euch das Steuerungsamulett des Leylinienfokus und verwendet es, um Informationen vom Leylinienfokus in den Waldländern von Lothalor zu erhalten.\n\nKehrt anschließend zum Abbild des Erzmagiers Aethas Sonnenhäscher bei Agmars Hammer zurück.", },
+		{ "Beschafft Euch das Steuerungsamulett des Leylinienfokus und verwendet es, um Informationen vom Leylinienfokus in den Waldländern von Lothalor zu erhalten.", "Kehrt anschließend zum Abbild des Erzmagiers Aethas Sonnenhäscher bei Agmars Hammer zurück.", },
 	},
 	[12085] = {
 		"Ein Brief an Zuhause",
@@ -34420,7 +34420,7 @@ CT.l10nDB.deDE.quest = {
 	[12097] = {
 		"Sarathstra, Geißel des Nordens",
 		nil,
-		{ "Sprecht mit Rokhan, um den Frostwyrm Sarathstra herbeizurufen.\n\nTötet Sarathstra und liefert Sarathstras gefrorenes Herz bei Hauptmann Gort in Agmars Hammer ab.", },
+		{ "Sprecht mit Rokhan, um den Frostwyrm Sarathstra herbeizurufen.", "Tötet Sarathstra und liefert Sarathstras gefrorenes Herz bei Hauptmann Gort in Agmars Hammer ab.", },
 	},
 	[12098] = {
 		"Durchsucht Indu'le",
@@ -34465,7 +34465,7 @@ CT.l10nDB.deDE.quest = {
 	[12107] = {
 		"Endstation",
 		nil,
-		{ "Benutzt den Steuerungstalisman des Leylinienfokus, um Informationen vom Leylinienfokus unter dem Wasser von Indu'le zu erhalten. Geht anschließend nach Osten zum Azurdrachenschrein, der sich vom Zentrum der Drachenöde aus gesehen weiter südlich befindet, und beobachtet das dortige Vorgehen vom westlichen Felsvorsprung aus.\n\nKehrt danach zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
+		{ "Benutzt den Steuerungstalisman des Leylinienfokus, um Informationen vom Leylinienfokus unter dem Wasser von Indu'le zu erhalten. Geht anschließend nach Osten zum Azurdrachenschrein, der sich vom Zentrum der Drachenöde aus gesehen weiter südlich befindet, und beobachtet das dortige Vorgehen vom westlichen Felsvorsprung aus.", "Kehrt danach zum Abbild der Erzmagierin Modera in Sternenruh zurück.", },
 	},
 	[12108] = {
 		"Mikhails Grab",
@@ -34480,7 +34480,7 @@ CT.l10nDB.deDE.quest = {
 	[12110] = {
 		"Endstation",
 		nil,
-		{ "Benutzt den Steuerungstalisman des Leylinienfokus, um Informationen vom Leylinienfokus unter dem Wasser von Indu'le zu erhalten. Geht anschließend nach Osten zum Azurdrachenschrein, der sich vom Zentrum der Drachenöde aus gesehen weiter südlich befindet, und beobachtet das dortige Vorgehen vom westlichen Felsvorsprung aus.\n\nKehrt danach zum Abbild des Erzmagiers Aethas Sonnenhäscher in Agmars Hammer zurück.", },
+		{ "Benutzt den Steuerungstalisman des Leylinienfokus, um Informationen vom Leylinienfokus unter dem Wasser von Indu'le zu erhalten. Geht anschließend nach Osten zum Azurdrachenschrein, der sich vom Zentrum der Drachenöde aus gesehen weiter südlich befindet, und beobachtet das dortige Vorgehen vom westlichen Felsvorsprung aus.", "Kehrt danach zum Abbild des Erzmagiers Aethas Sonnenhäscher in Agmars Hammer zurück.", },
 	},
 	[12111] = {
 		"Wo die wilden Tiere wohnen",
@@ -34590,7 +34590,7 @@ CT.l10nDB.deDE.quest = {
 	[12132] = {
 		"Die Macht zu Zerstören...",
 		nil,
-		{ "Koltira Todesweber in Agmars Hammer in der Drachenöde möchte, dass Ihr die Welt der Schatten betretet und 6 schattenhafte Peiniger besiegt.\n\nSprecht mit Koltira Todesweber, solltet Ihr die Welt der Schatten wieder betreten müssen.", },
+		{ "Koltira Todesweber in Agmars Hammer in der Drachenöde möchte, dass Ihr die Welt der Schatten betretet und 6 schattenhafte Peiniger besiegt.", "Sprecht mit Koltira Todesweber, solltet Ihr die Welt der Schatten wieder betreten müssen.", },
 	},
 	[12133] = {
 		"Zermatsch den Kürbis",
@@ -34615,7 +34615,7 @@ CT.l10nDB.deDE.quest = {
 	[12137] = {
 		"Ganz ruhig, Mann",
 		nil,
-		{ "Gan'jo möchte, dass Ihr den Schnee des ewigen Schlafes von seiner Kiste in den Ruinen von Drakil'jin nehmt.\n\nIhr müsst den Schnee bei den dortigen uralten Drakkarigeistern einsetzen und anschließend die Partikel der Drakkarigeister zurück zu Kraz in Harkors Lager bringen.", },
+		{ "Gan'jo möchte, dass Ihr den Schnee des ewigen Schlafes von seiner Kiste in den Ruinen von Drakil'jin nehmt.", "Ihr müsst den Schnee bei den dortigen uralten Drakkarigeistern einsetzen und anschließend die Partikel der Drakkarigeister zurück zu Kraz in Harkors Lager bringen.", },
 	},
 	[12138] = {
 		"... oder vielleicht auch nicht",
@@ -34630,7 +34630,7 @@ CT.l10nDB.deDE.quest = {
 	[12140] = {
 		"Ein Hoch auf Roanauk!",
 		nil,
-		{ "Geht nach Agmars Hammer, sucht Roanauk Eisnebel auf und macht ihn zu einem Mitglied und Anführer der Hordestreitkräfte.\n\nKehrt anschließend mit dem Blutschwur der Horde zu Oberanführer Agmar zurück, sobald Ihr diese Aufgabe abgeschlossen habt.", },
+		{ "Geht nach Agmars Hammer, sucht Roanauk Eisnebel auf und macht ihn zu einem Mitglied und Anführer der Hordestreitkräfte.", "Kehrt anschließend mit dem Blutschwur der Horde zu Oberanführer Agmar zurück, sobald Ihr diese Aufgabe abgeschlossen habt.", },
 	},
 	[12141] = {
 		"Eine diplomatische Mission",
@@ -34675,7 +34675,7 @@ CT.l10nDB.deDE.quest = {
 	[12149] = {
 		"Die mächtigen Magnatauren",
 		nil,
-		{ "Bringt Blutschmaus, Eisberster und Drachenblut, die sich östlich des Wyrmruhtempels befinden, zur Strecke.\n\nBlutschmaus wohnt im südöstlichen Bereich der Dracheneiswüste, gleich nördlich des Smaragddrachenschreins. Eisberster patrouilliert an der nördlichen Grenze des Spiegels der Morgenröte. Drachenblut wandert am Fuße der Klippen westlich des Bronzedrachenschreins umher.\n\nKehrt zu Aurastrasza im Wyrmruhtempel zurück, sobald Ihr die Magnatauren erschlagen habt.", },
+		{ "Bringt Blutschmaus, Eisberster und Drachenblut, die sich östlich des Wyrmruhtempels befinden, zur Strecke.", "Blutschmaus wohnt im südöstlichen Bereich der Dracheneiswüste, gleich nördlich des Smaragddrachenschreins. Eisberster patrouilliert an der nördlichen Grenze des Spiegels der Morgenröte. Drachenblut wandert am Fuße der Klippen westlich des Bronzedrachenschreins umher.", "Kehrt zu Aurastrasza im Wyrmruhtempel zurück, sobald Ihr die Magnatauren erschlagen habt.", },
 	},
 	[12150] = {
 		"Der zurückgezogene Runenmeister",
@@ -35109,7 +35109,7 @@ CT.l10nDB.deDE.quest = {
 	[12243] = {
 		"Feuer auf dem Wasser",
 		nil,
-		{ "Apothekerin Vicky Levine in Gallgrimm möchte, dass Ihr mithilfe des Feuerwassers des Apothekers die Segel der Sündenbabel in Brand steckt.\n\nGeht unter Deck, während die Deckmatrosen damit beschäftigt sind, das Feuer zu löschen, und sucht nach Kapitän Shelys Seekarten.", },
+		{ "Apothekerin Vicky Levine in Gallgrimm möchte, dass Ihr mithilfe des Feuerwassers des Apothekers die Segel der Sündenbabel in Brand steckt.", "Geht unter Deck, während die Deckmatrosen damit beschäftigt sind, das Feuer zu löschen, und sucht nach Kapitän Shelys Seekarten.", },
 	},
 	[12244] = {
 		"Schredder reparieren",
@@ -35119,7 +35119,7 @@ CT.l10nDB.deDE.quest = {
 	[12245] = {
 		"Keine Gnade für Gefangene",
 		nil,
-		{ "Spionagemeisterin Repine hat Euch gebeten, Todeswache Schneider, Chefschreiber Kinnedius, Ingenieur Hindermann und Kanzler Amai zu töten.\n\nFalls Ihr Erfolg habt, berichtet Hochexekutor Zürner in Gallgrimm davon.", },
+		{ "Spionagemeisterin Repine hat Euch gebeten, Todeswache Schneider, Chefschreiber Kinnedius, Ingenieur Hindermann und Kanzler Amai zu töten.", "Falls Ihr Erfolg habt, berichtet Hochexekutor Zürner in Gallgrimm davon.", },
 	},
 	[12246] = {
 		"Eine mögliche Verbindung",
@@ -35259,7 +35259,7 @@ CT.l10nDB.deDE.quest = {
 	[12273] = {
 		"Die Verleumdung",
 		nil,
-		{ "Hochexekutor Zürner in Gallgrimm hat Euch damit beauftragt, den Stab des Zwangs auf Kommandant Jordan, Kanonierführer Zierhut, Schmied Gutmann und Stallmeister Mercer anzuwenden.\n\nTötet sie, sobald Ihr den Stab verwendet habt, um ihnen als letzte Worte die Verleumdung des Scharlachroten Ansturms abzuverlangen.", },
+		{ "Hochexekutor Zürner in Gallgrimm hat Euch damit beauftragt, den Stab des Zwangs auf Kommandant Jordan, Kanonierführer Zierhut, Schmied Gutmann und Stallmeister Mercer anzuwenden.", "Tötet sie, sobald Ihr den Stab verwendet habt, um ihnen als letzte Worte die Verleumdung des Scharlachroten Ansturms abzuverlangen.", },
 	},
 	[12274] = {
 		"In Ungnade fallen",
@@ -35794,7 +35794,7 @@ CT.l10nDB.deDE.quest = {
 	[12416] = {
 		"Im Eifer des Gefechts",
 		nil,
-		{ "Unterstützt Hauptmann Drayzen, die Schluchten zu halten. Tötet 12 eisige Ghulangreifer, 8 eisige Spukangreifer und 1 eisigen Monstrositätenangreifer.\n\nKehrt zu Ceristrasz zurück, sobald die Aufgabe abgeschlossen ist.", },
+		{ "Unterstützt Hauptmann Drayzen, die Schluchten zu halten. Tötet 12 eisige Ghulangreifer, 8 eisige Spukangreifer und 1 eisigen Monstrositätenangreifer.", "Kehrt zu Ceristrasz zurück, sobald die Aufgabe abgeschlossen ist.", },
 	},
 	[12417] = {
 		"Der Erde übergeben",
@@ -35872,7 +35872,7 @@ CT.l10nDB.deDE.quest = {
 	[12432] = {
 		"Ritt auf der roten Rakete",
 		nil,
-		{ "General Gorlok im Leuchtturm in der Venturebucht möchte, dass Ihr den Holzfrachter der Allianz zerstört.\n\nGeneral Gorlok befindet sich nur dann im Leuchtturm, wenn sich dieser in Besitz der Horde befindet.", },
+		{ "General Gorlok im Leuchtturm in der Venturebucht möchte, dass Ihr den Holzfrachter der Allianz zerstört.", "General Gorlok befindet sich nur dann im Leuchtturm, wenn sich dieser in Besitz der Horde befindet.", },
 	},
 	[12433] = {
 		"Auf der Suche nach Lösungsmittel",
@@ -35895,7 +35895,7 @@ CT.l10nDB.deDE.quest = {
 	[12437] = {
 		"Ritt auf der roten Rakete",
 		nil,
-		{ "Kommandant Hauser im Leuchtturm in der Venturebucht möchte, dass Ihr den Holzfrachter der Horde zerstört.\n\nKommandant Hauser befindet sich nur dann im Leuchtturm, wenn sich dieser im Besitz der Allianz befindet.", },
+		{ "Kommandant Hauser im Leuchtturm in der Venturebucht möchte, dass Ihr den Holzfrachter der Horde zerstört.", "Kommandant Hauser befindet sich nur dann im Leuchtturm, wenn sich dieser im Besitz der Allianz befindet.", },
 	},
 	[12438] = {
 		"GESUCHT: Kreug Eidbrecher",
@@ -35943,7 +35943,7 @@ CT.l10nDB.deDE.quest = {
 	[12448] = {
 		"In der Hitze des Gefechts",
 		nil,
-		{ "Unterstützt Hauptmann Drayzen, die Canyons zu halten. Tötet 12 eisige Ghulangreifer, 8 eisige Spukangreifer und 1 eisigen Monstrositätenangreifer.\n\nKehrt zu Vargastrasz zurück, sobald die Aufgabe abgeschlossen ist.", },
+		{ "Unterstützt Hauptmann Drayzen, die Canyons zu halten. Tötet 12 eisige Ghulangreifer, 8 eisige Spukangreifer und 1 eisigen Monstrositätenangreifer.", "Kehrt zu Vargastrasz zurück, sobald die Aufgabe abgeschlossen ist.", },
 	},
 	[12449] = {
 		"Zur Erde zurückkehren",
@@ -36053,7 +36053,7 @@ CT.l10nDB.deDE.quest = {
 	[12470] = {
 		"Mysterium der Unendlichkeit",
 		nil,
-		{ "Chromie auf der Spitze des Wyrmruhtempels möchte, dass Ihr zum Bronzedrachenschrein reist. Stellt das Stundenglas der Ewigkeit dort im Inneren des Schreins auf den Boden.\n\nBeschützt das Stundenglas so lange wie nötig und kehrt anschließend mit den erhaltenen Informationen zu Chromie zurück.", },
+		{ "Chromie auf der Spitze des Wyrmruhtempels möchte, dass Ihr zum Bronzedrachenschrein reist. Stellt das Stundenglas der Ewigkeit dort im Inneren des Schreins auf den Boden.", "Beschützt das Stundenglas so lange wie nötig und kehrt anschließend mit den erhaltenen Informationen zu Chromie zurück.", },
 	},
 	[12471] = {
 		"Grausamkeiten der Kvaldir",
@@ -36188,7 +36188,7 @@ CT.l10nDB.deDE.quest = {
 	[12501] = {
 		"Trollpatrouille",
 		nil,
-		{ "Kommandant Kunz von der Argentumwache möchte, dass Ihr die vier Posten des Argentumkreuzzugs besucht, die Befehle der dortigen Hauptmänner ausführt und anschließend zurückkehrt und Bericht erstattet.\n\nHauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel findet Ihr in Drak'Agal und Alchemist Finkelstein am Posten von Heb'Valok.", },
+		{ "Kommandant Kunz von der Argentumwache möchte, dass Ihr die vier Posten des Argentumkreuzzugs besucht, die Befehle der dortigen Hauptmänner ausführt und anschließend zurückkehrt und Bericht erstattet.", "Hauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel findet Ihr in Drak'Agal und Alchemist Finkelstein am Posten von Heb'Valok.", },
 	},
 	[12502] = {
 		"Trollpatrouille: Standarten hoch",
@@ -36318,32 +36318,32 @@ CT.l10nDB.deDE.quest = {
 	[12529] = {
 		"Der Sklave der Affenjäger",
 		nil,
-		{ "Tötet für Hochschamanen Rakjak in den Hügeln der Wildherzen 8 Hartknöchelfutterwühler und 6 Hartknöchelstürmer.\n\nSprecht mit dem Ältesten Harkek im Hügel der Wildherzen, falls Ihr Goregeks Fesseln verlieren solltet.", },
+		{ "Tötet für Hochschamanen Rakjak in den Hügeln der Wildherzen 8 Hartknöchelfutterwühler und 6 Hartknöchelstürmer.", "Sprecht mit dem Ältesten Harkek im Hügel der Wildherzen, falls Ihr Goregeks Fesseln verlieren solltet.", },
 	},
 	[12530] = {
 		"Knöchelchen schikanieren",
 		nil,
-		{ "Goregek hat Euch einen Knöchelchenpiekser gegeben, den Ihr auf die kleinen Knöchelchen anwenden sollt, um so die Hartknöchelmatriachin aus ihrem Versteck zu locken. Tötet die Hartknöchelmatriachin und erstattet anschließend dem Hochschamanen Rakjak auf dem Hügel der Wildherzen Bericht.\n\nSolltet Ihr Goregeks Fesseln verlieren, sprecht mit dem Ältesten Harkek vom Hügel der Wildherzen.", },
+		{ "Goregek hat Euch einen Knöchelchenpiekser gegeben, den Ihr auf die kleinen Knöchelchen anwenden sollt, um so die Hartknöchelmatriachin aus ihrem Versteck zu locken. Tötet die Hartknöchelmatriachin und erstattet anschließend dem Hochschamanen Rakjak auf dem Hügel der Wildherzen Bericht.", "Solltet Ihr Goregeks Fesseln verlieren, sprecht mit dem Ältesten Harkek vom Hügel der Wildherzen.", },
 	},
 	[12531] = {
 		"Bedrohung aus dem Untergrund",
 		nil,
-		{ "Findet Serfex unter dem Sand des südlichen Flusses, tötet ihn und bringt seine Klaue zu Hochschamane Rakjak auf dem Hügel der Wildherzen.\n\nWenn Ihr Dajiks gebrauchte Kreide verliert, sprecht mit Ältesten Harkek auf dem Hügel der Wildherzen.", },
+		{ "Findet Serfex unter dem Sand des südlichen Flusses, tötet ihn und bringt seine Klaue zu Hochschamane Rakjak auf dem Hügel der Wildherzen.", "Wenn Ihr Dajiks gebrauchte Kreide verliert, sprecht mit Ältesten Harkek auf dem Hügel der Wildherzen.", },
 	},
 	[12532] = {
 		"Aus dem Staub gemacht!",
 		nil,
-		{ "Fangt für den Ältesten Harkek 12 entflohene Hühner.\n\nSolltet Ihr Dajiks gebrauchte Kreide verlieren, sprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen.", },
+		{ "Fangt für den Ältesten Harkek 12 entflohene Hühner.", "Solltet Ihr Dajiks gebrauchte Kreide verlieren, sprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen.", },
 	},
 	[12533] = {
 		"Der Lehrling des Wespenjägers",
 		nil,
-		{ "Tötet für Hochschamanen Rakjak auf dem Hügel der Wildherzen 6 Saphirblaue Schwarmwespen und 9 Saphirblaue Schwarmdronen.\n\nSprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen, falls Ihr Dajiks gebrauchte Kreide verlieren solltet.", },
+		{ "Tötet für Hochschamanen Rakjak auf dem Hügel der Wildherzen 6 Saphirblaue Schwarmwespen und 9 Saphirblaue Schwarmdronen.", "Sprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen, falls Ihr Dajiks gebrauchte Kreide verlieren solltet.", },
 	},
 	[12534] = {
 		"Die Saphirkönigin",
 		nil,
-		{ "Bringt den Stachel der Saphirkönigin zu Hochschamane Rakjak auf dem Hügel der Wildherzen.\n\nWenn Ihr Dajiks gebrauchte Kreide verliert, wendet Euch an Ältesten Harkek auf dem Hügel der Wildherzen.", },
+		{ "Bringt den Stachel der Saphirkönigin zu Hochschamane Rakjak auf dem Hügel der Wildherzen.", "Wenn Ihr Dajiks gebrauchte Kreide verliert, wendet Euch an Ältesten Harkek auf dem Hügel der Wildherzen.", },
 	},
 	[12535] = {
 		"Unfug im Gange",
@@ -36353,17 +36353,17 @@ CT.l10nDB.deDE.quest = {
 	[12536] = {
 		"Ein holpriger Ritt",
 		nil,
-		{ "Reitet auf dem gefangenen Krokilisken zur Zuflucht der Nebelflüsterer und fragt Zepik nach weiteren Anweisungen.\n\nSprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen, falls Ihr Zepiks Jagdhorn verlieren solltet.", },
+		{ "Reitet auf dem gefangenen Krokilisken zur Zuflucht der Nebelflüsterer und fragt Zepik nach weiteren Anweisungen.", "Sprecht mit dem Ältesten Harkek auf dem Hügel der Wildherzen, falls Ihr Zepiks Jagdhorn verlieren solltet.", },
 	},
 	[12537] = {
 		"Der Blitz schlägt immer zwei Mal ein",
 		nil,
-		{ "Zepik möchte, dass Ihr vor dem Wetterschrein der Nebelflüsterer die Himmelszeltkristallformation zertrümmert.\n\nFalls Ihr Zepiks Jagdhorn verlieren solltet, dann sprecht mit dem Ältesten Harkek auf den Hügeln der Wildherzen.", },
+		{ "Zepik möchte, dass Ihr vor dem Wetterschrein der Nebelflüsterer die Himmelszeltkristallformation zertrümmert.", "Falls Ihr Zepiks Jagdhorn verlieren solltet, dann sprecht mit dem Ältesten Harkek auf den Hügeln der Wildherzen.", },
 	},
 	[12538] = {
 		"Der Nebel hört nicht zu",
 		nil,
-		{ "Zepik möchte, dass Ihr 12 Gorlocs der Nebelflüsterer tötet.\n\nSprecht mit dem Ältesten Harkek vom Hügel der Wildherzen, falls Ihr Zepiks Jagdhorn verlieren solltet.", },
+		{ "Zepik möchte, dass Ihr 12 Gorlocs der Nebelflüsterer tötet.", "Sprecht mit dem Ältesten Harkek vom Hügel der Wildherzen, falls Ihr Zepiks Jagdhorn verlieren solltet.", },
 	},
 	[12539] = {
 		"Und raus hier",
@@ -36378,7 +36378,7 @@ CT.l10nDB.deDE.quest = {
 	[12541] = {
 		"Trollpatrouille: Der Lehrling des Alchemisten",
 		nil,
-		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.\n\nSprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
+		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.", "Sprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
 	},
 	[12542] = {
 		"Der Ruf des Kreuzzugs",
@@ -36403,7 +36403,7 @@ CT.l10nDB.deDE.quest = {
 	[12546] = {
 		"Wiedergewinnung",
 		nil,
-		{ "Geht zur Lawine im Sholazarbecken und verwendet die Omegarune, um den Etymidian zu aktivieren. Tötet mit ihm 200 Diener der Geißel, Bythius den Fleischformer, Urgreth von den Tausend Gräbern und Hagel'skorn.\n\nSprecht mit dem Avatar von Freya im Sholazarbecken, sobald Ihr diese Aufgabe abgeschlossen habt.", },
+		{ "Geht zur Lawine im Sholazarbecken und verwendet die Omegarune, um den Etymidian zu aktivieren. Tötet mit ihm 200 Diener der Geißel, Bythius den Fleischformer, Urgreth von den Tausend Gräbern und Hagel'skorn.", "Sprecht mit dem Avatar von Freya im Sholazarbecken, sobald Ihr diese Aufgabe abgeschlossen habt.", },
 	},
 	[12547] = {
 		"Die Aktivierungsrune",
@@ -36488,7 +36488,7 @@ CT.l10nDB.deDE.quest = {
 	[12563] = {
 		"Trollpatrouille",
 		nil,
-		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.\n\nHauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel in Drak'Agal und Alchemist Finkelstein in Heb'Valok.", },
+		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.", "Hauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel in Drak'Agal und Alchemist Finkelstein in Heb'Valok.", },
 	},
 	[12565] = {
 		"Der Segen von Zim'Abwa",
@@ -36516,32 +36516,32 @@ CT.l10nDB.deDE.quest = {
 	[12571] = {
 		"Mach böse Schlangen fort",
 		nil,
-		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr Giftspitze und 10 Kaiserkobras tötet.\n\nWenn Ihr Lafoos Käfertasche verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr Giftspitze und 10 Kaiserkobras tötet.", "Wenn Ihr Lafoos Käfertasche verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12572] = {
 		"Götter wollen Glitzerglitzer",
 		nil,
-		{ "Sammelt 6 von den Schätzen, die Lafoo ausgräbt, und bringt sie zum Hochorakel Soo-say auf dem Baldachin der Regenrufer.\n\nSprecht mit dem Hochorakel Soo-say auf dem Baldachin der Regenrufer, falls Ihr Lafoos Käfertasche verlieren solltet.", },
+		{ "Sammelt 6 von den Schätzen, die Lafoo ausgräbt, und bringt sie zum Hochorakel Soo-say auf dem Baldachin der Regenrufer.", "Sprecht mit dem Hochorakel Soo-say auf dem Baldachin der Regenrufer, falls Ihr Lafoos Käfertasche verlieren solltet.", },
 	},
 	[12573] = {
 		"Frieden schließen",
 		nil,
-		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr Schamanen Vekjik ein Friedensangebot unterbreitet und anschließend mit seiner Antwort wieder zurückkehrt.\n\nSprecht mit dem Hochorakel Soo-say im Baldachin der Regenrufer, falls Ihr Lafoos Käfertasche verlieren solltet.", },
+		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr Schamanen Vekjik ein Friedensangebot unterbreitet und anschließend mit seiner Antwort wieder zurückkehrt.", "Sprecht mit dem Hochorakel Soo-say im Baldachin der Regenrufer, falls Ihr Lafoos Käfertasche verlieren solltet.", },
 	},
 	[12574] = {
 		"Schon zurück?",
 		nil,
-		{ "Reist zur Zuflucht der Nebelflüsterer und sprecht mit Nebelrufer Soo-gan.\n\nWenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Reist zur Zuflucht der Nebelflüsterer und sprecht mit Nebelrufer Soo-gan.", "Wenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12575] = {
 		"Der verlorene Schatz der Nebelflüsterer",
 		nil,
-		{ "Tötet Kriegsfürst Tartek und bringt den Schatz der Nebelflüsterer für Soo-gan in der Zuflucht der Nebelflüsterer zurück.\n\nWenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Tötet Kriegsfürst Tartek und bringt den Schatz der Nebelflüsterer für Soo-gan in der Zuflucht der Nebelflüsterer zurück.", "Wenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12576] = {
 		"Mit harter Hand",
 		nil,
-		{ "Tötet 8 Speerträger der Wildherzen und 6 Strauchdiebe der Wildherzen für Nebelrufer Soo-gan in der Zuflucht der Nebelflüsterer.\n\nWenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Tötet 8 Speerträger der Wildherzen und 6 Strauchdiebe der Wildherzen für Nebelrufer Soo-gan in der Zuflucht der Nebelflüsterer.", "Wenn Ihr Jaloots Lieblingskristall verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12577] = {
 		"Hausezeit!",
@@ -36551,22 +36551,22 @@ CT.l10nDB.deDE.quest = {
 	[12578] = {
 		"Der wütende Gorloc",
 		nil,
-		{ "Reist ins Mooswandlerdorf und sprecht gleich nach Eurer Ankunft mit Moodle.\n\nWenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Reist ins Mooswandlerdorf und sprecht gleich nach Eurer Ankunft mit Moodle.", "Wenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12579] = {
 		"Lebensblut des Mooswandlerschreins",
 		nil,
-		{ "Moodle möchte, dass Ihr 10 Lebensblutscherben sammelt, aber haltet Euch von der Höhle innerhalb der Säule selbst fern.\n\nWenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Moodle möchte, dass Ihr 10 Lebensblutscherben sammelt, aber haltet Euch von der Höhle innerhalb der Säule selbst fern.", "Wenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12580] = {
 		"Retter der Mooswandler",
 		nil,
-		{ "Moodle möchte, dass Ihr 6 Mooswandleropfer im Mooswandlerdorf rettet, obwohl manche von ihnen vielleicht bereits nicht mehr länger leben.\n\nWenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
+		{ "Moodle möchte, dass Ihr 6 Mooswandleropfer im Mooswandlerdorf rettet, obwohl manche von ihnen vielleicht bereits nicht mehr länger leben.", "Wenn Ihr Moodles Stressball verliert, wendet Euch an das Hochorakel Soo-say im Baldachin der Regenrufer.", },
 	},
 	[12581] = {
 		"Bürde eines Helden",
 		nil,
-		{ "Tötet Artruis den Herzlosen.\n\nDa Moodle Euch bei dieser Aufgabe nicht begleiten kann, wird empfohlen, zur Sicherheit auf die Hilfe von Freunden zurückzugreifen.", },
+		{ "Tötet Artruis den Herzlosen.", "Da Moodle Euch bei dieser Aufgabe nicht begleiten kann, wird empfohlen, zur Sicherheit auf die Hilfe von Freunden zurückzugreifen.", },
 	},
 	[12582] = {
 		"Champion der Wildherzen",
@@ -36589,7 +36589,7 @@ CT.l10nDB.deDE.quest = {
 	[12587] = {
 		"Trollpatrouille",
 		nil,
-		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.\n\nHauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel in Drak'Agal und Alchemist Finkelstein in Heb'Valok.", },
+		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.", "Hauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra stationiert, Hauptmann Grondel in Drak'Agal und Alchemist Finkelstein in Heb'Valok.", },
 	},
 	[12588] = {
 		"Trollpatrouille: Könnt Ihrs aushalten?",
@@ -36632,7 +36632,7 @@ CT.l10nDB.deDE.quest = {
 	[12596] = {
 		"Pa'trollieren",
 		nil,
-		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.\n\nHauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra südöstlich von hier stationiert.\n\nHauptmann Grondel ist in Drak'Agal gleich im Osten stationiert.\n\nAlchemist Finkelstein ist in Heb'Valok im Norden stationiert.", },
+		{ "Kommandant Kunz in der Argentumwache möchte, dass Ihr die vier Stützpunkte des Argentumkreuzzugs besucht, den Befehlen der dortigen Anführer gehorcht und anschließend bei ihm Bericht erstattet.", "Hauptmann Brandon und Hauptmann Rupert sind in Drak'Sotra südöstlich von hier stationiert.", "Hauptmann Grondel ist in Drak'Agal gleich im Osten stationiert.", "Alchemist Finkelstein ist in Heb'Valok im Norden stationiert.", },
 	},
 	[12597] = {
 		"Etwas gegen die Schmerzen",
@@ -36652,12 +36652,12 @@ CT.l10nDB.deDE.quest = {
 	[12601] = {
 		"Der Lehrling des Alchemisten",
 		nil,
-		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.\n\nSprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
+		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.", "Sprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
 	},
 	[12602] = {
 		"Der Lehrling des Alchemisten",
 		nil,
-		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.\n\nSprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
+		{ "Alchemist Finkelstein in Heb'Valok möchte, dass Ihr ihm bei der Herstellung eines Wahrheitsserums helft.", "Sprecht ihn an und folgt seinen Anweisungen, sobald Ihr bereit seid.", },
 	},
 	[12603] = {
 		"Klauen schärfen",
@@ -36738,7 +36738,7 @@ CT.l10nDB.deDE.quest = {
 	[12619] = {
 		"Die verzierte Runenklinge",
 		nil,
-		{ "Geht zu den Waffenregalen in der Schwarzen Festung und sucht nach einem kampferprobten Schwert. Verwandelt es anschließend in einer Runenschmiede zu einem Runenklingenschwert.\n\nBringt das Runenklingenschwert danach zu Instrukteur Razuvious in der Schwarzen Festung.", },
+		{ "Geht zu den Waffenregalen in der Schwarzen Festung und sucht nach einem kampferprobten Schwert. Verwandelt es anschließend in einer Runenschmiede zu einem Runenklingenschwert.", "Bringt das Runenklingenschwert danach zu Instrukteur Razuvious in der Schwarzen Festung.", },
 	},
 	[12620] = {
 		"Der Zorn der Lebenswächterin",
@@ -36788,7 +36788,7 @@ CT.l10nDB.deDE.quest = {
 	[12630] = {
 		"Narsch treten und Haare krümmen",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe von Narsch 10 Haarproben von den siechenden Trollen sammelt.\n\nKehrt zu Stefan zurück, falls Ihr Narsch verlieren solltet, damit er ihn für Euch zurückbekommt.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe von Narsch 10 Haarproben von den siechenden Trollen sammelt.", "Kehrt zu Stefan zurück, falls Ihr Narsch verlieren solltet, damit er ihn für Euch zurückbekommt.", },
 	},
 	[12631] = {
 		"Eine Art Einladung...",
@@ -36843,7 +36843,7 @@ CT.l10nDB.deDE.quest = {
 	[12641] = {
 		"Tod kommt von ganz oben",
 		nil,
-		{ "Der Lichkönig befiehlt Euch, mithilfe des Auges von Acherus die Scharlachrote Festung, die Schmiede von Neu-Avalon, das Rathaus von Neu-Avalon und die Kapelle der Scharlachroten Flamme zu analysieren.\n\nDas Auge von Acherus lässt sich mithilfe der Steuerung für das Auge von Acherus kontrollieren.", },
+		{ "Der Lichkönig befiehlt Euch, mithilfe des Auges von Acherus die Scharlachrote Festung, die Schmiede von Neu-Avalon, das Rathaus von Neu-Avalon und die Kapelle der Scharlachroten Flamme zu analysieren.", "Das Auge von Acherus lässt sich mithilfe der Steuerung für das Auge von Acherus kontrollieren.", },
 	},
 	[12642] = {
 		"Der Geist von Rhunok",
@@ -36873,17 +36873,17 @@ CT.l10nDB.deDE.quest = {
 	[12647] = {
 		"Dem Leid ein Ende bereiten",
 		nil,
-		{ "Der Geist von Rhunok möchte, dass Ihr das Rauchwerk des Foltermeisters dazu einsetzt, um seinen Körper zu erwecken. Danach sollt Ihr Rhunok mithilfe der Macht, die sein Geist Euch verliehen hat, töten.\n\nFalls aus irgendeinem Grund die Aura für das Mojo von Rhunok von Euch weichen sollte, dann könnt Ihr zum Geist von Rhunok zurückkehren und Euch wieder segnen lassen.", },
+		{ "Der Geist von Rhunok möchte, dass Ihr das Rauchwerk des Foltermeisters dazu einsetzt, um seinen Körper zu erwecken. Danach sollt Ihr Rhunok mithilfe der Macht, die sein Geist Euch verliehen hat, töten.", "Falls aus irgendeinem Grund die Aura für das Mojo von Rhunok von Euch weichen sollte, dann könnt Ihr zum Geist von Rhunok zurückkehren und Euch wieder segnen lassen.", },
 	},
 	[12648] = {
 		"Leger kleiden",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe des bezauberten Halsreifs die Geißelverkleidung auf Euch anwendet.\n\nWährend Ihr in Geißelgestalt seid, sollt Ihr bitteres Plasma von Knorpelsack kaufen.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe des bezauberten Halsreifs die Geißelverkleidung auf Euch anwendet.", "Während Ihr in Geißelgestalt seid, sollt Ihr bitteres Plasma von Knorpelsack kaufen.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
 	},
 	[12649] = {
 		"Anziehen!",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe des bezauberten Halsreifs die Geißelverkleidung auf Euch anwendet.\n\nWährend Ihr in Geißelgestalt seid, sollt Ihr bitteres Plasma von Knorpelsack kaufen.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr mithilfe des bezauberten Halsreifs die Geißelverkleidung auf Euch anwendet.", "Während Ihr in Geißelgestalt seid, sollt Ihr bitteres Plasma von Knorpelsack kaufen.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
 	},
 	[12650] = {
 		"Eigene Artefakte plündern",
@@ -36921,7 +36921,7 @@ CT.l10nDB.deDE.quest = {
 	[12657] = {
 		"Die Macht der Geißel",
 		nil,
-		{ "Der Lichkönig gebietet Euch, seine Befehle zu Hochlord Darion Mograine in der Schwarzen Festung zu bringen.\n\nBenutzt den leuchtenden Transporter, der sich hinter dem Lichkönig befindet, um zu Hochlord Darion Mograine in die Hallen des Befehls zu gelangen.", },
+		{ "Der Lichkönig gebietet Euch, seine Befehle zu Hochlord Darion Mograine in der Schwarzen Festung zu bringen.", "Benutzt den leuchtenden Transporter, der sich hinter dem Lichkönig befindet, um zu Hochlord Darion Mograine in die Hallen des Befehls zu gelangen.", },
 	},
 	[12658] = {
 		"Mein Kuschelroc",
@@ -36931,7 +36931,7 @@ CT.l10nDB.deDE.quest = {
 	[12659] = {
 		"Skalpe!",
 		nil,
-		{ "Skalpierer Ahunae in Zim'Torga möchte, dass Ihr Ahunaes Messer benutzt, um 10 Heb'Drakkar Trolle zu skalpieren.\n\nDer Skalpierer erinnert Euch daran, sie zuerst auszuplündern.", },
+		{ "Skalpierer Ahunae in Zim'Torga möchte, dass Ihr Ahunaes Messer benutzt, um 10 Heb'Drakkar Trolle zu skalpieren.", "Der Skalpierer erinnert Euch daran, sie zuerst auszuplündern.", },
 	},
 	[12660] = {
 		"Vernichtungswaffen",
@@ -36941,7 +36941,7 @@ CT.l10nDB.deDE.quest = {
 	[12661] = {
 		"Als Spion nach Voltarus",
 		nil,
-		{ "Stefan möchte, dass Ihr Euren bezauberten Halsreif benutzt, um Euch in Voltarus einzuschleichen und dort alles zu tun, was der Anführer der Geißel von Euch verlangt.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und besorgt Euch einen neuen.", },
+		{ "Stefan möchte, dass Ihr Euren bezauberten Halsreif benutzt, um Euch in Voltarus einzuschleichen und dort alles zu tun, was der Anführer der Geißel von Euch verlangt.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und besorgt Euch einen neuen.", },
 	},
 	[12662] = {
 		"Heb'Jin erledigen",
@@ -36956,7 +36956,7 @@ CT.l10nDB.deDE.quest = {
 	[12665] = {
 		"Ich spüre eine Erschütterung",
 		nil,
-		{ "Har'koa hat Euch gebeten, herauszufinden, was mit Quetz'lun geschehen ist. Sprecht mit ihr, um heimlich auf einem ihrer Kinder zum Altar von Quetz'lun zu reiten.\n\nKehrt zu ihr am Altar von Har'koa zurück, sobald Ihr die Aufgabe erfüllt habt.", },
+		{ "Har'koa hat Euch gebeten, herauszufinden, was mit Quetz'lun geschehen ist. Sprecht mit ihr, um heimlich auf einem ihrer Kinder zum Altar von Quetz'lun zu reiten.", "Kehrt zu ihr am Altar von Har'koa zurück, sobald Ihr die Aufgabe erfüllt habt.", },
 	},
 	[12666] = {
 		"Vorbereitungen für die Unterwelt",
@@ -36971,12 +36971,12 @@ CT.l10nDB.deDE.quest = {
 	[12668] = {
 		"Den Weg zur Rache ebnen",
 		nil,
-		{ "Quetz'luns Geist am Altar von Quetz'lun hat Euch damit beauftragt, in der Nähe ihrer Seelenbrunnen 12 Trolle zu töten. Diese können entweder Anbeter von Quetz'lun oder schlangengebissene Berserker sein.\n\nKehrt erst dann wieder zu ihr zurück, wenn Ihr Eure Aufgabe erfüllt habt.", },
+		{ "Quetz'luns Geist am Altar von Quetz'lun hat Euch damit beauftragt, in der Nähe ihrer Seelenbrunnen 12 Trolle zu töten. Diese können entweder Anbeter von Quetz'lun oder schlangengebissene Berserker sein.", "Kehrt erst dann wieder zu ihr zurück, wenn Ihr Eure Aufgabe erfüllt habt.", },
 	},
 	[12669] = {
 		"So weit, so schlecht",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr zu Drakuru zurückkehrt und alles tut, was er von Euch verlangt.\n\nWährend Ihr beim Reliquiar des Schmerzes seid, sollt Ihr die Verdünnungslösung in 5 Seuchenkessel schütten.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr zu Drakuru zurückkehrt und alles tut, was er von Euch verlangt.", "Während Ihr beim Reliquiar des Schmerzes seid, sollt Ihr die Verdünnungslösung in 5 Seuchenkessel schütten.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
 	},
 	[12670] = {
 		"Die Scharlachrote Ernte",
@@ -37011,12 +37011,12 @@ CT.l10nDB.deDE.quest = {
 	[12676] = {
 		"Sabotage",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr eine weitere Aufgabe für Drakuru erledigt.\n\nZusätzlich dazu müsst Ihr an 5 Geißelwagen im Reliquiar des Schmerzes Sprengladungen anbringen.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr eine weitere Aufgabe für Drakuru erledigt.", "Zusätzlich dazu müsst Ihr an 5 Geißelwagen im Reliquiar des Schmerzes Sprengladungen anbringen.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
 	},
 	[12677] = {
 		"Gefährliche Materialien",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr nach Voltarus geht und all das erledigt, was Drakuru Euch aufgibt. Während Ihr dort seid, sollt Ihr 5 geerntete Seuchenkristalle stehlen.\n\nKehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr nach Voltarus geht und all das erledigt, was Drakuru Euch aufgibt. Während Ihr dort seid, sollt Ihr 5 geerntete Seuchenkristalle stehlen.", "Kehrt zu Stefan in der Schwarzen Wacht zurück, falls Ihr Euren bezauberten Halsreif verlieren solltet, und Ihr werdet Ersatz bekommen.", },
 	},
 	[12678] = {
 		"Leid wird vom Chaos getrieben",
@@ -37064,7 +37064,7 @@ CT.l10nDB.deDE.quest = {
 	[12687] = {
 		"Ins Reich des Schattens",
 		nil,
-		{ "Salanar der Reiter auf der Todesanhöhe hat Euch dazu herausgefordert, einen dunklen Reiter von Acherus zu erschlagen und sein Todesstreitross von Acherus in Eure Gewalt zu bringen.\n\nBringt das Todesstreitross von Acherus auf die Todesanhöhe und lasst den Ruf des Reiters ertönen, um Salanar herbeizurufen.", },
+		{ "Salanar der Reiter auf der Todesanhöhe hat Euch dazu herausgefordert, einen dunklen Reiter von Acherus zu erschlagen und sein Todesstreitross von Acherus in Eure Gewalt zu bringen.", "Bringt das Todesstreitross von Acherus auf die Todesanhöhe und lasst den Ruf des Reiters ertönen, um Salanar herbeizurufen.", },
 	},
 	[12688] = {
 		"Ein Desaster konstruieren",
@@ -37077,7 +37077,7 @@ CT.l10nDB.deDE.quest = {
 	[12690] = {
 		"Brennstoff",
 		nil,
-		{ "Drakuru in Voltarus möchte, dass Ihr das Szepter des Befehls auf die aufgeblähten Monstrositäten anwendet und dann ihre Fähigkeiten dazu einsetzt, um 60 Schädelberster der Drakkari zu töten und 3 Häuptlinge der Drakkari hervorzulocken.\n\nDie Häuptlinge tauchen erst dann auf, wenn genug Schädelberster getötet wurden.", },
+		{ "Drakuru in Voltarus möchte, dass Ihr das Szepter des Befehls auf die aufgeblähten Monstrositäten anwendet und dann ihre Fähigkeiten dazu einsetzt, um 60 Schädelberster der Drakkari zu töten und 3 Häuptlinge der Drakkari hervorzulocken.", "Die Häuptlinge tauchen erst dann auf, wenn genug Schädelberster getötet wurden.", },
 	},
 	[12691] = {
 		"Eine verwitterte Kiste",
@@ -37137,7 +37137,7 @@ CT.l10nDB.deDE.quest = {
 	[12704] = {
 		"Besänftigung des großen Regensteins",
 		nil,
-		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr einen Gefährten auswählt und 6 glänzende Kostbarkeiten sammelt.\n\nSprecht noch einmal mit dem Hochorakel Soo-say, um Euch die Hilfe eines Eurer früheren Gefährten zusichern zu lassen.", },
+		{ "Das Hochorakel Soo-say im Baldachin der Regenrufer möchte, dass Ihr einen Gefährten auswählt und 6 glänzende Kostbarkeiten sammelt.", "Sprecht noch einmal mit dem Hochorakel Soo-say, um Euch die Hilfe eines Eurer früheren Gefährten zusichern zu lassen.", },
 	},
 	[12705] = {
 		"Wille der Titanen",
@@ -37180,7 +37180,7 @@ CT.l10nDB.deDE.quest = {
 	[12713] = {
 		"Verrat",
 		nil,
-		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr Drakuru besiegt.\n\nFalls Ihr Euren bezauberten Halsreif verlieren solltet, dann kehrt zu Stefan in der Schwarzen Wacht zurück und besorgt Euch einen neuen.", },
+		{ "Stefan in der Schwarzen Wacht möchte, dass Ihr Drakuru besiegt.", "Falls Ihr Euren bezauberten Halsreif verlieren solltet, dann kehrt zu Stefan in der Schwarzen Wacht zurück und besorgt Euch einen neuen.", },
 	},
 	[12714] = {
 		"Der Wille des Lichkönigs",
@@ -37213,7 +37213,7 @@ CT.l10nDB.deDE.quest = {
 	[12720] = {
 		"Wie man Freunde gewinnt und Feinde beeinflusst",
 		nil,
-		{ "Prinz Keleseth in der Krypta der Erinnerung hat Euch befohlen, die Wahrheit über den \"Scharlachroten Morgen\" herauszufinden.\n\nNehmt Keleseths Überzeuger aus der juwelenbesetzten Schatulle und bringt damit einen Scharlachroten Kreuzzügler zum Reden.", },
+		{ "Prinz Keleseth in der Krypta der Erinnerung hat Euch befohlen, die Wahrheit über den \"Scharlachroten Morgen\" herauszufinden.\nNehmt Keleseths Überzeuger aus der juwelenbesetzten Schatulle und bringt damit einen Scharlachroten Kreuzzügler zum Reden.", },
 	},
 	[12721] = {
 		"Randale",
@@ -37273,7 +37273,7 @@ CT.l10nDB.deDE.quest = {
 	[12733] = {
 		"Herausforderung des Todes",
 		nil,
-		{ "Olrun die Schlachtenruferin hat Euch befohlen, 5 Duelle mit anderen Todesrittern zu gewinnen.\n\nIhr könnt gegen Initianden der Todesritter oder gegen Spieler kämpfen.", },
+		{ "Olrun die Schlachtenruferin hat Euch befohlen, 5 Duelle mit anderen Todesrittern zu gewinnen.", "Ihr könnt gegen Initianden der Todesritter oder gegen Spieler kämpfen.", },
 	},
 	[12734] = {
 		"Rejek: Erstes Blut",
@@ -37413,7 +37413,7 @@ CT.l10nDB.deDE.quest = {
 	[12763] = {
 		"Verschiebung von Prioritäten",
 		nil,
-		{ "Späher Vor'takh möchte, dass Ihr nach Zul'Drak reist und Euch bei Unteroffizier Riannah an der Lichtbresche meldet.\n\nMakki Orkan im Lager Oneqwah wird für Euren Transport sorgen.", },
+		{ "Späher Vor'takh möchte, dass Ihr nach Zul'Drak reist und Euch bei Unteroffizier Riannah an der Lichtbresche meldet.", "Makki Orkan im Lager Oneqwah wird für Euren Transport sorgen.", },
 	},
 	[12766] = {
 		"Sprecht mit Eurem Abgesandten",
@@ -37438,7 +37438,7 @@ CT.l10nDB.deDE.quest = {
 	[12770] = {
 		"Umverteilung der Ressourcen",
 		nil,
-		{ "Gryan Starkmantel will, dass Ihr Euch bei Unteroffizier Riannah an der Lichtbresche in Zul'Drak meldet.\n\nIhr könnt wegen einer Transportmöglichkeit zur Lichtbresche bei Samuel Klarbuch vorsprechen.", },
+		{ "Gryan Starkmantel will, dass Ihr Euch bei Unteroffizier Riannah an der Lichtbresche in Zul'Drak meldet.", "Ihr könnt wegen einer Transportmöglichkeit zur Lichtbresche bei Samuel Klarbuch vorsprechen.", },
 	},
 	[12778] = {
 		"Das Ende des Scharlachroten Kreuzzugs",
@@ -37448,7 +37448,7 @@ CT.l10nDB.deDE.quest = {
 	[12779] = {
 		"Alle Dinge müssen ein Ende...",
 		nil,
-		{ "Der Lichkönig hat Euch befohlen, den Scharlachroten Kreuzzug auszuradieren.\n\nBenutzt das Horn der Frostbrut, um einen Frostbrutbezwinger herbeizurufen und mit ihm 150 Scharlachrote Soldaten und 10 Scharlachrote Ballisten zu vernichten. Weicht Geschossen aus, indem Ihr aus ihrer Schusslinie fliegt!", },
+		{ "Der Lichkönig hat Euch befohlen, den Scharlachroten Kreuzzug auszuradieren.", "Benutzt das Horn der Frostbrut, um einen Frostbrutbezwinger herbeizurufen und mit ihm 150 Scharlachrote Soldaten und 10 Scharlachrote Ballisten zu vernichten. Weicht Geschossen aus, indem Ihr aus ihrer Schusslinie fliegt!", },
 	},
 	[12780] = {
 		"Der Feind unseres Feindes",
@@ -37483,7 +37483,7 @@ CT.l10nDB.deDE.quest = {
 	[12793] = {
 		"Rauch am Horizont",
 		nil,
-		{ "Khufu in Zim'Torga möchte, dass Ihr zur Lichtbresche reist und Euch bei Unteroffizier Riannah meldet.\n\nMaaka wird Euch dorthin bringen.", },
+		{ "Khufu in Zim'Torga möchte, dass Ihr zur Lichtbresche reist und Euch bei Unteroffizier Riannah meldet.", "Maaka wird Euch dorthin bringen.", },
 	},
 	[12794] = {
 		"Das magische Königreich von Dalaran",
@@ -37523,12 +37523,12 @@ CT.l10nDB.deDE.quest = {
 	[12801] = {
 		"Das Licht der Morgendämmerung",
 		nil,
-		{ "Besiegt die Streitkräfte der Argentumdämmerung und findet das Licht der Morgendämmerung.\n\nMeldet Euch bei Hochlord Darion Mograine, falls Ihr überleben solltet.", },
+		{ "Besiegt die Streitkräfte der Argentumdämmerung und findet das Licht der Morgendämmerung.", "Meldet Euch bei Hochlord Darion Mograine, falls Ihr überleben solltet.", },
 	},
 	[12802] = {
 		"Mein Herz liegt in Euren Händen",
 		nil,
-		{ "Drakuru möchte, dass Ihr ihm das Herz der Uralten zur Drak'atal Passage bringt.\n\nUm das Elixier verwenden zu können, müsst Ihr 5 verzweifelte Mojo sammeln.", },
+		{ "Drakuru möchte, dass Ihr ihm das Herz der Uralten zur Drak'atal Passage bringt.", "Um das Elixier verwenden zu können, müsst Ihr 5 verzweifelte Mojo sammeln.", },
 	},
 	[12803] = {
 		"Naturgewalt",
@@ -37708,7 +37708,7 @@ CT.l10nDB.deDE.quest = {
 	[12842] = {
 		"Runen schmieden: Vorbereitung auf den Kampf",
 		nil,
-		{ "Instrukteur Razuvious in der Schwarzen Festung befiehlt Euch, mithilfe Eurer Fertigkeit 'Runen schmieden' eine beliebige Rune in Eure runenbeschriebene Seelenklinge zu prägen.\n\nIhr könnt die Prägung auf Eurer Waffe jederzeit durch eine andere ersetzen, solange Ihr Euch in der Nähe einer Runenschmiede befindet.", },
+		{ "Instrukteur Razuvious in der Schwarzen Festung befiehlt Euch, mithilfe Eurer Fertigkeit 'Runen schmieden' eine beliebige Rune in Eure runenbeschriebene Seelenklinge zu prägen.", "Ihr könnt die Prägung auf Eurer Waffe jederzeit durch eine andere ersetzen, solange Ihr Euch in der Nähe einer Runenschmiede befindet.", },
 	},
 	[12843] = {
 		"Sie haben unsere Männer!",
@@ -37733,7 +37733,7 @@ CT.l10nDB.deDE.quest = {
 	[12848] = {
 		"Der endlose Hunger",
 		nil,
-		{ "Instrukteur Razuvious in der Schwarzen Festung befiehlt Euch, einen unwürdigen Initianden zu befreien und ihn kaltblütig umzubringen!\n\nEntweder ist es Euer oder ihr Leben!", },
+		{ "Instrukteur Razuvious in der Schwarzen Festung befiehlt Euch, einen unwürdigen Initianden zu befreien und ihn kaltblütig umzubringen!", "Entweder ist es Euer oder ihr Leben!", },
 	},
 	[12849] = {
 		"Die Macht des Blutes, des Frosts und der unheiligen Kraft",
@@ -38062,7 +38062,7 @@ CT.l10nDB.deDE.quest = {
 	[12915] = {
 		"Zäune reparieren",
 		nil,
-		{ "Thorim im Tempel der Stürme möchte, dass Ihr Fjorn und 5 Sturmgeschmiedete Eisenriesen in Fjorns Amboss östlich von Dun Niffelem tötet.\n\nMit Thorims Glücksbringer der Erde könnt Ihr seine Irdenen zur Unterstützung holen. Zum Benutzen des Glücksbringers benötigt Ihr einen Granitfelsen aus Fjorns Amboss in der Nähe.", },
+		{ "Thorim im Tempel der Stürme möchte, dass Ihr Fjorn und 5 Sturmgeschmiedete Eisenriesen in Fjorns Amboss östlich von Dun Niffelem tötet.", "Mit Thorims Glücksbringer der Erde könnt Ihr seine Irdenen zur Unterstützung holen. Zum Benutzen des Glücksbringers benötigt Ihr einen Granitfelsen aus Fjorns Amboss in der Nähe.", },
 	},
 	[12916] = {
 		"Unsere einzige Hoffnung",
@@ -38082,12 +38082,12 @@ CT.l10nDB.deDE.quest = {
 	[12919] = {
 		"Die Rache des Sturmkönigs",
 		nil,
-		{ "Sprecht mit Gymer, um auf ihm zu reiten.\n\nVernichtet 100 Diener der Geißel und Algar den Auserwählten, Thrym und Prinz Navarius. Meldet Euch bei Kreuzfahrer MacKellar im Lager der Kreuzfahrer, falls Ihr erfolgreich sein solltet.", },
+		{ "Sprecht mit Gymer, um auf ihm zu reiten.", "Vernichtet 100 Diener der Geißel und Algar den Auserwählten, Thrym und Prinz Navarius. Meldet Euch bei Kreuzfahrer MacKellar im Lager der Kreuzfahrer, falls Ihr erfolgreich sein solltet.", },
 	},
 	[12920] = {
 		"Brann einholen",
 		nil,
-		{ "Benutzt Branns Kommunikator, um Euch mit Brann Bronzebart in Verbindung zu setzen. Erstattet anschließend Boktar Blutfurie bei der Absturzstelle Grom'ash Bericht.\n\nFalls Ihr Branns Kommunikator verlieren solltet, dann sprecht mit Moteha Windkind bei der Absturzstelle Grom'ash.", },
+		{ "Benutzt Branns Kommunikator, um Euch mit Brann Bronzebart in Verbindung zu setzen. Erstattet anschließend Boktar Blutfurie bei der Absturzstelle Grom'ash Bericht.", "Falls Ihr Branns Kommunikator verlieren solltet, dann sprecht mit Moteha Windkind bei der Absturzstelle Grom'ash.", },
 	},
 	[12921] = {
 		"Tapetenwechsel",
@@ -38258,32 +38258,32 @@ CT.l10nDB.deDE.quest = {
 	[12958] = {
 		"Lieferung: Blutrotes Nephritamulett",
 		nil,
-		{ "Kombiniert ein Vrykulamulett mit einem Nephrit und einem Blutstein, um ein blutrotes Nephritamulet herzustellen und es dann zu Jonas Timotheus in Dalaran zu bringen.\n\nVrykulamulette könnt Ihr von jedem Vrykul in Nordend erhalten.", },
+		{ "Kombiniert ein Vrykulamulett mit einem Nephrit und einem Blutstein, um ein blutrotes Nephritamulet herzustellen und es dann zu Jonas Timotheus in Dalaran zu bringen.", "Vrykulamulette könnt Ihr von jedem Vrykul in Nordend erhalten.", },
 	},
 	[12959] = {
 		"Lieferung: leuchtende Elfenbeinfigur",
 		nil,
-		{ "Kombiniert Elfenbein aus Nordend mit einem Chalzedon und einem Schattenkristall, um eine leuchtende Elfenbeinfigur herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.\n\nElfenbein aus Nordend könnt Ihr von jedem Schaufelhauer oder Mammut in Nordend erhalten.", },
+		{ "Kombiniert Elfenbein aus Nordend mit einem Chalzedon und einem Schattenkristall, um eine leuchtende Elfenbeinfigur herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.", "Elfenbein aus Nordend könnt Ihr von jedem Schaufelhauer oder Mammut in Nordend erhalten.", },
 	},
 	[12960] = {
 		"Lieferung: tückische Sonnenbrosche",
 		nil,
-		{ "Kombiniert eine eisenzwergische Brosche mit einem Riesencitrin und einem Sonnenkristall, um eine tückische Sonnenbrosche herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.\n\nEisenzwergische Broschen könnt Ihr von jedem Eisenzwerg in Nordend erhalten.", },
+		{ "Kombiniert eine eisenzwergische Brosche mit einem Riesencitrin und einem Sonnenkristall, um eine tückische Sonnenbrosche herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.", "Eisenzwergische Broschen könnt Ihr von jedem Eisenzwerg in Nordend erhalten.", },
 	},
 	[12961] = {
 		"Lieferung: aufwändige Knochenfigur",
 		nil,
-		{ "Kombiniert einen Protodrachenknochen mit einem Sonnenkristall und einem Nephrit, um eine aufwändige Knochenfigur herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.\n\nProtodrachenknochen könnt Ihr von jedem Protodrachen in Nordend erhalten.", },
+		{ "Kombiniert einen Protodrachenknochen mit einem Sonnenkristall und einem Nephrit, um eine aufwändige Knochenfigur herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.", "Protodrachenknochen könnt Ihr von jedem Protodrachen in Nordend erhalten.", },
 	},
 	[12962] = {
 		"Lieferung: helles Rüstungsrelikt",
 		nil,
-		{ "Kombiniert den Rest einer Elementarrüstung mit einem Blutstein und einem Riesencitrin, um ein helles Rüstungsrelikt herzustellen und es dann zu Jonas Timotheus in Dalaran zu bringen.\n\nDie Reste einer Elementarrüstung könnt Ihr von jedem Klagegeist in Nordend erhalten.", },
+		{ "Kombiniert den Rest einer Elementarrüstung mit einem Blutstein und einem Riesencitrin, um ein helles Rüstungsrelikt herzustellen und es dann zu Jonas Timotheus in Dalaran zu bringen.", "Die Reste einer Elementarrüstung könnt Ihr von jedem Klagegeist in Nordend erhalten.", },
 	},
 	[12963] = {
 		"Lieferung: unbeständige Sonnenkuriosität",
 		nil,
-		{ "Kombiniert eine Geißelkuriosität mit einem Sonnenkristall und einem Schattenkristall, um eine unbeständige Sonnenkuriosität herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.\n\nGeißelkuriositäten könnt Ihr von jedem Diener der Geißel in Nordend erhalten.", },
+		{ "Kombiniert eine Geißelkuriosität mit einem Sonnenkristall und einem Schattenkristall, um eine unbeständige Sonnenkuriosität herzustellen und diese dann zu Jonas Timotheus in Dalaran zu bringen.", "Geißelkuriositäten könnt Ihr von jedem Diener der Geißel in Nordend erhalten.", },
 	},
 	[12964] = {
 		"Das dunkle Erz",
@@ -38438,7 +38438,7 @@ CT.l10nDB.deDE.quest = {
 	[12994] = {
 		"Jagd auf Spione",
 		nil,
-		{ "Ihr müsst 3 Sturmgeschmiedete Spitzel im uralten Wintertal besiegen.\n\nVerwendet den Fangzahn eines astralen Worgs bei der Leiche des gefallenen Worgs und beschwört damit einen astralen Frostworg, mit dessen Hilfe Ihr versteckte Feinde entlarven könnt. Wenn das Tal von den Spionen befreit wurde, sollt Ihr zur Frostworghöhlenmutter in Dun Niffelem zurückkehren.", },
+		{ "Ihr müsst 3 Sturmgeschmiedete Spitzel im uralten Wintertal besiegen.", "Verwendet den Fangzahn eines astralen Worgs bei der Leiche des gefallenen Worgs und beschwört damit einen astralen Frostworg, mit dessen Hilfe Ihr versteckte Feinde entlarven könnt. Wenn das Tal von den Spionen befreit wurde, sollt Ihr zur Frostworghöhlenmutter in Dun Niffelem zurückkehren.", },
 	},
 	[12995] = {
 		"Setzt ein Zeichen",
@@ -38498,7 +38498,7 @@ CT.l10nDB.deDE.quest = {
 	[13006] = {
 		"Eine schmierige Säuberung",
 		nil,
-		{ "Ihr müsst Euch in die Überwinterungshöhle westlich von Dun Niffelem begeben und 5 Einheiten viskoses Öl vom Rohöl dort besorgen.\n\nKehrt dann nach Dun Niffelem zurück und tragt das Öl auf Hodirs Helm auf.", },
+		{ "Ihr müsst Euch in die Überwinterungshöhle westlich von Dun Niffelem begeben und 5 Einheiten viskoses Öl vom Rohöl dort besorgen.", "Kehrt dann nach Dun Niffelem zurück und tragt das Öl auf Hodirs Helm auf.", },
 	},
 	[13007] = {
 		"Der Eisenkoloss",
@@ -38634,12 +38634,12 @@ CT.l10nDB.deDE.quest = {
 	[13042] = {
 		"Tief im Inneren des Kellergewölbes",
 		nil,
-		{ "Die Knochenhexe aus Njorndar bittet Euch, Informationen bezüglich der Pläne von Dr. Maböse aus Lehrling Osterkilgr herauszuprügeln.\n\nTötet den Lehrling anschließend.", },
+		{ "Die Knochenhexe aus Njorndar bittet Euch, Informationen bezüglich der Pläne von Dr. Maböse aus Lehrling Osterkilgr herauszuprügeln.", "Tötet den Lehrling anschließend.", },
 	},
 	[13043] = {
 		"Das Ganze ist größer als die Summe seiner Teile",
 		nil,
-		{ "Besteigt Nergeld und übernehmt die Kontrolle. Verteidigt ihn vor den Bewohnern der Hallen des Grauens, bis sich Dr. Maböse zeigt.\n\nNutzt Nergeld, um den Doktor zu vernichten, und kehrt dann zur Knochenhexe nach Njorndar zurück.", },
+		{ "Besteigt Nergeld und übernehmt die Kontrolle. Verteidigt ihn vor den Bewohnern der Hallen des Grauens, bis sich Dr. Maböse zeigt.", "Nutzt Nergeld, um den Doktor zu vernichten, und kehrt dann zur Knochenhexe nach Njorndar zurück.", },
 	},
 	[13044] = {
 		"Falls es Überlebende gibt...",
@@ -38654,7 +38654,7 @@ CT.l10nDB.deDE.quest = {
 	[13046] = {
 		"Arngrim füttern",
 		nil,
-		{ "Ihr sollt 5 körperlose Jormungar an Arngrim verfüttern und dann zu Arngrims gefrorenem Abbild in Dun Niffelem zurückkehren.\n\nIhr müsst ins uralte Wintertal gehen und Arngrims Zahn auf die dort herumstreunenden Jormungar anwenden. Sobald sie eine körperlose Form angenommen haben, müsst Ihr sie bekämpfen, bis sie geschwächt sind.", },
+		{ "Ihr sollt 5 körperlose Jormungar an Arngrim verfüttern und dann zu Arngrims gefrorenem Abbild in Dun Niffelem zurückkehren.", "Ihr müsst ins uralte Wintertal gehen und Arngrims Zahn auf die dort herumstreunenden Jormungar anwenden. Sobald sie eine körperlose Form angenommen haben, müsst Ihr sie bekämpfen, bis sie geschwächt sind.", },
 	},
 	[13047] = {
 		"Die Abrechnung",
@@ -38773,7 +38773,7 @@ CT.l10nDB.deDE.quest = {
 	[13071] = {
 		"Ekel mag Feuer!",
 		nil,
-		{ "Ekel im Schattengewölbe möchte, dass Ihr einen Protodrachen von Njorndar stehlt und ihn benutzt, um 8 Vrykulgebäude in der weiteren Jotunheimregion in Brand zu setzen.\n\nDie Festung Balargarde kann aufgrund ihrer Beschaffenheit nicht in Flammen gesetzt werden.", },
+		{ "Ekel im Schattengewölbe möchte, dass Ihr einen Protodrachen von Njorndar stehlt und ihn benutzt, um 8 Vrykulgebäude in der weiteren Jotunheimregion in Brand zu setzen.", "Die Festung Balargarde kann aufgrund ihrer Beschaffenheit nicht in Flammen gesetzt werden.", },
 	},
 	[13072] = {
 		"Ein Held verbleibt",
@@ -38788,7 +38788,7 @@ CT.l10nDB.deDE.quest = {
 	[13074] = {
 		"Hoffnung im Smaragdgrünen Alptraum",
 		nil,
-		{ "Bewahrer Remulos auf der Mondlichtung hat Euch aufgetragen, den Smaragdgrünen Traum zu betreten und 3 Smaragdgrüne Eicheln zu besorgen.\n\nVerlasst die nähere Umgebung des Schreins von Remulos, um nach Azeroth zurückzukehren.", },
+		{ "Bewahrer Remulos auf der Mondlichtung hat Euch aufgetragen, den Smaragdgrünen Traum zu betreten und 3 Smaragdgrüne Eicheln zu besorgen.", "Verlasst die nähere Umgebung des Schreins von Remulos, um nach Azeroth zurückzukehren.", },
 	},
 	[13075] = {
 		"Remulos' Segen",
@@ -38848,7 +38848,7 @@ CT.l10nDB.deDE.quest = {
 	[13086] = {
 		"Die letzte Verteidigungslinie",
 		nil,
-		{ "Benutzt eine Argentumkanone, um 100 Angreifer der Geißel zu vernichten. Außerdem müsst Ihr 3 Frostbrutzerstörer töten.\n\nSolltet Ihr erfolgreich sein, kehrt zu Belagerungsmeister Fezzik zurück.", },
+		{ "Benutzt eine Argentumkanone, um 100 Angreifer der Geißel zu vernichten. Außerdem müsst Ihr 3 Frostbrutzerstörer töten.", "Solltet Ihr erfolgreich sein, kehrt zu Belagerungsmeister Fezzik zurück.", },
 	},
 	[13087] = {
 		"Kochkunst des Nordens",
@@ -38873,7 +38873,7 @@ CT.l10nDB.deDE.quest = {
 	[13091] = {
 		"Die Kunst, ein Wasserschrecken zu sein",
 		nil,
-		{ "Die Knochenhexe in Njorndar möchte, dass Ihr Besitz von einem Wasserschrecken ergreift und ihn dazu benutzt, 10 Vrykul in der Umgebung von Jotunheim zu töten.\n\nIn Frage kommende Vrykul sind Schlafwächter, Krieger von Jotunheim, Wassermagier der Mjordin, Speerschwestern von Njorndar und Varguls von Valhalas.", },
+		{ "Die Knochenhexe in Njorndar möchte, dass Ihr Besitz von einem Wasserschrecken ergreift und ihn dazu benutzt, 10 Vrykul in der Umgebung von Jotunheim zu töten.", "In Frage kommende Vrykul sind Schlafwächter, Krieger von Jotunheim, Wassermagier der Mjordin, Speerschwestern von Njorndar und Varguls von Valhalas.", },
 	},
 	[13092] = {
 		"In den Knochen lesen",
@@ -38926,12 +38926,12 @@ CT.l10nDB.deDE.quest = {
 	[13102] = {
 		"Kanaleintopf",
 		nil,
-		{ "Gebt 4 Kristallsangkarotten aus dem Kristallsangwald gemeinsam mit 4 Stück kühlem Fleisch in einen Kochtopf und lasst die Zutaten kochen.\n\nBringt den fertigen Gemüseeintopf anschließend zu Gastwirt Ajay Grün in die Kanalisation von Dalaran.", },
+		{ "Gebt 4 Kristallsangkarotten aus dem Kristallsangwald gemeinsam mit 4 Stück kühlem Fleisch in einen Kochtopf und lasst die Zutaten kochen.", "Bringt den fertigen Gemüseeintopf anschließend zu Gastwirt Ajay Grün in die Kanalisation von Dalaran.", },
 	},
 	[13103] = {
 		"Käse für Leuchtegold",
 		nil,
-		{ "Kombiniert die leere Käseplatte mit reifem Dalaranlimburger aus dem Käseladen \"Noch ein Gläschen\" und mit 6 halbvollen Dalaranweingläsern, die auf den Tischen in Dalaran gefunden werden können.\n\nBringt die Wein- und Käseplatte anschließend zu Ranid Leuchtegold im Lederladen auf dem Handelsmarkt der Magier.", },
+		{ "Kombiniert die leere Käseplatte mit reifem Dalaranlimburger aus dem Käseladen \"Noch ein Gläschen\" und mit 6 halbvollen Dalaranweingläsern, die auf den Tischen in Dalaran gefunden werden können.\nBringt die Wein- und Käseplatte anschließend zu Ranid Leuchtegold im Lederladen auf dem Handelsmarkt der Magier.", },
 	},
 	[13104] = {
 		"Noch einmal in die Bresche, Held",
@@ -38951,7 +38951,7 @@ CT.l10nDB.deDE.quest = {
 	[13107] = {
 		"Senfwürstchen!",
 		nil,
-		{ "Füllt den leeren Picknickkorb mit 4 Rhinowürstchen, die Ihr selbst gekocht habt, und 4 Zweigen wilden Senfs, der in den grasbewachsenen Bereichen der Stadt zu finden ist.\n\nBringt den Picknickkorb anschließend zu Erzmagier Pentarus bei Krasus' Landeplatz in Dalaran.", },
+		{ "Füllt den leeren Picknickkorb mit 4 Rhinowürstchen, die Ihr selbst gekocht habt, und 4 Zweigen wilden Senfs, der in den grasbewachsenen Bereichen der Stadt zu finden ist.", "Bringt den Picknickkorb anschließend zu Erzmagier Pentarus bei Krasus' Landeplatz in Dalaran.", },
 	},
 	[13108] = {
 		"Koste es, was es wolle!",
@@ -38986,17 +38986,17 @@ CT.l10nDB.deDE.quest = {
 	[13114] = {
 		"Kanaleintopf",
 		nil,
-		{ "Gebt 4 Kristallsangkarotten aus dem Kristallsangwald gemeinsam mit 4 Stück kühlem Fleisch in einen Kochtopf und lasst die Zutaten kochen.\n\nBringt den Gemüseeintopf anschließend zu Gastwirt Ajay Grün in die Kanalisation von Dalaran.", },
+		{ "Gebt 4 Kristallsangkarotten aus dem Kristallsangwald gemeinsam mit 4 Stück kühlem Fleisch in einen Kochtopf und lasst die Zutaten kochen.", "Bringt den Gemüseeintopf anschließend zu Gastwirt Ajay Grün in die Kanalisation von Dalaran.", },
 	},
 	[13115] = {
 		"Käse für Leuchtegold",
 		nil,
-		{ "Kombiniert die leere Käseplatte mit reifem Dalaranlimburger aus dem Käseladen \"Noch ein Gläschen\" und mit 6 halbvollen Dalaranweingläsern, die auf den Tischen in Dalaran gefunden werden können.\n\nBringt die Wein- und Käseplatte anschließend zu Ranid Leuchtegold im Lederladen auf dem Handelsmarkt der Magier.", },
+		{ "Kombiniert die leere Käseplatte mit reifem Dalaranlimburger aus dem Käseladen \"Noch ein Gläschen\" und mit 6 halbvollen Dalaranweingläsern, die auf den Tischen in Dalaran gefunden werden können.\nBringt die Wein- und Käseplatte anschließend zu Ranid Leuchtegold im Lederladen auf dem Handelsmarkt der Magier.", },
 	},
 	[13116] = {
 		"Senfwürstchen!",
 		nil,
-		{ "Füllt den leeren Picknickkorb mit 4 selbstgekochten Rhinowürstchen und 4 Zweigen wilden Senfs, der in den grasbewachsenen Bereichen der Stadt zu finden ist.\n\nBringt den Picknickkorb anschließend zu Erzmagier Pentarus bei Krasus' Landeplatz in Dalaran.", },
+		{ "Füllt den leeren Picknickkorb mit 4 selbstgekochten Rhinowürstchen und 4 Zweigen wilden Senfs, der in den grasbewachsenen Bereichen der Stadt zu finden ist.", "Bringt den Picknickkorb anschließend zu Erzmagier Pentarus bei Krasus' Landeplatz in Dalaran.", },
 	},
 	[13117] = {
 		"Wo kommen sie her?",
@@ -39238,7 +39238,7 @@ CT.l10nDB.deDE.quest = {
 	[13190] = {
 		"Alles zu seiner Zeit",
 		nil,
-		{ "Kilix der Entwirrer in der Grube von Narjun möchte, dass Ihr die Leiche eines Wächters der Ahn'kahar beschafft und sie auf das Kohlenbecken von Ahn'kahet in Ahn'kahet legt.\n\nDiese Quest kann nur auf dem Schwierigkeitsgrad 'Heroisch' beendet werden.", },
+		{ "Kilix der Entwirrer in der Grube von Narjun möchte, dass Ihr die Leiche eines Wächters der Ahn'kahar beschafft und sie auf das Kohlenbecken von Ahn'kahet in Ahn'kahet legt.", "Diese Quest kann nur auf dem Schwierigkeitsgrad 'Heroisch' beendet werden.", },
 	},
 	[13191] = {
 		"Verwüster auftanken",
@@ -39316,42 +39316,42 @@ CT.l10nDB.deDE.quest = {
 	[13214] = {
 		"Kampf bei Valhalas: Gefallene Helden",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, im Einzelkampf alle sechs gefallenen Helden zu besiegen: Eldreth, Geness Halbseele, Jhadras, Masud, Rith und Talla.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, im Einzelkampf alle sechs gefallenen Helden zu besiegen: Eldreth, Geness Halbseele, Jhadras, Masud, Rith und Talla.", "Sprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13215] = {
 		"Kampf bei Valhalas: Khit'rix der Dunkle Meister",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Khit'rix den Dunklen Meister zu vernichten.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Khit'rix den Dunklen Meister zu vernichten.", "Sprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13216] = {
 		"Kampf bei Valhalas: Die Rückkehr von Sigrid Eiskind",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Sigrid Eiskind zu vernichten.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Sigrid Eiskind zu vernichten.", "Sprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13217] = {
 		"Kampf bei Valhalas: Massaker!",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Massaker zu vernichten.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Massaker zu vernichten.", "Sprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13218] = {
 		"Kampf bei Valhalas: Than Todesstoß",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Than Banahogg den \"Todesstoß\" zu besiegen.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Than Banahogg den \"Todesstoß\" zu besiegen.\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13219] = {
 		"Kampf bei Valhalas: Letzte Herausforderung",
 		nil,
-		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Prinz Sandoval zu besiegen.\n\nSprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
+		{ "Geirrvif in Valhalas hat Euch dazu herausgefordert, Prinz Sandoval zu besiegen.", "Sprecht mit Gjonner dem Erbarmungslosen am südlichen Rand von Valhalas, solltet Ihr erfolgreich sein.", },
 	},
 	[13222] = {
 		"Belagerungsmaschinen verteidigen",
 		nil,
-		{ "Chefdemolierer Legoso in Tausendwinter möchte, dass Ihr eine Belagerungsmaschine steuert oder beschützt. Die Maschine muss drei Gebäude zerstören.\n\nSpieler, die den Rang \"Gefreiter\" oder höher besitzen, können Belagerungsmaschinen in Goblinwerkstätten bauen.", },
+		{ "Chefdemolierer Legoso in Tausendwinter möchte, dass Ihr eine Belagerungsmaschine steuert oder beschützt. Die Maschine muss drei Gebäude zerstören.", "Spieler, die den Rang \"Gefreiter\" oder höher besitzen, können Belagerungsmaschinen in Goblinwerkstätten bauen.", },
 	},
 	[13223] = {
 		"Belagerungsmaschinen verteidigen",
 		nil,
-		{ "Leutnant Murp in Tausendwinter möchte, dass Ihr eine Belagerungsmaschine steuert oder verteidigt. Die Maschinen müssen 3 Gebäude der Allianz zerstören.\n\nBelagerungsmaschinen können von Spielern der Horde, die einen Rang haben, in Goblinwerkstätten gebaut werden.", },
+		{ "Leutnant Murp in Tausendwinter möchte, dass Ihr eine Belagerungsmaschine steuert oder verteidigt. Die Maschinen müssen 3 Gebäude der Allianz zerstören.", "Belagerungsmaschinen können von Spielern der Horde, die einen Rang haben, in Goblinwerkstätten gebaut werden.", },
 	},
 	[13224] = {
 		"Orgrims Hammer",
@@ -39416,7 +39416,7 @@ CT.l10nDB.deDE.quest = {
 	[13239] = {
 		"Verflüchtigung",
 		nil,
-		{ "Chefingenieur Kupferklammer möchte, dass Ihr Kupferklammers flüchtiges Öl an der zerbrochenen Front benutzt um 3 Frostbrutvollstrecker anzulocken.\n\nUm das Öl benutzen zu können, müsst Ihr auf dem Schlachtfeld einen Knochenhaufen, einen zurückgelassenen Helm und zurückgelassene Rüstung einsammeln.", },
+		{ "Chefingenieur Kupferklammer möchte, dass Ihr Kupferklammers flüchtiges Öl an der zerbrochenen Front benutzt um 3 Frostbrutvollstrecker anzulocken.", "Um das Öl benutzen zu können, müsst Ihr auf dem Schlachtfeld einen Knochenhaufen, einen zurückgelassenen Helm und zurückgelassene Rüstung einsammeln.", },
 	},
 	[13240] = {
 		"Timear prophezeit Zentrifugenkonstrukte in Eurer Zukunft!",
@@ -39446,22 +39446,22 @@ CT.l10nDB.deDE.quest = {
 	[13245] = {
 		"Todesbeweis: Ingvar der Brandschatzer",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der Axt des Brandschatzers zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der Axt des Brandschatzers zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13246] = {
 		"Todesbeweis: Keristrasza",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit Keristraszas gebrochenem Herzen zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit Keristraszas gebrochenem Herzen zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13247] = {
 		"Todesbeweis: Leywächter Eregos",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit einem Leylinienempfänger zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit einem Leylinienempfänger zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13248] = {
 		"Todesbeweis: König Ymiron",
 		nil,
-		{ "Erzmagier Lan'dalok in Dalaran möchte, dass Ihr mit dem Medaillon der verstorbenen Königin zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalok in Dalaran möchte, dass Ihr mit dem Medaillon der verstorbenen Königin zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13249] = {
 		"Todesbeweis: Der Prophet Tharon'ja",
@@ -39471,37 +39471,37 @@ CT.l10nDB.deDE.quest = {
 	[13250] = {
 		"Todesbeweis: Gal'darah",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit den Überresten von Akalis Mojo zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit den Überresten von Akalis Mojo zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13251] = {
 		"Todesbeweis: Mal'Ganis",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem Artefakt aus der Heimatwelt der Nathrezim zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem Artefakt aus der Heimatwelt der Nathrezim zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13252] = {
 		"Todesbeweis: Sjonnir der Eisenformer",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der 'Datenscheibe: Fluch des Fleisches' zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der 'Datenscheibe: Fluch des Fleisches' zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13253] = {
 		"Todesbeweis: Loken",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem himmlischen Rubinring zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem himmlischen Rubinring zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13254] = {
 		"Todesbeweis: Anub'arak",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der unnützen Krone Anub'araks zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit der unnützen Krone Anub'araks zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13255] = {
 		"Todesbeweis: Herold Volazj",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem siechenden Gehirn des Gesichtslosen zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit dem siechenden Gehirn des Gesichtslosen zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13256] = {
 		"Todesbeweis: Cyanigosa",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit Cyanigosas Kopf zurückkehrt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr mit Cyanigosas Kopf zurückkehrt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad 'Heroisch' abgeschlossen werden.", },
 	},
 	[13257] = {
 		"Vorbote des Krieges",
@@ -39526,7 +39526,7 @@ CT.l10nDB.deDE.quest = {
 	[13261] = {
 		"Verflüchtigung",
 		nil,
-		{ "Chefingenieur Kupferklammer möchte, dass Ihr Kupferklammers flüchtiges Öl an der zerbrochenen Front benutzt, um 3 Frostbrutvollstrecker anzulocken.\n\nUm das Öl benutzen zu können, müsst Ihr auf dem dortigen Schlachtfeld einen Knochenhaufen, einen zurückgelassenen Helm und eine zurückgelassene Rüstung einsammeln.", },
+		{ "Chefingenieur Kupferklammer möchte, dass Ihr Kupferklammers flüchtiges Öl an der zerbrochenen Front benutzt, um 3 Frostbrutvollstrecker anzulocken.", "Um das Öl benutzen zu können, müsst Ihr auf dem dortigen Schlachtfeld einen Knochenhaufen, einen zurückgelassenen Helm und eine zurückgelassene Rüstung einsammeln.", },
 	},
 	[13262] = {
 		"Jagt es hoch!",
@@ -39554,7 +39554,7 @@ CT.l10nDB.deDE.quest = {
 	[13267] = {
 		"Die Schlacht um Unterstadt",
 		nil,
-		{ "Unterstützt Thrall und Sylvanas, Unterstadt für die Horde zurückzuerobern.\n\nMeldet Euch bei Thrall, solltet Ihr erfolgreich sein.", },
+		{ "Unterstützt Thrall und Sylvanas, Unterstadt für die Horde zurückzuerobern.", "Meldet Euch bei Thrall, solltet Ihr erfolgreich sein.", },
 	},
 	[13268] = {
 		"Das Plündern von Stoffen",
@@ -39651,7 +39651,7 @@ CT.l10nDB.deDE.quest = {
 	[13292] = {
 		"Die Lösungslösung",
 		nil,
-		{ "Chefingenieur Bolzenschlüssel an Bord der Himmelsbrecher möchte, dass Ihr die geschmuggelte Lösung an der zerbrochenen Front einsetzt.\n\nUm die Lösung benutzen zu können, benötigt Ihr einen zurückgelassenen Helm, zurückgelassene Rüstung und einen Knochenhaufen, die alle an der zerbrochenen Front zu finden sind.", },
+		{ "Chefingenieur Bolzenschlüssel an Bord der Himmelsbrecher möchte, dass Ihr die geschmuggelte Lösung an der zerbrochenen Front einsetzt.", "Um die Lösung benutzen zu können, benötigt Ihr einen zurückgelassenen Helm, zurückgelassene Rüstung und einen Knochenhaufen, die alle an der zerbrochenen Front zu finden sind.", },
 	},
 	[13293] = {
 		"Auf nach Ymirheim!",
@@ -39676,7 +39676,7 @@ CT.l10nDB.deDE.quest = {
 	[13297] = {
 		"Die Seuche neutralisieren",
 		nil,
-		{ "Thassarian an Bord der Himmelsbrecher möchte, dass Ihr pustelige Rückenmarksflüssigkeit in einen Kessel bei Mord'rethar schüttet.\n\nPustelige Rückenmarksflüssigkeit kann dadurch gewonnen werden, indem man das Fleischriesenrückgrat eines pusteligen Schreckens benutzt.", },
+		{ "Thassarian an Bord der Himmelsbrecher möchte, dass Ihr pustelige Rückenmarksflüssigkeit in einen Kessel bei Mord'rethar schüttet.", "Pustelige Rückenmarksflüssigkeit kann dadurch gewonnen werden, indem man das Fleischriesenrückgrat eines pusteligen Schreckens benutzt.", },
 	},
 	[13298] = {
 		"Koprus der Entweihte",
@@ -39867,7 +39867,7 @@ CT.l10nDB.deDE.quest = {
 	[13343] = {
 		"Geheimnis der Ewigen, die 2.",
 		nil,
-		{ "Chromie auf der höchsten Ebene des Wyrmruhtempels wünscht, dass Ihr noch einmal zum Bronzedrachenschrein reist.\n\nSobald Ihr dort seid, sollt Ihr das Stundenglas der Ewigkeit auf den Boden stellen und Eurem vergangenen Selbst dabei helfen, es vor den Truppen des ewigen Drachenschwarms zu beschützen.", },
+		{ "Chromie auf der höchsten Ebene des Wyrmruhtempels wünscht, dass Ihr noch einmal zum Bronzedrachenschrein reist.", "Sobald Ihr dort seid, sollt Ihr das Stundenglas der Ewigkeit auf den Boden stellen und Eurem vergangenen Selbst dabei helfen, es vor den Truppen des ewigen Drachenschwarms zu beschützen.", },
 	},
 	[13344] = {
 		"Keine Wanze",
@@ -40032,12 +40032,12 @@ CT.l10nDB.deDE.quest = {
 	[13384] = {
 		"Entscheidung im Auge der Ewigkeit",
 		nil,
-		{ "Krasus auf der Spitze des Wyrmruhtempels in der Drachenöde möchte, dass Ihr mit dem Herzen der Magie zurückkehrt.\n\nDiese Quest ist für den normalen Modus, also für die 10-Mann-Version des Auges der Ewigkeit, gedacht.", },
+		{ "Krasus auf der Spitze des Wyrmruhtempels in der Drachenöde möchte, dass Ihr mit dem Herzen der Magie zurückkehrt.", "Diese Quest ist für den normalen Modus, also für die 10-Mann-Version des Auges der Ewigkeit, gedacht.", },
 	},
 	[13385] = {
 		"Heroische Entscheidung im Auge der Ewigkeit",
 		nil,
-		{ "Krasus auf der Spitze des Wyrmruhtempels in der Drachenöde möchte, dass Ihr mit dem Herzen der Magie zurückkehrt.\n\nDiese Quest ist für den heroischen Modus, also für die 25-Mann-Version des Auges der Ewigkeit, gedacht.", },
+		{ "Krasus auf der Spitze des Wyrmruhtempels in der Drachenöde möchte, dass Ihr mit dem Herzen der Magie zurückkehrt.", "Diese Quest ist für den heroischen Modus, also für die 25-Mann-Version des Auges der Ewigkeit, gedacht.", },
 	},
 	[13386] = {
 		"Ausnutzen einer Öffnung",
@@ -40586,7 +40586,7 @@ CT.l10nDB.deDE.quest = {
 	[13952] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Menschengeist auf dem Friedhof von Sturmwind.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Menschengeist auf dem Friedhof von Sturmwind.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[13966] = {
 		"Ein Winterhauchgeschenk",
@@ -40772,62 +40772,62 @@ CT.l10nDB.deDE.quest = {
 	[14166] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist aus Dalaran auf dem Friedhof von Dalaran.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist aus Dalaran auf dem Friedhof von Dalaran.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14167] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Zwergengeist auf dem Friedhof von Eisenschmiede.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Zwergengeist auf dem Friedhof von Eisenschmiede.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14168] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Gnomengeist auf dem Friedhof von Eisenschmiede.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Gnomengeist auf dem Friedhof von Eisenschmiede.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14169] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Draeneigeist auf dem Friedhof der Exodar.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Draeneigeist auf dem Friedhof der Exodar.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14170] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Nachtelfengeist auf dem Friedhof von Darnassus.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Nachtelfengeist auf dem Friedhof von Darnassus.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14171] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Blutelfengeist auf dem Friedhof von Silbermond.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Blutelfengeist auf dem Friedhof von Silbermond.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14172] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist eines Anhängers der Aldor auf dem Friedhof von Shattrath.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist eines Anhängers der Aldor auf dem Friedhof von Shattrath.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14173] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist eines Anhängers der Seher auf dem Friedhof von Shattrath.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Geist eines Anhängers der Seher auf dem Friedhof von Shattrath.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14174] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Verlassenengeist auf dem Friedhof von Unterstadt.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Verlassenengeist auf dem Friedhof von Unterstadt.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14175] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Orcgeist auf dem Friedhof von Orgrimmar.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Orcgeist auf dem Friedhof von Orgrimmar.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14176] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Taurengeist auf dem Friedhof von Donnerfels.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Taurengeist auf dem Friedhof von Donnerfels.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14177] = {
 		"Die dankbaren Toten",
 		nil,
-		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Trollgeist auf dem Friedhof von Orgrimmar.\n\nBenutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
+		{ "Besorgt Euch ein wenig Totenspeise und gebt sie dem heiteren Trollgeist auf dem Friedhof von Orgrimmar.", "Benutzt eine orangefarbene Ringelblume, um den ansonsten unsichtbaren Geist zu sehen.", },
 	},
 	[14178] = {
 		"Ruf zu den Waffen: Arathibecken",
@@ -40862,7 +40862,7 @@ CT.l10nDB.deDE.quest = {
 	[14199] = {
 		"Todesbeweis: Der Schwarze Ritter",
 		nil,
-		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr ihm ein Seelenfragment des Schwarzen Ritters bringt.\n\nDiese Aufgabe kann nur auf dem Schwierigkeitsgrad \"Heroisch\" abgeschlossen werden.", },
+		{ "Erzmagier Lan'dalock in Dalaran möchte, dass Ihr ihm ein Seelenfragment des Schwarzen Ritters bringt.", "Diese Aufgabe kann nur auf dem Schwierigkeitsgrad \"Heroisch\" abgeschlossen werden.", },
 	},
 	[14203] = {
 		"Durchnässtes Rezept",
@@ -40877,7 +40877,7 @@ CT.l10nDB.deDE.quest = {
 	[14350] = {
 		"Der Purpurrote Kurier",
 		nil,
-		{ "Kehrt in die östlichen Pestländer zurück und spürt den Purpurroten Kurier auf. Tötet den Kurier und schnappt Euch den Befehl des obersten Kreuzzüglers.\n\nBringt den Befehl zu Nathanos Pestrufer und wartet auf weitere Anweisungen.", },
+		{ "Kehrt in die östlichen Pestländer zurück und spürt den Purpurroten Kurier auf. Tötet den Kurier und schnappt Euch den Befehl des obersten Kreuzzüglers.", "Bringt den Befehl zu Nathanos Pestrufer und wartet auf weitere Anweisungen.", },
 	},
 	[14351] = {
 		"Kampf um das Hügelland",
@@ -40927,7 +40927,7 @@ CT.l10nDB.deDE.quest = {
 	[14436] = {
 		"Zwergenbuddelei",
 		nil,
-		{ "Sammelt 5 Ausgrabungsleiterhacken ein.\n\nZerschlagt die Ausgrabungsleiterhacken in einer Schmiede, um zerbrochene Werkzeuge zu erhalten.\n\nBringt Ahmo Donnerhuf im Dorf der Bluthufe 5 zerbrochene Werkzeuge.", },
+		{ "Sammelt 5 Ausgrabungsleiterhacken ein.", "Zerschlagt die Ausgrabungsleiterhacken in einer Schmiede, um zerbrochene Werkzeuge zu erhalten.", "Bringt Ahmo Donnerhuf im Dorf der Bluthufe 5 zerbrochene Werkzeuge.", },
 	},
 	[14437] = {
 		"Riten der Erdenmutter",
