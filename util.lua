@@ -552,8 +552,8 @@ MT.BuildEnv("util");
 						local text = tip.__TextLeft1:GetText();
 						if text ~= nil and text ~= tip.__TextLeft1Text then
 							local reshow = false;
-							text = "|cffffffff" .. text .. "|r";
-							tip.__TextLeft1:SetText(text);
+							-- text = "|cffffffff" .. text .. "|r";
+							tip.__TextLeft1:SetText("|cffffffff" .. text .. "|r");
 							tip.__TextLeft1Text = text;
 							local map = MT.GetPlayerZone();
 							local oids = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
