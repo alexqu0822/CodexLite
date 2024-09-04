@@ -1283,6 +1283,17 @@ MT.BuildEnv("main");
 								end
 							end
 						end
+					if acceptable then		--	exclWeak
+						local exclWeak = info.exclWeak;
+						if exclWeak ~= nil then
+							for index2 = 1, #exclWeak do
+								local id = exclWeak[index2];
+								if META[id] ~= nil then
+									acceptable = false;
+									break;
+								end
+							end
+						end
 					if acceptable then		--	preGroup
 						local preGroup = info.preGroup;
 						if preGroup ~= nil then
@@ -1324,6 +1335,7 @@ MT.BuildEnv("main");
 							QUEST_WATCH_SKILL[quest_id] = { acceptable_skill, skill, };
 						end
 						acceptable = acceptable_rep and acceptable_skill;
+					end
 					end
 					end
 					end
