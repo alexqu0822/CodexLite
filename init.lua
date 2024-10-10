@@ -14,22 +14,14 @@ local DT = {  }; __private.DT = DT;		--	data
 	local geterrorhandler = geterrorhandler;
 	local print, date = print, date;
 	local type = type;
-	local tostring = tostring;
 	local select = select;
 	local setmetatable = setmetatable;
 	local rawset, rawget = rawset, rawget;
 	local next = next;
-	local unpack = unpack;
-	local tconcat = table.concat;
 	local format = string.format;
 	local band = bit.band;
-	local ipairs = ipairs;
-	local tremove = table.remove;
 	local UnitLevel = UnitLevel;
 	local IsLoggedIn = IsLoggedIn;
-	local UnitPosition = UnitPosition;
-	local C_Map = C_Map;
-	local CreateVector2D = CreateVector2D;
 	local CreateFrame = CreateFrame;
 	local _G = _G;
 
@@ -237,7 +229,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	);
 
 -->		control
-	VT.__is_dev = CT.BNTAG == 'alex#516722';
+	VT.__is_dev = CT.BNTAG == 'alex#516722' or CT.BNTAG == 'ALEX#125620';
 
 -->
 MT.BuildEnv('Init');
@@ -305,6 +297,23 @@ MT.BuildEnv('Init');
 		local P = _TimerPrivate[callback];
 		if P ~= nil and P[3] then
 			P[4] = true;
+		end
+	end
+
+	MT.ErrorHandler = geterrorhandler();
+	hooksecurefunc("seterrorhandler", function(ErrorHandler)
+		MT.ErrorHandler = ErrorHandler;
+	end);
+	function MT.SafeCall(func, ...)
+		local success, result = xpcall(
+			func,
+			MT.ErrorHandler,
+			...
+		);
+		if success then
+			return true, result;
+		else
+			return false;
 		end
 	end
 

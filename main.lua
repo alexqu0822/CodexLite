@@ -37,6 +37,21 @@ local DT = __private.DT;
 
 	local EventAgent = VT.EventAgent;
 
+-->		Compatible
+	local _comptb = {  };
+	VT._comptb = _comptb;
+	if GetMouseFocus then
+		_comptb.GetMouseFocus = GetMouseFocus;
+	elseif GetMouseFoci then
+		local GetMouseFoci = GetMouseFoci;
+		_comptb.GetMouseFocus = function()
+			return GetMouseFoci()[1];
+		end
+	else
+		_comptb.GetMouseFocus = function()
+		end
+	end
+
 -->
 MT.BuildEnv("main");
 -->		MAIN

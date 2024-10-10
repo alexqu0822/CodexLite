@@ -38,7 +38,7 @@ local DT = __private.DT;
 	};
 
 -->
-MT.BuildEnv('MapAgent');
+-- MT.BuildEnv('MapAgent');
 -->		predef
 -->
 	VT.PlayerMapID = GetBestMapForUnit('player');

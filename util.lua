@@ -24,7 +24,7 @@ local DT = __private.DT;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetQuestLogSelection = GetQuestLogSelection;
 	local GetItemCount = GetItemCount;
-	local GetMouseFocus = GetMouseFocus;
+	local GetMouseFocus = GetMouseFocus or VT._comptb.GetMouseFocus;
 	local IsModifiedClick = IsModifiedClick;
 	local Ambiguate = Ambiguate;
 
