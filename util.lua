@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -24,7 +24,7 @@ local DT = __private.DT;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetQuestLogSelection = GetQuestLogSelection;
 	local GetItemCount = GetItemCount;
-	local GetMouseFocus = GetMouseFocus;
+	local GetMouseFocus = GetMouseFocus or VT._comptb.GetMouseFocus;
 	local IsModifiedClick = IsModifiedClick;
 	local Ambiguate = Ambiguate;
 
@@ -552,10 +552,33 @@ MT.BuildEnv("util");
 						local text = tip.__TextLeft1:GetText();
 						if text ~= nil and text ~= tip.__TextLeft1Text then
 							local reshow = false;
+							-- text = "|cffffffff" .. text .. "|r";
+							tip.__TextLeft1:SetText("|cffffffff" .. text .. "|r");
 							tip.__TextLeft1Text = text;
 							local map = MT.GetPlayerZone();
-							local oid = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
-							if oid ~= nil then
+							local oids = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
+							if oids ~= nil and #oids > 0 then
+								local oid = oids[1];
+								if #oids > 1 then
+									local continent, x, y = MT.GetUnitPosition('player');
+									local mindist2 = 4294967295;
+									for i = 1, #oids do
+										local id = oids[i];
+										local info = DataAgent.object[id];
+										if info ~= nil and info.wcoords ~= nil then
+											for j = 1, #info.wcoords do
+												local coords = info.wcoords[j];
+												if coords[3] == continent then
+													local dist2 = (coords[1] - x) * (coords[1] - x) + (coords[2] - y) * (coords[2] - y);
+													if dist2 < mindist2 then
+														oid = oids[i];
+														mindist2 = dist2;
+													end
+												end
+											end
+										end
+									end
+								end
 								local uuid = MT.CoreGetUUID('object', oid);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
@@ -671,7 +694,7 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function MT.button_info_OnEnter(self)
+		function MT.ShowInfoLines(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local info_lines = self.info_lines;
 			if info_lines then
@@ -753,18 +776,22 @@ MT.BuildEnv("util");
 		function EventAgent.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
+				local quests = GetActiveQuests();
 				for i = 1, GetNumActiveQuests() do
-					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetActiveQuests());
-					if title and isComplete then
-						return SelectActiveQuest(i);
+					local quest = quests[i];
+					-- local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetActiveQuests());
+					if quest.title and quest.isComplete then
+						return SelectActiveQuest(quest.questID);
 					end
 				end
 			end
 			if not VT.SETTING.auto_accept ~= modstate then
+				local quests = GetAvailableQuests();
 				for i = 1, GetNumAvailableQuests() do
-					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetAvailableQuests());
-					if title then
-						return SelectAvailableQuest(i);
+					local quest = quests[i];
+					-- local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetAvailableQuests());
+					if quest.title then
+						return SelectAvailableQuest(quest.questID);
 					end
 				end
 			end

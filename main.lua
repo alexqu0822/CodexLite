@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -36,6 +36,21 @@ local DT = __private.DT;
 	local l10n = CT.l10n;
 
 	local EventAgent = VT.EventAgent;
+
+-->		Compatible
+	local _comptb = {  };
+	VT._comptb = _comptb;
+	if GetMouseFocus then
+		_comptb.GetMouseFocus = GetMouseFocus;
+	elseif GetMouseFoci then
+		local GetMouseFoci = GetMouseFoci;
+		_comptb.GetMouseFocus = function()
+			return GetMouseFoci()[1];
+		end
+	else
+		_comptb.GetMouseFocus = function()
+		end
+	end
 
 -->
 MT.BuildEnv("main");
@@ -364,14 +379,24 @@ MT.BuildEnv("main");
 	function AddObjectLookup(oid)
 		local name = l10n.object[oid];
 		if name ~= nil then
-			OBJ_LOOKUP["*"][name] = oid;
+			local to = OBJ_LOOKUP["*"][name];
+			if to == nil then
+				OBJ_LOOKUP["*"][name] = { oid };
+			else
+				to[#to + 1] = oid;
+			end
 			local info = DataAgent.object[oid];
 			if info ~= nil and info.coords ~= nil then
 				local coords = info.coords;
 				for i = 1, #coords do
 					local map = coords[i][3];
 					OBJ_LOOKUP[map] = OBJ_LOOKUP[map] or {  };
-					OBJ_LOOKUP[map][name] = oid;
+					local to = OBJ_LOOKUP[map][name];
+					if to == nil then
+						OBJ_LOOKUP[map][name] = { oid };
+					else
+						to[#to + 1] = oid;
+					end
 				end
 			end
 		end
@@ -1273,6 +1298,17 @@ MT.BuildEnv("main");
 								end
 							end
 						end
+					if acceptable then		--	exclWeak
+						local exclWeak = info.exclWeak;
+						if exclWeak ~= nil then
+							for index2 = 1, #exclWeak do
+								local id = exclWeak[index2];
+								if META[id] ~= nil then
+									acceptable = false;
+									break;
+								end
+							end
+						end
 					if acceptable then		--	preGroup
 						local preGroup = info.preGroup;
 						if preGroup ~= nil then
@@ -1314,6 +1350,7 @@ MT.BuildEnv("main");
 							QUEST_WATCH_SKILL[quest_id] = { acceptable_skill, skill, };
 						end
 						acceptable = acceptable_rep and acceptable_skill;
+					end
 					end
 					end
 					end

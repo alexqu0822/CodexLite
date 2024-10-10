@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -1218,21 +1218,15 @@ MT.BuildEnv("map");
 							end
 						end
 						local zoom = Minimap:GetZoom();
-						if GetCVar("minimapZoom") == GetCVar("minimapInsideZoom") then
-							Minimap:SetZoom(zoom < 2 and zoom + 1 or zoom - 1);
-						end
-						local indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
-						Minimap:SetZoom(zoom);
 						local map, x, y = MT.GetUnitPosition('player');
-						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or indoor ~= mm_indoor or (mm_is_rotate and facing ~= mm_rotate)) then
+						if mm_force_update or (mm_player_x ~= x or mm_player_y ~= y or zoom ~= mm_zoom or (mm_is_rotate and facing ~= mm_rotate)) then
 							mm_player_x = x;
 							mm_player_y = y;
-							mm_indoor = indoor;
 							mm_zoom = zoom;
 							mm_rotate = facing;
 							mm_rotate_sin = _radius_sin(facing);
 							mm_rotate_cos = _radius_cos(facing);
-							mm_hsize = minimap_size[indoor][zoom] * 0.5;
+							mm_hsize = minimap_size[mm_indoor][mm_zoom] * 0.5;
 							mm_hheight = Minimap:GetHeight() * 0.5;
 							mm_hwidth = Minimap:GetWidth() * 0.5;
 							Minimap_DrawNodesMap(mm_map);
@@ -1248,6 +1242,23 @@ MT.BuildEnv("map");
 		function EventAgent.MINIMAP_UPDATE_ZOOM()
 			-- MT._TimerStart(Minimap_DrawNodes, 0.2, 1);
 			-- MT.Debug('MINIMAP_UPDATE_ZOOM', GetCVar("minimapZoom") + 0 == Minimap:GetZoom(), GetCVar("minimapZoom") == Minimap:GetZoom(), GetCVar("minimapZoom"), Minimap:GetZoom())
+			local indoor;
+			local zoom = Minimap:GetZoom();
+			local ozoom = GetCVar("minimapZoom");
+			local izoom = GetCVar("minimapInsideZoom");
+			if ozoom == izoom then
+				Minimap:SetZoom(zoom < 2 and zoom + 1 or zoom - 1);
+				indoor = GetCVar("minimapZoom") + 0 == Minimap:GetZoom() and "outdoor" or "indoor";
+				Minimap:SetZoom(zoom);
+			else
+				indoor = ozoom + 0 == zoom and "outdoor" or "indoor";
+			end
+			if zoom ~= mm_zoom or indoor ~= mm_indoor then
+				mm_indoor = indoor;
+				mm_zoom = zoom;
+				mm_force_update = true;
+				Minimap_OnUpdate(Minimap, 0.0);
+			end
 		end
 		function EventAgent.CVAR_UPDATE()
 			local is_rotate = GetCVar("rotateMinimap") == "1";

@@ -1,7 +1,8 @@
 --[[--
-	alex/ALA @ 163UI
+	by ALA
 --]]--
 local __version = 220824.0;
+local GetAddOnInfo = GetAddOnInfo or C_AddOns.GetAddOnInfo;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -343,12 +344,7 @@ local function dev()
 			if version ~= nil and version ~= "" then
 				DisplayPanel:AddDoubleLine(addon, "#|cffffff00" .. version .. "|r");
 			else
-				version = GetAddOnMetadata(addon, "X-163UI-Version");
-				if version ~= nil and version ~= "" then
-					DisplayPanel:AddDoubleLine(addon, "#|cffff7f00" .. version .. "|r");
-				else
-					DisplayPanel:AddLeftLine("|cffff0000" .. addon .. "|r");
-				end
+				DisplayPanel:AddLeftLine("|cffff0000" .. addon .. "|r");
 			end
 		end
 	end

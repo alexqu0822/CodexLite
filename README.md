@@ -1,5 +1,5 @@
 # CodexLite
-Quest Helper of WOW #by ALA @ 163UI/网易有爱, [CN] http://wowui.w.163.com/163ui/
+Quest Helper of WOW by ALA
 Database CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 
 The main purpose is working on the computers with poor performance.
