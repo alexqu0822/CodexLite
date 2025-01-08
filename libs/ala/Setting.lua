@@ -2,7 +2,7 @@
 	by ALA
 --]]--
 
-local __version = 240911.0;
+local __version = 241201.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -27,6 +27,7 @@ local __ala_meta__ = _G.__ala_meta__;
 -->
 
 local uireimp = __ala_meta__.uireimp;
+local menulib = __ala_meta__.__menulib;
 
 local pcall, xpcall, geterrorhandler = pcall, xpcall, geterrorhandler;
 local setmetatable = setmetatable;
@@ -38,8 +39,29 @@ local min, max = math.min, math.max, math;
 local CreateFrame = CreateFrame;
 local UIParent = UIParent;
 local _G = _G;
+local InterfaceOptions_AddCategory = InterfaceOptions_AddCategory;
+if InterfaceOptions_AddCategory == nil then
+	function InterfaceOptions_AddCategory(frame, addOn, position)
+		-- cancel is no longer a default option. May add menu extension for this.
+		frame.OnCommit = frame.okay;
+		frame.OnDefault = frame.default;
+		frame.OnRefresh = frame.refresh;
 
-local TEXTURE_PATH = strmatch(debugstack(), [[(Interface.+[/\])[^/\]+%.lua]]) .. [[Media\Texture\]];
+		if frame.parent then
+			local category = Settings.GetCategory(frame.parent);
+			local subcategory, layout = Settings.RegisterCanvasLayoutSubcategory(category, frame, frame.name, frame.name);
+			subcategory.ID = frame.name;
+			return subcategory, category;
+		else
+			local category, layout = Settings.RegisterCanvasLayoutCategory(frame, frame.name, frame.name);
+			category.ID = frame.name;
+			Settings.RegisterAddOnCategory(category);
+			return category;
+		end
+	end
+end
+
+local TEXTURE_PATH = strmatch(debugstack(), [[(Interface[^:"|]+[/\])[^/\:"|]+%.lua]]) .. [[Media\Texture\]];
 local SettingUIColWidth = 180;
 local SettingUILineHeight = 24;
 local SettingUIFont = SystemFont_Shadow_Med1:GetFont();
@@ -236,28 +258,30 @@ local TWidgetMethod = {  };
 			end
 		end
 		--	list
-		function TWidgetMethod.ListButton_Handler(self, SettingUI, module, key, val, Drop, EditBox)
+		function TWidgetMethod.ListButton_Handler(self, SettingUI, param)
+			local module, key, val, Drop, EditBox = param[1], param[2], param[3], param[4], param[5];
 			SettingUI.SetConfig(module, key, val, false);
 			Drop:SetVal(val);
 		end
 		function TWidgetMethod.ListDrop_OnClick(self)
 			if self.__list == nil then
-				ALADROP(self, "BOTTOMLEFT", self.meta, false);
+				menulib.ShowMenu(self, "BOTTOMLEFT", self.menudef, self.__SettingUI, false);
 			else
-				local meta = self.meta;
+				local menudef = self.menudef;
 				local __list, __buttononshow, __buttononhide = self.__list();
-				local __para = self.__para;
-				local elements = meta.elements;
-				wipe(elements);
+				local __param = self.__param;
+				local index = 1;
 				for name, val in next, __list do
-					elements[#elements + 1] = {
+					menudef[index] = {
 						text = name,
-						para = { __para[1], __para[2], val, __para[4], };
+						param = { __param[1], __param[2], val, __param[4], __param[5], };
 					};
+					index = index + 1;
 				end
-				meta.__buttononshow = __buttononshow;
-				meta.__buttononhide = __buttononhide;
-				ALADROP(self, "BOTTOMLEFT", meta, false);
+				menudef.num = index;
+				menudef.__buttononshow = __buttononshow;
+				menudef.__buttononhide = __buttononhide;
+				menulib.ShowMenu(self, "BOTTOMLEFT", menudef, self.__SettingUI, false);
 			end
 		end
 		function TWidgetMethod.InputListEditBox_OnEnterPressed(self)
@@ -480,23 +504,24 @@ local TWidgetMethod = {  };
 			Drop:GetPushedTexture():SetVertexColor(0.5, 0.5, 0.5, 1.0);
 			Drop:SetHighlightTexture(TEXTURE_PATH .. "ArrowDown");
 			Drop:GetHighlightTexture():SetVertexColor(0.0, 0.5, 1.0, 0.25);
-			local elements = {  };
+			Drop.__SettingUI = SettingUI;
+			local menudef = {
+				handler = TWidgetMethod.ListButton_Handler,
+			};
 			if type(extra) == 'table' then
 				for index = 1, #extra do
-					elements[index] = {
+					menudef[index] = {
 						text = LookupText(module, key, extra[index]) or extra[index];
-						para = { SettingUI,  module, key, extra[index], Drop, };
+						param = { module, key, extra[index], Drop, };
 					};
 				end
+				menudef.num = #extra;
 			elseif type(extra) == 'function' then
 				Drop.__list = extra;
-				Drop.__para = { SettingUI,  module, key, nil, Drop, };
+				Drop.__param = { module, key, nil, Drop, };
 				extra();
 			end
-			Drop.meta = {
-				handler = TWidgetMethod.ListButton_Handler,
-				elements = elements,
-			}
+			Drop.menudef = menudef;
 			Drop:SetScript("OnClick", TWidgetMethod.ListDrop_OnClick);
 			local EditBox = CreateFrame('EDITBOX', nil, Panel);
 			EditBox:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
@@ -526,10 +551,11 @@ local TWidgetMethod = {  };
 					end
 				end
 				uireimp._SetSimpleBackdrop(EditBox, 0, 1, 0.25, 0.25, 0.25, 1.0, 1.0, 1.0, 1.0, 0.125);
-				-- elements[#elements + 1] = {
+				-- menudef[#menudef + 1] = {
 				-- 	text = "",
-				-- 	para = { module, key, nil, Drop, EditBox, },
+				-- 	param = { module, key, nil, Drop, EditBox, },
 				-- };
+				-- menudef.num = #menudef;
 				local Okay = CreateFrame('BUTTON', nil, EditBox);
 				Okay:SetSize(16, 16);
 				Okay:SetPoint("LEFT", EditBox, "RIGHT", 2, 0);

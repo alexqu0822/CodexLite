@@ -31,7 +31,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	VT.__super = __ala_meta__;
 	VT.__autostyle = __ala_meta__.autostyle;
 	VT.__menulib = __ala_meta__.__menulib;
-	VT.__scrolllib = _G.alaScrollList;
+	VT.__scrolllib = __ala_meta__.__scrolllib;
 
 -->		Dev
 	local _GlobalRef = {  };
