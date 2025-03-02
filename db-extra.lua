@@ -407,6 +407,9 @@ MT.BuildEnv("db-extra");
 		end
 		local today = date("*t");
 		local year, month, day, wday = today.year, today.month, today.day, today.wday;
+		-- if CT.TOCVERSION >= 30000 and C_Calendar and C_Calendar.GetHolidayInfo then
+		-- else
+		-- end
 		for event, limits in next, DataAgent.worldeventperiod do
 			local limit = limits[year] or limits["*"];
 			if limit == nil or
