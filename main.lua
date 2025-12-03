@@ -1051,7 +1051,7 @@ MT.BuildEnv("main");
 												meta_line = { false, objective_type, objective_id, description, finished, nil, };
 												meta[line] = meta_line;
 												local large_pin = AddLine(quest_id, line, objective_type, objective_id, true);
-												MT.Debug('AddLine-TTT', nil, objective_type, objective_id, large_pin);
+												-- MT.Debug('AddLine-TTT', nil, objective_type, objective_id, large_pin);
 												meta_line[6] = large_pin;
 											else
 												if meta_line[4] ~= description or meta_line[5] ~= finished then
@@ -1110,11 +1110,11 @@ MT.BuildEnv("main");
 												meta[line] = meta_line;
 												if finished then
 													local large_pin = AddLine(quest_id, line, objective_type, objective_id, true);
-													MT.Debug('AddLine-TFT', nil, objective_type, objective_id, large_pin, large_pin);
+													-- MT.Debug('AddLine-TFT', nil, objective_type, objective_id, large_pin, large_pin);
 													meta_line[6] = large_pin;
 												else
 													local large_pin =  AddLine(quest_id, line, objective_type, objective_id, false);
-													MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin, large_pin);
+													-- MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin, large_pin);
 													meta_line[1] = true;
 													meta_line[6] = large_pin;
 													need_re_draw = true;
@@ -1134,7 +1134,7 @@ MT.BuildEnv("main");
 												else
 													if not meta_line[1] then
 														local large_pin =  AddLine(quest_id, line, objective_type, objective_id, false);
-														MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin);
+														-- MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin);
 														meta_line[1] = true;
 														meta_line[6] = large_pin;
 														need_re_draw = true;

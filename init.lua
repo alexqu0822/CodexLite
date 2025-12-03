@@ -300,14 +300,10 @@ MT.BuildEnv('Init');
 		end
 	end
 
-	MT.ErrorHandler = geterrorhandler();
-	hooksecurefunc("seterrorhandler", function(ErrorHandler)
-		MT.ErrorHandler = ErrorHandler;
-	end);
 	function MT.SafeCall(func, ...)
 		local success, result = xpcall(
 			func,
-			MT.ErrorHandler,
+			geterrorhandler(),
 			...
 		);
 		if success then
@@ -429,21 +425,21 @@ MT.BuildEnv('Init');
 				for index = 1, #__beforeinit do
 					local key = __beforeinit[index];
 					local method = __beforeinit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 				end
 				for index = 1, #__oninit do
 					local key = __oninit[index];
 					local method = __oninit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 					--[==[local success, message = pcall(method);
 					if not success then
-						MT.ErrorHandler(message or (__addon .. " INIT SCRIPT [[" .. key .. "]] ERROR."));
+						geterrorhandler()r(message or (__addon .. " INIT SCRIPT [[" .. key .. "]] ERROR."));
 					end]==]
 				end
 				for index = 1, #__afterinit do
 					local key = __afterinit[index];
 					local method = __afterinit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 				end
 				if VT.__is_loggedin then
 					return Driver:GetScript("OnEvent")(Driver, "PLAYER_LOGIN");
@@ -455,13 +451,13 @@ MT.BuildEnv('Init');
 			for index = 1, #__onlogin do
 				local key = __onlogin[index];
 				local method = __onlogin[key];
-				xpcall(method, MT.ErrorHandler, true);
+				xpcall(method, geterrorhandler(), true);
 			end
 		elseif event == "PLAYER_LOGOUT" then
 			for index = 1, #__onquit do
 				local key = __onquit[index];
 				local method = __onquit[key];
-				xpcall(method, MT.ErrorHandler);
+				xpcall(method, geterrorhandler());
 			end
 		end
 	end);
