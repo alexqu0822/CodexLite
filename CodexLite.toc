@@ -1,4 +1,4 @@
-## Interface: 11504
+## Interface: 11504, 20505
 ## Title: CodexLite
 ## Title-zhCN: CodexLite
 ## Title-zhTW: CodexLite
