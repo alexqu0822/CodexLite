@@ -198,6 +198,21 @@ MT.BuildEnv("setting");
 					nil,
 					'tab.general',
 				},
+				dev = {
+					'boolean',
+					function(val)
+						VT.SETTING['dev'] = val;
+						if val then
+							MT.Debug = MT.DebugDev;
+						else
+							MT.Debug = MT.DebugRelease;
+						end
+						RefreshSettingWidget('dev');
+					end,
+					nil,
+					boolean_func,
+					'tab.general',
+				},
 			--	tab.map
 			--	tab.worldmap
 				worldmap_alpha = {
@@ -475,6 +490,7 @@ MT.BuildEnv("setting");
 			limit_item_starter_drop = true,
 			limit_item_starter_drop_num_coords = false,
 			node_menu_modifier = "SHIFT",
+			dev = false,
 		--	map
 			min_rate = 1.0,
 		--	worldmap
@@ -512,6 +528,7 @@ MT.BuildEnv("setting");
 			"limit_item_starter_drop",
 			"limit_item_starter_drop_num_coords",
 			"node_menu_modifier",
+			"dev",
 		--	map
 			-- "min_rate",
 		--	worldmap
@@ -641,8 +658,8 @@ MT.BuildEnv("setting");
 				slider.BG = slider:CreateTexture(nil, "BACKGROUND");
 				slider.BG:SetPoint("LEFT");
 				slider.BG:SetPoint("RIGHT");
-				slider.BG:SetHeight(8);
-				slider.BG:SetColorTexture(0.0, 0.0, 0.0, 0.5);
+				slider.BG:SetHeight(4);
+				slider.BG:SetColorTexture(0.25, 0.25, 0.25, 0.75);
 				slider.Text = slider:CreateFontString(nil, "ARTWORK");
 				slider.Text:SetFont(_font, _fontsize, "");
 				slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
@@ -919,6 +936,11 @@ MT.BuildEnv("setting");
 		VT.QUEST_TEMPORARILY_BLOCKED = SV.quest_temporarily_blocked[GUID];
 		VT.QUEST_PREMANENTLY_BLOCKED = SV.quest_permanently_blocked[GUID];
 		VT.QUEST_PREMANENTLY_BL_LIST = SV.quest_permanently_bl_list[GUID];
+		if VT.SETTING['dev'] then
+			MT.Debug = MT.DebugDev;
+		else
+			MT.Debug = MT.DebugRelease;
+		end
 		MT.InitSettingUI();
 		MT.MergeGlobal(VT.SVAR);
 	end);

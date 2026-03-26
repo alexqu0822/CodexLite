@@ -1,8 +1,33 @@
 ﻿--[[--
 	by ALA
+	--
+	--	@name			'string'
+	--	@GetDefault		default = GetDefault(module, key)
+	--	@GetConfig		config = GetConfig(module, key)
+	--	@SetConfig		SetConfig(module, key, val, loading)
+	--	@LookupText		text = LookupText(type, module, key, extra)
+	--	@return SettingUI
+	SettingUI = __settingfactory:CreateSetting(name, GetDefault, GetConfig, SetConfig, LookupText, ...)
+	--
+	--	@category		'string'
+	--	@meta = {
+			1 module	'string'
+			2 key		'string'
+			3 type		'string'	['button', 'boolean', 'number', 'editor', 'color', 'list' / 'input-list', 'raido'],
+			4 extra		--	number : range{ min, max, step, }	--	editor : 4th param of LookupText 	--	list, radio : list{} or list()
+			5 callback	function(val)
+			6 modfunc	nil/'number'/'function'
+			7 display	function(val)
+			[8 get]		'function'
+			[9 label]	'string'
+		}
+	--	@indent			'number'
+	--	@col			'number'
+	--	@icon			'table'{ path, coord, color } or 'number' or 'string'
+	SettingUI:AddSetting(category, meta, indent, col, icon)
 --]]--
 
-local __version = 241201.0;
+local __version = 260301.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -39,7 +64,8 @@ local min, max = math.min, math.max, math;
 local CreateFrame = CreateFrame;
 local UIParent = UIParent;
 local _G = _G;
-local InterfaceOptions_AddCategory = InterfaceOptions_AddCategory;
+local Settings = Settings;
+local InterfaceOptions_AddCategory = _G.InterfaceOptions_AddCategory;
 if InterfaceOptions_AddCategory == nil then
 	function InterfaceOptions_AddCategory(frame, addOn, position)
 		-- cancel is no longer a default option. May add menu extension for this.
@@ -60,27 +86,26 @@ if InterfaceOptions_AddCategory == nil then
 		end
 	end
 end
+local InterfaceOptionsFrame_OpenToCategory = _G.InterfaceOptionsFrame_OpenToCategory;
+if InterfaceOptionsFrame_OpenToCategory == nil then
+	function InterfaceOptionsFrame_OpenToCategory(categoryIDOrFrame)
+		if type(categoryIDOrFrame) == "table" then
+			local categoryID = categoryIDOrFrame.name;
+			return Settings.OpenToCategory(categoryID);
+		else
+			return Settings.OpenToCategory(categoryIDOrFrame);
+		end
+	end
+end
+
 
 local TEXTURE_PATH = strmatch(debugstack(), [[(Interface[^:"|]+[/\])[^/\:"|]+%.lua]]) .. [[Media\Texture\]];
-local SettingUIColWidth = 180;
+local SettingUIColWidth = 200;
 local SettingUILineHeight = 24;
 local SettingUIFont = SystemFont_Shadow_Med1:GetFont();
 local SettingUIFontSize = min(select(2, SystemFont_Shadow_Med1:GetFont()) + 1, 15);
 local SettingUIFontFlag = "";
 
---[=[
-	meta = {
-		1	module,
-		2	key,
-		3	type['boolean', 'number', 'editor', 'color', 'list' / 'input-list', 'raido'],
-		4	extra	--	range{ min, step, max, } : number; tipkey : editor; list{} : list, radio; ,
-		5	func(val),
-		6	mod[nil, number, func],
-		7	exhibit
-		[8	label]
-	}
-]=]
---
 
 local TSettingUIMixin = {  };
 local TWidgetMethod = {  };
@@ -111,6 +136,16 @@ local TWidgetMethod = {  };
 		Check:GetHighlightTexture():SetVertexColor(1.0, 1.0, 1.0, 0.5);
 		Check:GetCheckedTexture():SetVertexColor(0.0, 0.5, 1.0, 0.75);
 	end
+	function TWidgetMethod.SetRadioCheckButtonTexture(Check)
+		Check:SetNormalTexture(TEXTURE_PATH .. [[CheckButtonCircleBorder]]);
+		Check:SetPushedTexture(TEXTURE_PATH .. [[CheckButtonCircleCenter]]);
+		Check:SetHighlightTexture(TEXTURE_PATH .. [[CheckButtonCircleBorder]]);
+		Check:SetCheckedTexture(TEXTURE_PATH .. [[CheckButtonCircleCenter]]);
+		Check:GetNormalTexture():SetVertexColor(1.0, 1.0, 1.0, 0.5);
+		Check:GetPushedTexture():SetVertexColor(1.0, 1.0, 1.0, 0.25);
+		Check:GetHighlightTexture():SetVertexColor(1.0, 1.0, 1.0, 0.5);
+		Check:GetCheckedTexture():SetVertexColor(0.0, 0.5, 1.0, 0.75);
+	end
 -->	AddSetting	<--
 	local round_func_table = setmetatable({  }, {
 		__index = function(t, key)
@@ -132,24 +167,24 @@ local TWidgetMethod = {  };
 			return true;
 		end
 	end
-	function TSettingUIMixin.AddSetting(SettingUI, category, meta, tab, col, icon)
+	function TSettingUIMixin.AddSetting(SettingUI, category, meta, indent, col, icon)
 		category = category or "GENERAL";
 		meta.category = category;
-		local module = meta[1];
-		local key = meta[2];
-		local Type = meta[3];
+		local module = meta.module or meta[1];
+		local key = meta.key or meta[2];
+		local Type = meta.type or meta[3];
 		local _SettingList = SettingUI._SettingList;
 		_SettingList[module] = _SettingList[module] or {  };
 		_SettingList[module][key] = meta;
 		if Type == 'number' then
-			local modfunc = meta[6];
-			meta[6] = type(modfunc) == 'function' and modfunc or (type(modfunc) == 'number' and round_func_table[modfunc]) or nil;
+			local modfunc = meta.modfunc or meta[6];
+			meta.modfunc = type(modfunc) == 'function' and modfunc or (type(modfunc) == 'number' and round_func_table[modfunc]) or nil;
 		elseif Type == 'boolean' then
-			meta[6] = meta[6] or boolean_func;
+			meta.modfunc = meta.modfunc or boolean_func;
 		end
 		local CategoryTable = SettingUI._CategoryList[category] or SettingUI:CreateCategory(category);
 		CategoryTable.Setting[#CategoryTable.Setting + 1] = meta;
-		SettingUI:CreateSetting(CategoryTable.Panel, module, key, Type, meta[4], meta[7], tab, col, icon, meta[8]);
+		SettingUI:CreateSetting(CategoryTable.Panel, module, key, Type, meta.extra or meta[4], meta.display or meta[7], indent, col, icon, meta.get or meta[8], meta.label or meta[9]);
 	end
 -->	Tab	<--
 	function TWidgetMethod.Tab_OnClick(Tab)
@@ -166,17 +201,18 @@ local TWidgetMethod = {  };
 			SettingUI.__Editor:Hide();
 		end
 	end
-	function TSettingUIMixin.CreateCategory(SettingUI, category, dispname)
+	function TSettingUIMixin.CreateCategory(SettingUI, category)
 		local _CategoryList = SettingUI._CategoryList;
 		local Tab = CreateFrame('BUTTON', nil, SettingUI);
 		TWidgetMethod.SetButtonColorTexture(Tab);
 		Tab:SetSize(72, 24);
-		Tab:SetPoint("TOPLEFT", SettingUI, "TOPLEFT", 4 + 76 * #_CategoryList, -4);
+		-- Tab:SetPoint("TOPLEFT", SettingUI, "TOPLEFT", 4 + 76 * #_CategoryList, -4);
+		Tab:SetPoint("TOPLEFT", SettingUI.CategoryParent, "TOPLEFT", 4 + 76 * #_CategoryList, 0);
 		Tab.__SettingUI = SettingUI;
 		Tab:SetScript("OnClick", TWidgetMethod.Tab_OnClick);
 		Tab.Text = Tab:CreateFontString(nil, "OVERLAY", "GameFontNormal");
 		Tab.Text:SetPoint("CENTER");
-		Tab.Text:SetText(dispname or category);
+		Tab.Text:SetText(SettingUI.LookupText('category', category) or category);
 		Tab.Sel = Tab:CreateTexture(nil, "OVERLAY");
 		Tab.Sel:SetAllPoints();
 		Tab.Sel:SetBlendMode("ADD");
@@ -195,16 +231,19 @@ local TWidgetMethod = {  };
 			Panel:SetPoint("TOPRIGHT", -6, -4);
 		elseif #_CategoryList == 1 then
 			SettingUI.PanelOffset = 32;
-			local CategoryTable1 = _CategoryList[1];
+			local CategoryTable1 = _CategoryList[_CategoryList[1]];
 			CategoryTable1.Tab:Show();
 			CategoryTable1.Panel:SetPoint("TOPRIGHT", -6, -32);
 		end
 		_CategoryList[#_CategoryList + 1] = category;
 		local CategoryTable = { Tab = Tab, Panel = Panel, Setting = {  }, };
 		_CategoryList[category] = CategoryTable;
+		SettingUI.CategoryParent:SetWidth(4 + 76 * #_CategoryList);
 		SettingUI:SetWidth(min(max(SettingUI:GetWidth(), SettingUI._MinW, 4 + 76 * #_CategoryList), 1024));
 		--
-		Panel.pos = { 0, 0, 0, 0, 0, 0, 0, 0, };
+		Panel.pos = {  };
+		Panel.Anchor = {  };
+		Panel.maxcol = 0;
 		--
 		if SettingUI.SelectedTab == nil then
 			TWidgetMethod.Tab_OnClick(Tab);
@@ -214,24 +253,29 @@ local TWidgetMethod = {  };
 	end
 -->	Setting Node	<--
 	-->	node method
+		--	button
+		function TWidgetMethod.Button_OnClick(self)
+			self.__SettingUI:SetConfigInner(self.module, self.key, nil, false);
+		end
 		--	number
 		function TWidgetMethod.Slider_OnValueChanged(self, val, userInput)
 			if userInput then
-				val = self.__SettingUI.SetConfig(self.module, self.key, val, false);
+				val = self.__SettingUI:SetConfigInner(self.module, self.key, val, false);
 				self:SetStr(val);
 			end
 		end
 		--	boolean
 		function TWidgetMethod.Check_OnClick(self, button)
-			self.__SettingUI.SetConfig(self.module, self.key, self:GetChecked(), false);
+			self.__SettingUI:SetConfigInner(self.module, self.key, self:GetChecked(), false);
 		end
 		--	editor
 		function TWidgetMethod.EditorCallOutButton_OnClick(self)
 			local SettingUI = self.__SettingUI;
-			SettingUI.__Editor.To = self;
-			SettingUI.__Editor:Show();
-			SettingUI.__Editor.EditBox:SetText(SettingUI.GetConfig(self.module, self.key));
-			SettingUI.__Editor.Information:SetText(self.extra);
+			local Editor = SettingUI.__Editor;
+			Editor.To = self;
+			Editor:Show();
+			Editor.EditBox:SetText(self.get and self.get() or SettingUI.GetConfig(self.module, self.key));
+			Editor.Information:SetText(self.extra);
 		end
 		--	color
 		function TWidgetMethod.ColorCallOutButton_OnClick(self)
@@ -241,15 +285,15 @@ local TWidgetMethod = {  };
 				local SettingUI = self.__SettingUI;
 				local module = self.module;
 				local key = self.key;
-				local orig = SettingUI.GetConfig(module, key);
+				local orig = self.get and self.get() or SettingUI.GetConfig(module, key);
 				ColorPickerFrame.func = nil;
 				ColorPickerFrame.cancelFunc = nil;
 				ColorPickerFrame:SetColorRGB(unpack(orig));
 				ColorPickerFrame.func = function()
-					SettingUI.SetConfig(module, key, { ColorPickerFrame:GetColorRGB() }, false);
+					SettingUI:SetConfigInner(module, key, { ColorPickerFrame:GetColorRGB() }, false);
 				end
 				ColorPickerFrame.cancelFunc = function()
-					SettingUI.SetConfig(module, key, orig, false);
+					SettingUI:SetConfigInner(module, key, orig, false);
 				end
 				ColorPickerFrame.opacityFunc = nil;
 				ColorPickerFrame:ClearAllPoints();
@@ -260,7 +304,7 @@ local TWidgetMethod = {  };
 		--	list
 		function TWidgetMethod.ListButton_Handler(self, SettingUI, param)
 			local module, key, val, Drop, EditBox = param[1], param[2], param[3], param[4], param[5];
-			SettingUI.SetConfig(module, key, val, false);
+			SettingUI:SetConfigInner(module, key, val, false);
 			Drop:SetVal(val);
 		end
 		function TWidgetMethod.ListDrop_OnClick(self)
@@ -270,13 +314,13 @@ local TWidgetMethod = {  };
 				local menudef = self.menudef;
 				local __list, __buttononshow, __buttononhide = self.__list();
 				local __param = self.__param;
-				local index = 1;
+				local index = 0;
 				for name, val in next, __list do
+					index = index + 1;
 					menudef[index] = {
 						text = name,
 						param = { __param[1], __param[2], val, __param[4], __param[5], };
 					};
-					index = index + 1;
 				end
 				menudef.num = index;
 				menudef.__buttononshow = __buttononshow;
@@ -289,8 +333,8 @@ local TWidgetMethod = {  };
 			local valid, err = pcall(date, value);
 			if valid then
 				local SettingUI = self.__SettingUI;
-				__SettingUI.SetConfig(self.module, self.key, value, false);
-				self.parent:SetVal(SettingUI.GetConfig(self.module, self.key));
+				SettingUI:SetConfigInner(self.module, self.key, value, false);
+				self.parent:SetVal(self.get and self.get() or SettingUI.GetConfig(self.module, self.key));
 				self:ClearFocus();
 				self.Okay:Hide();
 				self.Discard:Hide();
@@ -304,7 +348,7 @@ local TWidgetMethod = {  };
 			self:ClearFocus();
 			self.Okay:Hide();
 			self.Discard:Hide();
-			self.parent:SetVal(SettingUI.GetConfig(self.module, self.key));
+			self.parent:SetVal(self.get and self.get() or SettingUI.GetConfig(self.module, self.key));
 		end
 		function TWidgetMethod.InputListEditBox_OnTextChanged(self, userInput)
 			if userInput then
@@ -322,36 +366,80 @@ local TWidgetMethod = {  };
 		--	radio
 		function TWidgetMethod.ListCheck_OnClick(self, button)
 			if self:GetChecked() then
-				self.__SettingUI.SetConfig(self.module, self.key, self.val, false);
+				self.__SettingUI:SetConfigInner(self.module, self.key, self.val, false);
 				self.list:SetVal(self.val);
 			else
 				self:SetChecked(true);
 			end
 		end
 	-->
-	function TSettingUIMixin.CreateSetting(SettingUI, Panel, module, key, Type, extra, exhibit, tab, col, icon, label)
-		tab = tab or 0;
+	function TSettingUIMixin.CreateSetting(SettingUI, Panel, module, key, Type, extra, display, indent, col, icon, get, label)
+		indent = indent or 0;
 		col = col or 1;
 		local LookupText = SettingUI.LookupText;
 		local _SettingNodes = SettingUI._SettingNodes;
 		_SettingNodes[module] = _SettingNodes[module] or {  };
-		local Anchor = nil;
+		if col > Panel.maxcol then
+			Panel.maxcol = col;
+		end
+		local Anchor = Panel.Anchor[col];
+		if Anchor == nil then
+			Anchor = CreateFrame('FRAME', nil, Panel);
+			Anchor:SetSize(1, 1);
+			Panel.Anchor[col] = Anchor;
+			local p = 0;
+			for i = 1, Panel.maxcol do
+				if Panel.Anchor[i] then
+					Panel.Anchor[i]:SetPoint("TOPLEFT", Panel, "TOPLEFT", 32 + p * SettingUIColWidth, -22);
+					p = p + 1;
+				end
+			end
+		end
 		Panel.pos[col] = Panel.pos[col] or 0;
-		if Type == 'number' then
-			local Head = Panel:CreateTexture(nil, "ARTWORK");
+		local Head = nil;
+		if Type == 'button' then
+			Head = Panel:CreateTexture(nil, "ARTWORK");
+			Head:SetSize(16, 10);
+			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
+			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
+			local Button = CreateFrame('BUTTON', nil, Panel);
+			Button:SetSize(128, 16);
+			Button:SetPoint("LEFT", Head, "CENTER", 16, 0);
+			TWidgetMethod.SetButtonColorTexture(Button);
+			Button.__SettingUI = SettingUI;
+			Button.Head = Head;
+			Button.module = module;
+			Button.key = key;
+			Button.get = get;
+			Button:SetScript("OnClick", TWidgetMethod.Button_OnClick);
+			local ButtonStr = Button:CreateFontString(nil, "ARTWORK");
+			ButtonStr:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
+			ButtonStr:SetPoint("CENTER");
+			ButtonStr:SetText(label or LookupText('node', module, key) or key);
+			Button._SetPoint = Button.SetPoint;
+			function Button:SetPoint(...)
+				self.Head:SetPoint(...);
+			end
+			function Button:SetVal(val)
+			end
+			_SettingNodes[module][key] = Button;
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
+			Panel.pos[col] = Panel.pos[col] + 1;
+		elseif Type == 'number' then
+			Head = Panel:CreateTexture(nil, "ARTWORK");
 			Head:SetSize(16, 10);
 			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
 			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
 			local Label = Panel:CreateFontString(nil, "ARTWORK");
 			Label:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
-			Label:SetText(label or LookupText(module, key) or key);
+			Label:SetText(label or LookupText('node', module, key) or key);
 			Label:SetPoint("LEFT", Head, "CENTER", 16, 0);
 			local Slider = CreateFrame('SLIDER', nil, Panel);
-			Slider:SetWidth(160);
+			Slider:SetWidth(128);
 			Slider:SetHeight(15);
 			Slider:SetOrientation("HORIZONTAL");
 			Slider:SetMinMaxValues(extra[1], extra[2]);
-			Slider:SetValueStep(extra[3]);
+			Slider:SetValueStep(extra[3] or 1);
 			Slider:SetObeyStepOnDrag(true);
 			Slider:SetPoint("LEFT", Head, "CENTER", 16, -SettingUILineHeight * 0.75);
 			Slider:SetThumbTexture([[Interface\Buttons\UI-ScrollBar-Knob]]);
@@ -372,22 +460,22 @@ local TWidgetMethod = {  };
 			Slider.Low = Slider:CreateFontString(nil, "ARTWORK");
 			Slider.Low:SetFont(SettingUIFont, SettingUIFontSize - 1, SettingUIFontFlag);
 			Slider.Low:ClearAllPoints();
-			Slider.Low:SetPoint("TOPLEFT", Slider, "BOTTOMLEFT", 4, 6);
+			Slider.Low:SetPoint("TOP", Slider, "BOTTOMLEFT", 4, 6);
 			Slider.Low:SetVertexColor(0.5, 1.0, 0.5);
 			Slider.Low:SetAlpha(0.75);
 			Slider.Low:SetText(extra[1]);
 			Slider.High = Slider:CreateFontString(nil, "ARTWORK");
 			Slider.High:SetFont(SettingUIFont, SettingUIFontSize - 1, SettingUIFontFlag);
 			Slider.High:ClearAllPoints();
-			Slider.High:SetPoint("TOPRIGHT", Slider, "BOTTOMRIGHT", -4, 6);
+			Slider.High:SetPoint("TOP", Slider, "BOTTOMRIGHT", -4, 6);
 			Slider.High:SetVertexColor(1.0, 0.5, 0.5);
 			Slider.High:SetAlpha(0.75);
 			Slider.High:SetText(extra[2]);
 			Slider.__SettingUI = SettingUI;
+			Slider.Head = Head;
 			Slider.module = module;
 			Slider.key = key;
-			Slider.Head = Head;
-			Slider.Label = Label;
+			Slider.get = get;
 			Slider:SetScript("OnValueChanged", TWidgetMethod.Slider_OnValueChanged);
 			function Slider:SetVal(val)
 				self:SetValue(val);
@@ -410,32 +498,33 @@ local TWidgetMethod = {  };
 				self.Head:SetPoint(...);
 			end
 			_SettingNodes[module][key] = Slider;
-			Head:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
 			Panel.pos[col] = Panel.pos[col] + 2;
-			Anchor = Head;
 		elseif Type == 'boolean' then
 			local Check = CreateFrame('CHECKBUTTON', nil, Panel);
+			Head = Check;
 			Check:SetSize(16, 16);
 			Check:SetHitRectInsets(0, 0, 0, 0);
 			Check:Show();
 			TWidgetMethod.SetCheckButtonTexture(Check);
 			Check.__SettingUI = SettingUI;
+			Check.Head = Head;
 			Check.module = module;
 			Check.key = key;
+			Check.get = get;
 			Check:SetScript("OnClick", TWidgetMethod.Check_OnClick);
 			function Check:SetVal(val)
 				self:SetChecked(val);
 			end
 			local Label = Panel:CreateFontString(nil, "ARTWORK");
 			Label:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
-			Label:SetText(label or LookupText(module, key) or key);
+			Label:SetText(label or LookupText('node', module, key) or key);
 			Label:SetPoint("LEFT", Check, "CENTER", 16, 0);
 			_SettingNodes[module][key] = Check;
-			Check:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
+			Check:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
 			Panel.pos[col] = Panel.pos[col] + 1;
-			Anchor = Check;
 		elseif Type == 'editor' then
-			local Head = Panel:CreateTexture(nil, "ARTWORK");
+			Head = Panel:CreateTexture(nil, "ARTWORK");
 			Head:SetSize(16, 10);
 			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
 			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
@@ -443,26 +532,27 @@ local TWidgetMethod = {  };
 			Button:SetSize(128, 16);
 			Button:SetPoint("LEFT", Head, "CENTER", 16, 0);
 			TWidgetMethod.SetButtonColorTexture(Button);
+			Button.__SettingUI = SettingUI;
+			Button.Head = Head;
 			Button.module = module;
 			Button.key = key;
-			Button.extra = LookupText(module, key, extra) or extra;
-			Button.__SettingUI = SettingUI;
+			Button.get = get;
+			Button.extra = LookupText('value', module, key, extra) or extra;
 			Button:SetScript("OnClick", TWidgetMethod.EditorCallOutButton_OnClick);
 			local ButtonStr = Button:CreateFontString(nil, "ARTWORK");
 			ButtonStr:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
 			ButtonStr:SetPoint("CENTER");
-			ButtonStr:SetText(label or LookupText(module, key) or key);
+			ButtonStr:SetText(label or LookupText('node', module, key) or key);
 			Button._SetPoint = Button.SetPoint;
 			function Button:SetPoint(...)
 				self.Head:SetPoint(...);
 			end
 			Button.__indirect = true;
 			_SettingNodes[module][key] = Button;
-			Head:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
 			Panel.pos[col] = Panel.pos[col] + 1;
-			Anchor = Head;
 		elseif Type == 'color' then
-			local Head = Panel:CreateTexture(nil, "ARTWORK");
+			Head = Panel:CreateTexture(nil, "ARTWORK");
 			Head:SetSize(16, 10);
 			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
 			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
@@ -471,30 +561,31 @@ local TWidgetMethod = {  };
 			Button:SetPoint("LEFT", Head, "CENTER", 16, 0);
 			TWidgetMethod.SetButtonColorTexture(Button);
 			Button.__SettingUI = SettingUI;
+			Button.Head = Head;
 			Button.module = module;
 			Button.key = key;
+			Button.get = get;
 			Button:SetScript("OnClick", TWidgetMethod.ColorCallOutButton_OnClick);
 			local ButtonStr = Button:CreateFontString(nil, "ARTWORK");
 			ButtonStr:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
 			ButtonStr:SetPoint("CENTER");
-			ButtonStr:SetText(label or LookupText(module, key) or key);
+			ButtonStr:SetText(label or LookupText('node', module, key) or key);
 			Button._SetPoint = Button.SetPoint;
 			function Button:SetPoint(...)
 				self.Head:SetPoint(...);
 			end
 			Button.__indirect = true;
 			_SettingNodes[module][key] = Button;
-			Head:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
 			Panel.pos[col] = Panel.pos[col] + 1;
-			Anchor = Head;
 		elseif Type == 'list' or Type == 'input-list' then
-			local Head = Panel:CreateTexture(nil, "ARTWORK");
+			Head = Panel:CreateTexture(nil, "ARTWORK");
 			Head:SetSize(16, 10);
 			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
 			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
 			local Label = Panel:CreateFontString(nil, "ARTWORK");
 			Label:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
-			Label:SetText(label or LookupText(module, key) or key);
+			Label:SetText(label or LookupText('node', module, key) or key);
 			Label:SetPoint("LEFT", Head, "CENTER", 16, 0);
 			local Drop = CreateFrame('BUTTON', nil, Panel);
 			Drop:SetSize(12, 12);
@@ -505,13 +596,15 @@ local TWidgetMethod = {  };
 			Drop:SetHighlightTexture(TEXTURE_PATH .. "ArrowDown");
 			Drop:GetHighlightTexture():SetVertexColor(0.0, 0.5, 1.0, 0.25);
 			Drop.__SettingUI = SettingUI;
+			Drop.Head = Head;
+			Drop.get = get;
 			local menudef = {
 				handler = TWidgetMethod.ListButton_Handler,
 			};
 			if type(extra) == 'table' then
 				for index = 1, #extra do
 					menudef[index] = {
-						text = LookupText(module, key, extra[index]) or extra[index];
+						text = LookupText('value', module, key, extra[index]) or extra[index];
 						param = { module, key, extra[index], Drop, };
 					};
 				end
@@ -530,23 +623,24 @@ local TWidgetMethod = {  };
 			EditBox:SetTextInsets(10, 0, 0, 0);
 			EditBox.parent = Drop;
 			if Type == 'input-list' then
-				EditBox:SetSize(320, 20);
+				EditBox:SetSize(240, 18);
 				EditBox.__SettingUI = SettingUI;
 				EditBox.module = module;
 				EditBox.key = key;
+				EditBox.get = get;
 				EditBox:SetScript("OnEnterPressed", TWidgetMethod.InputListEditBox_OnEnterPressed);
 				EditBox:SetScript("OnEscapePressed", TWidgetMethod.InputListEditBox_OnEscapePressed);
 				EditBox:SetScript("OnTextChanged", TWidgetMethod.InputListEditBox_OnTextChanged);
-				if exhibit ~= nil then
+				if display ~= nil then
 					function Drop:SetVal(val)
 						EditBox:SetText(val);
-						EditBox.Err:SetText(LookupText(module, key, val) or exhibit(val) or val);
+						EditBox.Err:SetText(LookupText('value', module, key, val) or display(val) or val);
 						EditBox.Err:SetVertexColor(1.0, 1.0, 1.0, 1.0);
 					end
 				else
 					function Drop:SetVal(val)
 						EditBox:SetText(val);
-						EditBox.Err:SetText(LookupText(module, key, val) or val);
+						EditBox.Err:SetText(LookupText('value', module, key, val) or val);
 						EditBox.Err:SetVertexColor(1.0, 1.0, 1.0, 1.0);
 					end
 				end
@@ -588,14 +682,14 @@ local TWidgetMethod = {  };
 				Err:Show();
 				EditBox.Err = Err;
 			else
-				EditBox:SetSize(160, 20);
-				if exhibit ~= nil then
+				EditBox:SetSize(128, 16);
+				if display ~= nil then
 					function Drop:SetVal(val)
-						EditBox:SetText(LookupText(module, key, val) or exhibit(val) or val);
+						EditBox:SetText(LookupText('value', module, key, val) or display(val) or val);
 					end
 				else
 					function Drop:SetVal(val)
-						EditBox:SetText(LookupText(module, key, val) or val);
+						EditBox:SetText(LookupText('value', module, key, val) or val);
 					end
 				end
 				uireimp._SetSimpleBackdrop(EditBox, 0, 1, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.25);
@@ -606,29 +700,36 @@ local TWidgetMethod = {  };
 				self.Head:SetPoint(...);
 			end
 			_SettingNodes[module][key] = Drop;
-			Head:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
 			Panel.pos[col] = Panel.pos[col] + (Type == 'input-list' and 3 or 2);
-			Anchor = Head;
 		elseif Type == 'radio' then
-			local Head = Panel:CreateTexture(nil, "ARTWORK");
+			Head = Panel:CreateTexture(nil, "ARTWORK");
 			Head:SetSize(16, 10);
 			Head:SetTexture(TEXTURE_PATH .. [[ArrowRight]]);
 			Head:SetVertexColor(0.5, 0.75, 1.0, 0.5);
 			local Label = Panel:CreateFontString(nil, "ARTWORK");
 			Label:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
-			Label:SetText(label or LookupText(module, key) or key);
+			Label:SetText(label or LookupText('node', module, key) or key);
 			Label:SetPoint("LEFT", Head, "CENTER", 16, 0);
 			local list = {  };
+			local x = 0;
+			local y = 1;
 			for index, val in next, extra do
+				if x >= 2 then
+					x = 0;
+					y = y + 1;
+				end
 				local Check = CreateFrame('CHECKBUTTON', nil, Panel);
-				Check:SetSize(16, 16);
-				Check:SetPoint("TOPLEFT", Head, "CENTER", 18 + (index - 1) * 80, -SettingUILineHeight * 0.5);
+				Check:SetSize(12, 12);
+				Check:SetPoint("CENTER", Head, "CENTER", 18 + x * 80, -SettingUILineHeight * y);
 				Check:SetHitRectInsets(0, 0, 0, 0);
 				Check:Show();
-				TWidgetMethod.SetCheckButtonTexture(Check);
+				TWidgetMethod.SetRadioCheckButtonTexture(Check);
 				Check.__SettingUI = SettingUI;
+				Check.Head = Head;
 				Check.module = module;
 				Check.key = key;
+				Check.get = get;
 				Check:SetScript("OnClick", TWidgetMethod.ListCheck_OnClick);
 				Check.list = list;
 				Check.index = index;
@@ -636,9 +737,10 @@ local TWidgetMethod = {  };
 				list[index] = Check;
 				local Text = Panel:CreateFontString(nil, "ARTWORK");
 				Text:SetFont(SettingUIFont, SettingUIFontSize, SettingUIFontFlag);
-				Text:SetText(LookupText(module, key, val) or val);
+				Text:SetText(LookupText('value', module, key, val) or val);
 				Text:SetPoint("LEFT", Check, "RIGHT", 2, 0);
 				Check.Text = Text;
+				x = x + 1;
 			end
 			function list:SetVal(val)
 				for index, v in next, extra do
@@ -651,17 +753,17 @@ local TWidgetMethod = {  };
 			end
 			list.__indirect = false;
 			_SettingNodes[module][key] = list;
-			Head:SetPoint("CENTER", Panel, "TOPLEFT", 32 + tab * SettingUILineHeight + (col - 1) * SettingUIColWidth, -22 - Panel.pos[col] * SettingUILineHeight);
-			Panel.pos[col] = Panel.pos[col] + 2;
-			Anchor = Head;
+			Head:SetPoint("CENTER", Anchor, "TOPLEFT", indent * SettingUILineHeight, -Panel.pos[col] * SettingUILineHeight);
+			Panel.pos[col] = Panel.pos[col] + y + 1;
 		else
 			return;
 		end
+		SettingUI:SetWidth(min(max(SettingUI:GetWidth(), SettingUI._MinW, 32 + SettingUIColWidth * col + 32), 1024));
 		SettingUI:SetHeight(min(max(SettingUI:GetHeight(), SettingUI._MinH, SettingUI.PanelOffset + 12 + Panel.pos[col] * SettingUILineHeight + 12 + 6), 1024));
 		if icon ~= nil then
 			local i = Panel:CreateTexture(nil, "ARTWORK");
 			i:SetSize(20, 20);
-			i:SetPoint("RIGHT", Anchor, "CENTER", -12, 0);
+			i:SetPoint("RIGHT", Head, "CENTER", -12, 0);
 			if type(icon) == 'table' then
 				if icon[1] ~= nil then
 					i:SetTexture(icon[1]);
@@ -686,7 +788,7 @@ local TWidgetMethod = {  };
 			local val = 0;
 			for index = 1, 8 do
 				local v = pos[index];
-				if v > val then
+				if v and v > val then
 					val = v;
 				end
 			end
@@ -701,7 +803,7 @@ local TWidgetMethod = {  };
 		for module, nodes in next, SettingUI._SettingNodes do
 			for key, node in next, nodes do
 				if node.__indirect ~= true then
-					node:SetVal(SettingUI.GetConfig(module, key));
+					node:SetVal(node.get and node.get() or SettingUI.GetConfig(module, key));
 				end
 			end
 		end
@@ -775,7 +877,7 @@ local TWidgetMethod = {  };
 	function TWidgetMethod.EditorSaveValueOnClick(self)
 		local Editor = self.__Editor;
 		local To = Editor.To;
-		Editor.__SettingUI.SetConfig(To.module, To.key, EditorEditBox:GetText(), false);
+		Editor.__SettingUI:SetConfigInner(To.module, To.key, Editor.EditBox:GetText(), false);
 		Editor:Hide();
 	end
 	function TWidgetMethod.EditorCancelOnClick(self)
@@ -843,9 +945,9 @@ local TWidgetMethod = {  };
 			FreeContainer:Hide();
 		end);
 		FreeContainer.Close = Close;
-		FreeContainer.BG = FreeContainer:CreateTexture(nil, "BACKGROUND");
-		FreeContainer.BG:SetAllPoints();
-		FreeContainer.BG:SetColorTexture(0.0, 0.0, 0.0, 0.9);
+		FreeContainer.Background = FreeContainer:CreateTexture(nil, "BACKGROUND");
+		FreeContainer.Background:SetAllPoints();
+		FreeContainer.Background:SetColorTexture(0.0, 0.0, 0.0, 0.9);
 		--
 		return FreeContainer;
 	end
@@ -854,9 +956,9 @@ local TWidgetMethod = {  };
 		InterfaceOptionsFrameContainer:Hide();
 		InterfaceOptionsFrameContainer:SetSize(1, 1);
 		InterfaceOptionsFrameContainer.__SettingUI = SettingUI;
+		InterfaceOptionsFrameContainer.name = SettingUI.name;
 		InterfaceOptionsFrameContainer:SetScript("OnShow", TWidgetMethod.SettingUIInterfaceOptionsFrameContainerOnShow);
 		InterfaceOptionsFrameContainer:SetScript("OnHide", TWidgetMethod.SettingUIInterfaceOptionsFrameContainerOnHide);
-		InterfaceOptionsFrameContainer.name = SettingUI.name;
 		InterfaceOptions_AddCategory(InterfaceOptionsFrameContainer);
 		--
 		return InterfaceOptionsFrameContainer;
@@ -866,9 +968,9 @@ local TWidgetMethod = {  };
 		Editor:SetFrameLevel(SettingUI:GetFrameLevel() + 63);
 		Editor:SetPoint("BOTTOMLEFT", 0, 0);
 		Editor:SetPoint("TOPRIGHT", 0, -32);
-		Editor.BG = Editor:CreateTexture(nil, "BACKGROUND");
-		Editor.BG:SetAllPoints();
-		Editor.BG:SetColorTexture(0.0, 0.0, 0.0, 1.0);
+		Editor.Background = Editor:CreateTexture(nil, "BACKGROUND");
+		Editor.Background:SetAllPoints();
+		Editor.Background:SetColorTexture(0.0, 0.0, 0.0, 1.0);
 		Editor.__SettingUI = SettingUI;
 		Editor.__val = 0;
 		Editor.__stepSize = 20;
@@ -877,9 +979,9 @@ local TWidgetMethod = {  };
 		local EditorScrollFrame = CreateFrame('SCROLLFRAME', nil, Editor);
 		EditorScrollFrame:SetPoint("BOTTOMLEFT", 0, 32);
 		EditorScrollFrame:SetPoint("TOPRIGHT", -20, -72);
-		EditorScrollFrame.BG = EditorScrollFrame:CreateTexture(nil, "BACKGROUND");
-		EditorScrollFrame.BG:SetAllPoints();
-		EditorScrollFrame.BG:SetColorTexture(0.25, 0.25, 0.25, 0.5);
+		EditorScrollFrame.Background = EditorScrollFrame:CreateTexture(nil, "BACKGROUND");
+		EditorScrollFrame.Background:SetAllPoints();
+		EditorScrollFrame.Background:SetColorTexture(0.25, 0.25, 0.25, 0.5);
 		EditorScrollFrame.__Editor = Editor;
 		EditorScrollFrame:SetScript("OnSizeChanged", TWidgetMethod.EditorScrollFrameOnSizeChanged);
 		EditorScrollFrame:SetScript("OnScrollRangeChanged", TWidgetMethod.EditorScrollFrameOnScrollRangeChanged);
@@ -1009,13 +1111,29 @@ function TSettingUIMixin.SetMinSize(SettingUI, MinW, MinH)
 		end
 	end
 end
+function TSettingUIMixin.RefreshNode(SettingUI, module, key, val, loading)
+	local node = SettingUI._SettingNodes[module][key];
+	if node ~= nil and node.__indirect ~= true then
+		node:SetVal(val);
+	end
+end
+function TSettingUIMixin.SetConfigInner(SettingUI, module, key, val, loading)
+	local meta = SettingUI._SettingList[module][key];
+	if meta ~= nil then
+		local modfunc = meta.modfunc or meta[6];
+		if modfunc ~= nil then
+			val = modfunc(val);
+		end
+		local callback = meta.callback or meta[5];
+		if callback ~= nil then
+			callback(val);
+		else
+			SettingUI.SetConfig(module, key, val, loading);
+		end
+		return val;
+	end
+end
 
---	@name			'string'
---	@GetDefault		default = GetDefault(module, key)
---	@GetConfig		config = GetConfig(module, key)
---	@SetConfig		SetConfig(module, key, val, loading)
---	@LookupText		text = LookupText(module, key, extra)
---	@return SettingUI
 function __settingfactory:CreateSettingUI(name, GetDefault, GetConfig, SetConfig, LookupText)
 	local SettingUI = CreateFrame('FRAME', nil, UIParent);
 	SettingUI:SetFrameStrata("DIALOG");
@@ -1031,8 +1149,8 @@ function __settingfactory:CreateSettingUI(name, GetDefault, GetConfig, SetConfig
 	SettingUI.LookupText = LookupText or {  };
 	SettingUI.__Editor = CreateEditor(SettingUI);
 	--
-	SettingUI.FreeContainer = CreateFreeContainer(SettingUI, name);
-	SettingUI.InterfaceOptionsFrameContainer = CreateInterfaceOptionsFrameContainer(SettingUI, name);
+	SettingUI.FreeContainer = CreateFreeContainer(SettingUI);
+	SettingUI.InterfaceOptionsFrameContainer = CreateInterfaceOptionsFrameContainer(SettingUI);
 	--
 	SettingUI._CategoryList = {  };
 	SettingUI._SettingNodes = {  };
@@ -1040,25 +1158,32 @@ function __settingfactory:CreateSettingUI(name, GetDefault, GetConfig, SetConfig
 	SettingUI._MinW = 0;
 	SettingUI._MinH = 0;
 	--
+	SettingUI.CategoryParent = CreateFrame('FRAME', nil, SettingUI);
+	SettingUI.CategoryParent:SetSize(1, 1);
+	SettingUI.CategoryParent:SetPoint("TOP", SettingUI, "TOP", 0, -4);
+	--
 	return SettingUI;
 end
 function __settingfactory:CreateSetting(name, GetDefault, GetConfig, SetConfig, LookupText, ...)
 	local SettingUI = __settingfactory:CreateSettingUI(name, GetDefault, GetConfig, SetConfig, LookupText);
 	local t = { ... };
-	local index = 1;
-	local NAME = strupper(name);
-	local pref = "SLASH_" .. NAME;
-	for i = 1, #t do
-		local v = t[i];
-		if t[v] == nil and type(v) == 'string' then
-			index = index + 1;
-			_G[pref .. index] = v;
-			t[v] = i;
+	local n = #t;
+	if n > 0 then
+		n = 0;
+		local NAME = strupper(name);
+		local pref = "SLASH_" .. NAME;
+		for i = 1, #t do
+			local v = t[i];
+			if t[v] == nil and type(v) == 'string' then
+				n = n + 1;
+				_G[pref .. n] = v;
+				t[v] = i;
+			end
 		end
-	end
-	if index > 0 then
-		SlashCmdList[NAME] = function()
-			SettingUI:Open()
+		if n > 0 then
+			SlashCmdList[NAME] = function()
+				SettingUI:Open();
+			end
 		end
 	end
 	return SettingUI;

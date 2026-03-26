@@ -2,7 +2,11 @@
 	by ALA
 --]=]
 
-local __version = 240822.0;
+if select(4, GetBuildInfo()) >= 120000 then
+	return;
+end
+
+local __version = 240823.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -292,6 +296,9 @@ _Driver:SetScript("OnEvent", function(self, event, param)
 		end
 		self:SetScript("OnEvent", Private.OnEvent);
 		hooksecurefunc("SendChatMessage", Private.OnSendChatMessage);
+		if C_ChatInfo and C_ChatInfo.SendChatMessage then
+			hooksecurefunc(C_ChatInfo, "SendChatMessage", Private.OnSendChatMessage);
+		end
 		Private.After(0.1, Private.PeriodicProc);
 	end
 end);
