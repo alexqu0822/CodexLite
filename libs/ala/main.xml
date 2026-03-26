@@ -7,6 +7,7 @@
 -->
 
 	<script file = "main.lua" />
+	<!-- <script file = "FuckUBlizz.lua" /> -->
 	<script file = "uiimp.lua" />
 	<script file = "autostyle.lua" />
 	<script file = "serializer.lua" />
@@ -14,15 +15,17 @@
 	<script file = "coder.lua" />
 	<script file = "comm.lua" />
 	<script file = "menu.lua" />
-	<script file = "drop.lua" />
+	<!-- <script file = "drop.lua" /> -->
 	<script file = "popup.lua" />
 	<!-- <script file = "instlock.lua" /> -->
 	<script file = "raidlock.lua" />
 	<script file = "scroll.lua" />
 	<script file = "talent.lua" />
 
-	<!-- <include file = "Bindings.xml" /> -->
+	<script file = "ChatTransmit.lua" />
 
+	<script file = "Setting.lua" />
+	<!-- <include file = "Bindings.xml" /> -->
 
 </Ui>
 

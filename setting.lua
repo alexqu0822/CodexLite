@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -196,6 +196,21 @@ MT.BuildEnv("setting");
 					end,
 					{ "SHIFT", "CTRL", "ALT", },
 					nil,
+					'tab.general',
+				},
+				dev = {
+					'boolean',
+					function(val)
+						VT.SETTING['dev'] = val;
+						if val then
+							MT.Debug = MT.DebugDev;
+						else
+							MT.Debug = MT.DebugRelease;
+						end
+						RefreshSettingWidget('dev');
+					end,
+					nil,
+					boolean_func,
 					'tab.general',
 				},
 			--	tab.map
@@ -475,6 +490,7 @@ MT.BuildEnv("setting");
 			limit_item_starter_drop = true,
 			limit_item_starter_drop_num_coords = false,
 			node_menu_modifier = "SHIFT",
+			dev = false,
 		--	map
 			min_rate = 1.0,
 		--	worldmap
@@ -512,6 +528,7 @@ MT.BuildEnv("setting");
 			"limit_item_starter_drop",
 			"limit_item_starter_drop_num_coords",
 			"node_menu_modifier",
+			"dev",
 		--	map
 			-- "min_rate",
 		--	worldmap
@@ -625,20 +642,34 @@ MT.BuildEnv("setting");
 				label:SetFont(_font, _fontsize, "NORMAL");
 				label:SetText(gsub(l10n.ui[key], "%%[a-z]", ""));
 				label:SetPoint("LEFT", head, "RIGHT", 2, 0);
-				local slider = CreateFrame('SLIDER', nil, Panel, "OptionsSliderTemplate");
+				local slider = CreateFrame('SLIDER', nil, Panel);
+				slider:SetOrientation("HORIZONTAL");
+				slider:SetThumbTexture([[Interface\Buttons\UI-SliderBar-Button-Horizontal]]);
+				local Thumb = slider:GetThumbTexture();
+				Thumb:SetWidth(1);
+				Thumb:SetHeight(12);
+				Thumb:SetColorTexture(0.6, 1.0, 0.8, 1.0);
 				slider:SetWidth(240);
 				slider:SetHeight(15);
 				slider:SetMinMaxValues(bound[1], bound[2])
 				slider:SetValueStep(bound[3]);
 				slider:SetObeyStepOnDrag(true);
 				slider:SetPoint("LEFT", head, "CENTER", 10, -LineHeight - 2);
-				slider.Text:ClearAllPoints();
+				slider.BG = slider:CreateTexture(nil, "BACKGROUND");
+				slider.BG:SetPoint("LEFT");
+				slider.BG:SetPoint("RIGHT");
+				slider.BG:SetHeight(4);
+				slider.BG:SetColorTexture(0.25, 0.25, 0.25, 0.75);
+				slider.Text = slider:CreateFontString(nil, "ARTWORK");
+				slider.Text:SetFont(_font, _fontsize, "");
 				slider.Text:SetPoint("TOP", slider, "BOTTOM", 0, 3);
-				slider.Low:ClearAllPoints();
+				slider.Low = slider:CreateFontString(nil, "ARTWORK");
+				slider.Low:SetFont(_font, _fontsize, "");
 				slider.Low:SetPoint("TOPLEFT", slider, "BOTTOMLEFT", 4, 3);
 				slider.Low:SetVertexColor(0.5, 1.0, 0.5);
 				slider.Low:SetText(bound[1]);
-				slider.High:ClearAllPoints();
+				slider.High = slider:CreateFontString(nil, "ARTWORK");
+				slider.High:SetFont(_font, _fontsize, "");
 				slider.High:SetPoint("TOPRIGHT", slider, "BOTTOMRIGHT", -4, 3);
 				slider.High:SetVertexColor(1.0, 0.5, 0.5);
 				slider.High:SetText(bound[2]);
@@ -905,6 +936,11 @@ MT.BuildEnv("setting");
 		VT.QUEST_TEMPORARILY_BLOCKED = SV.quest_temporarily_blocked[GUID];
 		VT.QUEST_PREMANENTLY_BLOCKED = SV.quest_permanently_blocked[GUID];
 		VT.QUEST_PREMANENTLY_BL_LIST = SV.quest_permanently_bl_list[GUID];
+		if VT.SETTING['dev'] then
+			MT.Debug = MT.DebugDev;
+		else
+			MT.Debug = MT.DebugRelease;
+		end
 		MT.InitSettingUI();
 		MT.MergeGlobal(VT.SVAR);
 	end);

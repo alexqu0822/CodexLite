@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -14,22 +14,14 @@ local DT = {  }; __private.DT = DT;		--	data
 	local geterrorhandler = geterrorhandler;
 	local print, date = print, date;
 	local type = type;
-	local tostring = tostring;
 	local select = select;
 	local setmetatable = setmetatable;
 	local rawset, rawget = rawset, rawget;
 	local next = next;
-	local unpack = unpack;
-	local tconcat = table.concat;
 	local format = string.format;
 	local band = bit.band;
-	local ipairs = ipairs;
-	local tremove = table.remove;
 	local UnitLevel = UnitLevel;
 	local IsLoggedIn = IsLoggedIn;
-	local UnitPosition = UnitPosition;
-	local C_Map = C_Map;
-	local CreateVector2D = CreateVector2D;
 	local CreateFrame = CreateFrame;
 	local _G = _G;
 
@@ -39,7 +31,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	VT.__super = __ala_meta__;
 	VT.__autostyle = __ala_meta__.autostyle;
 	VT.__menulib = __ala_meta__.__menulib;
-	VT.__scrolllib = _G.alaScrollList;
+	VT.__scrolllib = __ala_meta__.__scrolllib;
 
 -->		Dev
 	local _GlobalRef = {  };
@@ -237,7 +229,7 @@ local DT = {  }; __private.DT = DT;		--	data
 	);
 
 -->		control
-	VT.__is_dev = CT.BNTAG == 'alex#516722';
+	VT.__is_dev = CT.BNTAG == 'alex#516722' or CT.BNTAG == 'ALEX#125620';
 
 -->
 MT.BuildEnv('Init');
@@ -305,6 +297,19 @@ MT.BuildEnv('Init');
 		local P = _TimerPrivate[callback];
 		if P ~= nil and P[3] then
 			P[4] = true;
+		end
+	end
+
+	function MT.SafeCall(func, ...)
+		local success, result = xpcall(
+			func,
+			geterrorhandler(),
+			...
+		);
+		if success then
+			return true, result;
+		else
+			return false;
 		end
 	end
 
@@ -420,21 +425,21 @@ MT.BuildEnv('Init');
 				for index = 1, #__beforeinit do
 					local key = __beforeinit[index];
 					local method = __beforeinit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 				end
 				for index = 1, #__oninit do
 					local key = __oninit[index];
 					local method = __oninit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 					--[==[local success, message = pcall(method);
 					if not success then
-						MT.ErrorHandler(message or (__addon .. " INIT SCRIPT [[" .. key .. "]] ERROR."));
+						geterrorhandler()r(message or (__addon .. " INIT SCRIPT [[" .. key .. "]] ERROR."));
 					end]==]
 				end
 				for index = 1, #__afterinit do
 					local key = __afterinit[index];
 					local method = __afterinit[key];
-					xpcall(method, MT.ErrorHandler, VT.__is_loggedin);
+					xpcall(method, geterrorhandler(), VT.__is_loggedin);
 				end
 				if VT.__is_loggedin then
 					return Driver:GetScript("OnEvent")(Driver, "PLAYER_LOGIN");
@@ -446,13 +451,13 @@ MT.BuildEnv('Init');
 			for index = 1, #__onlogin do
 				local key = __onlogin[index];
 				local method = __onlogin[key];
-				xpcall(method, MT.ErrorHandler, true);
+				xpcall(method, geterrorhandler(), true);
 			end
 		elseif event == "PLAYER_LOGOUT" then
 			for index = 1, #__onquit do
 				local key = __onquit[index];
 				local method = __onquit[key];
-				xpcall(method, MT.ErrorHandler);
+				xpcall(method, geterrorhandler());
 			end
 		end
 	end);

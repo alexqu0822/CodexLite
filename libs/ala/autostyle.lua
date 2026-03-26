@@ -1,5 +1,5 @@
 --[[--
-	ALA@163UI
+	by ALA
 --]]--
 
 local __version = 1;
@@ -30,11 +30,10 @@ local uireimp = __ala_meta__.uireimp;
 -->		upvalue
 	local next = next;
 	local strupper = string.upper;
-	local IsAddOnLoaded = IsAddOnLoaded;
+	local IsAddOnLoaded = IsAddOnLoaded or C_AddOns.IsAddOnLoaded;
 
 -->		autostyle
 	local __loggedin = IsLoggedIn();
-	__autostyle._F_coreDeserializer = _F_coreDeserializerInternal;
 	local addonenv = __autostyle.addonenv;
 	local objecttoreskin = __autostyle.objecttoreskin;
 	addonenv["NDUI"] = {

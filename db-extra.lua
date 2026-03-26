@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -407,6 +407,9 @@ MT.BuildEnv("db-extra");
 		end
 		local today = date("*t");
 		local year, month, day, wday = today.year, today.month, today.day, today.wday;
+		-- if CT.TOCVERSION >= 30000 and C_Calendar and C_Calendar.GetHolidayInfo then
+		-- else
+		-- end
 		for event, limits in next, DataAgent.worldeventperiod do
 			local limit = limits[year] or limits["*"];
 			if limit == nil or
@@ -608,6 +611,21 @@ MT.BuildEnv("db-extra");
 			-->
 			CT.i18n = nil;
 		-->
+		--[==[
+		local i18n = CT.i18n;
+		if i18nn then
+			for _, which in next, { "unit", "item", "object", "refloot", "event", } do
+				local loc = l10n[which];
+				local def = i18n[which] or {  };
+				for key, val in next, def do
+					if loc[key] == nil then
+						loc[key] = val;
+					end
+				end
+			end
+			CT.i18n = nil;
+		end
+		--]==]
 		-->		item-drop
 			for iid, info in next, DataAgent.item do
 				if info.U ~= nil then

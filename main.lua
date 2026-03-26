@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -36,6 +36,21 @@ local DT = __private.DT;
 	local l10n = CT.l10n;
 
 	local EventAgent = VT.EventAgent;
+
+-->		Compatible
+	local _comptb = {  };
+	VT._comptb = _comptb;
+	if GetMouseFocus then
+		_comptb.GetMouseFocus = GetMouseFocus;
+	elseif GetMouseFoci then
+		local GetMouseFoci = GetMouseFoci;
+		_comptb.GetMouseFocus = function()
+			return GetMouseFoci()[1];
+		end
+	else
+		_comptb.GetMouseFocus = function()
+		end
+	end
 
 -->
 MT.BuildEnv("main");
@@ -364,14 +379,24 @@ MT.BuildEnv("main");
 	function AddObjectLookup(oid)
 		local name = l10n.object[oid];
 		if name ~= nil then
-			OBJ_LOOKUP["*"][name] = oid;
+			local to = OBJ_LOOKUP["*"][name];
+			if to == nil then
+				OBJ_LOOKUP["*"][name] = { oid };
+			else
+				to[#to + 1] = oid;
+			end
 			local info = DataAgent.object[oid];
 			if info ~= nil and info.coords ~= nil then
 				local coords = info.coords;
 				for i = 1, #coords do
 					local map = coords[i][3];
 					OBJ_LOOKUP[map] = OBJ_LOOKUP[map] or {  };
-					OBJ_LOOKUP[map][name] = oid;
+					local to = OBJ_LOOKUP[map][name];
+					if to == nil then
+						OBJ_LOOKUP[map][name] = { oid };
+					else
+						to[#to + 1] = oid;
+					end
 				end
 			end
 		end
@@ -1026,7 +1051,7 @@ MT.BuildEnv("main");
 												meta_line = { false, objective_type, objective_id, description, finished, nil, };
 												meta[line] = meta_line;
 												local large_pin = AddLine(quest_id, line, objective_type, objective_id, true);
-												MT.Debug('AddLine-TTT', nil, objective_type, objective_id, large_pin);
+												-- MT.Debug('AddLine-TTT', nil, objective_type, objective_id, large_pin);
 												meta_line[6] = large_pin;
 											else
 												if meta_line[4] ~= description or meta_line[5] ~= finished then
@@ -1085,11 +1110,11 @@ MT.BuildEnv("main");
 												meta[line] = meta_line;
 												if finished then
 													local large_pin = AddLine(quest_id, line, objective_type, objective_id, true);
-													MT.Debug('AddLine-TFT', nil, objective_type, objective_id, large_pin, large_pin);
+													-- MT.Debug('AddLine-TFT', nil, objective_type, objective_id, large_pin, large_pin);
 													meta_line[6] = large_pin;
 												else
 													local large_pin =  AddLine(quest_id, line, objective_type, objective_id, false);
-													MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin, large_pin);
+													-- MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin, large_pin);
 													meta_line[1] = true;
 													meta_line[6] = large_pin;
 													need_re_draw = true;
@@ -1109,7 +1134,7 @@ MT.BuildEnv("main");
 												else
 													if not meta_line[1] then
 														local large_pin =  AddLine(quest_id, line, objective_type, objective_id, false);
-														MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin);
+														-- MT.Debug('AddLine-TFF', nil, objective_type, objective_id, large_pin);
 														meta_line[1] = true;
 														meta_line[6] = large_pin;
 														need_re_draw = true;
@@ -1228,63 +1253,74 @@ MT.BuildEnv("main");
 			for _, quest_id in next, DataAgent.avl_quest_list do
 				local info = DataAgent.quest[quest_id];
 				if META[quest_id] == nil and QUESTS_COMPLETED[quest_id] == nil and QUESTS_CONFILCTED[quest_id] == nil then
-					local acceptable = info.lvl < 0 or (info.lvl >= lowest and info.min <= highest);
-					if acceptable then		--	parent
+					local acceptable = (info.lvl < 0 or (info.lvl >= lowest and info.min <= highest)) and 0 or 1;
+					if acceptable == 0 then		--	parent
 						local parent = info.parent;
 						if parent ~= nil then
 							if META[parent] == nil then
-								acceptable = false;
+								acceptable = 2;
 							end
 						end
-					if acceptable then		--	next
+					if acceptable == 0 then		--	next
 						local _next = info.next;
 						if _next ~= nil then
 							if META[_next] ~= nil or QUESTS_COMPLETED[_next] then
-								acceptable = false;
+								acceptable = 3;
 							end
 						end
-					if acceptable then		--	preSingle
+					if acceptable == 0 then		--	preSingle
 						local preSingle = info.preSingle;
 						if preSingle ~= nil then
-							acceptable = false;
+							acceptable = 4;
 							for index2 = 1, #preSingle do
 								local id = preSingle[index2];
 								if QUESTS_COMPLETED[id] then
-									acceptable = true;
+									acceptable = 0;
 									break;
 								end
 							end
 						end
-					if acceptable then		--	preWeak
+					if acceptable == 0 then		--	preWeak
 						local preWeak = info.preWeak;
 						if preWeak ~= nil then
 							if META[id] == nil and QUESTS_COMPLETED[id] == nil then
-								acceptable = false;
+								acceptable = 5;
 							end
 						end
-					if acceptable then		--	excl
+					if acceptable == 0 then		--	excl
 						local excl = info.excl;
 						if excl ~= nil then
 							for index2 = 1, #excl do
 								local id = excl[index2];
 								if META[id] ~= nil or QUESTS_COMPLETED[id] ~= nil then
-									acceptable = false;
+									acceptable = 6;
 									break;
 								end
 							end
 						end
-					if acceptable then		--	preGroup
+					if acceptable == 0 then		--	exclWeak
+						local exclWeak = info.exclWeak;
+						if exclWeak ~= nil then
+							for index2 = 1, #exclWeak do
+								local id = exclWeak[index2];
+								if META[id] ~= nil then
+									acceptable = 7;
+									break;
+								end
+							end
+						end
+					if acceptable == 0 then		--	preGroup
 						local preGroup = info.preGroup;
 						if preGroup ~= nil then
 							for index2 = 1, #preGroup do
 								local id = preGroup[index2];
 								if QUESTS_COMPLETED[id] == nil then
-									acceptable = false;
+									acceptable = 8;
 									break;
 								end
 							end
 						end
-					if acceptable then		--	rep & skill
+					if acceptable == 0 then		--	rep & skill
 						local acceptable_rep = true;
 						local rep = info.rep;
 						if rep ~= nil and rep[1] ~= nil then
@@ -1313,7 +1349,9 @@ MT.BuildEnv("main");
 							end
 							QUEST_WATCH_SKILL[quest_id] = { acceptable_skill, skill, };
 						end
-						acceptable = acceptable_rep and acceptable_skill;
+						if not (acceptable_rep and acceptable_skill) then
+							acceptable = 9;
+						end
 					end
 					end
 					end
@@ -1321,7 +1359,8 @@ MT.BuildEnv("main");
 					end
 					end
 					end
-					if acceptable and VT.SETTING.show_quest_starter then
+					end
+					if acceptable == 0 and VT.SETTING.show_quest_starter then
 						AddQuestStart(quest_id, info);
 					else
 						DelQuestStart(quest_id, info);

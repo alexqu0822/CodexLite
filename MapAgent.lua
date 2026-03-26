@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -13,8 +13,8 @@ local DT = __private.DT;
 	local ipairs = ipairs;
 	local tremove = table.remove;
 	local UnitPosition = UnitPosition;
-	local C_Map = C_Map;
 	local CreateVector2D = CreateVector2D;
+	local C_Map = C_Map;
 	local GetBestMapForUnit = C_Map.GetBestMapForUnit;
 	local GetWorldPosFromMapPos = C_Map.GetWorldPosFromMapPos;
 	local GetMapChildrenInfo = C_Map.GetMapChildrenInfo;
@@ -38,7 +38,7 @@ local DT = __private.DT;
 	};
 
 -->
-MT.BuildEnv('MapAgent');
+-- MT.BuildEnv('MapAgent');
 -->		predef
 -->
 	VT.PlayerMapID = GetBestMapForUnit('player');
@@ -64,7 +64,7 @@ MT.BuildEnv('MapAgent');
 	local FixedMapType = nil;
 	if CT.TOCVERSION < 20000 then
 		transformData = {  };
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+		worldMapData = {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29795.11, 32601.04, 9894.93 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10, 8723.96, 14824.53 },	--	Kalimdor
 		};
@@ -74,7 +74,7 @@ MT.BuildEnv('MapAgent');
 			{ 530, 0, 4800, 16000, -10133.3, -2666.67, -2400, 2662.8 },
 			{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
 		};
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+		worldMapData = {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 44688.53, 29791.24, 32681.47, 11479.44 },	--	Eastern Kingdoms
 			[1] = { 44878.66, 29916.10,  8723.96, 14824.53 },	--	Kalimdor
 		};
@@ -85,7 +85,7 @@ MT.BuildEnv('MapAgent');
 			{ 530, 1, -6933.33, 533.33, -16000, -8000, 10339.7, 17600 },
 			{ 609, 0, -10000, 10000, -10000, 10000, 0, 0 },
 		};
-		worldMapData= {		--	[instance] = { 1width, 2height, 3left, 4top, }
+		worldMapData = {		--	[instance] = { 1width, 2height, 3left, 4top, }
 			[0] = { 48033.24, 32020.8, 36867.97, 14848.84 },	--	Eastern Kingdoms
 			[1] = { 47908.72, 31935.28, 8552.61, 18467.83 },	--	Kalimdor
 			[571] = { 47662.7, 31772.19, 25198.53, 11072.07 },
@@ -505,11 +505,12 @@ MT.BuildEnv('MapAgent');
 				[1942] = { 1941, },	--	幽魂之地
 				[1954] = { 1941, },	--	银月城
 				--
-				[118] = { 125, },	--	冰冠冰川
+				[118] = { 125, 170, },	--	冰冠冰川
 				[120] = { 125, },	--	风暴峭壁
 				[125] = { 118, 120, 127, },	--	达拉然
 				[127] = { 125, },	--	晶歌森林
 				[126] = { 118, 125, 127, },	--	达拉然下水道	--	只在其他地图显示下水道任务，不在下水道显示其他地图
+				[170] = { 118, },	--	洛斯加尔登陆点
 			};
 			for map, list in next, adjoined_fix do
 				local meta = mapMeta[map];

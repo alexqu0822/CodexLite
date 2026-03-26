@@ -1,5 +1,5 @@
 --[[--
-	by ALA @ 163UI/网易有爱, http://wowui.w.163.com/163ui/
+	by ALA
 	CREDIT shagu/pfQuest(MIT LICENSE) @ https://github.com/shagu
 --]]--
 local __addon, __private = ...;
@@ -24,22 +24,18 @@ local DT = __private.DT;
 	local GetQuestLogTitle = GetQuestLogTitle;
 	local GetQuestLogSelection = GetQuestLogSelection;
 	local GetItemCount = GetItemCount;
-	local GetMouseFocus = GetMouseFocus;
+	local GetMouseFocus = GetMouseFocus or VT._comptb.GetMouseFocus;
 	local IsModifiedClick = IsModifiedClick;
 	local Ambiguate = Ambiguate;
 
-	local GetNumGossipActiveQuests = GetNumGossipActiveQuests;
-	local GetGossipActiveQuests = GetGossipActiveQuests;
-	local SelectGossipActiveQuest = SelectGossipActiveQuest;
-	local GetNumGossipAvailableQuests = GetNumGossipAvailableQuests;
-	local GetGossipAvailableQuests = GetGossipAvailableQuests;
-	local SelectGossipAvailableQuest = SelectGossipAvailableQuest;
-	local GetNumActiveQuests = GetNumActiveQuests;
+	local GetNumActiveQuests = C_GossipInfo.GetNumActiveQuests;
+	local GetActiveQuests = C_GossipInfo.GetActiveQuests;
+	local SelectActiveQuest = C_GossipInfo.SelectActiveQuest;
+	local GetNumAvailableQuests = C_GossipInfo.GetNumAvailableQuests;
+	local GetAvailableQuests = C_GossipInfo.GetAvailableQuests;
+	local SelectAvailableQuest = C_GossipInfo.SelectAvailableQuest;
 	local GetActiveTitle = GetActiveTitle;
-	local SelectActiveQuest = SelectActiveQuest;
-	local GetNumAvailableQuests = GetNumAvailableQuests;
 	local GetAvailableTitle = GetAvailableTitle;
-	local SelectAvailableQuest = SelectAvailableQuest;
 	local AcceptQuest = AcceptQuest;
 	local IsQuestCompletable = IsQuestCompletable;
 	local CompleteQuest = CompleteQuest;
@@ -556,10 +552,33 @@ MT.BuildEnv("util");
 						local text = tip.__TextLeft1:GetText();
 						if text ~= nil and text ~= tip.__TextLeft1Text then
 							local reshow = false;
-							tip.__TextLeft1Text = text;
 							local map = MT.GetPlayerZone();
-							local oid = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
-							if oid ~= nil then
+							local oids = __MAIN_OBJ_LOOKUP[map] ~= nil and __MAIN_OBJ_LOOKUP[map][text] or __MAIN_OBJ_LOOKUP["*"][text];
+							text = "|cffffffff" .. text .. "|r";
+							tip.__TextLeft1:SetText(text);
+							tip.__TextLeft1Text = text;
+							if oids ~= nil and #oids > 0 then
+								local oid = oids[1];
+								if #oids > 1 then
+									local continent, x, y = MT.GetUnitPosition('player');
+									local mindist2 = 4294967295;
+									for i = 1, #oids do
+										local id = oids[i];
+										local info = DataAgent.object[id];
+										if info ~= nil and info.wcoords ~= nil then
+											for j = 1, #info.wcoords do
+												local coords = info.wcoords[j];
+												if coords[3] == continent then
+													local dist2 = (coords[1] - x) * (coords[1] - x) + (coords[2] - y) * (coords[2] - y);
+													if dist2 < mindist2 then
+														oid = oids[i];
+														mindist2 = dist2;
+													end
+												end
+											end
+										end
+									end
+								end
 								local uuid = MT.CoreGetUUID('object', oid);
 								if uuid ~= nil then
 									TooltipSetQuestTip(tip, uuid);
@@ -675,7 +694,7 @@ MT.BuildEnv("util");
 				end
 			end
 		end
-		function MT.button_info_OnEnter(self)
+		function MT.ShowInfoLines(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			local info_lines = self.info_lines;
 			if info_lines then
@@ -757,24 +776,28 @@ MT.BuildEnv("util");
 		function EventAgent.GOSSIP_SHOW()
 			local modstate = not quest_auto_inverse_modifier();
 			if not VT.SETTING.auto_complete ~= modstate then
-				for i = 1, GetNumGossipActiveQuests() do
-					local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetGossipActiveQuests());
-					if title and isComplete then
-						return SelectGossipActiveQuest(i);
+				local quests = GetActiveQuests();
+				for i = 1, GetNumActiveQuests() do
+					local quest = quests[i];
+					-- local title, level, isTrivial, isComplete, isLegendary, isIgnored = select(i * 6 - 5, GetActiveQuests());
+					if quest.title and quest.isComplete then
+						return SelectActiveQuest(quest.questID);
 					end
 				end
 			end
 			if not VT.SETTING.auto_accept ~= modstate then
-				for i = 1, GetNumGossipAvailableQuests() do
-					local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetGossipAvailableQuests());
-					if title then
-						return SelectGossipAvailableQuest(i);
+				local quests = GetAvailableQuests();
+				for i = 1, GetNumAvailableQuests() do
+					local quest = quests[i];
+					-- local title, level, isTrivial, isDaily, isRepeatable, isLegendary, isIgnored = select(i * 7 - 6, GetAvailableQuests());
+					if quest.title then
+						return SelectAvailableQuest(quest.questID);
 					end
 				end
 			end
 			-- if VT.SETTING.auto_accept then
 			-- 	for i = 1, GetNumAvailableQuests() do
-			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetGossipAvailableQuests(i);
+			-- 		local titleText, level, isTrivial, frequency, isRepeatable, isLegendary, isIgnored = GetAvailableQuests(i);
 			-- 		if title then
 			-- 			return SelectAvailableQuest(i);
 			-- 		end
