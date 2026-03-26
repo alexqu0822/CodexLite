@@ -56,6 +56,7 @@ uil10n.quest_lvl_highest_ofs = "最高任务等级偏差";
 uil10n.limit_item_starter_drop = "触发任务的物品只显示10%以上掉落率的掉落点";
 uil10n.limit_item_starter_drop_num_coords = "触发任务的物品只显示少于等于5个位置的掉落点";
 uil10n.node_menu_modifier = "任务标记弹出菜单按键";
+uil10n.dev = "显示调试信息";
 --	map
 uil10n.min_rate = "最低物品掉率";
 --	worldmap

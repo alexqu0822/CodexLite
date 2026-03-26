@@ -56,6 +56,7 @@ uil10n.quest_lvl_highest_ofs = "Смещение к макимальному у�
 uil10n.limit_item_starter_drop = "Show items quest giver only if the drop rate is above 10%";
 uil10n.limit_item_starter_drop_num_coords  = "Show items quest giver with no more than 5 coords";
 uil10n.node_menu_modifier = "Modifier of poping menu of pin";
+uil10n.dev = "Dev Message";
 --	map
 uil10n.min_rate = "Минимальный шанс выпадения";
 --	worldmap

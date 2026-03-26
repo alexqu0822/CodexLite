@@ -56,6 +56,7 @@ uil10n.quest_lvl_highest_ofs = "最高任務等級偏差";
 uil10n.limit_item_starter_drop = "觸發任務的物品只顯示10%以上掉落率的掉落點";
 uil10n.limit_item_starter_drop_num_coords = "觸發任務的物品只顯示少於等於5個位置的掉落點";
 uil10n.node_menu_modifier = "任務标记彈出菜單按鍵";
+uil10n.dev = "顯示調試信息";
 --	map
 uil10n.min_rate = "最低物品掉率";
 --	worldmap

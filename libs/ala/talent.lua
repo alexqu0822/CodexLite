@@ -2,7 +2,7 @@
 	by ALA
 --]]--
 
-local __version = 240627-2.1;
+local __version = 251107;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -30,7 +30,7 @@ end
 
 -->			upvalue
 	--
-	local pcall = pcall;
+	local pcall, xpcall, geterrorhandler = pcall, xpcall, geterrorhandler;
 	local GetTime = GetTime;
 	local print, date = print, date;
 	local type, tostring, tonumber = type, tostring, tonumber;
@@ -40,14 +40,17 @@ end
 	local floor, ceil = floor, ceil;
 	local RegisterAddonMessagePrefix = C_ChatInfo ~= nil and C_ChatInfo.RegisterAddonMessagePrefix or RegisterAddonMessagePrefix;
 	local IsAddonMessagePrefixRegistered = C_ChatInfo ~= nil and C_ChatInfo.IsAddonMessagePrefixRegistered or IsAddonMessagePrefixRegistered;
-	local GetRegisteredAddonMessagePrefixes = C_ChatInfo ~= nil and C_ChatInfo.GetRegisteredAddonMessagePrefixes or GetRegisteredAddonMessagePrefixes;
+	-- local GetRegisteredAddonMessagePrefixes = C_ChatInfo ~= nil and C_ChatInfo.GetRegisteredAddonMessagePrefixes or GetRegisteredAddonMessagePrefixes;
 	local SendAddonMessage = C_ChatInfo ~= nil and C_ChatInfo.SendAddonMessage or SendAddonMessage;
 	local After = C_Timer.After;
 	local GetPlayerInfoByGUID = GetPlayerInfoByGUID;
+	local UnitGUID = UnitGUID;
 	local UnitLevel = UnitLevel;
 	local UnitInBattleground = UnitInBattleground;
 	local GetNumTalentGroups = GetNumTalentGroups or function() return 1; end
 	local GetActiveTalentGroup = GetActiveTalentGroup or function() return 1; end
+	local _GetNumTalentGroups = nil;
+	local _GetActiveTalentGroup = nil;
 	local GetNumTalentTabs, GetNumTalents, GetTalentInfo = GetNumTalentTabs, GetNumTalents, GetTalentInfo;
 	local GetNumGlyphSockets, GetGlyphSocketInfo = GetNumGlyphSockets, GetGlyphSocketInfo;
 	local GetInventoryItemLink = GetInventoryItemLink;
@@ -62,18 +65,10 @@ end
 		GetAddOnInfo, IsAddOnLoaded, GetAddOnEnableState = _G.GetAddOnInfo, _G.IsAddOnLoaded, function(addon, name) return _GetAddOnEnableState(name, addon) end;
 	end
 	local Ambiguate = Ambiguate;
-	local _GetGlyphSocketInfo = __ala_meta__.TOC_VERSION < 40000 and GetGlyphSocketInfo or function(index, group)
-		local Enabled, GlyphType, GlyphTooltipIndex, GlyphSpell, Icon = GetGlyphSocketInfo(index, group);
-		return Enabled, GlyphType, GlyphSpell, Icon;
-	end;
 
 	local function __table_sub(T, index, index2)
 		return T[index];
 	end;
-	local function _log_(...)
-		print(date('\124cff00ff00%H:%M:%S\124r'), ...);
-		--	tinsert(logfile, { date('\124cff00ff00%H:%M:%S\124r'), ... });
-	end
 -->			constant
 	--
 	local BIG_NUMBER = 4294967295;
@@ -131,9 +126,16 @@ end
 	local SUPPORT_GLYPH = CLIENT_MAJOR >= 3 and CLIENT_MAJOR <= 6 or false;
 	local SUPPORT_ENGRAVING = C_Engraving ~= nil and C_Engraving.IsEngravingEnabled ~= nil and C_Engraving.IsEngravingEnabled() or false;
 	--
-	local COMM_PREFIX_LIST = { "ATEADD", "ATECOM", "EMUADD", "EMUCOM", };
+	local COMM_PREFIX_LIST = {
+		"EMUCOM",
+		"ATEADD",	--	<Vanilla Master>Blocked since 20250108.
+		"ATECOM",
+		"EMUADD",
+	};
+	local COMM_PREFIX_RESERVED = {	};
+	for i = 0, 63 do COMM_PREFIX_RESERVED[#COMM_PREFIX_RESERVED + 1] = "EMUCO" .. __base64[i]; end
+	for i = 0, 63 do COMM_PREFIX_RESERVED[#COMM_PREFIX_RESERVED + 1] = "EMUAD" .. __base64[i]; end
 	local COMM_PREFIX_HASH = {  };
-	local COMM_HEART_BEAT = "**heart*beat**";
 	local COMM_LWRAVL_PREFIX = 1;
 	local COMM_PREFIX = COMM_PREFIX_LIST[1];
 	local COMM_PART_PREFIX = "!P" .. __base64[CLIENT_MAJOR] .. __base64[LIB_MAJOR];
@@ -273,9 +275,10 @@ end
 	end
 	_SliceFlush();
 -->		Definition & Notes
+	local Private = {  };
 	--[[
-		numGroup = GetNumTalentGroups(inspect, pet);
-		activeGroup = GetActiveTalentGroup(inspect, pet);
+		numGroup = _GetNumTalentGroups(inspect, pet);
+		activeGroup = _GetActiveTalentGroup(inspect, pet);
 		NumSpecs = GetNumTalentTabs(inspect);
 		NumTalents = GetNumTalents(SpecIndex, inspect);
 		name, iconTexture, tier, column, rank, maxRank, isExceptional, available = GetTalentInfo(SpecIndex, TalentIndex, inspect, pet, group);
@@ -300,7 +303,8 @@ end
 		--	Talent
 		--		[4]		1		2~3		4			5			6			7~6+Len1	7+Len1		8+Len1~7+Len1+Len2
 		--		!T32	b64		b64b64	b64			b64			b64			code		b64			code
-		--		prefix	class	level	numGroup	activeGroup	lenTal1		Talent1		lenTal2		Talent2
+		--		prefix	class	level	numGroup	activeGroup	Len1		Talent1		Len2		Talent2
+		--																	5.0:  specindex .. [0-3]x6
 		--	Glyph
 		--		!G320	+glyph...	Encode(Enabled[0 / 1] * 8 + GlyphType[0 / 1]):Encode(GlyphSpell):Encode(Icon)
 		--		prefix	glyph
@@ -310,6 +314,21 @@ end
 	--
 -->		SharedMethod
 	--
+	__emulib.SafeCallRelease = pcall;
+	__emulib.SafeCallDebug = function(func, ...) return xpcall(func, geterrorhandler(), ...); end
+	function __emulib.Print(...)
+		print(date('\124cff00ff00%H:%M:%S\124r'), ...);
+		--	tinsert(logfile, { date('\124cff00ff00%H:%M:%S\124r'), ... });
+	end
+	local _, BNTAG = BNGetInfo();
+	if BNTAG == "\97\108\101\120\35\53\49\54\55\50\50" or BNTAG == "ALEX#125620" then
+		__emulib.SafeCall = __emulib.SafeCallDebug;
+		__emulib.Debug = __emulib.Print;
+	else
+		__emulib.SafeCall = __emulib.SafeCallRelease;
+		__emulib.Debug = function()
+		end
+	end
 	local RepeatedZero = setmetatable(
 		{
 			[0] = "",
@@ -379,10 +398,32 @@ end
 	end
 -->		Talent		--	data = ClassIndex[b64 1char] .. TalentData[b64] .. Level[b64 2char]
 	--
+	--	arg			code
+	--	return		class
+	function __emulib.GetClass(code)
+		local cc = strsub(code, 1, 1);
+		if cc == "!" then
+			cc = strsub(code, 5, 5);
+		end
+		local classIndex = __debase64[cc];
+		if classIndex == nil then
+			__emulib.Debug("GetClass", "classIndex == nil", code);
+			return nil;
+		end
+		local class = __classList[classIndex];
+		if class == nil then
+			__emulib.Debug("GetClass", "class == nil", classIndex, code);
+			return nil;
+		end
+		return class;
+	end
+if CLIENT_MAJOR < 5 then
+	_GetNumTalentGroups = GetNumTalentGroups;
+	_GetActiveTalentGroup = GetActiveTalentGroup;
 	local _TalentMap = {  };
-	local function _GenerateTalentMap(class, inspect)
+	function Private._GenerateTalentMap(class, inspect)
 		if not inspect and class ~= SELFCLASS then
-			_log_("_GenerateTalentMap", "not inspect and class ~= SELFCLASS", class, inspect, SELFCLASS);
+			__emulib.Debug("_GenerateTalentMap", "not inspect and class ~= SELFCLASS", class, inspect, SELFCLASS);
 			return nil;
 		end
 		local Map = _TalentMap[class];
@@ -396,7 +437,7 @@ end
 		for SpecIndex = 1, NumSpecs do
 			local NumTalents = GetNumTalents(SpecIndex, inspect);
 			if NumTalents == nil then
-				_log_("_GenerateTalentMap", "NumTalents == nil", class, inspect, SpecIndex);
+				__emulib.Debug("_GenerateTalentMap", "NumTalents == nil", class, inspect, SpecIndex);
 				return nil;
 			end
 			local PM = {  };
@@ -404,7 +445,7 @@ end
 			for TalentIndex = 1, NumTalents do
 				local name, iconTexture, tier, column, rank, maxRank, isExceptional, available = GetTalentInfo(SpecIndex, TalentIndex, inspect);
 				if maxRank == nil then
-					_log_("_GenerateTalentMap", "maxRank == nil", class, inspect, SpecIndex, TalentIndex, name, tier, column, rank, maxRank);
+					__emulib.Debug("_GenerateTalentMap", "maxRank == nil", class, inspect, SpecIndex, TalentIndex, name, tier, column, rank, maxRank);
 					return nil;
 				end
 				if tier == nil or maxRank == 0 then
@@ -455,17 +496,22 @@ end
 		Map.initialized = true;
 		return Map;
 	end
+	function Private.PeriodicGeneratePlayerTalentMap()
+		if Private._GenerateTalentMap(SELFCLASS, false) == nil then
+			After(1.0, Private.PeriodicGeneratePlayerTalentMap);
+		end
+	end
 	function __emulib.INSPECT_READY(GUID)
 		local locClass, class, locRace, race, sex, name, realm = GetPlayerInfoByGUID(GUID);
-		-- _log_("INSPECT_READY", GUID, class);
+		-- __emulib.Debug("INSPECT_READY", GUID, class);
 		if class ~= nil then
-			_GenerateTalentMap(class, true);
+			Private._GenerateTalentMap(class, true);
 		end
 	end
 	function __emulib.GetTalentMap(class)
 		local Map = _TalentMap[class];
 		if Map == nil and class == SELFCLASS then
-			return _GenerateTalentMap(class, false);
+			return Private._GenerateTalentMap(class, false);
 		end
 		return Map;
 	end
@@ -473,7 +519,7 @@ end
 	function __emulib.GetTalentData(class, inspect, group)
 		local Map = __emulib.GetTalentMap(class);
 		if Map == nil then
-			_log_("GetTalentData", "Map == nil", class);
+			__emulib.Debug("GetTalentData", "Map == nil", class);
 			return nil, 0;
 		end
 		local VMap = Map.VMap;
@@ -481,7 +527,7 @@ end
 		local len = 0;
 		local NumSpecs = GetNumTalentTabs(inspect);
 		if NumSpecs == nil then
-			_log_("GetTalentData", "NumSpecs == nil", inspect);
+			__emulib.Debug("GetTalentData", "NumSpecs == nil", inspect, class);
 			return nil, 0;
 		end
 		for SpecIndex = 1, NumSpecs do
@@ -491,44 +537,25 @@ end
 			end
 			local NumTalents = GetNumTalents(SpecIndex, inspect);
 			if NumTalents == nil then
-				_log_("GetTalentData", "NumTalents == nil", inspect)
+				__emulib.Debug("GetTalentData", "NumTalents == nil", NumSpecs, inspect, class);
 				return nil, 0;
 			end
 			len = len + NumTalents;
 			for TalentSeq = 1, NumTalents do
 				local TalentIndex = VM[TalentSeq];
 				if TalentIndex == nil then
-					_log_("GetTalentData", "TalentIndex == nil", SpecIndex, TalentSeq, TalentIndex);
+					__emulib.Debug("GetTalentData", "TalentIndex == nil", SpecIndex, TalentSeq, TalentIndex, NumSpecs, inspect, class);
 					return nil, 0;
 				end
 				local name, iconTexture, tier, column, rank, maxRank, isExceptional, available = GetTalentInfo(SpecIndex, TalentIndex, inspect, false, group or 1);
 				if rank == nil then
-					_log_("GetTalentData", "rank == nil", SpecIndex, TalentSeq, TalentIndex);
+					__emulib.Debug("GetTalentData", "rank == nil", SpecIndex, TalentSeq, TalentIndex, NumSpecs, inspect, class);
 					return nil, 0;
 				end
 				data = data .. rank;
 			end
 		end
 		return data, len;
-	end
-	--	arg			code
-	--	return		class
-	function __emulib.GetClass(code)
-		local cc = strsub(code, 1, 1);
-		if cc == "!" then
-			cc = strsub(code, 5, 5);
-		end
-		local classIndex = __debase64[cc];
-		if classIndex == nil then
-			_log_("GetClass", "classIndex == nil", code);
-			return nil;
-		end
-		local class = __classList[classIndex];
-		if class == nil then
-			_log_("GetClass", "class == nil", classIndex, code);
-			return nil;
-		end
-		return class;
 	end
 	--	arg			code[, len]
 	--	return		data
@@ -548,7 +575,7 @@ end
 				magic = magic * 64;
 				nChar = nChar + 1;
 			else
-				_log_("DecodeTalentBlock", 1, c, index, code);
+				__emulib.Debug("DecodeTalentBlock", 1, c, index, code);
 			end
 			if c == ":" or nChar == 5 or index == len then
 				magic = 1;
@@ -571,12 +598,12 @@ end
 		[1] = function(code, nodecoding)
 			local classIndex = __debase64[strsub(code, 1, 1)];
 			if classIndex == nil then
-				_log_("DecodeTalent", "classIndex == nil", code);
+				__emulib.Debug("DecodeTalent", "classIndex == nil", code);
 				return nil;
 			end
 			local class = __classList[classIndex];
 			if class == nil then
-				_log_("DecodeTalent", "class == nil", classIndex, code);
+				__emulib.Debug("DecodeTalent", "class == nil", classIndex, code);
 				return nil;
 			end
 
@@ -586,54 +613,54 @@ end
 			local cc = strsub(code, 1, 1);
 			local classIndex = __debase64[cc];
 			if classIndex == nil then
-				_log_("_TalentDataSubDecoder V2", "classIndex == nil", cc, code);
+				__emulib.Debug("_TalentDataSubDecoder V2", "classIndex == nil", cc, code);
 				return nil;
 			end
 			local class = __classList[classIndex];
 			if class == nil then
-				_log_("_TalentDataSubDecoder V2", "class == nil", classIndex, code);
+				__emulib.Debug("_TalentDataSubDecoder V2", "class == nil", classIndex, code);
 				return nil;
 			end
 			local level = __debase64[strsub(code, 2, 2)] + __debase64[strsub(code, 3, 3)] * 64;
 			local numGroup = __debase64[strsub(code, 4, 4)];
 			if numGroup == nil then
-				_log_("_TalentDataSubDecoder V2", "numGroup == nil", __debase64[strsub(code, 4, 4)], code);
+				__emulib.Debug("_TalentDataSubDecoder V2", "numGroup == nil", __debase64[strsub(code, 4, 4)], code);
 				return nil;
 			end
 			local activeGroup = __debase64[strsub(code, 5, 5)];
 			if activeGroup == nil then
-				_log_("_TalentDataSubDecoder V2", "activeGroup == nil", __debase64[strsub(code, 5, 5)], code);
+				__emulib.Debug("_TalentDataSubDecoder V2", "activeGroup == nil", __debase64[strsub(code, 5, 5)], code);
 				return nil;
 			end
 			if numGroup < 2 then
-				local lenTal1 = __debase64[strsub(code, 6, 6)];
-				if lenTal1 == nil then
-					_log_("_TalentDataSubDecoder V2", "lenTal1 == nil", __debase64[strsub(code, 6, 6)], code);
+				local Len1 = __debase64[strsub(code, 6, 6)];
+				if Len1 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 == nil", __debase64[strsub(code, 6, 6)], code);
 					return nil;
 				end
-				local code1 = strsub(code, 7, lenTal1 + 6);
+				local code1 = strsub(code, 7, Len1 + 6);
 				if nodecoding == true then
 					return class, level, 1, activeGroup, code1;
 				else
-					return class, level, 1, activeGroup, __emulib.DecodeTalentBlock(code1, lenTal1);
+					return class, level, 1, activeGroup, __emulib.DecodeTalentBlock(code1, Len1);
 				end
 			else
-				local lenTal1 = __debase64[strsub(code, 6, 6)];
-				if lenTal1 == nil then
-					_log_("_TalentDataSubDecoder V2", "lenTal1 == nil", __debase64[strsub(code, 6, 6)], code);
+				local Len1 = __debase64[strsub(code, 6, 6)];
+				if Len1 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 == nil", __debase64[strsub(code, 6, 6)], code);
 					return nil;
 				end
-				local code1 = strsub(code, 7, lenTal1 + 6);
-				local lenTal2 = __debase64[strsub(code, 7 + lenTal1, 7 + lenTal1)];
-				if lenTal2 == nil then
-					_log_("_TalentDataSubDecoder V2", "lenTal2 == nil", __debase64[strsub(code, 7 + lenTal1, 7 + lenTal1)], code);
+				local code1 = strsub(code, 7, Len1 + 6);
+				local Len2 = __debase64[strsub(code, 7 + Len1, 7 + Len1)];
+				if Len2 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len2 == nil", __debase64[strsub(code, 7 + Len1, 7 + Len1)], code);
 					return nil;
 				end
-				local code2 = strsub(code, lenTal1 + 8, lenTal1 + lenTal2 + 7);
+				local code2 = strsub(code, Len1 + 8, Len1 + Len2 + 7);
 				if nodecoding == true then
 					return class, level, 2, activeGroup, code1, code2;
 				else
-					return class, level, 2, activeGroup, __emulib.DecodeTalentBlock(code1, lenTal1), __emulib.DecodeTalentBlock(code2, lenTal2);
+					return class, level, 2, activeGroup, __emulib.DecodeTalentBlock(code1, Len1), __emulib.DecodeTalentBlock(code2, Len2);
 				end
 			end
 		end,
@@ -679,6 +706,14 @@ end
 			data.sub = __table_sub;
 		end
 		len = len or #data;
+		for index = len, 1, -1 do
+			local d = tonumber(data:sub(index, index));
+			if d == 0 or d == "0" then
+				len = len - 1;
+			else
+				break;
+			end
+		end
 		local num = 0;
 		local raw = 0;
 		local magic = 1;
@@ -687,7 +722,7 @@ end
 		for index = 1, len do
 			local d = tonumber(data:sub(index, index));			--	table or string
 			if d == nil or d == "" then
-				_log_("EncodeTalentBlock", "d == nil", data, len);
+				__emulib.Debug("EncodeTalentBlock", "d == nil", data, len);
 				return nil;
 			end
 			num = num + 1;
@@ -727,15 +762,15 @@ end
 	--	arg			classIndex, level, {t1}, {t2}, {t3}, n1, n2, n3
 	--	return		code
 	function __emulib.EncodeFrameTalentDataV1(classIndex, level, D1, D2, D3, N1, N2, N3)
-		local data, len = nil, nil;
 		local TypeClassIndex = type(classIndex);
 		if TypeClassIndex == 'string' then
 			classIndex = __classHash[classIndex];
 		elseif TypeClassIndex == 'number' and __classList[classIndex] then
 		else
-			_log_("EncodeFrameTalentDataV1", "type(classIndex)", TypeClassIndex, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV1", "type(classIndex)", TypeClassIndex, classIndex);
 			return nil;
 		end
+		local data, len = nil, nil;
 		if type(D1) == 'string' then
 			data, len = D1, D2 + D3 + N1;
 		elseif type(D1) == 'table' then
@@ -745,7 +780,7 @@ end
 			for index = 1, N2 do len = len + 1; data[len] = D2 and D2[index] or 0; end
 			for index = 1, N3 do len = len + 1; data[len] = D3 and D3[index] or 0; end
 		else
-			_log_("EncodeFrameData", 1, classIndex);
+			__emulib.Debug("EncodeFrameData", 1, classIndex);
 			return nil;
 		end
 		local TypeD1 = type(D1);
@@ -758,7 +793,7 @@ end
 			for index = 1, N2 do len = len + 1; data[len] = D2 and D2[index] or 0; end
 			for index = 1, N3 do len = len + 1; data[len] = D3 and D3[index] or 0; end
 		else
-			_log_("EncodeFrameTalentDataV1", "type(D1)", TypeD1, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV1", "type(D1)", TypeD1, classIndex);
 			return nil;
 		end
 
@@ -771,7 +806,7 @@ end
 			classIndex = __classHash[classIndex];
 		elseif TypeClassIndex == 'number' and __classList[classIndex] then
 		else
-			_log_("EncodeFrameTalentDataV2", "type(classIndex)", TypeClassIndex, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV2", "type(classIndex)", TypeClassIndex, classIndex);
 			return nil;
 		end
 		local TypeD1 = type(D1);
@@ -784,7 +819,7 @@ end
 			for index = 1, N2 do len = len + 1; data[len] = D2 and D2[index] or 0; end
 			for index = 1, N3 do len = len + 1; data[len] = D3 and D3[index] or 0; end
 		else
-			_log_("EncodeFrameTalentDataV2", "type(D1)", TypeD1, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV2", "type(D1)", TypeD1, classIndex);
 			return nil;
 		end
 		level = level ~= nil and tonumber(level) or MAX_LEVEL;
@@ -803,6 +838,176 @@ end
 				1,
 				data1;
 	end
+else
+	local Sepc_IsInitialized = C_SpecializationInfo.IsInitialized;
+	local GetNumSpecializations = GetNumSpecializations;
+	local GetNumSpecGroups = GetNumSpecGroups;
+	local GetActiveSpecGroup = C_SpecializationInfo.GetActiveSpecGroup;			--	inspect, pet
+	local GetSpecialization = C_SpecializationInfo.GetSpecialization;			--	inspect, pet, group
+	local GetSpecializationInfo = C_SpecializationInfo.GetSpecializationInfo;	--	spec, inspect, pet, inspectUnit, sex, group
+	local GetTalentInfo = C_SpecializationInfo.GetTalentInfo;					--	{ specializationIndex, isInspect, isPet, inspectTarget, sex, groupIndex }
+	local GetTalentTierInfo = GetTalentTierInfo;								--	(tier, group)	--	available, selected, level
+	_GetNumTalentGroups = function(inspect, pet)
+		if inspect then
+			return 1;
+		else
+			return GetNumSpecGroups(false, pet);
+		end
+	end
+	_GetActiveTalentGroup = function(inspect, pet)
+		if inspect then
+			return 1;
+		else
+			return GetActiveSpecGroup(false, pet);
+		end
+	end
+	function Private.PeriodicGeneratePlayerTalentMap()
+	end
+	function __emulib.GetTalentMap(class)
+	end
+	--	return 			UPPER_CLASS, data, level
+	function __emulib.GetTalentData(class, inspect, group, unit)
+		if inspect then
+			local spec = GetSpecialization(true, false);
+			if spec <= 0 or spec >= 5 then
+				spec = 0;
+			end
+			local data = spec;
+			local query = {
+				groupIndex = 1,
+				isInspect = true,
+				target = unit,
+			};
+			for tier = 1, 6 do
+				query.tier = tier;
+				local selected = 0;
+				for col = 1, 3 do
+					query.column = col;
+					local info = C_SpecializationInfo.GetTalentInfo(query);
+					if info and info.selected then
+						selected = col;
+						break;
+					end
+				end
+				data = data .. selected;
+			end
+			return data, 6;
+		else
+			local spec = GetSpecialization(false, false, group);
+			if spec <= 0 or spec >= 5 then
+				spec = 0;
+			end
+			-- local id, name, description, icon = GetSpecializationInfo(spec, false, false)
+			local data = spec;
+			for tier = 1, 6 do
+				local available, selected, level = GetTalentTierInfo(tier, group);
+				data = data .. selected;
+			end
+			return data, 7;
+		end
+	end
+	local _TalentDataSubDecoder = {
+		[1] = function(code, nodecoding)
+		end,
+		[2] = function(code, nodecoding)
+			local cc = strsub(code, 1, 1);
+			local classIndex = __debase64[cc];
+			if classIndex == nil then
+				__emulib.Debug("_TalentDataSubDecoder V2", "classIndex == nil", cc, code);
+				return nil;
+			end
+			local class = __classList[classIndex];
+			if class == nil then
+				__emulib.Debug("_TalentDataSubDecoder V2", "class == nil", classIndex, code);
+				return nil;
+			end
+			local level = __debase64[strsub(code, 2, 2)] + __debase64[strsub(code, 3, 3)] * 64;
+			local numGroup = __debase64[strsub(code, 4, 4)];
+			if numGroup == nil then
+				__emulib.Debug("_TalentDataSubDecoder V2", "numGroup == nil", __debase64[strsub(code, 4, 4)], code);
+				return nil;
+			end
+			local activeGroup = __debase64[strsub(code, 5, 5)];
+			if activeGroup == nil then
+				__emulib.Debug("_TalentDataSubDecoder V2", "activeGroup == nil", __debase64[strsub(code, 5, 5)], code);
+				return nil;
+			end
+			if numGroup < 2 then
+				local Len1 = __debase64[strsub(code, 6, 6)];
+				if Len1 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 == nil", __debase64[strsub(code, 6, 6)], code);
+					return nil;
+				end
+				if Len1 ~= 7 then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 ~= 7", __debase64[strsub(code, 6, 6)], code);
+					return nil;
+				end
+				local code1 = strsub(code, 7, Len1 + 6);
+				if tonumber(code1) == nil then
+					return nil;
+				end
+				return class, level, 1, activeGroup, code1;
+			else
+				local Len1 = __debase64[strsub(code, 6, 6)];
+				if Len1 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 == nil", __debase64[strsub(code, 6, 6)], code);
+					return nil;
+				end
+				if Len1 ~= 7 then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len1 ~= 7", __debase64[strsub(code, 6, 6)], code);
+					return nil;
+				end
+				local code1 = strsub(code, 7, Len1 + 6);
+				if tonumber(code1) == nil then
+					return nil;
+				end
+				local Len2 = __debase64[strsub(code, 7 + Len1, 7 + Len1)];
+				if Len2 == nil then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len2 == nil", __debase64[strsub(code, 7 + Len1, 7 + Len1)], code);
+					return nil;
+				end
+				if Len2 ~= 7 then
+					__emulib.Debug("_TalentDataSubDecoder V2", "Len2 ~= 7", __debase64[strsub(code, 6, 6)], code);
+					return nil;
+				end
+				local code2 = strsub(code, Len1 + 8, Len1 + Len2 + 7);
+				if tonumber(code2) == nil then
+					return nil;
+				end
+				return class, level, 2, activeGroup, code1, code2;
+			end
+		end,
+	};
+	function __emulib.DecodeTalentDataV1(code, nodecoding)
+	end
+	function __emulib.DecodeTalentDataV2(code, nodecoding)
+		if strsub(code, 1, 2) ~= "!T" then
+			return nil;
+		end
+		local CM = __debase64[strsub(code, 3, 3)];
+		if CM ~= CLIENT_MAJOR then
+			return nil, "WOW VERSION";
+		end
+		local LM = __debase64[strsub(code, 4, 4)];
+		if _TalentDataSubDecoder[LM] ~= nil then
+			return _TalentDataSubDecoder[LM](strsub(code, 5), nodecoding);
+		end
+		return nil, "NO DECODER";
+	end
+	function __emulib.DecodeTalentData(code, nodecoding)
+		if strsub(code, 1, 2) == "!T" then
+			return "V2", __emulib.DecodeTalentDataV2(code, nodecoding);
+		else
+			return "V1", __emulib.DecodeTalentDataV1(code, nodecoding);
+		end
+	end
+	function __emulib.EncodeTalentBlock(data, len)
+		len = len or #data;
+		return data, data, len, len;
+	end
+	function __emulib.EncodeFrameTalentDataV2(classIndex, level, D1, D2, D3, N1, N2, N3)
+	end
+end
 	function __emulib.EncodePlayerTalentDataV1()
 		local level = UnitLevel('player');
 		local LvLow = level % 64;
@@ -814,8 +1019,8 @@ end
 		local level = UnitLevel('player');
 		local LvLow = level % 64;
 		local LvHigh = (level - LvLow) / 64;
-		local numGroup = GetNumTalentGroups(false, false);
-		local activeGroup = GetActiveTalentGroup(false, false);
+		local numGroup = _GetNumTalentGroups(false, false);
+		local activeGroup = _GetActiveTalentGroup(false, false);
 
 		if numGroup < 2 then
 			local code1, data1, lenc1, lend1 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(SELFCLASS, false, 1));
@@ -846,38 +1051,42 @@ end
 					data2;
 		end
 	end
-	function __emulib.EncodeInspectTalentDataV1(classIndex, level)
+	function __emulib.EncodeInspectTalentDataV1(classIndex, level, unit)
 		local TypeClassIndex = type(classIndex);
 		if TypeClassIndex == 'string' then
 			classIndex = __classHash[classIndex];
 		elseif TypeClassIndex == 'number' and __classList[classIndex] then
 		else
-			_log_("EncodeFrameTalentDataV1", "type(classIndex)", TypeClassIndex, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV1", "type(classIndex)", TypeClassIndex, classIndex);
 			return nil;
 		end
 		local LvLow = level % 64;
 		local LvHigh = (level - LvLow) / 64;
 
-		return __base64[classIndex] .. __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1)) .. __base64[LvLow] .. __base64[LvHigh];
+		return __base64[classIndex] .. __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1, unit)) .. __base64[LvLow] .. __base64[LvHigh];
 	end
-	function __emulib.EncodeInspectTalentDataV2(classIndex, level)
+	function __emulib.EncodeInspectTalentDataV2(classIndex, level, unit)
 		local TypeClassIndex = type(classIndex);
 		if TypeClassIndex == 'string' then
 			classIndex = __classHash[classIndex];
+			if classIndex == nil then
+				__emulib.Debug("EncodeFrameTalentDataV2", "hash(classIndex)", classIndex);
+				return nil;
+			end
 		elseif TypeClassIndex == 'number' and __classList[classIndex] then
 		else
-			_log_("EncodeFrameTalentDataV2", "type(classIndex)", TypeClassIndex, classIndex);
+			__emulib.Debug("EncodeFrameTalentDataV2", "type(classIndex)", TypeClassIndex, classIndex);
 			return nil;
 		end
 		level = level ~= nil and tonumber(level) or -1;
 		level = level <= 0 and MAX_LEVEL or level;
 		local LvLow = level % 64;
 		local LvHigh = (level - LvLow) / 64;
-		local numGroup = GetNumTalentGroups(true, false);
-		local activeGroup = GetActiveTalentGroup(true, false);
+		local numGroup = _GetNumTalentGroups(true, false);
+		local activeGroup = _GetActiveTalentGroup(true, false);
 
 		if numGroup < 2 then
-			local code1, data1, lenc1, lend1 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1));
+			local code1, data1, lenc1, lend1 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1, unit));
 			return
 					COMM_TALENT_PREFIX ..
 					__base64[classIndex] ..
@@ -889,8 +1098,8 @@ end
 					1,
 					data1;
 		else
-			local code1, data1, lenc1, lend1 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1));
-			local code2, data2, lenc2, lend2 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 2));
+			local code1, data1, lenc1, lend1 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 1, unit));
+			local code2, data2, lenc2, lend2 = __emulib.EncodeTalentBlock(__emulib.GetTalentData(__classList[classIndex], true, 2, unit));
 			-- if __base64[classIndex] == nil then
 			-- 	print("classIndex =", classIndex, __base64[classIndex]);
 			-- end
@@ -927,6 +1136,14 @@ end
 		end
 	end
 	function __emulib.MergeTalentCodeV2(classIndex, level, activeGroup, numGroup, data1, len1, data2, len2)
+		local TypeClassIndex = type(classIndex);
+		if TypeClassIndex == 'string' then
+			classIndex = __classHash[classIndex];
+		elseif TypeClassIndex == 'number' and __classList[classIndex] then
+		else
+			__emulib.Debug("EncodeFrameTalentDataV1", "type(classIndex)", TypeClassIndex, classIndex);
+			return nil;
+		end
 		local LvLow = level % 64;
 		local LvHigh = (level - LvLow) / 64;
 
@@ -986,12 +1203,12 @@ end
 		[2] = function(code)
 			local numGroup = __debase64[strsub(code, 1, 1)];
 			if numGroup == nil then
-				_log_("_GlyphDataSubDecoder V2", "numGroup == nil", __debase64[strsub(code, 1, 1)], code);
+				__emulib.Debug("_GlyphDataSubDecoder V2", "numGroup == nil", __debase64[strsub(code, 1, 1)], code);
 				return nil;
 			end
 			local activeGroup = __debase64[strsub(code, 2, 2)];
 			if activeGroup == nil then
-				_log_("_GlyphDataSubDecoder V2", "activeGroup == nil", __debase64[strsub(code, 2, 2)], code);
+				__emulib.Debug("_GlyphDataSubDecoder V2", "activeGroup == nil", __debase64[strsub(code, 2, 2)], code);
 				return nil;
 			end
 			local ofs = 3;
@@ -1021,8 +1238,8 @@ end
 		if strsub(code, 1, 2) ~= "!G" then
 			return nil;
 		end
-		local CLIENT_MAJOR = __debase64[strsub(code, 3, 3)];
-		if CLIENT_MAJOR ~= CLIENT_MAJOR then
+		local CM = __debase64[strsub(code, 3, 3)];
+		if CM ~= CLIENT_MAJOR then
 			return nil, "WOW VERSION";
 		end
 		local LM = __debase64[strsub(code, 4, 4)];
@@ -1031,14 +1248,14 @@ end
 		end
 		return nil, "NO DECODER";
 	end
-	function __emulib.GetGlyphData(data, group)
+	function __emulib.GetGlyphData(data, group, inspect, unit)
 		if data == nil then
 			data = {  };
 		else
 			wipe(data);
 		end
 		for index = 1, NUMGLYPHSOCKETS do
-			local Enabled, GlyphType, GlyphSpell, Icon = _GetGlyphSocketInfo(index, group);
+			local Enabled, GlyphType, GlyphTooltipIndex, GlyphSpell, Icon = GetGlyphSocketInfo(index, group, inspect, unit);
 			if GlyphSpell ~= nil then
 				data[index] = { Enabled and 1 or 0, GlyphType, GlyphSpell, Icon, };
 			end
@@ -1066,7 +1283,10 @@ end
 					COMM_GLYPH_PREFIX ..
 					__base64[numGroup] ..
 					__base64[activeGroup] ..
-					__base64[lowbyte] .. __base64[(len1 - lowbyte) / 64] .. code1;
+					__base64[lowbyte] .. __base64[(len1 - lowbyte) / 64] .. code1,
+					1,
+					1,
+					data1;
 		else
 			local code1 = __emulib.EncodeGlyphBlock(data1);
 			local len1 = #code1;
@@ -1079,17 +1299,51 @@ end
 					__base64[numGroup] ..
 					__base64[activeGroup] ..
 					__base64[lowbyte1] .. __base64[(len1 - lowbyte1) / 64] .. code1 ..
-					__base64[lowbyte2] .. __base64[(len2 - lowbyte2) / 64] .. code2;
+					__base64[lowbyte2] .. __base64[(len2 - lowbyte2) / 64] .. code2,
+					2,
+					activeGroup,
+					data1,
+					data2;
 		end
 	end
 	function __emulib.EncodePlayerGlyphDataV2()
 		if SUPPORT_GLYPH then
-			return __emulib.EncodeGlyphDataV2(
-				GetNumTalentGroups(false, false),
-				GetActiveTalentGroup(false, false),
-				__emulib.GetGlyphData(nil, 1),
-				__emulib.GetGlyphData(nil, 2)
-			);
+			local numGroup = _GetNumTalentGroups(false, false);
+			local activeGroup = _GetActiveTalentGroup(false, false);
+			if numGroup < 2 then
+				return __emulib.EncodeGlyphDataV2(
+					numGroup,
+					activeGroup,
+					__emulib.GetGlyphData(nil, 1)
+				);
+			else
+				return __emulib.EncodeGlyphDataV2(
+					numGroup,
+					activeGroup,
+					__emulib.GetGlyphData(nil, 1),
+					__emulib.GetGlyphData(nil, 2)
+				);
+			end
+		end
+	end
+	function __emulib.EncodeInspectGlyphDataV2(unit)
+		if SUPPORT_GLYPH and unit and UnitGUID(unit) then
+			local numGroup = _GetNumTalentGroups(true, false);
+			local activeGroup = _GetActiveTalentGroup(true, false);
+			if numGroup < 2 then
+				return __emulib.EncodeGlyphDataV2(
+					numGroup,
+					activeGroup,
+					__emulib.GetGlyphData(nil, 1, true, unit)
+				);
+			else
+				return __emulib.EncodeGlyphDataV2(
+					numGroup,
+					activeGroup,
+					__emulib.GetGlyphData(nil, 1, true, unit),
+					__emulib.GetGlyphData(nil, 2, true, unit)
+				);
+			end
 		end
 	end
 -->		Addon Pack
@@ -1273,6 +1527,7 @@ end
 		[1] = function(code, DataTable)
 			local val = { strsplit("+", code) };	--	"", slot, item, slot, item...
 			if val[3] ~= nil then
+				local changed = false;
 				local num = #val;
 				for i = 2, num, 2 do
 					local slot = tonumber(val[i]);
@@ -1281,29 +1536,36 @@ end
 					id = tonumber(id);
 					if id ~= nil and id > 0 then
 						GetItemInfo(id);
-						DataTable[slot] = item;
 					else
-						DataTable[slot] = nil;
+						item = nil;
+					end
+					if DataTable[slot] ~= item then
+						DataTable[slot] = item;
+						changed = true;
 					end
 				end
-				return true, DataTable;
+				return true, DataTable, changed;
 			end
-			return false, DataTable;
+			return false, DataTable, false;
 		end,
 		[2] = function(code, DataTable)
 			local val = { strsplit("+", code) };
 			if val[2] ~= nil then
+				local changed = false;
 				local start = __debase64[val[1]] - 2;
 				for i = 2, #val do
 					local item = DecodeItem(val[i]);
-					DataTable[start + i] = item;
-					if item ~= nil then
-						GetItemInfo(item);
+					if DataTable[start + i] ~= item then
+						if item ~= nil then
+							GetItemInfo(item);
+						end
+						DataTable[start + i] = item;
+						changed = true;
 					end
 				end
-				return true, DataTable;
+				return true, DataTable, changed;
 			end
-			return false, DataTable;
+			return false, DataTable, false;
 		end,
 	};
 	function __emulib.DecodeEquipmentDataV1(DataTable, code)
@@ -1313,8 +1575,8 @@ end
 		if strsub(code, 1, 2) ~= "!E" then
 			return false;
 		end
-		local CLIENT_MAJOR = __debase64[strsub(code, 3, 3)];
-		if CLIENT_MAJOR ~= CLIENT_MAJOR then
+		local CM = __debase64[strsub(code, 3, 3)];
+		if CM ~= CLIENT_MAJOR then
 			return nil, "WOW VERSION";
 		end
 		local LM = __debase64[strsub(code, 4, 4)];
@@ -1331,18 +1593,23 @@ end
 		end
 	end
 	function __emulib.GetEquipmentData(DataTable, unit)
+		local changed = false;
 		if DataTable == nil then
 			DataTable = {  };
 		end
 		for slot = 0, 19 do
 			local link = GetInventoryItemLink(unit or 'player', slot);
 			if link ~= nil then
-				DataTable[slot] = strmatch(link, "\124H(item:[%-0-9:]+)\124h");
+				link = strmatch(link, "\124H(item:[%-0-9:]+)\124h");
 			else
-				DataTable[slot] = nil;
+				link = nil;
+			end
+			if DataTable[slot] ~= link then
+				DataTable[slot] = link;
+				changed = true;
 			end
 		end
-		return DataTable;
+		return DataTable, changed;
 	end
 	function __emulib.EncodeEquipmentDataV2(DataTable)
 		local pos = 0;
@@ -1411,8 +1678,8 @@ end
 		if strsub(code, 1, 2) ~= "!N" then
 			return false;
 		end
-		local CLIENT_MAJOR = __debase64[strsub(code, 3, 3)];
-		if CLIENT_MAJOR ~= CLIENT_MAJOR then
+		local CM = __debase64[strsub(code, 3, 3)];
+		if CM ~= CLIENT_MAJOR then
 			return nil, "WOW VERSION";
 		end
 		local val = { strsplit("+", strsub(code, 5)) };
@@ -1426,6 +1693,27 @@ end
 			end
 		end
 		return true, DataTable;
+	end
+	function __emulib.EncodeEngravingDataV2(DataTable)
+		if next(DataTable) ~= nil then
+			local msg = nil;
+			for slot = 0, 19 do
+				local rune = DataTable[slot];
+				if rune ~= nil then
+					if msg == nil then
+						msg = __base64[slot] .. ":" .. EncodeNumber(info[1]) .. ":" .. EncodeNumber(info[2]);
+					else
+						msg = msg .. "+" .. __base64[slot] .. ":" .. EncodeNumber(info[1]) .. ":" .. EncodeNumber(info[2]);
+					end
+				end
+			end
+			if msg ~= nil then
+				return COMM_ENGRAVING_PREFIX .. msg;
+			else
+				return COMM_ENGRAVING_PREFIX;
+			end
+		end
+		return COMM_ENGRAVING_PREFIX;
 	end
 	function __emulib.EncodePlayerEngravingDataV2()
 		if SUPPORT_ENGRAVING then
@@ -1484,39 +1772,28 @@ local function _FlushMessageCounter()
 	end
 end
 _FlushMessageCounter();
-function __emulib.SendQueryRequest(shortname, realm, talent, glyph, equipment)
-	--[=[
-	if UnitInBattleground('player') and realm ~= SELFREALM then
-		if talent then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_TALENTS_V1 .. "!" .. shortname .. "-" .. realm, "INSTANCE_CHAT");
-		end
-		if glyph and CLIENT_MAJOR >= 3 then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_GLYPH_V1 .. "!" .. shortname .. "-" .. realm, "INSTANCE_CHAT");
-		end
-		if equipment then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_EQUIPMENTS_V1 .. "!" .. shortname .. "-" .. realm, "INSTANCE_CHAT");
-		end
-	else
-		if talent then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_TALENTS_V1 .. "!", "WHISPER", shortname .. "-" .. realm);
-		end
-		if glyph and CLIENT_MAJOR >= 3 then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_GLYPH_V1 .. "!", "WHISPER", shortname .. "-" .. realm);
-		end
-		if equipment then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_EQUIPMENTS_V1 .. "!", "WHISPER", shortname .. "-" .. realm);
-		end
-	end
-	--]=]
-	--[~=[
+function __emulib._SendQueryRequest(shortname, realm, talent, glyph, equipment)
 	if talent or glyph or equipment then
 		if UnitInBattleground('player') and realm ~= SELFREALM then
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_PREFIX .. (talent and "T" or "") .. ((glyph and CLIENT_MAJOR >= 3) and "G" or "") .. (equipment and "E" or "") .. "#" .. shortname .. "-" .. realm, "INSTANCE_CHAT");
+			SendAddonMessage(COMM_PREFIX, COMM_QUERY_PREFIX .. (talent and "T" or "") .. ((glyph and SUPPORT_GLYPH) and "G" or "") .. (equipment and "E" or "") .. "#" .. shortname .. "-" .. realm, "INSTANCE_CHAT");
 		else
-			SendAddonMessage(COMM_PREFIX, COMM_QUERY_PREFIX .. (talent and "T" or "") .. ((glyph and CLIENT_MAJOR >= 3) and "G" or "") .. (equipment and "E" or ""), "WHISPER", shortname .. "-" .. realm);
+			SendAddonMessage(COMM_PREFIX, COMM_QUERY_PREFIX .. (talent and "T" or "") .. ((glyph and SUPPORT_GLYPH) and "G" or "") .. (equipment and "E" or ""), "WHISPER", shortname .. "-" .. realm);
 		end
 	end
-	--]=]
+end
+
+
+local _Muted = false;
+local function _PeriodicUnmute()
+	After(10, _PeriodicUnmute);
+	_Muted = false;
+end
+_PeriodicUnmute();
+function __emulib.SendQueryRequest(shortname, realm, talent, glyph, equipment)
+	if not _Muted then
+		_Muted = true;
+		return __emulib._SendQueryRequest(shortname, realm, talent, glyph, equipment);
+	end
 end
 
 __emulib._NumDistributors = __emulib._NumDistributors or 0;
@@ -1538,6 +1815,12 @@ for i = 1, #COMM_PREFIX_LIST do
 	local prefix = COMM_PREFIX_LIST[i];
 	_RecvBuffer[prefix] = {  };
 	COMM_PREFIX_HASH[prefix] = i;
+end
+for i = 1, #COMM_PREFIX_RESERVED do
+	local prefix = COMM_PREFIX_RESERVED[i];
+	if COMM_PREFIX_HASH[prefix] == nil then
+		COMM_PREFIX_HASH[prefix] = 65536 + i;
+	end
 end
 local function _SendLongMessage(prefix, msg, channel, target)
 	local len = #msg;
@@ -1611,7 +1894,7 @@ function __emulib.ProcV1Message(prefix, msg, channel, sender)
 		if MessageCounter[channel] ~= nil and MessageCounter[channel] > MSG_LIMIT_NUM then
 			return;
 		end
-		if CLIENT_MAJOR >= 3 then
+		if SUPPORT_GLYPH then
 			if channel == "INSTANCE_CHAT" then
 				local target = strsub(msg, COMM_CONTROL_CODE_LEN_V1 + 2, - 1);
 				if target ~= SELFFULLNAME then
@@ -1664,7 +1947,7 @@ function __emulib.ProcV1Message(prefix, msg, channel, sender)
 				for index = 1, __emulib._NumDistributors do
 					local proc = __emulib._CommDistributor[index].OnTalent;
 					if proc ~= nil then
-						pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", __emulib.DecodeTalentDataV1, overheard);
+						__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", __emulib.DecodeTalentDataV1, overheard);
 					end
 				end
 			end
@@ -1681,7 +1964,7 @@ function __emulib.ProcV1Message(prefix, msg, channel, sender)
 				for index = 1, __emulib._NumDistributors do
 					local proc = __emulib._CommDistributor[index].OnEquipment;
 					if proc ~= nil then
-						pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", __emulib.DecodeEquipmentDataV1, overheard);
+						__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", __emulib.DecodeEquipmentDataV1, overheard);
 					end
 				end
 			end
@@ -1696,7 +1979,7 @@ function __emulib.ProcV1Message(prefix, msg, channel, sender)
 				for index = 1, __emulib._NumDistributors do
 					local proc = __emulib._CommDistributor[index].OnAddOn;
 					if proc ~= nil then
-						pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", nil, overheard);
+						__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", nil, overheard);
 					end
 				end
 			end
@@ -1706,7 +1989,7 @@ function __emulib.ProcV1Message(prefix, msg, channel, sender)
 				for index = 1, __emulib._NumDistributors do
 					local proc = __emulib._CommDistributor[index].OnPush;
 					if proc ~= nil then
-						pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", channel, control_code == COMM_PUSH_RECV_V1);
+						__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V1", channel, control_code == COMM_PUSH_RECV_V1);
 					end
 				end
 			end
@@ -1795,35 +2078,35 @@ function __emulib.ProcV2Message(prefix, msg, channel, sender)
 			for index = 1, __emulib._NumDistributors do
 				local proc = __emulib._CommDistributor[index].OnTalent;
 				if proc ~= nil then
-					pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeTalentDataV2, overheard);
+					__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeTalentDataV2, overheard);
 				end
 			end
 		elseif v2_ctrl_code == "!G" then
 			for index = 1, __emulib._NumDistributors do
 				local proc = __emulib._CommDistributor[index].OnGlyph;
 				if proc ~= nil then
-					pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeGlyphDataV2, overheard);
+					__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeGlyphDataV2, overheard);
 				end
 			end
 		elseif v2_ctrl_code == "!E" then
 			for index = 1, __emulib._NumDistributors do
 				local proc = __emulib._CommDistributor[index].OnEquipment;
 				if proc ~= nil then
-					pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeEquipmentDataV2, overheard);
+					__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeEquipmentDataV2, overheard);
 				end
 			end
 		elseif v2_ctrl_code == "!N" then
 			for index = 1, __emulib._NumDistributors do
 				local proc = __emulib._CommDistributor[index].OnEngraving;
 				if proc ~= nil then
-					pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeEngravingDataV2, overheard);
+					__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", __emulib.DecodeEngravingDataV2, overheard);
 				end
 			end
 		elseif v2_ctrl_code == "!A" then
 			for index = 1, __emulib._NumDistributors do
 				local proc = __emulib._CommDistributor[index].OnAddOn;
 				if proc ~= nil then
-					pcall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", nil, overheard);
+					__emulib.SafeCall(proc, prefix, Ambiguate(sender, 'none'), code, "V2", nil, overheard);
 				end
 			end
 		end
@@ -1832,13 +2115,6 @@ end
 function __emulib.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChannelID, localID, name, instanceID)
 	local PrefixSeq = COMM_PREFIX_HASH[prefix];
 	if PrefixSeq ~= nil then
-		if msg == COMM_HEART_BEAT then
-			if PrefixSeq < COMM_LWRAVL_PREFIX then
-				COMM_LWRAVL_PREFIX = PrefixSeq;
-				COMM_PREFIX = COMM_PREFIX_LIST[PrefixSeq];
-			end
-			return;
-		end
 		if channel ~= "WHISPER" then
 			MessageCounter[channel] = (MessageCounter[channel] or 0) + 1;
 		end
@@ -1851,20 +2127,6 @@ function __emulib.CHAT_MSG_ADDON(prefix, msg, channel, sender, target, zoneChann
 	end
 end
 
-local function PeriodicGeneratePlayerTalentMap()
-	if _GenerateTalentMap(SELFCLASS, false) == nil then
-		After(1.0, PeriodicGeneratePlayerTalentMap);
-	end
-end
-local function PeriodicCheckPrefix()
-	local num = #COMM_PREFIX_LIST;
-	COMM_LWRAVL_PREFIX = num;
-	for i = 1, #COMM_PREFIX_LIST do
-		local prefix = COMM_PREFIX_LIST[i];
-		SendAddonMessage(prefix, COMM_HEART_BEAT, "WHISPER", SELFFULLNAME);
-	end
-	After(600.0, PeriodicCheckPrefix);
-end
 function __emulib.PLAYER_LOGIN()
 	__emulib:UnregisterEvent("PLAYER_LOGIN");
 	for i = 1, #COMM_PREFIX_LIST do
@@ -1872,8 +2134,7 @@ function __emulib.PLAYER_LOGIN()
 		if IsAddonMessagePrefixRegistered(prefix) or RegisterAddonMessagePrefix(prefix) then
 		end
 	end
-	PeriodicGeneratePlayerTalentMap();
-	-- After(1.0, PeriodicCheckPrefix);
+	Private.PeriodicGeneratePlayerTalentMap();
 end
 
 local function OnEvent(self, event, ...)

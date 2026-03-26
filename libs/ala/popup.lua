@@ -2,7 +2,7 @@
 	by ALA
 --]]--
 
-local __version = 241011.0;
+local __version = 241201.0;
 
 local _G = _G;
 _G.__ala_meta__ = _G.__ala_meta__ or {  };
@@ -35,10 +35,11 @@ local __ala_meta__ = _G.__ala_meta__;
 
 -->			constant
 	local font, fontsize, fontflag = GameFontNormal:GetFont();
+	local _, _, _, TocVerison = GetBuildInfo();
 
 -->
 
-local __dead = false;
+local __isdead = false;
 __poplib.MethodScript = __poplib.MethodScript or {  };
 __poplib.ScriptEntry = __poplib.ScriptEntry or {  };
 
@@ -48,7 +49,7 @@ local AllFrames = {  };
 --[[
 	def = {
 		GetText(def, context),
-		CanShow(def, context),
+		IsShown(def, context),
 		OnClick(def, which, context),
 		category = "",
 	}
@@ -58,36 +59,15 @@ function __poplib:AddMethod(method, def)
 		MethodScript[method] = def;
 	end
 end
-function __poplib:AddEntry(which, method)
-	if type(which) == 'string' and type(method) == 'string' and MethodScript[method] then
-		local E = ScriptEntry[which];
-		local m = MethodScript[method];
-		if E == nil then
-			ScriptEntry[which] = { m, };
-		else
-			for i = 1, #E do
-				if E[i] == m then
-					return;
-				end
-			end
-			if E[1].category ~= nil and m.category == nil then
-				tinsert(E, 1, m);
-				return;
-			end
-			for i = 2, #E do
-				if E[i - 1].category == m.category and E[i].category ~= m.category then
-					tinsert(E, i, m);
-					return;
-				end
-			end
-			E[#E + 1] = m;
-		end
-	end
-end
 
 function __poplib:CreateInsertFrame(DividerHeight, DividerTextureHeight, LabelHeight, ButtonHeight, OnClick)
 	local InsertFrame = CreateFrame('FRAME');
 	InsertFrame:Hide();
+	InsertFrame:SetScript("OnHide", function(InsertFrame)
+		if InsertFrame.menu == nil or not InsertFrame.menu:IsShown() then
+			InsertFrame:Hide();
+		end
+	end);
 	local DivPool = {  };
 	local LblPool = {  };
 	local BtnPool = {  };
@@ -120,6 +100,7 @@ function __poplib:CreateInsertFrame(DividerHeight, DividerTextureHeight, LabelHe
 			Divider:SetHeight(DividerHeight);
 			Divider:SetPoint("LEFT");
 			Divider:SetPoint("RIGHT");
+			Divider:SetMouseClickEnabled(true);
 			Divider.Texture = Divider:CreateTexture(nil, "ARTWORK");
 			Divider.Texture:SetHeight(DividerTextureHeight);
 			Divider.Texture:SetPoint("LEFT");
@@ -142,6 +123,7 @@ function __poplib:CreateInsertFrame(DividerHeight, DividerTextureHeight, LabelHe
 			Label:SetHeight(LabelHeight);
 			Label:SetPoint("LEFT");
 			Label:SetPoint("RIGHT");
+			Label:SetMouseClickEnabled(true);
 			Label.Text = Label:CreateFontString(nil, "ARTWORK");
 			Label.Text:SetFont(font, fontsize, fontflag);
 			Label.Text:SetTextColor(1.0, 0.8196, 0.0);
@@ -157,7 +139,7 @@ function __poplib:CreateInsertFrame(DividerHeight, DividerTextureHeight, LabelHe
 		InsertFrame:SetHeight(Offset);
 	end
 	function InsertFrame.AddButton(InsertFrame, def, context)
-		if def and (def.CanShow == nil or def:CanShow(context)) then
+		if def and (def.IsShown == nil or def:IsShown(context)) then
 			BtnIndex = BtnIndex + 1;
 			local Button = BtnPool[BtnIndex];
 			if Button == nil then
@@ -190,35 +172,122 @@ function __poplib:CreateInsertFrame(DividerHeight, DividerTextureHeight, LabelHe
 end
 
 if Menu and MenuUtil then
+	function __poplib:AddEntry(which, method)
+		if type(which) == 'string' and type(method) == 'string' and MethodScript[method] then
+			local entrydef = ScriptEntry[which];
+			local methoddef = MethodScript[method];
+			if entrydef == nil then
+				entrydef = { methoddef, };
+				ScriptEntry[which] = entrydef;
+			else
+				for i = 1, #entrydef do
+					if entrydef[i] == methoddef then
+						return;
+					end
+				end
+				if entrydef[1].category ~= nil and methoddef.category == nil then
+					tinsert(entrydef, 1, methoddef);
+					return;
+				end
+				for i = 2, #entrydef do
+					if entrydef[i - 1].category == methoddef.category and entrydef[i].category ~= methoddef.category then
+						tinsert(entrydef, i, methoddef);
+						return;
+					end
+				end
+				entrydef[#entrydef + 1] = methoddef;
+			end
+			if entrydef.putscript ~= true then
+				entrydef.putscript = true;
+				Menu.ModifyMenu('MENU_UNIT_' .. which, function(owner, rootDescription, contextData)
+					if __isdead then
+						return;
+					end 
+					local category = nil;
+					local divider = false;
+					local first = true;
+					for i = 1, #entrydef do
+						local def = entrydef[i];
+						if first or category ~= def.category then
+							first = false;
+							divider = true;
+							category = def.category;
+						end
+						if def.IsShown == nil or def:IsShown(contextData) then
+							if divider then
+								divider = false;
+								rootDescription:CreateDivider();
+								if category ~= nil then
+									rootDescription:CreateTitle(category);
+								end
+							end
+							rootDescription:CreateButton(def:GetText(contextData), function()
+								return def:OnClick(which, contextData);
+							end);
+						end
+					end
+				end);
+			end
+		end
+	end
+elseif false and Menu and MenuUtil then
+	function __poplib:AddEntry(which, method)
+		if type(which) == 'string' and type(method) == 'string' and MethodScript[method] then
+			local entrydef = ScriptEntry[which];
+			local methoddef = MethodScript[method];
+			if entrydef == nil then
+				ScriptEntry[which] = { methoddef, };
+			else
+				for i = 1, #entrydef do
+					if entrydef[i] == methoddef then
+						return;
+					end
+				end
+				if entrydef[1].category ~= nil and methoddef.category == nil then
+					tinsert(entrydef, 1, methoddef);
+					return;
+				end
+				for i = 2, #entrydef do
+					if entrydef[i - 1].category == methoddef.category and entrydef[i].category ~= methoddef.category then
+						tinsert(entrydef, i, methoddef);
+						return;
+					end
+				end
+				entrydef[#entrydef + 1] = methoddef;
+			end
+		end
+	end
+
 	local M = Menu.GetManager();
+	local Inset = TocVerison >= 100000 and 8 or 14;
 
 	local InsertFrame = __poplib:CreateInsertFrame(13, 13, 20, 20, function(Button, InsertFrame, def)
 		M:CloseMenu(InsertFrame.menu);
 		return def:OnClick(InsertFrame.which, InsertFrame.contextData);
 	end);
 	hooksecurefunc(MenuUtil, "CreateContextMenu", function()
-		if __dead then
+		if __isdead then
 			return;
 		end 
 		InsertFrame:Hide();
 	end);
 	hooksecurefunc("UnitPopup_OpenMenu", function(which, contextData)
-		if __dead then
+		if __isdead then
 			return;
 		end 
-		local E = ScriptEntry[which];
-		if E then
+		local entrydef = ScriptEntry[which];
+		if entrydef then
 			local menu = M:GetOpenMenu();
 			InsertFrame:Show();
 			InsertFrame:SetParent(menu);
 			InsertFrame:SetPoint("BOTTOM", menu, "BOTTOM", 0, 14);
-			InsertFrame:SetPoint("LEFT", menu, "LEFT", 14, 0);
-			InsertFrame:SetPoint("RIGHT", menu, "RIGHT", -14, 0);
+			InsertFrame:SetPoint("LEFT", menu, "LEFT", Inset, 0);
+			InsertFrame:SetPoint("RIGHT", menu, "RIGHT", -Inset, 0);
 			InsertFrame:Clear();
-			local category;
+			local category = nil;
 			local first = true;
-			for i = 1, #E do
-				local def = E[i];
+			for i = 1, #entrydef do
+				local def = entrydef[i];
 				if first or category ~= def.category then
 					first = false;
 					category = def.category;
@@ -237,9 +306,34 @@ if Menu and MenuUtil then
 			InsertFrame:Hide();
 		end
 	end);
-end
+elseif DropDownList1 then
+	function __poplib:AddEntry(which, method)
+		if type(which) == 'string' and type(method) == 'string' and MethodScript[method] then
+			local entrydef = ScriptEntry[which];
+			local methoddef = MethodScript[method];
+			if entrydef == nil then
+				ScriptEntry[which] = { methoddef, };
+			else
+				for i = 1, #entrydef do
+					if entrydef[i] == methoddef then
+						return;
+					end
+				end
+				if entrydef[1].category ~= nil and methoddef.category == nil then
+					tinsert(entrydef, 1, methoddef);
+					return;
+				end
+				for i = 2, #entrydef do
+					if entrydef[i - 1].category == methoddef.category and entrydef[i].category ~= methoddef.category then
+						tinsert(entrydef, i, methoddef);
+						return;
+					end
+				end
+				entrydef[#entrydef + 1] = methoddef;
+			end
+		end
+	end
 
-if DropDownList1 then
 	local InsertFrame = __poplib:CreateInsertFrame(16, 8, 16, 16, function(Button, InsertFrame, def)
 		DropDownList1:Hide();
 		local contextData = DropDownList1.dropdown;
@@ -248,11 +342,11 @@ if DropDownList1 then
 	local IsSettingHeight = false;
 	--UnitPopup_ShowMenu
 	DropDownList1:HookScript("OnShow", function(menu)
-		if __dead then
+		if __isdead then
 			return;
 		end 
-		local E = ScriptEntry[DropDownList1.dropdown.which];
-		if E then
+		local entrydef = ScriptEntry[DropDownList1.dropdown.which];
+		if entrydef then
 			InsertFrame:Show();
 			InsertFrame:SetParent(menu);
 			InsertFrame:SetPoint("BOTTOM", menu, "BOTTOM", 0, 15);
@@ -261,8 +355,8 @@ if DropDownList1 then
 			InsertFrame:Clear();
 			local category;
 			local first = true;
-			for i = 1, #E do
-				local def = E[i];
+			for i = 1, #entrydef do
+				local def = entrydef[i];
 				if first or category ~= def.category then
 					first = false;
 					category = def.category;
@@ -281,14 +375,14 @@ if DropDownList1 then
 		end
 	end);
 	DropDownList1:HookScript("OnHide", function(menu)
-		if __dead then
+		if __isdead then
 			return;
 		end 
 		InsertFrame:Hide();
 	end);
 	--UIDropDownMenu_AddButton
 	hooksecurefunc(DropDownList1, "SetHeight", function(menu, height)
-		if __dead then
+		if __isdead then
 			return;
 		end 
 		if not IsSettingHeight and InsertFrame:IsVisible() then
@@ -300,9 +394,11 @@ if DropDownList1 then
 end
 
 function __poplib:Halt(old)
-	__dead = true;
+	__isdead = true;
+	for which, entrydef in next, ScriptEntry do
+		entrydef.putscript = nil;
+	end
 	for i = 1, #AllFrames do
 		AllFrames[i]:Clear();
 	end
 end
-
